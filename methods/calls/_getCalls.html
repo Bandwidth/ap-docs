@@ -1,0 +1,632 @@
+
+<!DOCTYPE HTML>
+<html lang="">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>GET /calls &#xB7; GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="_postCalls.html">
+    
+    
+    <link rel="prev" href="_calls.html">
+    
+
+    </head>
+    <body>
+        
+<div class="book"><div class="head">
+   <a href="http://www.bandwidth.com" class="aimg"><img src="http://www.bandwidth.com/sites/all/themes/bandwidth/images/logo-footer.png"></a>
+   <h1>|&#xA0; API Reference Docs</h1>
+   <ul>
+   	<li><a href="https://catapult.inetwork.com/portal/signup" target="_blank" class="headbutton">Sign up</a></li>
+   	<li><a href="https://catapult.inetwork.com/pages/login.jsf" target="_blank">Log in</a></li>
+   	<li><a href="https://support.bandwidth.com/access/unauthenticated" target="_blank">Support</a></li>
+   </ul>
+</div>
+
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Overview</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Bandwidth
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Methods</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../account/_account.html">
+            
+                <a href="../account/_account.html">
+            
+                    
+                    Account
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../account/_getAccount.html">
+            
+                <a href="../account/_getAccount.html">
+            
+                    
+                    GET /account
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../account/_getAccountTransactions.html">
+            
+                <a href="../account/_getAccountTransactions.html">
+            
+                    
+                    GET /account/transactions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="_calls.html">
+            
+                <a href="_calls.html">
+            
+                    
+                    Calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="2.2.1" data-path="_getCalls.html">
+            
+                <a href="_getCalls.html">
+            
+                    
+                    GET /calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="_postCalls.html">
+            
+                <a href="_postCalls.html">
+            
+                    
+                    POST /calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="_getCallsCallId.html">
+            
+                <a href="_getCallsCallId.html">
+            
+                    
+                    GET /calls/{callId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="_postCallsCallId.html">
+            
+                <a href="_postCallsCallId.html">
+            
+                    
+                    POST /calls/{callId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5" data-path="_postCallsCallIdAudio.html">
+            
+                <a href="_postCallsCallIdAudio.html">
+            
+                    
+                    POST /calls/{callId}/audio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6" data-path="_postCallsCallIdDTMF.html">
+            
+                <a href="_postCallsCallIdDTMF.html">
+            
+                    
+                    POST /calls/{callId}/DTMF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7" data-path="_getCallsCallIdEvents.html">
+            
+                <a href="_getCallsCallIdEvents.html">
+            
+                    
+                    GET /calls/{callId}/events
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.8" data-path="_getCallsCallIdEventsEventId.html">
+            
+                <a href="_getCallsCallIdEventsEventId.html">
+            
+                    
+                    GET /calls/{callId}/events/{eventId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.9" data-path="_getCallsCallIdRecordings.html">
+            
+                <a href="_getCallsCallIdRecordings.html">
+            
+                    
+                    GET /calls/{callId}/recordings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.10" data-path="_getCallsCallIdTranscriptions.html">
+            
+                <a href="_getCallsCallIdTranscriptions.html">
+            
+                    
+                    GET /calls/{callId}/transcriptions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.11" data-path="_postCallsCallIdGather.html">
+            
+                <a href="_postCallsCallIdGather.html">
+            
+                    
+                    POST /calls/{callId}/gather
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.12" data-path="_getCallsCallIdGatherGatherId.html">
+            
+                <a href="_getCallsCallIdGatherGatherId.html">
+            
+                    
+                    GET /calls/{callId}/gather/{gatherId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.13" data-path="_postCallsCallIdGatherGatherId.html">
+            
+                <a href="_postCallsCallIdGatherGatherId.html">
+            
+                    
+                    POST /calls/{callId}/gather/{gatherId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../..">GET /calls</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div class="api-method"><div class="api-method-definition"><h2 id="get-calls">GET calls</h2>
+<p>Gets a list of active and historic calls you made or received. Since this operation uses HTTP GET, all the properties are specified as HTTP request parameters.</p>
+<h3 id="supported-parameters">Supported Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">bridgeId</td>
+<td style="text-align:left">The id of the bridge for querying a list of calls history (pagination do not apply).</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">conferenceId</td>
+<td style="text-align:left">The id of the conference for querying a list of calls history (pagination do not apply).</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">from</td>
+<td style="text-align:left">The number to filter calls that came from (must be either an E.164 formatted number, like +19195551212, or a valid SIP URI, like sip:someone@somewhere.com).</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">to</td>
+<td style="text-align:left">The number to filter calls that was called to (must be either an E.164 formatted number, like +19195551212, or a valid SIP URI, like sip:someone@somewhere.com).</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">page</td>
+<td style="text-align:left">Used for pagination to indicate the page requested for querying a list of calls. If no value is specified the default is 0.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">size</td>
+<td style="text-align:left">Used for pagination to indicate the size of each page requested for querying a list of calls. If no value is specified the default value is 25 (maximum value 1000).</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">sortOrder</td>
+<td style="text-align:left">How to sort the calls. Values are <code>asc</code> or <code>desc</code> If no value is specified the default value is <code>desc</code></td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-list-your-calls">Example: List your calls</h3>
+</div><div class="api-method-sample" data-lang="shell" data-name="cURL"><pre><code class="lang-shell">curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/calls/ \
+    -u {token}:{secret} \
+    -H &quot;Content-type: application/json&quot; \
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js">client.Call.list()
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(response);
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> calls = client.Call.List();
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">calls = Call.list(client)
+</code></pre>
+</div><div class="api-method-example"><p>The above command returns JSON structured like this:</p>
+<pre><code class="lang-json">[
+    {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callId1}&quot;</span>,
+        <span class="hljs-string">&quot;direction&quot;</span>: <span class="hljs-string">&quot;out&quot;</span>,
+        <span class="hljs-string">&quot;from&quot;</span>: <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
+        <span class="hljs-string">&quot;to&quot;</span>: <span class="hljs-string">&quot;{number}&quot;</span>,
+        <span class="hljs-string">&quot;recordingEnabled&quot;</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-string">&quot;callbackUrl&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;completed&quot;</span>,
+        <span class="hljs-string">&quot;startTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T13:15:47.587Z&quot;</span>,
+        <span class="hljs-string">&quot;activeTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T13:15:52.347Z&quot;</span>,
+        <span class="hljs-string">&quot;endTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T13:15:55.887Z&quot;</span>,
+        <span class="hljs-string">&quot;chargeableDuration&quot;</span>: <span class="hljs-number">60</span>,
+        <span class="hljs-string">&quot;events&quot;</span>: <span class="hljs-string">&quot;https://.../calls/{callId1}/events&quot;</span>,
+        <span class="hljs-string">&quot;sipHeaders&quot;</span> : {
+                <span class="hljs-string">&quot;X-Header-1&quot;</span> : <span class="hljs-string">&quot;value-1&quot;</span>,
+                <span class="hljs-string">&quot;X-Header-2&quot;</span> : <span class="hljs-string">&quot;value2&quot;</span>
+        }
+    },
+    {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callId2}&quot;</span>,
+        <span class="hljs-string">&quot;direction&quot;</span>: <span class="hljs-string">&quot;out&quot;</span>,
+        <span class="hljs-string">&quot;from&quot;</span>: <span class="hljs-string">&quot;{number}&quot;</span>,
+        <span class="hljs-string">&quot;to&quot;</span>: <span class="hljs-string">&quot;{toNumber}&quot;</span>,
+        <span class="hljs-string">&quot;recordingEnabled&quot;</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-string">&quot;callbackUrl&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;active&quot;</span>,
+        <span class="hljs-string">&quot;startTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T13:15:47.587Z&quot;</span>,
+        <span class="hljs-string">&quot;activeTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T13:15:52.347Z&quot;</span>,
+        <span class="hljs-string">&quot;events&quot;</span>: <span class="hljs-string">&quot;https://.../calls/{callId2}/events&quot;</span>
+    }
+]
+</code></pre>
+<h3 id="example-list-your-calls-by-from-number-fromnumber">Example: List your calls by from number {fromNumber}</h3>
+</div><div class="api-method-sample" data-lang="shell" data-name="cURL"><pre><code class="lang-shell">curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/calls?from=%2b19195551212 \
+    -u {token}:{secret} \
+    -H &quot;Content-type: application/json&quot; \
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js">client.Call.list({
+    <span class="hljs-keyword">from</span>: <span class="hljs-string">&quot;+19195551212&quot;</span>
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(response);
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> calls = client.Call.List(<span class="hljs-keyword">new</span> CallQuery{From = <span class="hljs-string">&quot;+19195551212&quot;</span>});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">calls = Call.list(client, {<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>})
+</code></pre>
+</div><div class="api-method-example"><p>The above command returns JSON structured like this:</p>
+<pre><code class="lang-json">[
+    {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callId1}&quot;</span>,
+        <span class="hljs-string">&quot;direction&quot;</span>: <span class="hljs-string">&quot;out&quot;</span>,
+        <span class="hljs-string">&quot;from&quot;</span>: <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
+        <span class="hljs-string">&quot;to&quot;</span>: <span class="hljs-string">&quot;{toNumber1}&quot;</span>,
+        <span class="hljs-string">&quot;recordingEnabled&quot;</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-string">&quot;callbackUrl&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;completed&quot;</span>,
+        <span class="hljs-string">&quot;startTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T13:15:47.587Z&quot;</span>,
+        <span class="hljs-string">&quot;activeTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T13:15:52.347Z&quot;</span>,
+        <span class="hljs-string">&quot;endTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T13:15:55.887Z&quot;</span>,
+        <span class="hljs-string">&quot;chargeableDuration&quot;</span>: <span class="hljs-number">60</span>,
+        <span class="hljs-string">&quot;events&quot;</span>: <span class="hljs-string">&quot;https://.../calls/{callId1}/events&quot;</span>
+    },
+    {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callId2}&quot;</span>,
+        <span class="hljs-string">&quot;direction&quot;</span>: <span class="hljs-string">&quot;out&quot;</span>,
+        <span class="hljs-string">&quot;from&quot;</span>: <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
+        <span class="hljs-string">&quot;to&quot;</span>: <span class="hljs-string">&quot;{toNumber2}&quot;</span>,
+        <span class="hljs-string">&quot;recordingEnabled&quot;</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-string">&quot;callbackUrl&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;active&quot;</span>,
+        <span class="hljs-string">&quot;startTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T13:15:47.587Z&quot;</span>,
+        <span class="hljs-string">&quot;activeTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T13:15:52.347Z&quot;</span>,
+        <span class="hljs-string">&quot;events&quot;</span>: <span class="hljs-string">&quot;https://.../calls/{callId2}/events&quot;</span>
+    }
+]
+</code></pre>
+</div></div></div>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class="search-results-count"></span> results matching &quot;<span class="search-query"></span>&quot;</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching &quot;<span class="search-query"></span>&quot;</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"GET /calls","level":"2.2.1","depth":2,"next":{"title":"POST /calls","level":"2.2.2","depth":2,"path":"methods/calls/_postCalls.md","ref":"methods/calls/_postCalls.md","articles":[]},"previous":{"title":"Calls","level":"2.2","depth":1,"path":"methods/calls/_calls.md","ref":"methods/calls/_calls.md","articles":[{"title":"GET /calls","level":"2.2.1","depth":2,"path":"methods/calls/_getCalls.md","ref":"methods/calls/_getCalls.md","articles":[]},{"title":"POST /calls","level":"2.2.2","depth":2,"path":"methods/calls/_postCalls.md","ref":"methods/calls/_postCalls.md","articles":[]},{"title":"GET /calls/{callId}","level":"2.2.3","depth":2,"path":"methods/calls/_getCallsCallId.md","ref":"methods/calls/_getCallsCallId.md","articles":[]},{"title":"POST /calls/{callId}","level":"2.2.4","depth":2,"path":"methods/calls/_postCallsCallId.md","ref":"methods/calls/_postCallsCallId.md","articles":[]},{"title":"POST /calls/{callId}/audio","level":"2.2.5","depth":2,"path":"methods/calls/_postCallsCallIdAudio.md","ref":"methods/calls/_postCallsCallIdAudio.md","articles":[]},{"title":"POST /calls/{callId}/DTMF","level":"2.2.6","depth":2,"path":"methods/calls/_postCallsCallIdDTMF.md","ref":"methods/calls/_postCallsCallIdDTMF.md","articles":[]},{"title":"GET /calls/{callId}/events","level":"2.2.7","depth":2,"path":"methods/calls/_getCallsCallIdEvents.md","ref":"methods/calls/_getCallsCallIdEvents.md","articles":[]},{"title":"GET /calls/{callId}/events/{eventId}","level":"2.2.8","depth":2,"path":"methods/calls/_getCallsCallIdEventsEventId.md","ref":"methods/calls/_getCallsCallIdEventsEventId.md","articles":[]},{"title":"GET /calls/{callId}/recordings","level":"2.2.9","depth":2,"path":"methods/calls/_getCallsCallIdRecordings.md","ref":"methods/calls/_getCallsCallIdRecordings.md","articles":[]},{"title":"GET /calls/{callId}/transcriptions","level":"2.2.10","depth":2,"path":"methods/calls/_getCallsCallIdTranscriptions.md","ref":"methods/calls/_getCallsCallIdTranscriptions.md","articles":[]},{"title":"POST /calls/{callId}/gather","level":"2.2.11","depth":2,"path":"methods/calls/_postCallsCallIdGather.md","ref":"methods/calls/_postCallsCallIdGather.md","articles":[]},{"title":"GET /calls/{callId}/gather/{gatherId}","level":"2.2.12","depth":2,"path":"methods/calls/_getCallsCallIdGatherGatherId.md","ref":"methods/calls/_getCallsCallIdGatherGatherId.md","articles":[]},{"title":"POST /calls/{callId}/gather/{gatherId}","level":"2.2.13","depth":2,"path":"methods/calls/_postCallsCallIdGatherGatherId.md","ref":"methods/calls/_postCallsCallIdGatherGatherId.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/_getCalls.md","mtime":"2016-10-14T19:09:42.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-14T19:17:39.395Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -38,3 +38,6 @@ jspm_packages
 
 #book
 _book
+
+#tmp
+tmp

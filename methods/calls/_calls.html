@@ -1,0 +1,697 @@
+
+<!DOCTYPE HTML>
+<html lang="">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Calls &#xB7; GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="_getCalls.html">
+    
+    
+    <link rel="prev" href="../account/_getAccountTransactions.html">
+    
+
+    </head>
+    <body>
+        
+<div class="book"><div class="head">
+   <a href="http://www.bandwidth.com" class="aimg"><img src="http://www.bandwidth.com/sites/all/themes/bandwidth/images/logo-footer.png"></a>
+   <h1>|&#xA0; API Reference Docs</h1>
+   <ul>
+   	<li><a href="https://catapult.inetwork.com/portal/signup" target="_blank" class="headbutton">Sign up</a></li>
+   	<li><a href="https://catapult.inetwork.com/pages/login.jsf" target="_blank">Log in</a></li>
+   	<li><a href="https://support.bandwidth.com/access/unauthenticated" target="_blank">Support</a></li>
+   </ul>
+</div>
+
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Overview</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Bandwidth
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Methods</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../account/_account.html">
+            
+                <a href="../account/_account.html">
+            
+                    
+                    Account
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../account/_getAccount.html">
+            
+                <a href="../account/_getAccount.html">
+            
+                    
+                    GET /account
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../account/_getAccountTransactions.html">
+            
+                <a href="../account/_getAccountTransactions.html">
+            
+                    
+                    GET /account/transactions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.2" data-path="_calls.html">
+            
+                <a href="_calls.html">
+            
+                    
+                    Calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="_getCalls.html">
+            
+                <a href="_getCalls.html">
+            
+                    
+                    GET /calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="_postCalls.html">
+            
+                <a href="_postCalls.html">
+            
+                    
+                    POST /calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="_getCallsCallId.html">
+            
+                <a href="_getCallsCallId.html">
+            
+                    
+                    GET /calls/{callId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="_postCallsCallId.html">
+            
+                <a href="_postCallsCallId.html">
+            
+                    
+                    POST /calls/{callId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5" data-path="_postCallsCallIdAudio.html">
+            
+                <a href="_postCallsCallIdAudio.html">
+            
+                    
+                    POST /calls/{callId}/audio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6" data-path="_postCallsCallIdDTMF.html">
+            
+                <a href="_postCallsCallIdDTMF.html">
+            
+                    
+                    POST /calls/{callId}/DTMF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7" data-path="_getCallsCallIdEvents.html">
+            
+                <a href="_getCallsCallIdEvents.html">
+            
+                    
+                    GET /calls/{callId}/events
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.8" data-path="_getCallsCallIdEventsEventId.html">
+            
+                <a href="_getCallsCallIdEventsEventId.html">
+            
+                    
+                    GET /calls/{callId}/events/{eventId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.9" data-path="_getCallsCallIdRecordings.html">
+            
+                <a href="_getCallsCallIdRecordings.html">
+            
+                    
+                    GET /calls/{callId}/recordings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.10" data-path="_getCallsCallIdTranscriptions.html">
+            
+                <a href="_getCallsCallIdTranscriptions.html">
+            
+                    
+                    GET /calls/{callId}/transcriptions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.11" data-path="_postCallsCallIdGather.html">
+            
+                <a href="_postCallsCallIdGather.html">
+            
+                    
+                    POST /calls/{callId}/gather
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.12" data-path="_getCallsCallIdGatherGatherId.html">
+            
+                <a href="_getCallsCallIdGatherGatherId.html">
+            
+                    
+                    GET /calls/{callId}/gather/{gatherId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.13" data-path="_postCallsCallIdGatherGatherId.html">
+            
+                <a href="_postCallsCallIdGatherGatherId.html">
+            
+                    
+                    POST /calls/{callId}/gather/{gatherId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../..">Calls</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="calls">Calls</h1>
+<p>The Calls resource lets you make phone calls and view information about previous inbound and outbound calls.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">VERB</th>
+<th style="text-align:left">PATH</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">GET</td>
+<td style="text-align:left"><a href="_getCalls.html"><code>/v1/users/{userId}/calls</code></a></td>
+<td style="text-align:left">Get a list of previous calls that were made or received</td>
+</tr>
+<tr>
+<td style="text-align:left">POST</td>
+<td style="text-align:left"><a href="_postCalls.html"><code>/v1/users/{userId}/calls</code></a></td>
+<td style="text-align:left">Create an outbound phone call</td>
+</tr>
+<tr>
+<td style="text-align:left">GET</td>
+<td style="text-align:left"><a href="_getCallsCallId.html"><code>/v1/users/{userId}/calls/{callId}</code></a></td>
+<td style="text-align:left">Get information about a call that was made or received</td>
+</tr>
+<tr>
+<td style="text-align:left">POST</td>
+<td style="text-align:left"><a href="_postCallsCallId.html"><code>/v1/users/{userId}/calls/{callId}</code></a></td>
+<td style="text-align:left">Manage an active phone call. E.g. Answer an incoming call, reject an incoming call, turn on / off recording, transfer, hang up.</td>
+</tr>
+<tr>
+<td style="text-align:left">POST</td>
+<td style="text-align:left"><a href="_postCallsCallIDAudio.md"><code>/v1/users/{userId}/calls/{callId}/audio</code></a></td>
+<td style="text-align:left">Play an audio or speak a sentence in a call</td>
+</tr>
+<tr>
+<td style="text-align:left">POST</td>
+<td style="text-align:left"><a href="_postCallsCallIdDTMF.html"><code>/v1/users/{userId}/calls/{callId}/dtmf</code></a></td>
+<td style="text-align:left">Send DTMF (phone keypad digit presses)</td>
+</tr>
+<tr>
+<td style="text-align:left">GET</td>
+<td style="text-align:left"><a href="_getCallsCallIdEvents.html"><code>/v1/users/{userId}/calls/{callId}/events</code></a></td>
+<td style="text-align:left">Gets the list of call events for a call</td>
+</tr>
+<tr>
+<td style="text-align:left">GET</td>
+<td style="text-align:left"><a href="_getCallsCallIdEventsEventId"><code>/v1/users/{userId}/calls/{callId}/events/{callEventId}</code></a></td>
+<td style="text-align:left">Gets information about one call event</td>
+</tr>
+<tr>
+<td style="text-align:left">GET</td>
+<td style="text-align:left"><a href="_getCallsCallIdRecordings.html"><code>/v1/users/{userId}/calls/{callId}/recordings</code></a></td>
+<td style="text-align:left">Retrieve all recordings related to the call</td>
+</tr>
+<tr>
+<td style="text-align:left">GET</td>
+<td style="text-align:left"><a href="_getCallsCallIdTranscriptions.html"><code>/v1/users/{userId}/calls/{callId}/transcriptions</code></a></td>
+<td style="text-align:left">Retrieve all transcriptions related to the call</td>
+</tr>
+<tr>
+<td style="text-align:left">POST</td>
+<td style="text-align:left"><a href="_postCallsCallIdGather.html"><code>/v1/users/{userId}/calls/{callId}/gather</code></a></td>
+<td style="text-align:left">Gather the DTMF digits pressed</td>
+</tr>
+<tr>
+<td style="text-align:left">GET</td>
+<td style="text-align:left"><a href="_getCallsCallIdGatherGatherId.html"><code>/v1/users/{userId}/calls/{callId}/gather/{gatherId}</code></a></td>
+<td style="text-align:left">Get the gather DTMF parameters and results</td>
+</tr>
+<tr>
+<td style="text-align:left">POST</td>
+<td style="text-align:left"><a href="_postCallsCallIdGatherGatherId.html"><code>/v1/users/{userId}/calls/{callId}/gather/{gatherId}</code></a></td>
+<td style="text-align:left">Update the gather (Stop Gather)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">The unique ID of the call.</td>
+</tr>
+<tr>
+<td style="text-align:left">direction</td>
+<td style="text-align:left">Call direction: values are <code>in</code> for an incoming call, <code>out</code> for an outgoing call</td>
+</tr>
+<tr>
+<td style="text-align:left">from</td>
+<td style="text-align:left">The phone number or SIP address that made the call. Phone numbers are in E.164 format (e.g. +15555555555) -or- SIP addresses (e.g. identify@domain.com).</td>
+</tr>
+<tr>
+<td style="text-align:left">to</td>
+<td style="text-align:left">The phone number or SIP address that received the call. Phone numbers are in E.164 format (e.g. +15555555555) -or- SIP addresses (e.g. identify@domain.com).</td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">The call state. Described below, values are started <code>rejected</code>, <code>active</code>, <code>completed</code>, <code>transferring</code></td>
+</tr>
+<tr>
+<td style="text-align:left">startTime</td>
+<td style="text-align:left">Date when the call was created. Timestamp follows the ISO8601 format.</td>
+</tr>
+<tr>
+<td style="text-align:left">activeTime</td>
+<td style="text-align:left">Date when the call was answered. Timestamp follows the ISO8601 format.</td>
+</tr>
+<tr>
+<td style="text-align:left">endTime</td>
+<td style="text-align:left">Date when the call ended. Timestamp follows the ISO8601 format.</td>
+</tr>
+<tr>
+<td style="text-align:left">callTimeout</td>
+<td style="text-align:left">Determine how long should the platform wait for call answer before timing out in seconds (milliseconds).</td>
+</tr>
+<tr>
+<td style="text-align:left">callbackUrl</td>
+<td style="text-align:left">The server URL where the call events related to the call will be sent.</td>
+</tr>
+<tr>
+<td style="text-align:left">callbackHttpMethod</td>
+<td style="text-align:left">Determine if the callback event should be sent via HTTP GET or HTTP POST. Values are <code>GET</code> or <code>POST</code> Default is <code>POST</code></td>
+</tr>
+<tr>
+<td style="text-align:left">callbackTimeout</td>
+<td style="text-align:left">Determine how long should the platform wait for callbackUrl&apos;s response before timing out (milliseconds).</td>
+</tr>
+<tr>
+<td style="text-align:left">fallbackUrl</td>
+<td style="text-align:left">The server URL used to send the call events if the request to callbackUrl fails.</td>
+</tr>
+<tr>
+<td style="text-align:left">chargeableDuration</td>
+<td style="text-align:left">The number of seconds the call will be billed for.</td>
+</tr>
+<tr>
+<td style="text-align:left">transferTo</td>
+<td style="text-align:left">Phone number or SIP address that the call is going to be transferred to.</td>
+</tr>
+<tr>
+<td style="text-align:left">transferCallerId</td>
+<td style="text-align:left">This is the caller id that will be used when the call is transferred. This parameter is only considered in transfer state. <br>- transferring an incoming call: allowed values are 1) &quot;private&quot; 2) the incoming call &quot;from&quot; number or 3) any Bandwidth number owned by user. <br>- transferring an outgoing call call: allowed values are 1) &quot;private&quot; or 2) any Bandwidth phone number owned by user.</td>
+</tr>
+<tr>
+<td style="text-align:left">whisperAudio</td>
+<td style="text-align:left">Audio to be played to the caller that the call will be transferred to.</td>
+</tr>
+<tr>
+<td style="text-align:left">bridgeId</td>
+<td style="text-align:left">The id of the bridge where the call will be added.</td>
+</tr>
+<tr>
+<td style="text-align:left">bridge</td>
+<td style="text-align:left">The URL of the bridge, if any, that contains the call.</td>
+</tr>
+<tr>
+<td style="text-align:left">conferenceId</td>
+<td style="text-align:left">The id of the conference where the call will be added. This property is required if you want to add this call to a conference.</td>
+</tr>
+<tr>
+<td style="text-align:left">conference</td>
+<td style="text-align:left">The complete URL of the conference resource the call is associated with.</td>
+</tr>
+<tr>
+<td style="text-align:left">events</td>
+<td style="text-align:left">The URL to retrieve the events related to the call.</td>
+</tr>
+<tr>
+<td style="text-align:left">recordingEnabled</td>
+<td style="text-align:left">Indicates if the call should be recorded after being created. Set to <code>true</code> to enable. Default is <code>false</code></td>
+</tr>
+<tr>
+<td style="text-align:left">recordingFileFormat</td>
+<td style="text-align:left">The file format of the recorded call. Supported values are <code>wav</code> (default) and <code>mp3</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left">recordingMaxDuration</td>
+<td style="text-align:left">Indicates the maximum duration of call recording in seconds. Default value is 1 hour.</td>
+</tr>
+<tr>
+<td style="text-align:left">transcriptionEnabled</td>
+<td style="text-align:left">Whether all the recordings for this call should be be automatically transcribed.</td>
+</tr>
+<tr>
+<td style="text-align:left">tag</td>
+<td style="text-align:left">Any string, it will be included in the callback events of the call.</td>
+</tr>
+<tr>
+<td style="text-align:left">page</td>
+<td style="text-align:left">Used for pagination to indicate the page requested for querying a list of calls. If no value is specified the default is 0.</td>
+</tr>
+<tr>
+<td style="text-align:left">size</td>
+<td style="text-align:left">Used for pagination to indicate the size of each page requested for querying a list of calls. If no value is specified the default value is 25 (maximum value 1000).</td>
+</tr>
+<tr>
+<td style="text-align:left">sipHeaders</td>
+<td style="text-align:left">Map of Sip headers prefixed by &quot;X-&quot;. Up to 5 headers can be sent per call. Max length for header and value is 256 characters.</td>
+</tr>
+</tbody>
+</table>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class="search-results-count"></span> results matching &quot;<span class="search-query"></span>&quot;</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching &quot;<span class="search-query"></span>&quot;</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Calls","level":"2.2","depth":1,"next":{"title":"GET /calls","level":"2.2.1","depth":2,"path":"methods/calls/_getCalls.md","ref":"methods/calls/_getCalls.md","articles":[]},"previous":{"title":"GET /account/transactions","level":"2.1.2","depth":2,"path":"methods/account/_getAccountTransactions.md","ref":"methods/account/_getAccountTransactions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/_calls.md","mtime":"2016-10-14T19:09:42.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-14T19:17:39.395Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
+        
+    
+
+    </body>
+</html>
+
