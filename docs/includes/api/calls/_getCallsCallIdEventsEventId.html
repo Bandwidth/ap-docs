@@ -1,0 +1,488 @@
+
+<!DOCTYPE HTML>
+<html lang="">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>GET /calls/{callId}/events/{eventId} &#xB7; GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="_getCallsCallIdRecordings.html">
+    
+    
+    <link rel="prev" href="_getCallsCallIdEvents.html">
+    
+
+    </head>
+    <body>
+        
+<div class="book"><div class="head">
+   <a href="http://www.bandwidth.com" class="aimg"><img src="http://www.bandwidth.com/sites/all/themes/bandwidth/images/logo-footer.png"></a>
+   <h1>|&#xA0; API Reference Docs</h1>
+   <ul>
+   	<li><a href="https://catapult.inetwork.com/portal/signup" target="_blank" class="headbutton">Sign up</a></li>
+   	<li><a href="https://catapult.inetwork.com/pages/login.jsf" target="_blank">Log in</a></li>
+   	<li><a href="https://support.bandwidth.com/access/unauthenticated" target="_blank">Support</a></li>
+   </ul>
+</div>
+
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Overview</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Bandwidth
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Methods</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../account/_account.html">
+            
+                <a href="../account/_account.html">
+            
+                    
+                    Account
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../account/_getAccount.html">
+            
+                <a href="../account/_getAccount.html">
+            
+                    
+                    GET /account
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../account/_getAccountTransactions.html">
+            
+                <a href="../account/_getAccountTransactions.html">
+            
+                    
+                    GET /account/transactions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="_calls.html">
+            
+                <a href="_calls.html">
+            
+                    
+                    Calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="_getCalls.html">
+            
+                <a href="_getCalls.html">
+            
+                    
+                    GET /calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="_postCalls.html">
+            
+                <a href="_postCalls.html">
+            
+                    
+                    POST /calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="_getCallsCallId.html">
+            
+                <a href="_getCallsCallId.html">
+            
+                    
+                    GET /calls/{callId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="_postCallsCallId.html">
+            
+                <a href="_postCallsCallId.html">
+            
+                    
+                    POST /calls/{callId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5" data-path="_postCallsCallIdAudio.html">
+            
+                <a href="_postCallsCallIdAudio.html">
+            
+                    
+                    POST /calls/{callId}/audio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6" data-path="_postCallsCallIdDTMF.html">
+            
+                <a href="_postCallsCallIdDTMF.html">
+            
+                    
+                    POST /calls/{callId}/DTMF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7" data-path="_getCallsCallIdEvents.html">
+            
+                <a href="_getCallsCallIdEvents.html">
+            
+                    
+                    GET /calls/{callId}/events
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.2.8" data-path="_getCallsCallIdEventsEventId.html">
+            
+                <a href="_getCallsCallIdEventsEventId.html">
+            
+                    
+                    GET /calls/{callId}/events/{eventId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.9" data-path="_getCallsCallIdRecordings.html">
+            
+                <a href="_getCallsCallIdRecordings.html">
+            
+                    
+                    GET /calls/{callId}/recordings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.10" data-path="_getCallsCallIdTranscriptions.html">
+            
+                <a href="_getCallsCallIdTranscriptions.html">
+            
+                    
+                    GET /calls/{callId}/transcriptions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.11" data-path="_postCallsCallIdGather.html">
+            
+                <a href="_postCallsCallIdGather.html">
+            
+                    
+                    POST /calls/{callId}/gather
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.12" data-path="_getCallsCallIdGatherGatherId.html">
+            
+                <a href="_getCallsCallIdGatherGatherId.html">
+            
+                    
+                    GET /calls/{callId}/gather/{gatherId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.13" data-path="_postCallsCallIdGatherGatherId.html">
+            
+                <a href="_postCallsCallIdGatherGatherId.html">
+            
+                    
+                    POST /calls/{callId}/gather/{gatherId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../..">GET /calls/{callId}/events/{eventId}</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class="search-results-count"></span> results matching &quot;<span class="search-query"></span>&quot;</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching &quot;<span class="search-query"></span>&quot;</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"GET /calls/{callId}/events/{eventId}","level":"2.2.8","depth":2,"next":{"title":"GET /calls/{callId}/recordings","level":"2.2.9","depth":2,"path":"includes/api/calls/_getCallsCallIdRecordings.md","ref":"includes/api/calls/_getCallsCallIdRecordings.md","articles":[]},"previous":{"title":"GET /calls/{callId}/events","level":"2.2.7","depth":2,"path":"includes/api/calls/_getCallsCallIdEvents.md","ref":"includes/api/calls/_getCallsCallIdEvents.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"includes/api/calls/_getCallsCallIdEventsEventId.md","mtime":"2016-10-14T17:34:25.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-14T18:11:53.427Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
+        
+    
+
+    </body>
+</html>
+
