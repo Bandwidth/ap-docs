@@ -29,8 +29,8 @@ Creates a new outbound phone call.
 The call resource returned in the "Location" header can be modified to change the call (for example, play audio files, transfer to a different number, or hang up).
 </aside>
 
-{% sample lang="shell" %}
-```shell
+{% sample lang="bash" %}
+```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
@@ -53,6 +53,7 @@ client.Call.create({
 })
 ```
 
+
 {% sample lang="csharp" %}
 ```csharp
 var call = await client.Call.CreateAsync(new CreateCallData{
@@ -61,19 +62,13 @@ var call = await client.Call.CreateAsync(new CreateCallData{
 });
 ```
 
+
 {% sample lang="ruby" %}
 ```ruby
 call = Call.create(client, {:from => "{fromNumber}", :to => "{toNumber}"})
 ```
 
 {% common %}
-### Example: Create call and start recording it
-
-### Example: Create a call in a bridge
-
-### Example: Create an outbound call with callback and fallback URL
-
-### Example: Create an outbound call with tag property
 
 ### Example: Create an outbound call to a SIP URI
 
@@ -85,8 +80,8 @@ Make a call to a SIP URI:
 * SIPS is not currently supported.
 </aside>
 
-{% sample lang="shell" %}{% sample lang="shell" %}
-```shell
+{% sample lang="bash" %}{% sample lang="bash" %}
+```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
@@ -117,6 +112,7 @@ client.Call.create({
 })
 ```
 
+
 {% sample lang="csharp" %}
 ```csharp
 var call = await client.Call.CreateAsync(new CreateCallData{
@@ -129,6 +125,7 @@ var call = await client.Call.CreateAsync(new CreateCallData{
 });
 ```
 
+
 {% sample lang="ruby" %}
 ```ruby
 call = Call.create(client, {
@@ -140,4 +137,12 @@ call = Call.create(client, {
 	}
 })
 ```
+{% common %}
+### Example: Create call and start recording it
+
+### Example: Create a call in a bridge
+
+### Example: Create an outbound call with callback and fallback URL
+
+### Example: Create an outbound call with tag property
 {% endmethod %}

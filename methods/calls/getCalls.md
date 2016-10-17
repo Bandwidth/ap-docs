@@ -17,8 +17,8 @@ Gets a list of active and historic calls you made or received. Since this operat
 {% common %}
 ### Example: List your calls
 
-{% sample lang="shell" %}
-```shell
+{% sample lang="bash" %}
+```bash
 curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/calls/ \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
@@ -30,10 +30,12 @@ client.Call.list()
 	console.log(response);
 });
 ```
+
 {% sample lang="csharp" %}
 ```csharp
 var calls = client.Call.List();
 ```
+
 
 {% sample lang="ruby" %}
 ```ruby
@@ -41,7 +43,7 @@ calls = Call.list(client)
 ```
 
 {% common %}
-The above command returns JSON structured like this:
+> The above command returns JSON structured like this:
 
 ```json
 [
@@ -80,8 +82,8 @@ The above command returns JSON structured like this:
 
 ### Example: List your calls by from number {fromNumber}
 
-{% sample lang="shell" %}
-```shell
+{% sample lang="bash" %}
+```bash
 curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/calls?from=%2b19195551212 \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
@@ -96,16 +98,18 @@ client.Call.list({
 });
 
 ```
+
 {% sample lang="csharp" %}
 ```csharp
 var calls = client.Call.List(new CallQuery{From = "+19195551212"});
 ```
+
 {% sample lang="ruby" %}
 ```ruby
 calls = Call.list(client, {:from => "+19195551212"})
 ```
 {% common %}
-The above command returns JSON structured like this:
+> The above command returns JSON structured like this:
 
 ```json
 [

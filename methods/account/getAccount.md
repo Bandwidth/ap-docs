@@ -12,8 +12,8 @@
 {% common %}
 ### Get an Account object. No query parameters are supported.
 
-{% sample lang="shell" %}
-```shell
+{% sample lang="bash" %}
+```bash
 curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account \
   -u {token}:{secret} \
   -H "Content-type: application/json" \
@@ -36,7 +36,7 @@ var account = await client.Account.GetAsync();
 account = Bandwidth::Account.get(client)
 ```
 {% common %}
-The above command returns JSON structured like this:
+>The above command returns JSON structured like this:
 
 ```
 {

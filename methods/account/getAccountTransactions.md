@@ -1,6 +1,17 @@
 {% method %}
 ## GET account/transactions
 
+### Query Parameters
+| Parameter | Description                                                                                                                                                                 | Mandatory |
+|:----------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
+| maxItems  | Limit the number of transactions that will be returned.                                                                                                                     | No        |
+| toDate    | Return only transactions that are newer than the parameter. Format: "yyyy-MM-dd'T'HH:mm:ssZ"                                                                                | No        |
+| fromDate  | Return only transactions that are older than the parameter. Format: "yyyy-MM-dd'T'HH:mm:ssZ"                                                                                | No        |
+| type      | Return only transactions that are this type.                                                                                                                                | No        |
+| page      | Used for pagination to indicate the page requested for querying a list of transactions. If no value is specified the default is 0.                                          | No        |
+| size      | Used for pagination to indicate the size of each page requested for querying a list of transactions. If no value is specified the default value is 25 (maximum value 1000). | No        |
+| number    | Return only transactions that are from the specified number. (coming soon)                                                                                                  | No        |
+
 ### Transaction Properties
 
 | PROPERTY    | DESCRIPTION                                                                                                                                                                 |
@@ -41,23 +52,10 @@
 | cnam-search                | A CNAM lookup request for a phone number.                                   |
 
 {% common %}
-
-### Query Parameters
-| Parameter | Description                                                                                                                                                                 | Mandatory |
-|:----------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
-| maxItems  | Limit the number of transactions that will be returned.                                                                                                                     | No        |
-| toDate    | Return only transactions that are newer than the parameter. Format: "yyyy-MM-dd'T'HH:mm:ssZ"                                                                                | No        |
-| fromDate  | Return only transactions that are older than the parameter. Format: "yyyy-MM-dd'T'HH:mm:ssZ"                                                                                | No        |
-| type      | Return only transactions that are this type.                                                                                                                                | No        |
-| page      | Used for pagination to indicate the page requested for querying a list of transactions. If no value is specified the default is 0.                                          | No        |
-| size      | Used for pagination to indicate the size of each page requested for querying a list of transactions. If no value is specified the default value is 25 (maximum value 1000). | No        |
-| number    | Return only transactions that are from the specified number. (coming soon)                                                                                                  | No        |
-
-
 ### Example: Get transactions
 
-{% sample lang="shell" %}
-```shell
+{% sample lang="bash" %}
+```bash
 curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations \
   -u {token}:{secret} \
   -H "Content-type: application/json" \
@@ -119,8 +117,8 @@ The above command returns JSON structured like this:
 
 ### Example: Get transactions by date
 
-{% sample lang="shell" %}
-```shell
+{% sample lang="bash" %}
+```bash
 curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?fromDate=2013-02-21T13:38:00 \
   -u {token}:{secret} \
   -H "Content-type: application/json" \
@@ -181,8 +179,8 @@ The above command returns JSON structured like this:
 
 ### Example: Get transactions filtering by date
 
-{% sample lang="shell" %}
-```shell
+{% sample lang="bash" %}
+```bash
 curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?toDate=2013-02-21T13:40:00&fromDate=2013-02-21T13:38:00 \
   -u {token}:{secret} \
   -H "Content-type: application/json" \
@@ -243,8 +241,8 @@ The above command returns JSON structured like this:
 
 ### Example: Get transactions limiting result
 
-{% sample lang="shell" %}
-```shell
+{% sample lang="bash" %}
+```bash
 curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?maxItems=1 \
   -u {token}:{secret} \
   -H "Content-type: application/json" \
@@ -302,8 +300,8 @@ The above command returns JSON structured like this:
 
 ### Example: Get transactions of payment type
 
-{% sample lang="shell" %}
-```shell
+{% sample lang="bash" %}
+```bash
 curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?type=Payment \
   -u {token}:{secret} \
   -H "Content-type: application/json" \
