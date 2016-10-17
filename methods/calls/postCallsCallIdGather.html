@@ -408,7 +408,122 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <div class="api-method"><div class="api-method-definition"><h2 id="post-callscallidgather">POST calls/{callId}/gather</h2>
+<p>Collects a series of DTMF digits from a phone call with an optional prompt. This request returns immediately. When gather finishes, an event with the results will be posted to the callback URL.</p>
+<h3 id="supported-parameters">Supported Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">maxDigits</td>
+<td style="text-align:left">The maximum number of digits to collect, not including terminating digits (maximum 30).</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">interDigitTimeout</td>
+<td style="text-align:left">Stop gathering if a DTMF digit is not detected in this many seconds (default 5.0; maximum 30.0).</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">terminatingDigits</td>
+<td style="text-align:left">A string of DTMF digits that end the gather operation immediately if any one of them is detected (default &#x201C;#&#x201D;; an empty string means collect all DTMF until maxDigits or the timeout).<br>Example:<br><code>#</code> : The gather ends if # is detected (this is the default behavior if the terminatingDigits property is not specified)<br><code>0#*</code> : The gather ends if either 0, #, or * is detected<br>Don&#x2019;t forget to encode keypad digits that have special meaning in a URL, like #.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">tag</td>
+<td style="text-align:left">A string you choose that will be included with the response and events for this gather operation.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">prompt.sentence</td>
+<td style="text-align:left">The text to speak for the prompt (uses the call audio resource defaults). NOTE: encode special characters in the sentence.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">prompt.gender</td>
+<td style="text-align:left">The gender to use for the voice reading the prompt sentence (uses the call audio resource defaults).</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">prompt.locale</td>
+<td style="text-align:left">The language and region to use for the voice reading the prompt sentence (uses the call audio resource defaults).</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">prompt.loopEnabled</td>
+<td style="text-align:left">When value is true, the audio will keep playing in a loop. Default: false</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">prompt.bargeable</td>
+<td style="text-align:left">Make the prompt (audio or sentence) bargeable (will be interrupted at first digit gathered). Default: true</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">prompt.fileUrl</td>
+<td style="text-align:left">The location of an audio file to play (WAV and MP3 supported).</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-play-a-prompt-sentence">Example: Play a prompt sentence</h3>
+<p>Play a prompt sentence, then wait until 5 digits are pressed. Stop gathering digits if * is pressed, or if 7 seconds pass with no digits pressed.</p>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+        <span class="hljs-_">-d</span> \
+    <span class="hljs-string">&apos;
+    {
+        &quot;maxDigits&quot;:&quot;5&quot;,
+        &quot;terminatingDigits&quot;:&quot;*&quot;,
+        &quot;interDigitTimeout&quot;:&quot;7&quot;,
+        &quot;prompt&quot;: {
+            &quot;sentence&quot;: &quot;Please enter your 5 digit code&quot;
+        }
+    }&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">//Create Gather</span>
+<span class="hljs-comment">//The gather ends if either 0, #, or * is detected</span>
+<span class="hljs-keyword">var</span> options =     {
+    <span class="hljs-string">&quot;maxDigits&quot;</span>:<span class="hljs-string">&quot;5&quot;</span>,
+    <span class="hljs-string">&quot;terminatingDigits&quot;</span>:<span class="hljs-string">&quot;*&quot;</span>,
+    <span class="hljs-string">&quot;interDigitTimeout&quot;</span>:<span class="hljs-string">&quot;7&quot;</span>,
+    <span class="hljs-string">&quot;prompt&quot;</span>: {
+        <span class="hljs-string">&quot;sentence&quot;</span>: <span class="hljs-string">&quot;Please enter your 5 digit code&quot;</span>
+    }
+};
+<span class="hljs-comment">//Promise</span>
+client.Call.createGather(<span class="hljs-string">&quot;callId&quot;</span>, options).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{});
+
+<span class="hljs-comment">//Callback</span>
+client.Call.createGather(<span class="hljs-string">&quot;callId&quot;</span>, options, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, res</span>) </span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> gather = <span class="hljs-keyword">await</span> client.Call.CreateGatherAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>, <span class="hljs-keyword">new</span> CreateGatherData {
+    MaxDigits = <span class="hljs-string">&quot;5&quot;</span>,
+    TerminatingDigits = <span class="hljs-string">&quot;*&quot;</span>,
+    InterDigitTimeout = <span class="hljs-string">&quot;7&quot;</span>,
+    Prompt = <span class="hljs-keyword">new</span> GatherPrompt {
+        Sentence = <span class="hljs-string">&quot;Please enter your 5 digit code&quot;</span>
+    }
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">gather = call.create_gather({
+    <span class="hljs-symbol">:max_digits</span> =&gt; <span class="hljs-string">&quot;5&quot;</span>,
+    <span class="hljs-symbol">:terminating_digits</span> =&gt; <span class="hljs-string">&quot;*&quot;</span>,
+    <span class="hljs-symbol">:inter_digit_timeout</span> =&gt; <span class="hljs-string">&quot;7&quot;</span>,
+    <span class="hljs-symbol">:prompt</span> =&gt;  {
+        <span class="hljs-symbol">:sentence</span> =&gt; <span class="hljs-string">&quot;Please enter your 5 digit code&quot;</span>
+    }
+})
+</code></pre>
+</div></div></div>
+
                                 
                                 </section>
                             
@@ -441,7 +556,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST /calls/{callId}/gather","level":"2.2.11","depth":2,"next":{"title":"GET /calls/{callId}/gather/{gatherId}","level":"2.2.12","depth":2,"path":"methods/calls/getCallsCallIdGatherGatherId.md","ref":"methods/calls/getCallsCallIdGatherGatherId.md","articles":[]},"previous":{"title":"GET /calls/{callId}/transcriptions","level":"2.2.10","depth":2,"path":"methods/calls/getCallsCallIdTranscriptions.md","ref":"methods/calls/getCallsCallIdTranscriptions.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/postCallsCallIdGather.md","mtime":"2016-10-14T19:20:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-14T19:24:46.866Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST /calls/{callId}/gather","level":"2.2.11","depth":2,"next":{"title":"GET /calls/{callId}/gather/{gatherId}","level":"2.2.12","depth":2,"path":"methods/calls/getCallsCallIdGatherGatherId.md","ref":"methods/calls/getCallsCallIdGatherGatherId.md","articles":[]},"previous":{"title":"GET /calls/{callId}/transcriptions","level":"2.2.10","depth":2,"path":"methods/calls/getCallsCallIdTranscriptions.md","ref":"methods/calls/getCallsCallIdTranscriptions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/postCallsCallIdGather.md","mtime":"2016-10-17T17:48:03.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-17T18:09:00.458Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

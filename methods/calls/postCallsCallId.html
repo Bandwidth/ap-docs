@@ -408,7 +408,66 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <div class="api-method"><div class="api-method-definition"><h2 id="post-callscallid">POST calls/{callId}</h2>
+<p>Update properties of an active phone call.</p>
+<h3 id="supported-parameters">Supported Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">The call state. Possible values: <br> <code>rejected</code> to reject not answer<br> <code>active</code> to answer the call<br><code>completed</code> to hangup the call<br><code>transferring</code> to start and connect call to a new outbound call.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">recordingEnabled</td>
+<td style="text-align:left">Indicates if the call should be recorded. Values <code>true</code> or <code>false</code>. You can turn recording on/off and have multiple recordings on a single call.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">recordingFileFormat</td>
+<td style="text-align:left">The file format of the recorded call. Supported values are <code>wav</code> (default) and <code>mp3</code>.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">transferTo</td>
+<td style="text-align:left">Phone number or SIP address that the call is going to be transferred to.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">transferCallerId</td>
+<td style="text-align:left">This is the caller id that will be used when the call is transferred. This parameter is only considered in transfer state.<br>- transferring an incoming call: allowed values are 1) <code>private</code> 2) the incoming call <code>from</code> number or 3) any Bandwidth number owned by user.<br>- transferring an outgoing call call: allowed values are 1) <code>private</code> or 2) any Bandwidth phone number owned by user.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">whisperAudio</td>
+<td style="text-align:left">Audio to be played to the caller that the call will be transferred to. See /audio.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">callbackUrl</td>
+<td style="text-align:left">The server URL where the call events for the new call will be sent upon transferring.</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-answer-an-incoming-phone-call">Example: Answer an Incoming Phone Call</h3>
+<h3 id="example-reject-an-incoming-phone-call">Example: Reject an Incoming Phone Call</h3>
+<h3 id="example-hang-up-a-phone-call">Example: Hang Up a Phone Call</h3>
+<h3 id="example-turn-call-recording-on">Example: Turn call recording ON</h3>
+<h3 id="example-turn-call-recording-off">Example: Turn call recording OFF</h3>
+<h3 id="example-transfer-a-call">Example: Transfer a call</h3>
+<h3 id="example-transfer-a-call-using-the-caller-id-of-the-party-being-transferred">Example: Transfer a call using the caller Id of the party being transferred</h3>
+<h3 id="example-transfer-a-call-and-say-something-before-bridging-the-calls">Example: Transfer a call and say something before bridging the calls</h3>
+<h3 id="example-transfer-a-call-and-say-something-before-bridging-the-calls">Example: Transfer a call and say something before bridging the calls</h3>
+</div></div></div>
+
                                 
                                 </section>
                             
@@ -441,7 +500,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST /calls/{callId}","level":"2.2.4","depth":2,"next":{"title":"POST /calls/{callId}/audio","level":"2.2.5","depth":2,"path":"methods/calls/postCallsCallIdAudio.md","ref":"methods/calls/postCallsCallIdAudio.md","articles":[]},"previous":{"title":"GET /calls/{callId}","level":"2.2.3","depth":2,"path":"methods/calls/getCallsCallId.md","ref":"methods/calls/getCallsCallId.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/postCallsCallId.md","mtime":"2016-10-14T19:20:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-14T19:24:46.866Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST /calls/{callId}","level":"2.2.4","depth":2,"next":{"title":"POST /calls/{callId}/audio","level":"2.2.5","depth":2,"path":"methods/calls/postCallsCallIdAudio.md","ref":"methods/calls/postCallsCallIdAudio.md","articles":[]},"previous":{"title":"GET /calls/{callId}","level":"2.2.3","depth":2,"path":"methods/calls/getCallsCallId.md","ref":"methods/calls/getCallsCallId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/postCallsCallId.md","mtime":"2016-10-17T17:47:39.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-17T18:09:00.458Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

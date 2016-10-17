@@ -408,653 +408,139 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="get-callscallid">GET calls/{callId}</h2>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="get-callscallid">GET calls/{callId}</h2>
 <p>Gets information about an active or completed call. No query parameters are supported.</p>
-<h3 id="example-get-call-information">Example: Get Call Information</h3>
-<pre><code class="lang-shell">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId} \
-    -u {token}:{secret} \
-    -H &quot;Content-type: application/json&quot;
-</code></pre>
-<pre><code class="lang-js">client.Call.get(<span class="hljs-string">&quot;{callId}&quot;</span>)
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(respone);
-});
-</code></pre>
-<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> call = <span class="hljs-keyword">await</span> client.Call.GetAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>);
-</code></pre>
-<pre><code class="lang-ruby">call = Call.get(client, <span class="hljs-string">&quot;{callId1}&quot;</span>)
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre><code>{
-        &quot;activeTime&quot;: &quot;2014-12-19T19:13:20Z&quot;,
-        &quot;callbackUrl&quot;: &quot;https://example.com&quot;,
-        &quot;chargeableDuration&quot;: 60,
-        &quot;direction&quot;: &quot;out&quot;,
-        &quot;endTime&quot;: &quot;2014-12-19T19:13:22Z&quot;,
-        &quot;events&quot;: &quot;https://.../calls/{callId}/events&quot;,
-        &quot;fallbackUrl&quot;: &quot;https://example-fallback.com&quot;,
-        &quot;from&quot;: &quot;{fromNumber}&quot;,
-        &quot;id&quot;: &quot;{callId}&quot;,
-        &quot;recordingEnabled&quot;: false,
-        &quot;recordings&quot;: &quot;https://.../calls/{callId}/recordings&quot;,
-        &quot;startTime&quot;: &quot;2014-12-19T19:13:09Z&quot;,
-        &quot;state&quot;: &quot;completed&quot;,
-        &quot;to&quot;: &quot;{toNumber}&quot;,
-        &quot;transcriptionEnabled&quot;: true,
-        &quot;transcriptions&quot;: &quot;https://.../calls/{callId}/transcriptions&quot;,
-        &quot;sipHeaders&quot; : {
-                &quot;X-header&quot; : &quot;value&quot;
-        }
-}
-</code></pre><h2 id="post-callscallid">POST calls/{callId}</h2>
-<p>Update properties of an active phone call.</p>
-<h3 id="supported-parameters">Supported Parameters</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Parameter</th>
-<th style="text-align:left">Description</th>
-<th style="text-align:left">Mandatory</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">state</td>
-<td style="text-align:left">The call state. Possible values: <br> <code>rejected</code> to reject not answer<br> <code>active</code> to answer the call<br><code>completed</code> to hangup the call<br><code>transferring</code> to start and connect call to a new outbound call.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">recordingEnabled</td>
-<td style="text-align:left">Indicates if the call should be recorded. Values <code>true</code> or <code>false</code>. You can turn recording on/off and have multiple recordings on a single call.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">recordingFileFormat</td>
-<td style="text-align:left">The file format of the recorded call. Supported values are <code>wav</code> (default) and <code>mp3</code>.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">transferTo</td>
-<td style="text-align:left">Phone number or SIP address that the call is going to be transferred to.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">transferCallerId</td>
-<td style="text-align:left">This is the caller id that will be used when the call is transferred. This parameter is only considered in transfer state.<br>- transferring an incoming call: allowed values are 1) <code>private</code> 2) the incoming call <code>from</code> number or 3) any Bandwidth number owned by user.<br>- transferring an outgoing call call: allowed values are 1) <code>private</code> or 2) any Bandwidth phone number owned by user.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">whisperAudio</td>
-<td style="text-align:left">Audio to be played to the caller that the call will be transferred to. See /audio.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">callbackUrl</td>
-<td style="text-align:left">The server URL where the call events for the new call will be sent upon transferring.</td>
-<td style="text-align:left">No</td>
-</tr>
-</tbody>
-</table>
-<h3 id="example-answer-an-incoming-phone-call">Example: Answer an Incoming Phone Call</h3>
-<h3 id="example-reject-an-incoming-phone-call">Example: Reject an Incoming Phone Call</h3>
-<h3 id="example-hang-up-a-phone-call">Example: Hang Up a Phone Call</h3>
-<h3 id="example-turn-call-recording-on">Example: Turn call recording ON</h3>
-<h3 id="example-turn-call-recording-off">Example: Turn call recording OFF</h3>
-<h3 id="example-transfer-a-call">Example: Transfer a call</h3>
-<h3 id="example-transfer-a-call-using-the-caller-id-of-the-party-being-transferred">Example: Transfer a call using the caller Id of the party being transferred</h3>
-<h3 id="example-transfer-a-call-and-say-something-before-bridging-the-calls">Example: Transfer a call and say something before bridging the calls</h3>
-<h3 id="example-transfer-a-call-and-say-something-before-bridging-the-calls">Example: Transfer a call and say something before bridging the calls</h3>
-<h2 id="post-callscallidaudio">POST calls/{callId}/audio</h2>
-<p>Plays an audio file or speak a sentence in a phone call.</p>
-<h3 id="supported-parameters">Supported Parameters</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Parameter</th>
-<th style="text-align:left">Description</th>
-<th style="text-align:left">Mandatory</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">fileUrl</td>
-<td style="text-align:left">The location of an audio file to play (WAV and MP3 supported).</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">sentence</td>
-<td style="text-align:left">The sentence to speak.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">gender</td>
-<td style="text-align:left">The gender of the voice used to synthesize the sentence. It will be considered only if sentence is not null. The female gender will be used by default.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">locale</td>
-<td style="text-align:left">The locale used to get the accent of the voice used to synthesize the sentence. Currently audio supports: <br> - en_US or en_UK (English) <br> - es or es_MX (Spanish) <br> - fr or fr_FR (French) <br> - de or de_DE (German) <br> - t or it_IT (Italian) It will be considered only if sentence is not null/empty. The en_US will be used by default.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">voice</td>
-<td style="text-align:left">The voice to speak the sentence. Audio currently supports the following voices: <br> - English US: Kate, Susan, Julie, Dave, Paul <br> - English UK: Bridget <br> - Spanish: Esperanza, Violeta, Jorge <br> - French: Jolie, Bernard <br> - German: Katrin, Stefan <br> - Italian: Paola, Luca It will be considered only if sentence is not null/empty. Susan&#x2019;s voice will be used by default.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">loopEnabled</td>
-<td style="text-align:left">When value is <code>true</code> , the audio will keep playing in a loop. Default: <code>false</code>.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">tag</td>
-<td style="text-align:left">A string that will be included in the events delivered when the audio playback starts or finishes.</td>
-<td style="text-align:left">No</td>
-</tr>
-</tbody>
-</table>
-<h3 id="example-speak-a-sentence">Example: Speak a Sentence</h3>
-<pre><code class="lang-shell">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio \
-    -u {token}:{secret} \
-    -H &quot;Content-type: application/json&quot; \
-    -d \
-    &apos;
-    {
-        &quot;gender&quot;: &quot;female&quot;,
-        &quot;sentence&quot;: &quot;Hello, thank you for calling.&quot;,
-        &quot;locale&quot;: &quot;en_US&quot;,
-        &quot;voice&quot;: &quot;julie&quot;
-    }&apos;
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">//Speak sentence with options</span>
-<span class="hljs-keyword">var</span> options = {
-    sentence : <span class="hljs-string">&quot;hola de Bandwidth&quot;</span>,
-    gender   : <span class="hljs-string">&quot;male&quot;</span>,
-    locale   : <span class="hljs-string">&quot;es&quot;</span>,
-    voice    : <span class="hljs-string">&quot;Jorge&quot;</span>
-}
-<span class="hljs-comment">//Promise</span>
-client.Call.playAudioAdvanced(<span class="hljs-string">&quot;callId&quot;</span>, options).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
-
-<span class="hljs-comment">//Callback</span>
-client.Call.playAudioAdvanced(<span class="hljs-string">&quot;callId&quot;</span>, options, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err,res</span>) </span>{});
-
-<span class="hljs-comment">//Speak sentence in a call</span>
-
-<span class="hljs-comment">//Promise</span>
-client.Call.speakSentence(<span class="hljs-string">&quot;callId&quot;</span>, <span class="hljs-string">&quot;Hello From Bandwidth&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
-
-<span class="hljs-comment">//Callback</span>
-client.Call.speakSentence(<span class="hljs-string">&quot;callId&quot;</span>, <span class="hljs-string">&quot;Hello From Bandwidth&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, res</span>) </span>{});
-</code></pre>
-<pre><code class="lang-csharp"><span class="hljs-comment">//Speak sentence with options</span>
-<span class="hljs-keyword">await</span> client.Call.PlayAudioAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>, <span class="hljs-keyword">new</span> PlayAudioData
-{
-    Sentence = <span class="hljs-string">&quot;hola de Bandwidth&quot;</span>,
-    Gender = Genger.Male,
-    Voice = <span class="hljs-string">&quot;Jorge&quot;</span>,
-    Locale = <span class="hljs-string">&quot;es&quot;</span>
-});
-
-<span class="hljs-comment">//Speak sentence in a call</span>
-<span class="hljs-keyword">await</span> client.Call.SpeakSentenceAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>, <span class="hljs-string">&quot;Hello From Bandwidth&quot;</span>);
-</code></pre>
-<pre><code class="lang-ruby">call.play_audio({
-    <span class="hljs-symbol">:sentence</span> =&gt; <span class="hljs-string">&quot;hola de Bandwidth&quot;</span>,
-    <span class="hljs-symbol">:gender</span> =&gt; <span class="hljs-string">&quot;male&quot;</span>,
-    <span class="hljs-symbol">:voice</span> =&gt; <span class="hljs-string">&quot;Jorge&quot;</span>,
-    <span class="hljs-symbol">:locale</span> =&gt; <span class="hljs-string">&quot;es&quot;</span>
-})
-</code></pre>
-<h3 id="example-interruptstop-a-sentence-from-speaking">Example: Interrupt/stop a sentence from speaking.</h3>
-<pre><code class="lang-shell">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio \
-    -u {token}:{secret} \
-    -H &quot;Content-type: application/json&quot; \
-    -d &apos;{&quot;sentence&quot;: &quot;&quot;}&apos;
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">// coming soon</span>
-<span class="hljs-comment">//Speak sentence in a call</span>
-
-<span class="hljs-comment">//Promise</span>
-client.Call.speakSentence(<span class="hljs-string">&quot;callId&quot;</span>, <span class="hljs-string">&quot;&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
-
-<span class="hljs-comment">//Callback</span>
-client.Call.speakSentence(<span class="hljs-string">&quot;callId&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, res</span>) </span>{});
-</code></pre>
-<pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Call.SpeakSentenceAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);
-</code></pre>
-<pre><code class="lang-ruby">call.play_audio({
-    <span class="hljs-symbol">:sentence</span> =&gt; <span class="hljs-string">&quot;&quot;</span>
-})
-</code></pre>
-<h3 id="example-speak-a-sentence-with-male-gender-voice">Example: Speak a Sentence with male gender voice</h3>
-<h3 id="example-speaking-a-sentence-with-a-given-locale-gender-and-voice">Example: Speaking a sentence with a given locale, gender and voice.</h3>
-<h3 id="example-speaking-a-sentence-with-a-break">Example: Speaking a sentence with a break</h3>
-<h3 id="example-play-an-audio-file">Example: Play an Audio File</h3>
-<pre><code class="lang-shell">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio \
-    -u {token}:{secret} \
-    -H &quot;Content-type: application/json&quot; \
-    -d &apos;{&quot;fileUrl&quot;: &quot;http://example.com/audio.mp3&quot;}&apos;
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">//Play Audio file on call</span>
-
-<span class="hljs-comment">//Promise</span>
-client.Call.playAudioFile(<span class="hljs-string">&quot;callId&quot;</span>, <span class="hljs-string">&quot;http://myurl.com/file.mp3&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
-
-<span class="hljs-comment">//Callback</span>
-client.Call.playAudioFile(<span class="hljs-string">&quot;callId&quot;</span>, <span class="hljs-string">&quot;http://myurl.com/file.wav&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, res</span>) </span>{});
-</code></pre>
-<pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Call.PlayAudioFileAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>, <span class="hljs-string">&quot;http://myurl.com/file.wav&quot;</span>);
-</code></pre>
-<pre><code class="lang-ruby">call.play_audio({
-    <span class="hljs-symbol">:file_url</span> =&gt; <span class="hljs-string">&quot;http://myurl.com/file.wav&quot;</span>
-})
-</code></pre>
-<h3 id="example-stop-an-audio-file-playing">Example: Stop an Audio File Playing</h3>
-<pre><code class="lang-shell">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio \
-    -u {token}:{secret} \
-    -H &quot;Content-type: application/json&quot; \
-    -d &apos;{&quot;fileUrl&quot;: &quot;&quot;}&apos;
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">// coming soon in the mean time:</span>
-<span class="hljs-comment">//Stop Audio file on bridge</span>
-
-<span class="hljs-comment">//Promise</span>
-client.Call.playAudioFile(<span class="hljs-string">&quot;callId&quot;</span>, <span class="hljs-string">&quot;&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
-
-<span class="hljs-comment">//Callback</span>
-client.Call.playAudioFile(<span class="hljs-string">&quot;callId&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, res</span>) </span>{});
-</code></pre>
-<pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Call.PlayAudioFileAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);
-</code></pre>
-<pre><code class="lang-ruby">call.play_audio({
-    <span class="hljs-symbol">:file_url</span> =&gt; <span class="hljs-string">&quot;&quot;</span>
-})
-</code></pre>
-<h2 id="post-callscalliddtmf">POST calls/{callId}/dtmf</h2>
-<p>Send DTMF (phone keypad digit presses).</p>
-<h3 id="supported-parameters">Supported Parameters</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Parameter</th>
-<th style="text-align:left">Description</th>
-<th style="text-align:left">Mandatory</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">dtmfOut</td>
-<td style="text-align:left">String containing the DTMF characters to be sent in a call.</td>
-<td style="text-align:left">No</td>
-</tr>
-</tbody>
-</table>
-<h3 id="example-send-the-digits-9193334444">Example: Send the digits &quot;9193334444&quot;</h3>
-<pre><code class="lang-shell">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/dtmf \
-    -u {token}:{secret} \
-    -H &quot;Content-type: application/json&quot; \
-    -d &apos;{&quot;dtmfOut&quot;: &quot;9193334444&quot;}&apos;
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
-client.Call.sendDtmf(callId, <span class="hljs-string">&quot;9193334444&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{});
-<span class="hljs-comment">// Callback</span>
-client.Call.sendDtmf(callId, <span class="hljs-string">&quot;9193334444&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{});
-</code></pre>
-<pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Call.SendDtmfAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>, <span class="hljs-keyword">new</span> SendDtmfData{DtmfOut = <span class="hljs-string">&quot;9193334444&quot;</span>});
-</code></pre>
-<pre><code class="lang-ruby">call.set_dtmf(<span class="hljs-string">&quot;9193334444&quot;</span>)
-</code></pre>
-<h2 id="get-callscallidevents">GET calls/{callId}/events</h2>
-<p>Gets the events that occurred during the call. No query parameters are supported.</p>
-<h3 id="event-properties">Event Properties</h3>
+<h2 id="properties">Properties</h2>
 <table>
 <thead>
 <tr>
 <th style="text-align:left">Property</th>
 <th style="text-align:left">Description</th>
-<th style="text-align:left">Mandatory</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left">id</td>
-<td style="text-align:left">The call event id.</td>
-<td style="text-align:left">No</td>
+<td style="text-align:left">The unique ID of the call.</td>
 </tr>
 <tr>
-<td style="text-align:left">time</td>
-<td style="text-align:left">The time the event occurred.</td>
-<td style="text-align:left">No</td>
+<td style="text-align:left">direction</td>
+<td style="text-align:left">Call direction: values are <code>in</code> for an incoming call, <code>out</code> for an outgoing call</td>
 </tr>
 <tr>
-<td style="text-align:left">name</td>
-<td style="text-align:left">The name of the event.</td>
-<td style="text-align:left">No</td>
+<td style="text-align:left">from</td>
+<td style="text-align:left">The phone number or SIP address that made the call. Phone numbers are in E.164 format (e.g. +15555555555) -or- SIP addresses (e.g. identify@domain.com).</td>
 </tr>
 <tr>
-<td style="text-align:left">data</td>
-<td style="text-align:left">Data about event.</td>
-<td style="text-align:left">No</td>
-</tr>
-</tbody>
-</table>
-<h3 id="example-get-events-for-a-call">Example: Get events for a call.</h3>
-<pre><code class="lang-shell">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/events \
-    -u {token}:{secret} \
-    -H &quot;Content-type: application/json&quot;
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
-client.Call.getEvents(callId).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">events</span>) </span>{});
-<span class="hljs-comment">// Callback</span>
-client.Call.getEvents(callId, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, events</span>) </span>{});
-</code></pre>
-<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> events = client.Call.GetEvents(<span class="hljs-string">&quot;{callId1}&quot;</span>);
-</code></pre>
-<pre><code class="lang-ruby">events = call.get_events()
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre><code class="lang-json">[
-    {
-        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callEventId1}&quot;</span>,
-        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-09-19T13:55:41.343Z&quot;</span>,
-        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;create&quot;</span>
-    },
-    {
-        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callEventId2}&quot;</span>,
-        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-09-19T13:55:45.583Z&quot;</span>,
-        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;answer&quot;</span>
-    },
-    {
-        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callEventId3}&quot;</span>,
-        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-09-19T13:55:45.583Z&quot;</span>,
-        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;CHANNEL_EXECUTE&quot;</span>,
-        <span class="hljs-string">&quot;data&quot;</span>: <span class="hljs-string">&quot;{\&quot;applicationName\&quot;:\&quot;park\&quot;}&quot;</span>
-    },
-    {
-        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callEventId4}&quot;</span>,
-        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-09-19T13:55:51.283Z&quot;</span>,
-        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;CHANNEL_EXECUTE&quot;</span>,
-        <span class="hljs-string">&quot;data&quot;</span>: <span class="hljs-string">&quot;{\&quot;applicationName\&quot;:\&quot;playback\&quot;,\&quot;applicationData\&quot;:\&quot;test.mp3\&quot;}&quot;</span>
-    },
-    {
-        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callEventId5}&quot;</span>,
-        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-09-19T13:55:45.583Z&quot;</span>,
-        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;playback&quot;</span>,
-        <span class="hljs-string">&quot;data&quot;</span>: <span class="hljs-string">&quot;start&quot;</span>
-    },
-    {
-        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callEventId6}&quot;</span>,
-        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-09-19T13:55:45.583Z&quot;</span>,
-        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;playback&quot;</span>,
-        <span class="hljs-string">&quot;data&quot;</span>: <span class="hljs-string">&quot;done&quot;</span>
-    },
-    {
-        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callEventId7}&quot;</span>,
-        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-09-19T13:55:55.503Z&quot;</span>,
-        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;CHANNEL_EXECUTE_COMPLETE&quot;</span>,
-        <span class="hljs-string">&quot;data&quot;</span>: <span class="hljs-string">&quot;{\&quot;applicationName\&quot;:\&quot;playback\&quot;,\&quot;applicationData\&quot;:\&quot;test.mp3\&quot;}&quot;</span>
-    },
-    {
-        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callEventId8}&quot;</span>,
-        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-09-19T13:55:58.323Z&quot;</span>,
-        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;hangup&quot;</span>,
-        <span class="hljs-string">&quot;data&quot;</span>: <span class="hljs-string">&quot;NORMAL_CLEARING&quot;</span>
-    },
-    {
-        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callEventId9}&quot;</span>,
-        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-09-19T13:55:58.343Z&quot;</span>,
-        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;CHANNEL_EXECUTE_COMPLETE&quot;</span>,
-        <span class="hljs-string">&quot;data&quot;</span>: <span class="hljs-string">&quot;{\&quot;applicationName\&quot;:\&quot;playback\&quot;,\&quot;applicationData\&quot;:\&quot;test.mp3\&quot;}&quot;</span>
-    }
-]
-</code></pre>
-<h2 id="get-callscallideventscalleventid">GET calls/{callId}/events/{callEventId}</h2>
-<p>Gets information about one call event. No query parameters are supported.</p>
-<pre><code class="lang-shell">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/events/{eventId} \
-    -u {token}:{secret} \
-    -H &quot;Content-type: application/json&quot;
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
-client.Call.getEvent(callId, eventId).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">callEvent</span>) </span>{});
-<span class="hljs-comment">// Callback</span>
-client.Call.getEvent(callId, eventId, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, callEvent</span>) </span>{});
-</code></pre>
-<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> callEvent = <span class="hljs-keyword">async</span> client.Call.GetEventAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>, <span class="hljs-string">&quot;{eventId1}&quot;</span>);
-</code></pre>
-<pre><code class="lang-ruby">call_event = call.get_event(<span class="hljs-string">&quot;{eventId1}&quot;</span>)
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre><code>{
-        &quot;id&quot;: &quot;ce-qg4vz6anrfogri7hhduqlgq&quot;,
-        &quot;time&quot;: 1419032854964,
-        &quot;name&quot;: &quot;hangup&quot;,
-        &quot;data&quot;: &quot;&quot;
-}
-</code></pre><h2 id="get-callscallidrecordings">GET calls/{callId}/recordings</h2>
-<p>Retrieve all recordings related to the call.</p>
-<h3 id="example-get-recordings-for-a-call-id">Example: Get recordings for a call Id.</h3>
-<pre><code class="lang-shell">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/recordigns \
-    -u {token}:{secret} \
-    -H &quot;Content-type: application/json&quot;
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
-client.Call.getRecordings(callId).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">list</span>) </span>{});
-<span class="hljs-comment">// Callback</span>
-client.Call.getRecordings(callId, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, list</span>) </span>{});
-</code></pre>
-<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> recordings = client.Call.GetRecordings(<span class="hljs-string">&quot;{callId1}&quot;</span>);
-</code></pre>
-<pre><code class="lang-ruby">recordings = call.get_recordings()
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre><code class="lang-json">[
-    {
-        <span class="hljs-string">&quot;endTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T12:06:55.007Z&quot;</span>,
-        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{recordingId1}&quot;</span>,
-        <span class="hljs-string">&quot;media&quot;</span>: <span class="hljs-string">&quot;https://.../v1/users/.../media/{callId}-1.wav&quot;</span>,
-        <span class="hljs-string">&quot;call&quot;</span>: <span class="hljs-string">&quot;https://.../v1/users/.../calls/{callId}&quot;</span>,
-        <span class="hljs-string">&quot;startTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T12:05:17.807Z&quot;</span>,
-        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;complete&quot;</span>
-    },
-    {
-        <span class="hljs-string">&quot;endTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T13:15:65.887Z&quot;</span>,
-        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{recordingId2}&quot;</span>,
-        <span class="hljs-string">&quot;media&quot;</span>: <span class="hljs-string">&quot;https://.../v1/users/.../media/{callId}-2.wav&quot;</span>,
-        <span class="hljs-string">&quot;call&quot;</span>: <span class="hljs-string">&quot;https://.../v1/users/.../calls/{callId}&quot;</span>,
-        <span class="hljs-string">&quot;startTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T13:15:55.887Z&quot;</span>,
-        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;complete&quot;</span>
-    }
-]
-</code></pre>
-<h2 id="get-callscallidtranscriptions">GET calls/{callId}/transcriptions</h2>
-<p>Retrieve all transcriptions related to the call.</p>
-<h3 id="example-retrieve-all-transcriptions-related-to-the-call">Example: Retrieve all transcriptions related to the call.</h3>
-<pre><code class="lang-shell">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/transcriptions \
-    -u {token}:{secret} \
-    -H &quot;Content-type: application/json&quot;
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
-client.Call.getTranscriptions(callId).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">list</span>) </span>{});
-<span class="hljs-comment">// Callback</span>
-client.Call.getTranscriptions(callId, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, list</span>) </span>{});
-</code></pre>
-<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> transcriptions = client.Call.GetTranscriptions(<span class="hljs-string">&quot;{callId1}&quot;</span>);
-</code></pre>
-<pre><code class="lang-ruby">transcriptions = call.get_transcriptions()
-</code></pre>
-<h2 id="post-callscallidgather">POST calls/{callId}/gather</h2>
-<p>Collects a series of DTMF digits from a phone call with an optional prompt. This request returns immediately. When gather finishes, an event with the results will be posted to the callback URL.</p>
-<h3 id="supported-parameters">Supported Parameters</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Parameter</th>
-<th style="text-align:left">Description</th>
-<th style="text-align:left">Mandatory</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">maxDigits</td>
-<td style="text-align:left">The maximum number of digits to collect, not including terminating digits (maximum 30).</td>
-<td style="text-align:left">No</td>
+<td style="text-align:left">to</td>
+<td style="text-align:left">The phone number or SIP address that received the call. Phone numbers are in E.164 format (e.g. +15555555555) -or- SIP addresses (e.g. identify@domain.com).</td>
 </tr>
 <tr>
-<td style="text-align:left">interDigitTimeout</td>
-<td style="text-align:left">Stop gathering if a DTMF digit is not detected in this many seconds (default 5.0; maximum 30.0).</td>
-<td style="text-align:left">No</td>
+<td style="text-align:left">state</td>
+<td style="text-align:left">The call state. Described below, values are:<br> - <code>started</code> <br> - <code>rejected</code><br> -<code>active</code><br> -<code>completed</code><br> -<code>transferring</code></td>
 </tr>
 <tr>
-<td style="text-align:left">terminatingDigits</td>
-<td style="text-align:left">A string of DTMF digits that end the gather operation immediately if any one of them is detected (default &#x201C;#&#x201D;; an empty string means collect all DTMF until maxDigits or the timeout).<br>Example:<br><code>#</code> : The gather ends if # is detected (this is the default behavior if the terminatingDigits property is not specified)<br><code>0#*</code> : The gather ends if either 0, #, or * is detected<br>Don&#x2019;t forget to encode keypad digits that have special meaning in a URL, like #.</td>
-<td style="text-align:left">No</td>
+<td style="text-align:left">startTime</td>
+<td style="text-align:left">Date when the call was created. Timestamp follows the ISO8601 format.</td>
+</tr>
+<tr>
+<td style="text-align:left">activeTime</td>
+<td style="text-align:left">Date when the call was answered. Timestamp follows the ISO8601 format.</td>
+</tr>
+<tr>
+<td style="text-align:left">endTime</td>
+<td style="text-align:left">Date when the call ended. Timestamp follows the ISO8601 format.</td>
+</tr>
+<tr>
+<td style="text-align:left">callTimeout</td>
+<td style="text-align:left">Determine how long should the platform wait for call answer before timing out in seconds (milliseconds).</td>
+</tr>
+<tr>
+<td style="text-align:left">callbackUrl</td>
+<td style="text-align:left">The server URL where the call events related to the call will be sent.</td>
+</tr>
+<tr>
+<td style="text-align:left">callbackHttpMethod</td>
+<td style="text-align:left">Determine if the callback event should be sent via HTTP GET or HTTP POST. Values are <code>GET</code> or <code>POST</code> Default is <code>POST</code></td>
+</tr>
+<tr>
+<td style="text-align:left">callbackTimeout</td>
+<td style="text-align:left">Determine how long should the platform wait for callbackUrl&apos;s response before timing out (milliseconds).</td>
+</tr>
+<tr>
+<td style="text-align:left">fallbackUrl</td>
+<td style="text-align:left">The server URL used to send the call events if the request to callbackUrl fails.</td>
+</tr>
+<tr>
+<td style="text-align:left">chargeableDuration</td>
+<td style="text-align:left">The number of seconds the call will be billed for.</td>
+</tr>
+<tr>
+<td style="text-align:left">events</td>
+<td style="text-align:left">The URL to retrieve the events related to the call.</td>
+</tr>
+<tr>
+<td style="text-align:left">recordings</td>
+<td style="text-align:left">The URL to retrieve the recordings related to the call.</td>
+</tr>
+<tr>
+<td style="text-align:left">recordingEnabled</td>
+<td style="text-align:left">Indicates if the call should be recorded after being created. Set to <code>true</code> to enable. Default is <code>false</code></td>
+</tr>
+<tr>
+<td style="text-align:left">transcriptionEnabled</td>
+<td style="text-align:left">Whether all the recordings for this call should be be automatically transcribed.</td>
 </tr>
 <tr>
 <td style="text-align:left">tag</td>
-<td style="text-align:left">A string you choose that will be included with the response and events for this gather operation.</td>
-<td style="text-align:left">No</td>
+<td style="text-align:left">Any string, it will be included in the callback events of the call.</td>
 </tr>
 <tr>
-<td style="text-align:left">prompt.sentence</td>
-<td style="text-align:left">The text to speak for the prompt (uses the call audio resource defaults). NOTE: encode special characters in the sentence.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">prompt.gender</td>
-<td style="text-align:left">The gender to use for the voice reading the prompt sentence (uses the call audio resource defaults).</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">prompt.locale</td>
-<td style="text-align:left">The language and region to use for the voice reading the prompt sentence (uses the call audio resource defaults).</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">prompt.loopEnabled</td>
-<td style="text-align:left">When value is true, the audio will keep playing in a loop. Default: false</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">prompt.bargeable</td>
-<td style="text-align:left">Make the prompt (audio or sentence) bargeable (will be interrupted at first digit gathered). Default: true</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">prompt.fileUrl</td>
-<td style="text-align:left">The location of an audio file to play (WAV and MP3 supported).</td>
-<td style="text-align:left">No</td>
+<td style="text-align:left">sipHeaders</td>
+<td style="text-align:left">Map of Sip headers prefixed by &quot;X-&quot;. Up to 5 headers can be sent per call. Max length for header and value is 256 characters.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="example-play-a-prompt-sentence">Example: Play a prompt sentence</h3>
-<p>Play a prompt sentence, then wait until 5 digits are pressed. Stop gathering digits if * is pressed, or if 7 seconds pass with no digits pressed.</p>
-<pre><code class="lang-shell">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-get-call-information">Example: Get Call Information</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId} \
     -u {token}:{secret} \
-    -H &quot;Content-type: application/json&quot; \
-        -d \
-    &apos;
-    {
-        &quot;maxDigits&quot;:&quot;5&quot;,
-        &quot;terminatingDigits&quot;:&quot;*&quot;,
-        &quot;interDigitTimeout&quot;:&quot;7&quot;,
-        &quot;prompt&quot;: {
-            &quot;sentence&quot;: &quot;Please enter your 5 digit code&quot;
-        }
-    }&apos;
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
 </code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">//Create Gather</span>
-<span class="hljs-comment">//The gather ends if either 0, #, or * is detected</span>
-<span class="hljs-keyword">var</span> options =     {
-    <span class="hljs-string">&quot;maxDigits&quot;</span>:<span class="hljs-string">&quot;5&quot;</span>,
-    <span class="hljs-string">&quot;terminatingDigits&quot;</span>:<span class="hljs-string">&quot;*&quot;</span>,
-    <span class="hljs-string">&quot;interDigitTimeout&quot;</span>:<span class="hljs-string">&quot;7&quot;</span>,
-    <span class="hljs-string">&quot;prompt&quot;</span>: {
-        <span class="hljs-string">&quot;sentence&quot;</span>: <span class="hljs-string">&quot;Please enter your 5 digit code&quot;</span>
-    }
-};
-<span class="hljs-comment">//Promise</span>
-client.Call.createGather(<span class="hljs-string">&quot;callId&quot;</span>, options).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{});
-
-<span class="hljs-comment">//Callback</span>
-client.Call.createGather(<span class="hljs-string">&quot;callId&quot;</span>, options, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, res</span>) </span>{});
-</code></pre>
-<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> gather = <span class="hljs-keyword">await</span> client.Call.CreateGatherAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>, <span class="hljs-keyword">new</span> CreateGatherData {
-    MaxDigits = <span class="hljs-string">&quot;5&quot;</span>,
-    TerminatingDigits = <span class="hljs-string">&quot;*&quot;</span>,
-    InterDigitTimeout = <span class="hljs-string">&quot;7&quot;</span>,
-    Prompt = <span class="hljs-keyword">new</span> GatherPrompt {
-        Sentence = <span class="hljs-string">&quot;Please enter your 5 digit code&quot;</span>
-    }
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js">client.Call.get(<span class="hljs-string">&quot;{callId}&quot;</span>)
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(respone);
 });
 </code></pre>
-<pre><code class="lang-ruby">gather = call.create_gather({
-    <span class="hljs-symbol">:max_digits</span> =&gt; <span class="hljs-string">&quot;5&quot;</span>,
-    <span class="hljs-symbol">:terminating_digits</span> =&gt; <span class="hljs-string">&quot;*&quot;</span>,
-    <span class="hljs-symbol">:inter_digit_timeout</span> =&gt; <span class="hljs-string">&quot;7&quot;</span>,
-    <span class="hljs-symbol">:prompt</span> =&gt;  {
-        <span class="hljs-symbol">:sentence</span> =&gt; <span class="hljs-string">&quot;Please enter your 5 digit code&quot;</span>
-    }
-})
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> call = <span class="hljs-keyword">await</span> client.Call.GetAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>);
 </code></pre>
-<h2 id="get-callscallidgathergatherid">GET calls/{callId}/gather/{gatherId}</h2>
-<p>Get the gather DTMF parameters and results.</p>
-<pre><code class="lang-shell">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather/{gatherId} \
-    -u {token}:{secret} \
-    -H &quot;Content-type: application/json&quot;
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">call = Call.get(client, <span class="hljs-string">&quot;{callId1}&quot;</span>)
 </code></pre>
-<pre><code class="lang-js">client.Call.getGather(<span class="hljs-string">&quot;{callId}&quot;</span>, <span class="hljs-string">&quot;{gatherId}&quot;</span>)
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{
-  <span class="hljs-built_in">console</span>.log(res);
-});
-</code></pre>
-<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> gather = <span class="hljs-keyword">await</span> client.Call.GetGatherAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>, <span class="hljs-string">&quot;{gatherId1}&quot;</span>);
-</code></pre>
-<pre><code class="lang-ruby">gather = call.get_gather(<span class="hljs-string">&quot;{gatherId1}&quot;</span>)
-</code></pre>
-<blockquote>
+</div><div class="api-method-example"><blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre><code>{
-  &quot;id&quot;: &quot;{gatherId}&quot;,
-  &quot;state&quot;: &quot;completed&quot;,
-  &quot;reason&quot;: &quot;max-digits&quot;,
-  &quot;createdTime&quot;: &quot;2014-02-12T19:33:56Z&quot;,
-  &quot;completedTime&quot;: &quot;2014-02-12T19:33:59Z&quot;,
-  &quot;call&quot;: &quot;https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}&quot;,
-  &quot;digits&quot;: &quot;123&quot;
+<pre><code class="lang-json">{
+        <span class="hljs-string">&quot;activeTime&quot;</span>: <span class="hljs-string">&quot;2014-12-19T19:13:20Z&quot;</span>,
+        <span class="hljs-string">&quot;callbackUrl&quot;</span>: <span class="hljs-string">&quot;https://example.com&quot;</span>,
+        <span class="hljs-string">&quot;chargeableDuration&quot;</span>: <span class="hljs-number">60</span>,
+        <span class="hljs-string">&quot;direction&quot;</span>: <span class="hljs-string">&quot;out&quot;</span>,
+        <span class="hljs-string">&quot;endTime&quot;</span>: <span class="hljs-string">&quot;2014-12-19T19:13:22Z&quot;</span>,
+        <span class="hljs-string">&quot;events&quot;</span>: <span class="hljs-string">&quot;https://.../calls/{callId}/events&quot;</span>,
+        <span class="hljs-string">&quot;fallbackUrl&quot;</span>: <span class="hljs-string">&quot;https://example-fallback.com&quot;</span>,
+        <span class="hljs-string">&quot;from&quot;</span>: <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callId}&quot;</span>,
+        <span class="hljs-string">&quot;recordingEnabled&quot;</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-string">&quot;recordings&quot;</span>: <span class="hljs-string">&quot;https://.../calls/{callId}/recordings&quot;</span>,
+        <span class="hljs-string">&quot;startTime&quot;</span>: <span class="hljs-string">&quot;2014-12-19T19:13:09Z&quot;</span>,
+        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;completed&quot;</span>,
+        <span class="hljs-string">&quot;to&quot;</span>: <span class="hljs-string">&quot;{toNumber}&quot;</span>,
+        <span class="hljs-string">&quot;transcriptionEnabled&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-string">&quot;transcriptions&quot;</span>: <span class="hljs-string">&quot;https://.../calls/{callId}/transcriptions&quot;</span>,
+        <span class="hljs-string">&quot;sipHeaders&quot;</span> : {
+                <span class="hljs-string">&quot;X-header&quot;</span> : <span class="hljs-string">&quot;value&quot;</span>
+        }
 }
-</code></pre><h2 id="post-callscallidgathergatherid">POST calls/{callId}/gather/{gatherId}</h2>
-<p>Update the gather.</p>
-<aside class="notice">
-The only update allowed is state:completed to stop the gather.
-</aside>
-
-<h3 id="example-stop-the-gather-dtmf">Example: Stop the gather DTMF</h3>
-<pre><code class="lang-shell">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather/{gatherId} \
-  -u {token}:{secret} \
-    -H &quot;Content-type: application/json&quot; \
-    -d \
-    &apos;
-    {
-        &quot;state&quot;: &quot;completed&quot;
-    }&apos;
 </code></pre>
-<pre><code class="lang-js">client.Call.completeGather(<span class="hljs-string">&quot;{callId}&quot;</span>, <span class="hljs-string">&quot;{gatherId}&quot;</span>)
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{});
-</code></pre>
-<pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Call.UpdateGatherAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>, <span class="hljs-string">&quot;{gatherId1}&quot;</span>, <span class="hljs-keyword">new</span> UpdateGatherData {State = CallGatherState.Completed});
-</code></pre>
-<pre><code class="lang-ruby">call.update_gather(<span class="hljs-string">&quot;{gatherId1}&quot;</span>, {<span class="hljs-symbol">:state</span> =&gt; <span class="hljs-string">&quot;completed&quot;</span>})
-</code></pre>
+</div></div></div>
 
                                 
                                 </section>
@@ -1088,7 +574,7 @@ The only update allowed is state:completed to stop the gather.
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET /calls/{callId}","level":"2.2.3","depth":2,"next":{"title":"POST /calls/{callId}","level":"2.2.4","depth":2,"path":"methods/calls/postCallsCallId.md","ref":"methods/calls/postCallsCallId.md","articles":[]},"previous":{"title":"POST /calls","level":"2.2.2","depth":2,"path":"methods/calls/postCalls.md","ref":"methods/calls/postCalls.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/getCallsCallId.md","mtime":"2016-10-14T19:20:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-14T19:24:46.866Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET /calls/{callId}","level":"2.2.3","depth":2,"next":{"title":"POST /calls/{callId}","level":"2.2.4","depth":2,"path":"methods/calls/postCallsCallId.md","ref":"methods/calls/postCallsCallId.md","articles":[]},"previous":{"title":"POST /calls","level":"2.2.2","depth":2,"path":"methods/calls/postCalls.md","ref":"methods/calls/postCalls.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/getCallsCallId.md","mtime":"2016-10-17T18:07:27.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-17T18:09:00.458Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

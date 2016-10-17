@@ -408,7 +408,46 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <div class="api-method"><div class="api-method-definition"><h2 id="get-callscallidrecordings">GET calls/{callId}/recordings</h2>
+<p>Retrieve all recordings related to the call.</p>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-get-recordings-for-a-call-id">Example: Get recordings for a call Id.</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/recordigns \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
+client.Call.getRecordings(callId).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">list</span>) </span>{});
+<span class="hljs-comment">// Callback</span>
+client.Call.getRecordings(callId, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, list</span>) </span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> recordings = client.Call.GetRecordings(<span class="hljs-string">&quot;{callId1}&quot;</span>);
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">recordings = call.get_recordings()
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code class="lang-json">[
+    {
+        <span class="hljs-string">&quot;endTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T12:06:55.007Z&quot;</span>,
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{recordingId1}&quot;</span>,
+        <span class="hljs-string">&quot;media&quot;</span>: <span class="hljs-string">&quot;https://.../v1/users/.../media/{callId}-1.wav&quot;</span>,
+        <span class="hljs-string">&quot;call&quot;</span>: <span class="hljs-string">&quot;https://.../v1/users/.../calls/{callId}&quot;</span>,
+        <span class="hljs-string">&quot;startTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T12:05:17.807Z&quot;</span>,
+        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;complete&quot;</span>
+    },
+    {
+        <span class="hljs-string">&quot;endTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T13:15:65.887Z&quot;</span>,
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{recordingId2}&quot;</span>,
+        <span class="hljs-string">&quot;media&quot;</span>: <span class="hljs-string">&quot;https://.../v1/users/.../media/{callId}-2.wav&quot;</span>,
+        <span class="hljs-string">&quot;call&quot;</span>: <span class="hljs-string">&quot;https://.../v1/users/.../calls/{callId}&quot;</span>,
+        <span class="hljs-string">&quot;startTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T13:15:55.887Z&quot;</span>,
+        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;complete&quot;</span>
+    }
+]
+</code></pre>
+</div></div></div>
+
                                 
                                 </section>
                             
@@ -441,7 +480,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET /calls/{callId}/recordings","level":"2.2.9","depth":2,"next":{"title":"GET /calls/{callId}/transcriptions","level":"2.2.10","depth":2,"path":"methods/calls/getCallsCallIdTranscriptions.md","ref":"methods/calls/getCallsCallIdTranscriptions.md","articles":[]},"previous":{"title":"GET /calls/{callId}/events/{eventId}","level":"2.2.8","depth":2,"path":"methods/calls/getCallsCallIdEventsEventId.md","ref":"methods/calls/getCallsCallIdEventsEventId.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/getCallsCallIdRecordings.md","mtime":"2016-10-14T19:20:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-14T19:24:46.866Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET /calls/{callId}/recordings","level":"2.2.9","depth":2,"next":{"title":"GET /calls/{callId}/transcriptions","level":"2.2.10","depth":2,"path":"methods/calls/getCallsCallIdTranscriptions.md","ref":"methods/calls/getCallsCallIdTranscriptions.md","articles":[]},"previous":{"title":"GET /calls/{callId}/events/{eventId}","level":"2.2.8","depth":2,"path":"methods/calls/getCallsCallIdEventsEventId.md","ref":"methods/calls/getCallsCallIdEventsEventId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/getCallsCallIdRecordings.md","mtime":"2016-10-17T17:52:07.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-17T18:09:00.458Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

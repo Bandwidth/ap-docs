@@ -408,7 +408,114 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <div class="api-method"><div class="api-method-definition"><h2 id="get-callscallidevents">GET calls/{callId}/events</h2>
+<p>Gets the events that occurred during the call. No query parameters are supported.</p>
+<h3 id="event-properties">Event Properties</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">The call event id.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">time</td>
+<td style="text-align:left">The time the event occurred.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">The name of the event.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">data</td>
+<td style="text-align:left">Data about event.</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-get-events-for-a-call">Example: Get events for a call.</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/events \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
+client.Call.getEvents(callId).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">events</span>) </span>{});
+<span class="hljs-comment">// Callback</span>
+client.Call.getEvents(callId, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, events</span>) </span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> events = client.Call.GetEvents(<span class="hljs-string">&quot;{callId1}&quot;</span>);
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">events = call.get_events()
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+</div><div class="api-method-example"><pre><code class="lang-json">[
+    {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callEventId1}&quot;</span>,
+        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-09-19T13:55:41.343Z&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;create&quot;</span>
+    },
+    {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callEventId2}&quot;</span>,
+        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-09-19T13:55:45.583Z&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;answer&quot;</span>
+    },
+    {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callEventId3}&quot;</span>,
+        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-09-19T13:55:45.583Z&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;CHANNEL_EXECUTE&quot;</span>,
+        <span class="hljs-string">&quot;data&quot;</span>: <span class="hljs-string">&quot;{\&quot;applicationName\&quot;:\&quot;park\&quot;}&quot;</span>
+    },
+    {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callEventId4}&quot;</span>,
+        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-09-19T13:55:51.283Z&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;CHANNEL_EXECUTE&quot;</span>,
+        <span class="hljs-string">&quot;data&quot;</span>: <span class="hljs-string">&quot;{\&quot;applicationName\&quot;:\&quot;playback\&quot;,\&quot;applicationData\&quot;:\&quot;test.mp3\&quot;}&quot;</span>
+    },
+    {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callEventId5}&quot;</span>,
+        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-09-19T13:55:45.583Z&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;playback&quot;</span>,
+        <span class="hljs-string">&quot;data&quot;</span>: <span class="hljs-string">&quot;start&quot;</span>
+    },
+    {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callEventId6}&quot;</span>,
+        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-09-19T13:55:45.583Z&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;playback&quot;</span>,
+        <span class="hljs-string">&quot;data&quot;</span>: <span class="hljs-string">&quot;done&quot;</span>
+    },
+    {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callEventId7}&quot;</span>,
+        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-09-19T13:55:55.503Z&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;CHANNEL_EXECUTE_COMPLETE&quot;</span>,
+        <span class="hljs-string">&quot;data&quot;</span>: <span class="hljs-string">&quot;{\&quot;applicationName\&quot;:\&quot;playback\&quot;,\&quot;applicationData\&quot;:\&quot;test.mp3\&quot;}&quot;</span>
+    },
+    {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callEventId8}&quot;</span>,
+        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-09-19T13:55:58.323Z&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;hangup&quot;</span>,
+        <span class="hljs-string">&quot;data&quot;</span>: <span class="hljs-string">&quot;NORMAL_CLEARING&quot;</span>
+    },
+    {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callEventId9}&quot;</span>,
+        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-09-19T13:55:58.343Z&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;CHANNEL_EXECUTE_COMPLETE&quot;</span>,
+        <span class="hljs-string">&quot;data&quot;</span>: <span class="hljs-string">&quot;{\&quot;applicationName\&quot;:\&quot;playback\&quot;,\&quot;applicationData\&quot;:\&quot;test.mp3\&quot;}&quot;</span>
+    }
+]
+</code></pre>
+</div></div></div>
+
                                 
                                 </section>
                             
@@ -441,7 +548,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET /calls/{callId}/events","level":"2.2.7","depth":2,"next":{"title":"GET /calls/{callId}/events/{eventId}","level":"2.2.8","depth":2,"path":"methods/calls/getCallsCallIdEventsEventId.md","ref":"methods/calls/getCallsCallIdEventsEventId.md","articles":[]},"previous":{"title":"POST /calls/{callId}/DTMF","level":"2.2.6","depth":2,"path":"methods/calls/postCallsCallIdDTMF.md","ref":"methods/calls/postCallsCallIdDTMF.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"shell","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/getCallsCallIdEvents.md","mtime":"2016-10-14T19:20:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-14T19:24:46.866Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET /calls/{callId}/events","level":"2.2.7","depth":2,"next":{"title":"GET /calls/{callId}/events/{eventId}","level":"2.2.8","depth":2,"path":"methods/calls/getCallsCallIdEventsEventId.md","ref":"methods/calls/getCallsCallIdEventsEventId.md","articles":[]},"previous":{"title":"POST /calls/{callId}/DTMF","level":"2.2.6","depth":2,"path":"methods/calls/postCallsCallIdDTMF.md","ref":"methods/calls/postCallsCallIdDTMF.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/getCallsCallIdEvents.md","mtime":"2016-10-17T17:50:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-17T18:09:00.458Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
