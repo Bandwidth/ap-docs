@@ -1,0 +1,1734 @@
+
+<!DOCTYPE HTML>
+<html lang="">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>/phoneNumbers &#xB7; GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="getPhoneNumbers.html">
+    
+    
+    <link rel="prev" href="../numberInfo/getNumberInfo.html">
+    
+
+    </head>
+    <body>
+        
+<div class="book"><div class="head">
+   <a href="http://bandwidth.github.io" class="aimg"><img src="http://www.bandwidth.com/sites/all/themes/bandwidth/images/logo-footer.png"></a>
+   <h1>|&#xA0; API Reference Docs</h1>
+   <ul>
+   	<li><a href="https://catapult.inetwork.com/portal/signup" target="_blank" class="headbutton">Sign up</a></li>
+   	<li><a href="https://catapult.inetwork.com/pages/login.jsf" target="_blank">Log in</a></li>
+   	<li><a href="https://support.bandwidth.com/access/unauthenticated" target="_blank">Support</a></li>
+   </ul>
+</div>
+
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Overview</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Bandwidth
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Methods</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../account/account.html">
+            
+                <a href="../account/account.html">
+            
+                    
+                    /account
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../account/getAccount.html">
+            
+                <a href="../account/getAccount.html">
+            
+                    
+                    GET /account
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../account/getAccountTransactions.html">
+            
+                <a href="../account/getAccountTransactions.html">
+            
+                    
+                    GET /account/transactions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../applications/applications.html">
+            
+                <a href="../applications/applications.html">
+            
+                    
+                    /applications
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../applications/getApplications.html">
+            
+                <a href="../applications/getApplications.html">
+            
+                    
+                    GET /applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../applications/postApplications.html">
+            
+                <a href="../applications/postApplications.html">
+            
+                    
+                    POST /applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../applications/getApplicationsApplicationId.html">
+            
+                <a href="../applications/getApplicationsApplicationId.html">
+            
+                    
+                    GET /applications/{applicationId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../applications/postApplicationsApplicationId.html">
+            
+                <a href="../applications/postApplicationsApplicationId.html">
+            
+                    
+                    POST /applications/{applicationId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5" data-path="../applications/deleteApplicationsApplicationId.html">
+            
+                <a href="../applications/deleteApplicationsApplicationId.html">
+            
+                    
+                    DELETE /applications/{applicationId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../availableNumbers/availableNumbers.html">
+            
+                <a href="../availableNumbers/availableNumbers.html">
+            
+                    
+                    /availableNumbers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../availableNumbers/getAvailableNumbersLocal.html">
+            
+                <a href="../availableNumbers/getAvailableNumbersLocal.html">
+            
+                    
+                    GET /availableNumbers/local
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../availableNumbers/postAvailableNumbersLocal.html">
+            
+                <a href="../availableNumbers/postAvailableNumbersLocal.html">
+            
+                    
+                    POST /availableNumbers/local
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../availableNumbers/getAvailableNumbersTollFree.html">
+            
+                <a href="../availableNumbers/getAvailableNumbersTollFree.html">
+            
+                    
+                    GET /availableNumbers/tollFree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="../availableNumbers/postAvailableNumbersTollFree.html">
+            
+                <a href="../availableNumbers/postAvailableNumbersTollFree.html">
+            
+                    
+                    POST /availableNumbers/tollFree
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../bridges/bridges.html">
+            
+                <a href="../bridges/bridges.html">
+            
+                    
+                    /bridges
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../bridges/getBridges.html">
+            
+                <a href="../bridges/getBridges.html">
+            
+                    
+                    GET /bridges
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../bridges/postBridges.html">
+            
+                <a href="../bridges/postBridges.html">
+            
+                    
+                    POST /bridges
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3" data-path="../bridges/getBridgesBridgeId.html">
+            
+                <a href="../bridges/getBridgesBridgeId.html">
+            
+                    
+                    GET /bridges/{bridgeId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.4" data-path="../bridges/postBridgesBridgeId.html">
+            
+                <a href="../bridges/postBridgesBridgeId.html">
+            
+                    
+                    POST /bridges/{bridgeId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.5" data-path="../bridges/postBridgesBridgeIdAudio.html">
+            
+                <a href="../bridges/postBridgesBridgeIdAudio.html">
+            
+                    
+                    POST /bridges/{bridgeId}/audio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.6" data-path="../bridges/getBridgesBridgeIdCalls.html">
+            
+                <a href="../bridges/getBridgesBridgeIdCalls.html">
+            
+                    
+                    GET /bridges/{bridgeId}/calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../calls/calls.html">
+            
+                <a href="../calls/calls.html">
+            
+                    
+                    /calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1" data-path="../calls/getCalls.html">
+            
+                <a href="../calls/getCalls.html">
+            
+                    
+                    GET /calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.2" data-path="../calls/postCalls.html">
+            
+                <a href="../calls/postCalls.html">
+            
+                    
+                    POST /calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.3" data-path="../calls/getCallsCallId.html">
+            
+                <a href="../calls/getCallsCallId.html">
+            
+                    
+                    GET /calls/{callId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.4" data-path="../calls/postCallsCallId.html">
+            
+                <a href="../calls/postCallsCallId.html">
+            
+                    
+                    POST /calls/{callId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.5" data-path="../calls/postCallsCallIdAudio.html">
+            
+                <a href="../calls/postCallsCallIdAudio.html">
+            
+                    
+                    POST /calls/{callId}/audio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.6" data-path="../calls/postCallsCallIdDTMF.html">
+            
+                <a href="../calls/postCallsCallIdDTMF.html">
+            
+                    
+                    POST /calls/{callId}/DTMF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.7" data-path="../calls/getCallsCallIdEvents.html">
+            
+                <a href="../calls/getCallsCallIdEvents.html">
+            
+                    
+                    GET /calls/{callId}/events
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.8" data-path="../calls/getCallsCallIdEventsEventId.html">
+            
+                <a href="../calls/getCallsCallIdEventsEventId.html">
+            
+                    
+                    GET /calls/{callId}/events/{eventId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.9" data-path="../calls/getCallsCallIdRecordings.html">
+            
+                <a href="../calls/getCallsCallIdRecordings.html">
+            
+                    
+                    GET /calls/{callId}/recordings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.10" data-path="../calls/getCallsCallIdTranscriptions.html">
+            
+                <a href="../calls/getCallsCallIdTranscriptions.html">
+            
+                    
+                    GET /calls/{callId}/transcriptions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.11" data-path="../calls/postCallsCallIdGather.html">
+            
+                <a href="../calls/postCallsCallIdGather.html">
+            
+                    
+                    POST /calls/{callId}/gather
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.12" data-path="../calls/getCallsCallIdGatherGatherId.html">
+            
+                <a href="../calls/getCallsCallIdGatherGatherId.html">
+            
+                    
+                    GET /calls/{callId}/gather/{gatherId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.13" data-path="../calls/postCallsCallIdGatherGatherId.html">
+            
+                <a href="../calls/postCallsCallIdGatherGatherId.html">
+            
+                    
+                    POST /calls/{callId}/gather/{gatherId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../conferences/conferences.html">
+            
+                <a href="../conferences/conferences.html">
+            
+                    
+                    /conferences
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.6.1" data-path="../conferences/postConferences.html">
+            
+                <a href="../conferences/postConferences.html">
+            
+                    
+                    POST /conferences
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.2" data-path="../conferences/getConferencesConferenceId.html">
+            
+                <a href="../conferences/getConferencesConferenceId.html">
+            
+                    
+                    GET /conferences/{conferenceId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.3" data-path="../conferences/postConferencesConferenceId.html">
+            
+                <a href="../conferences/postConferencesConferenceId.html">
+            
+                    
+                    POST /conferences/{conferenceId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.4" data-path="../conferences/postConferencesConferenceIdAudio.html">
+            
+                <a href="../conferences/postConferencesConferenceIdAudio.html">
+            
+                    
+                    POST /conferences/{conferenceId}/audio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.5" data-path="../conferences/postConferencesConferenceIdMembers.html">
+            
+                <a href="../conferences/postConferencesConferenceIdMembers.html">
+            
+                    
+                    POST /conferences/{conferenceId}/members
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.6" data-path="../conferences/getConferencesConferenceIdMembers.html">
+            
+                <a href="../conferences/getConferencesConferenceIdMembers.html">
+            
+                    
+                    GET /conferences/{conferenceId}/members
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.7" data-path="../conferences/postConferencesConferenceIdMembersMemberId.html">
+            
+                <a href="../conferences/postConferencesConferenceIdMembersMemberId.html">
+            
+                    
+                    POST /conferences/{conferenceId}/members/{memberId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.8" data-path="../conferences/getConferencesConferenceIdMembersMemberId.html">
+            
+                <a href="../conferences/getConferencesConferenceIdMembersMemberId.html">
+            
+                    
+                    GET /conferences/{conferenceId}/members/{memberId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.9" data-path="../conferences/postConferencesConferenceIdMembersMemberIdAudio.html">
+            
+                <a href="../conferences/postConferencesConferenceIdMembersMemberIdAudio.html">
+            
+                    
+                    POST /conferences/{conferenceId}/members/{memberId}/audio
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="../domains/domains.html">
+            
+                <a href="../domains/domains.html">
+            
+                    
+                    /domains
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.7.1" data-path="../domains/getDomains.html">
+            
+                <a href="../domains/getDomains.html">
+            
+                    
+                    GET /domains
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7.2" data-path="../domains/postDomains.html">
+            
+                <a href="../domains/postDomains.html">
+            
+                    
+                    POST /domains
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7.3" data-path="../domains/deleteDomainsDomainId.html">
+            
+                <a href="../domains/deleteDomainsDomainId.html">
+            
+                    
+                    DELTE /domains/{domainId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="../endpoints/endpoints.html">
+            
+                <a href="../endpoints/endpoints.html">
+            
+                    
+                    /endpoints
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.8.1" data-path="../endpoints/getEndpoints.html">
+            
+                <a href="../endpoints/getEndpoints.html">
+            
+                    
+                    GET /endpoints
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8.2" data-path="../endpoints/postEndpoints.html">
+            
+                <a href="../endpoints/postEndpoints.html">
+            
+                    
+                    POST /endpoints
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8.3" data-path="../endpoints/getEndpointsEndpointId.html">
+            
+                <a href="../endpoints/getEndpointsEndpointId.html">
+            
+                    
+                    GET /endpoints/{endpointId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8.4" data-path="../endpoints/deleteEndpointsEndpointId.html">
+            
+                <a href="../endpoints/deleteEndpointsEndpointId.html">
+            
+                    
+                    DELETE /endpoints/{endpointId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8.5" data-path="../endpoints/postEndpointsEndpointId.html">
+            
+                <a href="../endpoints/postEndpointsEndpointId.html">
+            
+                    
+                    POST /endpoints/{endpointId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="../errors/errors.html">
+            
+                <a href="../errors/errors.html">
+            
+                    
+                    /errors
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.9.1" data-path="../errors/getErrors.html">
+            
+                <a href="../errors/getErrors.html">
+            
+                    
+                    GET /errors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9.2" data-path="../errors/getErrorsErrorId.html">
+            
+                <a href="../errors/getErrorsErrorId.html">
+            
+                    
+                    GET /errors/{errorId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="../media/media.html">
+            
+                <a href="../media/media.html">
+            
+                    
+                    /media
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.10.1" data-path="../media/getMedia.html">
+            
+                <a href="../media/getMedia.html">
+            
+                    
+                    GET /media
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10.2" data-path="../media/putMediaMediaName.html">
+            
+                <a href="../media/putMediaMediaName.html">
+            
+                    
+                    PUT /media/{mediaName}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10.3" data-path="../media/getMediaMediaName.html">
+            
+                <a href="../media/getMediaMediaName.html">
+            
+                    
+                    GET /media/{mediaName}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10.4" data-path="../media/deleteMediaMediaName.html">
+            
+                <a href="../media/deleteMediaMediaName.html">
+            
+                    
+                    DELTE /media/{mediaName}
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="../messages/messages.html">
+            
+                <a href="../messages/messages.html">
+            
+                    
+                    /messages
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.11.1" data-path="../messages/getMessages.html">
+            
+                <a href="../messages/getMessages.html">
+            
+                    
+                    GET /messages
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11.2" data-path="../messages/postMessages.html">
+            
+                <a href="../messages/postMessages.html">
+            
+                    
+                    POST /messages
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11.3" data-path="../messages/getMessagesMessageId.html">
+            
+                <a href="../messages/getMessagesMessageId.html">
+            
+                    
+                    GET /messages/{messageId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="../numberInfo/numberInfo.html">
+            
+                <a href="../numberInfo/numberInfo.html">
+            
+                    
+                    /numberInfo
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.12.1" data-path="../numberInfo/getNumberInfo.html">
+            
+                <a href="../numberInfo/getNumberInfo.html">
+            
+                    
+                    GET /numberInfo/{number}
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.13" data-path="phoneNumbers.html">
+            
+                <a href="phoneNumbers.html">
+            
+                    
+                    /phoneNumbers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.13.1" data-path="getPhoneNumbers.html">
+            
+                <a href="getPhoneNumbers.html">
+            
+                    
+                    GET /phoneNumbers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13.2" data-path="postPhoneNumbers.html">
+            
+                <a href="postPhoneNumbers.html">
+            
+                    
+                    POST /phoneNumbers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13.3" data-path="getPhoneNumbersNumberId.html">
+            
+                <a href="getPhoneNumbersNumberId.html">
+            
+                    
+                    GET /phoneNumbers/{numberId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13.4" data-path="postPhoneNumbersNumberId.html">
+            
+                <a href="postPhoneNumbersNumberId.html">
+            
+                    
+                    POST /phoneNumbers/{numberId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13.5" data-path="deletePhoneNumbersNumberId.html">
+            
+                <a href="deletePhoneNumbersNumberId.html">
+            
+                    
+                    DELETE /phoneNumbers/{numberId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14" data-path="../recordings/recordings.html">
+            
+                <a href="../recordings/recordings.html">
+            
+                    
+                    /recordings
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.14.1" data-path="../recordings/getRecordings.html">
+            
+                <a href="../recordings/getRecordings.html">
+            
+                    
+                    GET /recordings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.14.2" data-path="../recordings/getRecordingsRecordingId.html">
+            
+                <a href="../recordings/getRecordingsRecordingId.html">
+            
+                    
+                    GET /recordings/{recordingId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="../transcriptions/transcriptions.html">
+            
+                <a href="../transcriptions/transcriptions.html">
+            
+                    
+                    /recordings/{id}/transcriptions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.15.1" data-path="../transcriptions/postTranscriptions.html">
+            
+                <a href="../transcriptions/postTranscriptions.html">
+            
+                    
+                    POST /transcriptions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15.2" data-path="../transcriptions/getTranscriptions.html">
+            
+                <a href="../transcriptions/getTranscriptions.html">
+            
+                    
+                    GET /transcriptions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15.3" data-path="../transcriptions/getTranscriptionsTranscriptionId.html">
+            
+                <a href="../transcriptions/getTranscriptionsTranscriptionId.html">
+            
+                    
+                    GET /transcriptions/{transcriptionId}
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../..">/phoneNumbers</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div class="api-method"><div class="api-method-definition"><h1 id="phone-numbers">Phone numbers</h1>
+<p>The Phone Numbers resource lets you get phone numbers for use with your programs and manage numbers you already have.</p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">The unique id of the phone number.</td>
+</tr>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">A name you choose for this number.</td>
+</tr>
+<tr>
+<td style="text-align:left">number</td>
+<td style="text-align:left">The telephone number in E.164 format.</td>
+</tr>
+<tr>
+<td style="text-align:left">nationalNumber</td>
+<td style="text-align:left">The telephone number in a friendly national format, e.g. (555) 5555-5555</td>
+</tr>
+<tr>
+<td style="text-align:left">city</td>
+<td style="text-align:left">The city of the phone number.</td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">The state of the phone number.</td>
+</tr>
+<tr>
+<td style="text-align:left">applicationId</td>
+<td style="text-align:left">The unique id of an Application you want to associate with this number.</td>
+</tr>
+<tr>
+<td style="text-align:left">application</td>
+<td style="text-align:left">The URI of the application associated with the number for inbound phone calls and text messages.</td>
+</tr>
+<tr>
+<td style="text-align:left">fallbackNumber</td>
+<td style="text-align:left">Number to transfer an incoming call when the callback/fallback events can&#x2019;t be delivered.</td>
+</tr>
+<tr>
+<td style="text-align:left">price</td>
+<td style="text-align:left">The monthly price for this number.</td>
+</tr>
+<tr>
+<td style="text-align:left">createdTime</td>
+<td style="text-align:left">Date when the number was created. Timestamp follows the ISO8601 format (UTC).</td>
+</tr>
+<tr>
+<td style="text-align:left">numberState</td>
+<td style="text-align:left">The phone number state, values are <code>enabled</code> or <code>released</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="get-phonenumbers">GET phoneNumbers</h2>
+<p>Gets a list of your numbers. Since this operation uses HTTP GET, all the properties are specified as HTTP request parameters.</p>
+<h3 id="supported-parameters">Supported Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">page</td>
+<td style="text-align:left">Used for pagination to indicate the page requested for querying a list of phone numbers. If no value is specified the default is 0.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">size</td>
+<td style="text-align:left">Used for pagination to indicate the size of each page requested for querying a list of phone numbers. If no value is specified the default value is 25. (Maximum value 1000)</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">applicationId</td>
+<td style="text-align:left">Used to filter the retrieved list of numbers by an associated application ID.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">Used to filter the retrieved list of numbers allocated for the authenticated user by a US state.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">Used to filter the retrieved list of numbers allocated for the authenticated user by it&#x2019;s name.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">city</td>
+<td style="text-align:left">Used to filter the retrieved list of numbers allocated for the authenticated user by it&#x2019;s city.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">numberState</td>
+<td style="text-align:left">Used to filter the retrieved list of numbers allocated for the authenticated user by the number state.</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-list-phone-numbers">Example: List phone numbers</h3>
+</div><div class="api-method-code"><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
+client.PhoneNumber.list({size: <span class="hljs-number">1000</span>}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">numbersResponse</span>)</span>{});
+
+<span class="hljs-comment">// Callback</span>
+client.PhoneNumber.list({size: <span class="hljs-number">1000</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, numbersResponse</span>)</span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> numbers = client.PhoneNumber.List(<span class="hljs-keyword">new</span> PhoneNumberQuery {Size = <span class="hljs-number">1000</span>});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">numbers = PhoneNumber.list(client, {<span class="hljs-symbol">:size</span> =&gt; <span class="hljs-number">1000</span>})
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code class="lang-json">[
+{
+   <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{numberId1}&quot;</span>,
+   <span class="hljs-string">&quot;application&quot;</span>: <span class="hljs-string">&quot;https://catapult.inetwork.com/v1/users/users/u-ly123/applications/a-j321&quot;</span>,
+   <span class="hljs-string">&quot;number&quot;</span>:<span class="hljs-string">&quot;{number1}&quot;</span>,
+   <span class="hljs-string">&quot;nationalNumber&quot;</span>:<span class="hljs-string">&quot;{national_number1}&quot;</span>,
+   <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;home phone&quot;</span>,
+   <span class="hljs-string">&quot;createdTime&quot;</span>: <span class="hljs-string">&quot;2013-02-13T17:46:08.374Z&quot;</span>,
+   <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;NC&quot;</span>,
+   <span class="hljs-string">&quot;price&quot;</span>: <span class="hljs-string">&quot;0.60&quot;</span>,
+   <span class="hljs-string">&quot;numberState&quot;</span>: <span class="hljs-string">&quot;enabled&quot;</span>
+},
+{
+   <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{numberId2}&quot;</span>,
+   <span class="hljs-string">&quot;application&quot;</span>: <span class="hljs-string">&quot;https://catapult.inetwork.com/v1/users/users/u-ly123/applications/a-j123&quot;</span>,
+   <span class="hljs-string">&quot;number&quot;</span>:<span class="hljs-string">&quot;{number2}&quot;</span>,
+   <span class="hljs-string">&quot;nationalNumber&quot;</span>:<span class="hljs-string">&quot;{national_number2}&quot;</span>,
+   <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;work phone&quot;</span>,
+   <span class="hljs-string">&quot;createdTime&quot;</span>: <span class="hljs-string">&quot;2013-02-13T18:32:05.223Z&quot;</span>,
+   <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;NC&quot;</span>,
+   <span class="hljs-string">&quot;price&quot;</span>: <span class="hljs-string">&quot;0.60&quot;</span>,
+   <span class="hljs-string">&quot;numberState&quot;</span>: <span class="hljs-string">&quot;enabled&quot;</span>
+}
+]
+</code></pre>
+<h2 id="post-phonenumbers">POST phoneNumbers</h2>
+<p>Allocates a number so you can use it to make and receive calls and send and receive messages.</p>
+<h3 id="supported-parameters">Supported Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">number</td>
+<td style="text-align:left">An available telephone number you want to use (must be in E.164 format, like +19195551212).</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">A name you choose for this number.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">applicationId</td>
+<td style="text-align:left">The unique id of an Application you want to associate with this number.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">fallbackNumber</td>
+<td style="text-align:left">Number to transfer an incoming call when the callback/fallback events can&#x2019;t be delivered.</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-allocate-a-phone-number-to-your-account">Example: Allocate a phone number to your account</h3>
+<p>To allocate the phone number {number} with the name &quot;home phone&quot; and the fallbackNumber {fallback_number} you can make calls with it, send the following request:</p>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+        <span class="hljs-_">-d</span> \
+    <span class="hljs-string">&apos;
+    {
+        &quot;number&quot;: &quot;+15555555555&quot;,
+        &quot;name&quot;: &quot;home phone&quot;
+        &quot;fallbackNumber&quot;: &quot;{fallback_number}&quot;
+    }&apos;</span>
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-comment">//Allocate number +1234567980</span>
+
+<span class="hljs-comment">// Promise</span>
+client.PhoneNumber.create({ number : <span class="hljs-string">&quot;+1234567890&quot;</span> }).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">number</span>)</span>{});
+
+<span class="hljs-comment">// Callback</span>
+client.PhoneNumber.create({ number : <span class="hljs-string">&quot;+1234567890&quot;</span> }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, number</span>)</span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> number = <span class="hljs-keyword">await</span> client.PhoneNumber.CreateAsync(<span class="hljs-keyword">new</span> CreatePhoneNumberData {Number = <span class="hljs-string">&quot;+1234567890&quot;</span>});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">number = PhoneNumber.create(client, {<span class="hljs-symbol">:number</span> =&gt; <span class="hljs-string">&quot;+1234567890&quot;</span>})
+</code></pre>
+<blockquote>
+<p>The above command returns HTTP Header structured like this:</p>
+</blockquote>
+<pre><code>HTTP/1.1 201 Created
+Location: /v1/users/{userId}/phoneNumbers/{numberId}
+</code></pre><h2 id="get-phonenumbersnumberid">GET phoneNumbers/{numberId}</h2>
+<p>Gets information about one of your numbers using the number&apos;s ID. No query parameters are supported.</p>
+<p>or</p>
+<p>Gets information about one of your numbers using the E.164 number string, like &quot;+19195551212&quot;. Remember to URL encode the plus sign prefix. No query parameters are supported.</p>
+<h3 id="example-get-number-properties-by-e164-or-id">Example: Get number properties by E.164 or Id</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/%20{number} \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
+client.PhoneNumber.get(numberId).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">number</span>)</span>{});
+<span class="hljs-comment">// or</span>
+client.PhoneNumber.get(<span class="hljs-string">&quot;+1234567890&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">number</span>)</span>{});
+
+<span class="hljs-comment">// Callback</span>
+client.PhoneNumber.get(numberId, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, number</span>)</span>{});
+<span class="hljs-comment">// or</span>
+client.PhoneNumber.get(<span class="hljs-string">&quot;+1234567890&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, number</span>)</span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> number = <span class="hljs-keyword">await</span> client.PhoneNumber.GetAsync(<span class="hljs-string">&quot;+1234567890&quot;</span>);
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">number = PhoneNumber.get(client, <span class="hljs-string">&quot;+1234567890&quot;</span>)
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code>{
+   &quot;id&quot;: &quot;{numberId}&quot;,
+   &quot;application&quot;: &quot;https://catapult.inetwork.com/.../applications/{applicationId}&quot;,
+   &quot;number&quot;:&quot;{number}&quot;,
+   &quot;nationalNumber&quot;:&quot;{national_number}&quot;,
+   &quot;name&quot;: &quot;home phone&quot;,
+   &quot;createdTime&quot;: &quot;2013-02-13T17:46:08.374Z&quot;,
+   &quot;city&quot;: &quot;Raleigh&quot;,
+   &quot;state&quot;: &quot;NC&quot;,
+   &quot;price&quot;: &quot;0.60&quot;,
+   &quot;numberState&quot;: &quot;enabled&quot;
+}
+</code></pre><h2 id="post-phonenumbersnumberid">POST phoneNumbers/{numberId}</h2>
+<p>Makes changes to a number you have. POST a new JSON representation with the property values you desire to the URL that you got back in the &quot;Location&quot; header when you first allocated it. Properties you don&apos;t send will remain unchanged. The &quot;numberId&quot; refers to the numberId or the number itself. When using the number itself remember to URL encode the plus sign prefix.</p>
+<h3 id="supported-parameters">Supported Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">applicationId</td>
+<td style="text-align:left">The unique id of an Application resource you want to associate with this number for incoming calls and messages.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">A name you choose for this number.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">fallbackNumber</td>
+<td style="text-align:left">Number to transfer an incoming call when the callback/fallback events can&#x2019;t be delivered.</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-change-the-application-resource-a-phone-number-uses-for-inbound-calls-and-messages">Example: Change the Application resource a phone number uses for inbound calls and messages</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/{numberId} \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+        <span class="hljs-_">-d</span> \
+    <span class="hljs-string">&apos;
+    {
+        &quot;applicationId&quot;: &quot;{application_id}&quot;
+    }&apos;</span>
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
+client.PhoneNumber.update(numberId, {applicationId: <span class="hljs-string">&quot;{application_id}&quot;</span>}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{});
+
+<span class="hljs-comment">// Callback</span>
+client.PhoneNumber.update(numberId, {applicationId: <span class="hljs-string">&quot;{application_id}&quot;</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.PhoneNumber.UpdateAsync(numberId, <span class="hljs-keyword">new</span> UpdatePhoneNUmberData {
+    ApplicationId = <span class="hljs-string">&quot;{application_id}&quot;</span>
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">phoneNumber.update({<span class="hljs-symbol">:application_id</span> =&gt; <span class="hljs-string">&quot;{application_id}&quot;</span>})
+</code></pre>
+<h2 id="delete-phonenumbersnumberid">DELETE phoneNumbers/{numberId}</h2>
+<p>Removes a number from your account so you can no longer make or receive calls, or send or receive messages with it. When you remove a number from your account, it will not be available to add back to your account, so be careful.</p>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X DELETE https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/{numberId} \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
+client.PhoneNumber.delete(numberId).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{});
+
+<span class="hljs-comment">// Callback</span>
+client.PhoneNumber.delete(numberId, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.PhoneNumber.DeleteAsync(numberId);
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">phoneNumber.delete()
+</code></pre>
+</div></div></div>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class="search-results-count"></span> results matching &quot;<span class="search-query"></span>&quot;</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching &quot;<span class="search-query"></span>&quot;</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"/phoneNumbers","level":"2.13","depth":1,"next":{"title":"GET /phoneNumbers","level":"2.13.1","depth":2,"path":"methods/phoneNumbers/getPhoneNumbers.md","ref":"methods/phoneNumbers/getPhoneNumbers.md","articles":[]},"previous":{"title":"GET /numberInfo/{number}","level":"2.12.1","depth":2,"path":"methods/numberInfo/getNumberInfo.md","ref":"methods/numberInfo/getNumberInfo.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/phoneNumbers/phoneNumbers.md","mtime":"2016-10-18T15:28:30.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-18T18:50:11.672Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
+        
+    
+
+    </body>
+</html>
+
