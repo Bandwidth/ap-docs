@@ -2,10 +2,10 @@
 ## Get Account
 
 ### Account Properties
-| PROPERTY    | DESCRIPTION                                                                                                                                           |
-|:------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|
-| balance     | Your account balance in dollars, as a string; the currency symbol is not included.                                                                    |
-| accountType | The type of account configured for your user:   **pre-pay**: the type of account where you increase your available balance with credit card payments. |
+| PROPERTY    | DESCRIPTION                                                                                                                                                                                                                                                                          |
+|:------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| balance     | Your account balance in dollars, as a string; the currency symbol is not included.                                                                                                                                                                                                   |
+| accountType | The type of account configured for your user:<br>  - **pre-pay**: the type of account where you increase your available balance with credit card payments. <br> - **post-pay**: the type of account where you have signed a contract and will receive a monthly bill detailing usage |
 
 
 
@@ -32,6 +32,7 @@ client.Account.get(function(err, info){});
 var account = await client.Account.GetAsync();
 ```
 
+{% sample lang="ruby" %}
 ```ruby
 account = Bandwidth::Account.get(client)
 ```
