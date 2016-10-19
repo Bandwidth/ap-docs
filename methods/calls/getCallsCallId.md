@@ -16,7 +16,7 @@ Gets information about an active or completed call. No query parameters are supp
 | endTime              | Date when the call ended. Timestamp follows the ISO8601 format.                                                                                              |
 | callTimeout          | Determine how long should the platform wait for call answer before timing out in seconds (milliseconds).                                                     |
 | callbackUrl          | The server URL where the call events related to the call will be sent.                                                                                       |
-| callbackHttpMethod   | Determine if the callback event should be sent via HTTP GET or HTTP POST. Values are `GET` or `POST` Default is `POST`                                       |
+| callbackHttpMethod   | Determine if the callback event should be sent via HTTP GET or HTTP POST. Values are <code class="get">GET</code> or <code class="post">POST</code> Default is <code class="post">POST</code>                                       |
 | callbackTimeout      | Determine how long should the platform wait for callbackUrl's response before timing out (milliseconds).                                                     |
 | fallbackUrl          | The server URL used to send the call events if the request to callbackUrl fails.                                                                             |
 | chargeableDuration   | The number of seconds the call will be billed for.                                                                                                           |

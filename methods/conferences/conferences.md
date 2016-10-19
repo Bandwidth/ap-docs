@@ -16,7 +16,7 @@ The Conference resource allows you create conferences, add members to it, play a
 | hold               | If `true`, all member can’t hear or speak in the conference. If `false”, all members can hear and speak in the conference (unless set at the member level). |
 | mute               | If `true`, all member can’t speak in the conference. If `false`, all members can speak in the conference (unless set at the member level).                  |
 | callbackUrl        | The complete URL where the events related to the Conference will be sent to.                                                                                |
-| callbackHttpMethod | Determine if the callback event should be sent via `HTTP GET` or `HTTP POST`. Values are `GET` or `POST`, default: `POST`.                                  |
+| callbackHttpMethod | Determine if the callback event should be sent via `HTTP GET` or `HTTP POST`. Values are <code class="get">GET</code> or <code class="get">POST</code>, default: <code class="get">POST</code>.                                  |
 | callbackTimeout    | Determine how long should the platform wait for callbackUrl’s response before timing out in milliseconds.                                                   |
 | fallbackUrl        | The URL used to send the callback event if the request to callbackUrl fails.                                                                                |
 | tag                | A string that will be included in the callback events of the conference.                                                                                    |
@@ -52,7 +52,7 @@ Creates a conference with no members.
 |:-------------------|:---------------------------------------------------------------------------------------------------------------------------|:----------|
 | from               | The phone number that will host the conference.                                                                            | Yes       |
 | callbackUrl        | The complete URL where the events related to the Conference will be sent to.                                               | No        |
-| callbackHttpMethod | Determine if the callback event should be sent via `HTTP GET` or `HTTP POST`. Values are `get` or `post`, default: `post`. | No        |
+| callbackHttpMethod | Determine if the callback event should be sent via `HTTP GET` or `HTTP POST`. Values are <code class="get">GET</code> or <code class="get">POST</code>, default: <code class="get">POST</code>. | No        |
 | callbackTimeout    | Determine how long should the platform wait for callbackUrl’s response before timing out in milliseconds.                  | No        |
 | fallbackUrl        | The URL used to send the callback event if the request to callbackUrl fails.                                               | No        |
 | tag                | A string that will be included in the callback events of the conference.                                                   | No        |
@@ -208,7 +208,7 @@ Change the conference properties and/or status.
 | hold               | If `true`, all member can’t hear or speak in the conference. If `false`, all members can hear and speak in the conference (unless set at the member level). | No        |
 | mute               | If `true`, all member can’t speak in the conference. If `false`, all members can speak in the conference (unless set at the member level).                  | No        |
 | callbackUrl        | The complete URL where the events related to the Conference will be sent to.                                                                                | No        |
-| callbackHttpMethod | Determine if the callback event should be sent via HTTP GET or HTTP POST. Values are `get` or `post`, default: `post`.                                      | No        |
+| callbackHttpMethod | Determine if the callback event should be sent via HTTP GET or HTTP POST. Values are <code class="get">GET</code> or <code class="get">POST</code>, default: <code class="get">POST</code>.                                      | No        |
 | callbackTimeout    | Determine how long should the platform wait for callbackUrl’s response before timing out in milliseconds.                                                   | No        |
 | fallbackUrl        | The URL used to send the callback event if the request to callbackUrl fails.                                                                                | No        |
 | tag                | A string that will be included in the callback events of the conference.                                                                                    | No        |

@@ -11,7 +11,7 @@ Creates a new outbound phone call.
 | callTimeout          | Determine how long should the platform wait for call answer before timing out in seconds.                                                    | No        |
 | callbackUrl          | The full server URL where the call events related to the Call will be sent to.                                                               | No        |
 | callbackTimeout      | Determine how long should the platform wait for callbackUrl’s response before timing out in milliseconds.                                    | No        |
-| callbackHttpMethod   | Determine if the callback event should be sent via `HTTP GET` or `HTTP POST`. Values are `GET` or `POST` (if not set the default is `POST`). | No        |
+| callbackHttpMethod   | Determine if the callback event should be sent via `HTTP GET` or `HTTP POST`. Values are <code class="get">GET</code> or <code class="post">POST</code> (if not set the default is <code class="get">POST</code>). | No        |
 | fallbackUrl          | The full server URL used to send the callback event if the request to callbackUrl fails.                                                     | No        |
 | bridgeId             | The id of the bridge where the call will be added.                                                                                           | No        |
 | conferenceId         | Id of the conference where the call will be added. This property is required if you want to add this call to a conference.                   | No        |
