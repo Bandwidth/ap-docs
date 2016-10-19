@@ -8,7 +8,7 @@
 .head img{
    padding: 15px;
    max-height: 70px;
-   float: left;
+   float: left;  
 }
 .head ul{
    width: 400px;
@@ -25,12 +25,12 @@
 }
 .head a{
    border-bottom: none;
-   color: inherit;
+   color: inherit; 
 }
 .head h1{
    float: left;
    font-weight: 100;
-   color: #adadad;
+   color: #333333; 
 }
 .headbutton{
    padding: 10px 15px;
@@ -42,10 +42,10 @@
    font-weight:bold;
 }
 .headbutton:hover{
-   padding-bottom: 10px;
+   padding-bottom: 10px;  
 }
-.aimg {
-   border-bottom: none;
+.aimg { 
+   border-bottom: none; 
 }
 .book-body, .book-summary{
   height: calc(100% - 70px);
@@ -56,6 +56,9 @@
 .book-header{
   border-top: 1px solid rgba(0,0,0,.07);
   top: 70px;
+}
+.book-header h1 a, .book-header h1 a:hover {
+   border-bottom: none;  
 }
 .book-header .btn.lang-switcher.active {
     background-color: #fff;
@@ -95,7 +98,7 @@
 .chapter span{
    text-transform: uppercase;
    color: #939da3 !important;
-   padding-top: 20px !important;
+   padding-top: 20px !important;  
 }
 a{
   font-weight: 500;
@@ -116,7 +119,35 @@ a:active{
   color:#dcdcdc;
 }
 pre{
-  border-radius: 3px;
+  border-radius: 3px;  
+}
+th{
+  color: #fff; 
+  background: #3a455c;
+  border:none !important;
+}
+.markdown-section code {
+    padding: .3em;
+    margin: 0;
+    font-size: .85em;
+    background-color: #f7f7f7;
+    border-radius: 3px;
+}
+.get{
+   background-color: #6cbf0d;
+   color: #fff;
+}
+.post{
+   background-color: #00bcec;
+   color: #fff; 
+}
+.put{
+   background-color: #a5639b;
+   color: #fff;  
+}
+.delete{
+   background-color:#e8562e;
+   color: #fff;
 }
 .alert{
 	display:inline-block;
@@ -126,13 +157,14 @@ pre{
 	background-color: #fceae6;
 	font-weight: 700;
 	width:auto;
+   line-height: 2em;
 }
 .alert:before{
 	display:inline-block;
 	font-family: 'Bandwidth', Open Sans, Oswald, Sans-Serif;
 	width: 2em;
 	height:2em;
-	line-height:2em;
+	line-height:2em; 
 	content: "!";
 	background-color: #fff;
 	border-radius:2em;
@@ -155,7 +187,7 @@ pre{
 	overflow:hidden;
 }
 .alert a:hover{
-	padding-bottom:.3em;
+	padding-bottom:.3em; 
 }
 .alert a:active{
 	padding-bottom:0em;
@@ -184,10 +216,10 @@ pre{
 	border:2px solid #b5df86;
 }
 .global{
-	width: 100%;
+	width: 100%;	
 }
 .text-only{
-	line-height: 1.6em;
+	line-height: 1.6em;	
 }
 .text-only:before{
 	display:none;

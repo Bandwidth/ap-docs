@@ -1331,7 +1331,107 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"></div><div class="api-method-code"></div></div>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="post-applicationsapplicationid">POST applications/{applicationId}</h2>
+<p>Makes changes to an application. POST a new JSON representation with the property values you desire to the URL that you got back in the &quot;Location&quot; header when you first created it.</p>
+<aside class="alert general small">
+NOTE: Properties you don&apos;t send will remain unchanged.
+</aside>
+
+<h3 id="supported-parameters">Supported Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">A name you choose for this application.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">incomingCallUrl</td>
+<td style="text-align:left">A URL where call events will be sent for an inbound call.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">incomingCallUrlCallbackTimeout</td>
+<td style="text-align:left">Determine how long should the platform wait for incomingCallUrl&apos;s response before timing out in milliseconds.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">incomingCallFallbackUrl</td>
+<td style="text-align:left">The URL used to send the callback event if the request to incomingCallUrl fails.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">incomingMessageUrl</td>
+<td style="text-align:left">A URL where message events will be sent for an inbound SMS message.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">incomingMessageUrlCallbackTimeout</td>
+<td style="text-align:left">Determine how long should the platform wait for incomingMessageUrl&apos;s response before timing out in milliseconds.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">incomingMessageFallbackUrl</td>
+<td style="text-align:left">The URL used to send the callback event if the request to incomingMessageUrl fails.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">callbackHttpMethod</td>
+<td style="text-align:left">Determine if the callback event should be sent via HTTP GET or HTTP POST. (If not set the default is HTTP POST).</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">autoAnswer</td>
+<td style="text-align:left">Determines whether or not an incoming call should be automatically answered. Default value is &apos;true&apos;.</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-update-application">Example: Update Application</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId} \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+    <span class="hljs-_">-d</span> <span class="hljs-string">&apos;{&quot;incomingCallUrl&quot;: &quot;http://different.example.com/calls.php&quot;}&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
+client.Application.update(<span class="hljs-string">&apos;a-j4f2j6vjmqz53mq&apos;</span>, {
+    name: <span class="hljs-string">&apos;Rename App1&apos;</span>,
+    autoAnswer: <span class="hljs-literal">false</span>
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(response);
+});
+
+<span class="hljs-comment">// Callback</span>
+client.Application.update(<span class="hljs-string">&apos;a-zudcfzzrbea&apos;</span>,
+    {
+        name: <span class="hljs-string">&apos;Rename App2&apos;</span>,
+        autoAnswer: <span class="hljs-literal">false</span>
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, response</span>) </span>{
+        <span class="hljs-keyword">if</span> (err) {
+            <span class="hljs-built_in">console</span>.log(err);
+        }
+        <span class="hljs-keyword">else</span> {
+            <span class="hljs-built_in">console</span>.log(response);
+        }
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Application.UpdateAsync(<span class="hljs-string">&quot;a-zuwwfzzrbea&quot;</span>, <span class="hljs-keyword">new</span> UpdateApplicationData{
+    Name =  <span class="hljs-string">&quot;Rename App2&quot;</span>,
+    AutoAnswer = <span class="hljs-keyword">false</span>
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">app.update({<span class="hljs-symbol">:name</span> =&gt; <span class="hljs-string">&quot;Rename App2&quot;</span>, <span class="hljs-symbol">:auto_answer</span> =&gt; <span class="hljs-keyword">false</span>})
+</code></pre>
+</div></div></div>
 
                                 
                                 </section>
@@ -1365,7 +1465,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST /applications/{applicationId}","level":"2.2.4","depth":2,"next":{"title":"DELETE /applications/{applicationId}","level":"2.2.5","depth":2,"path":"methods/applications/deleteApplicationsApplicationId.md","ref":"methods/applications/deleteApplicationsApplicationId.md","articles":[]},"previous":{"title":"GET /applications/{applicationId}","level":"2.2.3","depth":2,"path":"methods/applications/getApplicationsApplicationId.md","ref":"methods/applications/getApplicationsApplicationId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/applications/postApplicationsApplicationId.md","mtime":"2016-10-18T15:44:58.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-18T18:50:11.672Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST /applications/{applicationId}","level":"2.2.4","depth":2,"next":{"title":"DELETE /applications/{applicationId}","level":"2.2.5","depth":2,"path":"methods/applications/deleteApplicationsApplicationId.md","ref":"methods/applications/deleteApplicationsApplicationId.md","articles":[]},"previous":{"title":"GET /applications/{applicationId}","level":"2.2.3","depth":2,"path":"methods/applications/getApplicationsApplicationId.md","ref":"methods/applications/getApplicationsApplicationId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/applications/postApplicationsApplicationId.md","mtime":"2016-10-18T20:27:30.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-19T14:18:00.580Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

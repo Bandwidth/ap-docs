@@ -1331,7 +1331,126 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"></div><div class="api-method-code"></div></div>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="get-applications">GET applications</h2>
+<p>Get a list of your applications</p>
+<h3 id="supported-parameters">Supported Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">page</td>
+<td style="text-align:left">Used for pagination to indicate the page requested for querying a list of applications. If no value is specified the default is 0.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">size</td>
+<td style="text-align:left">Used for pagination to indicate the size of each page requested for querying a list of applications. If no value is specified the default value is 25. (Maximum value 1000)</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">The unique identifier for the application.</td>
+</tr>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">A name you choose for this application.</td>
+</tr>
+<tr>
+<td style="text-align:left">incomingCallUrl</td>
+<td style="text-align:left">A URL where call events will be sent for an inbound call. This is the endpoint where the Application Platform will send all call events. Either incomingCallUrl or incomingMessageUrl is required.</td>
+</tr>
+<tr>
+<td style="text-align:left">incomingCallUrlCallbackTimeout</td>
+<td style="text-align:left">Determine how long should the platform wait for incomingCallUrl&apos;s response before timing out in milliseconds.</td>
+</tr>
+<tr>
+<td style="text-align:left">incomingCallFallbackUrl</td>
+<td style="text-align:left">The URL used to send the callback event if the request to incomingCallUrl fails.</td>
+</tr>
+<tr>
+<td style="text-align:left">callbackHttpMethod</td>
+<td style="text-align:left">Determine if the callback event should be sent via HTTP GET or HTTP POST. Values are &quot;get&quot; or &quot;post&quot;, default: &quot;post&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">autoAnswer</td>
+<td style="text-align:left">Determines whether or not an incoming call should be automatically answered. Default value is &apos;true&apos;.</td>
+</tr>
+<tr>
+<td style="text-align:left">incomingMessageUrl</td>
+<td style="text-align:left">A URL where message events will be sent for an inbound message. This is the endpoint where the Application Platform will send all message events. Either incomingMessageUrl or incomingCallUrl is required.</td>
+</tr>
+<tr>
+<td style="text-align:left">incomingMessageUrlCallbackTimeout</td>
+<td style="text-align:left">Determine how long should the platform wait for incomingMessageUrl&apos;s response before timing out in milliseconds.</td>
+</tr>
+<tr>
+<td style="text-align:left">incomingMessageFallbackUrl</td>
+<td style="text-align:left">The URL used to send the callback event if the request to incomingMessageUrl fails.</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-list-your-applications">Example: List your applications.</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/applications \
+  -u {token}:{secret} \
+  -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">//Promise</span>
+client.Application.list()
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(response.applications);
+    <span class="hljs-keyword">if</span>(response.hasNextPage) {
+        <span class="hljs-keyword">return</span> response.getNextPage();
+    }
+    <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span> {applications: []};
+    }
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(response.applications);
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> applications = client.Application.List();
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">list = Application.list(client)
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code class="lang-json">[
+  {
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{applicationId}&quot;</span>,
+    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;MyFirstApp&quot;</span>,
+    <span class="hljs-string">&quot;incomingCallUrl&quot;</span>: <span class="hljs-string">&quot;http://example.com/calls.php&quot;</span>,
+    <span class="hljs-string">&quot;incomingMessageUrl&quot;</span>: <span class="hljs-string">&quot;http://example.com/messages.php&quot;</span>,
+    <span class="hljs-string">&quot;autoAnswer&quot;</span>: <span class="hljs-literal">true</span>
+  },
+  {
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{applicationId}&quot;</span>,
+    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;MySecondApp&quot;</span>,
+    <span class="hljs-string">&quot;incomingCallUrl&quot;</span>: <span class="hljs-string">&quot;http://example.com/app2/calls.php&quot;</span>,
+    <span class="hljs-string">&quot;incomingMessageUrl&quot;</span>: <span class="hljs-string">&quot;http://example.com/app2/messages.php&quot;</span>,
+    <span class="hljs-string">&quot;autoAnswer&quot;</span>: <span class="hljs-literal">false</span>
+  }
+]
+</code></pre>
+</div></div></div>
 
                                 
                                 </section>
@@ -1365,7 +1484,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET /applications","level":"2.2.1","depth":2,"next":{"title":"POST /applications","level":"2.2.2","depth":2,"path":"methods/applications/postApplications.md","ref":"methods/applications/postApplications.md","articles":[]},"previous":{"title":"/applications","level":"2.2","depth":1,"path":"methods/applications/applications.md","ref":"methods/applications/applications.md","articles":[{"title":"GET /applications","level":"2.2.1","depth":2,"path":"methods/applications/getApplications.md","ref":"methods/applications/getApplications.md","articles":[]},{"title":"POST /applications","level":"2.2.2","depth":2,"path":"methods/applications/postApplications.md","ref":"methods/applications/postApplications.md","articles":[]},{"title":"GET /applications/{applicationId}","level":"2.2.3","depth":2,"path":"methods/applications/getApplicationsApplicationId.md","ref":"methods/applications/getApplicationsApplicationId.md","articles":[]},{"title":"POST /applications/{applicationId}","level":"2.2.4","depth":2,"path":"methods/applications/postApplicationsApplicationId.md","ref":"methods/applications/postApplicationsApplicationId.md","articles":[]},{"title":"DELETE /applications/{applicationId}","level":"2.2.5","depth":2,"path":"methods/applications/deleteApplicationsApplicationId.md","ref":"methods/applications/deleteApplicationsApplicationId.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/applications/getApplications.md","mtime":"2016-10-18T15:44:31.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-18T18:50:11.672Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET /applications","level":"2.2.1","depth":2,"next":{"title":"POST /applications","level":"2.2.2","depth":2,"path":"methods/applications/postApplications.md","ref":"methods/applications/postApplications.md","articles":[]},"previous":{"title":"/applications","level":"2.2","depth":1,"path":"methods/applications/applications.md","ref":"methods/applications/applications.md","articles":[{"title":"GET /applications","level":"2.2.1","depth":2,"path":"methods/applications/getApplications.md","ref":"methods/applications/getApplications.md","articles":[]},{"title":"POST /applications","level":"2.2.2","depth":2,"path":"methods/applications/postApplications.md","ref":"methods/applications/postApplications.md","articles":[]},{"title":"GET /applications/{applicationId}","level":"2.2.3","depth":2,"path":"methods/applications/getApplicationsApplicationId.md","ref":"methods/applications/getApplicationsApplicationId.md","articles":[]},{"title":"POST /applications/{applicationId}","level":"2.2.4","depth":2,"path":"methods/applications/postApplicationsApplicationId.md","ref":"methods/applications/postApplicationsApplicationId.md","articles":[]},{"title":"DELETE /applications/{applicationId}","level":"2.2.5","depth":2,"path":"methods/applications/deleteApplicationsApplicationId.md","ref":"methods/applications/deleteApplicationsApplicationId.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/applications/getApplications.md","mtime":"2016-10-18T20:16:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-19T14:18:00.580Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

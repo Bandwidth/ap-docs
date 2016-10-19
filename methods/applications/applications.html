@@ -1331,394 +1331,44 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"><h1 id="applications">Applications</h1>
+                                <h1 id="applications">Applications</h1>
 <p>The Applications resource lets you define call and message handling applications. You write an application on your own servers and have Bandwidth API send events to it by configuring a callback URL.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Property</th>
-<th style="text-align:left">Description</th>
+<th style="text-align:left">Verb</th>
+<th style="text-align:left">Method</th>
+<th style="text-align:left">about</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">id</td>
-<td style="text-align:left">The unique identifier for the application.</td>
+<td style="text-align:left"><code class="get">GET</code></td>
+<td style="text-align:left"><a href="getApplications.html"><code>/v1/users/{userId}/applications</code></a></td>
+<td style="text-align:left">Get information about your account</td>
 </tr>
 <tr>
-<td style="text-align:left">name</td>
-<td style="text-align:left">A name you choose for this application.</td>
+<td style="text-align:left"><code class="post">POST</code></td>
+<td style="text-align:left"><a href="postApplications.html"><code>/v1/users/{userId}/applications</code></a></td>
+<td style="text-align:left">Create an application</td>
 </tr>
 <tr>
-<td style="text-align:left">incomingCallUrl</td>
-<td style="text-align:left">A URL where call events will be sent for an inbound call. This is the endpoint where the Application Platform will send all call events. Either incomingCallUrl or incomingMessageUrl is required.</td>
+<td style="text-align:left"><code class="get">GET</code></td>
+<td style="text-align:left"><a href="getApplicationsApplicationId.html"><code>/v1/users/{userId}/applications/{applicationId}</code></a></td>
+<td style="text-align:left">Get information about an application</td>
 </tr>
 <tr>
-<td style="text-align:left">incomingCallUrlCallbackTimeout</td>
-<td style="text-align:left">Determine how long should the platform wait for incomingCallUrl&apos;s response before timing out in milliseconds.</td>
+<td style="text-align:left"><code class="post">POST</code></td>
+<td style="text-align:left"><a href="postApplicationsApplicationId.html"><code>/v1/users/{userId}/applications/{applicationId}</code></a></td>
+<td style="text-align:left">Make changes to an application</td>
 </tr>
 <tr>
-<td style="text-align:left">incomingCallFallbackUrl</td>
-<td style="text-align:left">The URL used to send the callback event if the request to incomingCallUrl fails.</td>
-</tr>
-<tr>
-<td style="text-align:left">callbackHttpMethod</td>
-<td style="text-align:left">Determine if the callback event should be sent via HTTP GET or HTTP POST. Values are &quot;get&quot; or &quot;post&quot;, default: &quot;post&quot;.</td>
-</tr>
-<tr>
-<td style="text-align:left">autoAnswer</td>
-<td style="text-align:left">Determines whether or not an incoming call should be automatically answered. Default value is &apos;true&apos;.</td>
-</tr>
-<tr>
-<td style="text-align:left">incomingMessageUrl</td>
-<td style="text-align:left">A URL where message events will be sent for an inbound message. This is the endpoint where the Application Platform will send all message events. Either incomingMessageUrl or incomingCallUrl is required.</td>
-</tr>
-<tr>
-<td style="text-align:left">incomingMessageUrlCallbackTimeout</td>
-<td style="text-align:left">Determine how long should the platform wait for incomingMessageUrl&apos;s response before timing out in milliseconds.</td>
-</tr>
-<tr>
-<td style="text-align:left">incomingMessageFallbackUrl</td>
-<td style="text-align:left">The URL used to send the callback event if the request to incomingMessageUrl fails.</td>
+<td style="text-align:left"><code class="delete">DELETE</code></td>
+<td style="text-align:left"><a href="deleteApplicationsApplicationId.html"><code>/v1/users/{userId}/applications/{applicationId}</code></a></td>
+<td style="text-align:left">Delete an application</td>
 </tr>
 </tbody>
 </table>
-<h2 id="get-applications">GET applications</h2>
-<p>Get a list of your applications</p>
-<h3 id="supported-parameters">Supported Parameters</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Parameter</th>
-<th style="text-align:left">Description</th>
-<th style="text-align:left">Mandatory</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">page</td>
-<td style="text-align:left">Used for pagination to indicate the page requested for querying a list of applications. If no value is specified the default is 0.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">size</td>
-<td style="text-align:left">Used for pagination to indicate the size of each page requested for querying a list of applications. If no value is specified the default value is 25. (Maximum value 1000)</td>
-<td style="text-align:left">No</td>
-</tr>
-</tbody>
-</table>
-<h3 id="example-list-your-applications">Example: List your applications.</h3>
-</div><div class="api-method-code"><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/applications \
-  -u {token}:{secret} \
-  -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-</code></pre>
-</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">//Promise</span>
-client.Application.list()
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(response.applications);
-    <span class="hljs-keyword">if</span>(response.hasNextPage) {
-        <span class="hljs-keyword">return</span> response.getNextPage();
-    }
-    <span class="hljs-keyword">else</span> {
-        <span class="hljs-keyword">return</span> {applications: []};
-    }
-})
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(response.applications);
-});
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> applications = client.Application.List();
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">list = Application.list(client)
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre><code class="lang-json">[
-  {
-    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{applicationId}&quot;</span>,
-    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;MyFirstApp&quot;</span>,
-    <span class="hljs-string">&quot;incomingCallUrl&quot;</span>: <span class="hljs-string">&quot;http://example.com/calls.php&quot;</span>,
-    <span class="hljs-string">&quot;incomingMessageUrl&quot;</span>: <span class="hljs-string">&quot;http://example.com/messages.php&quot;</span>,
-    <span class="hljs-string">&quot;autoAnswer&quot;</span>: <span class="hljs-literal">true</span>
-  },
-  {
-    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{applicationId}&quot;</span>,
-    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;MySecondApp&quot;</span>,
-    <span class="hljs-string">&quot;incomingCallUrl&quot;</span>: <span class="hljs-string">&quot;http://example.com/app2/calls.php&quot;</span>,
-    <span class="hljs-string">&quot;incomingMessageUrl&quot;</span>: <span class="hljs-string">&quot;http://example.com/app2/messages.php&quot;</span>,
-    <span class="hljs-string">&quot;autoAnswer&quot;</span>: <span class="hljs-literal">false</span>
-  }
-]
-</code></pre>
-<h2 id="post-applications">POST applications</h2>
-<p>Creates an application that can handle calls and messages for one of your phone number. Many phone numbers can share an application.</p>
-<h3 id="supported-parameters">Supported Parameters</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Parameter</th>
-<th style="text-align:left">Description</th>
-<th style="text-align:left">Mandatory</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">name</td>
-<td style="text-align:left">A name you choose for this application.</td>
-<td style="text-align:left">Yes</td>
-</tr>
-<tr>
-<td style="text-align:left">incomingCallUrl</td>
-<td style="text-align:left">A URL where call events will be sent for an inbound call.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">incomingCallUrlCallbackTimeout</td>
-<td style="text-align:left">Determine how long should the platform wait for incomingCallUrl&apos;s response before timing out in milliseconds.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">incomingCallFallbackUrl</td>
-<td style="text-align:left">The URL used to send the callback event if the request to incomingCallUrl fails.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">incomingMessageUrl</td>
-<td style="text-align:left">A URL where message events will be sent for an inbound SMS message</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">incomingMessageUrlCallbackTimeout</td>
-<td style="text-align:left">Determine how long should the platform wait for incomingMessageUrl&apos;s response before timing out in milliseconds.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">incomingMessageFallbackUrl</td>
-<td style="text-align:left">The URL used to send the callback event if the request to incomingMessageUrl fails.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">callbackHttpMethod</td>
-<td style="text-align:left">Determine if the callback event should be sent via HTTP GET or HTTP POST. (If not set the default is HTTP POST)</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">autoAnswer</td>
-<td style="text-align:left">Determines whether or not an incoming call should be automatically answered. Default value is &apos;true&apos;.</td>
-<td style="text-align:left">No</td>
-</tr>
-</tbody>
-</table>
-<h3 id="example-create-an-application-named-myfirstapp">Example: Create an application named: &apos;MyFirstApp&apos;</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/applications \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> <span class="hljs-string">&apos;{&quot;name&quot;: &quot;MyFirstApp&quot;, &quot;incomingCallUrl&quot;: &quot;http://example.com/calls.php&quot;, &quot;incomingMessageUrl&quot;: &quot;http://example.com/messages.php&quot;, &quot;callbackHttpMethod&quot;: &quot;GET&quot;, &quot;autoAnswer&quot;: true}&apos;</span>
-</code></pre>
-</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">//Promise</span>
-client.Application.create({
-    name: <span class="hljs-string">&apos;MyFirstApp&apos;</span>,
-    incomingCallUrl: <span class="hljs-string">&apos;http://your-server.com/CallCallback&apos;</span>,
-    incomingMessageUrl: <span class="hljs-string">&apos;http://your-server.com/MsgCallback&apos;</span>
-})
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(response);
-});
-
-<span class="hljs-comment">//Callback</span>
-client.Application.create({
-    name: <span class="hljs-string">&apos;SampleApp2&apos;</span>,
-    incomingCallUrl: <span class="hljs-string">&apos;http://your-server.com/CallCallback&apos;</span>,
-    incomingMessageUrl: <span class="hljs-string">&apos;http://your-server.com/MsgCallback&apos;</span>
-}, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, response</span>) </span>{
-    <span class="hljs-keyword">if</span> (err) {
-        <span class="hljs-built_in">console</span>.log(err);
-    }
-    <span class="hljs-keyword">else</span> {
-        <span class="hljs-built_in">console</span>.log(response)
-    }
-});
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> application = <span class="hljs-keyword">await</span> client.Application.CreateAsync(<span class="hljs-keyword">new</span> CreateApplicationData{
-    Name = <span class="hljs-string">&quot;SampleApp2&quot;</span>,
-    IncomingCallUrl = <span class="hljs-string">&quot;http://your-server.com/CallCallback&quot;</span>,
-    IncomingMessageUrl = <span class="hljs-string">&quot;http://your-server.com/MsgCallback&quot;</span>
-});
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">application = Application.create(client, {
-    <span class="hljs-symbol">:name</span> =&gt; <span class="hljs-string">&quot;SampleApp2&quot;</span>,
-    <span class="hljs-symbol">:incoming_call_url</span> =&gt; <span class="hljs-string">&quot;http://your-server.com/CallCallback&quot;</span>,
-    <span class="hljs-symbol">:incoming_message_url</span> =&gt; <span class="hljs-string">&quot;http://your-server.com/MsgCallback&quot;</span>
-})
-</code></pre>
-<h2 id="get-applicationsapplicationid">GET applications/{applicationId}</h2>
-<p>Gets information about one of your applications. No query parameters are supported.</p>
-<h3 id="example-get-an-applications-information">Example: Get an application&apos;s information</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/applications/{applicationId}
-  -u {token}:{secret} \
-  -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-</code></pre>
-</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
-client.Application.get(<span class="hljs-string">&apos;a-j4f2jz53mq&apos;</span>)
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(response);
-});
-
-<span class="hljs-comment">// Callback</span>
-client.Application.get(<span class="hljs-string">&apos;a-zuwwfzzrbea&apos;</span>,
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, response</span>) </span>{
-        <span class="hljs-keyword">if</span> (err) {
-            <span class="hljs-built_in">console</span>.log(err);
-        }
-        <span class="hljs-keyword">else</span> {
-            <span class="hljs-built_in">console</span>.log(response);
-        }
-});
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> application = <span class="hljs-keyword">await</span> client.Application.GetAsync(<span class="hljs-string">&quot;a-zuwwfzzrbea&quot;</span>);
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">application = Application.get(client, <span class="hljs-string">&quot;a-zuwwfzzrbea&quot;</span>)
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre><code>{
-  &quot;id&quot;: &quot;{applicationId}&quot;,
-  &quot;name&quot;: &quot;MyFirstApp&quot;,
-  &quot;incomingCallUrl&quot;: &quot;http://example.com/calls.php&quot;,
-  &quot;incomingMessageUrl&quot;: &quot;http://example.com/messages.php&quot;,
-  &quot;autoAnswer&quot;: true
-}
-</code></pre><h2 id="post-applicationsapplicationid">POST applications/{applicationId}</h2>
-<p>Makes changes to an application. POST a new JSON representation with the property values you desire to the URL that you got back in the &quot;Location&quot; header when you first created it.</p>
-<aside class="notice">
-NOTE: Properties you don&apos;t send will remain unchanged.
-</aside>
-
-<h3 id="supported-parameters">Supported Parameters</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Parameter</th>
-<th style="text-align:left">Description</th>
-<th style="text-align:left">Mandatory</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">name</td>
-<td style="text-align:left">A name you choose for this application.</td>
-<td style="text-align:left">Yes</td>
-</tr>
-<tr>
-<td style="text-align:left">incomingCallUrl</td>
-<td style="text-align:left">A URL where call events will be sent for an inbound call.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">incomingCallUrlCallbackTimeout</td>
-<td style="text-align:left">Determine how long should the platform wait for incomingCallUrl&apos;s response before timing out in milliseconds.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">incomingCallFallbackUrl</td>
-<td style="text-align:left">The URL used to send the callback event if the request to incomingCallUrl fails.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">incomingMessageUrl</td>
-<td style="text-align:left">A URL where message events will be sent for an inbound SMS message.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">incomingMessageUrlCallbackTimeout</td>
-<td style="text-align:left">Determine how long should the platform wait for incomingMessageUrl&apos;s response before timing out in milliseconds.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">incomingMessageFallbackUrl</td>
-<td style="text-align:left">The URL used to send the callback event if the request to incomingMessageUrl fails.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">callbackHttpMethod</td>
-<td style="text-align:left">Determine if the callback event should be sent via HTTP GET or HTTP POST. (If not set the default is HTTP POST).</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">autoAnswer</td>
-<td style="text-align:left">Determines whether or not an incoming call should be automatically answered. Default value is &apos;true&apos;.</td>
-<td style="text-align:left">No</td>
-</tr>
-</tbody>
-</table>
-<h3 id="example-update-application">Example: Update Application</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId} \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> <span class="hljs-string">&apos;{&quot;incomingCallUrl&quot;: &quot;http://different.example.com/calls.php&quot;}&apos;</span>
-</code></pre>
-</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
-client.Application.update(<span class="hljs-string">&apos;a-j4f2j6vjmqz53mq&apos;</span>, {
-    name: <span class="hljs-string">&apos;Rename App1&apos;</span>,
-    autoAnswer: <span class="hljs-literal">false</span>
-})
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(response);
-});
-
-<span class="hljs-comment">// Callback</span>
-client.Application.update(<span class="hljs-string">&apos;a-zudcfzzrbea&apos;</span>,
-    {
-        name: <span class="hljs-string">&apos;Rename App2&apos;</span>,
-        autoAnswer: <span class="hljs-literal">false</span>
-    },
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, response</span>) </span>{
-        <span class="hljs-keyword">if</span> (err) {
-            <span class="hljs-built_in">console</span>.log(err);
-        }
-        <span class="hljs-keyword">else</span> {
-            <span class="hljs-built_in">console</span>.log(response);
-        }
-});
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Application.UpdateAsync(<span class="hljs-string">&quot;a-zuwwfzzrbea&quot;</span>, <span class="hljs-keyword">new</span> UpdateApplicationData{
-    Name =  <span class="hljs-string">&quot;Rename App2&quot;</span>,
-    AutoAnswer = <span class="hljs-keyword">false</span>
-});
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">app.update({<span class="hljs-symbol">:name</span> =&gt; <span class="hljs-string">&quot;Rename App2&quot;</span>, <span class="hljs-symbol">:auto_answer</span> =&gt; <span class="hljs-keyword">false</span>})
-</code></pre>
-<h2 id="delete-applicationsapplicationid">DELETE applications/{applicationId}</h2>
-<p>Permanently deletes an application.</p>
-<h3 id="example-delete-an-application">Example: Delete an application.</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X DELETE https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId} \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
-</code></pre>
-</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
-client.Application.delete(<span class="hljs-string">&apos;a-j4f2j6mqz53mq&apos;</span>)
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(response);
-});
-
-<span class="hljs-comment">// Callback</span>
-client.Application.delete(<span class="hljs-string">&apos;a-zuwwzrbea&apos;</span>,
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, response</span>) </span>{
-        <span class="hljs-keyword">if</span> (err) {
-            <span class="hljs-built_in">console</span>.log(err);
-        }
-        <span class="hljs-keyword">else</span> {
-            <span class="hljs-built_in">console</span>.log(response);
-        }
-});
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Application.DeleteAsync(<span class="hljs-string">&quot;a-zuwwfzzrbea&quot;</span>);
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">app.delete()
-</code></pre>
-</div></div></div>
 
                                 
                                 </section>
@@ -1752,7 +1402,7 @@ client.Application.delete(<span class="hljs-string">&apos;a-zuwwzrbea&apos;</spa
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"/applications","level":"2.2","depth":1,"next":{"title":"GET /applications","level":"2.2.1","depth":2,"path":"methods/applications/getApplications.md","ref":"methods/applications/getApplications.md","articles":[]},"previous":{"title":"GET /account/transactions","level":"2.1.2","depth":2,"path":"methods/account/getAccountTransactions.md","ref":"methods/account/getAccountTransactions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/applications/applications.md","mtime":"2016-10-18T15:03:20.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-18T18:50:11.672Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"/applications","level":"2.2","depth":1,"next":{"title":"GET /applications","level":"2.2.1","depth":2,"path":"methods/applications/getApplications.md","ref":"methods/applications/getApplications.md","articles":[]},"previous":{"title":"GET /account/transactions","level":"2.1.2","depth":2,"path":"methods/account/getAccountTransactions.md","ref":"methods/account/getAccountTransactions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/applications/applications.md","mtime":"2016-10-18T20:42:43.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-19T14:18:00.580Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -1343,67 +1343,67 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><code>GET</code></td>
+<td style="text-align:left"><code class="get">GET </code></td>
 <td style="text-align:left"><a href="getCalls.html"><code>/v1/users/{userId}/calls</code></a></td>
 <td style="text-align:left">Get a list of previous calls that were made or received</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>POST</code></td>
+<td style="text-align:left"><code class="post">POST</code></td>
 <td style="text-align:left"><a href="postCalls.html"><code>/v1/users/{userId}/calls</code></a></td>
 <td style="text-align:left">Create an outbound phone call</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>GET</code></td>
+<td style="text-align:left"><code class="get">GET </code></td>
 <td style="text-align:left"><a href="getCallsCallId.html"><code>/v1/users/{userId}/calls/{callId}</code></a></td>
 <td style="text-align:left">Get information about a call that was made or received</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>POST</code></td>
+<td style="text-align:left"><code class="post">POST</code></td>
 <td style="text-align:left"><a href="postCallsCallId.html"><code>/v1/users/{userId}/calls/{callId}</code></a></td>
 <td style="text-align:left">Manage an active phone call. E.g. Answer an incoming call, reject an incoming call, turn on / off recording, transfer, hang up.</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>POST</code></td>
+<td style="text-align:left"><code class="post">POST</code></td>
 <td style="text-align:left"><a href="postCallsCallIDAudio.md"><code>/v1/users/{userId}/calls/{callId}/audio</code></a></td>
 <td style="text-align:left">Play an audio or speak a sentence in a call</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>POST</code></td>
+<td style="text-align:left"><code class="post">POST</code></td>
 <td style="text-align:left"><a href="postCallsCallIdDTMF.html"><code>/v1/users/{userId}/calls/{callId}/dtmf</code></a></td>
 <td style="text-align:left">Send DTMF (phone keypad digit presses)</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>GET</code></td>
+<td style="text-align:left"><code class="get">GET </code></td>
 <td style="text-align:left"><a href="getCallsCallIdEvents.html"><code>/v1/users/{userId}/calls/{callId}/events</code></a></td>
 <td style="text-align:left">Gets the list of call events for a call</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>GET</code></td>
+<td style="text-align:left"><code class="get">GET </code></td>
 <td style="text-align:left"><a href="getCallsCallIdEventsEventId"><code>/v1/users/{userId}/calls/{callId}/events/{callEventId}</code></a></td>
 <td style="text-align:left">Gets information about one call event</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>GET</code></td>
+<td style="text-align:left"><code class="get">GET </code></td>
 <td style="text-align:left"><a href="getCallsCallIdRecordings.html"><code>/v1/users/{userId}/calls/{callId}/recordings</code></a></td>
 <td style="text-align:left">Retrieve all recordings related to the call</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>GET</code></td>
+<td style="text-align:left"><code class="get">GET </code></td>
 <td style="text-align:left"><a href="getCallsCallIdTranscriptions.html"><code>/v1/users/{userId}/calls/{callId}/transcriptions</code></a></td>
 <td style="text-align:left">Retrieve all transcriptions related to the call</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>POST</code></td>
+<td style="text-align:left"><code class="post">POST</code></td>
 <td style="text-align:left"><a href="postCallsCallIdGather.html"><code>/v1/users/{userId}/calls/{callId}/gather</code></a></td>
 <td style="text-align:left">Gather the DTMF digits pressed</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>GET</code></td>
+<td style="text-align:left"><code class="get">GET </code></td>
 <td style="text-align:left"><a href="getCallsCallIdGatherGatherId.html"><code>/v1/users/{userId}/calls/{callId}/gather/{gatherId}</code></a></td>
 <td style="text-align:left">Get the gather DTMF parameters and results</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>POST</code></td>
+<td style="text-align:left"><code class="post">POST</code></td>
 <td style="text-align:left"><a href="postCallsCallIdGatherGatherId.html"><code>/v1/users/{userId}/calls/{callId}/gather/{gatherId}</code></a></td>
 <td style="text-align:left">Update the gather (Stop Gather)</td>
 </tr>
@@ -1460,7 +1460,7 @@
 </tr>
 <tr>
 <td style="text-align:left">callbackHttpMethod</td>
-<td style="text-align:left">Determine if the callback event should be sent via HTTP GET or HTTP POST. Values are <code>GET</code> or <code>POST</code> Default is <code>POST</code></td>
+<td style="text-align:left">Determine if the callback event should be sent via HTTP GET or HTTP POST. Values are <code class="get">GET</code> or <code class="post">POST</code> Default is <code class="post">POST</code></td>
 </tr>
 <tr>
 <td style="text-align:left">callbackTimeout</td>
@@ -1573,7 +1573,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"/calls","level":"2.5","depth":1,"next":{"title":"GET /calls","level":"2.5.1","depth":2,"path":"methods/calls/getCalls.md","ref":"methods/calls/getCalls.md","articles":[]},"previous":{"title":"GET /bridges/{bridgeId}/calls","level":"2.4.6","depth":2,"path":"methods/bridges/getBridgesBridgeIdCalls.md","ref":"methods/bridges/getBridgesBridgeIdCalls.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/calls.md","mtime":"2016-10-17T18:13:12.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-18T18:50:11.672Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"/calls","level":"2.5","depth":1,"next":{"title":"GET /calls","level":"2.5.1","depth":2,"path":"methods/calls/getCalls.md","ref":"methods/calls/getCalls.md","articles":[]},"previous":{"title":"GET /bridges/{bridgeId}/calls","level":"2.4.6","depth":2,"path":"methods/bridges/getBridgesBridgeIdCalls.md","ref":"methods/bridges/getBridgesBridgeIdCalls.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/calls.md","mtime":"2016-10-18T20:43:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-19T14:18:00.580Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
