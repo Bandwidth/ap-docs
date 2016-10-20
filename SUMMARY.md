@@ -53,7 +53,7 @@
 * [/domains](methods/domains/domains.md)
  * [GET /domains](methods/domains/getDomains.md)
  * [POST /domains](methods/domains/postDomains.md)
- * [DELTE /domains/{domainId}](methods/domains/deleteDomainsDomainId.md)
+ * [DELETE /domains/{domainId}](methods/domains/deleteDomainsDomainId.md)
 * [/endpoints](methods/endpoints/endpoints.md)
  * [GET /endpoints](methods/endpoints/getEndpoints.md)
  * [POST /endpoints](methods/endpoints/postEndpoints.md)
