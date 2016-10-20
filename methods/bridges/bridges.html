@@ -796,7 +796,7 @@
                 <a href="../domains/deleteDomainsDomainId.html">
             
                     
-                    DELTE /domains/{domainId}
+                    <code class="delete">DELETE</code> /domains/{domainId}
             
                 </a>
             
@@ -1331,494 +1331,49 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"><h1 id="bridges">Bridges</h1>
+                                <h1 id="bridges">Bridges</h1>
 <p>The Bridges resource allows you to bridge two calls together allowing for two way audio between them. A common example is bridging an incoming phone call together with a outgoing phone call.</p>
-<h2 id="properties">Properties</h2>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Property</th>
-<th style="text-align:left">Description</th>
+<th style="text-align:left">Verb</th>
+<th style="text-align:left">Method</th>
+<th style="text-align:left">about</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">id</td>
-<td style="text-align:left">The unique ID of the bridge.</td>
+<td style="text-align:left"><code class="get">GET</code></td>
+<td style="text-align:left"><a href="getBridges.html"><code>/v1/users/{userId}/bridges</code></a></td>
+<td style="text-align:left">Get a list of previous bridges</td>
 </tr>
 <tr>
-<td style="text-align:left">state</td>
-<td style="text-align:left">Bridge state. Possible state values are described here.</td>
+<td style="text-align:left"><code class="post">POST</code></td>
+<td style="text-align:left"><a href="postBridges.html"><code>/v1/users/{userId}/bridges</code></a></td>
+<td style="text-align:left">Create a bridge</td>
 </tr>
 <tr>
-<td style="text-align:left">callIds</td>
-<td style="text-align:left">List of call Ids that will be in the bridge.</td>
+<td style="text-align:left"><code class="get">GET</code></td>
+<td style="text-align:left"><a href="getBridgesBridgeId.html"><code>/v1/users/{userId}/bridges/{bridgeId}</code></a></td>
+<td style="text-align:left">Get information about an specific bridge</td>
 </tr>
 <tr>
-<td style="text-align:left">calls</td>
-<td style="text-align:left">The URL used to retrieve the calls in a specific bridge.</td>
+<td style="text-align:left"><code class="post">POST</code></td>
+<td style="text-align:left"><a href="postBridgesBridgeId.html"><code>/v1/users/{userId}/bridges/{bridgeId}</code></a></td>
+<td style="text-align:left">Add one or two calls in a bridge and also put the bridge on hold/unhold</td>
 </tr>
 <tr>
-<td style="text-align:left">bridgeAudio</td>
-<td style="text-align:left">Enable/Disable two way audio path.</td>
+<td style="text-align:left"><code class="post">POST</code></td>
+<td style="text-align:left"><a href="postBridgesBridgeIdAudio.html"><code>/v1/users/{userId}/bridges/{bridgeId}/audio</code></a></td>
+<td style="text-align:left">Play an audio or speak a sentence in a bridge</td>
 </tr>
 <tr>
-<td style="text-align:left">completedTime</td>
-<td style="text-align:left">The time when the bridge was completed.</td>
-</tr>
-<tr>
-<td style="text-align:left">createdTime</td>
-<td style="text-align:left">The time that bridge was created.</td>
-</tr>
-<tr>
-<td style="text-align:left">activatedTime</td>
-<td style="text-align:left">The time that the bridge got into active state.</td>
+<td style="text-align:left"><code class="get">GET</code></td>
+<td style="text-align:left"><a href="getBridgesBridgeIdCalls.html"><code>/v1/users/{userId}/bridges/{bridgeId}/calls</code></a></td>
+<td style="text-align:left">Get the calls that are on the bridge</td>
 </tr>
 </tbody>
 </table>
-<h2 id="bridge-state">Bridge state</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">State</th>
-<th style="text-align:left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">created</td>
-<td style="text-align:left">The bridge was created but the audio was never bridged.</td>
-</tr>
-<tr>
-<td style="text-align:left">active</td>
-<td style="text-align:left">The bridge has two active calls and the audio was already bridged before.</td>
-</tr>
-<tr>
-<td style="text-align:left">hold</td>
-<td style="text-align:left">The bridge calls are on hold (bridgeAudio was set to false).</td>
-</tr>
-<tr>
-<td style="text-align:left">completed</td>
-<td style="text-align:left">The bridge was completed. The bridge is completed when all calls hangup or when all calls are removed from bridge.</td>
-</tr>
-<tr>
-<td style="text-align:left">error</td>
-<td style="text-align:left">Some error was detected in bridge.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="get-bridges">GET bridges</h2>
-<p>Get list of bridges for a given user.</p>
-<h3 id="supported-parameters">Supported Parameters</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Parameter</th>
-<th style="text-align:left">Description</th>
-<th style="text-align:left">Mandatory</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">page</td>
-<td style="text-align:left">Used for pagination to indicate the page requested for querying a list of bridges. If no value is specified the default is 0.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">size</td>
-<td style="text-align:left">Used for pagination to indicate the size of each page requested for querying a list of bridges. If no value is specified the default value is 25 (maximum value 1000).</td>
-<td style="text-align:left">No</td>
-</tr>
-</tbody>
-</table>
-<h3 id="example-list-of-a-users-bridges">Example: List of a user&apos;s bridges</h3>
-</div><div class="api-method-code"><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/bridges/transations \
-  -u {token}:{secret} \
-  -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-</code></pre>
-<pre><code class="lang-js">client.Bridge.list()
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(response.bridges);
-    <span class="hljs-keyword">if</span>(response.hasNextPage) {
-        <span class="hljs-keyword">return</span> response.getNextPage();
-    }
-    <span class="hljs-keyword">else</span> {
-        <span class="hljs-keyword">return</span> {bridges: []};
-    }
-})
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(response.bridges);
-});
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> bridges = client.Bridge.List();
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">bridges = Bridge.list(client)
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre><code class="lang-json">[
-  {
-    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{bridgeId}&quot;</span>,
-    <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;completed&quot;</span>,
-    <span class="hljs-string">&quot;bridgeAudio&quot;</span>: <span class="hljs-string">&quot;true&quot;</span>,
-    <span class="hljs-string">&quot;calls&quot;</span>:<span class="hljs-string">&quot;https://.../v1/users/{userId}/bridges/{bridgeId}/calls&quot;</span>,
-    <span class="hljs-string">&quot;createdTime&quot;</span>: <span class="hljs-string">&quot;2013-04-22T13:55:30.279Z&quot;</span>,
-    <span class="hljs-string">&quot;activatedTime&quot;</span>: <span class="hljs-string">&quot;2013-04-22T13:55:30.280Z&quot;</span>,
-    <span class="hljs-string">&quot;completedTime&quot;</span>: <span class="hljs-string">&quot;2013-04-22T13:56:30.122Z&quot;</span>
-  },
-  {
-    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{bridgeId}&quot;</span>,
-    <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;completed&quot;</span>,
-    <span class="hljs-string">&quot;bridgeAudio&quot;</span>: <span class="hljs-string">&quot;true&quot;</span>,
-    <span class="hljs-string">&quot;calls&quot;</span>:<span class="hljs-string">&quot;https://.../v1/users/{userId}/bridges/{bridgeId}/calls&quot;</span>,
-    <span class="hljs-string">&quot;createdTime&quot;</span>: <span class="hljs-string">&quot;2013-04-22T13:58:30.121Z&quot;</span>,
-    <span class="hljs-string">&quot;activatedTime&quot;</span>: <span class="hljs-string">&quot;2013-04-22T13:58:30.122Z&quot;</span>,
-    <span class="hljs-string">&quot;completedTime&quot;</span>: <span class="hljs-string">&quot;2013-04-22T13:59:30.122Z&quot;</span>
-  }
-]
-</code></pre>
-<h2 id="post-bridges">POST bridges</h2>
-<p>Create a new bridge.</p>
-<h3 id="supported-parameters">Supported Parameters</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Parameter</th>
-<th style="text-align:left">Description</th>
-<th style="text-align:left">Mandatory</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">bridgeAudio</td>
-<td style="text-align:left">Enable/Disable two way audio path (default = true).</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">callIds</td>
-<td style="text-align:left">The list of call ids in the bridge. If the list of call ids is not provided the bridge is logically created and it can be used to place calls later.</td>
-<td style="text-align:left">No</td>
-</tr>
-</tbody>
-</table>
-<h3 id="example-create-a-bridge-with-two-calls-and-two-way-voice-path">Example: Create a bridge with two calls and two way voice path</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/ \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> <span class="hljs-string">&apos;{&quot;bridgeAudio&quot;: &quot;true&quot;, &quot;callIds&quot;: [&quot;{callId1}&quot;,&quot;{callId2}&quot;] }&apos;</span>
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">//Promise</span>
-client.Bridge.create({
-    bridgeAudio: <span class="hljs-literal">true</span>,
-    callIds: [<span class="hljs-string">&apos;c-qbs5kwrsyx6wsdi&apos;</span>, <span class="hljs-string">&apos;c-zan4g74pprsq&apos;</span>]
-})
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(response);
-});
-
-<span class="hljs-comment">//Callback</span>
-client.Bridge.create({
-    bridgeAudio: <span class="hljs-literal">true</span>,
-    callIds: [<span class="hljs-string">&apos;c-qbsx6wsdi&apos;</span>, <span class="hljs-string">&apos;c-zan4g7prsq&apos;</span>]
-}, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, response</span>) </span>{
-        <span class="hljs-keyword">if</span>(err) {
-            <span class="hljs-built_in">console</span>.log(err);
-        }
-        <span class="hljs-keyword">else</span> {
-            <span class="hljs-built_in">console</span>.log(response);
-        }
-    });
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> bridge = <span class="hljs-keyword">await</span> client.Bridge.CreateAsync(<span class="hljs-keyword">new</span> CreateBridgeData{
-    BridgeAudio = <span class="hljs-keyword">true</span>,
-    CallIds = <span class="hljs-keyword">new</span>[]{<span class="hljs-string">&quot;c-qbsx6wsdi&quot;</span>, <span class="hljs-string">&quot;c-zan4g7prsq&quot;</span>}
-});
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">bridge = Bridge.create(client, {
-    <span class="hljs-symbol">:bridge_audio</span> =&gt; <span class="hljs-keyword">true</span>,
-    <span class="hljs-symbol">:call_ids</span> =&gt; [<span class="hljs-string">&quot;c-qbsx6wsdi&quot;</span>, <span class="hljs-string">&quot;c-zan4g7prsq&quot;</span>]
-})
-</code></pre>
-<blockquote>
-<p>The above command returns HTTP Status structured like this:</p>
-<pre><code>HTTP/1.1 201 Created
-Location: /v1/users/{userId}/calls/{bridgeId}
-</code></pre></blockquote>
-<h3 id="example-create-a-bridge-without-calls">Example: Create a bridge without calls</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/ \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> <span class="hljs-string">&apos;{&quot;bridgeAudio&quot;: &quot;true&quot; }&apos;</span>
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">//Promise</span>
-client.Bridge.create({
-    bridgeAudio: <span class="hljs-literal">true</span>,
-    callIds: [<span class="hljs-string">&apos;c-qbs5kwrsyx6wsdi&apos;</span>, <span class="hljs-string">&apos;c-zan4g74pprsq&apos;</span>]
-})
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(response);
-});
-
-<span class="hljs-comment">//Callback</span>
-client.Bridge.create({
-    bridgeAudio: <span class="hljs-literal">true</span>
-}, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, response</span>) </span>{
-        <span class="hljs-keyword">if</span>(err) {
-            <span class="hljs-built_in">console</span>.log(err);
-        }
-        <span class="hljs-keyword">else</span> {
-            <span class="hljs-built_in">console</span>.log(response);
-        }
-    });
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> bridge = <span class="hljs-keyword">await</span> client.Bridge.CreateAsync(<span class="hljs-keyword">new</span> CreateBridgeData{
-    BridgeAudio = <span class="hljs-keyword">true</span>
-});
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">bridge = Bridge.create(client, {
-    <span class="hljs-symbol">:bridge_audio</span> =&gt; <span class="hljs-keyword">true</span>
-})
-</code></pre>
-<blockquote>
-<p>The above command returns HTTP Status structured like this:</p>
-<pre><code>HTTP/1.1 201 Created
-Location: /v1/users/{userId}/calls/{bridgeId}
-</code></pre></blockquote>
-<h2 id="get-bridgesbridgeid">GET bridges/{bridgeId}</h2>
-<p>Gets information about a specific bridge. No query parameters are supported.</p>
-<h3 id="example-get-information-about-a-bridge">Example: Get information about a bridge</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId} \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">//Promise</span>
-client.Bridge.get(<span class="hljs-string">&apos;brg-65dhjwrmbasiei&apos;</span>)
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(response);
-});
-
-<span class="hljs-comment">//Callback</span>
-client.Bridge.get(<span class="hljs-string">&apos;brg-65dhmbasiei&apos;</span>,
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, response</span>) </span>{
-        <span class="hljs-keyword">if</span>(err) {
-            <span class="hljs-built_in">console</span>.log(err);
-        }
-        <span class="hljs-keyword">else</span> {
-            <span class="hljs-built_in">console</span>.log(response);
-        }
-    });
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> bridge = <span class="hljs-keyword">await</span> client.Bridge.GetAsync(<span class="hljs-string">&quot;brg-65dhmbasiei&quot;</span>);
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">bridge = Bridge.get(client, <span class="hljs-string">&quot;brg-65dhmbasiei&quot;</span>)
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre><code>{
-  &quot;id&quot;: &quot;{bridgeId}&quot;,
-  &quot;state&quot;: &quot;completed&quot;,
-  &quot;bridgeAudio&quot;: &quot;true&quot;,
-  &quot;calls&quot;:&quot;https://.../v1/users/{userId}/bridges/{bridgeId}/calls&quot;,
-  &quot;createdTime&quot;: &quot;2013-04-22T13:55:30.279Z&quot;,
-  &quot;activatedTime&quot;: &quot;2013-04-22T13:55:30.280Z&quot;,
-  &quot;completedTime&quot;: &quot;2013-04-22T13:59:30.122Z&quot;
-}
-</code></pre><h2 id="post-bridgesbridgeid">POST bridges/{bridgeId}</h2>
-<p>Change calls in a bridge and bridge/unbridge the audio.</p>
-<h3 id="example-add-call-callid1-and-call-callid2-in-a-bridge-bridgeid-with-two-way-voice-path">Example: Add call {callId1} and call {callId2} in a bridge {bridgeId} with two way voice path</h3>
-<h3 id="example-removing-call-callid2-from-the-bridge-created-in-the-example-above">Example: Removing call {callId2} from the bridge created in the example above</h3>
-<h3 id="example-adding-two-different-calls-callid3-and-callid4-in-the-bridge-above-and-put-them-on-hold">Example: Adding two different calls {callId3} and {callId4} in the bridge above and put them on hold</h3>
-<h3 id="example-bridging-the-audio-again">Example: Bridging the audio again</h3>
-<h3 id="example-removing-all-calls-from-bridge">Example: Removing all calls from bridge.</h3>
-<h2 id="post-bridgesbridgeidaudio">POST bridges/{bridgeId}/audio</h2>
-<p>Play an audio file or speak a sentence in a bridge.</p>
-<h3 id="supported-parameters">Supported Parameters</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Parameter</th>
-<th style="text-align:left">Description</th>
-<th style="text-align:left">Mandatory</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">fileUrl</td>
-<td style="text-align:left">The location of an audio file to play (WAV and MP3 supported).</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">sentence</td>
-<td style="text-align:left">The sentence to speak.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">gender</td>
-<td style="text-align:left">The gender of the voice used to synthesize the sentence. It will be considered only if sentence is not null. The female gender will be used by default.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">locale</td>
-<td style="text-align:left">The locale used to get the accent of the voice used to synthesize the sentence. Currently audio supports: <br> - en_US or en_UK (English) <br> - es or es_MX (Spanish) <br> - fr or fr_FR (French) <br> - de or de_DE (German) <br> - t or it_IT (Italian) It will be considered only if sentence is not null/empty. The en_US will be used by default.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">voice</td>
-<td style="text-align:left">The voice to speak the sentence. Audio currently supports the following voices: <br> - English US: Kate, Susan, Julie, Dave, Paul <br> - English UK: Bridget <br> - Spanish: Esperanza, Violeta, Jorge <br> - French: Jolie, Bernard <br> - German: Katrin, Stefan <br> - Italian: Paola, Luca It will be considered only if sentence is not null/empty. Susan&#x2019;s voice will be used by default.</td>
-<td style="text-align:left">No</td>
-</tr>
-</tbody>
-</table>
-<h3 id="example-play-an-audio-file">Example: Play an Audio file</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/audio \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> <span class="hljs-string">&apos;{&quot;fileUrl&quot;: &quot;http://example.com/audio.mp3&quot;}&apos;</span>
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">//Play Audio file on bridge</span>
-
-<span class="hljs-comment">//Promise</span>
-client.Bridge.playAudioFile(<span class="hljs-string">&quot;bridgeID&quot;</span>, <span class="hljs-string">&quot;http://myurl.com/file.mp3&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
-
-<span class="hljs-comment">//Callback</span>
-client.Bridge.playAudioFile(<span class="hljs-string">&quot;bridgeID&quot;</span>, <span class="hljs-string">&quot;http://myurl.com/file.wav&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, res</span>) </span>{});
-</code></pre>
-<h3 id="example-stop-an-audio-file-playing">Example: Stop an Audio File Playing</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/audio \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> <span class="hljs-string">&apos;{&quot;fileUrl&quot;: &quot;&quot;}&apos;</span>
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">// coming soon in the mean time:</span>
-<span class="hljs-comment">//Stop Audio file on bridge</span>
-
-<span class="hljs-comment">//Promise</span>
-client.Bridge.playAudioFile(<span class="hljs-string">&quot;bridgeID&quot;</span>, <span class="hljs-string">&quot;&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
-
-<span class="hljs-comment">//Callback</span>
-client.Bridge.playAudioFile(<span class="hljs-string">&quot;bridgeID&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, res</span>) </span>{});
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Bridge.PlayAudioFileAsync(<span class="hljs-string">&quot;brg-65dhmbasiei&quot;</span>, <span class="hljs-string">&quot;http://myurl.com/file.wav&quot;</span>);
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">bridge.play_audio({<span class="hljs-symbol">:file_url</span> =&gt; <span class="hljs-string">&quot;http://myurl.com/file.wav&quot;</span>})
-</code></pre>
-<h3 id="example-speak-a-sentence">Example: Speak a Sentence</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/audio \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> \
-    <span class="hljs-string">&apos;
-    {
-        &quot;gender&quot;: &quot;female&quot;,
-        &quot;sentence&quot;: &quot;Hello, thank you for calling.&quot;,
-        &quot;locale&quot;: &quot;en_US&quot;,
-        &quot;voice&quot;: &quot;julie&quot;
-    }&apos;</span>
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">//Speak sentence with options</span>
-<span class="hljs-keyword">var</span> options = {
-    sentence : <span class="hljs-string">&quot;hola de Bandwidth&quot;</span>,
-    gender   : <span class="hljs-string">&quot;male&quot;</span>,
-    locale   : <span class="hljs-string">&quot;es&quot;</span>,
-    voice    : <span class="hljs-string">&quot;Jorge&quot;</span>
-}
-<span class="hljs-comment">//Promise</span>
-client.Bridge.playAudioAdvanced(<span class="hljs-string">&quot;bridgeId&quot;</span>, options).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
-
-<span class="hljs-comment">//Callback</span>
-client.Bridge.playAudioAdvanced(<span class="hljs-string">&quot;bridgeId&quot;</span>, options, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err,res</span>) </span>{});
-
-<span class="hljs-comment">//Speak sentence in a bridge</span>
-
-<span class="hljs-comment">//Promise</span>
-client.Bridge.speakSentence(<span class="hljs-string">&quot;bridgeID&quot;</span>, <span class="hljs-string">&quot;Hello From Bandwidth&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
-
-<span class="hljs-comment">//Callback</span>
-client.Bridge.speakSentence(<span class="hljs-string">&quot;bridgeID&quot;</span>, <span class="hljs-string">&quot;Hello From Bandwidth&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, res</span>) </span>{});
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Bridge.SpeakSentenceAsync(<span class="hljs-string">&quot;brg-65dhmbasiei&quot;</span>, <span class="hljs-string">&quot;Hello From Bandwidth&quot;</span>);
-</code></pre>
-<h3 id="example-stop-a-sentence">Example: Stop a Sentence</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/audio \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> <span class="hljs-string">&apos;{&quot;sentence&quot;: &quot;&quot;}&apos;</span>
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">// coming soon</span>
-<span class="hljs-comment">//Speak sentence in a bridge</span>
-
-<span class="hljs-comment">//Promise</span>
-client.Bridge.speakSentence(<span class="hljs-string">&quot;bridgeID&quot;</span>, <span class="hljs-string">&quot;&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
-
-<span class="hljs-comment">//Callback</span>
-client.Bridge.speakSentence(<span class="hljs-string">&quot;bridgeID&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, res</span>) </span>{});
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Bridge.SpeakSentenceAsync(<span class="hljs-string">&quot;brg-65dhmbasiei&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">bridge.play_audio({<span class="hljs-symbol">:sentence</span> =&gt; <span class="hljs-string">&quot;&quot;</span>})
-</code></pre>
-<h2 id="get-bridgesbridgeidcalls">GET bridges/{bridgeId}/calls</h2>
-<p>Get the list of calls that are on the bridge.</p>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/calls \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">//Promise</span>
-client.Bridge.getCalls(<span class="hljs-string">&apos;brg-65dhjbiei&apos;</span>)
-.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
-    <span class="hljs-built_in">console</span>.log(response);
-});
-
-<span class="hljs-comment">//Callback</span>
-client.Bridge.getCalls(<span class="hljs-string">&apos;brg-65dhjrmbasiei&apos;</span>,
-    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, response</span>) </span>{
-        <span class="hljs-keyword">if</span>(err) {
-            <span class="hljs-built_in">console</span>.log(err);
-        }
-        <span class="hljs-keyword">else</span> {
-            <span class="hljs-built_in">console</span>.log(response);
-        }
-    });
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> calls = client.Bridge.GetCalls(<span class="hljs-string">&quot;brg-65dhmbasiei&quot;</span>);
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">calls = bridge.get_calls()
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre><code class="lang-json">[
-    {
-        <span class="hljs-string">&quot;activeTime&quot;</span>: <span class="hljs-string">&quot;2013-05-22T19:49:39Z&quot;</span>,
-        <span class="hljs-string">&quot;direction&quot;</span>: <span class="hljs-string">&quot;out&quot;</span>,
-        <span class="hljs-string">&quot;from&quot;</span>: <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
-        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callId1}&quot;</span>,
-        <span class="hljs-string">&quot;bridgeId&quot;</span>: <span class="hljs-string">&quot;{bridgeId}&quot;</span>,
-        <span class="hljs-string">&quot;startTime&quot;</span>: <span class="hljs-string">&quot;2013-05-22T19:49:35Z&quot;</span>,
-        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;active&quot;</span>,
-        <span class="hljs-string">&quot;to&quot;</span>: <span class="hljs-string">&quot;{toNumber1}&quot;</span>,
-        <span class="hljs-string">&quot;recordingEnabled&quot;</span>: <span class="hljs-literal">false</span>,
-        <span class="hljs-string">&quot;events&quot;</span>: <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId1}/events&quot;</span>,
-        <span class="hljs-string">&quot;bridge&quot;</span>: <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}&quot;</span>
-    },
-    {
-        <span class="hljs-string">&quot;activeTime&quot;</span>: <span class="hljs-string">&quot;2013-05-22T19:50:16Z&quot;</span>,
-        <span class="hljs-string">&quot;direction&quot;</span>: <span class="hljs-string">&quot;out&quot;</span>,
-        <span class="hljs-string">&quot;from&quot;</span>: <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
-        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{callId2}&quot;</span>,
-        <span class="hljs-string">&quot;bridgeId&quot;</span>: <span class="hljs-string">&quot;{bridgeId}&quot;</span>,
-        <span class="hljs-string">&quot;startTime&quot;</span>: <span class="hljs-string">&quot;2013-05-22T19:50:16Z&quot;</span>,
-        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;active&quot;</span>,
-        <span class="hljs-string">&quot;to&quot;</span>: <span class="hljs-string">&quot;{toNumber2}&quot;</span>,
-        <span class="hljs-string">&quot;recordingEnabled&quot;</span>: <span class="hljs-literal">false</span>,
-        <span class="hljs-string">&quot;events&quot;</span>: <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId2}/events&quot;</span>,
-        <span class="hljs-string">&quot;bridge&quot;</span>: <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}&quot;</span>
-    }
-]
-</code></pre>
-</div></div></div>
 
                                 
                                 </section>
@@ -1852,7 +1407,7 @@ client.Bridge.getCalls(<span class="hljs-string">&apos;brg-65dhjrmbasiei&apos;</
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"/bridges","level":"2.4","depth":1,"next":{"title":"GET /bridges","level":"2.4.1","depth":2,"path":"methods/bridges/getBridges.md","ref":"methods/bridges/getBridges.md","articles":[]},"previous":{"title":"POST /availableNumbers/tollFree","level":"2.3.4","depth":2,"path":"methods/availableNumbers/postAvailableNumbersTollFree.md","ref":"methods/availableNumbers/postAvailableNumbersTollFree.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","livereload"],"pluginsConfig":{"livereload":{},"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/bridges/bridges.md","mtime":"2016-10-20T17:43:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T17:52:35.806Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"/bridges","level":"2.4","depth":1,"next":{"title":"GET /bridges","level":"2.4.1","depth":2,"path":"methods/bridges/getBridges.md","ref":"methods/bridges/getBridges.md","articles":[]},"previous":{"title":"POST /availableNumbers/tollFree","level":"2.3.4","depth":2,"path":"methods/availableNumbers/postAvailableNumbersTollFree.md","ref":"methods/availableNumbers/postAvailableNumbersTollFree.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","livereload"],"pluginsConfig":{"livereload":{},"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/bridges/bridges.md","mtime":"2016-10-20T20:22:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:22:45.866Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

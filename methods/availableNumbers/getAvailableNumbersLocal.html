@@ -796,7 +796,7 @@
                 <a href="../domains/deleteDomainsDomainId.html">
             
                     
-                    DELTE /domains/{domainId}
+                    <code class="delete">DELETE</code> /domains/{domainId}
             
                 </a>
             
@@ -1331,7 +1331,205 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"></div><div class="api-method-code"></div></div>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="get-availablenumberslocal">GET availableNumbers/local</h2>
+<p>Searches for available local numbers by location or pattern criteria.</p>
+<h3 id="supported-parameters">Supported Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">city</td>
+<td style="text-align:left">A city name.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">A two-letter US state abbreviation (&quot;CA&quot; for California).</td>
+<td style="text-align:left">**</td>
+</tr>
+<tr>
+<td style="text-align:left">zip</td>
+<td style="text-align:left">A 5-digit US ZIP code.</td>
+<td style="text-align:left">**</td>
+</tr>
+<tr>
+<td style="text-align:left">areaCode</td>
+<td style="text-align:left">A 3-digit telephone area code.</td>
+<td style="text-align:left">**</td>
+</tr>
+<tr>
+<td style="text-align:left">localNumber</td>
+<td style="text-align:left">It is defined as the first digits of a telephone number inside an area code for filtering the results. It must have at least 3 digits and the areaCode field must be filled.</td>
+<td style="text-align:left"><em>*</em></td>
+</tr>
+<tr>
+<td style="text-align:left">inLocalCallingArea</td>
+<td style="text-align:left">Boolean value to indicate that the search for available numbers must consider overlayed areas. Only applied for localNumber searching.</td>
+<td style="text-align:left"><em>*</em></td>
+</tr>
+<tr>
+<td style="text-align:left">quantity</td>
+<td style="text-align:left">The maximum number of numbers to return (default 10, maximum 5000).</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">pattern</td>
+<td style="text-align:left">A number pattern that may include letters, digits, and the following wildcard characters: <br> ? : matches any single digit <br> * : matches zero or more digits<br> Don&apos;t forget to encode wildcard characters in the requested URL.</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<aside class="notice">
+** state, zip and areaCode are mutually exclusive, you may use only one of them per request.
+</aside>
+<aside class="notice">
+*** localNumber and inLocalCallingArea only applies for searching numbers in specific areaCode.
+</aside>
+
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">number</td>
+<td style="text-align:left">The telephone number in E.164 format.</td>
+</tr>
+<tr>
+<td style="text-align:left">nationalNumber</td>
+<td style="text-align:left">The telephone number in a friendly national format.</td>
+</tr>
+<tr>
+<td style="text-align:left">patternMatch</td>
+<td style="text-align:left">The telephone number in a friendly national format with some numbers replaced by letters if a pattern was used to search the number.</td>
+</tr>
+<tr>
+<td style="text-align:left">city</td>
+<td style="text-align:left">The city of the phone number.</td>
+</tr>
+<tr>
+<td style="text-align:left">lata</td>
+<td style="text-align:left">Local access and transport area (LATA), represents an area within which a regional operating company is permitted to offer exchange telecommunications and exchange access services.</td>
+</tr>
+<tr>
+<td style="text-align:left">rateCenter</td>
+<td style="text-align:left">The rate center is a term used to identify a telephone local exchange service area.</td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">The state of the phone number.</td>
+</tr>
+<tr>
+<td style="text-align:left">price</td>
+<td style="text-align:left">The monthly price for the phone number.</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-search-for-citystate-and-pattern">Example: Search for City/State and Pattern</h3>
+<blockquote>
+<p>To find up to two available local numbers in the city of Cary, North Carolina, that match the pattern &quot;<em>2?9</em>&quot;, make the following request:</p>
+</blockquote>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET  https://api.catapult.inetwork.com/v1/availableNumbers/<span class="hljs-built_in">local</span>?city=Cary&amp;state=NC&amp;pattern=*2%3F9*&amp;quantity=2 \
+  -u {token}:{secret} \
+  -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Search 3 available local phone numbers with area code 910</span>
+
+<span class="hljs-comment">// Promise</span>
+client.AvailableNumber.search(<span class="hljs-string">&quot;local&quot;</span>, { areaCode : <span class="hljs-string">&quot;910&quot;</span>, quantity : <span class="hljs-number">3</span> }).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">numbers</span>) </span>{});
+
+<span class="hljs-comment">// Callback</span>
+client.AvailableNumber.search(<span class="hljs-string">&quot;local&quot;</span>, { areaCode : <span class="hljs-string">&quot;910&quot;</span>, quantity : <span class="hljs-number">3</span> }, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, numbers</span>) </span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> results = <span class="hljs-keyword">await</span> client.AvailableNumber.SearchLocalAsync(<span class="hljs-keyword">new</span> LocalNumberQuery{ AreaCode = <span class="hljs-string">&quot;910&quot;</span>, Quantity = <span class="hljs-number">3</span>});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">results = AvailableNumber.search_local(client, {<span class="hljs-symbol">:area_code</span> =&gt; <span class="hljs-string">&quot;910&quot;</span>, <span class="hljs-symbol">:quantity</span> =&gt; <span class="hljs-number">3</span>})
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code class="lang-json">[
+  {
+    <span class="hljs-string">&quot;number&quot;</span>: <span class="hljs-string">&quot;{number1}&quot;</span>,
+    <span class="hljs-string">&quot;nationalNumber&quot;</span>: <span class="hljs-string">&quot;{national_number1}&quot;</span>,
+    <span class="hljs-string">&quot;patternMatch&quot;</span>: <span class="hljs-string">&quot;          2 9 &quot;</span>,
+    <span class="hljs-string">&quot;city&quot;</span>: <span class="hljs-string">&quot;CARY&quot;</span>,
+    <span class="hljs-string">&quot;lata&quot;</span>: <span class="hljs-string">&quot;426&quot;</span>,
+    <span class="hljs-string">&quot;rateCenter&quot;</span>: <span class="hljs-string">&quot;CARY&quot;</span>,
+    <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;NC&quot;</span>,
+    <span class="hljs-string">&quot;price&quot;</span>: <span class="hljs-string">&quot;0.60&quot;</span>
+  },
+  {
+    <span class="hljs-string">&quot;number&quot;</span>: <span class="hljs-string">&quot;{number2}&quot;</span>,
+    <span class="hljs-string">&quot;nationalNumber&quot;</span>: <span class="hljs-string">&quot;{national_number2}&quot;</span>,
+    <span class="hljs-string">&quot;patternMatch&quot;</span>: <span class="hljs-string">&quot;          2 9 &quot;</span>,
+    <span class="hljs-string">&quot;city&quot;</span>: <span class="hljs-string">&quot;CARY&quot;</span>,
+    <span class="hljs-string">&quot;lata&quot;</span>: <span class="hljs-string">&quot;426&quot;</span>,
+    <span class="hljs-string">&quot;rateCenter&quot;</span>: <span class="hljs-string">&quot;CARY&quot;</span>,
+    <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;NC&quot;</span>,
+    <span class="hljs-string">&quot;price&quot;</span>: <span class="hljs-string">&quot;0.60&quot;</span>
+  }
+]
+</code></pre>
+<h3 id="example-search-with-areacode-and-localnumber">Example: Search with areaCode and localNumber</h3>
+<blockquote>
+<p>To find up to two available local numbers in the area code 919 which the numbers begins with 867 and inside overlayed areas, make the following request:</p>
+</blockquote>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET  https://api.catapult.inetwork.com/v1/availableNumbers/<span class="hljs-built_in">local</span>?city=Cary&amp;state=NC&amp;pattern=*2%3F9*&amp;quantity=2 \
+  -u {token}:{secret} \
+  -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">//coming soon</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> results = <span class="hljs-keyword">await</span> client.AvailableNumber.SearchLocalAsync(
+  <span class="hljs-keyword">new</span> LocalNumberQuery{
+    City = <span class="hljs-string">&quot;Cary&quot;</span>,
+    State = <span class="hljs-string">&quot;NC&quot;</span>,
+    Pattern = <span class="hljs-string">&quot;*2?9*&quot;</span>,
+    Quantity = <span class="hljs-number">2</span>
+  }
+);
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">results = AvailableNumber.search_local(client, {
+  <span class="hljs-symbol">:city</span> =&gt; <span class="hljs-string">&quot;Cary&quot;</span>,
+  <span class="hljs-symbol">:state</span> =&gt; <span class="hljs-string">&quot;NC&quot;</span>,
+  <span class="hljs-symbol">:pattern</span> =&gt; <span class="hljs-string">&quot;*2?9*&quot;</span>,
+  <span class="hljs-symbol">:quantity</span> =&gt; <span class="hljs-number">2</span>
+})
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code class="lang-json">[
+    {
+        <span class="hljs-string">&quot;number&quot;</span>: <span class="hljs-string">&quot;{number1}&quot;</span>,
+        <span class="hljs-string">&quot;nationalNumber&quot;</span>: <span class="hljs-string">&quot;{national_number1}&quot;</span>,
+        <span class="hljs-string">&quot;city&quot;</span>: <span class="hljs-string">&quot;RALEIGH&quot;</span>,
+        <span class="hljs-string">&quot;rateCenter&quot;</span>: <span class="hljs-string">&quot;RALEIGH&quot;</span>,
+        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;NC&quot;</span>,
+        <span class="hljs-string">&quot;price&quot;</span>: <span class="hljs-string">&quot;0.60&quot;</span>
+    },
+    {
+        <span class="hljs-string">&quot;number&quot;</span>: <span class="hljs-string">&quot;{number2}&quot;</span>,
+        <span class="hljs-string">&quot;nationalNumber&quot;</span>: <span class="hljs-string">&quot;{national_number2}&quot;</span>,
+        <span class="hljs-string">&quot;city&quot;</span>: <span class="hljs-string">&quot;RALEIGH&quot;</span>,
+        <span class="hljs-string">&quot;rateCenter&quot;</span>: <span class="hljs-string">&quot;RALEIGH&quot;</span>,
+        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;NC&quot;</span>,
+        <span class="hljs-string">&quot;price&quot;</span>: <span class="hljs-string">&quot;0.60&quot;</span>
+    }
+]
+</code></pre>
+</div></div></div>
 
                                 
                                 </section>
@@ -1365,7 +1563,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET /availableNumbers/local","level":"2.3.1","depth":2,"next":{"title":"POST /availableNumbers/local","level":"2.3.2","depth":2,"path":"methods/availableNumbers/postAvailableNumbersLocal.md","ref":"methods/availableNumbers/postAvailableNumbersLocal.md","articles":[]},"previous":{"title":"/availableNumbers","level":"2.3","depth":1,"path":"methods/availableNumbers/availableNumbers.md","ref":"methods/availableNumbers/availableNumbers.md","articles":[{"title":"GET /availableNumbers/local","level":"2.3.1","depth":2,"path":"methods/availableNumbers/getAvailableNumbersLocal.md","ref":"methods/availableNumbers/getAvailableNumbersLocal.md","articles":[]},{"title":"POST /availableNumbers/local","level":"2.3.2","depth":2,"path":"methods/availableNumbers/postAvailableNumbersLocal.md","ref":"methods/availableNumbers/postAvailableNumbersLocal.md","articles":[]},{"title":"GET /availableNumbers/tollFree","level":"2.3.3","depth":2,"path":"methods/availableNumbers/getAvailableNumbersTollFree.md","ref":"methods/availableNumbers/getAvailableNumbersTollFree.md","articles":[]},{"title":"POST /availableNumbers/tollFree","level":"2.3.4","depth":2,"path":"methods/availableNumbers/postAvailableNumbersTollFree.md","ref":"methods/availableNumbers/postAvailableNumbersTollFree.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","livereload"],"pluginsConfig":{"livereload":{},"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/availableNumbers/getAvailableNumbersLocal.md","mtime":"2016-10-20T17:43:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T17:52:35.806Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET /availableNumbers/local","level":"2.3.1","depth":2,"next":{"title":"POST /availableNumbers/local","level":"2.3.2","depth":2,"path":"methods/availableNumbers/postAvailableNumbersLocal.md","ref":"methods/availableNumbers/postAvailableNumbersLocal.md","articles":[]},"previous":{"title":"/availableNumbers","level":"2.3","depth":1,"path":"methods/availableNumbers/availableNumbers.md","ref":"methods/availableNumbers/availableNumbers.md","articles":[{"title":"GET /availableNumbers/local","level":"2.3.1","depth":2,"path":"methods/availableNumbers/getAvailableNumbersLocal.md","ref":"methods/availableNumbers/getAvailableNumbersLocal.md","articles":[]},{"title":"POST /availableNumbers/local","level":"2.3.2","depth":2,"path":"methods/availableNumbers/postAvailableNumbersLocal.md","ref":"methods/availableNumbers/postAvailableNumbersLocal.md","articles":[]},{"title":"GET /availableNumbers/tollFree","level":"2.3.3","depth":2,"path":"methods/availableNumbers/getAvailableNumbersTollFree.md","ref":"methods/availableNumbers/getAvailableNumbersTollFree.md","articles":[]},{"title":"POST /availableNumbers/tollFree","level":"2.3.4","depth":2,"path":"methods/availableNumbers/postAvailableNumbersTollFree.md","ref":"methods/availableNumbers/postAvailableNumbersTollFree.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","livereload"],"pluginsConfig":{"livereload":{},"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/availableNumbers/getAvailableNumbersLocal.md","mtime":"2016-10-20T20:22:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:22:45.866Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

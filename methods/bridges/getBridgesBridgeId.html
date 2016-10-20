@@ -796,7 +796,7 @@
                 <a href="../domains/deleteDomainsDomainId.html">
             
                     
-                    DELTE /domains/{domainId}
+                    <code class="delete">DELETE</code> /domains/{domainId}
             
                 </a>
             
@@ -1331,7 +1331,121 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"></div><div class="api-method-code"></div></div>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="get-bridgesbridgeid">GET bridges/{bridgeId}</h2>
+<p>Gets information about a specific bridge. No query parameters are supported.</p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">The unique ID of the bridge.</td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">Bridge state. Possible state values are described here.</td>
+</tr>
+<tr>
+<td style="text-align:left">callIds</td>
+<td style="text-align:left">List of call Ids that will be in the bridge.</td>
+</tr>
+<tr>
+<td style="text-align:left">calls</td>
+<td style="text-align:left">The URL used to retrieve the calls in a specific bridge.</td>
+</tr>
+<tr>
+<td style="text-align:left">bridgeAudio</td>
+<td style="text-align:left">Enable/Disable two way audio path.</td>
+</tr>
+<tr>
+<td style="text-align:left">completedTime</td>
+<td style="text-align:left">The time when the bridge was completed.</td>
+</tr>
+<tr>
+<td style="text-align:left">createdTime</td>
+<td style="text-align:left">The time that bridge was created.</td>
+</tr>
+<tr>
+<td style="text-align:left">activatedTime</td>
+<td style="text-align:left">The time that the bridge got into active state.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bridge-state">Bridge state</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">State</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">created</td>
+<td style="text-align:left">The bridge was created but the audio was never bridged.</td>
+</tr>
+<tr>
+<td style="text-align:left">active</td>
+<td style="text-align:left">The bridge has two active calls and the audio was already bridged before.</td>
+</tr>
+<tr>
+<td style="text-align:left">hold</td>
+<td style="text-align:left">The bridge calls are on hold (bridgeAudio was set to false).</td>
+</tr>
+<tr>
+<td style="text-align:left">completed</td>
+<td style="text-align:left">The bridge was completed. The bridge is completed when all calls hangup or when all calls are removed from bridge.</td>
+</tr>
+<tr>
+<td style="text-align:left">error</td>
+<td style="text-align:left">Some error was detected in bridge.</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-get-information-about-a-bridge">Example: Get information about a bridge</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId} \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">//Promise</span>
+client.Bridge.get(<span class="hljs-string">&apos;brg-65dhjwrmbasiei&apos;</span>)
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(response);
+});
+
+<span class="hljs-comment">//Callback</span>
+client.Bridge.get(<span class="hljs-string">&apos;brg-65dhmbasiei&apos;</span>,
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, response</span>) </span>{
+        <span class="hljs-keyword">if</span>(err) {
+            <span class="hljs-built_in">console</span>.log(err);
+        }
+        <span class="hljs-keyword">else</span> {
+            <span class="hljs-built_in">console</span>.log(response);
+        }
+    });
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> bridge = <span class="hljs-keyword">await</span> client.Bridge.GetAsync(<span class="hljs-string">&quot;brg-65dhmbasiei&quot;</span>);
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">bridge = Bridge.get(client, <span class="hljs-string">&quot;brg-65dhmbasiei&quot;</span>)
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code>{
+  &quot;id&quot;: &quot;{bridgeId}&quot;,
+  &quot;state&quot;: &quot;completed&quot;,
+  &quot;bridgeAudio&quot;: &quot;true&quot;,
+  &quot;calls&quot;:&quot;https://.../v1/users/{userId}/bridges/{bridgeId}/calls&quot;,
+  &quot;createdTime&quot;: &quot;2013-04-22T13:55:30.279Z&quot;,
+  &quot;activatedTime&quot;: &quot;2013-04-22T13:55:30.280Z&quot;,
+  &quot;completedTime&quot;: &quot;2013-04-22T13:59:30.122Z&quot;
+}
+</code></pre></div></div></div>
 
                                 
                                 </section>
@@ -1365,7 +1479,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET /bridges/{bridgeId}","level":"2.4.3","depth":2,"next":{"title":"POST /bridges/{bridgeId}","level":"2.4.4","depth":2,"path":"methods/bridges/postBridgesBridgeId.md","ref":"methods/bridges/postBridgesBridgeId.md","articles":[]},"previous":{"title":"POST /bridges","level":"2.4.2","depth":2,"path":"methods/bridges/postBridges.md","ref":"methods/bridges/postBridges.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","livereload"],"pluginsConfig":{"livereload":{},"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/bridges/getBridgesBridgeId.md","mtime":"2016-10-20T17:43:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T17:52:35.806Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET /bridges/{bridgeId}","level":"2.4.3","depth":2,"next":{"title":"POST /bridges/{bridgeId}","level":"2.4.4","depth":2,"path":"methods/bridges/postBridgesBridgeId.md","ref":"methods/bridges/postBridgesBridgeId.md","articles":[]},"previous":{"title":"POST /bridges","level":"2.4.2","depth":2,"path":"methods/bridges/postBridges.md","ref":"methods/bridges/postBridges.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","livereload"],"pluginsConfig":{"livereload":{},"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/bridges/getBridgesBridgeId.md","mtime":"2016-10-20T20:22:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:22:45.866Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

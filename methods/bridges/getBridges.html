@@ -796,7 +796,7 @@
                 <a href="../domains/deleteDomainsDomainId.html">
             
                     
-                    DELTE /domains/{domainId}
+                    <code class="delete">DELETE</code> /domains/{domainId}
             
                 </a>
             
@@ -1331,7 +1331,152 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"></div><div class="api-method-code"></div></div>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="get-bridges">GET bridges</h2>
+<p>Get list of bridges for a given user.</p>
+<h3 id="supported-parameters">Supported Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">page</td>
+<td style="text-align:left">Used for pagination to indicate the page requested for querying a list of bridges. If no value is specified the default is 0.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">size</td>
+<td style="text-align:left">Used for pagination to indicate the size of each page requested for querying a list of bridges. If no value is specified the default value is 25 (maximum value 1000).</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">The unique ID of the bridge.</td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">Bridge state. Possible state values are described here.</td>
+</tr>
+<tr>
+<td style="text-align:left">callIds</td>
+<td style="text-align:left">List of call Ids that will be in the bridge.</td>
+</tr>
+<tr>
+<td style="text-align:left">calls</td>
+<td style="text-align:left">The URL used to retrieve the calls in a specific bridge.</td>
+</tr>
+<tr>
+<td style="text-align:left">bridgeAudio</td>
+<td style="text-align:left">Enable/Disable two way audio path.</td>
+</tr>
+<tr>
+<td style="text-align:left">completedTime</td>
+<td style="text-align:left">The time when the bridge was completed.</td>
+</tr>
+<tr>
+<td style="text-align:left">createdTime</td>
+<td style="text-align:left">The time that bridge was created.</td>
+</tr>
+<tr>
+<td style="text-align:left">activatedTime</td>
+<td style="text-align:left">The time that the bridge got into active state.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bridge-state">Bridge state</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">State</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">created</td>
+<td style="text-align:left">The bridge was created but the audio was never bridged.</td>
+</tr>
+<tr>
+<td style="text-align:left">active</td>
+<td style="text-align:left">The bridge has two active calls and the audio was already bridged before.</td>
+</tr>
+<tr>
+<td style="text-align:left">hold</td>
+<td style="text-align:left">The bridge calls are on hold (bridgeAudio was set to false).</td>
+</tr>
+<tr>
+<td style="text-align:left">completed</td>
+<td style="text-align:left">The bridge was completed. The bridge is completed when all calls hangup or when all calls are removed from bridge.</td>
+</tr>
+<tr>
+<td style="text-align:left">error</td>
+<td style="text-align:left">Some error was detected in bridge.</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-list-of-a-users-bridges">Example: List of a user&apos;s bridges</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/bridges/transations \
+  -u {token}:{secret} \
+  -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js">client.Bridge.list()
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(response.bridges);
+    <span class="hljs-keyword">if</span>(response.hasNextPage) {
+        <span class="hljs-keyword">return</span> response.getNextPage();
+    }
+    <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span> {bridges: []};
+    }
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(response.bridges);
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> bridges = client.Bridge.List();
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">bridges = Bridge.list(client)
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code class="lang-json">[
+  {
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{bridgeId}&quot;</span>,
+    <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;completed&quot;</span>,
+    <span class="hljs-string">&quot;bridgeAudio&quot;</span>: <span class="hljs-string">&quot;true&quot;</span>,
+    <span class="hljs-string">&quot;calls&quot;</span>:<span class="hljs-string">&quot;https://.../v1/users/{userId}/bridges/{bridgeId}/calls&quot;</span>,
+    <span class="hljs-string">&quot;createdTime&quot;</span>: <span class="hljs-string">&quot;2013-04-22T13:55:30.279Z&quot;</span>,
+    <span class="hljs-string">&quot;activatedTime&quot;</span>: <span class="hljs-string">&quot;2013-04-22T13:55:30.280Z&quot;</span>,
+    <span class="hljs-string">&quot;completedTime&quot;</span>: <span class="hljs-string">&quot;2013-04-22T13:56:30.122Z&quot;</span>
+  },
+  {
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{bridgeId}&quot;</span>,
+    <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;completed&quot;</span>,
+    <span class="hljs-string">&quot;bridgeAudio&quot;</span>: <span class="hljs-string">&quot;true&quot;</span>,
+    <span class="hljs-string">&quot;calls&quot;</span>:<span class="hljs-string">&quot;https://.../v1/users/{userId}/bridges/{bridgeId}/calls&quot;</span>,
+    <span class="hljs-string">&quot;createdTime&quot;</span>: <span class="hljs-string">&quot;2013-04-22T13:58:30.121Z&quot;</span>,
+    <span class="hljs-string">&quot;activatedTime&quot;</span>: <span class="hljs-string">&quot;2013-04-22T13:58:30.122Z&quot;</span>,
+    <span class="hljs-string">&quot;completedTime&quot;</span>: <span class="hljs-string">&quot;2013-04-22T13:59:30.122Z&quot;</span>
+  }
+]
+</code></pre>
+</div></div></div>
 
                                 
                                 </section>
@@ -1365,7 +1510,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET /bridges","level":"2.4.1","depth":2,"next":{"title":"POST /bridges","level":"2.4.2","depth":2,"path":"methods/bridges/postBridges.md","ref":"methods/bridges/postBridges.md","articles":[]},"previous":{"title":"/bridges","level":"2.4","depth":1,"path":"methods/bridges/bridges.md","ref":"methods/bridges/bridges.md","articles":[{"title":"GET /bridges","level":"2.4.1","depth":2,"path":"methods/bridges/getBridges.md","ref":"methods/bridges/getBridges.md","articles":[]},{"title":"POST /bridges","level":"2.4.2","depth":2,"path":"methods/bridges/postBridges.md","ref":"methods/bridges/postBridges.md","articles":[]},{"title":"GET /bridges/{bridgeId}","level":"2.4.3","depth":2,"path":"methods/bridges/getBridgesBridgeId.md","ref":"methods/bridges/getBridgesBridgeId.md","articles":[]},{"title":"POST /bridges/{bridgeId}","level":"2.4.4","depth":2,"path":"methods/bridges/postBridgesBridgeId.md","ref":"methods/bridges/postBridgesBridgeId.md","articles":[]},{"title":"POST /bridges/{bridgeId}/audio","level":"2.4.5","depth":2,"path":"methods/bridges/postBridgesBridgeIdAudio.md","ref":"methods/bridges/postBridgesBridgeIdAudio.md","articles":[]},{"title":"GET /bridges/{bridgeId}/calls","level":"2.4.6","depth":2,"path":"methods/bridges/getBridgesBridgeIdCalls.md","ref":"methods/bridges/getBridgesBridgeIdCalls.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","livereload"],"pluginsConfig":{"livereload":{},"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/bridges/getBridges.md","mtime":"2016-10-20T17:43:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T17:52:35.806Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET /bridges","level":"2.4.1","depth":2,"next":{"title":"POST /bridges","level":"2.4.2","depth":2,"path":"methods/bridges/postBridges.md","ref":"methods/bridges/postBridges.md","articles":[]},"previous":{"title":"/bridges","level":"2.4","depth":1,"path":"methods/bridges/bridges.md","ref":"methods/bridges/bridges.md","articles":[{"title":"GET /bridges","level":"2.4.1","depth":2,"path":"methods/bridges/getBridges.md","ref":"methods/bridges/getBridges.md","articles":[]},{"title":"POST /bridges","level":"2.4.2","depth":2,"path":"methods/bridges/postBridges.md","ref":"methods/bridges/postBridges.md","articles":[]},{"title":"GET /bridges/{bridgeId}","level":"2.4.3","depth":2,"path":"methods/bridges/getBridgesBridgeId.md","ref":"methods/bridges/getBridgesBridgeId.md","articles":[]},{"title":"POST /bridges/{bridgeId}","level":"2.4.4","depth":2,"path":"methods/bridges/postBridgesBridgeId.md","ref":"methods/bridges/postBridgesBridgeId.md","articles":[]},{"title":"POST /bridges/{bridgeId}/audio","level":"2.4.5","depth":2,"path":"methods/bridges/postBridgesBridgeIdAudio.md","ref":"methods/bridges/postBridgesBridgeIdAudio.md","articles":[]},{"title":"GET /bridges/{bridgeId}/calls","level":"2.4.6","depth":2,"path":"methods/bridges/getBridgesBridgeIdCalls.md","ref":"methods/bridges/getBridgesBridgeIdCalls.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","livereload"],"pluginsConfig":{"livereload":{},"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/bridges/getBridges.md","mtime":"2016-10-20T20:22:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:22:45.866Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

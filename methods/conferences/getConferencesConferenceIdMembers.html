@@ -796,7 +796,7 @@
                 <a href="../domains/deleteDomainsDomainId.html">
             
                     
-                    DELTE /domains/{domainId}
+                    <code class="delete">DELETE</code> /domains/{domainId}
             
                 </a>
             
@@ -1331,7 +1331,107 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"></div><div class="api-method-code"></div></div>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="get-conferencesconferenceidmembers">GET conferences/{conferenceId}/members</h2>
+<p>List all members from a conference. If a member had already hung up or removed from conference it will be displayed as completed.</p>
+<h2 id="conference-member-properties">Conference Member Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">The unique id of a member.</td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">The state of the member in the conference, values are <code>active</code> or <code>completed</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left">mute</td>
+<td style="text-align:left">If <code>true</code>, the member can&#x2019;t speak in the conference, but can hear audio. If &#x201C;false&#x201D;, the member can speak in the conference.</td>
+</tr>
+<tr>
+<td style="text-align:left">hold</td>
+<td style="text-align:left">If <code>true</code>, member can&#x2019;t hear the conference. If <code>false</code>, the member can hear the conference.</td>
+</tr>
+<tr>
+<td style="text-align:left">joinTone</td>
+<td style="text-align:left">If <code>true</code>, will play a tone when the member joins the conference. If <code>false</code>, no tone is played when the member joins the conference.</td>
+</tr>
+<tr>
+<td style="text-align:left">leavingTone</td>
+<td style="text-align:left">If <code>true</code>, will play a tone when the member leaves the conference. If <code>false</code>, no tone is played when the member leaves the conference.</td>
+</tr>
+<tr>
+<td style="text-align:left">addedTime</td>
+<td style="text-align:left">Date and time when the member was added to the conference (UTC).</td>
+</tr>
+<tr>
+<td style="text-align:left">removedTime</td>
+<td style="text-align:left">Date and time when the member was removed to the conference (UTC).</td>
+</tr>
+<tr>
+<td style="text-align:left">call</td>
+<td style="text-align:left">The URL of the call resource for this member.</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-listing-members-from-a-conference">Example: Listing members from a conference</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
+client.Conference.getMembers(<span class="hljs-string">&quot;conferenceId&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">members</span>)</span>{});
+<span class="hljs-comment">// Callback</span>
+client.Conference.getMembers(<span class="hljs-string">&quot;conferenceId&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, members</span>)</span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> members = client.Conference.GetMembers(<span class="hljs-string">&quot;{conferenceId1}&quot;</span>);
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">members = conference.get_members()
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code class="lang-json">[
+    {
+            <span class="hljs-string">&quot;addedTime&quot;</span>: <span class="hljs-string">&quot;2013-07-12T15:54:47-02&quot;</span>,
+            <span class="hljs-string">&quot;hold&quot;</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{memberId1}&quot;</span>,
+            <span class="hljs-string">&quot;mute&quot;</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;active&quot;</span>,
+            <span class="hljs-string">&quot;joinTone&quot;</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-string">&quot;leavingTone&quot;</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-string">&quot;call&quot;</span>: <span class="hljs-string">&quot;https://localhost:8444/v1/users/{userId}/calls/{callId1}&quot;</span>
+    },
+    {
+            <span class="hljs-string">&quot;addedTime&quot;</span>: <span class="hljs-string">&quot;2013-07-12T15:55:12-02&quot;</span>,
+            <span class="hljs-string">&quot;hold&quot;</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{memberId2}&quot;</span>,
+            <span class="hljs-string">&quot;mute&quot;</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;active&quot;</span>,
+            <span class="hljs-string">&quot;joinTone&quot;</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-string">&quot;leavingTone&quot;</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-string">&quot;call&quot;</span>: <span class="hljs-string">&quot;https://localhost:8444/v1/users/{userId}/calls/{callId2}&quot;</span>
+    },
+    {
+            <span class="hljs-string">&quot;addedTime&quot;</span>: <span class="hljs-string">&quot;2013-07-12T15:56:12-02&quot;</span>,
+            <span class="hljs-string">&quot;hold&quot;</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{memberId3}&quot;</span>,
+            <span class="hljs-string">&quot;mute&quot;</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-string">&quot;removedTime&quot;</span>: <span class="hljs-string">&quot;2013-07-12T15:56:59-02&quot;</span>,
+            <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;completed&quot;</span>,
+            <span class="hljs-string">&quot;joinTone&quot;</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-string">&quot;leavingTone&quot;</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-string">&quot;call&quot;</span>: <span class="hljs-string">&quot;https://localhost:8444/v1/users/{userId}/calls/{callId3}&quot;</span>
+    }
+]
+</code></pre>
+</div></div></div>
 
                                 
                                 </section>
@@ -1365,7 +1465,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET /conferences/{conferenceId}/members","level":"2.6.6","depth":2,"next":{"title":"POST /conferences/{conferenceId}/members/{memberId}","level":"2.6.7","depth":2,"path":"methods/conferences/postConferencesConferenceIdMembersMemberId.md","ref":"methods/conferences/postConferencesConferenceIdMembersMemberId.md","articles":[]},"previous":{"title":"POST /conferences/{conferenceId}/members","level":"2.6.5","depth":2,"path":"methods/conferences/postConferencesConferenceIdMembers.md","ref":"methods/conferences/postConferencesConferenceIdMembers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","livereload"],"pluginsConfig":{"livereload":{},"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/conferences/getConferencesConferenceIdMembers.md","mtime":"2016-10-20T17:43:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T17:52:35.806Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET /conferences/{conferenceId}/members","level":"2.6.6","depth":2,"next":{"title":"POST /conferences/{conferenceId}/members/{memberId}","level":"2.6.7","depth":2,"path":"methods/conferences/postConferencesConferenceIdMembersMemberId.md","ref":"methods/conferences/postConferencesConferenceIdMembersMemberId.md","articles":[]},"previous":{"title":"POST /conferences/{conferenceId}/members","level":"2.6.5","depth":2,"path":"methods/conferences/postConferencesConferenceIdMembers.md","ref":"methods/conferences/postConferencesConferenceIdMembers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","livereload"],"pluginsConfig":{"livereload":{},"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/conferences/getConferencesConferenceIdMembers.md","mtime":"2016-10-20T20:22:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:22:45.866Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

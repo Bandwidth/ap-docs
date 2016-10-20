@@ -796,7 +796,7 @@
                 <a href="../domains/deleteDomainsDomainId.html">
             
                     
-                    DELTE /domains/{domainId}
+                    <code class="delete">DELETE</code> /domains/{domainId}
             
                 </a>
             
@@ -1331,7 +1331,87 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"></div><div class="api-method-code"></div></div>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="get-availablenumberstollfree">GET availableNumbers/tollFree</h2>
+<h3 id="supported-parameters">Supported Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">quantity</td>
+<td style="text-align:left">The maximum number of numbers to return (default 10, maximum 5000).</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">pattern</td>
+<td style="text-align:left">A number pattern that may include letters, digits, and the following wildcard characters:<br>? : matches any single digit<br> * : matches zero or more digits<br>Don&#x2019;t forget to encode wildcard characters in the requested URL.</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-search-and-allocate-tollfree-number">Example: Search and allocate tollFree number</h3>
+<blockquote>
+<p>To find up to two available toll free numbers that match the pattern &quot;<em>2?9</em>&quot;, make the following request:</p>
+</blockquote>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET  https://api.catapult.inetwork.com/v1/availableNumbers/tollFree?pattern=*2%3F9*&amp;quantity=2 \
+  -u {token}:{secret} \
+  -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">//Promise</span>
+client.AvailableNumber.search(<span class="hljs-string">&quot;tollFree&quot;</span>, {
+    quantity : <span class="hljs-number">2</span>,
+    pattern: <span class="hljs-string">&quot;*2?9*&quot;</span>
+ })
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">numbers</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(numbers)
+});
+
+<span class="hljs-comment">// Callback</span>
+client.AvailableNumber.search(<span class="hljs-string">&quot;tollFree&quot;</span>, {
+    quantity : <span class="hljs-number">2</span>,
+    pattern: <span class="hljs-string">&quot;*2?9*&quot;</span> },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, numbers</span>) </span>{
+        <span class="hljs-keyword">if</span>(err) {
+            <span class="hljs-built_in">console</span>.log(err);
+        }
+        <span class="hljs-keyword">else</span> {
+            <span class="hljs-built_in">console</span>.log(numbers);
+        }
+    });
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> results = <span class="hljs-keyword">await</span> client.AvailableNumber.SearchTollFreeAsync(
+  <span class="hljs-keyword">new</span> TollFreeNumberQuery{ Pattern = <span class="hljs-string">&quot;*2?9*&quot;</span>, Quantity = <span class="hljs-number">2</span>}
+);
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">results = AvailableNumber.search_toll_free(client, {
+  <span class="hljs-symbol">:pattern</span> =&gt; <span class="hljs-string">&quot;*2?9*&quot;</span>,
+  <span class="hljs-symbol">:quantity</span> =&gt; <span class="hljs-number">2</span>
+})
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code class="lang-json">[
+  {
+    <span class="hljs-string">&quot;number&quot;</span>:<span class="hljs-string">&quot;{number1}&quot;</span>,
+    <span class="hljs-string">&quot;nationalNumber&quot;</span>:<span class="hljs-string">&quot;{national_number1}&quot;</span>,
+    <span class="hljs-string">&quot;patternMatch&quot;</span>:<span class="hljs-string">&quot;        2  9  &quot;</span>,
+    <span class="hljs-string">&quot;price&quot;</span>:<span class="hljs-string">&quot;2.00&quot;</span>
+  },
+  {
+    <span class="hljs-string">&quot;number&quot;</span>:<span class="hljs-string">&quot;{number2}&quot;</span>,
+    <span class="hljs-string">&quot;nationalNumber&quot;</span>:<span class="hljs-string">&quot;{national_number2}&quot;</span>,
+    <span class="hljs-string">&quot;patternMatch&quot;</span>:<span class="hljs-string">&quot;          2 9 &quot;</span>,
+    <span class="hljs-string">&quot;price&quot;</span>:<span class="hljs-string">&quot;2.00&quot;</span>
+  }
+]
+</code></pre>
+</div></div></div>
 
                                 
                                 </section>
@@ -1365,7 +1445,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET /availableNumbers/tollFree","level":"2.3.3","depth":2,"next":{"title":"POST /availableNumbers/tollFree","level":"2.3.4","depth":2,"path":"methods/availableNumbers/postAvailableNumbersTollFree.md","ref":"methods/availableNumbers/postAvailableNumbersTollFree.md","articles":[]},"previous":{"title":"POST /availableNumbers/local","level":"2.3.2","depth":2,"path":"methods/availableNumbers/postAvailableNumbersLocal.md","ref":"methods/availableNumbers/postAvailableNumbersLocal.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","livereload"],"pluginsConfig":{"livereload":{},"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/availableNumbers/getAvailableNumbersTollFree.md","mtime":"2016-10-20T17:43:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T17:52:35.806Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET /availableNumbers/tollFree","level":"2.3.3","depth":2,"next":{"title":"POST /availableNumbers/tollFree","level":"2.3.4","depth":2,"path":"methods/availableNumbers/postAvailableNumbersTollFree.md","ref":"methods/availableNumbers/postAvailableNumbersTollFree.md","articles":[]},"previous":{"title":"POST /availableNumbers/local","level":"2.3.2","depth":2,"path":"methods/availableNumbers/postAvailableNumbersLocal.md","ref":"methods/availableNumbers/postAvailableNumbersLocal.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","livereload"],"pluginsConfig":{"livereload":{},"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/availableNumbers/getAvailableNumbersTollFree.md","mtime":"2016-10-20T20:22:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:22:45.866Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

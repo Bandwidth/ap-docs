@@ -796,7 +796,7 @@
                 <a href="../domains/deleteDomainsDomainId.html">
             
                     
-                    DELTE /domains/{domainId}
+                    <code class="delete">DELETE</code> /domains/{domainId}
             
                 </a>
             
@@ -1331,7 +1331,84 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"></div><div class="api-method-code"></div></div>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="get-conferencesconferenceidmembersmemberid">GET conferences/{conferenceId}/members/{memberId}</h2>
+<p>Retrieve a conference member properties.</p>
+<h2 id="conference-member-properties">Conference Member Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">The unique id of a member.</td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">The state of the member in the conference, values are <code>active</code> or <code>completed</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left">mute</td>
+<td style="text-align:left">If <code>true</code>, the member can&#x2019;t speak in the conference, but can hear audio. If &#x201C;false&#x201D;, the member can speak in the conference.</td>
+</tr>
+<tr>
+<td style="text-align:left">hold</td>
+<td style="text-align:left">If <code>true</code>, member can&#x2019;t hear the conference. If <code>false</code>, the member can hear the conference.</td>
+</tr>
+<tr>
+<td style="text-align:left">joinTone</td>
+<td style="text-align:left">If <code>true</code>, will play a tone when the member joins the conference. If <code>false</code>, no tone is played when the member joins the conference.</td>
+</tr>
+<tr>
+<td style="text-align:left">leavingTone</td>
+<td style="text-align:left">If <code>true</code>, will play a tone when the member leaves the conference. If <code>false</code>, no tone is played when the member leaves the conference.</td>
+</tr>
+<tr>
+<td style="text-align:left">addedTime</td>
+<td style="text-align:left">Date and time when the member was added to the conference (UTC).</td>
+</tr>
+<tr>
+<td style="text-align:left">removedTime</td>
+<td style="text-align:left">Date and time when the member was removed to the conference (UTC).</td>
+</tr>
+<tr>
+<td style="text-align:left">call</td>
+<td style="text-align:left">The URL of the call resource for this member.</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-get-conference-member-information">Example: Get conference member information</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members/{memberId} \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
+client.Conference.getMember(<span class="hljs-string">&quot;conferenceId&quot;</span>, <span class="hljs-string">&quot;memberId&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">member</span>)</span>{});
+<span class="hljs-comment">// Callback</span>
+client.Conference.getMember(<span class="hljs-string">&quot;conferenceId&quot;</span>, <span class="hljs-string">&quot;memberId&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, member</span>)</span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> member = <span class="hljs-keyword">await</span> client.Conference.GetMemberAsync(<span class="hljs-string">&quot;{conferenceId1}&quot;</span>, <span class="hljs-string">&quot;{memberId1}&quot;</span>);
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">member = conference.get_member(<span class="hljs-string">&quot;{memberId1}&quot;</span>)
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code>{
+        &quot;addedTime&quot;: &quot;2013-07-12T15:47:04-03&quot;,
+        &quot;hold&quot;: false,
+        &quot;id&quot;: &quot;{memberId}&quot;,
+        &quot;mute&quot;: false,
+        &quot;removedTime&quot;: &quot;2013-07-12T15:49:11-02&quot;,
+        &quot;state&quot;: &quot;completed&quot;,
+        &quot;joinTone&quot;: false,
+        &quot;leavingTone&quot;: false,
+        &quot;call&quot;: &quot;https://.../v1/users/{userId}/calls/{callId}&quot;
+}
+</code></pre></div></div></div>
 
                                 
                                 </section>
@@ -1365,7 +1442,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET /conferences/{conferenceId}/members/{memberId}","level":"2.6.8","depth":2,"next":{"title":"POST /conferences/{conferenceId}/members/{memberId}/audio","level":"2.6.9","depth":2,"path":"methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.md","ref":"methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.md","articles":[]},"previous":{"title":"POST /conferences/{conferenceId}/members/{memberId}","level":"2.6.7","depth":2,"path":"methods/conferences/postConferencesConferenceIdMembersMemberId.md","ref":"methods/conferences/postConferencesConferenceIdMembersMemberId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","livereload"],"pluginsConfig":{"livereload":{},"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/conferences/getConferencesConferenceIdMembersMemberId.md","mtime":"2016-10-20T17:43:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T17:52:35.806Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET /conferences/{conferenceId}/members/{memberId}","level":"2.6.8","depth":2,"next":{"title":"POST /conferences/{conferenceId}/members/{memberId}/audio","level":"2.6.9","depth":2,"path":"methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.md","ref":"methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.md","articles":[]},"previous":{"title":"POST /conferences/{conferenceId}/members/{memberId}","level":"2.6.7","depth":2,"path":"methods/conferences/postConferencesConferenceIdMembersMemberId.md","ref":"methods/conferences/postConferencesConferenceIdMembersMemberId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","livereload"],"pluginsConfig":{"livereload":{},"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/conferences/getConferencesConferenceIdMembersMemberId.md","mtime":"2016-10-20T20:22:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:22:45.866Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

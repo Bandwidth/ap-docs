@@ -796,7 +796,7 @@
                 <a href="../domains/deleteDomainsDomainId.html">
             
                     
-                    DELTE /domains/{domainId}
+                    <code class="delete">DELETE</code> /domains/{domainId}
             
                 </a>
             
@@ -1331,7 +1331,119 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"></div><div class="api-method-code"></div></div>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="get-conferencesconferenceid">GET conferences/{conferenceId}</h2>
+<p>Retrieve current properties for a conference.</p>
+<h2 id="conference-properties">Conference Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">The unique id of a conference.</td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">Conference state. Possible state values are described below.</td>
+</tr>
+<tr>
+<td style="text-align:left">from</td>
+<td style="text-align:left">The phone number that will host the conference.</td>
+</tr>
+<tr>
+<td style="text-align:left">createdTime</td>
+<td style="text-align:left">The time that the Conference was created (UTC).</td>
+</tr>
+<tr>
+<td style="text-align:left">completedTime</td>
+<td style="text-align:left">The time that the Conference was completed (UTC).</td>
+</tr>
+<tr>
+<td style="text-align:left">activeMembers</td>
+<td style="text-align:left">The number of active conference members.</td>
+</tr>
+<tr>
+<td style="text-align:left">hold</td>
+<td style="text-align:left">If <code>true</code>, all member can&#x2019;t hear or speak in the conference. If `false&#x201D;, all members can hear and speak in the conference (unless set at the member level).</td>
+</tr>
+<tr>
+<td style="text-align:left">mute</td>
+<td style="text-align:left">If <code>true</code>, all member can&#x2019;t speak in the conference. If <code>false</code>, all members can speak in the conference (unless set at the member level).</td>
+</tr>
+<tr>
+<td style="text-align:left">callbackUrl</td>
+<td style="text-align:left">The complete URL where the events related to the Conference will be sent to.</td>
+</tr>
+<tr>
+<td style="text-align:left">callbackHttpMethod</td>
+<td style="text-align:left">Determine if the callback event should be sent via <code>HTTP GET</code> or <code>HTTP POST</code>. Values are <code class="get">GET</code> or <code class="get">POST</code>, default: <code class="get">POST</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left">callbackTimeout</td>
+<td style="text-align:left">Determine how long should the platform wait for callbackUrl&#x2019;s response before timing out in milliseconds.</td>
+</tr>
+<tr>
+<td style="text-align:left">fallbackUrl</td>
+<td style="text-align:left">The URL used to send the callback event if the request to callbackUrl fails.</td>
+</tr>
+<tr>
+<td style="text-align:left">tag</td>
+<td style="text-align:left">A string that will be included in the callback events of the conference.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="conference-states">Conference States</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">State</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">created</td>
+<td style="text-align:left">Conference was created and has no members.</td>
+</tr>
+<tr>
+<td style="text-align:left">active</td>
+<td style="text-align:left">Conference was created and has one or more ACTIVE members. As soon as the first member is added to a conference, the state is changed to active.</td>
+</tr>
+<tr>
+<td style="text-align:left">completed</td>
+<td style="text-align:left">The conference was completed. Once the conference is completed, It can not be used anymore.</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-get-conference">Example: Get conference</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId} \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
+client.Conference.get(<span class="hljs-string">&quot;conferenceId&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">conference</span>)</span>{});
+<span class="hljs-comment">// Callback</span>
+client.Conference.get(<span class="hljs-string">&quot;conferenceId&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, conference</span>)</span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> conference = <span class="hljs-keyword">await</span> client.Conference.GetAsync(<span class="hljs-string">&quot;{conferenceId1}&quot;</span>);
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">conference = Conference.get(client, <span class="hljs-string">&quot;{conferenceId1}&quot;</span>)
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code>{
+        &quot;activeMembers&quot;: 0,
+        &quot;createdTime&quot;: &quot;2013-07-12T15:22:47-02&quot;,
+        &quot;from&quot;: &quot;+19703255647&quot;,
+        &quot;id&quot;: &quot;{conferenceId}&quot;,
+        &quot;state&quot;: &quot;created&quot;
+}
+</code></pre></div></div></div>
 
                                 
                                 </section>
@@ -1365,7 +1477,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET /conferences/{conferenceId}","level":"2.6.2","depth":2,"next":{"title":"POST /conferences/{conferenceId}","level":"2.6.3","depth":2,"path":"methods/conferences/postConferencesConferenceId.md","ref":"methods/conferences/postConferencesConferenceId.md","articles":[]},"previous":{"title":"POST /conferences","level":"2.6.1","depth":2,"path":"methods/conferences/postConferences.md","ref":"methods/conferences/postConferences.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","livereload"],"pluginsConfig":{"livereload":{},"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/conferences/getConferencesConferenceId.md","mtime":"2016-10-20T17:43:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T17:52:35.806Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET /conferences/{conferenceId}","level":"2.6.2","depth":2,"next":{"title":"POST /conferences/{conferenceId}","level":"2.6.3","depth":2,"path":"methods/conferences/postConferencesConferenceId.md","ref":"methods/conferences/postConferencesConferenceId.md","articles":[]},"previous":{"title":"POST /conferences","level":"2.6.1","depth":2,"path":"methods/conferences/postConferences.md","ref":"methods/conferences/postConferences.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","livereload"],"pluginsConfig":{"livereload":{},"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/conferences/getConferencesConferenceId.md","mtime":"2016-10-20T20:22:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:22:45.866Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
