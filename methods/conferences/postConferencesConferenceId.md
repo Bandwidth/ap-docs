@@ -4,16 +4,16 @@ Change the conference properties and/or status.
 
 ### Supported Parameters
 
-| Parameter          | Description                                                                                                                                                                                 | Mandatory |
-|:-------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
-| state              | Conference state. Possible state values are: `completed` to terminate the conference.                                                                                                       | No        |
-| hold               | If `true`, all member can’t hear or speak in the conference. If `false`, all members can hear and speak in the conference (unless set at the member level).                                 | No        |
-| mute               | If `true`, all member can’t speak in the conference. If `false`, all members can speak in the conference (unless set at the member level).                                                  | No        |
-| callbackUrl        | The complete URL where the events related to the Conference will be sent to.                                                                                                                | No        |
-| callbackHttpMethod | Determine if the callback event should be sent via HTTP GET or HTTP POST. Values are <code class="get">GET</code> or <code class="get">POST</code>, default: <code class="get">POST</code>. | No        |
-| callbackTimeout    | Determine how long should the platform wait for callbackUrl’s response before timing out in milliseconds.                                                                                   | No        |
-| fallbackUrl        | The URL used to send the callback event if the request to callbackUrl fails.                                                                                                                | No        |
-| tag                | A string that will be included in the callback events of the conference.                                                                                                                    | No        |
+| Parameter          | Description                                                                                                                                                                                   | Mandatory |
+|:-------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
+| state              | Conference state. Possible state values are: `completed` to terminate the conference.                                                                                                         | No        |
+| hold               | If `true`, all member can’t hear or speak in the conference. If `false`, all members can hear and speak in the conference (unless set at the member level).                                   | No        |
+| mute               | If `true`, all member can’t speak in the conference. If `false`, all members can speak in the conference (unless set at the member level).                                                    | No        |
+| callbackUrl        | The complete URL where the events related to the Conference will be sent to.                                                                                                                  | No        |
+| callbackHttpMethod | Determine if the callback event should be sent via HTTP GET or HTTP POST. Values are <code class="get">GET</code> or <code class="post">POST</code>, default: <code class="post">POST</code>. | No        |
+| callbackTimeout    | Determine how long should the platform wait for callbackUrl’s response before timing out in milliseconds.                                                                                     | No        |
+| fallbackUrl        | The URL used to send the callback event if the request to callbackUrl fails.                                                                                                                  | No        |
+| tag                | A string that will be included in the callback events of the conference.                                                                                                                      | No        |
 
 
 {% common %}
