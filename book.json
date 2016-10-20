@@ -1,5 +1,5 @@
 {
-    "plugins": [ "theme-api", "header", "sharing", "toggle-chapters" ],
+    "plugins": [ "theme-api", "header", "sharing", "toggle-chapters", "customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git" ],
     "pluginsConfig": {
         "theme-api": {
             "languages": [

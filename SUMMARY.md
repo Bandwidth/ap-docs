@@ -4,7 +4,7 @@
 
 * [Bandwidth](README.md)
 
-## Methods
+## Rest API
 * [/account](methods/account/account.md)
  * [GET /account](methods/account/getAccount.md)
  * [GET /account/transactions](methods/account/getAccountTransactions.md)
