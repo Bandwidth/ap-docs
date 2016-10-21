@@ -996,7 +996,7 @@
                 <a href="../media/deleteMediaMediaName.html">
             
                     
-                    DELTE /media/{mediaName}
+                    <code class="delete">DELETE</code> /media/{mediaName}
             
                 </a>
             
@@ -1331,8 +1331,44 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"><h1 id="endpoints">Endpoints</h1>
+                                <h1 id="endpoints">Endpoints</h1>
 <p>An endpoint represents is an entity that can register with the Application Platform SIP Registrar and place and receive calls. This can be a device like a phone or a pad, or it can be a softphone on a computer.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Verb</th>
+<th style="text-align:left">Method</th>
+<th style="text-align:left">about</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code class="get">GET</code></td>
+<td style="text-align:left"><a href="getEndpoints.html"><code>/v1/users/{userId}/domains/{domainId}/endpoints</code></a></td>
+<td style="text-align:left">List all endpoints on a domain</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="post">POST</code></td>
+<td style="text-align:left"><a href="postEndpoints.html"><code>/v1/users/{userId}/domains/{domainId}/endpoints</code></a></td>
+<td style="text-align:left">Create a new endpoint on a domain</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="get">GET</code></td>
+<td style="text-align:left"><a href="getEndpointsEndpointId.html"><code>/v1/users/{userId}/domains/{domainId}/endpoints/{endpointId}</code></a></td>
+<td style="text-align:left">Get a single endpoint</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="delete">DELETE</code></td>
+<td style="text-align:left"><a href="deleteEndpointsEndpointId.html"><code>/v1/users/{userId}/domains/{domainId}/endpoints/{endpointId}</code></a></td>
+<td style="text-align:left">Delete specific endpoint</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="post">POST</code></td>
+<td style="text-align:left"><a href="postEndpointsEndpointId.html"><code>/v1/users/{userId}/domains/endpoints/{endpointId}</code></a></td>
+<td style="text-align:left">Update an endpoint</td>
+</tr>
+</tbody>
+</table>
 <p>An endpoint is addressable using a unique SIP URI which is constructed using the endpoint&apos;s user name and the domain in which the endpoint exists.</p>
 <p>There are no restrictions on the number of SIP clients that can be associated with an endpoint.  That is, an application can create one endpoint in the App Platform and give the SIP URI and credentials to as many of their own clients as it likes.  However, when a call is made to the SIP URI for that endpoint, all clients registered as that endpoint (using that SIP URI and credentials to register) will receive the call.  The call will be completed to the first client that answers.  If you&apos;re looking for a default simultaneous ringing application this would be a great solution.  If you have an endpoint that goes directly to voicemail though, you might wonder why your other devices ring but by the time you answer, there&apos;s no call.</p>
 <p>If you don&apos;t want all your SIP clients to ring simultaneously, create an endpoint for each client.  You can still associate a single phone number with a group of clients, but the application has more control over which client will ring when that number is called.</p>
@@ -1344,256 +1380,6 @@
 <p>When a client wants to initiate a call, it sends an INVITE with the called number in the user part of the SIP URI in the &apos;To&apos; header.  The &apos;From&apos; header will be the SIP URI associated with the endpoint.</p>
 <p>An application must be associated with the endpoint representing the client in Bandwidth.  This is so Bandwidth can generate an event to the application to determine how a call should be handled.  If no application is associated with the endpoint, the client&apos;s call will be rejected.</p>
 <p>Where the INVITE is sent is determined in the same way as the REGISTER.  The domain from the client&apos;s SIP URI is used in the Request URI for the INVITE message.</p>
-<h2 id="properties">Properties</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Property</th>
-<th style="text-align:left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">name</td>
-<td style="text-align:left">The endpoint&#x2019;s name, which SIP clients use as the <code>address of record</code> in the <code>To</code> header when registering. The name must be a valid SIP <code>user</code> or <code>telephone-subscriber</code> string. RFC 3261 Section 19.1.1 defines the characters that are valid in those parts of a SIP URI. Names must be unique within the domain, and cannot be changed after the endpoint is created.</td>
-</tr>
-<tr>
-<td style="text-align:left">description</td>
-<td style="text-align:left">String to describe endpoint</td>
-</tr>
-<tr>
-<td style="text-align:left">domainId</td>
-<td style="text-align:left">The id of the domain in which the endpoint will be created. This is the id of the domain resource created in an earlier step.</td>
-</tr>
-<tr>
-<td style="text-align:left">applicationId</td>
-<td style="text-align:left">The id of the application associated with this endpoint. Application_id is used to determine the callback URL to be used when a client associated with the endpoint attempts to make a call.</td>
-</tr>
-<tr>
-<td style="text-align:left">enabled</td>
-<td style="text-align:left">When set to true, SIP clients can register as this device to receive and make calls. When set to false, registration, inbound, and outbound calling will not succeed. Default is true.</td>
-</tr>
-<tr>
-<td style="text-align:left">credentials</td>
-<td style="text-align:left">Contains SIP authentication credentials. See below for details of credentials.</td>
-</tr>
-<tr>
-<td style="text-align:left">sipUri</td>
-<td style="text-align:left">A SIP URI this device can be contacted at (via INVITE). This property is generated automatically and cannot be changed.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="credentials">Credentials</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Property</th>
-<th style="text-align:left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">realm</td>
-<td style="text-align:left">The realm the SIP client must use when authenticating to use this device.<br>The realm is case-sensitive.<br>This property is generated automatically and cannot be changed.</td>
-</tr>
-<tr>
-<td style="text-align:left">username</td>
-<td style="text-align:left">The username the SIP client must use when authenticating to use this device.<br>The username is case-sensitive.<br>This property is generated automatically and cannot be changed.</td>
-</tr>
-<tr>
-<td style="text-align:left">password</td>
-<td style="text-align:left">The plain-text password the SIP client must use when authenticating to use this device.<br>The password is case-sensitive.<br>The password must be at least 6 characters long and contain only Latin 1 (ISO 8859-1) characters.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="get-domainsdomain-idendpoints">GET domains/{domain-id}/endpoints</h2>
-<p>This returns a list of all endpoints associated with a domain.</p>
-<h3 id="supported-parameters">Supported Parameters</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Parameter</th>
-<th style="text-align:left">Description</th>
-<th style="text-align:left">Mandatory</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">page</td>
-<td style="text-align:left">Used for pagination to indicate the page requested for querying a list of endpoints. If no value is specified the default is 0.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">size</td>
-<td style="text-align:left">Used for pagination to indicate the size of each page requested for querying a list of endpoints. If no value is specified the default value is 25. (Maximum value 1000)</td>
-<td style="text-align:left">No</td>
-</tr>
-</tbody>
-</table>
-<h3 id="example-get-a-list-of-all-endpoints-for-a-domain">Example: Get a list of all endpoints for a domain</h3>
-</div><div class="api-method-code"><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domainId}/endpoints \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">// Default size (25) using promises</span>
- client.Endpoint.list(<span class="hljs-string">&quot;domainId&quot;</span>)
-     .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
-
-    <span class="hljs-comment">// Default size (25) using callbacks</span>
-client.Endpoint.list(<span class="hljs-string">&quot;domainId&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, res</span>) </span>{});
-
-<span class="hljs-comment">// Specify number of endpoints using promises</span>
-client.Endpoint.list(<span class="hljs-string">&quot;domainId&quot;</span>, {size: <span class="hljs-number">1000</span>})
-        .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
-
-<span class="hljs-comment">// Specify number of endpoints using callbacks</span>
-client.Endpoint.list(<span class="hljs-string">&quot;domainId&quot;</span> {size: <span class="hljs-number">1000</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, res</span>) </span>{});
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-comment">// Default size (25)</span>
-<span class="hljs-keyword">var</span> endpoints = client.Endpoint.List(<span class="hljs-string">&quot;{domainId1}&quot;</span>);
-
-<span class="hljs-comment">// Specify number of endpoints</span>
-<span class="hljs-keyword">var</span> endpoints = client.Endpoint.List(<span class="hljs-string">&quot;{domainId1}&quot;</span>, <span class="hljs-keyword">new</span> EndpointQuery {Size = <span class="hljs-number">1000</span>});
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">endpoints = domain.get_endpoints()
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre><code class="lang-json">[
-{
-    <span class="hljs-string">&quot;name&quot;</span> : <span class="hljs-string">&quot;jsmith-mobile&quot;</span>,
-    <span class="hljs-string">&quot;description&quot;</span> : <span class="hljs-string">&quot;John Smiths mobile client&quot;</span>,
-    <span class="hljs-string">&quot;domainId&quot;</span> : <span class="hljs-string">&quot;{domain-id}&quot;</span>,
-    <span class="hljs-string">&quot;applicationId&quot;</span> : <span class="hljs-string">&quot;{application-id}&quot;</span>,
-    <span class="hljs-string">&quot;enabled&quot;</span> : <span class="hljs-string">&quot;true&quot;</span>,
-    <span class="hljs-string">&quot;sipUri&quot;</span> : <span class="hljs-string">&quot;jsmith-mobile@doname.bwapp.bwsipp.io&quot;</span>,
-    <span class="hljs-string">&quot;credentials&quot;</span> : {
-        <span class="hljs-string">&quot;realm&quot;</span> : <span class="hljs-string">&quot;doname.bwapp.bwsipp.io&quot;</span>,
-        <span class="hljs-string">&quot;username&quot;</span> : <span class="hljs-string">&quot;jsmith-mobile&quot;</span>
-    }
-}
-]
-</code></pre>
-<h2 id="post-domainsdomain-idendpoints">POST domains/{domain-id}/endpoints</h2>
-<p>This creates an endpoint.</p>
-<h3 id="example-create-an-endpoint">Example: Create an endpoint</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domain-id}/endpoints \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> \
-    <span class="hljs-string">&apos;
-    {
-        &quot;name&quot; : &quot;jsmith_mobile&quot;,
-        &quot;description&quot; : &quot;John Smiths mobile client&quot;,
-        &quot;domainId&quot; : &quot;{domain-id}&quot;,
-        &quot;applicationId&quot; : &quot;{application-id}&quot;,
-        &quot;enabled&quot; : &quot;false&quot;,
-        &quot;credentials&quot; : { &quot;password&quot; : &quot;abc123&quot; }
-    }&apos;</span>
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
-client.Endpoint.create(<span class="hljs-string">&quot;domainId&quot;</span>, { name : <span class="hljs-string">&quot;my-endpoint&quot;</span>, applicationId : <span class="hljs-string">&quot;appId&quot;</span>,
-credentials : { password : <span class="hljs-string">&quot;123456&quot;</span> }}).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">endpoint</span>) </span>{});
-<span class="hljs-comment">// Callback</span>
-client.Endpoint.create(<span class="hljs-string">&quot;domainId&quot;</span>, { name : <span class="hljs-string">&quot;my-endpoint&quot;</span>, applicationId : <span class="hljs-string">&quot;appId&quot;</span>,
-credentials : { password : <span class="hljs-string">&quot;123456&quot;</span> }}, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, endpoint</span>) </span>{});
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> endpoint = <span class="hljs-keyword">await</span> client.Endpoint.CreateAsync(<span class="hljs-keyword">new</span> CreateEndpointData {
-    DomainId = <span class="hljs-string">&quot;domainId&quot;</span>,
-    Name = <span class="hljs-string">&quot;jsmith_mobile&quot;</span>,
-    Description = <span class="hljs-string">&quot;John Smiths mobile client&quot;</span>,
-    ApplicationId = <span class="hljs-string">&quot;applicationId&quot;</span>,
-    Enabled = <span class="hljs-keyword">false</span>,
-    Credentials = <span class="hljs-keyword">new</span> CreateEndpointCredentials {Password = <span class="hljs-string">&quot;123456&quot;</span>}
-});
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">endpoint = domain.create_endpoint({
-    <span class="hljs-symbol">:domain_id</span> =&gt; <span class="hljs-string">&quot;domainId&quot;</span>,
-    <span class="hljs-symbol">:name</span> =&gt; <span class="hljs-string">&quot;jsmith_mobile&quot;</span>,
-    <span class="hljs-symbol">:description</span> =&gt; <span class="hljs-string">&quot;John Smiths mobile client&quot;</span>,
-    <span class="hljs-symbol">:application_id</span> =&gt; <span class="hljs-string">&quot;applicationId&quot;</span>,
-    <span class="hljs-symbol">:enabled</span> =&gt; <span class="hljs-keyword">false</span>,
-    <span class="hljs-symbol">:credentials</span> =&gt; {<span class="hljs-symbol">:password</span> =&gt; <span class="hljs-string">&quot;123456&quot;</span>}
-})
-</code></pre>
-<blockquote>
-<p>The above command returns HTTP Header structured like this:</p>
-</blockquote>
-<pre><code>HTTP/1.1 201 Created
-Location: /v1/users/{user-id}/domains/{domain-id}/endpoints/{endpoint-id}
-</code></pre><h2 id="get-domainsdomain-idendpointsendpoint-id">GET domains/{domain-id}/endpoints/{endpoint-id}</h2>
-<p>This returns a single endpoint.</p>
-<h3 id="example-get-a-single-endpoint">Example: Get a single endpoint</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domain-id}/endpoints/{endpoint-id} \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
-client.Endpoint.get(domainId, endpointId).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">endpoint</span>)</span>{});
-
-<span class="hljs-comment">// Callback</span>
-client.Endpoint.get(domainId, endpointId, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, endpoint</span>)</span>{});
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> endpoint = <span class="hljs-keyword">await</span> client.Endpoint.GetAsync(<span class="hljs-string">&quot;{domainId1}&quot;</span>, <span class="hljs-string">&quot;{endpointId1}&quot;</span>);
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">endpoint = domain.get_endpoint(<span class="hljs-string">&quot;{endpoointId1}&quot;</span>)
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre><code>{
-    &quot;name&quot; : &quot;jsmith-mobile&quot;,
-    &quot;description&quot; : &quot;John Smiths mobile client&quot;,
-    &quot;domainId&quot; : &quot;{domain-id}&quot;,
-    &quot;applicationId&quot; : &quot;{application-id}&quot;,
-    &quot;enabled&quot; : &quot;true&quot;,
-    &quot;sipUri&quot; : &quot;jsmith-mobile@doname.bwapp.bwsipp.io&quot;,
-    &quot;credentials&quot; : {
-        &quot;realm&quot; : &quot;doname.bwapp.bwsipp.io&quot;,
-        &quot;username&quot; : &quot;jsmith-mobile&quot;
-    }
-}
-</code></pre><h2 id="delete-domainsdomain-idendpointsendpoint-id">DELETE domains/{domain-id}/endpoints/{endpoint-id}</h2>
-<h3 id="example-remove-an-endpoint">Example: Remove an endpoint</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X DELETE https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domain-id}/endpoints/{endpoint-id} \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
-client.Endpoint.delete(<span class="hljs-string">&quot;domainId&quot;</span>, <span class="hljs-string">&quot;endpointId&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">endpoint</span>) </span>{});
-<span class="hljs-comment">// Callback</span>
-client.Endpoint.delete(<span class="hljs-string">&quot;domainId&quot;</span>, <span class="hljs-string">&quot;endpointId&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, endpoint</span>) </span>{});
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Endpoint.DeleteAsync(<span class="hljs-string">&quot;{domainId1}&quot;</span>, <span class="hljs-string">&quot;{endpointId1}&quot;</span>);
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">domain.delete_endpoint(<span class="hljs-string">&quot;{endpointId1}&quot;</span>)
-</code></pre>
-<h2 id="post-domainsdomain-idendpointsendpoint-id">POST domains/{domain-id}/endpoints/{endpoint-id}</h2>
-<p>This will update an endpoint.</p>
-<h3 id="example-update-an-endpoint">Example: Update an endpoint</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domain-id}/endpoints/{endpoint-id} \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> \
-    <span class="hljs-string">&apos;
-    {
-        &quot;description&quot; : &quot;John Smiths mobile client&quot;,
-        &quot;applicationId&quot; : &quot;{application-id}&quot;,
-        &quot;enabled&quot; : &quot;true&quot;,
-            &quot;credentials&quot; : {
-            &quot;password&quot; : &quot;12345&quot;
-        }
-    }&apos;</span>
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
-client.Endpoint.update(<span class="hljs-string">&quot;domainId&quot;</span>, <span class="hljs-string">&quot;endpointId&quot;</span>, { enabled : <span class="hljs-literal">true</span> }).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">endpoint</span>) </span>{});
-<span class="hljs-comment">// Callback</span>
-client.Endpoint.update(<span class="hljs-string">&quot;domainId&quot;</span>, <span class="hljs-string">&quot;endpointId&quot;</span>, { enabled : <span class="hljs-literal">true</span> }, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, endpoint</span>) </span>{});
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Endpoint.UpdateAsync(<span class="hljs-string">&quot;{domainId1}&quot;</span>, <span class="hljs-string">&quot;{endpointId1}&quot;</span>, <span class="hljs-keyword">new</span> UpdateEndpointData {Enabled = <span class="hljs-keyword">true</span>});
-</code></pre>
-</div></div></div>
 
                                 
                                 </section>
@@ -1627,7 +1413,7 @@ client.Endpoint.update(<span class="hljs-string">&quot;domainId&quot;</span>, <s
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"/endpoints","level":"2.8","depth":1,"next":{"title":"GET /endpoints","level":"2.8.1","depth":2,"path":"methods/endpoints/getEndpoints.md","ref":"methods/endpoints/getEndpoints.md","articles":[]},"previous":{"title":"DELETE /domains/{domainId}","level":"2.7.3","depth":2,"path":"methods/domains/deleteDomainsDomainId.md","ref":"methods/domains/deleteDomainsDomainId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/endpoints/endpoints.md","mtime":"2016-10-20T20:52:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:52:55.145Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"/endpoints","level":"2.8","depth":1,"next":{"title":"GET /endpoints","level":"2.8.1","depth":2,"path":"methods/endpoints/getEndpoints.md","ref":"methods/endpoints/getEndpoints.md","articles":[]},"previous":{"title":"DELETE /domains/{domainId}","level":"2.7.3","depth":2,"path":"methods/domains/deleteDomainsDomainId.md","ref":"methods/domains/deleteDomainsDomainId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/endpoints/endpoints.md","mtime":"2016-10-21T16:08:45.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T18:26:01.587Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -996,7 +996,7 @@
                 <a href="deleteMediaMediaName.html">
             
                     
-                    DELTE /media/{mediaName}
+                    <code class="delete">DELETE</code> /media/{mediaName}
             
                 </a>
             
@@ -1331,105 +1331,43 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"><h1 id="media">Media</h1>
+                                <h1 id="media">Media</h1>
 <p>The Media resource lets you upload your media files to Bandwidth API servers so they can be used in applications without requiring a separate hosting provider. You can upload files up to <code>65MB</code> and file storage is free for an unlimited number of files. Files you upload can only be accessed by you when you supply your API access <code>token</code> and <code>secret</code>. They are not available to anonymous users. Bandwidth API supports the <code>Cache-Control</code> header when you upload files.</p>
-<aside class="notice">
+<aside class="alert general small">
 You can upload files up to `65MB` and file storage is free for an unlimited number of files.
 </aside>
 
-<h2 id="get-media">GET media</h2>
-<p>Gets a list of your media files. No query parameters are supported.</p>
-<h3 id="example-list-your-media-files">Example: List Your Media Files</h3>
-</div><div class="api-method-code"><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/media \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
-</code></pre>
-<pre><code class="lang-js">client.Media.list()
-then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">media</span>) </span>{
-  <span class="hljs-built_in">console</span>.log(media);
-});
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> list = client.Media.List();
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">list = Media.list(client)
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre><code class="lang-json">[
-  {
-    <span class="hljs-string">&quot;contentLength&quot;</span>: <span class="hljs-number">561276</span>,
-    <span class="hljs-string">&quot;mediaName&quot;</span>: <span class="hljs-string">&quot;{mediaName1}&quot;</span>,
-    <span class="hljs-string">&quot;content&quot;</span>: <span class="hljs-string">&quot;api.catapult.inetwork.com/.../media/{mediaName1}&quot;</span>
-  },
-  {
-    <span class="hljs-string">&quot;contentLength&quot;</span>: <span class="hljs-number">2703360</span>,
-    <span class="hljs-string">&quot;mediaName&quot;</span>: <span class="hljs-string">&quot;{mediaName2}&quot;</span>,
-    <span class="hljs-string">&quot;content&quot;</span>: <span class="hljs-string">&quot;https://api.catapult.inetwork.com/.../media/{mediaName2}&quot;</span>
-  },
-  {
-    <span class="hljs-string">&quot;contentLength&quot;</span>: <span class="hljs-number">2257901</span>,
-    <span class="hljs-string">&quot;mediaName&quot;</span>: <span class="hljs-string">&quot;{mediaName3}&quot;</span>,
-        <span class="hljs-string">&quot;content&quot;</span>: <span class="hljs-string">&quot;https://api.catapult.inetwork.com/.../media/{mediaName3}&quot;</span>
-  }
-]
-</code></pre>
-<h2 id="put-mediamedianame">PUT media/{mediaName}</h2>
-<p>Uploads a file the normal HTTP way. You may add headers to the request in order to provide some control to your media-file.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Header</th>
-<th style="text-align:left">Description</th>
-<th style="text-align:left">Mandatory</th>
+<th style="text-align:left">Verb</th>
+<th style="text-align:left">Method</th>
+<th style="text-align:left">about</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">Content-Length</td>
-<td style="text-align:left">Indicates the size of the entity-body.</td>
-<td style="text-align:left">Yes</td>
+<td style="text-align:left"><code class="get">GET</code></td>
+<td style="text-align:left"><a href="getMedia.html"><code>/v1/users/{userId}/media</code></a></td>
+<td style="text-align:left">Get a list of your media files</td>
 </tr>
 <tr>
-<td style="text-align:left">Cache-Control</td>
-<td style="text-align:left">General-header field is used to specify directives that MUST be obeyed by all caching mechanisms along the request/response chain.</td>
-<td style="text-align:left">No</td>
+<td style="text-align:left"><code class="put">PUT</code></td>
+<td style="text-align:left"><a href="putMediaMediaName.html"><code>/v1/users/{userId}/media/{mediaName}</code></a></td>
+<td style="text-align:left">Uploads a media file</td>
 </tr>
 <tr>
-<td style="text-align:left">Content-Type</td>
-<td style="text-align:left">The media type of the entity-body.</td>
-<td style="text-align:left">No</td>
+<td style="text-align:left"><code class="get">GET</code></td>
+<td style="text-align:left"><a href="getMediaMediaName.html"><code>/v1/users/{userId}/media/{mediaName}</code></a></td>
+<td style="text-align:left">Downloads a media file you uploaded</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="delete">DELETE</code></td>
+<td style="text-align:left"><a href="deleteMediaMediaName.html"><code>/v1/users/{userId}/media/{mediaName}</code></a></td>
+<td style="text-align:left">Permanently deletes a media file you uploaded</td>
 </tr>
 </tbody>
 </table>
-<h3 id="example-upload-an-mp3-file">Example: Upload an MP3 File</h3>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Media.UploadAsync(<span class="hljs-keyword">new</span> UploadMediaData{
-        MediaName = <span class="hljs-string">&quot;file.mp3&quot;</span>,
-        Path = <span class="hljs-string">&quot;/path/to/file.mp3&quot;</span>,
-        ContentType = <span class="hljs-string">&quot;audio/mp3&quot;</span>
-    }
-);
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">Media.upload(client, <span class="hljs-string">&quot;file.mp3&quot;</span>, File.open(<span class="hljs-string">&quot;/path/to/file.mp3&quot;</span>), <span class="hljs-string">&quot;audio/mp3&quot;</span>)
-</code></pre>
-<h2 id="get-mediamedianame">GET media/{mediaName}</h2>
-<p>Downloads a media file you previously uploaded.</p>
-<h3 id="example-download-an-mp3-file">Example: Download an MP3 File</h3>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">using</span>(<span class="hljs-keyword">var</span> data = <span class="hljs-keyword">await</span> client.Media.DownloadAsync(<span class="hljs-string">&quot;file.mp3&quot;</span>))
-{
-  <span class="hljs-keyword">var</span> fileContent = <span class="hljs-keyword">await</span> data.ReadAsStreamAsync();
-}
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">content, media_type = Media.download(client, <span class="hljs-string">&quot;file.mp3&quot;</span>)
-</code></pre>
-<h2 id="delete-mediamedianame">DELETE media/{mediaName}</h2>
-<p>Deletes a media file from Bandwidth API server. Make sure you don&apos;t have any application scripts still using the media before you delete. If you accidentally delete a media file, you can immediately upload a new file with the same name.</p>
-<h3 id="example-delete-an-mp3-file">Example: Delete an MP3 File</h3>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Media.DeleteAsync(<span class="hljs-string">&quot;file.mp3&quot;</span>);
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">Media.delete(client, <span class="hljs-string">&quot;file.mp3&quot;</span>)
-</code></pre>
-</div></div></div>
 
                                 
                                 </section>
@@ -1463,7 +1401,7 @@ then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<sp
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"/media","level":"2.10","depth":1,"next":{"title":"GET /media","level":"2.10.1","depth":2,"path":"methods/media/getMedia.md","ref":"methods/media/getMedia.md","articles":[]},"previous":{"title":"GET /errors/{errorId}","level":"2.9.2","depth":2,"path":"methods/errors/getErrorsErrorId.md","ref":"methods/errors/getErrorsErrorId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/media/media.md","mtime":"2016-10-20T20:52:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:52:55.145Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"/media","level":"2.10","depth":1,"next":{"title":"GET /media","level":"2.10.1","depth":2,"path":"methods/media/getMedia.md","ref":"methods/media/getMedia.md","articles":[]},"previous":{"title":"GET /errors/{errorId}","level":"2.9.2","depth":2,"path":"methods/errors/getErrorsErrorId.md","ref":"methods/errors/getErrorsErrorId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/media/media.md","mtime":"2016-10-21T17:28:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T18:26:01.587Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

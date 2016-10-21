@@ -996,7 +996,7 @@
                 <a href="../media/deleteMediaMediaName.html">
             
                     
-                    DELTE /media/{mediaName}
+                    <code class="delete">DELETE</code> /media/{mediaName}
             
                 </a>
             
@@ -1331,7 +1331,412 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"></div><div class="api-method-code"></div></div>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="get-messages">GET messages</h2>
+<p>Gets a list messages you have sent or received. Since this operation uses HTTP GET, all the properties are specified as HTTP request parameters.</p>
+<p>Message results are paginated based on the <code>size</code> parameter. If the number of messages found by the specified query parameters exceeds one page, the <code>link</code> header on the HTTP response will contain the URL to request the next page of results. The <code>link</code> header will continue to be set for each request, as long as there is another page of messages available.</p>
+<h3 id="supported-parameters">Supported Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">from</td>
+<td style="text-align:left">The phone number to filter the messages that came from (must be in E.164 format, like +19195551212).</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">to</td>
+<td style="text-align:left">The phone number to filter the messages that was sent to (must be in E.164 format, like +19195551212).</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">fromDateTime</td>
+<td style="text-align:left">The starting date time to filter the messages (must be in yyyy-MM-dd hh:mm:ss format, like 2014-05-25 12:00:00. You can suppress parts of the date or time, like 2014-05-25, but the missing parameters will be filled with zeros).</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">toDateTime</td>
+<td style="text-align:left">The ending date time to filter the messages (must be in yyyy-MM-dd hh:mm:ss format, like 2014-05-25 12:00:00. You can suppress parts of the date or time, like 2014-05-25, but the missing parameters will be filled with zeros). Although it only supports seconds, we use milliseconds precision so if you want to include an event that happened on a given second you must set the next second on this parameter.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">page</td>
+<td style="text-align:left">Used for pagination to indicate the page requested for querying a list of messages. If no value is specified the default is 0.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">size</td>
+<td style="text-align:left">Used for pagination to indicate the size of each page requested for querying a list of messages. If no value is specified the default value is 25. (Maximum value 1000)</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">direction</td>
+<td style="text-align:left">Filter by direction of message, in - a message that came from the telephone network to one of your numbers (an &#x201C;inbound&#x201D; message) or out - a message that was sent from one of your numbers to the telephone network (an &#x201C;outbound&#x201D; message)</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">The message state to filter. values are:  <br> <em> <code>received</code><br> </em> <code>queued</code><br> <em> <code>sending</code><br> </em> <code>sent</code> <br> * <code>error</code></td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">deliveryState</td>
+<td style="text-align:left">The message delivery state to filter. Values are <code>waiting</code> <code>delivered</code> <code>not-delivered</code></td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">sortOrder</td>
+<td style="text-align:left">How to sort the messages. Values are <code>asc</code> or <code>desc</code> If no value is specified the default value is <code>asc</code></td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">The unique ID of the message.</td>
+</tr>
+<tr>
+<td style="text-align:left">from</td>
+<td style="text-align:left">The message sender&#x2019;s telephone number (or short code).</td>
+</tr>
+<tr>
+<td style="text-align:left">to</td>
+<td style="text-align:left">Message recipient telephone number (or short code).</td>
+</tr>
+<tr>
+<td style="text-align:left">direction</td>
+<td style="text-align:left">Direction of message, in - a message that came from the telephone network to one of your numbers (an &#x201C;inbound&#x201D; message) or out - a message that was sent from one of your numbers to the telephone network (an &#x201C;outbound&#x201D; message)</td>
+</tr>
+<tr>
+<td style="text-align:left">text</td>
+<td style="text-align:left">The message contents. NOTE: We only store the message contents for 30 days. Any messages older than 30 days will not contain text.</td>
+</tr>
+<tr>
+<td style="text-align:left">media</td>
+<td style="text-align:left">Json array containing list of media urls to be sent as content for an mms. Valid URLs are: <br> <a href="https://api.catapult.inetwork.com/v1/users/&lt;user-id&gt;/media/" target="_blank">https://api.catapult.inetwork.com/v1/users/&lt;user-id&gt;/media/</a><media-name>&lt;/media-name&gt; <br>We also support media URLs that are external to Bandwidth API, http:// or https:// format: <br> Example: <a href="http://customer-web-site.com/file.jpg" target="_blank">http://customer-web-site.com/file.jpg</a> <br> And coming soon, we are going to use file name from Content-Disposition header in case it&#x2019;s passed by the media URLs that are external to Bandwidth API.</media-name></td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">Message state, values are:  <br> <em> <code>received</code><br> </em> <code>queued</code><br> <em> <code>sending</code><br> </em> <code>sent</code> <br> * <code>error</code></td>
+</tr>
+<tr>
+<td style="text-align:left">time</td>
+<td style="text-align:left">The time the message resource was created (UTC, follows the ISO 8601 format).</td>
+</tr>
+<tr>
+<td style="text-align:left">callbackUrl</td>
+<td style="text-align:left">The complete URL where the events related to the outgoing message will be sent.</td>
+</tr>
+<tr>
+<td style="text-align:left">callbackTimeout</td>
+<td style="text-align:left">Determine how long should the platform wait for callbackUrl&#x2019;s response before timing out (milliseconds).</td>
+</tr>
+<tr>
+<td style="text-align:left">fallbackUrl</td>
+<td style="text-align:left">The server URL used to send message events if the request to callbackUrl fails.</td>
+</tr>
+<tr>
+<td style="text-align:left">page</td>
+<td style="text-align:left">Used for pagination to indicate the page requested for querying a list of messages. If no value is specified the default is 0.</td>
+</tr>
+<tr>
+<td style="text-align:left">size</td>
+<td style="text-align:left">Used for pagination to indicate the size of each page requested for querying a list of messages. If no value is specified the default value is 25. (Maximum value 1000)</td>
+</tr>
+<tr>
+<td style="text-align:left">tag</td>
+<td style="text-align:left">A string that will be included in the callback events of the message.</td>
+</tr>
+<tr>
+<td style="text-align:left">receiptRequested</td>
+<td style="text-align:left">Requested receipt option for outbound messages: <code>none</code> <code>all</code> <code>error</code> Default is <code>none</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left">deliveryState</td>
+<td style="text-align:left">One of the message delivery states <code>waiting</code> <code>delivered</code> <code>not-delivered</code></td>
+</tr>
+<tr>
+<td style="text-align:left">deliveryCode</td>
+<td style="text-align:left">Numeric value of deliver code, see table for values.</td>
+</tr>
+<tr>
+<td style="text-align:left">deliveryDescription</td>
+<td style="text-align:left">Message delivery description for the respective delivery code</td>
+</tr>
+</tbody>
+</table>
+<h2 id="message-states">Message States</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">State</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">received</td>
+<td style="text-align:left">The message was received.</td>
+</tr>
+<tr>
+<td style="text-align:left">queued</td>
+<td style="text-align:left">The message is waiting in queue and will be sent soon.</td>
+</tr>
+<tr>
+<td style="text-align:left">sending</td>
+<td style="text-align:left">The message was removed from queue and is being sent.</td>
+</tr>
+<tr>
+<td style="text-align:left">sent</td>
+<td style="text-align:left">The message was sent successfully.</td>
+</tr>
+<tr>
+<td style="text-align:left">error</td>
+<td style="text-align:left">There was an error sending or receiving a message (check errors resource for details).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="message-delivery-state">Message Delivery State</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">State</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">waiting</td>
+<td style="text-align:left">Waiting for receipt.</td>
+</tr>
+<tr>
+<td style="text-align:left">delivered</td>
+<td style="text-align:left">Receipt indicating that message was delivered.</td>
+</tr>
+<tr>
+<td style="text-align:left">not-delivered</td>
+<td style="text-align:left">Receipt indicating that message was not delivered.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="message-delivery-code">Message Delivery Code</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Code</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">0</td>
+<td style="text-align:left">Message delivered to carrier</td>
+</tr>
+<tr>
+<td style="text-align:left">100</td>
+<td style="text-align:left">Message not delivered to carrier</td>
+</tr>
+<tr>
+<td style="text-align:left">187</td>
+<td style="text-align:left">Statistical spam detected</td>
+</tr>
+<tr>
+<td style="text-align:left">188</td>
+<td style="text-align:left">Keyword spam detected</td>
+</tr>
+<tr>
+<td style="text-align:left">189</td>
+<td style="text-align:left">Spam detected</td>
+</tr>
+<tr>
+<td style="text-align:left">482</td>
+<td style="text-align:left">Loop detected</td>
+</tr>
+<tr>
+<td style="text-align:left">600</td>
+<td style="text-align:left">Destination carrier could not accept messages</td>
+</tr>
+<tr>
+<td style="text-align:left">610</td>
+<td style="text-align:left">Message submittion failed</td>
+</tr>
+<tr>
+<td style="text-align:left">620</td>
+<td style="text-align:left">Destination application error</td>
+</tr>
+<tr>
+<td style="text-align:left">630</td>
+<td style="text-align:left">Message not acknowledge</td>
+</tr>
+<tr>
+<td style="text-align:left">720</td>
+<td style="text-align:left">Invalid destination number</td>
+</tr>
+<tr>
+<td style="text-align:left">740</td>
+<td style="text-align:left">Invalid source number</td>
+</tr>
+<tr>
+<td style="text-align:left">999</td>
+<td style="text-align:left">Unknown error</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-list-your-messages">Example: List your messages</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">//need to add this</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> messages = client.Message.List();
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">messages = Message.list(client)
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code>HEADER: &lt;https://api.catapult.inetwork.com/v1/users/u-dkjf9094802375s/messages?sortKeyLT=1458576004287000989&amp;size=1&gt;; rel=&quot;next&quot;
+</code></pre><pre><code class="lang-json">
+[
+    {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{messageId1}&quot;</span>,
+        <span class="hljs-string">&quot;messageId&quot;</span>: <span class="hljs-string">&quot;{messageId1}&quot;</span>,
+        <span class="hljs-string">&quot;from&quot;</span>: <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
+        <span class="hljs-string">&quot;to&quot;</span>: <span class="hljs-string">&quot;{number}&quot;</span>,
+        <span class="hljs-string">&quot;text&quot;</span>: <span class="hljs-string">&quot;Good morning, this is a test message&quot;</span>,
+        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-10-05T20:37:38.048Z&quot;</span>,
+        <span class="hljs-string">&quot;direction&quot;</span>: <span class="hljs-string">&quot;out&quot;</span>,
+        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;sent&quot;</span>,
+        <span class="hljs-string">&quot;media&quot;</span>: []
+    },
+    {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{messageId2}&quot;</span>,
+        <span class="hljs-string">&quot;messageId&quot;</span>: <span class="hljs-string">&quot;{messageId2}&quot;</span>,
+        <span class="hljs-string">&quot;from&quot;</span>: <span class="hljs-string">&quot;{number}&quot;</span>,
+        <span class="hljs-string">&quot;to&quot;</span>: <span class="hljs-string">&quot;{toNumber}&quot;</span>,
+        <span class="hljs-string">&quot;text&quot;</span>: <span class="hljs-string">&quot;I received your test message&quot;</span>,
+        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-10-05T20:38:11.023Z&quot;</span>,
+        <span class="hljs-string">&quot;direction&quot;</span>: <span class="hljs-string">&quot;in&quot;</span>,
+        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;received&quot;</span>,
+        <span class="hljs-string">&quot;media&quot;</span>: []
+    },
+    {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{messageId3}&quot;</span>,
+        <span class="hljs-string">&quot;messageId&quot;</span>: <span class="hljs-string">&quot;{messageId3}&quot;</span>,
+        <span class="hljs-string">&quot;from&quot;</span>: <span class="hljs-string">&quot;{number}&quot;</span>,
+        <span class="hljs-string">&quot;to&quot;</span>: <span class="hljs-string">&quot;{toNumber}&quot;</span>,
+        <span class="hljs-string">&quot;text&quot;</span>: <span class="hljs-string">&quot;I received your MMS message&quot;</span>,
+        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-10-05T20:38:11.023Z&quot;</span>,
+        <span class="hljs-string">&quot;direction&quot;</span>: <span class="hljs-string">&quot;out&quot;</span>,
+        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;sent&quot;</span>,
+        <span class="hljs-string">&quot;media&quot;</span>: [<span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/&lt;user-id&gt;/media/image.jpg&quot;</span>]
+    },
+    {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{messageId4}&quot;</span>,
+        <span class="hljs-string">&quot;messageId&quot;</span>: <span class="hljs-string">&quot;{messageId4}&quot;</span>,
+        <span class="hljs-string">&quot;from&quot;</span>: <span class="hljs-string">&quot;{number}&quot;</span>,
+        <span class="hljs-string">&quot;to&quot;</span>: <span class="hljs-string">&quot;{toNumber}&quot;</span>,
+        <span class="hljs-string">&quot;text&quot;</span>: <span class="hljs-string">&quot;I received your MMS message&quot;</span>,
+        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-10-05T20:38:11.023Z&quot;</span>,
+        <span class="hljs-string">&quot;direction&quot;</span>: <span class="hljs-string">&quot;out&quot;</span>,
+        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;sent&quot;</span>,
+        <span class="hljs-string">&quot;media&quot;</span>: [<span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/&lt;user-id&gt;/media/image-1.jpg&quot;</span>,
+                            <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/&lt;user-id&gt;/media/image-2.jpg&quot;</span>,
+                            <span class="hljs-string">&quot;http://customer-web-site.com/file.jpg&quot;</span>]
+    }
+]
+</code></pre>
+<h3 id="example-list-your-messages-by-from-number-fromnumber">Example: List your messages by from number {fromNumber}</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages?from=%2b{fromNumber} \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">//Need to add this</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> messages = client.Message.List(<span class="hljs-keyword">new</span> MessageQuery {From = <span class="hljs-string">&quot;{fromNumber}&quot;</span>});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">messages = Message.list(client, {<span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;{fromNumber}&quot;</span>})
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code class="lang-json">[
+    {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{messageId1}&quot;</span>,
+        <span class="hljs-string">&quot;messageId&quot;</span>: <span class="hljs-string">&quot;{messageId1}&quot;</span>,
+        <span class="hljs-string">&quot;from&quot;</span>: <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
+        <span class="hljs-string">&quot;to&quot;</span>: <span class="hljs-string">&quot;{toNumber1}&quot;</span>,
+        <span class="hljs-string">&quot;text&quot;</span>: <span class="hljs-string">&quot;Good morning, this is a test message&quot;</span>,
+        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-10-05T20:37:38.048Z&quot;</span>,
+        <span class="hljs-string">&quot;direction&quot;</span>: <span class="hljs-string">&quot;out&quot;</span>,
+        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;sent&quot;</span>,
+        <span class="hljs-string">&quot;media&quot;</span>: []
+    },
+    {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{messageId2}&quot;</span>,
+        <span class="hljs-string">&quot;messageId&quot;</span>: <span class="hljs-string">&quot;{messageId2}&quot;</span>,
+        <span class="hljs-string">&quot;from&quot;</span>: <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
+        <span class="hljs-string">&quot;to&quot;</span>: <span class="hljs-string">&quot;{toNumber2}&quot;</span>,
+        <span class="hljs-string">&quot;text&quot;</span>: <span class="hljs-string">&quot;I received your test message&quot;</span>,
+        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-10-05T20:38:11.023Z&quot;</span>,
+        <span class="hljs-string">&quot;direction&quot;</span>: <span class="hljs-string">&quot;in&quot;</span>,
+        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;received&quot;</span>,
+        <span class="hljs-string">&quot;media&quot;</span>: []
+    }
+]
+</code></pre>
+<h3 id="example-gets-a-list-messages-filtering-the-direction-and-todatetime">Example: Gets a list messages filtering the direction and toDateTime</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages?from=%2b{fromNumber}&amp;direction=out&amp;toDateTime=2012-10-05%2020:37:39 \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">//need to add this</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> messages = client.Message.List(<span class="hljs-keyword">new</span> MessageQuery {
+    From = <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
+    Direction = MessageDirection.Out,
+    ToDateTime = <span class="hljs-keyword">new</span> DateTime(<span class="hljs-number">2015</span>, <span class="hljs-number">10</span>, <span class="hljs-number">5</span>, <span class="hljs-number">20</span>, <span class="hljs-number">37</span>, <span class="hljs-number">39</span>, <span class="hljs-number">0</span>, DateTimeKind.Utc)
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">messages = Message.list(client, {
+    <span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
+    <span class="hljs-symbol">:direction</span> =&gt; <span class="hljs-string">&quot;out&quot;</span>,
+    <span class="hljs-symbol">:to_date_time</span> =&gt; <span class="hljs-string">&quot;2012-10-05T20:38:11.023Z&quot;</span>
+})
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code class="lang-json">[
+    {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{messageId1}&quot;</span>,
+        <span class="hljs-string">&quot;messageId&quot;</span>: <span class="hljs-string">&quot;{messageId1}&quot;</span>,
+        <span class="hljs-string">&quot;from&quot;</span>: <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
+        <span class="hljs-string">&quot;to&quot;</span>: <span class="hljs-string">&quot;{toNumber1}&quot;</span>,
+        <span class="hljs-string">&quot;text&quot;</span>: <span class="hljs-string">&quot;Good morning, this is a test message&quot;</span>,
+        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2012-10-05T20:37:38.048Z&quot;</span>,
+        <span class="hljs-string">&quot;direction&quot;</span>: <span class="hljs-string">&quot;out&quot;</span>,
+        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;sent&quot;</span>,
+        <span class="hljs-string">&quot;media&quot;</span>: []
+    }
+]
+</code></pre>
+</div></div></div>
 
                                 
                                 </section>
@@ -1365,7 +1770,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET /messages","level":"2.11.1","depth":2,"next":{"title":"POST /messages","level":"2.11.2","depth":2,"path":"methods/messages/postMessages.md","ref":"methods/messages/postMessages.md","articles":[]},"previous":{"title":"/messages","level":"2.11","depth":1,"path":"methods/messages/messages.md","ref":"methods/messages/messages.md","articles":[{"title":"GET /messages","level":"2.11.1","depth":2,"path":"methods/messages/getMessages.md","ref":"methods/messages/getMessages.md","articles":[]},{"title":"POST /messages","level":"2.11.2","depth":2,"path":"methods/messages/postMessages.md","ref":"methods/messages/postMessages.md","articles":[]},{"title":"GET /messages/{messageId}","level":"2.11.3","depth":2,"path":"methods/messages/getMessagesMessageId.md","ref":"methods/messages/getMessagesMessageId.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/messages/getMessages.md","mtime":"2016-10-20T20:52:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:52:55.145Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET /messages","level":"2.11.1","depth":2,"next":{"title":"POST /messages","level":"2.11.2","depth":2,"path":"methods/messages/postMessages.md","ref":"methods/messages/postMessages.md","articles":[]},"previous":{"title":"/messages","level":"2.11","depth":1,"path":"methods/messages/messages.md","ref":"methods/messages/messages.md","articles":[{"title":"GET /messages","level":"2.11.1","depth":2,"path":"methods/messages/getMessages.md","ref":"methods/messages/getMessages.md","articles":[]},{"title":"POST /messages","level":"2.11.2","depth":2,"path":"methods/messages/postMessages.md","ref":"methods/messages/postMessages.md","articles":[]},{"title":"GET /messages/{messageId}","level":"2.11.3","depth":2,"path":"methods/messages/getMessagesMessageId.md","ref":"methods/messages/getMessagesMessageId.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/messages/getMessages.md","mtime":"2016-10-21T17:49:42.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T18:26:01.587Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

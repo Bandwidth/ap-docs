@@ -996,7 +996,7 @@
                 <a href="../media/deleteMediaMediaName.html">
             
                     
-                    DELTE /media/{mediaName}
+                    <code class="delete">DELETE</code> /media/{mediaName}
             
                 </a>
             
@@ -1331,8 +1331,29 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"><h1 id="errors">Errors</h1>
+                                <h1 id="errors">Errors</h1>
 <p>The Errors resource lets you see information about errors that happened in your API calls and during applications callbacks. This error information can be very helpful when you&apos;re debugging an application. Because error information can be large, and errors in the distant past are less useful than new ones, Bandwidth API limits the number of user errors it keeps.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Verb</th>
+<th style="text-align:left">Method</th>
+<th style="text-align:left">about</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code class="get">GET</code></td>
+<td style="text-align:left"><a href="getErrors.html"><code>/v1/users/{userId}/errors</code></a></td>
+<td style="text-align:left">Gets all the user errors for an account</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="get">GET</code></td>
+<td style="text-align:left"><a href="getErrorsErrorId.html"><code>/v1/users/{userId}/errors/{errorId}</code></a></td>
+<td style="text-align:left">Gets information about one error</td>
+</tr>
+</tbody>
+</table>
 <h2 id="error-properties">Error Properties</h2>
 <table>
 <thead>
@@ -1387,145 +1408,6 @@
 </tr>
 </tbody>
 </table>
-<h2 id="get-errors">GET errors</h2>
-<p>Gets the most recent user errors for the user. Since this operation uses HTTP GET, all the properties are specified as HTTP request parameters.</p>
-<h3 id="supported-parameters">Supported Parameters</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Parameter</th>
-<th style="text-align:left">Description</th>
-<th style="text-align:left">Mandatory</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">page</td>
-<td style="text-align:left">Used for pagination to indicate the page requested for querying a list of user errors. If no value is specified the default is 0.</td>
-<td style="text-align:left">No</td>
-</tr>
-<tr>
-<td style="text-align:left">size</td>
-<td style="text-align:left">Used for pagination to indicate the size of each page requested for querying a list of user errors. If no value is specified the default value is 25. (Maximum value 1000)</td>
-<td style="text-align:left">No</td>
-</tr>
-</tbody>
-</table>
-<h3 id="example-get-errors">Example: Get errors</h3>
-</div><div class="api-method-code"><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/errors \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
-client.Error.list({size: <span class="hljs-number">1000</span>}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">errorResponse</span>)</span>{});
-
-<span class="hljs-comment">// Callback</span>
-client.Error.list({size: <span class="hljs-number">1000</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, errorResponse</span>)</span>{});
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> errors = client.Error.List(<span class="hljs-keyword">new</span> ErrorQuery{Size = <span class="hljs-number">1000</span>});
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">errors = Error.list(client)
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre><code class="lang-json">[
-   {
-      &quot;time&quot; : &quot;2012-11-15T01:30:16.208Z&quot;,
-      &quot;category&quot; : &quot;unavailable&quot;,
-      &quot;id&quot; : &quot;{userErrorId1}&quot;,
-      &quot;details&quot; : [
-         {
-            &quot;id&quot; : &quot;{userErrorDetailId1}&quot;
-            &quot;name&quot; : &quot;applicationId&quot;,
-            &quot;value&quot; : &quot;{applicationId}&quot;,
-         },
-         {
-            &quot;id&quot; : &quot;{userErrorDetailId2}&quot;,
-            &quot;name&quot; : &quot;number&quot;,
-            &quot;value&quot; : &quot;{number}&quot;,
-         },
-         {
-            &quot;id&quot; : &quot;{userErrorDetailId3}&quot;,
-            &quot;name&quot; : &quot;callId&quot;,
-            &quot;value&quot; : &quot;{callId}&quot;,
-         }
-      ],
-      &quot;message&quot; : &quot;Application {applicationId} (\&quot;Dial a Tune\&quot;) for number
-                   {number} does not specify a URL for call events&quot;,
-      &quot;code&quot; : &quot;no-callback-for-call&quot;
-   },
-   {
-      &quot;time&quot; : &quot;2012-11-15T01:29:24.512Z&quot;,
-      &quot;category&quot; : &quot;unavailable&quot;,
-      &quot;id&quot; : &quot;{userErrorId2}&quot;,
-      &quot;message&quot; : &quot;No application is configured for number +19195556666&quot;,
-      &quot;code&quot; : &quot;no-application-for-number&quot;
-   },
-]
-</code></pre>
-<h2 id="get-errorsusererrorid">GET errors/{userErrorId}</h2>
-<p>Gets information about one error. No query parameters are supported.</p>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/errors/{userErrorId} \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
-client.Error.get(userErrorId).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">errorInfo</span>)</span>{});
-
-<span class="hljs-comment">// Callback</span>
-client.Error.get(userErrorId, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, errorInfo</span>)</span>{});
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> error = <span class="hljs-keyword">async</span> client.Error.GetAsync(<span class="hljs-string">&quot;{errorId1}&quot;</span>);
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">error = Error.get(client, <span class="hljs-string">&quot;{errorId1}&quot;</span>)
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre><code>{
-  &quot;id&quot;: &quot;{userErrorId}&quot;,
-  &quot;version&quot;: 0,
-  &quot;user&quot;: {
-    &quot;@id&quot;: 1,
-    &quot;accountNonExpired&quot;: true,
-    &quot;accountNonLocked&quot;: true,
-    &quot;companyName&quot;: &quot;{companyName}&quot;,
-    &quot;credentialsNonExpired&quot;: true,
-    &quot;email&quot;: &quot;{email}&quot;,
-    &quot;enabled&quot;: true,
-    &quot;firstName&quot;: &quot;{firstName}&quot;,
-    &quot;id&quot;: &quot;{userId}&quot;,
-    &quot;lastName&quot;: &quot;{lastName}&quot;,
-    &quot;password&quot;: &quot;{password}&quot;,
-    &quot;username&quot;: &quot;{username}&quot;
-  },
-  &quot;time&quot;: 1391514755496,
-  &quot;category&quot;: &quot;BAD_REQUEST&quot;,
-  &quot;code&quot;: &quot;missing-property&quot;,
-  &quot;message&quot;: &quot;The &apos;call&apos; resource property &apos;transferTo&apos; is required but was not specified&quot;,
-  &quot;details&quot;: [
-    {
-      &quot;id&quot;: &quot;{userErrorDetailId1}&quot;,
-      &quot;version&quot;: 0,
-      &quot;name&quot;: &quot;requestPath&quot;,
-      &quot;value&quot;: &quot;users/{userId}/calls/{callId}&quot;
-    },
-    {
-      &quot;id&quot;: &quot;{userErrorDetailId2}&quot;,
-      &quot;version&quot;: 0,
-      &quot;name&quot;: &quot;remoteAddress&quot;,
-      &quot;value&quot;: &quot;{remoteAddress}&quot;
-    },
-    {
-      &quot;id&quot;: &quot;{userErrorDetailId3}&quot;,
-      &quot;version&quot;: 0,
-      &quot;name&quot;: &quot;requestMethod&quot;,
-      &quot;value&quot;: &quot;POST&quot;
-    }
-  ]
-}
-</code></pre></div></div></div>
 
                                 
                                 </section>
@@ -1559,7 +1441,7 @@ client.Error.get(userErrorId, <span class="hljs-function"><span class="hljs-keyw
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"/errors","level":"2.9","depth":1,"next":{"title":"GET /errors","level":"2.9.1","depth":2,"path":"methods/errors/getErrors.md","ref":"methods/errors/getErrors.md","articles":[]},"previous":{"title":"POST /endpoints/{endpointId}","level":"2.8.5","depth":2,"path":"methods/endpoints/postEndpointsEndpointId.md","ref":"methods/endpoints/postEndpointsEndpointId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/errors/errors.md","mtime":"2016-10-20T20:52:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:52:55.145Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"/errors","level":"2.9","depth":1,"next":{"title":"GET /errors","level":"2.9.1","depth":2,"path":"methods/errors/getErrors.md","ref":"methods/errors/getErrors.md","articles":[]},"previous":{"title":"POST /endpoints/{endpointId}","level":"2.8.5","depth":2,"path":"methods/endpoints/postEndpointsEndpointId.md","ref":"methods/endpoints/postEndpointsEndpointId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/errors/errors.md","mtime":"2016-10-21T17:09:13.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T18:26:01.587Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

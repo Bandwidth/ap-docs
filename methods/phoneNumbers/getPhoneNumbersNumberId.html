@@ -996,7 +996,7 @@
                 <a href="../media/deleteMediaMediaName.html">
             
                     
-                    DELTE /media/{mediaName}
+                    <code class="delete">DELETE</code> /media/{mediaName}
             
                 </a>
             
@@ -1331,7 +1331,104 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"></div><div class="api-method-code"></div></div>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="get-phonenumbersnumberid">GET phoneNumbers/{numberId}</h2>
+<p>Gets information about one of your numbers using the number&apos;s ID. No query parameters are supported.</p>
+<p>or</p>
+<p>Gets information about one of your numbers using the E.164 number string, like &quot;+19195551212&quot;. Remember to URL encode the plus sign prefix. No query parameters are supported.</p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">The unique id of the phone number.</td>
+</tr>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">A name you choose for this number.</td>
+</tr>
+<tr>
+<td style="text-align:left">number</td>
+<td style="text-align:left">The telephone number in E.164 format.</td>
+</tr>
+<tr>
+<td style="text-align:left">nationalNumber</td>
+<td style="text-align:left">The telephone number in a friendly national format, e.g. (555) 5555-5555</td>
+</tr>
+<tr>
+<td style="text-align:left">city</td>
+<td style="text-align:left">The city of the phone number.</td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">The state of the phone number.</td>
+</tr>
+<tr>
+<td style="text-align:left">applicationId</td>
+<td style="text-align:left">The unique id of an Application you want to associate with this number.</td>
+</tr>
+<tr>
+<td style="text-align:left">application</td>
+<td style="text-align:left">The URI of the application associated with the number for inbound phone calls and text messages.</td>
+</tr>
+<tr>
+<td style="text-align:left">fallbackNumber</td>
+<td style="text-align:left">Number to transfer an incoming call when the callback/fallback events can&#x2019;t be delivered.</td>
+</tr>
+<tr>
+<td style="text-align:left">price</td>
+<td style="text-align:left">The monthly price for this number.</td>
+</tr>
+<tr>
+<td style="text-align:left">createdTime</td>
+<td style="text-align:left">Date when the number was created. Timestamp follows the ISO8601 format (UTC).</td>
+</tr>
+<tr>
+<td style="text-align:left">numberState</td>
+<td style="text-align:left">The phone number state, values are <code>enabled</code> or <code>released</code></td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-get-number-properties-by-e164-or-id">Example: Get number properties by E.164 or Id</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/%20{number} \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
+client.PhoneNumber.get(numberId).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">number</span>)</span>{});
+<span class="hljs-comment">// or</span>
+client.PhoneNumber.get(<span class="hljs-string">&quot;+1234567890&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">number</span>)</span>{});
+
+<span class="hljs-comment">// Callback</span>
+client.PhoneNumber.get(numberId, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, number</span>)</span>{});
+<span class="hljs-comment">// or</span>
+client.PhoneNumber.get(<span class="hljs-string">&quot;+1234567890&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, number</span>)</span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> number = <span class="hljs-keyword">await</span> client.PhoneNumber.GetAsync(<span class="hljs-string">&quot;+1234567890&quot;</span>);
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">number = PhoneNumber.get(client, <span class="hljs-string">&quot;+1234567890&quot;</span>)
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code>{
+   &quot;id&quot;: &quot;{numberId}&quot;,
+   &quot;application&quot;: &quot;https://catapult.inetwork.com/.../applications/{applicationId}&quot;,
+   &quot;number&quot;:&quot;{number}&quot;,
+   &quot;nationalNumber&quot;:&quot;{national_number}&quot;,
+   &quot;name&quot;: &quot;home phone&quot;,
+   &quot;createdTime&quot;: &quot;2013-02-13T17:46:08.374Z&quot;,
+   &quot;city&quot;: &quot;Raleigh&quot;,
+   &quot;state&quot;: &quot;NC&quot;,
+   &quot;price&quot;: &quot;0.60&quot;,
+   &quot;numberState&quot;: &quot;enabled&quot;
+}
+</code></pre></div></div></div>
 
                                 
                                 </section>
@@ -1365,7 +1462,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET /phoneNumbers/{numberId}","level":"2.13.3","depth":2,"next":{"title":"POST /phoneNumbers/{numberId}","level":"2.13.4","depth":2,"path":"methods/phoneNumbers/postPhoneNumbersNumberId.md","ref":"methods/phoneNumbers/postPhoneNumbersNumberId.md","articles":[]},"previous":{"title":"POST /phoneNumbers","level":"2.13.2","depth":2,"path":"methods/phoneNumbers/postPhoneNumbers.md","ref":"methods/phoneNumbers/postPhoneNumbers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/phoneNumbers/getPhoneNumbersNumberId.md","mtime":"2016-10-20T20:52:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:52:55.145Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET /phoneNumbers/{numberId}","level":"2.13.3","depth":2,"next":{"title":"POST /phoneNumbers/{numberId}","level":"2.13.4","depth":2,"path":"methods/phoneNumbers/postPhoneNumbersNumberId.md","ref":"methods/phoneNumbers/postPhoneNumbersNumberId.md","articles":[]},"previous":{"title":"POST /phoneNumbers","level":"2.13.2","depth":2,"path":"methods/phoneNumbers/postPhoneNumbers.md","ref":"methods/phoneNumbers/postPhoneNumbers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/phoneNumbers/getPhoneNumbersNumberId.md","mtime":"2016-10-21T18:09:43.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T18:26:01.587Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

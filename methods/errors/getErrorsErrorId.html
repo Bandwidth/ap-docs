@@ -996,7 +996,7 @@
                 <a href="../media/deleteMediaMediaName.html">
             
                     
-                    DELTE /media/{mediaName}
+                    <code class="delete">DELETE</code> /media/{mediaName}
             
                 </a>
             
@@ -1331,7 +1331,123 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"></div><div class="api-method-code"></div></div>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="get-errorsusererrorid">GET errors/{userErrorId}</h2>
+<p>Gets information about one error. No query parameters are supported.</p>
+<h2 id="error-properties">Error Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">The unique id for the error.</td>
+</tr>
+<tr>
+<td style="text-align:left">time</td>
+<td style="text-align:left">The time the error occurred (UTC).</td>
+</tr>
+<tr>
+<td style="text-align:left">category</td>
+<td style="text-align:left">The error category, one of:<br><code>authentication</code> - The requestor could not be authenticated. Incorrect or disabled credentials are common causes of these errors. <br><code>authorization</code> - The requestor does not have sufficient permissions to perform the operation or access the resource, or some other authorization error occurred.<br> <code>not-found</code> - The resource could not be found. <br><code>bad-request</code> - The request information sent could not be understood or contained values that are not allowed.<br><code>conflict</code> - The resource could not be modified because it was already modified by a different request.<br><code>unavailable</code> - The resource or service is currently unavailable. It may become available shortly, or the request may have to be modified to succeed.<br><code>credit</code> - The requestor has insufficient credit to perform the operation or access the resource.<br><code>limit</code> - A usage limit or rate limit for a resource or service has been exceeded.<br><code>payment</code> - There was an error processing a payment.</td>
+</tr>
+<tr>
+<td style="text-align:left">code</td>
+<td style="text-align:left">A specific error code string that identifies the type of error.</td>
+</tr>
+<tr>
+<td style="text-align:left">message</td>
+<td style="text-align:left">A message that describes the error condition in detail.</td>
+</tr>
+<tr>
+<td style="text-align:left">details</td>
+<td style="text-align:left">A list of name/value pairs of additional details that may help you debug the error.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="error-details-properties">Error Details Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">The detail name; there is no complete list of detail names, but conventional resource ID names like userId are used to refer to resources associated with the error.</td>
+</tr>
+<tr>
+<td style="text-align:left">value</td>
+<td style="text-align:left">The detail value; the format and content depends on the name.</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-get-information-about-an-error">Example: Get information about an error</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/errors/{userErrorId} \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
+client.Error.get(userErrorId).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">errorInfo</span>)</span>{});
+
+<span class="hljs-comment">// Callback</span>
+client.Error.get(userErrorId, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, errorInfo</span>)</span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> error = <span class="hljs-keyword">async</span> client.Error.GetAsync(<span class="hljs-string">&quot;{errorId1}&quot;</span>);
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">error = Error.get(client, <span class="hljs-string">&quot;{errorId1}&quot;</span>)
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code>{
+  &quot;id&quot;: &quot;{userErrorId}&quot;,
+  &quot;version&quot;: 0,
+  &quot;user&quot;: {
+    &quot;@id&quot;: 1,
+    &quot;accountNonExpired&quot;: true,
+    &quot;accountNonLocked&quot;: true,
+    &quot;companyName&quot;: &quot;{companyName}&quot;,
+    &quot;credentialsNonExpired&quot;: true,
+    &quot;email&quot;: &quot;{email}&quot;,
+    &quot;enabled&quot;: true,
+    &quot;firstName&quot;: &quot;{firstName}&quot;,
+    &quot;id&quot;: &quot;{userId}&quot;,
+    &quot;lastName&quot;: &quot;{lastName}&quot;,
+    &quot;password&quot;: &quot;{password}&quot;,
+    &quot;username&quot;: &quot;{username}&quot;
+  },
+  &quot;time&quot;: 1391514755496,
+  &quot;category&quot;: &quot;BAD_REQUEST&quot;,
+  &quot;code&quot;: &quot;missing-property&quot;,
+  &quot;message&quot;: &quot;The &apos;call&apos; resource property &apos;transferTo&apos; is required but was not specified&quot;,
+  &quot;details&quot;: [
+    {
+      &quot;id&quot;: &quot;{userErrorDetailId1}&quot;,
+      &quot;version&quot;: 0,
+      &quot;name&quot;: &quot;requestPath&quot;,
+      &quot;value&quot;: &quot;users/{userId}/calls/{callId}&quot;
+    },
+    {
+      &quot;id&quot;: &quot;{userErrorDetailId2}&quot;,
+      &quot;version&quot;: 0,
+      &quot;name&quot;: &quot;remoteAddress&quot;,
+      &quot;value&quot;: &quot;{remoteAddress}&quot;
+    },
+    {
+      &quot;id&quot;: &quot;{userErrorDetailId3}&quot;,
+      &quot;version&quot;: 0,
+      &quot;name&quot;: &quot;requestMethod&quot;,
+      &quot;value&quot;: &quot;POST&quot;
+    }
+  ]
+}
+</code></pre></div></div></div>
 
                                 
                                 </section>
@@ -1365,7 +1481,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET /errors/{errorId}","level":"2.9.2","depth":2,"next":{"title":"/media","level":"2.10","depth":1,"path":"methods/media/media.md","ref":"methods/media/media.md","articles":[{"title":"GET /media","level":"2.10.1","depth":2,"path":"methods/media/getMedia.md","ref":"methods/media/getMedia.md","articles":[]},{"title":"PUT /media/{mediaName}","level":"2.10.2","depth":2,"path":"methods/media/putMediaMediaName.md","ref":"methods/media/putMediaMediaName.md","articles":[]},{"title":"GET /media/{mediaName}","level":"2.10.3","depth":2,"path":"methods/media/getMediaMediaName.md","ref":"methods/media/getMediaMediaName.md","articles":[]},{"title":"DELTE /media/{mediaName}","level":"2.10.4","depth":2,"path":"methods/media/deleteMediaMediaName.md","ref":"methods/media/deleteMediaMediaName.md","articles":[]}]},"previous":{"title":"GET /errors","level":"2.9.1","depth":2,"path":"methods/errors/getErrors.md","ref":"methods/errors/getErrors.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/errors/getErrorsErrorId.md","mtime":"2016-10-20T20:52:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:52:55.145Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET /errors/{errorId}","level":"2.9.2","depth":2,"next":{"title":"/media","level":"2.10","depth":1,"path":"methods/media/media.md","ref":"methods/media/media.md","articles":[{"title":"GET /media","level":"2.10.1","depth":2,"path":"methods/media/getMedia.md","ref":"methods/media/getMedia.md","articles":[]},{"title":"PUT /media/{mediaName}","level":"2.10.2","depth":2,"path":"methods/media/putMediaMediaName.md","ref":"methods/media/putMediaMediaName.md","articles":[]},{"title":"GET /media/{mediaName}","level":"2.10.3","depth":2,"path":"methods/media/getMediaMediaName.md","ref":"methods/media/getMediaMediaName.md","articles":[]},{"title":"DELETE /media/{mediaName}","level":"2.10.4","depth":2,"path":"methods/media/deleteMediaMediaName.md","ref":"methods/media/deleteMediaMediaName.md","articles":[]}]},"previous":{"title":"GET /errors","level":"2.9.1","depth":2,"path":"methods/errors/getErrors.md","ref":"methods/errors/getErrors.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/errors/getErrorsErrorId.md","mtime":"2016-10-21T17:05:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T18:26:01.587Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -996,7 +996,7 @@
                 <a href="../media/deleteMediaMediaName.html">
             
                     
-                    DELTE /media/{mediaName}
+                    <code class="delete">DELETE</code> /media/{mediaName}
             
                 </a>
             
@@ -1331,7 +1331,58 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"></div><div class="api-method-code"></div></div>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="post-phonenumbersnumberid">POST phoneNumbers/{numberId}</h2>
+<p>Makes changes to a number you have. <code class="post">POST</code> a new JSON representation with the property values you desire to the URL that you got back in the &quot;Location&quot; header when you first allocated it. Properties you don&apos;t send will remain unchanged. The &quot;numberId&quot; refers to the numberId or the number itself. When using the number itself remember to URL encode the plus sign prefix.</p>
+<h3 id="supported-parameters">Supported Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">applicationId</td>
+<td style="text-align:left">The unique id of an Application resource you want to associate with this number for incoming calls and messages.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">A name you choose for this number.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">fallbackNumber</td>
+<td style="text-align:left">Number to transfer an incoming call when the callback/fallback events can&#x2019;t be delivered.</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-change-the-application-resource-a-phone-number-uses-for-inbound-calls-and-messages">Example: Change the Application resource a phone number uses for inbound calls and messages</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/{numberId} \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+        <span class="hljs-_">-d</span> \
+    <span class="hljs-string">&apos;
+    {
+        &quot;applicationId&quot;: &quot;{application_id}&quot;
+    }&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
+client.PhoneNumber.update(numberId, {applicationId: <span class="hljs-string">&quot;{application_id}&quot;</span>}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{});
+
+<span class="hljs-comment">// Callback</span>
+client.PhoneNumber.update(numberId, {applicationId: <span class="hljs-string">&quot;{application_id}&quot;</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.PhoneNumber.UpdateAsync(numberId, <span class="hljs-keyword">new</span> UpdatePhoneNUmberData {
+    ApplicationId = <span class="hljs-string">&quot;{application_id}&quot;</span>
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">phoneNumber.update({<span class="hljs-symbol">:application_id</span> =&gt; <span class="hljs-string">&quot;{application_id}&quot;</span>})
+</code></pre>
+</div></div></div>
 
                                 
                                 </section>
@@ -1365,7 +1416,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST /phoneNumbers/{numberId}","level":"2.13.4","depth":2,"next":{"title":"DELETE /phoneNumbers/{numberId}","level":"2.13.5","depth":2,"path":"methods/phoneNumbers/deletePhoneNumbersNumberId.md","ref":"methods/phoneNumbers/deletePhoneNumbersNumberId.md","articles":[]},"previous":{"title":"GET /phoneNumbers/{numberId}","level":"2.13.3","depth":2,"path":"methods/phoneNumbers/getPhoneNumbersNumberId.md","ref":"methods/phoneNumbers/getPhoneNumbersNumberId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/phoneNumbers/postPhoneNumbersNumberId.md","mtime":"2016-10-20T20:52:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:52:55.145Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST /phoneNumbers/{numberId}","level":"2.13.4","depth":2,"next":{"title":"DELETE /phoneNumbers/{numberId}","level":"2.13.5","depth":2,"path":"methods/phoneNumbers/deletePhoneNumbersNumberId.md","ref":"methods/phoneNumbers/deletePhoneNumbersNumberId.md","articles":[]},"previous":{"title":"GET /phoneNumbers/{numberId}","level":"2.13.3","depth":2,"path":"methods/phoneNumbers/getPhoneNumbersNumberId.md","ref":"methods/phoneNumbers/getPhoneNumbersNumberId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/phoneNumbers/postPhoneNumbersNumberId.md","mtime":"2016-10-21T18:10:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T18:26:01.587Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

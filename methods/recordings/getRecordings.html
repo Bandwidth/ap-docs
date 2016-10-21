@@ -996,7 +996,7 @@
                 <a href="../media/deleteMediaMediaName.html">
             
                     
-                    DELTE /media/{mediaName}
+                    <code class="delete">DELETE</code> /media/{mediaName}
             
                 </a>
             
@@ -1331,7 +1331,151 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"></div><div class="api-method-code"></div></div>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="get-recordings">GET recordings</h2>
+<p>List all users&apos; call recordings. Since this operation uses HTTP GET, all the properties are specified as HTTP request parameters.</p>
+<h3 id="supported-parameters">Supported Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">page</td>
+<td style="text-align:left">Used for pagination to indicate the page requested for querying a list. If no value is specified the default is 0.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">size</td>
+<td style="text-align:left">Used for pagination to indicate the size of each page requested for querying a list. If no value is specified the default value is 25. (Maximum value 1000)</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">The unique id of the recordings resource.</td>
+</tr>
+<tr>
+<td style="text-align:left">startTime</td>
+<td style="text-align:left">Date/time when the recording started. Timestamp follows the ISO8601 format (UTC).</td>
+</tr>
+<tr>
+<td style="text-align:left">endTime</td>
+<td style="text-align:left">Date/time when the recording ended. Timestamp follows the ISO8601 format (UTC).</td>
+</tr>
+<tr>
+<td style="text-align:left">call</td>
+<td style="text-align:left">The complete URL to the call resource this recording is associated with.</td>
+</tr>
+<tr>
+<td style="text-align:left">media</td>
+<td style="text-align:left">The complete URL to the media resource this recording is associated with.</td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">The state of the recording, values are <br> <code>recording</code> <br> <em><code>complete</code><br> </em><code>saving</code> <br> *<code>error</code></td>
+</tr>
+<tr>
+<td style="text-align:left">page</td>
+<td style="text-align:left">Used for pagination to indicate the page requested for querying a list of recordings. If no value is specified the default is 0.</td>
+</tr>
+<tr>
+<td style="text-align:left">size</td>
+<td style="text-align:left">Used for pagination to indicate the size of each page requested for querying a list of recordings. If no value is specified the default value is 25. (Maximum value 1000)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="recording-states">Recording States</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">State</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">recording</td>
+<td style="text-align:left">Recording is currently active.</td>
+</tr>
+<tr>
+<td style="text-align:left">saving</td>
+<td style="text-align:left">Recording is complete but it is not available to download yet.</td>
+</tr>
+<tr>
+<td style="text-align:left">error</td>
+<td style="text-align:left">Recording could not be uploaded.</td>
+</tr>
+<tr>
+<td style="text-align:left">complete</td>
+<td style="text-align:left">Recording complete and available for downloading or playing.</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-list-all-recordings">Example: List all recordings</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/recordings \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">//Promise</span>
+client.Recording.list({}).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">recordings</span>) </span>{});
+
+<span class="hljs-comment">//Callback</span>
+client.Recording.list({}, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, recordings</span>) </span>{
+    <span class="hljs-keyword">if</span> (err) { <span class="hljs-built_in">console</span>.log(err); }
+    <span class="hljs-keyword">else</span> {
+        <span class="hljs-built_in">console</span>.log(recordings);
+    }
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> recordings = client.Recording.List();
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">recordings = Recording.list(client)
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code class="lang-json">[
+{
+    <span class="hljs-string">&quot;endTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T13:17:12.181Z&quot;</span>,
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{recordingId1}&quot;</span>,
+    <span class="hljs-string">&quot;media&quot;</span>: <span class="hljs-string">&quot;https://.../v1/users/.../media/{callId1}-1.wav&quot;</span>,
+    <span class="hljs-string">&quot;call&quot;</span>: <span class="hljs-string">&quot;https://.../v1/users/.../calls/{callId1}&quot;</span>,
+    <span class="hljs-string">&quot;startTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T13:15:47.587Z&quot;</span>,
+    <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;complete&quot;</span>
+  },
+  {
+    <span class="hljs-string">&quot;endTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T14:05:15.587Z&quot;</span>,
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{recordingId2}&quot;</span>,
+    <span class="hljs-string">&quot;media&quot;</span>: <span class="hljs-string">&quot;https://.../v1/users/.../media/{callId1}-2.wav&quot;</span>,
+    <span class="hljs-string">&quot;call&quot;</span>: <span class="hljs-string">&quot;https://.../v1/users/.../calls/{callId1}&quot;</span>,
+    <span class="hljs-string">&quot;startTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T14:03:47.587Z&quot;</span>,
+    <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;complete&quot;</span>
+  },
+  {
+    <span class="hljs-string">&quot;endTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T13:34:07.507Z&quot;</span>,
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{recordingId3}&quot;</span>,
+    <span class="hljs-string">&quot;media&quot;</span>: <span class="hljs-string">&quot;https://.../v1/users/.../media/{callId2}-1.wav&quot;</span>,
+    <span class="hljs-string">&quot;call&quot;</span>: <span class="hljs-string">&quot;https://.../v1/users/.../calls/{call2}&quot;</span>,
+    <span class="hljs-string">&quot;startTime&quot;</span>: <span class="hljs-string">&quot;2013-02-08T13:28:47.587Z&quot;</span>,
+    <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;complete&quot;</span>
+  }
+]
+</code></pre>
+</div></div></div>
 
                                 
                                 </section>
@@ -1365,7 +1509,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET /recordings","level":"2.14.1","depth":2,"next":{"title":"GET /recordings/{recordingId}","level":"2.14.2","depth":2,"path":"methods/recordings/getRecordingsRecordingId.md","ref":"methods/recordings/getRecordingsRecordingId.md","articles":[]},"previous":{"title":"/recordings","level":"2.14","depth":1,"path":"methods/recordings/recordings.md","ref":"methods/recordings/recordings.md","articles":[{"title":"GET /recordings","level":"2.14.1","depth":2,"path":"methods/recordings/getRecordings.md","ref":"methods/recordings/getRecordings.md","articles":[]},{"title":"GET /recordings/{recordingId}","level":"2.14.2","depth":2,"path":"methods/recordings/getRecordingsRecordingId.md","ref":"methods/recordings/getRecordingsRecordingId.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/recordings/getRecordings.md","mtime":"2016-10-20T20:52:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:52:55.145Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET /recordings","level":"2.14.1","depth":2,"next":{"title":"GET /recordings/{recordingId}","level":"2.14.2","depth":2,"path":"methods/recordings/getRecordingsRecordingId.md","ref":"methods/recordings/getRecordingsRecordingId.md","articles":[]},"previous":{"title":"/recordings","level":"2.14","depth":1,"path":"methods/recordings/recordings.md","ref":"methods/recordings/recordings.md","articles":[{"title":"GET /recordings","level":"2.14.1","depth":2,"path":"methods/recordings/getRecordings.md","ref":"methods/recordings/getRecordings.md","articles":[]},{"title":"GET /recordings/{recordingId}","level":"2.14.2","depth":2,"path":"methods/recordings/getRecordingsRecordingId.md","ref":"methods/recordings/getRecordingsRecordingId.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/recordings/getRecordings.md","mtime":"2016-10-21T18:12:15.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T18:26:01.587Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

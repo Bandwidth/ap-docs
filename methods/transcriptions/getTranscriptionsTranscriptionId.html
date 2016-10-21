@@ -994,7 +994,7 @@
                 <a href="../media/deleteMediaMediaName.html">
             
                     
-                    DELTE /media/{mediaName}
+                    <code class="delete">DELETE</code> /media/{mediaName}
             
                 </a>
             
@@ -1329,7 +1329,75 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"></div><div class="api-method-code"></div></div>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="get-recordingsrecording-idtranscriptionstranscription-id">GET recordings/{recording-id}/transcriptions/{transcription-id}</h2>
+<p>Get information about the transcription, regardless its state.</p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">The unique id of the transcriptions resource.</td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">The state of the transcription, <code>transcribing</code> <code>completed</code> <code>error</code></td>
+</tr>
+<tr>
+<td style="text-align:left">text</td>
+<td style="text-align:left">The transcribed text.</td>
+</tr>
+<tr>
+<td style="text-align:left">time</td>
+<td style="text-align:left">The date/time the transcription resource was created (UTC).</td>
+</tr>
+<tr>
+<td style="text-align:left">chargeableDuration</td>
+<td style="text-align:left">The seconds between activeTime and endTime for the recording; this is the time that is going to be used to charge the resource. Note: transcriptions is billed in 1 minute units.</td>
+</tr>
+<tr>
+<td style="text-align:left">textSize</td>
+<td style="text-align:left">The size of the transcribed text. If the text is longer than 1000 characters it will be cropped; the full text can be retrieved from the url available at textUrl property.</td>
+</tr>
+<tr>
+<td style="text-align:left">textUrl</td>
+<td style="text-align:left">An url to the full text; this property is available regardless the textSize.</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-get-transcription-properties">Example: Get transcription properties</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recording-id}/transcriptions/{transcription-id} \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
+client.Recording.getTranscription(recordingId, transcriptionId).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">transcription</span>)</span>{});
+
+<span class="hljs-comment">// Callback</span>
+client.Recording.getTranscription(recordingId, transcriptionId, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, transcription</span>)</span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> transcriptions = client.Transcription.List();
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">transcriptions = recording.get_transacriptions()
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code>{
+    &quot;chargeableDuration&quot;: 11,
+    &quot;id&quot;: &quot;{transcriptionId}&quot;,
+    &quot;state&quot;: &quot;completed&quot;,
+    &quot;text&quot;: &quot;Hey there, I was calling to talk about plans for this saturday. &quot;,
+    &quot;textSize&quot;: 63,
+    &quot;textUrl&quot;: &quot;https://api.catapult.inetwork.com/.../media/{transcriptionId}&quot;,
+    &quot;time&quot;: &quot;2014-12-23T23:08:59Z&quot;
+}
+</code></pre></div></div></div>
 
                                 
                                 </section>
@@ -1363,7 +1431,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET /transcriptions/{transcriptionId}","level":"2.15.3","depth":2,"previous":{"title":"GET /transcriptions","level":"2.15.2","depth":2,"path":"methods/transcriptions/getTranscriptions.md","ref":"methods/transcriptions/getTranscriptions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/transcriptions/getTranscriptionsTranscriptionId.md","mtime":"2016-10-20T20:52:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:52:55.145Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET /transcriptions/{transcriptionId}","level":"2.15.3","depth":2,"previous":{"title":"GET /transcriptions","level":"2.15.2","depth":2,"path":"methods/transcriptions/getTranscriptions.md","ref":"methods/transcriptions/getTranscriptions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/transcriptions/getTranscriptionsTranscriptionId.md","mtime":"2016-10-21T18:16:45.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T18:26:01.587Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

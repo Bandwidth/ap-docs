@@ -996,7 +996,7 @@
                 <a href="../media/deleteMediaMediaName.html">
             
                     
-                    DELTE /media/{mediaName}
+                    <code class="delete">DELETE</code> /media/{mediaName}
             
                 </a>
             
@@ -1331,8 +1331,24 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"><h1 id="number-info">Number Info</h1>
+                                <h1 id="number-info">Number Info</h1>
 <p>This resource provides a CNAM number info. CNAM is an acronym which stands for Caller ID Name. CNAM can be used to display the calling party&apos;s name alongside the phone number, to help users easily identify a caller. CNAM API allows the user to get the CNAM information of a particular number.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Verb</th>
+<th style="text-align:left">Method</th>
+<th style="text-align:left">about</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code class="get">GET</code></td>
+<td style="text-align:left"><a href="getNumberInfo.html"><code>/v1/phoneNumbers/numberInfo/{number}</code></a></td>
+<td style="text-align:left">Get the CNAM info of a number</td>
+</tr>
+</tbody>
+</table>
 <h2 id="properties">Properties</h2>
 <table>
 <thead>
@@ -1360,31 +1376,6 @@
 </tr>
 </tbody>
 </table>
-<h2 id="get-numberinfonumber">GET numberInfo/{number}</h2>
-</div><div class="api-method-code"><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/numberInfo/{number} \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
-client.NumberInfo.get(<span class="hljs-string">&quot;+1234567890&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">info</span>)</span>{});
-
-<span class="hljs-comment">// Callback</span>
-client.NumberInfo.get(<span class="hljs-string">&quot;+1234567890&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, info</span>)</span>{});
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> info = <span class="hljs-keyword">await</span> client.NumberInfo.GetAsync(<span class="hljs-string">&quot;+1234567890&quot;</span>);
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">info = NumberInfo.get(client, <span class="hljs-string">&quot;+1234567890&quot;</span>)
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre><code>{
-  &quot;created&quot;: &quot;2013-09-23T16:31:15Z&quot;,
-  &quot;name&quot;: &quot;Name&quot;,
-  &quot;number&quot;: &quot;{number}&quot;,
-  &quot;updated&quot;: &quot;2013-09-23T16:42:18Z&quot;
-}
-</code></pre></div></div></div>
 
                                 
                                 </section>
@@ -1418,7 +1409,7 @@ client.NumberInfo.get(<span class="hljs-string">&quot;+1234567890&quot;</span>, 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"/numberInfo","level":"2.12","depth":1,"next":{"title":"GET /numberInfo/{number}","level":"2.12.1","depth":2,"path":"methods/numberInfo/getNumberInfo.md","ref":"methods/numberInfo/getNumberInfo.md","articles":[]},"previous":{"title":"GET /messages/{messageId}","level":"2.11.3","depth":2,"path":"methods/messages/getMessagesMessageId.md","ref":"methods/messages/getMessagesMessageId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/numberInfo/numberInfo.md","mtime":"2016-10-20T20:52:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:52:55.145Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"/numberInfo","level":"2.12","depth":1,"next":{"title":"GET /numberInfo/{number}","level":"2.12.1","depth":2,"path":"methods/numberInfo/getNumberInfo.md","ref":"methods/numberInfo/getNumberInfo.md","articles":[]},"previous":{"title":"GET /messages/{messageId}","level":"2.11.3","depth":2,"path":"methods/messages/getMessagesMessageId.md","ref":"methods/messages/getMessagesMessageId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/numberInfo/numberInfo.md","mtime":"2016-10-21T18:00:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T18:26:01.587Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

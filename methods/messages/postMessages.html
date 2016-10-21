@@ -996,7 +996,7 @@
                 <a href="../media/deleteMediaMediaName.html">
             
                     
-                    DELTE /media/{mediaName}
+                    <code class="delete">DELETE</code> /media/{mediaName}
             
                 </a>
             
@@ -1331,7 +1331,444 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"></div><div class="api-method-code"></div></div>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="post-messages">POST messages</h2>
+<p>Sends one or more messages.</p>
+<p>Sending a single message: To send a single text message, submit a single message representation as your request body. The response indicates the created message&apos;s URL in the Location header if it was created successfully. If there was an error with the message, the response body contains error information.</p>
+<p>Sending multiple messages: To send multiple messages in a single request, submit an array of message representations as your request body. The response entity will contain an array of response objects, with the same length and order as the submitted message list, so you can iterate in the results to check for errors. Each result contains the URL of the of the message if it was created successfully or error information.</p>
+<p>Important Note on Multiple Messages: There is a maximum limit of 50 messages sent per multiple messages request.</p>
+<p>Important Note on Rate Limits: You can send 1 message per second per Bandwidth phone number.</p>
+<p>International characters: Currently we support only the GSM 7 bit character set (GSM 03.38) .</p>
+<aside class="alert warning small">
+When sending MMS, the size of all medias for specific message summed up should not exceed 1.5 MB
+</aside>
+
+<h3 id="supported-parameters">Supported Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">from</td>
+<td style="text-align:left">One of your telephone numbers the message should come from (must be in E.164 format, like +19195551212).</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">to</td>
+<td style="text-align:left">The phone number the message should be sent to (must be in E.164 format, like +19195551212).</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">text</td>
+<td style="text-align:left">The contents of the text message (must be 2048 characters or less).</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">media</td>
+<td style="text-align:left">For MMS messages, a media url to the location of the media or list of medias to be sent send with the message. For media details please check table Properties in the top of the page.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">receiptRequested</td>
+<td style="text-align:left">Requested receipt option for outbound messages: <code>none</code> <code>all</code> <code>error</code> Default is <code>none</code>.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">callbackUrl</td>
+<td style="text-align:left">The server URL where the events related to the outgoing message will be sent to.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">callbackHttpMethod</td>
+<td style="text-align:left">Determine if the callback event should be sent via <code>HTTP GET</code> or <code>HTTP POST</code>. Values are get or post Default is <code class="post">POST</code></td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">callbackTimeout</td>
+<td style="text-align:left">Determine how long should the platform wait for callbackUrl&#x2019;s response before timing out (milliseconds).</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">fallbackUrl</td>
+<td style="text-align:left">The server URL used to send the message events if the request to callbackUrl fails.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">tag</td>
+<td style="text-align:left">Any string, it will be included in the callback events of the message.</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h2 id="message-request-receipt">Message Request Receipt</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Receipt</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">none</td>
+<td style="text-align:left">Delivery receipt will not be sent as callback event.</td>
+</tr>
+<tr>
+<td style="text-align:left">error</td>
+<td style="text-align:left">Only error delivery receipt event maybe sent as callback event.</td>
+</tr>
+<tr>
+<td style="text-align:left">all</td>
+<td style="text-align:left">Success or error delivery receipt maybe sent as callback event.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="multiple-message-result-types">Multiple Message Result Types</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">result</td>
+<td style="text-align:left">Values are<br><code>accepted</code> - the message was accepted and the location points to the message resource <br> <code>error</code> - the message was not accepted and the &#x201C;error&#x201D; property contains information.</td>
+</tr>
+<tr>
+<td style="text-align:left">location</td>
+<td style="text-align:left">When the result is <code>accepted</code>, contains the URL of the message location.</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-send-a-single-text-message">Example: Send a single text message</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+        <span class="hljs-_">-d</span> \
+    <span class="hljs-string">&apos;
+    {
+        &quot;from&quot;: &quot;{fromNumber}&quot;,
+        &quot;to&quot;: &quot;{toNumber}&quot;,
+        &quot;text&quot;: &quot;Good morning, this is a test message&quot;,
+        &quot;callbackUrl&quot;: &quot;http://my.callback.url&quot;
+    }&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js">client.Message.send({
+    <span class="hljs-keyword">from</span> : <span class="hljs-string">&quot;+19195551212&quot;</span>,
+    to   : <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    text : <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">message</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(message);
+});
+<span class="hljs-comment">//{</span>
+<span class="hljs-comment">//  from : &quot;+19195551212&quot;,</span>
+<span class="hljs-comment">//  to   : &quot;+19195551213&quot;,</span>
+<span class="hljs-comment">//  text : &quot;Thank you for susbcribing to Unicorn Enterprises!&quot;,</span>
+<span class="hljs-comment">//  id   : &quot;...&quot;</span>
+<span class="hljs-comment">//}</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> message = <span class="hljs-keyword">await</span> client.Message.SendAsync(<span class="hljs-keyword">new</span> MessageData {
+    From = <span class="hljs-string">&quot;+19195551212&quot;</span>,
+    To = <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    Text = <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">message = Message.create(client, {
+    <span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>,
+    <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>
+})
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns HTTP Header structured like this:</p>
+</blockquote>
+<pre><code>HTTP/1.1 201 Created
+Location: /v1/users/{userId}/messages/{messageId}
+</code></pre><h3 id="example-send-a-single-mms-with-bandwidth-media">Example: Send a single mms with Bandwidth Media</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+        <span class="hljs-_">-d</span> \
+    <span class="hljs-string">&apos;
+    {
+        &quot;from&quot;: &quot;{fromNumber}&quot;,
+        &quot;to&quot;: &quot;{toNumber}&quot;,
+        &quot;text&quot;: &quot;Good morning, this is a test message&quot;,
+        &quot;callbackUrl&quot;: &quot;http://my.callback.url&quot;,
+        &quot;media&quot;: [&quot;https://api.catapult.inetwork.com/v1/users/&lt;user-id&gt;/media/image-1.jpg&quot;]
+    }&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js">client.Message.send({
+    <span class="hljs-keyword">from</span> : <span class="hljs-string">&quot;+19195551212&quot;</span>,
+    to   : <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    text : <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>,
+    media: [<span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/&lt;user-id&gt;/media/image-1.jpg&quot;</span>],
+    callbackUrl: <span class="hljs-string">&quot;http://my.callback.url&quot;</span>
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">message</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(message);
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> message = <span class="hljs-keyword">await</span> client.Message.SendAsync(<span class="hljs-keyword">new</span> MessageData {
+    From = <span class="hljs-string">&quot;+19195551212&quot;</span>,
+    To = <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    Text = <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>,
+    Media = <span class="hljs-keyword">new</span>[] {<span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/&lt;user-id&gt;/media/image-1.jpg&quot;</span>},
+    CallbackUrl = <span class="hljs-string">&quot;http://my.callback.url&quot;</span>
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">message = Message.create(client, {
+    <span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>,
+    <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>,
+    <span class="hljs-symbol">:media</span> =&gt; [<span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/&lt;user-id&gt;/media/image-1.jpg&quot;</span>],
+    <span class="hljs-symbol">:callback_url</span> =&gt; <span class="hljs-string">&quot;http://my.callback.url&quot;</span>
+})
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns HTTP Header structured like this:</p>
+</blockquote>
+<pre><code>HTTP/1.1 201 Created
+Location: /v1/users/{userId}/messages/{messageId}
+</code></pre><h3 id="example-send-a-single-mms-with-external-media">Example: Send a single mms with external media</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+        <span class="hljs-_">-d</span> \
+    <span class="hljs-string">&apos;
+    {
+        &quot;from&quot;: &quot;{fromNumber}&quot;,
+        &quot;to&quot;: &quot;{toNumber}&quot;,
+        &quot;text&quot;: &quot;Good morning, this is a test message&quot;,
+        &quot;callbackUrl&quot;: &quot;http://my.callback.url&quot;,
+        &quot;media&quot;: [&quot;http://your-site.com/image-1.jpg&quot;]
+    }&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js">client.Message.send({
+    <span class="hljs-keyword">from</span> : <span class="hljs-string">&quot;+19195551212&quot;</span>,
+    to   : <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    text : <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>,
+    media: [<span class="hljs-string">&quot;http://your-site.com/image-1.jpg&quot;</span>],
+    callbackUrl: <span class="hljs-string">&quot;http://my.callback.url&quot;</span>
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">message</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(message);
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> message = <span class="hljs-keyword">await</span> client.Message.SendAsync(<span class="hljs-keyword">new</span> MessageData {
+    From = <span class="hljs-string">&quot;+19195551212&quot;</span>,
+    To = <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    Text = <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>,
+    Media = <span class="hljs-keyword">new</span>[] {<span class="hljs-string">&quot;http://your-site.com/image-1.jpg&quot;</span>},
+    CallbackUrl = <span class="hljs-string">&quot;http://my.callback.url&quot;</span>
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">message = Message.create(client, {
+    <span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>,
+    <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>,
+    <span class="hljs-symbol">:media</span> =&gt; [<span class="hljs-string">&quot;http://your-site.com/image-1.jpg&quot;</span>],
+    <span class="hljs-symbol">:callback_url</span> =&gt; <span class="hljs-string">&quot;http://my.callback.url&quot;</span>
+})
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns HTTP Header structured like this:</p>
+</blockquote>
+<pre><code>HTTP/1.1 201 Created
+Location: /v1/users/{userId}/messages/{messageId}
+</code></pre><h3 id="example-send-three-messages-in-a-single-request">Example: Send three messages in a single request</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+        <span class="hljs-_">-d</span> \
+    <span class="hljs-string">&apos;
+    [
+        {
+            &quot;from&quot;: &quot;{fromNumber1}&quot;,
+            &quot;to&quot;: &quot;{toNumber1}&quot;,
+            &quot;text&quot;: &quot;This is the test message one&quot;,
+            &quot;callbackUrl&quot;: &quot;http://my.callback.url&quot;
+        },
+        {
+            &quot;from&quot;: &quot;{fromNumber2}&quot;,
+            &quot;to&quot;: &quot;{toNumber2}&quot;,
+            &quot;text&quot;: &quot;This is the test message two&quot;,
+            &quot;callbackUrl&quot;: &quot;http://my.callback.url&quot;
+        },
+        {
+            &quot;from&quot;: &quot;{fromNumber1}&quot;,
+            &quot;to&quot;: &quot;&quot;,
+            &quot;callbackUrl&quot;: &quot;&quot;,
+            &quot;text&quot;: &quot;This is the test message three&quot;,
+            &quot;callbackUrl&quot;: &quot;http://my.callback.url&quot;
+        }
+    ]&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">HTTP/1.1 202 ACCEPTED
+[
+    {
+        <span class="hljs-string">&quot;result&quot;</span>: <span class="hljs-string">&quot;accepted&quot;</span>,
+        <span class="hljs-string">&quot;location&quot;</span>: <span class="hljs-string">&quot;https://.../v1/users/.../messages/{messageI1}&quot;</span>
+    },
+    {
+        <span class="hljs-string">&quot;result&quot;</span>: <span class="hljs-string">&quot;accepted&quot;</span>,
+        <span class="hljs-string">&quot;location&quot;</span>: <span class="hljs-string">&quot;https://.../v1/users/.../messages/{messageId2}&quot;</span>
+    },
+    {
+        <span class="hljs-string">&quot;result&quot;</span>: <span class="hljs-string">&quot;error&quot;</span>,
+        <span class="hljs-string">&quot;error&quot;</span>: {
+            <span class="hljs-string">&quot;category&quot;</span>: <span class="hljs-string">&quot;bad-request&quot;</span>,
+            <span class="hljs-string">&quot;code&quot;</span>: <span class="hljs-string">&quot;blank-property&quot;</span>,
+            <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;The &apos;message&apos; resource property &apos;to&apos; must contain at least one non-whitespace character&quot;</span>,
+            <span class="hljs-string">&quot;details&quot;</span>: []
+         }
+    }
+]
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js">client.Message.sendMultiple({
+    <span class="hljs-keyword">from</span> : <span class="hljs-string">&quot;+19195551211&quot;</span>,
+    to   : <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    text : <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>
+}, {
+    <span class="hljs-keyword">from</span> : <span class="hljs-string">&quot;+19195151212&quot;</span>,
+    to   : <span class="hljs-string">&quot;+19195551214&quot;</span>,
+    text : <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">messages</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(messages);
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> messages = <span class="hljs-keyword">await</span> client.Message.SendAsync(<span class="hljs-keyword">new</span>[] {
+    <span class="hljs-keyword">new</span> MessageData {
+        From = <span class="hljs-string">&quot;+19195551211&quot;</span>,
+        To = <span class="hljs-string">&quot;+19195551213&quot;</span>,
+        Text = <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>
+    },
+    <span class="hljs-keyword">new</span> MessageData {
+        From = <span class="hljs-string">&quot;+19195551212&quot;</span>,
+        To = <span class="hljs-string">&quot;+19195551214&quot;</span>,
+        Text = <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>
+    }
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">messages = Message.create(client, [{
+    <span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551211&quot;</span>,
+    <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>
+}, {
+    <span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>,
+    <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+19195551214&quot;</span>,
+    <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>
+}])
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><blockquote>
+<p>The Node Library returns an array of Objects like the following</p>
+</blockquote>
+<pre><code class="lang-js"><span class="hljs-comment">//returns</span>
+[{
+    result : <span class="hljs-string">&quot;failed&quot;</span>,
+    error: {
+        category : <span class="hljs-string">&quot;authorization&quot;</span>,
+        code     : <span class="hljs-string">&quot;number-access-denied&quot;</span>,
+        message  : <span class="hljs-string">&quot;User ... does not have permission to use number +19195551211&quot;</span>,
+        details  : [
+            {
+                name  : <span class="hljs-string">&quot;userId&quot;</span>,
+                value : <span class="hljs-string">&quot;...&quot;</span>
+            },
+            {
+                name  : <span class="hljs-string">&quot;number&quot;</span>,
+                value : <span class="hljs-string">&quot;+19195551211&quot;</span>
+            }
+        ],
+    },
+    message : {
+        <span class="hljs-keyword">from</span> : <span class="hljs-string">&quot;+19195551211&quot;</span>,
+        to   : <span class="hljs-string">&quot;+19195551213&quot;</span>,
+        text : <span class="hljs-string">&quot;Thank you for subscribing to Unicorn Enterprises!&quot;</span>
+    }
+},{
+    result  : <span class="hljs-string">&quot;accepted&quot;</span>,
+    message : {
+        <span class="hljs-keyword">from</span> : <span class="hljs-string">&quot;+19195551212&quot;</span>,
+        to   : <span class="hljs-string">&quot;+19195551214&quot;</span>,
+        text : <span class="hljs-string">&quot;Thank you for subscribing to Unicorn Enterprises!&quot;</span>,
+        id   : <span class="hljs-string">&quot;...&quot;</span>
+    }
+}]
+</code></pre>
+</div><div class="api-method-example"><h3 id="example-request-receipt-for-single-text-message">Example: Request receipt for single text message</h3>
+<p>To send a text message with request receipt from {fromNumber} to {toNumber}, send the following request:</p>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash"><span class="hljs-comment">#coming soon</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">//coming soon</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> message = <span class="hljs-keyword">await</span> client.Message.SendAsync(<span class="hljs-keyword">new</span> MessageData {
+    From = <span class="hljs-string">&quot;+19195551212&quot;</span>,
+    To = <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    Text = <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>,
+    ReceiptRequested = MessageReceiptRequested.All
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">message = Message.create(client, {
+    <span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>,
+    <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>,
+    <span class="hljs-symbol">:receipt_requested</span> =&gt; <span class="hljs-string">&quot;all&quot;</span>
+})
+</code></pre>
+</div><div class="api-method-example"><h3 id="example-send-a-single-text-message-with-custom-callback-timeout-of-2-seconds">Example: Send a single text message with custom callback timeout of 2 seconds</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash"><span class="hljs-comment">#coming soon</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">//coming soon</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> message = <span class="hljs-keyword">await</span> client.Message.SendAsync(<span class="hljs-keyword">new</span> MessageData {
+    From = <span class="hljs-string">&quot;+19195551212&quot;</span>,
+    To = <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    Text = <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>,
+    CallbackUrl = <span class="hljs-string">&quot;http://my.callback.url&quot;</span>,
+    CallbackTimeout = <span class="hljs-number">2000</span>
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">message = Message.create(client, {
+    <span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>,
+    <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>,
+    <span class="hljs-symbol">:callback_url</span> =&gt; <span class="hljs-string">&quot;http://my.callback.url&quot;</span>,
+    <span class="hljs-symbol">:callback_timeout</span> =&gt; <span class="hljs-number">2000</span>
+})
+</code></pre>
+</div><div class="api-method-example"><h3 id="example-send-a-single-text-message-with-custom-callback-timeout-of-2-seconds-and-a-fallback-url">Example: Send a single text message with custom callback timeout of 2 seconds and a fallback URL</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash"><span class="hljs-comment">#coming soon</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">//coming soon</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> message = <span class="hljs-keyword">await</span> client.Message.SendAsync(<span class="hljs-keyword">new</span> MessageData {
+    From = <span class="hljs-string">&quot;+19195551212&quot;</span>,
+    To = <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    Text = <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>,
+    CallbackUrl = <span class="hljs-string">&quot;http://my.callback.url&quot;</span>,
+    CallbackTimeout = <span class="hljs-number">2000</span>,
+    FallbackUrl = <span class="hljs-string">&quot;http://my.fallback.url&quot;</span>
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">message = Message.create(client, {
+    <span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+19195551212&quot;</span>,
+    <span class="hljs-symbol">:to</span> =&gt; <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>,
+    <span class="hljs-symbol">:callback_url</span> =&gt; <span class="hljs-string">&quot;http://my.callback.url&quot;</span>,
+    <span class="hljs-symbol">:callback_timeout</span> =&gt; <span class="hljs-number">2000</span>,
+    <span class="hljs-symbol">:fallback_url</span> =&gt; <span class="hljs-string">&quot;http://my.fallback.url&quot;</span>
+})
+</code></pre>
+</div></div></div>
 
                                 
                                 </section>
@@ -1365,7 +1802,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST /messages","level":"2.11.2","depth":2,"next":{"title":"GET /messages/{messageId}","level":"2.11.3","depth":2,"path":"methods/messages/getMessagesMessageId.md","ref":"methods/messages/getMessagesMessageId.md","articles":[]},"previous":{"title":"GET /messages","level":"2.11.1","depth":2,"path":"methods/messages/getMessages.md","ref":"methods/messages/getMessages.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/messages/postMessages.md","mtime":"2016-10-20T20:52:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:52:55.145Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST /messages","level":"2.11.2","depth":2,"next":{"title":"GET /messages/{messageId}","level":"2.11.3","depth":2,"path":"methods/messages/getMessagesMessageId.md","ref":"methods/messages/getMessagesMessageId.md","articles":[]},"previous":{"title":"GET /messages","level":"2.11.1","depth":2,"path":"methods/messages/getMessages.md","ref":"methods/messages/getMessages.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/messages/postMessages.md","mtime":"2016-10-21T17:48:17.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T18:26:01.587Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

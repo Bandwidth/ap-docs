@@ -996,7 +996,7 @@
                 <a href="../media/deleteMediaMediaName.html">
             
                     
-                    DELTE /media/{mediaName}
+                    <code class="delete">DELETE</code> /media/{mediaName}
             
                 </a>
             
@@ -1331,7 +1331,101 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"></div><div class="api-method-code"></div></div>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="get-domainsdomain-idendpointsendpoint-id">GET domains/{domain-id}/endpoints/{endpoint-id}</h2>
+<p>This returns a single endpoint.</p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">The endpoint&#x2019;s name, which SIP clients use as the <code>address of record</code> in the <code>To</code> header when registering. The name must be a valid SIP <code>user</code> or <code>telephone-subscriber</code> string. RFC 3261 Section 19.1.1 defines the characters that are valid in those parts of a SIP URI. Names must be unique within the domain, and cannot be changed after the endpoint is created.</td>
+</tr>
+<tr>
+<td style="text-align:left">description</td>
+<td style="text-align:left">String to describe endpoint</td>
+</tr>
+<tr>
+<td style="text-align:left">domainId</td>
+<td style="text-align:left">The id of the domain in which the endpoint will be created. This is the id of the domain resource created in an earlier step.</td>
+</tr>
+<tr>
+<td style="text-align:left">applicationId</td>
+<td style="text-align:left">The id of the application associated with this endpoint. Application_id is used to determine the callback URL to be used when a client associated with the endpoint attempts to make a call.</td>
+</tr>
+<tr>
+<td style="text-align:left">enabled</td>
+<td style="text-align:left">When set to true, SIP clients can register as this device to receive and make calls. When set to false, registration, inbound, and outbound calling will not succeed. Default is true.</td>
+</tr>
+<tr>
+<td style="text-align:left">credentials</td>
+<td style="text-align:left">Contains SIP authentication credentials. See below for details of credentials.</td>
+</tr>
+<tr>
+<td style="text-align:left">sipUri</td>
+<td style="text-align:left">A SIP URI this device can be contacted at (via INVITE). This property is generated automatically and cannot be changed.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="credentials">Credentials</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">realm</td>
+<td style="text-align:left">The realm the SIP client must use when authenticating to use this device.<br>The realm is case-sensitive.<br>This property is generated automatically and cannot be changed.</td>
+</tr>
+<tr>
+<td style="text-align:left">username</td>
+<td style="text-align:left">The username the SIP client must use when authenticating to use this device.<br>The username is case-sensitive.<br>This property is generated automatically and cannot be changed.</td>
+</tr>
+<tr>
+<td style="text-align:left">password</td>
+<td style="text-align:left">The plain-text password the SIP client must use when authenticating to use this device.<br>The password is case-sensitive.<br>The password must be at least 6 characters long and contain only Latin 1 (ISO 8859-1) characters.</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-get-a-single-endpoint">Example: Get a single endpoint</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domain-id}/endpoints/{endpoint-id} \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
+client.Endpoint.get(domainId, endpointId).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">endpoint</span>)</span>{});
+
+<span class="hljs-comment">// Callback</span>
+client.Endpoint.get(domainId, endpointId, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, endpoint</span>)</span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> endpoint = <span class="hljs-keyword">await</span> client.Endpoint.GetAsync(<span class="hljs-string">&quot;{domainId1}&quot;</span>, <span class="hljs-string">&quot;{endpointId1}&quot;</span>);
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">endpoint = domain.get_endpoint(<span class="hljs-string">&quot;{endpoointId1}&quot;</span>)
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code>{
+    &quot;name&quot; : &quot;jsmith-mobile&quot;,
+    &quot;description&quot; : &quot;John Smiths mobile client&quot;,
+    &quot;domainId&quot; : &quot;{domain-id}&quot;,
+    &quot;applicationId&quot; : &quot;{application-id}&quot;,
+    &quot;enabled&quot; : &quot;true&quot;,
+    &quot;sipUri&quot; : &quot;jsmith-mobile@doname.bwapp.bwsipp.io&quot;,
+    &quot;credentials&quot; : {
+        &quot;realm&quot; : &quot;doname.bwapp.bwsipp.io&quot;,
+        &quot;username&quot; : &quot;jsmith-mobile&quot;
+    }
+}
+</code></pre></div></div></div>
 
                                 
                                 </section>
@@ -1365,7 +1459,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET /endpoints/{endpointId}","level":"2.8.3","depth":2,"next":{"title":"DELETE /endpoints/{endpointId}","level":"2.8.4","depth":2,"path":"methods/endpoints/deleteEndpointsEndpointId.md","ref":"methods/endpoints/deleteEndpointsEndpointId.md","articles":[]},"previous":{"title":"POST /endpoints","level":"2.8.2","depth":2,"path":"methods/endpoints/postEndpoints.md","ref":"methods/endpoints/postEndpoints.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/endpoints/getEndpointsEndpointId.md","mtime":"2016-10-20T20:52:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:52:55.145Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET /endpoints/{endpointId}","level":"2.8.3","depth":2,"next":{"title":"DELETE /endpoints/{endpointId}","level":"2.8.4","depth":2,"path":"methods/endpoints/deleteEndpointsEndpointId.md","ref":"methods/endpoints/deleteEndpointsEndpointId.md","articles":[]},"previous":{"title":"POST /endpoints","level":"2.8.2","depth":2,"path":"methods/endpoints/postEndpoints.md","ref":"methods/endpoints/postEndpoints.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/endpoints/getEndpointsEndpointId.md","mtime":"2016-10-21T16:05:12.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T18:26:01.587Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

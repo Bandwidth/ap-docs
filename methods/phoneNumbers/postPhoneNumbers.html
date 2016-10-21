@@ -996,7 +996,7 @@
                 <a href="../media/deleteMediaMediaName.html">
             
                     
-                    DELTE /media/{mediaName}
+                    <code class="delete">DELETE</code> /media/{mediaName}
             
                 </a>
             
@@ -1331,7 +1331,71 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"></div><div class="api-method-code"></div></div>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="post-phonenumbers">POST phoneNumbers</h2>
+<p>Allocates a number so you can use it to make and receive calls and send and receive messages.</p>
+<h3 id="supported-parameters">Supported Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">number</td>
+<td style="text-align:left">An available telephone number you want to use (must be in E.164 format, like +19195551212).</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">A name you choose for this number.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">applicationId</td>
+<td style="text-align:left">The unique id of an Application you want to associate with this number.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">fallbackNumber</td>
+<td style="text-align:left">Number to transfer an incoming call when the callback/fallback events can&#x2019;t be delivered.</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-allocate-a-phone-number-to-your-account">Example: Allocate a phone number to your account</h3>
+<p>To allocate the phone number {number} with the name &quot;home phone&quot; and the fallbackNumber {fallback_number} you can make calls with it, send the following request:</p>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+        <span class="hljs-_">-d</span> \
+    <span class="hljs-string">&apos;
+    {
+        &quot;number&quot;: &quot;+15555555555&quot;,
+        &quot;name&quot;: &quot;home phone&quot;
+        &quot;fallbackNumber&quot;: &quot;{fallback_number}&quot;
+    }&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">//Allocate number +1234567980</span>
+
+<span class="hljs-comment">// Promise</span>
+client.PhoneNumber.create({ number : <span class="hljs-string">&quot;+1234567890&quot;</span> }).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">number</span>)</span>{});
+
+<span class="hljs-comment">// Callback</span>
+client.PhoneNumber.create({ number : <span class="hljs-string">&quot;+1234567890&quot;</span> }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, number</span>)</span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> number = <span class="hljs-keyword">await</span> client.PhoneNumber.CreateAsync(<span class="hljs-keyword">new</span> CreatePhoneNumberData {Number = <span class="hljs-string">&quot;+1234567890&quot;</span>});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">number = PhoneNumber.create(client, {<span class="hljs-symbol">:number</span> =&gt; <span class="hljs-string">&quot;+1234567890&quot;</span>})
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns HTTP Header structured like this:</p>
+</blockquote>
+<pre><code>HTTP/1.1 201 Created
+Location: /v1/users/{userId}/phoneNumbers/{numberId}
+</code></pre></div></div></div>
 
                                 
                                 </section>
@@ -1365,7 +1429,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST /phoneNumbers","level":"2.13.2","depth":2,"next":{"title":"GET /phoneNumbers/{numberId}","level":"2.13.3","depth":2,"path":"methods/phoneNumbers/getPhoneNumbersNumberId.md","ref":"methods/phoneNumbers/getPhoneNumbersNumberId.md","articles":[]},"previous":{"title":"GET /phoneNumbers","level":"2.13.1","depth":2,"path":"methods/phoneNumbers/getPhoneNumbers.md","ref":"methods/phoneNumbers/getPhoneNumbers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/phoneNumbers/postPhoneNumbers.md","mtime":"2016-10-20T20:52:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:52:55.145Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST /phoneNumbers","level":"2.13.2","depth":2,"next":{"title":"GET /phoneNumbers/{numberId}","level":"2.13.3","depth":2,"path":"methods/phoneNumbers/getPhoneNumbersNumberId.md","ref":"methods/phoneNumbers/getPhoneNumbersNumberId.md","articles":[]},"previous":{"title":"GET /phoneNumbers","level":"2.13.1","depth":2,"path":"methods/phoneNumbers/getPhoneNumbers.md","ref":"methods/phoneNumbers/getPhoneNumbers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/phoneNumbers/postPhoneNumbers.md","mtime":"2016-10-21T18:09:04.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T18:26:01.587Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

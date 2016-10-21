@@ -996,7 +996,7 @@
                 <a href="../media/deleteMediaMediaName.html">
             
                     
-                    DELTE /media/{mediaName}
+                    <code class="delete">DELETE</code> /media/{mediaName}
             
                 </a>
             
@@ -1331,7 +1331,24 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"></div><div class="api-method-code"></div></div>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="delete-phonenumbersnumberid">DELETE phoneNumbers/{numberId}</h2>
+<p>Removes a number from your account so you can no longer make or receive calls, or send or receive messages with it. When you remove a number from your account, it will not be available to add back to your account, so be careful.</p>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-delete-number-from-user">Example: Delete Number from user</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X DELETE https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/{numberId} \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
+client.PhoneNumber.delete(numberId).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{});
+
+<span class="hljs-comment">// Callback</span>
+client.PhoneNumber.delete(numberId, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>)</span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.PhoneNumber.DeleteAsync(numberId);
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">phoneNumber.delete()
+</code></pre>
+</div></div></div>
 
                                 
                                 </section>
@@ -1365,7 +1382,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"DELETE /phoneNumbers/{numberId}","level":"2.13.5","depth":2,"next":{"title":"/recordings","level":"2.14","depth":1,"path":"methods/recordings/recordings.md","ref":"methods/recordings/recordings.md","articles":[{"title":"GET /recordings","level":"2.14.1","depth":2,"path":"methods/recordings/getRecordings.md","ref":"methods/recordings/getRecordings.md","articles":[]},{"title":"GET /recordings/{recordingId}","level":"2.14.2","depth":2,"path":"methods/recordings/getRecordingsRecordingId.md","ref":"methods/recordings/getRecordingsRecordingId.md","articles":[]}]},"previous":{"title":"POST /phoneNumbers/{numberId}","level":"2.13.4","depth":2,"path":"methods/phoneNumbers/postPhoneNumbersNumberId.md","ref":"methods/phoneNumbers/postPhoneNumbersNumberId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/phoneNumbers/deletePhoneNumbersNumberId.md","mtime":"2016-10-20T20:52:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:52:55.145Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"DELETE /phoneNumbers/{numberId}","level":"2.13.5","depth":2,"next":{"title":"/recordings","level":"2.14","depth":1,"path":"methods/recordings/recordings.md","ref":"methods/recordings/recordings.md","articles":[{"title":"GET /recordings","level":"2.14.1","depth":2,"path":"methods/recordings/getRecordings.md","ref":"methods/recordings/getRecordings.md","articles":[]},{"title":"GET /recordings/{recordingId}","level":"2.14.2","depth":2,"path":"methods/recordings/getRecordingsRecordingId.md","ref":"methods/recordings/getRecordingsRecordingId.md","articles":[]}]},"previous":{"title":"POST /phoneNumbers/{numberId}","level":"2.13.4","depth":2,"path":"methods/phoneNumbers/postPhoneNumbersNumberId.md","ref":"methods/phoneNumbers/postPhoneNumbersNumberId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/phoneNumbers/deletePhoneNumbersNumberId.md","mtime":"2016-10-21T18:10:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T18:26:01.587Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

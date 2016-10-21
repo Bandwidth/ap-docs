@@ -996,7 +996,7 @@
                 <a href="../media/deleteMediaMediaName.html">
             
                     
-                    DELTE /media/{mediaName}
+                    <code class="delete">DELETE</code> /media/{mediaName}
             
                 </a>
             
@@ -1331,7 +1331,68 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"></div><div class="api-method-code"></div></div>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="get-domains">GET domains</h2>
+<p>This returns a list of the domains that have been created</p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">The name is a unique URI to be used in DNS lookups</td>
+</tr>
+<tr>
+<td style="text-align:left">description</td>
+<td style="text-align:left">String to describe the domain</td>
+</tr>
+<tr>
+<td style="text-align:left">endpoints</td>
+<td style="text-align:left">URL to use to GET list of endpoints on this domain.</td>
+</tr>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">Unique string to identify the domain resource</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-list-all-domains">Example: List all domains</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/domains \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js">client.Domain.list()
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">domains</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(domains);
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> domains = client.Domain.List();
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">domains = Domain.list(client)
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code class="lang-json">[
+{
+    <span class="hljs-string">&quot;id&quot;</span> : <span class="hljs-string">&quot;dom-xyz123&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span> : <span class="hljs-string">&quot;mycoolapp&quot;</span>,
+    <span class="hljs-string">&quot;description&quot;</span> : <span class="hljs-string">&quot;disruptive app that&apos;s going to revolutonize telecom&quot;</span>,
+        <span class="hljs-string">&quot;endpoints&quot;</span> : <span class="hljs-string">&quot;/v1/users/{user-id}/domains/dom-xyz123/endpoints&quot;</span>
+    },
+{
+    <span class="hljs-string">&quot;id&quot;</span> : <span class="hljs-string">&quot;dom-abc876&quot;</span>,
+        <span class="hljs-string">&quot;name&quot;</span> : <span class="hljs-string">&quot;mycoolapp_stage&quot;</span>,
+    <span class="hljs-string">&quot;description&quot;</span> : <span class="hljs-string">&quot;stage env for disruptive app&quot;</span>,
+        <span class="hljs-string">&quot;endpoints&quot;</span> : <span class="hljs-string">&quot;/v1/users/{user-id}/domains/dom-abc876/endpoints&quot;</span>
+    }
+]
+</code></pre>
+</div></div></div>
 
                                 
                                 </section>
@@ -1365,7 +1426,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET /domains","level":"2.7.1","depth":2,"next":{"title":"POST /domains","level":"2.7.2","depth":2,"path":"methods/domains/postDomains.md","ref":"methods/domains/postDomains.md","articles":[]},"previous":{"title":"/domains","level":"2.7","depth":1,"path":"methods/domains/domains.md","ref":"methods/domains/domains.md","articles":[{"title":"GET /domains","level":"2.7.1","depth":2,"path":"methods/domains/getDomains.md","ref":"methods/domains/getDomains.md","articles":[]},{"title":"POST /domains","level":"2.7.2","depth":2,"path":"methods/domains/postDomains.md","ref":"methods/domains/postDomains.md","articles":[]},{"title":"DELETE /domains/{domainId}","level":"2.7.3","depth":2,"path":"methods/domains/deleteDomainsDomainId.md","ref":"methods/domains/deleteDomainsDomainId.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/domains/getDomains.md","mtime":"2016-10-20T20:52:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:52:55.145Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET /domains","level":"2.7.1","depth":2,"next":{"title":"POST /domains","level":"2.7.2","depth":2,"path":"methods/domains/postDomains.md","ref":"methods/domains/postDomains.md","articles":[]},"previous":{"title":"/domains","level":"2.7","depth":1,"path":"methods/domains/domains.md","ref":"methods/domains/domains.md","articles":[{"title":"GET /domains","level":"2.7.1","depth":2,"path":"methods/domains/getDomains.md","ref":"methods/domains/getDomains.md","articles":[]},{"title":"POST /domains","level":"2.7.2","depth":2,"path":"methods/domains/postDomains.md","ref":"methods/domains/postDomains.md","articles":[]},{"title":"DELETE /domains/{domainId}","level":"2.7.3","depth":2,"path":"methods/domains/deleteDomainsDomainId.md","ref":"methods/domains/deleteDomainsDomainId.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/domains/getDomains.md","mtime":"2016-10-21T14:21:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T18:26:01.587Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

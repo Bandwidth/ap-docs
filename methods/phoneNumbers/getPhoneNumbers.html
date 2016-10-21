@@ -996,7 +996,7 @@
                 <a href="../media/deleteMediaMediaName.html">
             
                     
-                    DELTE /media/{mediaName}
+                    <code class="delete">DELETE</code> /media/{mediaName}
             
                 </a>
             
@@ -1331,7 +1331,158 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"></div><div class="api-method-code"></div></div>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="get-phonenumbers">GET phoneNumbers</h2>
+<p>Gets a list of your numbers. Since this operation uses HTTP GET, all the properties are specified as HTTP request parameters.</p>
+<h3 id="supported-parameters">Supported Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">page</td>
+<td style="text-align:left">Used for pagination to indicate the page requested for querying a list of phone numbers. If no value is specified the default is 0.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">size</td>
+<td style="text-align:left">Used for pagination to indicate the size of each page requested for querying a list of phone numbers. If no value is specified the default value is 25. (Maximum value 1000)</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">applicationId</td>
+<td style="text-align:left">Used to filter the retrieved list of numbers by an associated application ID.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">Used to filter the retrieved list of numbers allocated for the authenticated user by a US state.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">Used to filter the retrieved list of numbers allocated for the authenticated user by it&#x2019;s name.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">city</td>
+<td style="text-align:left">Used to filter the retrieved list of numbers allocated for the authenticated user by it&#x2019;s city.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">numberState</td>
+<td style="text-align:left">Used to filter the retrieved list of numbers allocated for the authenticated user by the number state.</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">The unique id of the phone number.</td>
+</tr>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">A name you choose for this number.</td>
+</tr>
+<tr>
+<td style="text-align:left">number</td>
+<td style="text-align:left">The telephone number in E.164 format.</td>
+</tr>
+<tr>
+<td style="text-align:left">nationalNumber</td>
+<td style="text-align:left">The telephone number in a friendly national format, e.g. (555) 5555-5555</td>
+</tr>
+<tr>
+<td style="text-align:left">city</td>
+<td style="text-align:left">The city of the phone number.</td>
+</tr>
+<tr>
+<td style="text-align:left">state</td>
+<td style="text-align:left">The state of the phone number.</td>
+</tr>
+<tr>
+<td style="text-align:left">applicationId</td>
+<td style="text-align:left">The unique id of an Application you want to associate with this number.</td>
+</tr>
+<tr>
+<td style="text-align:left">application</td>
+<td style="text-align:left">The URI of the application associated with the number for inbound phone calls and text messages.</td>
+</tr>
+<tr>
+<td style="text-align:left">fallbackNumber</td>
+<td style="text-align:left">Number to transfer an incoming call when the callback/fallback events can&#x2019;t be delivered.</td>
+</tr>
+<tr>
+<td style="text-align:left">price</td>
+<td style="text-align:left">The monthly price for this number.</td>
+</tr>
+<tr>
+<td style="text-align:left">createdTime</td>
+<td style="text-align:left">Date when the number was created. Timestamp follows the ISO8601 format (UTC).</td>
+</tr>
+<tr>
+<td style="text-align:left">numberState</td>
+<td style="text-align:left">The phone number state, values are <code>enabled</code> or <code>released</code></td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-list-phone-numbers">Example: List phone numbers</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
+client.PhoneNumber.list({size: <span class="hljs-number">1000</span>}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">numbersResponse</span>)</span>{});
+
+<span class="hljs-comment">// Callback</span>
+client.PhoneNumber.list({size: <span class="hljs-number">1000</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, numbersResponse</span>)</span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> numbers = client.PhoneNumber.List(<span class="hljs-keyword">new</span> PhoneNumberQuery {Size = <span class="hljs-number">1000</span>});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">numbers = PhoneNumber.list(client, {<span class="hljs-symbol">:size</span> =&gt; <span class="hljs-number">1000</span>})
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code class="lang-json">[
+{
+   <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{numberId1}&quot;</span>,
+   <span class="hljs-string">&quot;application&quot;</span>: <span class="hljs-string">&quot;https://catapult.inetwork.com/v1/users/users/u-ly123/applications/a-j321&quot;</span>,
+   <span class="hljs-string">&quot;number&quot;</span>:<span class="hljs-string">&quot;{number1}&quot;</span>,
+   <span class="hljs-string">&quot;nationalNumber&quot;</span>:<span class="hljs-string">&quot;{national_number1}&quot;</span>,
+   <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;home phone&quot;</span>,
+   <span class="hljs-string">&quot;createdTime&quot;</span>: <span class="hljs-string">&quot;2013-02-13T17:46:08.374Z&quot;</span>,
+   <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;NC&quot;</span>,
+   <span class="hljs-string">&quot;price&quot;</span>: <span class="hljs-string">&quot;0.60&quot;</span>,
+   <span class="hljs-string">&quot;numberState&quot;</span>: <span class="hljs-string">&quot;enabled&quot;</span>
+},
+{
+   <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{numberId2}&quot;</span>,
+   <span class="hljs-string">&quot;application&quot;</span>: <span class="hljs-string">&quot;https://catapult.inetwork.com/v1/users/users/u-ly123/applications/a-j123&quot;</span>,
+   <span class="hljs-string">&quot;number&quot;</span>:<span class="hljs-string">&quot;{number2}&quot;</span>,
+   <span class="hljs-string">&quot;nationalNumber&quot;</span>:<span class="hljs-string">&quot;{national_number2}&quot;</span>,
+   <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;work phone&quot;</span>,
+   <span class="hljs-string">&quot;createdTime&quot;</span>: <span class="hljs-string">&quot;2013-02-13T18:32:05.223Z&quot;</span>,
+   <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;NC&quot;</span>,
+   <span class="hljs-string">&quot;price&quot;</span>: <span class="hljs-string">&quot;0.60&quot;</span>,
+   <span class="hljs-string">&quot;numberState&quot;</span>: <span class="hljs-string">&quot;enabled&quot;</span>
+}
+]
+</code></pre>
+</div></div></div>
 
                                 
                                 </section>
@@ -1365,7 +1516,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET /phoneNumbers","level":"2.13.1","depth":2,"next":{"title":"POST /phoneNumbers","level":"2.13.2","depth":2,"path":"methods/phoneNumbers/postPhoneNumbers.md","ref":"methods/phoneNumbers/postPhoneNumbers.md","articles":[]},"previous":{"title":"/phoneNumbers","level":"2.13","depth":1,"path":"methods/phoneNumbers/phoneNumbers.md","ref":"methods/phoneNumbers/phoneNumbers.md","articles":[{"title":"GET /phoneNumbers","level":"2.13.1","depth":2,"path":"methods/phoneNumbers/getPhoneNumbers.md","ref":"methods/phoneNumbers/getPhoneNumbers.md","articles":[]},{"title":"POST /phoneNumbers","level":"2.13.2","depth":2,"path":"methods/phoneNumbers/postPhoneNumbers.md","ref":"methods/phoneNumbers/postPhoneNumbers.md","articles":[]},{"title":"GET /phoneNumbers/{numberId}","level":"2.13.3","depth":2,"path":"methods/phoneNumbers/getPhoneNumbersNumberId.md","ref":"methods/phoneNumbers/getPhoneNumbersNumberId.md","articles":[]},{"title":"POST /phoneNumbers/{numberId}","level":"2.13.4","depth":2,"path":"methods/phoneNumbers/postPhoneNumbersNumberId.md","ref":"methods/phoneNumbers/postPhoneNumbersNumberId.md","articles":[]},{"title":"DELETE /phoneNumbers/{numberId}","level":"2.13.5","depth":2,"path":"methods/phoneNumbers/deletePhoneNumbersNumberId.md","ref":"methods/phoneNumbers/deletePhoneNumbersNumberId.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/phoneNumbers/getPhoneNumbers.md","mtime":"2016-10-20T20:52:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:52:55.145Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET /phoneNumbers","level":"2.13.1","depth":2,"next":{"title":"POST /phoneNumbers","level":"2.13.2","depth":2,"path":"methods/phoneNumbers/postPhoneNumbers.md","ref":"methods/phoneNumbers/postPhoneNumbers.md","articles":[]},"previous":{"title":"/phoneNumbers","level":"2.13","depth":1,"path":"methods/phoneNumbers/phoneNumbers.md","ref":"methods/phoneNumbers/phoneNumbers.md","articles":[{"title":"GET /phoneNumbers","level":"2.13.1","depth":2,"path":"methods/phoneNumbers/getPhoneNumbers.md","ref":"methods/phoneNumbers/getPhoneNumbers.md","articles":[]},{"title":"POST /phoneNumbers","level":"2.13.2","depth":2,"path":"methods/phoneNumbers/postPhoneNumbers.md","ref":"methods/phoneNumbers/postPhoneNumbers.md","articles":[]},{"title":"GET /phoneNumbers/{numberId}","level":"2.13.3","depth":2,"path":"methods/phoneNumbers/getPhoneNumbersNumberId.md","ref":"methods/phoneNumbers/getPhoneNumbersNumberId.md","articles":[]},{"title":"POST /phoneNumbers/{numberId}","level":"2.13.4","depth":2,"path":"methods/phoneNumbers/postPhoneNumbersNumberId.md","ref":"methods/phoneNumbers/postPhoneNumbersNumberId.md","articles":[]},{"title":"DELETE /phoneNumbers/{numberId}","level":"2.13.5","depth":2,"path":"methods/phoneNumbers/deletePhoneNumbersNumberId.md","ref":"methods/phoneNumbers/deletePhoneNumbersNumberId.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/phoneNumbers/getPhoneNumbers.md","mtime":"2016-10-21T18:08:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T18:26:01.587Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

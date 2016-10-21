@@ -996,7 +996,7 @@
                 <a href="../media/deleteMediaMediaName.html">
             
                     
-                    DELTE /media/{mediaName}
+                    <code class="delete">DELETE</code> /media/{mediaName}
             
                 </a>
             
@@ -1331,7 +1331,138 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"></div><div class="api-method-code"></div></div>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="get-errors">GET errors</h2>
+<p>Gets the most recent user errors for the user. Since this operation uses HTTP GET, all the properties are specified as HTTP request parameters.</p>
+<h3 id="supported-parameters">Supported Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">page</td>
+<td style="text-align:left">Used for pagination to indicate the page requested for querying a list of user errors. If no value is specified the default is 0.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">size</td>
+<td style="text-align:left">Used for pagination to indicate the size of each page requested for querying a list of user errors. If no value is specified the default value is 25. (Maximum value 1000)</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h2 id="error-properties">Error Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">The unique id for the error.</td>
+</tr>
+<tr>
+<td style="text-align:left">time</td>
+<td style="text-align:left">The time the error occurred (UTC).</td>
+</tr>
+<tr>
+<td style="text-align:left">category</td>
+<td style="text-align:left">The error category, one of:<br><code>authentication</code> - The requestor could not be authenticated. Incorrect or disabled credentials are common causes of these errors. <br><code>authorization</code> - The requestor does not have sufficient permissions to perform the operation or access the resource, or some other authorization error occurred.<br> <code>not-found</code> - The resource could not be found. <br><code>bad-request</code> - The request information sent could not be understood or contained values that are not allowed.<br><code>conflict</code> - The resource could not be modified because it was already modified by a different request.<br><code>unavailable</code> - The resource or service is currently unavailable. It may become available shortly, or the request may have to be modified to succeed.<br><code>credit</code> - The requestor has insufficient credit to perform the operation or access the resource.<br><code>limit</code> - A usage limit or rate limit for a resource or service has been exceeded.<br><code>payment</code> - There was an error processing a payment.</td>
+</tr>
+<tr>
+<td style="text-align:left">code</td>
+<td style="text-align:left">A specific error code string that identifies the type of error.</td>
+</tr>
+<tr>
+<td style="text-align:left">message</td>
+<td style="text-align:left">A message that describes the error condition in detail.</td>
+</tr>
+<tr>
+<td style="text-align:left">details</td>
+<td style="text-align:left">A list of name/value pairs of additional details that may help you debug the error.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="error-details-properties">Error Details Properties</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">The detail name; there is no complete list of detail names, but conventional resource ID names like userId are used to refer to resources associated with the error.</td>
+</tr>
+<tr>
+<td style="text-align:left">value</td>
+<td style="text-align:left">The detail value; the format and content depends on the name.</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-method-example"><h3 id="example-get-errors">Example: Get errors</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/errors \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
+client.Error.list({size: <span class="hljs-number">1000</span>}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">errorResponse</span>)</span>{});
+
+<span class="hljs-comment">// Callback</span>
+client.Error.list({size: <span class="hljs-number">1000</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, errorResponse</span>)</span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> errors = client.Error.List(<span class="hljs-keyword">new</span> ErrorQuery{Size = <span class="hljs-number">1000</span>});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">errors = Error.list(client)
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code class="lang-json">[
+   {
+      &quot;time&quot; : &quot;2012-11-15T01:30:16.208Z&quot;,
+      &quot;category&quot; : &quot;unavailable&quot;,
+      &quot;id&quot; : &quot;{userErrorId1}&quot;,
+      &quot;details&quot; : [
+         {
+            &quot;id&quot; : &quot;{userErrorDetailId1}&quot;
+            &quot;name&quot; : &quot;applicationId&quot;,
+            &quot;value&quot; : &quot;{applicationId}&quot;,
+         },
+         {
+            &quot;id&quot; : &quot;{userErrorDetailId2}&quot;,
+            &quot;name&quot; : &quot;number&quot;,
+            &quot;value&quot; : &quot;{number}&quot;,
+         },
+         {
+            &quot;id&quot; : &quot;{userErrorDetailId3}&quot;,
+            &quot;name&quot; : &quot;callId&quot;,
+            &quot;value&quot; : &quot;{callId}&quot;,
+         }
+      ],
+      &quot;message&quot; : &quot;Application {applicationId} (\&quot;Dial a Tune\&quot;) for number
+                   {number} does not specify a URL for call events&quot;,
+      &quot;code&quot; : &quot;no-callback-for-call&quot;
+   },
+   {
+      &quot;time&quot; : &quot;2012-11-15T01:29:24.512Z&quot;,
+      &quot;category&quot; : &quot;unavailable&quot;,
+      &quot;id&quot; : &quot;{userErrorId2}&quot;,
+      &quot;message&quot; : &quot;No application is configured for number +19195556666&quot;,
+      &quot;code&quot; : &quot;no-application-for-number&quot;
+   },
+]
+</code></pre>
+</div></div></div>
 
                                 
                                 </section>
@@ -1365,7 +1496,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET /errors","level":"2.9.1","depth":2,"next":{"title":"GET /errors/{errorId}","level":"2.9.2","depth":2,"path":"methods/errors/getErrorsErrorId.md","ref":"methods/errors/getErrorsErrorId.md","articles":[]},"previous":{"title":"/errors","level":"2.9","depth":1,"path":"methods/errors/errors.md","ref":"methods/errors/errors.md","articles":[{"title":"GET /errors","level":"2.9.1","depth":2,"path":"methods/errors/getErrors.md","ref":"methods/errors/getErrors.md","articles":[]},{"title":"GET /errors/{errorId}","level":"2.9.2","depth":2,"path":"methods/errors/getErrorsErrorId.md","ref":"methods/errors/getErrorsErrorId.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/errors/getErrors.md","mtime":"2016-10-20T20:52:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:52:55.145Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET /errors","level":"2.9.1","depth":2,"next":{"title":"GET /errors/{errorId}","level":"2.9.2","depth":2,"path":"methods/errors/getErrorsErrorId.md","ref":"methods/errors/getErrorsErrorId.md","articles":[]},"previous":{"title":"/errors","level":"2.9","depth":1,"path":"methods/errors/errors.md","ref":"methods/errors/errors.md","articles":[{"title":"GET /errors","level":"2.9.1","depth":2,"path":"methods/errors/getErrors.md","ref":"methods/errors/getErrors.md","articles":[]},{"title":"GET /errors/{errorId}","level":"2.9.2","depth":2,"path":"methods/errors/getErrorsErrorId.md","ref":"methods/errors/getErrorsErrorId.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/errors/getErrors.md","mtime":"2016-10-21T17:06:15.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T18:26:01.587Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

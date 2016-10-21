@@ -996,7 +996,7 @@
                 <a href="../media/deleteMediaMediaName.html">
             
                     
-                    DELTE /media/{mediaName}
+                    <code class="delete">DELETE</code> /media/{mediaName}
             
                 </a>
             
@@ -1331,153 +1331,41 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"><h1 id="transcriptions-beta">Transcriptions BETA</h1>
+                                <h1 id="transcriptions-beta">Transcriptions BETA</h1>
 <p>The Transcription resource lets you transcribe a voicemail recording. This resource can be either created automatically when the call property transcriptionEnabled is set to true, when call is created, or during the call by posting an event. The transcription is based on a call audio recording. By enabling/disabling call property recordingEnabled, a call can have more than one recording, so it&apos;s possible to have one or more transcriptions for each one of those recordings. When transcriptionEnabled is set to true all the recordings generated within that call are going to be transcribed, i.e, if you start to record a call, at any given time when the call is active, and then terminate the recording, the transcription resource will be automatically started for this recording; this process can happen many times.</p>
-<aside class="alert general">
-It is important to note that our transcription service has been specifically tuned to transcribe voicemail recordings. It will not perform accurately when used in other scenarios such as IVR or support conversation recording.
-</aside>
-
-<p><aside class="alert success">
-If you are interested in using transcription for these use cases, please contact us at signup@bandwidth.com.
-</aside></p>
-<h2 id="properties">Properties</h2>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Property</th>
-<th style="text-align:left">Description</th>
+<th style="text-align:left">Verb</th>
+<th style="text-align:left">Method</th>
+<th style="text-align:left">about</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">id</td>
-<td style="text-align:left">The unique id of the transcriptions resource.</td>
+<td style="text-align:left"><code class="post">POST</code></td>
+<td style="text-align:left"><a href="postTranscriptions.html"><code>/v1/users/{userId}/recordings</code></a></td>
+<td style="text-align:left">Create a new transcription</td>
 </tr>
 <tr>
-<td style="text-align:left">state</td>
-<td style="text-align:left">The state of the transcription, <code>transcribing</code> <code>completed</code> <code>error</code></td>
+<td style="text-align:left"><code class="get">GET</code></td>
+<td style="text-align:left"><a href="getTranscriptions.html"><code>/v1/users/{userId}/recordings/{recordingId}</code></a></td>
+<td style="text-align:left">Get properties for a transcription</td>
 </tr>
 <tr>
-<td style="text-align:left">text</td>
-<td style="text-align:left">The transcribed text.</td>
-</tr>
-<tr>
-<td style="text-align:left">time</td>
-<td style="text-align:left">The date/time the transcription resource was created (UTC).</td>
-</tr>
-<tr>
-<td style="text-align:left">chargeableDuration</td>
-<td style="text-align:left">The seconds between activeTime and endTime for the recording; this is the time that is going to be used to charge the resource. Note: transcriptions is billed in 1 minute units.</td>
-</tr>
-<tr>
-<td style="text-align:left">textSize</td>
-<td style="text-align:left">The size of the transcribed text. If the text is longer than 1000 characters it will be cropped; the full text can be retrieved from the url available at textUrl property.</td>
-</tr>
-<tr>
-<td style="text-align:left">textUrl</td>
-<td style="text-align:left">An url to the full text; this property is available regardless the textSize.</td>
+<td style="text-align:left"><code class="get">GET</code></td>
+<td style="text-align:left"><a href="getTranscriptionsTranscriptionId.html"><code>/v1/users/{userId}/recordings/{recordingId}</code></a></td>
+<td style="text-align:left">Get all transcriptions for a recording resource</td>
 </tr>
 </tbody>
 </table>
-<h2 id="post-recordingsrecording-idtranscriptions">POST recordings/{recording-id}/transcriptions</h2>
-<p>Request the transcription process to be started for the given recording id.</p>
-<h3 id="example-start-transcription-process">Example: Start Transcription process</h3>
-</div><div class="api-method-code"><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash"><span class="hljs-comment"># Note: Body is empty</span>
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recording-id}/transcriptions \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-        <span class="hljs-_">-d</span> \
-    <span class="hljs-string">&apos;
-    {
+<aside class="alert general">
+It is important to note that our transcription service has been specifically tuned to transcribe voicemail recordings. It will not perform accurately when used in other scenarios such as IVR or support conversation recording.
+</aside>
 
-    }&apos;</span>
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
-client.Recording.createTranscription(recordingId).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">transcription</span>)</span>{});
-
-<span class="hljs-comment">// Callback</span>
-client.Recording.createTranscription(recordingId, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, transcription</span>)</span>{});
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> transcription = <span class="hljs-keyword">await</span> client.Transcription.CreateAsync(<span class="hljs-string">&quot;{recordingId}&quot;</span>);
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">transcription = recording.create_transacription()
-</code></pre>
-<blockquote>
-<p>The above command returns HTTP Header structured like this:</p>
-</blockquote>
-<pre><code>HTTP/1.1 201 Created
-Location: /v1/users/{user-id}/recordings/{recording-id}/transcriptions/{transcription-id}
-</code></pre><h2 id="get-recordingsrecording-idtranscriptionstranscription-id">GET recordings/{recording-id}/transcriptions/{transcription-id}</h2>
-<p>Get information about the transcription, regardless its state.</p>
-<h3 id="example-get-transcription-properties">Example: Get transcription properties</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recording-id}/transcriptions/{transcription-id} \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
-client.Recording.getTranscription(recordingId, transcriptionId).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">transcription</span>)</span>{});
-
-<span class="hljs-comment">// Callback</span>
-client.Recording.getTranscription(recordingId, transcriptionId, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, transcription</span>)</span>{});
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> transcriptions = client.Transcription.List();
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">transcriptions = recording.get_transacriptions()
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre><code>{
-    &quot;chargeableDuration&quot;: 11,
-    &quot;id&quot;: &quot;{transcriptionId}&quot;,
-    &quot;state&quot;: &quot;completed&quot;,
-    &quot;text&quot;: &quot;Hey there, I was calling to talk about plans for this saturday. &quot;,
-    &quot;textSize&quot;: 63,
-    &quot;textUrl&quot;: &quot;https://api.catapult.inetwork.com/.../media/{transcriptionId}&quot;,
-    &quot;time&quot;: &quot;2014-12-23T23:08:59Z&quot;
-}
-</code></pre><h2 id="get-recordingsrecording-idtranscriptions">GET recordings/{recording-id}/transcriptions</h2>
-<p>Get all the transcriptions that were made for the given recodingId</p>
-<h3 id="example-get-all-the-transcriptions-for-a-recording-resource-id">Example: Get all the transcriptions for a recording resource id</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recording-id}/transcriptions \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>
-</code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
-client.Recording.getTranscriptions(recordingId).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">transcriptions</span>)</span>{});
-
-<span class="hljs-comment">// Callback</span>
-client.Recording.getTranscriptions(recordingId, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, transcriptions</span>)</span>{});
-</code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> transcription = <span class="hljs-keyword">await</span> client.Transcription.GetAsync(<span class="hljs-string">&quot;{recordingId}&quot;</span>, <span class="hljs-string">&quot;{transcriptionId}&quot;</span>);
-</code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">transcription = recording.get_transacription(<span class="hljs-string">&quot;{transcriptionId}&quot;</span>)
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre><code class="lang-json">[
-    {
-        <span class="hljs-string">&quot;chargeableDuration&quot;</span>: <span class="hljs-number">60</span>,
-        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{transcription-id}&quot;</span>,
-        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;completed&quot;</span>,
-        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2014-10-09T12:09:16Z&quot;</span>,
-        <span class="hljs-string">&quot;text&quot;</span>: <span class="hljs-string">&quot;{transcription-text}&quot;</span>,
-        <span class="hljs-string">&quot;textSize&quot;</span>: <span class="hljs-number">3627</span>,
-        <span class="hljs-string">&quot;textUrl&quot;</span>: <span class="hljs-string">&quot;{url-to-full-text}&quot;</span>
-    },
-    {
-        <span class="hljs-string">&quot;chargeableDuration&quot;</span>: <span class="hljs-number">60</span>,
-        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;{transcription-id}&quot;</span>,
-        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;completed&quot;</span>,
-        <span class="hljs-string">&quot;text&quot;</span>: <span class="hljs-string">&quot;{transcription-text}&quot;</span>,
-        <span class="hljs-string">&quot;time&quot;</span>: <span class="hljs-string">&quot;2014-10-09T14:04:44Z&quot;</span>,
-        <span class="hljs-string">&quot;textSize&quot;</span>: <span class="hljs-number">72</span>,
-        <span class="hljs-string">&quot;textUrl&quot;</span>: <span class="hljs-string">&quot;{url-to-full-text}&quot;</span>
-    }
-]
-</code></pre>
-</div></div></div>
+<aside class="alert success">
+If you are interested in using transcription for these use cases, please contact us at signup@bandwidth.com.
+</aside>
 
                                 
                                 </section>
@@ -1511,7 +1399,7 @@ client.Recording.getTranscriptions(recordingId, <span class="hljs-function"><spa
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"/recordings/{id}/transcriptions","level":"2.15","depth":1,"next":{"title":"POST /transcriptions","level":"2.15.1","depth":2,"path":"methods/transcriptions/postTranscriptions.md","ref":"methods/transcriptions/postTranscriptions.md","articles":[]},"previous":{"title":"GET /recordings/{recordingId}","level":"2.14.2","depth":2,"path":"methods/recordings/getRecordingsRecordingId.md","ref":"methods/recordings/getRecordingsRecordingId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/transcriptions/transcriptions.md","mtime":"2016-10-20T20:52:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-20T20:52:55.145Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"/recordings/{id}/transcriptions","level":"2.15","depth":1,"next":{"title":"POST /transcriptions","level":"2.15.1","depth":2,"path":"methods/transcriptions/postTranscriptions.md","ref":"methods/transcriptions/postTranscriptions.md","articles":[]},"previous":{"title":"GET /recordings/{recordingId}","level":"2.14.2","depth":2,"path":"methods/recordings/getRecordingsRecordingId.md","ref":"methods/recordings/getRecordingsRecordingId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/transcriptions/transcriptions.md","mtime":"2016-10-21T18:16:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T18:26:01.587Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
