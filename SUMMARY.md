@@ -67,7 +67,7 @@
  * [GET /media](methods/media/getMedia.md)
  * [PUT /media/{mediaName}](methods/media/putMediaMediaName.md)
  * [GET /media/{mediaName}](methods/media/getMediaMediaName.md)
- * [DELTE /media/{mediaName}](methods/media/deleteMediaMediaName.md)
+ * [DELETE /media/{mediaName}](methods/media/deleteMediaMediaName.md)
 * [/messages](methods/messages/messages.md)
  * [GET /messages](methods/messages/getMessages.md)
  * [POST /messages](methods/messages/postMessages.md)
