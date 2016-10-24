@@ -1961,21 +1961,36 @@
 </tbody>
 </table>
 <h3 id="nestable-verbs">Nestable Verbs</h3>
-<p>These verbs might also be nested inside <code>&lt;Transfer&gt;</code>:
-| Verb          | Description                                                                                                           |
-|:--------------|:----------------------------------------------------------------------------------------------------------------------|
-| PhoneNumber   | (optional) A collection of phone numbers to transfer the call to. The first to answer will be transferred.            |
-| SpeakSentence | (optional) Using the SpeakSentence inside the Transfer verb will speak the text to the callee before transferring it. |
-| PlayAudio     | (optional) Using the PlayAudio inside the Transfer verb will play the media to the callee before transferring it.     |
-| Record        | (optional) Using Record inside Transfer verb will record the transferred call.                                        |</p>
-<p><aside class="alert general small"></aside></p>
-<ul>
-<li>The transfer will bridge the calls when all verbs inside Transfer were executed.</li>
-<li>The <code>transferTo</code> attribute will be ignored in the presence of a <code>&lt;PhoneNumber&gt;</code> collection.</li>
-<li>There can be a maximum of 7 phone numbers to try and transfer to.
-&lt;/aside</li>
-</ul>
-</div><div class="api-method-code"><div class="api-method-example"><h4 id="example-simple-transfer">Example: Simple Transfer</h4>
+<p>These verbs might also be nested inside <code>&lt;Transfer&gt;</code>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Verb</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">PhoneNumber</td>
+<td style="text-align:left">(optional) A collection of phone numbers to transfer the call to. The first to answer will be transferred.</td>
+</tr>
+<tr>
+<td style="text-align:left">SpeakSentence</td>
+<td style="text-align:left">(optional) Using the SpeakSentence inside the Transfer verb will speak the text to the callee before transferring it.</td>
+</tr>
+<tr>
+<td style="text-align:left">PlayAudio</td>
+<td style="text-align:left">(optional) Using the PlayAudio inside the Transfer verb will play the media to the callee before transferring it.</td>
+</tr>
+<tr>
+<td style="text-align:left">Record</td>
+<td style="text-align:left">(optional) Using Record inside Transfer verb will record the transferred call.</td>
+</tr>
+</tbody>
+</table>
+<aside class="alert general small">The transfer will bridge the calls when all verbs inside Transfer were executed.</aside>
+<aside class="alert general small">The transferTo attribute will be ignored in the presence of a <phonenumber> collection.</phonenumber></aside>
+<aside class="alert general small">There can be a maximum of 7 phone numbers to try and transfer to.</aside></div><div class="api-method-code"><div class="api-method-example"><h4 id="example-simple-transfer">Example: Simple Transfer</h4>
 <p>This shows how to use Bandwidth XML to transfer a phone call.</p>
 <pre><code class="lang-XML"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
 <span class="hljs-tag">&lt;<span class="hljs-name">Response</span>&gt;</span>
@@ -2030,7 +2045,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Transfer","level":"4.13","depth":1,"next":{"title":"BXML Callbacks","level":"5.1","depth":1,"path":"bxml/bxmlCallbacks.md","ref":"bxml/bxmlCallbacks.md","articles":[]},"previous":{"title":"SpeakSentence","level":"4.12","depth":1,"path":"bxml/verbs/speakSentence.md","ref":"bxml/verbs/speakSentence.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"bxml/verbs/transfer.md","mtime":"2016-10-24T15:46:02.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-24T17:34:36.676Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Transfer","level":"4.13","depth":1,"next":{"title":"BXML Callbacks","level":"5.1","depth":1,"path":"bxml/bxmlCallbacks.md","ref":"bxml/bxmlCallbacks.md","articles":[]},"previous":{"title":"SpeakSentence","level":"4.12","depth":1,"path":"bxml/verbs/speakSentence.md","ref":"bxml/verbs/speakSentence.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"bxml/verbs/transfer.md","mtime":"2016-10-24T17:40:05.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-24T17:41:40.743Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
