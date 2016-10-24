@@ -13,7 +13,7 @@ The SendMessage verb is used to send a text message.
 | statusCallbackUrl | (optional) Relative or absolute URL to send the message callback.                        |
 
 <aside class="alert general small">
-If the requestUrl returns a new BXML the execution will branch out to the new BXML and verbs after `<SendMessage>` will not be executed.
+If the requestUrl returns a new BXML the execution will branch out to the new BXML and verbs after <SendMessage> will not be executed.
 </aside>
 
 {% common %}

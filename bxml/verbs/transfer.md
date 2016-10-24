@@ -16,6 +16,7 @@ The Transfer verb is used to transfer the call to another number.
 
 ### Nestable Verbs
 These verbs might also be nested inside `<Transfer>`:
+
 | Verb          | Description                                                                                                           |
 |:--------------|:----------------------------------------------------------------------------------------------------------------------|
 | PhoneNumber   | (optional) A collection of phone numbers to transfer the call to. The first to answer will be transferred.            |
@@ -24,11 +25,11 @@ These verbs might also be nested inside `<Transfer>`:
 | Record        | (optional) Using Record inside Transfer verb will record the transferred call.                                        |
 
 
-<aside class="alert general small">
-* The transfer will bridge the calls when all verbs inside Transfer were executed.
-* The `transferTo` attribute will be ignored in the presence of a `<PhoneNumber>` collection.
-* There can be a maximum of 7 phone numbers to try and transfer to.
-</aside
+
+<aside class="alert general small">The transfer will bridge the calls when all verbs inside Transfer were executed.</aside>
+<aside class="alert general small">The transferTo attribute will be ignored in the presence of a <PhoneNumber> collection.</aside>
+<aside class="alert general small">There can be a maximum of 7 phone numbers to try and transfer to.</aside>
+
 
 {% common %}
 #### Example: Simple Transfer
