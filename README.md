@@ -1,12 +1,23 @@
-# Bandwidth Voice & Messaging APIs
+# Get Started
+
+## Get Started
+Before you can send your first SMS message, you will need to
+
+1. [Sign up](https://catapult.inetwork.com/beta/signup) for a free Bandwidth API account.
+2. Get a number under the “My Numbers” tab (more specific instructions [here](https://bandwidth.github.io/howto/buytn.html))
 
 ## Base URL
 `https://api.catapult.inetwork.com/v1`
 
-## Conventions
-Some of the URLs in this documentation contain placeholders for values that your API client program must provide. These placeholders are shown in curly braces, like {this}. When you construct the URL to access these resources, replace those placeholders with the values you want to use.
+## Send your First SMS Message
+To send your first SMS message we have included instructions for using Postman, a helpful program for testing APIs (download), and also code that can be found further down this page.
 
-<a href="https://app.getpostman.com/run-collection/7747d00c5a40d09f2894" class="aimg">![Postman](https://run.pstmn.io/button.svg?4e64d02c88d9c6d9043275f34b71c4a5)</a>
+## Using Postman
+<a href="https://app.getpostman.com/run-collection/7fbedff2908e83138d0d" class="aimg">![Postman](https://run.pstmn.io/button.svg?4e64d02c88d9c6d9043275f34b71c4a5)</a>
+
+* Import the example to Postman by clicking the button and access it in “Collections”.
+* Make sure to replace the `{userId}` in the url and the `{token}` and `{secret}` in Authorization.  Your credentials can be found in the “Account” tab of the API console.
+* Also set the phone numbers and message in Body.
 
 ## REST API Reference Index
 
@@ -56,3 +67,34 @@ Some of the URLs in this documentation contain placeholders for values that your
 | [Reject Event](apiCallbacks/reject.md)                            | Bandwidth API sends this message to the application when the call is rejected.                                                                                                                            |
 | [Speak Event](apiCallbacks/speak.md)                              | Bandwidth API sends this message to the application when text-to-speech starts or stops.                                                                                                                  |
 | [Transcription Event – BETA](apiCallbacks/transcription.md)       | Bandwidth API sends this event to the application when a transcription is terminated or an error occurs while processing it.                                                                              |
+
+## BXML verbs
+
+| Verb                                             | Description                                                                                                                                                                              |
+|:-------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`<Call>`](bxml/verbs/call.md)                   | The Call verb is used to create call to another number.                                                                                                                                  |
+| [`<Conference>`](bxml/verbs/Conference.md)       | The Conference verb is used to create conferences.                                                                                                                                       |
+| [`<Gather>`](bxml/verbs/gather.md)               | The Gather verb is used to collect digits for some period of time.                                                                                                                       |
+| [`<Hangup>`](bxml/verbs/hangup.md)               | The Hangup verb is used to hangup current call.                                                                                                                                          |
+| [`<Media>`](bxml/verbs/media.md)                 | <Media> is a noun that is used exclusively within [`<SendMessage>`](bxml/verbs/sendMessage.md) to provide attached media (MMS) capability messages. <br> **This feature is coming soon** |
+| [`<Pause>`](bxml/verbs/pause.md)                 | Pause is a verb to specify the length of seconds to wait before executing the next verb. <br> ** This feature is coming soon**                                                           |
+| [`<PlayAudio>`](bxml/verbs/playAudio.md)         | The PlayAudio verb is used to play an audio file in the call.                                                                                                                            |
+| [`<Record>`](bxml/verbs/record.md)               | The Record verb allows call recording. At the end of the call, a call recording event containing the media with recorded audio URL is generated                                          |
+| [`<Redirect>`](bxml/verbs/redirect.md)           | The Redirect verb is used to redirect the current XML execution to another URL.                                                                                                          |
+| [`<Reject>`](bxml/verbs/reject.md)               | The Reject verb is used to reject incoming calls.<br>  **This feature is coming soon. **                                                                                                 |
+| [`<SendMessage>`](bxml/verbs/sendMessage.md)     | The SendMessage verb is used to send a text message.                                                                                                                                     |
+| [`<SpeakSentence>`](bxml/verbs/speakSentence.md) | The SpeakSentence verb is used to convert any text into speak for the caller.                                                                                                            |
+| [`<Transfer>`](bxml/verbs/transfer.md)           | The Transfer verb is used to transfer the call to another number.                                                                                                                        |
+
+## BXML Callbacks
+
+| Event                                                 | Description                                                                                                                                                                                    |
+|:------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Answer Event](bxml/callBacks/answer.md)              | Bandwidth API sends this message to the application when the call is answered.                                                                                                                 |
+| [Gather event](bxml/callBacks/gather.md)              | Bandwidth API generates a gather event when the gather command completes in a call.                                                                                                            |
+| [Hangup Event](bxml/callBacks/hangup.md)              | Bandwidth API sends this message to the application when the call ends.                                                                                                                        |
+| [Incoming Call Event](bxml/callBacks/incomingCall.md) | Bandwidth API sends this message to the application when an incoming call arrives. For incoming call the callback set is the one related to the Application associated with the called number. |
+| [Recording event](bxml/callBacks/recording.md)        | Bandwidth API sends this event to the application when an the recording media file is saved or an error occurs while saving it.                                                                |
+| [Redirect event](bxml/callBacks/redirect.md)          | Bandwidth API sends this event to the application when a `<Redirect>` is requested                                                                                                             |
+| [SMS event](bxml/callBacks/sms.md)                    | Bandwidth API sends this event to the application when an SMS is sent or received                                                                                                              |
+| [Transfer Complete Event](bxml/callBacks/transfer.md) | Bandwidth API sends this event to the application when the `<Transfer>`is complete                                                                                                             |

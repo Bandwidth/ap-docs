@@ -5,6 +5,7 @@
 * [Bandwidth](README.md)
 
 ## Rest API
+* [Rest API](methods/restApi.md)
 * [/account](methods/account/account.md)
  * [GET /account](methods/account/getAccount.md)
  * [GET /account/transactions](methods/account/getAccountTransactions.md)
@@ -109,3 +110,29 @@
  * [Reject Event](apiCallbacks/reject.md)
  * [Speak Event](apiCallbacks/speak.md)
  * [Transcription Event – BETA](apiCallbacks/transcription.md)
+
+## BXML
+* [BXML](bxml/bxml.md)
+* [Call](bxml/verbs/call.md)
+* [Conference](bxml/verbs/conference.md)
+* [Gather](bxml/verbs/gather.md)
+* [Hangup](bxml/verbs/hangup.md)
+* [Media](bxml/verbs/media.md)
+* [Pause](bxml/verbs/pause.md)
+* [PlayAudio](bxml/verbs/playAudio.md)
+* [Record](bxml/verbs/record.md)
+* [Reject](bxml/verbs/reject.md)
+* [SendMessage](bxml/verbs/sendMessage.md)
+* [SpeakSentence](bxml/verbs/speakSentence.md)
+* [Transfer](bxml/verbs/transfer.md)
+
+## BXML Callbacks
+* [BXML Callbacks](bxml/bxmlCallbacks.md)
+* [Answer Event](bxml/callBacks/answer.md)
+* [Gather event](bxml/callBacks/gather.md)
+* [Hangup Event](bxml/callBacks/hangup.md)
+* [Incoming Call Event](bxml/callBacks/incomingCall.md)
+* [Recording event](bxml/callBacks/recording.md)
+* [Redirect event](bxml/callBacks/redirect.md)
+* [SMS event](bxml/callBacks/sms.md)
+* [Transfer Complete Event](bxml/callBacks/transfer.md)
