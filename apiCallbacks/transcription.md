@@ -16,6 +16,11 @@ Bandwidth API sends this event to the application when a transcription is termin
 | textUrl          | The full URL of the entire text content of the transcription.         |
 | transcriptionUri | The full URL of the transcription resource.                           |
 
+{% common %}
+
+#### Example JSON
+
+
 ```json
 {
    "transcriptionUri":"string",
@@ -30,7 +35,6 @@ Bandwidth API sends this event to the application when a transcription is termin
 }
 ```
 
-{% common %}
 #### Example: Transcription completed and available
 
 ```

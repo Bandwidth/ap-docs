@@ -13,6 +13,10 @@ The Bandwidth API generates a gather event when the gather command completes in 
 | gatherId  | The gather event unique id.                                                                                                                                                                                                                                                                                                                                           |
 | time      | Date/time of event. Timestamp follows the ISO8601 format (UTC).                                                                                                                                                                                                                                                                                                       |
 
+{% common %}
+
+#### Example JSON
+
 ```json
 {
   "eventType": "string",
@@ -25,7 +29,6 @@ The Bandwidth API generates a gather event when the gather command completes in 
 }
 ```
 
-{% common %}
 #### Example: Gather event completed because the max-digits were reached
 
 ```

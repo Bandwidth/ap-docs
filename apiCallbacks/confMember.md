@@ -16,6 +16,11 @@ Bandwidth API sends this message to the application when a conference member has
 | mute          | Members audio is muted in conference. Values are `true` or `false`.                       |
 | time          | Date/time of event. Timestamp follows the ISO8601 format (UTC).                           |
 
+{% common %}
+
+#### Example JSON
+
+
 ```json
 {
     "activeMembers": "integer",
@@ -30,7 +35,6 @@ Bandwidth API sends this message to the application when a conference member has
     "time": "date"
 }
 ```
-{% common %}
 
 #### Example: A member has joined the conference
 

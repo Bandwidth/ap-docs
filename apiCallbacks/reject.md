@@ -14,6 +14,11 @@ Bandwidth API sends this message to the application when the call is rejected.
 | cause     | The cause of the hangup event, the value is `CALL_REJECTED`.                                                                                                 |
 | time      | Date/time of event. Timestamp follows the ISO8601 format (UTC).                                                                                              |
 
+{% common %}
+
+#### Example JSON
+
+
 ```json
 {
    "eventType":"string",
@@ -26,8 +31,6 @@ Bandwidth API sends this message to the application when the call is rejected.
    "time":"date"
 }
 ```
-
-{% common %}
 
 #### Reject Event
 

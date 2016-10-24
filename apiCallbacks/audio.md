@@ -13,6 +13,10 @@ Bandwidth API sends this message to the application when audio file playback is 
 | tag       | String provided when playback started.                                    |
 | time      | Date when the event occurred. Timestamp follows the ISO8601 format (UTC). |
 
+{% common %}
+
+#### Example JSON
+
 ```json
 {
   "eventType": "string",
@@ -24,7 +28,6 @@ Bandwidth API sends this message to the application when audio file playback is 
 }
 ```
 
-{% common %}
 #### Example: Audio Playback Event - Started
 
 ```

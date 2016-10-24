@@ -12,6 +12,11 @@ Bandwidth API sends this message to the application when audio playback has star
 | status        | Values are `started` or `done`.                                 |
 | time          | Date/time of event. Timestamp follows the ISO8601 format (UTC). |
 
+{% common %}
+
+#### Example JSON
+
+
 ```json
 {
     "eventType":"string",
@@ -21,7 +26,6 @@ Bandwidth API sends this message to the application when audio playback has star
     "time":"date"
 }
 ```
-{% common %}
 
 #### Example: Audio file playback in conference has started
 

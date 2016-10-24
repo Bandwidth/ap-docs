@@ -15,6 +15,11 @@ Bandwidth API sends this event to the application when an the recording media fi
 | startTime    | Date/time the recording started. Timestamp follows the ISO8601 format (UTC).   |
 | endTime      | Date/time the recording completed. Timestamp follows the ISO8601 format (UTC). |
 
+{% common %}
+
+#### Example JSON
+
+
 ```json
 {
   "callId": "string",
@@ -28,7 +33,6 @@ Bandwidth API sends this event to the application when an the recording media fi
 }
 ```
 
-{% common %}
 #### Example: Recording media file saved and available
 
 ```

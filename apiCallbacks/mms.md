@@ -17,6 +17,11 @@ Events sent to your server for inbound and outbound MMS messages.
 | state         | Message state, values are `received` `queued` `sending` `sent` `error`                                                                                                                                                                       |
 | media         | URIs of media files associate with the MMS message.                                                                                                                                                                                          |
 
+{% common %}
+
+#### Example JSON
+
+
 ```json
 {
   "eventType": "string",

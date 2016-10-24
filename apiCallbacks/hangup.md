@@ -13,6 +13,11 @@ Bandwidth API sends this message to the application when the call ends.
 | cause     | The cause of the hangup event, the value is NORMAL\_CLEARING.                                                                                                |
 | time      | Date/time of event. Timestamp follows the ISO8601 format (UTC).                                                                                              |
 
+{% common %}
+
+#### Example JSON
+
+
 ```json
 {
   "eventType": "string",
@@ -24,7 +29,7 @@ Bandwidth API sends this message to the application when the call ends.
   "time": "date"
 }
 ```
-{% common %}
+
 
 #### Example: Hangup Event
 

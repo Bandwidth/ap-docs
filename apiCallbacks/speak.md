@@ -14,6 +14,11 @@ Bandwidth API sends this message to the application when text-to-speech starts o
 | tag       | String provided when text-to-speech started.                              |
 | time      | Date when the event occurred. Timestamp follows the ISO8601 format (UTC). |
 
+{% common %}
+
+#### Example JSON
+
+
 ```json
 {
   "eventType": "string",
@@ -25,7 +30,6 @@ Bandwidth API sends this message to the application when text-to-speech starts o
 }
 ```
 
-{% common %}
 
 #### Example: Text to Speech - Started Events
 

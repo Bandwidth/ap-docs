@@ -14,6 +14,10 @@ Bandwidth API sends this message to the application when the call is not answere
 | to        | The phone number or SIP address that received the call. Phone numbers are in E.164 format (e.g. +15555555555) -or- SIP addresses (e.g. identify@domain.com). |
 | time      | Date/time of event. Timestamp follows the ISO8601 format (UTC).                                                                                              |
 
+{% common %}
+
+#### Example JSON
+
 ```json
 {
   "eventType": "string",
@@ -24,8 +28,6 @@ Bandwidth API sends this message to the application when the call is not answere
   "time": "date"
 }
 ```
-
-{% common %}
 
 #### Example timeout
 

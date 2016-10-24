@@ -12,6 +12,11 @@ Bandwidth API sends this message to the application when it receives number pad 
 | dtmfDigit | The digit pressed. Only a single digit is returned.             |
 | time      | Date/time of event. Timestamp follows the ISO8601 format (UTC). |
 
+{% common %}
+
+#### Example JSON
+
+
 ```json
 {
   "eventType": "string",
@@ -21,7 +26,7 @@ Bandwidth API sends this message to the application when it receives number pad 
   "time": "date"
 }
 ```
-{% common %}
+
 
 #### Example: User pressed '5' key on keypad
 

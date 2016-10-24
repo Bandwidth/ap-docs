@@ -14,6 +14,9 @@ Bandwidth API sends this message to the application when the call is answered.
 | tag       | String provided when call created.                                                                                                                           |
 | time      | Date when the event occurred. Timestamp follows the ISO8601 format (UTC).                                                                                    |
 
+{% common %}
+
+#### Example JSON
 
 ```json
 {
@@ -26,8 +29,6 @@ Bandwidth API sends this message to the application when the call is answered.
 	"time":"date"
 }
 ```
-
-{% common %}
 
 #### Example: Basic answer event
 

@@ -12,6 +12,11 @@ Bandwidth API sends this event to the application when a conference is created o
 | createdTime   | Date/time conference created. Timestamp follows the ISO8601 format (UTC).   |
 | completedTime | Date/time conference completed. Timestamp follows the ISO8601 format (UTC). |
 
+{% common %}
+
+#### Example JSON
+
+
 ```json
 {
     "conferenceId": "string",
@@ -23,7 +28,6 @@ Bandwidth API sends this event to the application when a conference is created o
 }
 ```
 
-{% common %}
 
 #### Example: Conference created event
 

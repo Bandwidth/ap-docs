@@ -19,6 +19,11 @@ Bandwidth API sends this event to the application when an SMS is sent or receive
 | deliveryCode        | Numeric value of deliver code, see values [here](#message-delivery-code).                                                                                                                                                                        |
 | deliveryDescription | Message delivery description for the respective delivery code.                                                                                                                                                                                   |
 
+{% common %}
+
+#### Example JSON
+
+
 ```json
 {
   "eventType": "string",
@@ -36,7 +41,7 @@ Bandwidth API sends this event to the application when an SMS is sent or receive
   "deliveryDescription": "string"
 }
 ```
-{% common %}
+
 
 #### Example: Incoming SMS Event
 

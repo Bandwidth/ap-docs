@@ -13,6 +13,11 @@ Bandwidth API sends this message to the application when text-to-speech speaking
 | status        | Values are `started` or `done`.                                 |
 | time          | Date/time of event. Timestamp follows the ISO8601 format (UTC). |
 
+{% common %}
+
+#### Example JSON
+
+
 ```json
 {
     "eventType":"string",
@@ -23,7 +28,6 @@ Bandwidth API sends this message to the application when text-to-speech speaking
 }
 ```
 
-{% common %}
 #### Example: Text-to-speech in a conference has started
 
 ```

@@ -15,6 +15,11 @@ Bandwidth API sends this message to the application when an incoming call arrive
 | applicationId | The id of the application associated with phone number for this this incoming call.                                                                          |
 | time          | Date/time of event. Timestamp follows the ISO8601 format (UTC).                                                                                              |
 
+{% common %}
+
+#### Example JSON
+
+
 ```json
 {
   "eventType": "string",
@@ -27,7 +32,6 @@ Bandwidth API sends this message to the application when an incoming call arrive
   "time": "date"
 }
 ```
-{% common %}
 
 #### Example: Incoming Call Event
 
