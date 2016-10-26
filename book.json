@@ -26,6 +26,9 @@
       "layout": {
             "headerPath" : "layouts/header.html"
         },
+      "customJquery": {
+        "js": "js/custom.js"
+      },
       "sharing": {
             "facebook": false,
             "twitter": false,
