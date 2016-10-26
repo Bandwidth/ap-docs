@@ -37,11 +37,13 @@ client.Conference.getMembers("conferenceId", function(err, members){});
 {% sample lang="csharp" %}
 ```csharp
 var members = client.Conference.GetMembers("{conferenceId1}");
+var firstMemberState = members.First().State;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 members = conference.get_members()
+first_member_state = members[0].state
 ```
 
 {% common %}

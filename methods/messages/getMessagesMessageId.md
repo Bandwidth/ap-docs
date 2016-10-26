@@ -90,11 +90,13 @@ client.Message.get("{messageId}", function (err, message) {
 {% sample lang="csharp" %}
 ```csharp
 var message = await client.Message.GetAsync("{messageId}");
+var text = message.Text;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 message = Message.get(client, "{messageId1}")
+text = message[:text]
 ```
 
 {% common %}

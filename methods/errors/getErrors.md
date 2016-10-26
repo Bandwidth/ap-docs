@@ -48,11 +48,14 @@ client.Error.list({size: 1000}, function(err, errorResponse){});
 {% sample lang="csharp" %}
 ```csharp
 var errors = client.Error.List(new ErrorQuery{Size = 1000});
+var firstErrorMessage = errors.First().Message;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 errors = Error.list(client)
+first_error = errors.next
+first_error_message = first_error[:message]
 ```
 
 {% common %}

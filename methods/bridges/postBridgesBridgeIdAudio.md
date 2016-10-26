@@ -37,7 +37,7 @@ client.Bridge.playAudioFile("bridgeID", "http://myurl.com/file.wav", function (e
 
 {% sample lang="csharp" %}
 ```csharp
-/* coming soon*/
+await client.Bridge.PlayAudioFileAsync("bridgeID", "http://myurl.com/file.wav");
 ```
 
 {% sample lang="ruby" %}
@@ -70,7 +70,7 @@ client.Bridge.playAudioFile("bridgeID", "", function (err, res) {});
 
 {% sample lang="csharp" %}
 ```csharp
-await client.Bridge.PlayAudioFileAsync("brg-65dhmbasiei", "http://myurl.com/file.wav");
+await client.Bridge.PlayAudioFileAsync("brg-65dhmbasiei", "");
 ```
 
 {% sample lang="ruby" %}

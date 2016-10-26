@@ -49,11 +49,13 @@ client.Call.get("{callId}")
 {% sample lang="csharp" %}
 ```csharp
 var call = await client.Call.GetAsync("{callId1}");
+var to = call.To;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 call = Call.get(client, "{callId1}")
+to = call[:to]
 ```
 {% common %}
 > The above command returns JSON structured like this:

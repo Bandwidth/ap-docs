@@ -53,11 +53,14 @@ client.Application.list()
 {% sample lang="csharp" %}
 ```csharp
 var applications = client.Application.List();
+var firstApplicationName = applications.First().Name;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 list = Application.list(client)
+first_application = list.next
+first_application_name = first_application[:name]
 ```
 
 {% common %}

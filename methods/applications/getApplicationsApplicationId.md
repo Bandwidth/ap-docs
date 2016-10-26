@@ -51,11 +51,13 @@ client.Application.get('a-zuwwfzzrbea',
 {% sample lang="csharp" %}
 ```csharp
 var application = await client.Application.GetAsync("a-zuwwfzzrbea");
+var applicationName = application.Name;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 application = Application.get(client, "a-zuwwfzzrbea")
+application_name = application[:name]
 ```
 {% common %}
 > The above command returns JSON structured like this:

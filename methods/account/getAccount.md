@@ -30,11 +30,13 @@ client.Account.get(function(err, info){});
 {% sample lang="csharp" %}
 ```csharp
 var account = await client.Account.GetAsync();
+var balance = account.Balance;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 account = Bandwidth::Account.get(client)
+balance = account[:balance]
 ```
 {% common %}
 >The above command returns JSON structured like this:

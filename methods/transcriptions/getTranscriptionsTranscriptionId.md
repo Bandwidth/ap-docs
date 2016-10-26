@@ -36,12 +36,14 @@ client.Recording.getTranscription(recordingId, transcriptionId, function(err, tr
 
 {% sample lang="csharp" %}
 ```csharp
-var transcriptions = client.Transcription.List();
+var transcription = await client.Transcription.GetAsync("recordingId", "transcriptionId");
+var text = Transcription.Text;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
-transcriptions = recording.get_transacriptions()
+transcription = recording.get_transacription("transcription_id")
+text = transcription[:text]
 ```
 
 {% common %}

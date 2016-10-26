@@ -92,11 +92,14 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages \
 {% sample lang="csharp" %}
 ```csharp
 var messages = client.Message.List();
+var firstMessageText = messages.First().Text;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 messages = Message.list(client)
+first_message = messages.next
+first_message_text = first_message[:text]
 ```
 
 {% common %}

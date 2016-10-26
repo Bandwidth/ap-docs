@@ -57,14 +57,17 @@ client.Endpoint.list("domainId" {size: 1000}, function (err, res) {});
 ```csharp
 // Default size (25)
 var endpoints = client.Endpoint.List("{domainId1}");
+var firstEndpointName = endpoints.First().Name;
 
 // Specify number of endpoints
 var endpoints = client.Endpoint.List("{domainId1}", new EndpointQuery {Size = 1000});
+var firstEndpointName = endpoints.First().Name;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 endpoints = domain.get_endpoints()
+first_endpoint_name = endpoints[0].Name;
 ```
 
 {% common %}

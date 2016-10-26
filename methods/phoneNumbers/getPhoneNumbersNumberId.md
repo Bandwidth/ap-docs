@@ -50,11 +50,13 @@ client.PhoneNumber.get("+1234567890", function(err, number){});
 {% sample lang="csharp" %}
 ```csharp
 var number = await client.PhoneNumber.GetAsync("+1234567890");
+var city = number.City;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 number = PhoneNumber.get(client, "+1234567890")
+city = number.city
 ```
 
 {% common %}

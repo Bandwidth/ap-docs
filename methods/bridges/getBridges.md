@@ -63,11 +63,14 @@ client.Bridge.list()
 {% sample lang="csharp" %}
 ```csharp
 var bridges = client.Bridge.List();
+var firstBridgeState = bridges.First().State;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 bridges = Bridge.list(client)
+first_bridge = bridges.next
+first_bridge_state = first_bridge[:state]
 ```
 {% common %}
 

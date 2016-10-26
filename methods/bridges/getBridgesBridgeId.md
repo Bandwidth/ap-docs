@@ -58,11 +58,13 @@ client.Bridge.get('brg-65dhmbasiei',
 {% sample lang="csharp" %}
 ```csharp
 var bridge = await client.Bridge.GetAsync("brg-65dhmbasiei");
+var state = bridge.State;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 bridge = Bridge.get(client, "brg-65dhmbasiei")
+state = bridge[:state]
 ```
 
 {% common %}

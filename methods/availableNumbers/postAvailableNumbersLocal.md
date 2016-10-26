@@ -47,12 +47,19 @@ client.AvailableNumber.serchAndOrder("local", { areaCode : "910", quantity : 2 }
 ```csharp
 var results = await client.AvailableNumber.SearchAndOrderLocalAsync(
   new LocalNumberQueryForOrder{ AreaCode = "910", Quantity = 2});
+var firstResult = results.First();
+var number = firstResult.Number;
+var numberId = firstResult.Id;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
-#coming soon
+results = AvailableNumber.search_and_order_local(client, {area_code: '910', quantity: 2})
+first_result = results.next
+number = first_result[:number]
+number_id = first_result[:id]
 ```
+
 
 {% common %}
 > The above command returns a `201` response JSON structured like this:

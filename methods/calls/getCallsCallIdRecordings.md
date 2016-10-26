@@ -23,11 +23,14 @@ client.Call.getRecordings(callId, function (err, list) {});
 {% sample lang="csharp" %}
 ```csharp
 var recordings = client.Call.GetRecordings("{callId1}");
+var firstRecordingState = recordigns.First().State;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 recordings = call.get_recordings()
+first_recording = recordigns[0]
+first_recording_state = first_recording[:state]
 ```
 
 {% common %}

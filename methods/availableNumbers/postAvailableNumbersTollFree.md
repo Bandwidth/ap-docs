@@ -49,11 +49,18 @@ client.AvailableNumber.searchAndOrder("tollFree", {
 var results = await client.AvailableNumber.SearchAndOrderTollFreeAsync(
   new TollFreeNumberQueryForOrder{Quantity = 2}
 );
+var firstResult = results.First();
+var number = firstResult.Number;
+var numberId = firstResult.Id;
 ```
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+results = AvailableNumber.search_and_order_toll_free(client, {quantity: 2})
+first_result = results.next
+number = first_result[:number]
+number_id = first_result[:id]
+
 ```
 
 {% common %}

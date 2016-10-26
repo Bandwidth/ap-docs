@@ -23,11 +23,14 @@ client.Call.getTranscriptions(callId, function (err, list) {});
 {% sample lang="csharp" %}
 ```csharp
 var transcriptions = client.Call.GetTranscriptions("{callId1}");
+var firstTranscriptionState = transcriptions.First().State;
+
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 transcriptions = call.get_transcriptions()
+first_transcription_state = transcriptions[0][:state]
 ```
 
 {% common %}
@@ -38,7 +41,7 @@ transcriptions = call.get_transcriptions()
     {
         "chargeableDuration": 60,
         "id": "{transcription-id}",
-        "state": "completed",        
+        "state": "completed",
         "time": "2014-10-09T12:09:16Z",
         "text": "{transcription-text}",
         "textSize": 3627,

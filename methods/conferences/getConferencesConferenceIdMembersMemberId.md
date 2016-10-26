@@ -37,11 +37,13 @@ client.Conference.getMember("conferenceId", "memberId", function(err, member){})
 {% sample lang="csharp" %}
 ```csharp
 var member = await client.Conference.GetMemberAsync("{conferenceId1}", "{memberId1}");
+var state = member.State;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 member = conference.get_member("{memberId1}")
+state = member.state
 ```
 
 {% common %}
