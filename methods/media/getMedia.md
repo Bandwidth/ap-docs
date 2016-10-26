@@ -31,11 +31,14 @@ then(function (media) {
 {% sample lang="csharp" %}
 ```csharp
 var list = client.Media.List();
+var firstMediaName = list.First().MediaName;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 list = Media.list(client)
+first_media = list.next
+first_media_name = first_media[:media-name]
 ```
 
 {% common %}

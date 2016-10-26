@@ -82,11 +82,14 @@ client.Account.getTransactions()
 {% sample lang="csharp" %}
 ```csharp
 var transactions = client.Account.GetTransactions();
+var firstTransactionAmount = transactions.First().Amount;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 transactions = Account.get_transactions(client)
+first_transaction = transactions.next
+first_transaction_amount = first_transaction[:amount]
 ```
 
 {% common %}

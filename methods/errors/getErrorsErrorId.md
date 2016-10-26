@@ -40,11 +40,13 @@ client.Error.get(userErrorId, function(err, errorInfo){});
 {% sample lang="csharp" %}
 ```csharp
 var error = async client.Error.GetAsync("{errorId1}");
+var message = error.Message;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 error = Error.get(client, "{errorId1}")
+message = error[:message]
 ```
 
 {% common %}

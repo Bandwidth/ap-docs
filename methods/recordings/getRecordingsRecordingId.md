@@ -55,11 +55,13 @@ client.Recording.get("{recordingId}", function (err, recording) {
 {% sample lang="csharp" %}
 ```csharp
 var recording = await client.Recording.GetAsync("{recordingId}");
+var mediaName = recording.MediaName;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 recording = Recording.get(client, "{recordingId}")
+state = recording[:state]
 ```
 
 {% common %}

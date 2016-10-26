@@ -33,11 +33,14 @@ client.Bridge.getCalls('brg-65dhjrmbasiei',
 {% sample lang="csharp" %}
 ```csharp
 var calls = client.Bridge.GetCalls("brg-65dhmbasiei");
+var lastCallTo = calls.Last().To;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 calls = bridge.get_calls()
+first_call = calls.next
+first_call_to = first_call[:to]
 ```
 
 

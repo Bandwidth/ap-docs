@@ -50,6 +50,7 @@ client.AvailableNumber.search("tollFree", {
 var results = await client.AvailableNumber.SearchTollFreeAsync(
   new TollFreeNumberQuery{ Pattern = "*2?9*", Quantity = 2}
 );
+var firstNumber = results.First().Number;
 ```
 
 {% sample lang="ruby" %}
@@ -58,6 +59,8 @@ results = AvailableNumber.search_toll_free(client, {
   :pattern => "*2?9*",
   :quantity => 2
 })
+first_result = results.next
+first_number = first_result[:number]
 ```
 
 > The above command returns JSON structured like this:

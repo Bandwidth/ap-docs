@@ -34,12 +34,15 @@ client.Call.list()
 {% sample lang="csharp" %}
 ```csharp
 var calls = client.Call.List();
+var firstCallTo = calls.First().To;
 ```
 
 
 {% sample lang="ruby" %}
 ```ruby
 calls = Call.list(client)
+first_call = calls.next
+first_call_to = first_call[:to]
 ```
 
 {% common %}

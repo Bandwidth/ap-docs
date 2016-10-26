@@ -21,11 +21,13 @@ client.Call.getEvent(callId, eventId, function (err, callEvent) {});
 {% sample lang="csharp" %}
 ```csharp
 var callEvent = async client.Call.GetEventAsync("{callId1}", "{eventId1}");
+var eventName = callEvent.Name;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 call_event = call.get_event("{eventId1}")
+event_name = call_event[:name]
 ```
 
 {% common %}

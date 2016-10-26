@@ -32,11 +32,14 @@ client.Call.getEvents(callId, function (err, events) {});
 {% sample lang="csharp" %}
 ```csharp
 var events = client.Call.GetEvents("{callId1}");
+var firstEventId = events.First().Id;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 events = call.get_events()
+first_event = events[0]
+first_event_id = first_event[:id]
 ```
 
 

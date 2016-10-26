@@ -64,11 +64,14 @@ client.AvailableNumber.search("local", { areaCode : "910", quantity : 3 }, funct
 
 ```csharp
 var results = await client.AvailableNumber.SearchLocalAsync(new LocalNumberQuery{ AreaCode = "910", Quantity = 3});
+var firstNumber = results.First().Number;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 results = AvailableNumber.search_local(client, {:area_code => "910", :quantity => 3})
+first_result = results.next
+first_number = first_result[:number]
 ```
 
 {% common %}
@@ -125,6 +128,7 @@ var results = await client.AvailableNumber.SearchLocalAsync(
     Quantity = 2
   }
 );
+var firstNumber = results.First().Number;
 ```
 
 {% sample lang="ruby" %}
@@ -135,6 +139,8 @@ results = AvailableNumber.search_local(client, {
   :pattern => "*2?9*",
   :quantity => 2
 })
+first_result = results.next
+first_number = first_result[:number]
 ```
 {% common %}
 > The above command returns JSON structured like this:

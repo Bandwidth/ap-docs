@@ -42,11 +42,13 @@ client.Endpoint.get(domainId, endpointId, function(err, endpoint){});
 {% sample lang="csharp" %}
 ```csharp
 var endpoint = await client.Endpoint.GetAsync("{domainId1}", "{endpointId1}");
+var name = endpoint.Name;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 endpoint = domain.get_endpoint("{endpoointId1}")
+name = endpoint.name
 ```
 
 {% common %}

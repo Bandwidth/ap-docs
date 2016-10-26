@@ -52,11 +52,14 @@ client.PhoneNumber.list({size: 1000}, function(err, numbersResponse){});
 {% sample lang="csharp" %}
 ```csharp
 var numbers = client.PhoneNumber.List(new PhoneNumberQuery {Size = 1000});
+var firstNumberId = numbers.First().Id;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 numbers = PhoneNumber.list(client, {:size => 1000})
+first_number = numbers.next
+first_number_id = first_number[:id]
 ```
 
 {% common %}

@@ -32,11 +32,13 @@ client.NumberInfo.get("+1234567890", function(err, info){});
 {% sample lang="csharp" %}
 ```csharp
 var info = await client.NumberInfo.GetAsync("+1234567890");
+var number = info.Number;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 info = NumberInfo.get(client, "+1234567890")
+name = info[:name]
 ```
 
 {% common %}

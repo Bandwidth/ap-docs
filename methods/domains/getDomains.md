@@ -31,11 +31,14 @@ client.Domain.list()
 {% sample lang="csharp" %}
 ```csharp
 var domains = client.Domain.List();
+var firstDomainName = domains.First().Name;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 domains = Domain.list(client)
+first_domain = domains.next
+first_domain_name = first_domain.name
 ```
 {% common %}
 > The above command returns JSON structured like this:

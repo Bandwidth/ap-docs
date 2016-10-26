@@ -49,11 +49,13 @@ client.Conference.get("conferenceId", function(err, conference){});
 {% sample lang="csharp" %}
 ```csharp
 var conference = await client.Conference.GetAsync("{conferenceId1}");
+var owner = conference.From;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 conference = Conference.get(client, "{conferenceId1}")
+owner = conference.from
 ```
 
 {% common %}

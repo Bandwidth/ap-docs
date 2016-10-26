@@ -20,11 +20,13 @@ client.Call.getGather("{callId}", "{gatherId}")
 {% sample lang="csharp" %}
 ```csharp
 var gather = await client.Call.GetGatherAsync("{callId1}", "{gatherId1}");
+var digits = gather.Digits;
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 gather = call.get_gather("{gatherId1}")
+digits = gather[:digits]
 ```
 
 {% common %}

@@ -58,11 +58,14 @@ client.Recording.list({}, function (err, recordings) {
 {% sample lang="csharp" %}
 ```csharp
 var recordings = client.Recording.List();
+var firstRecordingMediaName = recordings.First().MediaName
 ```
 
 {% sample lang="ruby" %}
 ```ruby
 recordings = Recording.list(client)
+first_recording = recordings.next
+first_recording_id = first_recording[:id]
 ```
 
 {% common %}
