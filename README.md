@@ -1,6 +1,5 @@
 # Get Started
 
-## Get Started
 Before you can send your first SMS message, you will need to
 
 1. [Sign up](https://catapult.inetwork.com/beta/signup) for a free Bandwidth API account.
