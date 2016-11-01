@@ -2,7 +2,7 @@
 
 ## Overview
 
-* [Bandwidth](README.md)
+* [Get Started](README.md)
 
 ## Rest API
 * [Rest API](methods/restApi.md)
