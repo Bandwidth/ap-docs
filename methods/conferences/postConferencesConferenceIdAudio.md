@@ -18,6 +18,7 @@ Speak a text or play audio in the conference
 * For playing text-to-speech, sentence is required, for playing an audio file, fileUrl is required.
 </aside>
 
+{% common %}
 ### Example: Speak text in conference
 
 {% sample lang="bash" %}

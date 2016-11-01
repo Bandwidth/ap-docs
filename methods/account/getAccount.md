@@ -1,5 +1,10 @@
 {% method %}
-## Get Account
+## <code class="get">GET</code> Account
+
+
+### URL:
+
+`https://api.catapult.inetwork.com/v1/users/{userId}/account`
 
 ### Account Properties
 | PROPERTY    | DESCRIPTION                                                                                                                                                                                                                                                                          |
