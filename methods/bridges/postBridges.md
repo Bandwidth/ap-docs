@@ -1,7 +1,12 @@
 {% method %}
-## POST bridges
+
+## Create Bridge
 
 Create a new bridge.
+
+### Request URL
+
+<code class="post">POST</code> `https://api.catapult.inetwork.com/v1/users/{userId}/bridges`
 
 ### Supported Parameters
 
@@ -11,9 +16,11 @@ Create a new bridge.
 | callIds     | The list of call ids in the bridge. If the list of call ids is not provided the bridge is logically created and it can be used to place calls later. | No        |
 
 {% common %}
+
 ### Example: Create a bridge with two calls and two way voice path
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/ \
 	-u {token}:{secret} \
@@ -22,6 +29,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/ \
 ```
 
 {% sample lang="js" %}
+
 ```js
 //Promise
 client.Bridge.create({
@@ -47,6 +55,7 @@ client.Bridge.create({
   ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var bridge = await client.Bridge.CreateAsync(new CreateBridgeData{
 	BridgeAudio = true,
@@ -55,6 +64,7 @@ var bridge = await client.Bridge.CreateAsync(new CreateBridgeData{
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 bridge = Bridge.create(client, {
 	:bridge_audio => true,
@@ -63,6 +73,7 @@ bridge = Bridge.create(client, {
 ```
 
 {% common %}
+
 > The above command returns HTTP Status structured like this:
 ```
 HTTP/1.1 201 Created
@@ -72,6 +83,7 @@ Location: /v1/users/{userId}/calls/{bridgeId}
 ### Example: Create a bridge without calls
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/ \
 	-u {token}:{secret} \
@@ -79,6 +91,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/ \
 	-d '{"bridgeAudio": "true" }'
 ```
 {% sample lang="js" %}
+
 ```js
 //Promise
 client.Bridge.create({
@@ -103,6 +116,7 @@ client.Bridge.create({
   ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var bridge = await client.Bridge.CreateAsync(new CreateBridgeData{
 	BridgeAudio = true
@@ -110,6 +124,7 @@ var bridge = await client.Bridge.CreateAsync(new CreateBridgeData{
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 bridge = Bridge.create(client, {
 	:bridge_audio => true
@@ -117,6 +132,7 @@ bridge = Bridge.create(client, {
 ```
 
 {% common %}
+
 > The above command returns HTTP Status structured like this:
 ```
 HTTP/1.1 201 Created
@@ -124,3 +140,4 @@ Location: /v1/users/{userId}/calls/{bridgeId}
 ```
 
 {% endmethod %}
+

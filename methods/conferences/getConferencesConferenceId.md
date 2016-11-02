@@ -1,6 +1,11 @@
 {% method %}
-## GET conferences/{conferenceId}
+
+## Fetch Conference information 
 Retrieve current properties for a conference.
+
+## Request URL
+
+<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}`
 
 ## Conference Properties
 
@@ -29,9 +34,11 @@ Retrieve current properties for a conference.
 | completed | The conference was completed. Once the conference is completed, It can not be used anymore.                                                      |
 
 {% common %}
+
 ### Example: Get conference
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId} \
 	-u {token}:{secret} \
@@ -39,6 +46,7 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{
 ```
 
 {% sample lang="js" %}
+
 ```js
 // Promise
 client.Conference.get("conferenceId").then(function(conference){});
@@ -47,18 +55,21 @@ client.Conference.get("conferenceId", function(err, conference){});
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var conference = await client.Conference.GetAsync("{conferenceId1}");
 var owner = conference.From;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 conference = Conference.get(client, "{conferenceId1}")
 owner = conference.from
 ```
 
 {% common %}
+
 > The above command returns JSON structured like this:
 
 ```
@@ -72,3 +83,4 @@ owner = conference.from
 ```
 
 {% endmethod %}
+

@@ -1,7 +1,11 @@
 {% method %}
 
-## GET calls/{callId}
+## Fetch Call information
 Gets information about an active or completed call. No query parameters are supported.
+
+### Request URL
+
+<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}`
 
 ## Properties
 | Property             | Description                                                                                                                                                  |
@@ -29,9 +33,11 @@ Gets information about an active or completed call. No query parameters are supp
 
 
 {% common %}
+
 ### Example: Get Call Information
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId} \
 	-u {token}:{secret} \
@@ -39,6 +45,7 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId
 ```
 
 {% sample lang="js" %}
+
 ```js
 client.Call.get("{callId}")
 .then(function (response) {
@@ -47,17 +54,20 @@ client.Call.get("{callId}")
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var call = await client.Call.GetAsync("{callId1}");
 var to = call.To;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 call = Call.get(client, "{callId1}")
 to = call[:to]
 ```
 {% common %}
+
 > The above command returns JSON structured like this:
 
 ```json
@@ -84,3 +94,4 @@ to = call[:to]
 }
 ```
 {% endmethod %}
+

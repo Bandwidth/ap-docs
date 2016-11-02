@@ -1,11 +1,17 @@
 {% method %}
-## DELETE applications/{applicationId}
+## Remove Application
+
+### Request Url
+
+<code class="delete">DELETE</code> `https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId}`
+
 
 Permanently deletes an application.
 {% common %}
 ### Example: Delete an application.
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X DELETE https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId} \
 	-u {token}:{secret} \
@@ -13,6 +19,7 @@ curl -v -X DELETE https://api.catapult.inetwork.com/v1/users/{userId}/applicatio
 ```
 
 {% sample lang="js" %}
+
 ```js
 // Promise
 client.Application.delete('a-j4f2j6mqz53mq')
@@ -33,11 +40,13 @@ client.Application.delete('a-zuwwzrbea',
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 await client.Application.DeleteAsync("a-zuwwfzzrbea");
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 app.delete()
 ```

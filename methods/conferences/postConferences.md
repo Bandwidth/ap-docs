@@ -1,6 +1,11 @@
 {% method %}
-## POST conferences
+
+## Create Conference
 Creates a conference with no members.
+
+## Request URL
+
+<code class="post">POST</code> `https://api.catapult.inetwork.com/v1/users/{userId}/conferences`
 
 ### Supported Parameters
 
@@ -14,9 +19,11 @@ Creates a conference with no members.
 | tag                | A string that will be included in the callback events of the conference.                                                                                                                        | No        |
 
 {% common %}
+
 ### Example: Create conference
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences \
 	-u {token}:{secret} \
@@ -29,6 +36,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences 
 ```
 
 {% sample lang="js" %}
+
 ```js
 // Promise
 client.Conference.create({from: "+1234567890"}).then(function(conference){});
@@ -37,17 +45,20 @@ client.Conference.create({from: "+1234567890"}, function(err, conference){});
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var conference = await client.Conference.CreateAsync(new CreateConferenceData {From = "+1234567890"});
 ```
 
 
 {% sample lang="ruby" %}
+
 ```ruby
 conference = Conference.create(client,  {:from => "+1234567890"})
 ```
 
 {% common %}
+
 > The above command returns HTTP Header structured like this:
 
 ```
@@ -58,6 +69,7 @@ Location: /v1/users/{userId}/conferences/{conferenceId}
 ### Example: Create conference with callback and fallback and 2 seconds callback's timeout
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 	-u {token}:{secret} \
@@ -73,6 +85,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 ```
 
 {% sample lang="js" %}
+
 ```js
 var params = {
 	"from": "{number}",
@@ -88,6 +101,7 @@ client.Conference.create(params, function(err, conference){});
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var conference = await client.Conference.CreateAsync(new CreateConferenceData {
 	From = "{number}",
@@ -98,6 +112,7 @@ var conference = await client.Conference.CreateAsync(new CreateConferenceData {
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 conference = Conference.create(client,  {
 	:from => "+1234567890",
@@ -108,6 +123,7 @@ conference = Conference.create(client,  {
 ```
 
 {% common %}
+
 > The above command returns HTTP Header structured like this:
 
 ```
@@ -115,3 +131,4 @@ HTTP/1.1 201 CREATED
 Location: /v1/users/{userId}/conferences/{conferenceId}
 ```
 {% endmethod %}
+

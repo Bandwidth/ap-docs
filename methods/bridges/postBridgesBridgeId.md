@@ -1,6 +1,9 @@
 {% method %}
-## POST bridges/{bridgeId}
+## Update Bridge
 Change calls in a bridge and bridge/unbridge the audio.
+
+### Request URL
+<code class="post">POST</code> `https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}`
 
 {% common %}
 ### Example: Add call {callId1} and call {callId2} in a bridge {bridgeId} with two way voice path

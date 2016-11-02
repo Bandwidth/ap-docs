@@ -1,5 +1,8 @@
 {% method %}
-## GET account/transactions
+## <code class="get">GET</code> Transactions
+
+### Request Url
+<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/account/transactions`
 
 ### Query Parameters
 | Parameter | Description                                                                                                                                                                 | Mandatory |
@@ -55,13 +58,15 @@
 ### Example: Get transactions
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations \
-  -u {token}:{secret} \
+  -u {{apiToken}}:{secret} \
   -H "Content-type: application/json" \
 ```
 
 {% sample lang="js" %}
+
 ```javascript
 //Promise
 client.Account.getTransactions()
@@ -80,12 +85,14 @@ client.Account.getTransactions()
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var transactions = client.Account.GetTransactions();
 var firstTransactionAmount = transactions.First().Amount;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 transactions = Account.get_transactions(client)
 first_transaction = transactions.next
@@ -121,13 +128,15 @@ The above command returns JSON structured like this:
 ### Example: Get transactions by date
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?fromDate=2013-02-21T13:38:00 \
-  -u {token}:{secret} \
+  -u {{apiToken}}:{secret} \
   -H "Content-type: application/json" \
 ```
 
 {% sample lang="js" %}
+
 ```javascript
 //Get transactions filtering by date
 //Promise
@@ -150,6 +159,7 @@ client.Account.getTransactions(params)
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var transactions = await client.Account.GetTransactions(
   new AccountTransactionQuery {
@@ -159,6 +169,7 @@ var transactions = await client.Account.GetTransactions(
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 transactions = Account.get_transactions(client, {:from_date => "2013-02-21T13:38:00"})
 ```
@@ -183,9 +194,10 @@ The above command returns JSON structured like this:
 ### Example: Get transactions filtering by date
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?toDate=2013-02-21T13:40:00&fromDate=2013-02-21T13:38:00 \
-  -u {token}:{secret} \
+  -u {{apiToken}}:{secret} \
   -H "Content-type: application/json" \
 ```
 
@@ -214,6 +226,7 @@ client.Account.getTransactions(params)
   ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var transactions = client.Account.GetTransactions(new AccountTransactionQuery {
   FromDate = new DateTime(2013, 2, 21, 13, 38, 0, 0, DateTimeKind.Utc),
@@ -221,10 +234,12 @@ var transactions = client.Account.GetTransactions(new AccountTransactionQuery {
 });
 ```
 {% sample lang="ruby" %}
+
 ```ruby
 transactions = Account.get_transactions(client, {:from_date => "2013-02-21T13:38:00", :to_date => "2013-02-21T13:40:00"})
 ```
 {% common %}
+
 The above command returns JSON structured like this:
 
 ```json
@@ -245,12 +260,14 @@ The above command returns JSON structured like this:
 ### Example: Get transactions limiting result
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?maxItems=1 \
-  -u {token}:{secret} \
+  -u {{apiToken}}:{secret} \
   -H "Content-type: application/json" \
 ```
 {% sample lang="js" %}
+
 ```js
 //Get transactions limiting result
 //Promise
@@ -273,6 +290,7 @@ client.Account.getTransactions(params)
   ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var transactions = client.Account.GetTransactions(new AccountTransactionQuery {
   MaxItem = 1
@@ -280,6 +298,7 @@ var transactions = client.Account.GetTransactions(new AccountTransactionQuery {
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 transactions = Account.get_transactions(client, {:max_item => 1})
 ```
@@ -304,13 +323,15 @@ The above command returns JSON structured like this:
 ### Example: Get transactions of payment type
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?type=Payment \
-  -u {token}:{secret} \
+  -u {{apiToken}}:{secret} \
   -H "Content-type: application/json" \
 ```
 
 {% sample lang="js" %}
+
 ```js
 //Get transactions of `payment` type
 //Promise
@@ -333,6 +354,7 @@ client.Account.getTransactions(params)
   ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var transactions = client.Account.GetTransactions(new AccountTransactionQuery {
   Type = AccountTransactionType.Payment
@@ -340,10 +362,12 @@ var transactions = client.Account.GetTransactions(new AccountTransactionQuery {
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 transactions = Account.get_transactions(client, {:type => "payment"})
 ```
 {% common %}
+
 The above command returns JSON structured like this:
 
 ```json

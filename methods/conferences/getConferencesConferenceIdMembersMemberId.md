@@ -1,6 +1,11 @@
 {% method %}
-## GET conferences/{conferenceId}/members/{memberId}
+
+## Fetch Member information
 Retrieve a conference member properties.
+
+## Request URL
+
+<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members/{memberId}`
 
 ## Conference Member Properties
 
@@ -17,9 +22,11 @@ Retrieve a conference member properties.
 | call        | The URL of the call resource for this member.                                                                                           |
 
 {% common %}
+
 ### Example: Get conference member information
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members/{memberId} \
 	-u {token}:{secret} \
@@ -27,6 +34,7 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{
 ```
 
 {% sample lang="js" %}
+
 ```js
 // Promise
 client.Conference.getMember("conferenceId", "memberId").then(function(member){});
@@ -35,18 +43,21 @@ client.Conference.getMember("conferenceId", "memberId", function(err, member){})
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var member = await client.Conference.GetMemberAsync("{conferenceId1}", "{memberId1}");
 var state = member.State;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 member = conference.get_member("{memberId1}")
 state = member.state
 ```
 
 {% common %}
+
 > The above command returns JSON structured like this:
 
 ```
@@ -63,3 +74,4 @@ state = member.state
 }
 ```
 {% endmethod %}
+

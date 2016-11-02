@@ -1,6 +1,12 @@
 {% method %}
-## POST domains
+
+## Create Domain
 This will create a domain.
+
+### Request URL
+
+<code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/domains`
+
 
 <aside class="alert general small">
 There is a 100 domain max per account limit. Most use cases require using a single domain for all endpoints.
@@ -12,9 +18,11 @@ There is a 100 domain max per account limit. Most use cases require using a sing
 | description | String to describe the domain                      | Yes       |
 
 {% common %}
+
 ### Example: Create a domain
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/domains \
 	-u {token}:{secret} \
@@ -28,6 +36,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/domains \
 ```
 
 {% sample lang="js" %}
+
 ```js
 var params = {
   name: "mycoolapp",
@@ -40,6 +49,7 @@ client.Domain.create(params)
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var domain = await client.Domain.CreateAsync(new CreateDomainData{
 	Name = "mycoolapp",
@@ -48,6 +58,7 @@ var domain = await client.Domain.CreateAsync(new CreateDomainData{
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 domain = Domain.create(client, {
 	:name => "mycoolapp",
@@ -57,6 +68,7 @@ domain = Domain.create(client, {
 
 {% common %}
 
+
 > The above command returns HTTP Header structured like this:
 
 ```
@@ -64,3 +76,4 @@ HTTP/1.1 201 Created
 Location: /v1/users/{user-id}/domains/{domain-id}
 ```
 {% endmethod %}
+

@@ -1,6 +1,11 @@
 {% method %}
-## GET conferences/{conferenceId}/members
+
+## List Members in Conference
 List all members from a conference. If a member had already hung up or removed from conference it will be displayed as completed.
+
+## Request URL
+
+<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members`
 
 ## Conference Member Properties
 
@@ -17,9 +22,11 @@ List all members from a conference. If a member had already hung up or removed f
 | call        | The URL of the call resource for this member.                                                                                           |
 
 {% common %}
+
 ### Example: Listing members from a conference
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members \
 	-u {token}:{secret} \
@@ -27,6 +34,7 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{
 ```
 
 {% sample lang="js" %}
+
 ```js
 // Promise
 client.Conference.getMembers("conferenceId").then(function(members){});
@@ -35,18 +43,21 @@ client.Conference.getMembers("conferenceId", function(err, members){});
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var members = client.Conference.GetMembers("{conferenceId1}");
 var firstMemberState = members.First().State;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 members = conference.get_members()
 first_member_state = members[0].state
 ```
 
 {% common %}
+
 > The above command returns JSON structured like this:
 
 ```json
@@ -85,3 +96,4 @@ first_member_state = members[0].state
 ]
 ```
 {% endmethod %}
+

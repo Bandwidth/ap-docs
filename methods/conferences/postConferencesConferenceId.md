@@ -1,6 +1,11 @@
 {% method %}
-## POST conferences/{conferenceId}
+
+## Update Conference
 Change the conference properties and/or status.
+
+## Request URL
+
+<code class="post">POST</code> `https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}`
 
 ### Supported Parameters
 
@@ -17,9 +22,11 @@ Change the conference properties and/or status.
 
 
 {% common %}
+
 ### Example: Terminate Conference
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId} \
 	-u {token}:{secret} \
@@ -32,6 +39,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/
 ```
 
 {% sample lang="js" %}
+
 ```js
 // Promise
 client.Conference.update("conferenceID", {state: "completed"}).then(function(){});
@@ -40,18 +48,22 @@ client.Conference.update("conferenceID", {state: "completed"}, function(err){});
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 await client.Conference.TerminateAsync("{conferenceId1}");
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 conference.complete()
 ```
 
 {% common %}
+
 ### Example: Prevent all members from speaking
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId} \
 	-u {token}:{secret} \
@@ -64,6 +76,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/
 ```
 
 {% sample lang="js" %}
+
 ```js
 // Promise
 client.Conference.update("conferenceID", {mute: "true"}).then(function(){});
@@ -72,12 +85,15 @@ client.Conference.update("conferenceID", {mute: "true"}, function(err){});
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 await client.Conference.MuteAsync("{conferenceId1}", true);
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 conference.mute()
 ```
 {% endmethod %}
+

@@ -1,5 +1,11 @@
 {% method %}
-## GET applications/{applicationId}
+
+## Fetch Application Information
+
+### Request URL
+
+<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId}`
+
 
 Gets information about one of your applications. No query parameters are supported.
 
@@ -19,9 +25,11 @@ Gets information about one of your applications. No query parameters are support
 
 
 {% common %}
+
 ### Example: Get an application's information
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/applications/{applicationId}
   -u {token}:{secret} \
@@ -29,6 +37,7 @@ curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/application
 ```
 
 {% sample lang="js" %}
+
 ```js
 // Promise
 client.Application.get('a-j4f2jz53mq')
@@ -49,20 +58,23 @@ client.Application.get('a-zuwwfzzrbea',
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var application = await client.Application.GetAsync("a-zuwwfzzrbea");
 var applicationName = application.Name;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 application = Application.get(client, "a-zuwwfzzrbea")
 application_name = application[:name]
 ```
 {% common %}
+
 > The above command returns JSON structured like this:
 
-```
+```json
 {
   "id": "{applicationId}",
   "name": "MyFirstApp",
@@ -72,3 +84,4 @@ application_name = application[:name]
 }
 ```
 {% endmethod %}
+

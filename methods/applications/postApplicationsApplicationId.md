@@ -1,6 +1,12 @@
 {% method %}
-## POST applications/{applicationId}
+
+## Update Application
 Makes changes to an application. POST a new JSON representation with the property values you desire to the URL that you got back in the "Location" header when you first created it.
+
+### Request URL
+
+<code class="post">POST</code> `https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId}`
+
 
 <aside class="alert general small">
 NOTE: Properties you don't send will remain unchanged.
@@ -21,9 +27,11 @@ NOTE: Properties you don't send will remain unchanged.
 | autoAnswer                        | Determines whether or not an incoming call should be automatically answered. Default value is 'true'.            | No        |
 
 {% common %}
+
 ### Example: Update Application
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId} \
 	-u {token}:{secret} \
@@ -32,6 +40,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/applications
 ```
 
 {% sample lang="js" %}
+
 ```js
 // Promise
 client.Application.update('a-j4f2j6vjmqz53mq', {
@@ -59,6 +68,7 @@ client.Application.update('a-zudcfzzrbea',
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 await client.Application.UpdateAsync("a-zuwwfzzrbea", new UpdateApplicationData{
 	Name =  "Rename App2",
@@ -67,7 +77,9 @@ await client.Application.UpdateAsync("a-zuwwfzzrbea", new UpdateApplicationData{
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 app.update({:name => "Rename App2", :auto_answer => false})
 ```
 {% endmethod %}
+

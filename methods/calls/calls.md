@@ -1,6 +1,10 @@
 # Calls
 The Calls resource lets you make phone calls and view information about previous inbound and outbound calls.
 
+## Base URL
+
+`https://api.catapult.inetwork.com/v1/users/{userId}/calls/`
+
 | VERB                           | PATH                                                                                      | Description                                                                                                                     |
 |:-------------------------------|:------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------|
 | <code class="get">GET </code>  | [`/v1/users/{userId}/calls`](getCalls.md)                                                 | Get a list of previous calls that were made or received                                                                         |

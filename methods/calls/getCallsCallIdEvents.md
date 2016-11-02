@@ -1,6 +1,11 @@
 {% method %}
-## GET calls/{callId}/events
+
+## List Call Events
 Gets the events that occurred during the call. No query parameters are supported.
+
+### Request URL
+
+<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/events`
 
 ### Event Properties
 
@@ -12,9 +17,11 @@ Gets the events that occurred during the call. No query parameters are supported
 | data     | Data about event.            | No        |
 
 {% common %}
+
 ### Example: Get events for a call.
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/events \
 	-u {token}:{secret} \
@@ -22,6 +29,7 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId
 ```
 
 {% sample lang="js" %}
+
 ```js
 // Promise
 client.Call.getEvents(callId).then(function (events) {});
@@ -30,12 +38,14 @@ client.Call.getEvents(callId, function (err, events) {});
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var events = client.Call.GetEvents("{callId1}");
 var firstEventId = events.First().Id;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 events = call.get_events()
 first_event = events[0]
@@ -46,6 +56,7 @@ first_event_id = first_event[:id]
 > The above command returns JSON structured like this:
 
 {% common %}
+
 ```json
 [
 	{
@@ -103,3 +114,4 @@ first_event_id = first_event[:id]
 ]
 ```
 {% endmethod %}
+

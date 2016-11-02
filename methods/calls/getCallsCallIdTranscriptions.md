@@ -1,11 +1,18 @@
 {% method %}
-## GET calls/{callId}/transcriptions
+
+## List all Call Transcriptions 
 Retrieve all transcriptions related to the call.
 
+### Request URL
+
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/transcriptions`
+
 {% common %}
+
 ### Example: Retrieve all transcriptions related to the call.
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/transcriptions \
 	-u {token}:{secret} \
@@ -13,6 +20,7 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId
 ```
 
 {% sample lang="js" %}
+
 ```js
 // Promise
 client.Call.getTranscriptions(callId).then(function (list) {});
@@ -21,6 +29,7 @@ client.Call.getTranscriptions(callId, function (err, list) {});
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var transcriptions = client.Call.GetTranscriptions("{callId1}");
 var firstTranscriptionState = transcriptions.First().State;
@@ -28,12 +37,14 @@ var firstTranscriptionState = transcriptions.First().State;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 transcriptions = call.get_transcriptions()
 first_transcription_state = transcriptions[0][:state]
 ```
 
 {% common %}
+
 > The above command returns JSON structured like this:
 
 ```json
@@ -59,3 +70,4 @@ first_transcription_state = transcriptions[0][:state]
 ]
 ```
 {% endmethod %}
+

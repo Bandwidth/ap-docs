@@ -1,6 +1,10 @@
 {% method %}
-## POST calls/{callId}
+## Update active Call
 Update properties of an active phone call.
+
+### Request URL
+
+<code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}`
 
 ### Supported Parameters
 

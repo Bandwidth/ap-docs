@@ -1,6 +1,11 @@
 {% method %}
-## POST conferences/{conferenceId}/members/{memberId}/audio
+
+## Play audio to Member
 Speak text or play audio to **ONLY** a single conference member.
+
+## Request URL
+
+<code class="post">POST</code> `https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members/{memberId}/audio`
 
 ### Supported Parameters
 | Parameter   | Description                                                                                                                                                                                                                                                                                                                                                                                     | Mandatory |
@@ -18,9 +23,11 @@ Speak text or play audio to **ONLY** a single conference member.
 </aside>
 
 {% common %}
+
 ### Example: Speak text to a conference member
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members/{memberId}/audio \
 	-u {token}:{secret} \
@@ -36,6 +43,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/
 ```
 
 {% sample lang="js" %}
+
 ```js
 //Speak sentence
 //Promise
@@ -61,6 +69,7 @@ client.Conference.speakSentenceToMember("conferenceID", "memberID", "Hello From 
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 //Speak sentence with options
 await client.Conference.PlayAudioToMemberAsync("{conferenceId1}", "{memberId1}", new PlayAudioData
@@ -76,6 +85,7 @@ await client.Conference.SpeakSentenceToMemberAsync("{conferenceId1}", "{memberId
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 # coming soon
 ```
@@ -83,6 +93,7 @@ await client.Conference.SpeakSentenceToMemberAsync("{conferenceId1}", "{memberId
 ### Example: Play audio to a conference member
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members/{memberId}/audio \
 	-u {token}:{secret} \
@@ -95,6 +106,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/
 ```
 
 {% sample lang="js" %}
+
 ```js
 //Play Audio file
 
@@ -121,6 +133,7 @@ client.Conference.playAudioAdvancedToMember("conferenceId", "memberId", options,
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 //Play audio file with options
 await client.Conference.PlayAudioToMemberAsync("{conferenceId1}", "{memberId1}", new PlayAudioData
@@ -134,7 +147,9 @@ await client.Conference.PlayAudioFileToMemberAsync("{conferenceId1}", "{memberId
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 # coming soon
 ```
 {% endmethod %}
+

@@ -1,6 +1,11 @@
 {% method %}
-## POST conferences/{conferenceId}/audio
+
+## Play audio in Conference
 Speak a text or play audio in the conference
+
+## Request URL
+
+<code class="post">POST</code> `https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/audio`
 
 ### Supported Parameters
 
@@ -19,9 +24,11 @@ Speak a text or play audio in the conference
 </aside>
 
 {% common %}
+
 ### Example: Speak text in conference
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/audio \
 	-u {token}:{secret} \
@@ -37,6 +44,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/
 ```
 
 {% sample lang="js" %}
+
 ```js
 //Speak sentence in a conference
 //Promise
@@ -59,6 +67,7 @@ client.Conference.playAudioAdvanced("conferenceId", options, function (err,res) 
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 // Speak sentence in a conference
 await client.Conference.SpeakSentenceAsync("{conferenceId1}", "Hello From Bandwidth");
@@ -73,6 +82,7 @@ await client.Conference.PlayAudioAsync("{conferenceId1}", new PlayAudioData {
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 conference.play_audio({
 	:sentence => "hola de Bandwidth",
@@ -83,9 +93,11 @@ conference.play_audio({
 ```
 
 {% common %}
+
 ### Example: Play audio in conference
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/audio \
 	-u {token}:{secret} \
@@ -98,6 +110,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/
 ```
 
 {% sample lang="js" %}
+
 ```js
 //Play Audio file on conference
 //Promise
@@ -117,6 +130,7 @@ client.Conference.playAudioAdvanced("conferenceId", options, function (err,res) 
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 // Play audio file in a conference
 await client.Conference.PlayAudioFileAsync("{conferenceId1}", "http://myurl.com/file.mp3");
@@ -129,6 +143,7 @@ await client.Conference.PlayAudioAsync("{conferenceId1}", new PlayAudioData {
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 conference.play_audio({
 	:file_url => "http://myurl.com/file.mp3",
@@ -137,3 +152,4 @@ conference.play_audio({
 ```
 
 {% endmethod %}
+

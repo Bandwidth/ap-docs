@@ -1,6 +1,11 @@
 {% method %}
-## GET domains
+
+## List Domains
 This returns a list of the domains that have been created
+
+### Request URL
+
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/domains`
 
 ## Properties
 | Property    | Description                                         |
@@ -11,9 +16,11 @@ This returns a list of the domains that have been created
 | id          | Unique string to identify the domain resource       |
 
 {% common %}
+
 ### Example: List all domains
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/domains \
 	-u {token}:{secret} \
@@ -21,6 +28,7 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/domains \
 ```
 
 {% sample lang="js" %}
+
 ```js
 client.Domain.list()
 .then(function (domains) {
@@ -29,18 +37,21 @@ client.Domain.list()
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var domains = client.Domain.List();
 var firstDomainName = domains.First().Name;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 domains = Domain.list(client)
 first_domain = domains.next
 first_domain_name = first_domain.name
 ```
 {% common %}
+
 > The above command returns JSON structured like this:
 
 ```json
@@ -60,3 +71,4 @@ first_domain_name = first_domain.name
 ]
 ```
 {% endmethod %}
+

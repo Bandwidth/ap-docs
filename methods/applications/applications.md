@@ -1,4 +1,8 @@
 # Applications
+
+### Base Url
+`https://api.catapult.inetwork.com/v1/users/{userId}/applications/`
+
 The Applications resource lets you define call and message handling applications. You write an application on your own servers and have Bandwidth API send events to it by configuring a callback URL.
 
 | Verb                               | Method                                                                                  | about                                |

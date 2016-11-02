@@ -1,11 +1,18 @@
 {% method %}
-## GET calls/{callId}/recordings
+
+## List all Call Recordings
 Retrieve all recordings related to the call.
 
+### Request URL
+
+<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/recordings`
+
 {% common %}
+
 ### Example: Get recordings for a call Id.
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/recordigns \
 	-u {token}:{secret} \
@@ -13,6 +20,7 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId
 ```
 
 {% sample lang="js" %}
+
 ```js
 // Promise
 client.Call.getRecordings(callId).then(function (list) {});
@@ -21,12 +29,14 @@ client.Call.getRecordings(callId, function (err, list) {});
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var recordings = client.Call.GetRecordings("{callId1}");
 var firstRecordingState = recordigns.First().State;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 recordings = call.get_recordings()
 first_recording = recordigns[0]
@@ -34,6 +44,7 @@ first_recording_state = first_recording[:state]
 ```
 
 {% common %}
+
 > The above command returns JSON structured like this:
 
 ```json
@@ -57,3 +68,4 @@ first_recording_state = first_recording[:state]
 ]
 ```
 {% endmethod %}
+

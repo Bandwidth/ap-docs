@@ -1,7 +1,12 @@
 {% method %}
-## POST calls/{callId}/audio
+
+## Play audio in active Call
 
 Plays an audio file or speak a sentence in a phone call.
+
+### Request URL
+
+<code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio`
 
 ### Supported Parameters
 
@@ -15,9 +20,11 @@ Plays an audio file or speak a sentence in a phone call.
 | loopEnabled | When value is `true` , the audio will keep playing in a loop. Default: `false`.                                                                                                                                                                                                                                                                                                                 | No        |
 | tag         | A string that will be included in the events delivered when the audio playback starts or finishes.                                                                                                                                                                                                                                                                                              | No        |
 {% common %}
+
 ### Example: Speak a Sentence
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio \
 	-u {token}:{secret} \
@@ -33,6 +40,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callI
 ```
 
 {% sample lang="js" %}
+
 ```js
 //Speak sentence with options
 var options = {
@@ -57,6 +65,7 @@ client.Call.speakSentence("callId", "Hello From Bandwidth", function (err, res) 
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 //Speak sentence with options
 await client.Call.PlayAudioAsync("{callId1}", new PlayAudioData
@@ -72,6 +81,7 @@ await client.Call.SpeakSentenceAsync("{callId1}", "Hello From Bandwidth");
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 call.play_audio({
 	:sentence => "hola de Bandwidth",
@@ -82,8 +92,10 @@ call.play_audio({
 ```
 
 {% common %}
+
 ### Example: Interrupt/stop a sentence from speaking.
 {% sample lang="bash" %}
+
 
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio \
@@ -93,6 +105,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callI
 ```
 
 {% sample lang="js" %}
+
 ```js
 // coming soon
 //Speak sentence in a call
@@ -105,11 +118,13 @@ client.Call.speakSentence("callId", "", function (err, res) {});
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 await client.Call.SpeakSentenceAsync("{callId1}", "");
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 call.play_audio({
 	:sentence => ""
@@ -117,9 +132,11 @@ call.play_audio({
 ```
 
 {% common %}
+
 ### Example: Play an Audio File
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio \
 	-u {token}:{secret} \
@@ -128,6 +145,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callI
 ```
 
 {% sample lang="js" %}
+
 ```js
 //Play Audio file on call
 
@@ -139,11 +157,13 @@ client.Call.playAudioFile("callId", "http://myurl.com/file.wav", function (err, 
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 await client.Call.PlayAudioFileAsync("{callId1}", "http://myurl.com/file.wav");
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 call.play_audio({
 	:file_url => "http://myurl.com/file.wav"
@@ -153,6 +173,7 @@ call.play_audio({
 
 ### Example: Stop an Audio File Playing
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio \
 	-u {token}:{secret} \
@@ -161,6 +182,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callI
 ```
 
 {% sample lang="js" %}
+
 ```js
 // coming soon in the mean time:
 //Stop Audio file on bridge
@@ -173,11 +195,13 @@ client.Call.playAudioFile("callId", "", function (err, res) {});
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 await client.Call.PlayAudioFileAsync("{callId1}", "");
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 call.play_audio({
 	:file_url => ""
@@ -185,6 +209,7 @@ call.play_audio({
 ```
 
 {% common %}
+
 ### Example: Create call and start recording it
 
 ### Example: Create a call in a bridge
@@ -193,3 +218,4 @@ call.play_audio({
 
 ### Example: Create an outbound call with tag property
 {% endmethod %}
+

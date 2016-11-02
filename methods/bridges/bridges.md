@@ -1,6 +1,10 @@
 # Bridges
 The Bridges resource allows you to bridge two calls together allowing for two way audio between them. A common example is bridging an incoming phone call together with a outgoing phone call.
 
+### Base URL
+
+`https://api.catapult.inetwork.com/v1/users/{userId}/bridges`
+
 | Verb                           | Method                                                                       | about                                                                   |
 |:-------------------------------|:-----------------------------------------------------------------------------|:------------------------------------------------------------------------|
 | <code class="get">GET</code>   | [`/v1/users/{userId}/bridges`](getBridges.md)                                | Get a list of previous bridges                                          |

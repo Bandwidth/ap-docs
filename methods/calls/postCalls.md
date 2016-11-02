@@ -1,6 +1,12 @@
 {% method %}
-## POST calls
+
+## Create Call
 Creates a new outbound phone call.
+
+### Request URL
+
+<code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/calls`
+
 
 ### Supported Parameters
 
@@ -23,6 +29,7 @@ Creates a new outbound phone call.
 | sipHeaders           | Map of Sip headers prefixed by `X-`. Up to 5 headers can be sent per call.                                                                   | No        |
 
 {% common %}
+
 ### Example: Create an outbound phone call
 
 <aside class="alert general small">
@@ -30,6 +37,7 @@ The call resource returned in the "Location" header can be modified to change th
 </aside>
 
 {% sample lang="json"%}
+
 
 ```json
 {
@@ -52,6 +60,7 @@ The call resource returned in the "Location" header can be modified to change th
 ```
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
 	-u {token}:{secret} \
@@ -65,6 +74,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
 ```
 
 {% sample lang="js" %}
+
 ```js
 client.Call.create({
 	from: "{fromNumber}",
@@ -77,6 +87,7 @@ client.Call.create({
 
 
 {% sample lang="csharp" %}
+
 ```csharp
 var call = await client.Call.CreateAsync(new CreateCallData{
 	From = "{fromNumber}",
@@ -86,11 +97,13 @@ var call = await client.Call.CreateAsync(new CreateCallData{
 
 
 {% sample lang="ruby" %}
+
 ```ruby
 call = Call.create(client, {:from => "{fromNumber}", :to => "{toNumber}"})
 ```
 
 {% common %}
+
 
 ### Example: Create an outbound call to a SIP URI
 
@@ -102,7 +115,9 @@ Make a call to a SIP URI:
 * SIPS is not currently supported.
 </aside>
 
-{% sample lang="bash" %}{% sample lang="bash" %}
+{% sample lang="bash" %}
+{% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
 	-u {token}:{secret} \
@@ -120,6 +135,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
 ```
 
 {% sample lang="js" %}
+
 ```js
 client.Call.create({
 	from: "{fromNumber}",
@@ -136,6 +152,7 @@ client.Call.create({
 
 
 {% sample lang="csharp" %}
+
 ```csharp
 var call = await client.Call.CreateAsync(new CreateCallData{
 	From = "{fromNumber}",
@@ -149,6 +166,7 @@ var call = await client.Call.CreateAsync(new CreateCallData{
 
 
 {% sample lang="ruby" %}
+
 ```ruby
 call = Call.create(client, {
 	:from => "{fromNumber}",
@@ -160,6 +178,7 @@ call = Call.create(client, {
 })
 ```
 {% common %}
+
 ### Example: Create call and start recording it
 
 ### Example: Create a call in a bridge
@@ -168,3 +187,4 @@ call = Call.create(client, {
 
 ### Example: Create an outbound call with tag property
 {% endmethod %}
+

@@ -1,6 +1,11 @@
 {% method %}
-## GET calls
+
+## List Calls
 Gets a list of active and historic calls you made or received. Since this operation uses HTTP GET, all the properties are specified as HTTP request parameters.
+
+### Request URL
+
+<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/calls/`
 
 ### Supported Parameters
 
@@ -15,15 +20,18 @@ Gets a list of active and historic calls you made or received. Since this operat
 | sortOrder    | How to sort the calls. Values are `asc` or `desc` If no value is specified the default value is `desc`                                                               | No        |
 
 {% common %}
+
 ### Example: List your calls
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/calls/ \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
 ```
 {% sample lang="js" %}
+
 ```js
 client.Call.list()
 .then(function (response) {
@@ -32,6 +40,7 @@ client.Call.list()
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var calls = client.Call.List();
 var firstCallTo = calls.First().To;
@@ -39,6 +48,7 @@ var firstCallTo = calls.First().To;
 
 
 {% sample lang="ruby" %}
+
 ```ruby
 calls = Call.list(client)
 first_call = calls.next
@@ -46,6 +56,7 @@ first_call_to = first_call[:to]
 ```
 
 {% common %}
+
 > The above command returns JSON structured like this:
 
 ```json
@@ -86,12 +97,14 @@ first_call_to = first_call[:to]
 ### Example: List your calls by from number {fromNumber}
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/calls?from=%2b19195551212 \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
 ```
 {% sample lang="js" %}
+
 ```js
 client.Call.list({
 	from: "+19195551212"
@@ -103,15 +116,18 @@ client.Call.list({
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var calls = client.Call.List(new CallQuery{From = "+19195551212"});
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 calls = Call.list(client, {:from => "+19195551212"})
 ```
 {% common %}
+
 > The above command returns JSON structured like this:
 
 ```json
@@ -145,3 +161,4 @@ calls = Call.list(client, {:from => "+19195551212"})
 ]
 ```
 {% endmethod %}
+

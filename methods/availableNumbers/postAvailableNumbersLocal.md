@@ -1,6 +1,13 @@
 {% method %}
-## POST availableNumbers/local
+
+## Order Local Phone Number
+
+### Request URL
+<code class="post">POST</code> `https://api.catapult.inetwork.com/v1/availableNumbers/local?<queryParams>`
+
 Searches and order available local numbers by location criteria.
+
+### Supported Parameters
 
 | Parameter          | Description                                                                                                                                                                                                                           | Mandatory |
 |:-------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
@@ -21,11 +28,13 @@ Searches and order available local numbers by location criteria.
 </aside>
 
 {% common %}
+
 ### Example: Search and allocate for city/state
 
 > To search and order two available local numbers in the city of Cary, North Carolina, make the following request
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST  https://api.catapult.inetwork.com/v1/availableNumbers/local?city=Cary&state=NC&quantity=2 \
   -u {token}:{secret} \
@@ -33,6 +42,7 @@ curl -v -X POST  https://api.catapult.inetwork.com/v1/availableNumbers/local?cit
 ```
 
 {% sample lang="js" %}
+
 ```js
 // Search 2 available local phone numbers with area code 910 and order them
 
@@ -44,6 +54,7 @@ client.AvailableNumber.serchAndOrder("local", { areaCode : "910", quantity : 2 }
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var results = await client.AvailableNumber.SearchAndOrderLocalAsync(
   new LocalNumberQueryForOrder{ AreaCode = "910", Quantity = 2});
@@ -53,6 +64,7 @@ var numberId = firstResult.Id;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 results = AvailableNumber.search_and_order_local(client, {area_code: '910', quantity: 2})
 first_result = results.next
@@ -62,6 +74,7 @@ number_id = first_result[:id]
 
 
 {% common %}
+
 > The above command returns a `201` response JSON structured like this:
 
 ```json
@@ -81,3 +94,4 @@ number_id = first_result[:id]
 ]
 ```
 {% endmethod %}
+

@@ -1,6 +1,11 @@
 {% method %}
-## POST conferences/{conferenceId}/members
+
+## Add Member to Conference
 Add members to a conference.
+
+## Request URL
+
+<code class="post">POST</code> `https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members`
 
 ### Supported Parameters
 | Parameter   | Description                                                                                                                                            | Mandatory |
@@ -12,9 +17,11 @@ Add members to a conference.
 | hold        | If `true`, member can’t hear or speak in the conference. If `false`, member can hear and speak in the conference (unless set at the conference level). | No        |
 
 {% common %}
+
 ### Example: Add member to a conference
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members \
 	-u {token}:{secret} \
@@ -29,6 +36,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/
 ```
 
 {% sample lang="js" %}
+
 ```js
 // Promise
 client.Conference.createMember("conferenceId", {callId: "callID"}).then(function(member){});
@@ -37,6 +45,7 @@ client.Conference.createMember("conferenceId", {callId: "callID"}, function(err,
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var member = await client.Conference.CreateMemberAsync("{conferenceId1}", new CreateConferenceMemberData {
 	CallId = "callID"
@@ -44,6 +53,7 @@ var member = await client.Conference.CreateMemberAsync("{conferenceId1}", new Cr
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 member = conference.create_member("{conferenceId1}", {
 	:call_id => "callId"
@@ -51,6 +61,7 @@ member = conference.create_member("{conferenceId1}", {
 ```
 
 {% common %}
+
 > The above command returns HTTP Header structured like this:
 
 ```
@@ -58,3 +69,4 @@ HTTP/1.1 201 CREATED
 Location: /v1/users/{userId}/conferences/{confId}/members/{memberId}
 ```
 {% endmethod %}
+

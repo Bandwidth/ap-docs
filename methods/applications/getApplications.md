@@ -1,6 +1,12 @@
 {% method %}
-## GET applications
+
+## List Applications
 Get a list of your applications
+
+### Request URL
+
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId}`
+
 
 ### Supported Parameters
 | Parameter | Description                                                                                                                                                                  | Mandatory |
@@ -23,9 +29,11 @@ Get a list of your applications
 | incomingMessageFallbackUrl        | The URL used to send the callback event if the request to incomingMessageUrl fails.                                                                                                                         |
 
 {% common %}
+
 ### Example: List your applications.
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/applications \
   -u {token}:{secret} \
@@ -33,6 +41,7 @@ curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/app
 ```
 
 {% sample lang="js" %}
+
 ```js
 //Promise
 client.Application.list()
@@ -51,12 +60,14 @@ client.Application.list()
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var applications = client.Application.List();
 var firstApplicationName = applications.First().Name;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 list = Application.list(client)
 first_application = list.next
@@ -64,6 +75,7 @@ first_application_name = first_application[:name]
 ```
 
 {% common %}
+
 > The above command returns JSON structured like this:
 
 ```json
@@ -85,3 +97,4 @@ first_application_name = first_application[:name]
 ]
 ```
 {% endmethod %}
+

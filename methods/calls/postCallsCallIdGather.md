@@ -1,6 +1,11 @@
 {% method %}
-## POST calls/{callId}/gather
+
+## Create Gather on active Call
 Collects a series of DTMF digits from a phone call with an optional prompt. This request returns immediately. When gather finishes, an event with the results will be posted to the callback URL.
+
+### Request URL
+
+<code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather`
 
 ### Supported Parameters
 
@@ -18,10 +23,12 @@ Collects a series of DTMF digits from a phone call with an optional prompt. This
 | prompt.fileUrl     | The location of an audio file to play (WAV and MP3 supported).                                                                                                                                                                                                                                                                                                                                                                                                                      | No        |
 
 {% common %}
+
 ### Example: Play a prompt sentence
 Play a prompt sentence, then wait until 5 digits are pressed. Stop gathering digits if * is pressed, or if 7 seconds pass with no digits pressed.
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 	-u {token}:{secret} \
@@ -39,6 +46,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 ```
 
 {% sample lang="js" %}
+
 ```js
 //Create Gather
 //The gather ends if either 0, #, or * is detected
@@ -58,6 +66,7 @@ client.Call.createGather("callId", options, function(err, res) {});
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var gather = await client.Call.CreateGatherAsync("{callId1}", new CreateGatherData {
 	MaxDigits = "5",
@@ -70,6 +79,7 @@ var gather = await client.Call.CreateGatherAsync("{callId1}", new CreateGatherDa
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 gather = call.create_gather({
 	:max_digits => "5",
@@ -81,3 +91,4 @@ gather = call.create_gather({
 })
 ```
 {% endmethod %}
+

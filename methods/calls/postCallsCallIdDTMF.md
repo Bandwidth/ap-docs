@@ -1,6 +1,11 @@
 {% method %}
-## POST calls/{callId}/dtmf
+
+## Send DTMF in active Call
 Send DTMF (phone keypad digit presses).
+
+### Request URL
+
+<code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/dtmf`
 
 ### Supported Parameters
 
@@ -9,9 +14,11 @@ Send DTMF (phone keypad digit presses).
 | dtmfOut   | String containing the DTMF characters to be sent in a call. | No        |
 
 {% common %}
+
 ### Example: Send the digits "9193334444"
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/dtmf \
 	-u {token}:{secret} \
@@ -20,6 +27,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callI
 ```
 
 {% sample lang="js" %}
+
 ```js
 // Promise
 client.Call.sendDtmf(callId, "9193334444").then(function () {});
@@ -28,12 +36,15 @@ client.Call.sendDtmf(callId, "9193334444", function (err) {});
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 await client.Call.SendDtmfAsync("{callId1}", new SendDtmfData{DtmfOut = "9193334444"});
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 call.set_dtmf("9193334444")
 ```
 {% endmethod %}
+

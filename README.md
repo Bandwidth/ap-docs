@@ -46,10 +46,21 @@ data-postman-param="env%5BBandwidth%20Creds%5D=W3sia2V5Ijoic2VjcmV0IiwidmFsdWUiO
 		var apiSecret = document.getElementById('apiSecret-input').value;
 		var userId = document.getElementById('userId-input').value;
 		var tn = document.getElementById('tn-input').value;
+
+    if (typeof(Storage) !== "undefined") {
+
+        localStorage.setItem("apiToken", apiToken);
+        localStorage.setItem("apiSecret", apiSecret);
+        localStorage.setItem("userId", userId);
+        localStorage.setItem("tn", tn);
+    } else {
+        Console.log("No localStorage Support");
+    }
+
 		envData = { token: apiToken, secret: apiSecret, userId: userId, toNumber: tn };
-		console.log(envData);
+		//console.log(envData);
 		var res = _pm('env.assign', 'Bandwidth Creds', envData);
-		console.log("PM: " + res);
+		//console.log("PM: " + res);
   };
 </script>
 

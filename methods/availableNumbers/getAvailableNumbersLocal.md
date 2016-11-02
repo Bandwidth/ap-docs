@@ -1,6 +1,10 @@
 {% method %}
-## GET availableNumbers/local
+## List available local numbers
 Searches for available local numbers by location or pattern criteria.
+
+### Request URL
+
+<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/availableNumbers/local?<queryParams>`
 
 ### Supported Parameters
 
@@ -106,6 +110,7 @@ first_number = first_result[:number]
 > To find up to two available local numbers in the area code 919 which the numbers begins with 867 and inside overlayed areas, make the following request:
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET  https://api.catapult.inetwork.com/v1/availableNumbers/local?city=Cary&state=NC&pattern=*2%3F9*&quantity=2 \
   -u {token}:{secret} \
@@ -119,6 +124,7 @@ curl -v -X GET  https://api.catapult.inetwork.com/v1/availableNumbers/local?city
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var results = await client.AvailableNumber.SearchLocalAsync(
   new LocalNumberQuery{
@@ -132,6 +138,7 @@ var firstNumber = results.First().Number;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 results = AvailableNumber.search_local(client, {
   :city => "Cary",

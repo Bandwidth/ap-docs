@@ -1,7 +1,12 @@
 {% method %}
-## GET bridges/{bridgeId}
 
+## Fetch Bridge Information
 Gets information about a specific bridge. No query parameters are supported.
+
+### Request URL
+
+<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}`
+
 ## Properties
 
 | Property      | Description                                              |
@@ -26,9 +31,11 @@ Gets information about a specific bridge. No query parameters are supported.
 | error     | Some error was detected in bridge.                                                                                 |
 
 {% common %}
+
 ### Example: Get information about a bridge
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId} \
 	-u {token}:{secret} \
@@ -36,6 +43,7 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{brid
 ```
 
 {% sample lang="js" %}
+
 ```js
 //Promise
 client.Bridge.get('brg-65dhjwrmbasiei')
@@ -56,18 +64,21 @@ client.Bridge.get('brg-65dhmbasiei',
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var bridge = await client.Bridge.GetAsync("brg-65dhmbasiei");
 var state = bridge.State;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 bridge = Bridge.get(client, "brg-65dhmbasiei")
 state = bridge[:state]
 ```
 
 {% common %}
+
 > The above command returns JSON structured like this:
 
 ```
@@ -82,3 +93,4 @@ state = bridge[:state]
 }
 ```
 {% endmethod %}
+

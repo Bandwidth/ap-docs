@@ -1,7 +1,12 @@
 {% method %}
-## GET bridges
+
+## List Bridges
 
 Get list of bridges for a given user.
+
+### Request URL
+
+<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/bridges?<queryParams>`
 
 ### Supported Parameters
 
@@ -34,9 +39,11 @@ Get list of bridges for a given user.
 | error     | Some error was detected in bridge.                                                                                 |
 
 {% common %}
+
 ### Example: List of a user's bridges
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/bridges/transations \
   -u {token}:{secret} \
@@ -44,6 +51,7 @@ curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/bridges/tra
 ```
 
 {% sample lang="js" %}
+
 ```js
 client.Bridge.list()
 .then(function (response) {
@@ -61,18 +69,21 @@ client.Bridge.list()
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var bridges = client.Bridge.List();
 var firstBridgeState = bridges.First().State;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 bridges = Bridge.list(client)
 first_bridge = bridges.next
 first_bridge_state = first_bridge[:state]
 ```
 {% common %}
+
 
 > The above command returns JSON structured like this:
 
@@ -99,3 +110,4 @@ first_bridge_state = first_bridge[:state]
 ]
 ```
 {% endmethod %}
+

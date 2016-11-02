@@ -1,9 +1,19 @@
 {% method %}
-## GET calls/{callId}/events/{callEventId}
+
+## Fetch Event information
 
 Gets information about one call event. No query parameters are supported.
 
+### Request URL
+
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/events/{eventId}`
+
+{% common %}
+
+### Example: Fetch event information
+
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/events/{eventId} \
 	-u {token}:{secret} \
@@ -11,6 +21,7 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId
 ```
 
 {% sample lang="js" %}
+
 ```js
 // Promise
 client.Call.getEvent(callId, eventId).then(function (callEvent) {});
@@ -19,18 +30,21 @@ client.Call.getEvent(callId, eventId, function (err, callEvent) {});
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var callEvent = async client.Call.GetEventAsync("{callId1}", "{eventId1}");
 var eventName = callEvent.Name;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 call_event = call.get_event("{eventId1}")
 event_name = call_event[:name]
 ```
 
 {% common %}
+
 > The above command returns JSON structured like this:
 
 ```
@@ -42,3 +56,4 @@ event_name = call_event[:name]
 }
 ```
 {% endmethod %}
+

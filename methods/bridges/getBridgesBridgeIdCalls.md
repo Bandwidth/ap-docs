@@ -1,9 +1,15 @@
 {% method %}
-## GET bridges/{bridgeId}/calls
+
+## List calls in Bridge
 
 Get the list of calls that are on the bridge.
 
+### Request URL
+
+<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/calls`
+
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/calls \
 	-u {token}:{secret} \
@@ -11,6 +17,7 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{brid
 ```
 
 {% sample lang="js" %}
+
 ```js
 //Promise
 client.Bridge.getCalls('brg-65dhjbiei')
@@ -31,12 +38,14 @@ client.Bridge.getCalls('brg-65dhjrmbasiei',
   ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var calls = client.Bridge.GetCalls("brg-65dhmbasiei");
 var lastCallTo = calls.Last().To;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 calls = bridge.get_calls()
 first_call = calls.next
@@ -47,6 +56,7 @@ first_call_to = first_call[:to]
   > The above command returns JSON structured like this:
 
 {% sample lang="js" %}
+
 ```json
 [
     {
@@ -79,3 +89,4 @@ first_call_to = first_call[:to]
 ```
 
 {% endmethod %}
+

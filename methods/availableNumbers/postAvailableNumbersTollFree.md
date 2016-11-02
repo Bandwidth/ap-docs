@@ -1,6 +1,10 @@
 {% method %}
-## POST availableNumbers/tollFree
+
+## Order Toll Free Phone Number
 Searches and order available Toll Free numbers.
+
+### Request URL
+<code class="post">POST</code> `https://api.catapult.inetwork.com/v1/availableNumbers/tollFree`
 
 ### Supported Parameters
 
@@ -9,10 +13,12 @@ Searches and order available Toll Free numbers.
 | quantity  | The maximum quantity of numbers for searching and order (default 1, maximum 10). | No        |
 
 {% common %}
+
 ### Example: Search and activate toll free phone number
 > To search and order two available toll free numbers, make the following request:
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST  https://api.catapult.inetwork.com/v1/availableNumbers/tollFree?quantity=2 \
   -u {token}:{secret} \
@@ -20,6 +26,7 @@ curl -v -X POST  https://api.catapult.inetwork.com/v1/availableNumbers/tollFree?
 ```
 
 {% sample lang="js" %}
+
 
 ```js
 //Search and order tollfree numbers
@@ -45,6 +52,7 @@ client.AvailableNumber.searchAndOrder("tollFree", {
 
 
 {% sample lang="csharp" %}
+
 ```csharp
 var results = await client.AvailableNumber.SearchAndOrderTollFreeAsync(
   new TollFreeNumberQueryForOrder{Quantity = 2}
@@ -55,6 +63,7 @@ var numberId = firstResult.Id;
 ```
 {% sample lang="ruby" %}
 
+
 ```ruby
 results = AvailableNumber.search_and_order_toll_free(client, {quantity: 2})
 first_result = results.next
@@ -64,6 +73,7 @@ number_id = first_result[:id]
 ```
 
 {% common %}
+
 > The above command returns a `201` response JSON structured like this:
 
 ```json
@@ -83,3 +93,4 @@ number_id = first_result[:id]
 ]
 ```
 {% endmethod %}
+
