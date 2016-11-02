@@ -726,7 +726,7 @@
                 <a href="../conferences/postConferencesConferenceIdMembersMemberId.html">
             
                     
-                    <code class="post">POST</code> Update Member State/Property
+                    <code class="post">POST</code> Update Member
             
                 </a>
             
@@ -752,7 +752,7 @@
                 <a href="../conferences/postConferencesConferenceIdMembersMemberIdAudio.html">
             
                     
-                    <code class="post">POST</code> Play audio to member
+                    <code class="post">POST</code> Play audio to Member
             
                 </a>
             
@@ -1947,8 +1947,10 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"><h2 id="post-callscallidgather">POST calls/{callId}/gather</h2>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="create-gather-on-active-call">Create Gather on active Call</h2>
 <p>Collects a series of DTMF digits from a phone call with an optional prompt. This request returns immediately. When gather finishes, an event with the results will be posted to the callback URL.</p>
+<h3 id="request-url">Request URL</h3>
+<p><code class="post">POST</code><code>https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather</code></p>
 <h3 id="supported-parameters">Supported Parameters</h3>
 <table>
 <thead>
@@ -2027,7 +2029,8 @@
         }
     }&apos;</span>
 </code></pre>
-</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">//Create Gather</span>
+<p>{% sample lang=&quot;js&quot; %}</p>
+<pre><code class="lang-js"><span class="hljs-comment">//Create Gather</span>
 <span class="hljs-comment">//The gather ends if either 0, #, or * is detected</span>
 <span class="hljs-keyword">var</span> options =     {
     <span class="hljs-string">&quot;maxDigits&quot;</span>:<span class="hljs-string">&quot;5&quot;</span>,
@@ -2043,7 +2046,8 @@ client.Call.createGather(<span class="hljs-string">&quot;callId&quot;</span>, op
 <span class="hljs-comment">//Callback</span>
 client.Call.createGather(<span class="hljs-string">&quot;callId&quot;</span>, options, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, res</span>) </span>{});
 </code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> gather = <span class="hljs-keyword">await</span> client.Call.CreateGatherAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>, <span class="hljs-keyword">new</span> CreateGatherData {
+<p>{% sample lang=&quot;csharp&quot; %}</p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> gather = <span class="hljs-keyword">await</span> client.Call.CreateGatherAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>, <span class="hljs-keyword">new</span> CreateGatherData {
     MaxDigits = <span class="hljs-string">&quot;5&quot;</span>,
     TerminatingDigits = <span class="hljs-string">&quot;*&quot;</span>,
     InterDigitTimeout = <span class="hljs-string">&quot;7&quot;</span>,
@@ -2062,6 +2066,7 @@ client.Call.createGather(<span class="hljs-string">&quot;callId&quot;</span>, op
 })
 </code></pre>
 </div></div></div>
+
 
                                 
                                 </section>
@@ -2095,7 +2100,7 @@ client.Call.createGather(<span class="hljs-string">&quot;callId&quot;</span>, op
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST Create Gather on Call","level":"2.1.5.11","depth":3,"next":{"title":"GET Gather info","level":"2.1.5.12","depth":3,"path":"methods/calls/getCallsCallIdGatherGatherId.md","ref":"methods/calls/getCallsCallIdGatherGatherId.md","articles":[]},"previous":{"title":"GET List Call Transcriptions","level":"2.1.5.10","depth":3,"path":"methods/calls/getCallsCallIdTranscriptions.md","ref":"methods/calls/getCallsCallIdTranscriptions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/postCallsCallIdGather.md","mtime":"2016-10-27T14:04:25.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-01T20:59:24.582Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST Create Gather on Call","level":"2.1.5.11","depth":3,"next":{"title":"GET Gather info","level":"2.1.5.12","depth":3,"path":"methods/calls/getCallsCallIdGatherGatherId.md","ref":"methods/calls/getCallsCallIdGatherGatherId.md","articles":[]},"previous":{"title":"GET List Call Transcriptions","level":"2.1.5.10","depth":3,"path":"methods/calls/getCallsCallIdTranscriptions.md","ref":"methods/calls/getCallsCallIdTranscriptions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/postCallsCallIdGather.md","mtime":"2016-11-02T16:02:08.852Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-02T16:14:16.667Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

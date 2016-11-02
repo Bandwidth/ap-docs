@@ -726,7 +726,7 @@
                 <a href="../conferences/postConferencesConferenceIdMembersMemberId.html">
             
                     
-                    <code class="post">POST</code> Update Member State/Property
+                    <code class="post">POST</code> Update Member
             
                 </a>
             
@@ -752,7 +752,7 @@
                 <a href="../conferences/postConferencesConferenceIdMembersMemberIdAudio.html">
             
                     
-                    <code class="post">POST</code> Play audio to member
+                    <code class="post">POST</code> Play audio to Member
             
                 </a>
             
@@ -1947,7 +1947,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"><h2 id="get-accounttransactions">GET account/transactions</h2>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="get-transactions"><code class="get">GET</code> Transactions</h2>
+<h3 id="request-url">Request Url</h3>
+<p><code class="get">GET</code> <code>https://api.catapult.inetwork.com/v1/users/{userId}/account/transactions</code></p>
 <h3 id="query-parameters">Query Parameters</h3>
 <table>
 <thead>
@@ -2130,7 +2132,7 @@
 </table>
 </div><div class="api-method-code"><div class="api-method-example"><h3 id="example-get-transactions">Example: Get transactions</h3>
 </div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations \
-  -u {token}:{secret} \
+  -u {{apiToken}}:{secret} \
   -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
 </code></pre>
 </div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-javascript"><span class="hljs-comment">//Promise</span>
@@ -2179,7 +2181,7 @@ first_transaction_amount = first_transaction[<span class="hljs-symbol">:amount</
 </code></pre>
 <h3 id="example-get-transactions-by-date">Example: Get transactions by date</h3>
 </div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?fromDate=2013-02-21T13:38:00 \
-  -u {token}:{secret} \
+  -u {{apiToken}}:{secret} \
   -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
 </code></pre>
 </div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-javascript"><span class="hljs-comment">//Get transactions filtering by date</span>
@@ -2224,7 +2226,7 @@ client.Account.getTransactions(params)
 </code></pre>
 <h3 id="example-get-transactions-filtering-by-date">Example: Get transactions filtering by date</h3>
 </div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?toDate=2013-02-21T13:40:00&amp;fromDate=2013-02-21T13:38:00 \
-  -u {token}:{secret} \
+  -u {{apiToken}}:{secret} \
   -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
 </code></pre>
 </div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-javascript"><span class="hljs-comment">//Get transactions filtering by date</span>
@@ -2269,7 +2271,7 @@ client.Account.getTransactions(params)
 </code></pre>
 <h3 id="example-get-transactions-limiting-result">Example: Get transactions limiting result</h3>
 </div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?maxItems=1 \
-  -u {token}:{secret} \
+  -u {{apiToken}}:{secret} \
   -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
 </code></pre>
 </div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">//Get transactions limiting result</span>
@@ -2312,7 +2314,7 @@ client.Account.getTransactions(params)
 </code></pre>
 <h3 id="example-get-transactions-of-payment-type">Example: Get transactions of payment type</h3>
 </div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?<span class="hljs-built_in">type</span>=Payment \
-  -u {token}:{secret} \
+  -u {{apiToken}}:{secret} \
   -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
 </code></pre>
 </div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">//Get transactions of `payment` type</span>
@@ -2392,7 +2394,7 @@ client.Account.getTransactions(params)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET Account transactions","level":"2.1.1.2","depth":3,"next":{"title":"/applications","level":"2.1.2","depth":2,"path":"methods/applications/applications.md","ref":"methods/applications/applications.md","articles":[{"title":"GET List Application","level":"2.1.2.1","depth":3,"path":"methods/applications/getApplications.md","ref":"methods/applications/getApplications.md","articles":[]},{"title":"POST Create Application","level":"2.1.2.2","depth":3,"path":"methods/applications/postApplications.md","ref":"methods/applications/postApplications.md","articles":[]},{"title":"GET Application info","level":"2.1.2.3","depth":3,"path":"methods/applications/getApplicationsApplicationId.md","ref":"methods/applications/getApplicationsApplicationId.md","articles":[]},{"title":"POST Update Application","level":"2.1.2.4","depth":3,"path":"methods/applications/postApplicationsApplicationId.md","ref":"methods/applications/postApplicationsApplicationId.md","articles":[]},{"title":"DELETE Remove Application","level":"2.1.2.5","depth":3,"path":"methods/applications/deleteApplicationsApplicationId.md","ref":"methods/applications/deleteApplicationsApplicationId.md","articles":[]}]},"previous":{"title":"GET Account info","level":"2.1.1.1","depth":3,"path":"methods/account/getAccount.md","ref":"methods/account/getAccount.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/account/getAccountTransactions.md","mtime":"2016-10-27T14:04:25.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-01T20:59:24.582Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET Account transactions","level":"2.1.1.2","depth":3,"next":{"title":"/applications","level":"2.1.2","depth":2,"path":"methods/applications/applications.md","ref":"methods/applications/applications.md","articles":[{"title":"GET List Application","level":"2.1.2.1","depth":3,"path":"methods/applications/getApplications.md","ref":"methods/applications/getApplications.md","articles":[]},{"title":"POST Create Application","level":"2.1.2.2","depth":3,"path":"methods/applications/postApplications.md","ref":"methods/applications/postApplications.md","articles":[]},{"title":"GET Application info","level":"2.1.2.3","depth":3,"path":"methods/applications/getApplicationsApplicationId.md","ref":"methods/applications/getApplicationsApplicationId.md","articles":[]},{"title":"POST Update Application","level":"2.1.2.4","depth":3,"path":"methods/applications/postApplicationsApplicationId.md","ref":"methods/applications/postApplicationsApplicationId.md","articles":[]},{"title":"DELETE Remove Application","level":"2.1.2.5","depth":3,"path":"methods/applications/deleteApplicationsApplicationId.md","ref":"methods/applications/deleteApplicationsApplicationId.md","articles":[]}]},"previous":{"title":"GET Account info","level":"2.1.1.1","depth":3,"path":"methods/account/getAccount.md","ref":"methods/account/getAccount.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/account/getAccountTransactions.md","mtime":"2016-11-02T15:25:40.966Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-02T16:14:16.667Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

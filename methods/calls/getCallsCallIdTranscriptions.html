@@ -726,7 +726,7 @@
                 <a href="../conferences/postConferencesConferenceIdMembersMemberId.html">
             
                     
-                    <code class="post">POST</code> Update Member State/Property
+                    <code class="post">POST</code> Update Member
             
                 </a>
             
@@ -752,7 +752,7 @@
                 <a href="../conferences/postConferencesConferenceIdMembersMemberIdAudio.html">
             
                     
-                    <code class="post">POST</code> Play audio to member
+                    <code class="post">POST</code> Play audio to Member
             
                 </a>
             
@@ -1947,8 +1947,10 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"><h2 id="get-callscallidtranscriptions">GET calls/{callId}/transcriptions</h2>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="list-all-call-transcriptions">List all Call Transcriptions</h2>
 <p>Retrieve all transcriptions related to the call.</p>
+<h3 id="request-url">Request URL</h3>
+<p><code class="get">GET</code><code>https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/transcriptions</code></p>
 </div><div class="api-method-code"><div class="api-method-example"><h3 id="example-retrieve-all-transcriptions-related-to-the-call">Example: Retrieve all transcriptions related to the call.</h3>
 </div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/transcriptions \
     -u {token}:{secret} \
@@ -1991,6 +1993,7 @@ first_transcription_state = transcriptions[<span class="hljs-number">0</span>][<
 </code></pre>
 </div></div></div>
 
+
                                 
                                 </section>
                             
@@ -2023,7 +2026,7 @@ first_transcription_state = transcriptions[<span class="hljs-number">0</span>][<
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET List Call Transcriptions","level":"2.1.5.10","depth":3,"next":{"title":"POST Create Gather on Call","level":"2.1.5.11","depth":3,"path":"methods/calls/postCallsCallIdGather.md","ref":"methods/calls/postCallsCallIdGather.md","articles":[]},"previous":{"title":"GET List Call Recordings","level":"2.1.5.9","depth":3,"path":"methods/calls/getCallsCallIdRecordings.md","ref":"methods/calls/getCallsCallIdRecordings.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/getCallsCallIdTranscriptions.md","mtime":"2016-10-27T14:04:25.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-01T20:59:24.582Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET List Call Transcriptions","level":"2.1.5.10","depth":3,"next":{"title":"POST Create Gather on Call","level":"2.1.5.11","depth":3,"path":"methods/calls/postCallsCallIdGather.md","ref":"methods/calls/postCallsCallIdGather.md","articles":[]},"previous":{"title":"GET List Call Recordings","level":"2.1.5.9","depth":3,"path":"methods/calls/getCallsCallIdRecordings.md","ref":"methods/calls/getCallsCallIdRecordings.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/getCallsCallIdTranscriptions.md","mtime":"2016-11-02T15:56:45.938Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-02T16:14:16.667Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

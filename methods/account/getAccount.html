@@ -726,7 +726,7 @@
                 <a href="../conferences/postConferencesConferenceIdMembersMemberId.html">
             
                     
-                    <code class="post">POST</code> Update Member State/Property
+                    <code class="post">POST</code> Update Member
             
                 </a>
             
@@ -752,7 +752,7 @@
                 <a href="../conferences/postConferencesConferenceIdMembersMemberIdAudio.html">
             
                     
-                    <code class="post">POST</code> Play audio to member
+                    <code class="post">POST</code> Play audio to Member
             
                 </a>
             
@@ -1948,8 +1948,50 @@
                                 <section class="normal markdown-section">
                                 
                                 <div class="api-method"><div class="api-method-definition"><h2 id="get-account"><code class="get">GET</code> Account</h2>
-<h3 id="url">URL:</h3>
-<p><code>https://api.catapult.inetwork.com/v1/users/{userId}/account</code></p>
+<script>
+function myFunction() {
+  'use strict';
+  var newApiToken = localStorage.getItem("apiToken");
+  var newApiSecret = localStorage.getItem("apiSecret");
+  var newUserId = localStorage.getItem("userId");
+  var tn = localStorage.getItem("tn");
+  var oldUserId = "{{userId}}";
+  var oldApiToken = "{{apiToken}}";
+  var oldApiSecret = "{{apiSecret}}";
+
+  var targetedElements = 'code:not(.get, .post, .delete, .put)';
+
+  if (newUserId !== null){
+    var oldUserIdMatch = new RegExp(oldUserId, 'g');
+    $(targetedElements).each(function () {
+      $(this).text($(this).text().replace(oldUserIdMatch, newUserId));
+    });
+  }
+
+  if (newApiToken !== null){
+    var oldApiTokenMatch = new RegExp(oldApiToken, 'g');
+    $(targetedElements).each(function () {
+      $(this).text($(this).text().replace(oldApiTokenMatch, newApiToken));
+    });
+  }
+
+  if (newApiSecret !== null) {
+    var oldApiSecretMatch = new RegExp(oldApiSecret, 'g');
+    $(targetedElements).each(function () {
+      $(this).text($(this).text().replace(oldApiSecretMatch, newApiSecret));
+    });
+  }
+};
+
+</script>
+
+
+
+<h3 id="request-url">Request URL:</h3>
+<p><code class="get">GET</code> <code>https://api.catapult.inetwork.com/v1/users/{{userId}}/account</code></p>
+<button onclick="myFunction()">Update Creds</button>
+
+
 <h3 id="account-properties">Account Properties</h3>
 <table>
 <thead>
@@ -1970,8 +2012,8 @@
 </tbody>
 </table>
 </div><div class="api-method-code"><div class="api-method-example"><h3 id="get-an-account-object-no-query-parameters-are-supported">Get an Account object. No query parameters are supported.</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account \
-  -u {token}:{secret} \
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{{userId}}/account \
+  -u {{apiToken}}:{{apiSecret}} \
   -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
 </code></pre>
 </div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-javascript"><span class="hljs-comment">// Promise</span>
@@ -2027,7 +2069,7 @@ balance = account[<span class="hljs-symbol">:balance</span>]
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET Account info","level":"2.1.1.1","depth":3,"next":{"title":"GET Account transactions","level":"2.1.1.2","depth":3,"path":"methods/account/getAccountTransactions.md","ref":"methods/account/getAccountTransactions.md","articles":[]},"previous":{"title":"/account","level":"2.1.1","depth":2,"path":"methods/account/account.md","ref":"methods/account/account.md","articles":[{"title":"GET Account info","level":"2.1.1.1","depth":3,"path":"methods/account/getAccount.md","ref":"methods/account/getAccount.md","articles":[]},{"title":"GET Account transactions","level":"2.1.1.2","depth":3,"path":"methods/account/getAccountTransactions.md","ref":"methods/account/getAccountTransactions.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/account/getAccount.md","mtime":"2016-11-01T20:29:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-01T20:59:24.582Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET Account info","level":"2.1.1.1","depth":3,"next":{"title":"GET Account transactions","level":"2.1.1.2","depth":3,"path":"methods/account/getAccountTransactions.md","ref":"methods/account/getAccountTransactions.md","articles":[]},"previous":{"title":"/account","level":"2.1.1","depth":2,"path":"methods/account/account.md","ref":"methods/account/account.md","articles":[{"title":"GET Account info","level":"2.1.1.1","depth":3,"path":"methods/account/getAccount.md","ref":"methods/account/getAccount.md","articles":[]},{"title":"GET Account transactions","level":"2.1.1.2","depth":3,"path":"methods/account/getAccountTransactions.md","ref":"methods/account/getAccountTransactions.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/account/getAccount.md","mtime":"2016-11-02T15:25:04.140Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-02T16:14:16.667Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

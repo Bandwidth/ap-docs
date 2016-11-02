@@ -726,7 +726,7 @@
                 <a href="../conferences/postConferencesConferenceIdMembersMemberId.html">
             
                     
-                    <code class="post">POST</code> Update Member State/Property
+                    <code class="post">POST</code> Update Member
             
                 </a>
             
@@ -752,7 +752,7 @@
                 <a href="../conferences/postConferencesConferenceIdMembersMemberIdAudio.html">
             
                     
-                    <code class="post">POST</code> Play audio to member
+                    <code class="post">POST</code> Play audio to Member
             
                 </a>
             
@@ -1960,15 +1960,18 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{
 
     }&apos;</span>
 </code></pre>
-</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
+<p>{% sample lang=&quot;js&quot; %}</p>
+<pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
 client.Recording.createTranscription(recordingId).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">transcription</span>)</span>{});
 
 <span class="hljs-comment">// Callback</span>
 client.Recording.createTranscription(recordingId, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, transcription</span>)</span>{});
 </code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> transcription = <span class="hljs-keyword">await</span> client.Transcription.CreateAsync(<span class="hljs-string">&quot;{recordingId}&quot;</span>);
+<p>{% sample lang=&quot;csharp&quot; %}</p>
+<pre><code class="lang-csharp"><span class="hljs-keyword">var</span> transcription = <span class="hljs-keyword">await</span> client.Transcription.CreateAsync(<span class="hljs-string">&quot;{recordingId}&quot;</span>);
 </code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">transcription = recording.create_transacription()
+<p>{% sample lang=&quot;ruby&quot; %}</p>
+<pre><code class="lang-ruby">transcription = recording.create_transacription()
 </code></pre>
 </div><div class="api-method-example"><blockquote>
 <p>The above command returns HTTP Header structured like this:</p>
@@ -2009,7 +2012,7 @@ Location: /v1/users/{user-id}/recordings/{recording-id}/transcriptions/{transcri
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST Create new Transcription","level":"2.1.15.1","depth":3,"next":{"title":"GET List Transcriptions","level":"2.1.15.2","depth":3,"path":"methods/transcriptions/getTranscriptions.md","ref":"methods/transcriptions/getTranscriptions.md","articles":[]},"previous":{"title":"/recordings/{id}/transcriptions","level":"2.1.15","depth":2,"path":"methods/transcriptions/transcriptions.md","ref":"methods/transcriptions/transcriptions.md","articles":[{"title":"POST Create new Transcription","level":"2.1.15.1","depth":3,"path":"methods/transcriptions/postTranscriptions.md","ref":"methods/transcriptions/postTranscriptions.md","articles":[]},{"title":"GET List Transcriptions","level":"2.1.15.2","depth":3,"path":"methods/transcriptions/getTranscriptions.md","ref":"methods/transcriptions/getTranscriptions.md","articles":[]},{"title":"GET Transcription info","level":"2.1.15.3","depth":3,"path":"methods/transcriptions/getTranscriptionsTranscriptionId.md","ref":"methods/transcriptions/getTranscriptionsTranscriptionId.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/transcriptions/postTranscriptions.md","mtime":"2016-10-27T14:04:25.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-01T20:59:24.582Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST Create new Transcription","level":"2.1.15.1","depth":3,"next":{"title":"GET List Transcriptions","level":"2.1.15.2","depth":3,"path":"methods/transcriptions/getTranscriptions.md","ref":"methods/transcriptions/getTranscriptions.md","articles":[]},"previous":{"title":"/recordings/{id}/transcriptions","level":"2.1.15","depth":2,"path":"methods/transcriptions/transcriptions.md","ref":"methods/transcriptions/transcriptions.md","articles":[{"title":"POST Create new Transcription","level":"2.1.15.1","depth":3,"path":"methods/transcriptions/postTranscriptions.md","ref":"methods/transcriptions/postTranscriptions.md","articles":[]},{"title":"GET List Transcriptions","level":"2.1.15.2","depth":3,"path":"methods/transcriptions/getTranscriptions.md","ref":"methods/transcriptions/getTranscriptions.md","articles":[]},{"title":"GET Transcription info","level":"2.1.15.3","depth":3,"path":"methods/transcriptions/getTranscriptionsTranscriptionId.md","ref":"methods/transcriptions/getTranscriptionsTranscriptionId.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/transcriptions/postTranscriptions.md","mtime":"2016-11-02T01:13:33.997Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-02T16:14:16.667Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
