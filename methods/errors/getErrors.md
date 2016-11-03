@@ -1,7 +1,10 @@
 {% method %}
 
-## GET errors
+## List Errors
 Gets the most recent user errors for the user. Since this operation uses HTTP GET, all the properties are specified as HTTP request parameters.
+
+### Request URL
+<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/errors`
 
 ### Supported Parameters
 | Parameter | Description                                                                                                                                                                | Mandatory |
@@ -27,9 +30,11 @@ Gets the most recent user errors for the user. Since this operation uses HTTP GE
 | value    | The detail value; the format and content depends on the name.                                                                                                        |
 
 {% common %}
+
 ### Example: Get errors
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/errors \
 	-u {token}:{secret} \
@@ -37,6 +42,7 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/errors \
 ```
 
 {% sample lang="js" %}
+
 ```js
 // Promise
 client.Error.list({size: 1000}).then(function(errorResponse){});
@@ -46,12 +52,14 @@ client.Error.list({size: 1000}, function(err, errorResponse){});
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var errors = client.Error.List(new ErrorQuery{Size = 1000});
 var firstErrorMessage = errors.First().Message;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 errors = Error.list(client)
 first_error = errors.next
@@ -59,6 +67,7 @@ first_error_message = first_error[:message]
 ```
 
 {% common %}
+
 
 > The above command returns JSON structured like this:
 
@@ -99,3 +108,4 @@ first_error_message = first_error[:message]
 ]
 ```
 {% endmethod %}
+

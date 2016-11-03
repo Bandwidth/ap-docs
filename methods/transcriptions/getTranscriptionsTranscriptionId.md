@@ -1,6 +1,11 @@
 {% method %}
-## GET recordings/{recording-id}/transcriptions/{transcription-id}
+
+## Fetch Transcription Information
 Get information about the transcription, regardless its state.
+
+### Request URL
+
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recordingId}/transcriptions/{transcriptionId}`
 
 ## Properties
 | Property           | Description                                                                                                                                                                       |
@@ -15,9 +20,11 @@ Get information about the transcription, regardless its state.
 
 {% common %}
 
+
 ### Example: Get transcription properties
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recording-id}/transcriptions/{transcription-id} \
 	-u {token}:{secret} \
@@ -25,6 +32,7 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{r
 ```
 
 {% sample lang="js" %}
+
 
 ```js
 // Promise
@@ -35,18 +43,21 @@ client.Recording.getTranscription(recordingId, transcriptionId, function(err, tr
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var transcription = await client.Transcription.GetAsync("recordingId", "transcriptionId");
 var text = Transcription.Text;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 transcription = recording.get_transacription("transcription_id")
 text = transcription[:text]
 ```
 
 {% common %}
+
 
 > The above command returns JSON structured like this:
 
@@ -62,3 +73,4 @@ text = transcription[:text]
 }
 ```
 {% endmethod %}
+

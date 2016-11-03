@@ -1,6 +1,11 @@
 {% method %}
-## POST messages
+
+## Create Message(s)
 Sends one or more messages.
+
+### Request URL
+
+<code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/messages`
 
 Sending a single message: To send a single text message, submit a single message representation as your request body. The response indicates the created message's URL in the Location header if it was created successfully. If there was an error with the message, the response body contains error information.
 
@@ -44,9 +49,11 @@ When sending MMS, the size of all medias for specific message summed up should n
 | location | When the result is `accepted`, contains the URL of the message location.                                                                                                                       |
 
 {% common %}
+
 ### Example: Send a single text message
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 	-u {token}:{secret} \
@@ -62,6 +69,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 ```
 
 {% sample lang="js" %}
+
 ```js
 client.Message.send({
 	from : "+19195551212",
@@ -80,6 +88,7 @@ client.Message.send({
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var message = await client.Message.SendAsync(new MessageData {
 	From = "+19195551212",
@@ -89,6 +98,7 @@ var message = await client.Message.SendAsync(new MessageData {
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 message = Message.create(client, {
 	:from => "+19195551212",
@@ -98,6 +108,7 @@ message = Message.create(client, {
 ```
 
 {% common %}
+
 > The above command returns HTTP Header structured like this:
 
 ```
@@ -108,6 +119,7 @@ Location: /v1/users/{userId}/messages/{messageId}
 ### Example: Send a single mms with Bandwidth Media
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 	-u {token}:{secret} \
@@ -124,6 +136,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 ```
 
 {% sample lang="js" %}
+
 ```js
 client.Message.send({
 	from : "+19195551212",
@@ -138,6 +151,7 @@ client.Message.send({
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var message = await client.Message.SendAsync(new MessageData {
 	From = "+19195551212",
@@ -149,6 +163,7 @@ var message = await client.Message.SendAsync(new MessageData {
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 message = Message.create(client, {
 	:from => "+19195551212",
@@ -160,6 +175,7 @@ message = Message.create(client, {
 ```
 
 {% common %}
+
 > The above command returns HTTP Header structured like this:
 
 ```
@@ -171,6 +187,7 @@ Location: /v1/users/{userId}/messages/{messageId}
 ### Example: Send a single mms with external media
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 	-u {token}:{secret} \
@@ -187,6 +204,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 ```
 
 {% sample lang="js" %}
+
 ```js
 client.Message.send({
 	from : "+19195551212",
@@ -201,6 +219,7 @@ client.Message.send({
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var message = await client.Message.SendAsync(new MessageData {
 	From = "+19195551212",
@@ -212,6 +231,7 @@ var message = await client.Message.SendAsync(new MessageData {
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 message = Message.create(client, {
 	:from => "+19195551212",
@@ -224,6 +244,7 @@ message = Message.create(client, {
 
 {% common %}
 
+
 > The above command returns HTTP Header structured like this:
 
 ```
@@ -234,6 +255,7 @@ Location: /v1/users/{userId}/messages/{messageId}
 ### Example: Send three messages in a single request
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 	-u {token}:{secret} \
@@ -264,6 +286,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 ```
 
 {% sample lang="bash" %}
+
 ```bash
 HTTP/1.1 202 ACCEPTED
 [
@@ -288,6 +311,7 @@ HTTP/1.1 202 ACCEPTED
 ```
 
 {% sample lang="js" %}
+
 ```js
 client.Message.sendMultiple({
 	from : "+19195551211",
@@ -304,6 +328,7 @@ client.Message.sendMultiple({
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var messages = await client.Message.SendAsync(new[] {
 	new MessageData {
@@ -320,6 +345,7 @@ var messages = await client.Message.SendAsync(new[] {
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 messages = Message.create(client, [{
 	:from => "+19195551211",
@@ -333,6 +359,7 @@ messages = Message.create(client, [{
 ```
 
 {% sample lang="js" %}
+
 > The Node Library returns an array of Objects like the following
 
 ```js
@@ -371,20 +398,24 @@ messages = Message.create(client, [{
 ```
 
 {% common %}
+
 ### Example: Request receipt for single text message
 To send a text message with request receipt from {fromNumber} to {toNumber}, send the following request:
 
 {% sample lang="bash" %}
+
 ```bash
 #coming soon
 ```
 
 {% sample lang="js" %}
+
 ```js
 //coming soon
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var message = await client.Message.SendAsync(new MessageData {
 	From = "+19195551212",
@@ -395,6 +426,7 @@ var message = await client.Message.SendAsync(new MessageData {
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 message = Message.create(client, {
 	:from => "+19195551212",
@@ -405,19 +437,23 @@ message = Message.create(client, {
 ```
 
 {% common %}
+
 ### Example: Send a single text message with custom callback timeout of 2 seconds
 
 {% sample lang="bash" %}
+
 ```bash
 #coming soon
 ```
 
 {% sample lang="js" %}
+
 ```js
 //coming soon
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var message = await client.Message.SendAsync(new MessageData {
 	From = "+19195551212",
@@ -429,6 +465,7 @@ var message = await client.Message.SendAsync(new MessageData {
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 message = Message.create(client, {
 	:from => "+19195551212",
@@ -441,19 +478,23 @@ message = Message.create(client, {
 
 {% common %}
 
+
 ### Example: Send a single text message with custom callback timeout of 2 seconds and a fallback URL
 
 {% sample lang="bash" %}
+
 ```bash
 #coming soon
 ```
 
 {% sample lang="js" %}
+
 ```js
 //coming soon
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var message = await client.Message.SendAsync(new MessageData {
 	From = "+19195551212",
@@ -466,6 +507,7 @@ var message = await client.Message.SendAsync(new MessageData {
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 message = Message.create(client, {
 	:from => "+19195551212",
@@ -477,3 +519,4 @@ message = Message.create(client, {
 })
 ```
 {% endmethod %}
+

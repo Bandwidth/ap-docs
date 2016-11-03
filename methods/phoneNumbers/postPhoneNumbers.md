@@ -1,6 +1,11 @@
 {% method %}
-## POST phoneNumbers
+
+## Order Phone Number
 Allocates a number so you can use it to make and receive calls and send and receive messages.
+
+### Request URL
+
+<code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers`
 
 ### Supported Parameters
 | Parameter      | Description                                                                                 | Mandatory |
@@ -11,10 +16,12 @@ Allocates a number so you can use it to make and receive calls and send and rece
 | fallbackNumber | Number to transfer an incoming call when the callback/fallback events can’t be delivered.   | No        |
 
 {% common %}
+
 ### Example: Allocate a phone number to your account
 To allocate the phone number {number} with the name "home phone" and the fallbackNumber {fallback_number} you can make calls with it, send the following request:
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 	-u {token}:{secret} \
@@ -30,6 +37,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 
 {% sample lang="js" %}
 
+
 ```js
 //Allocate number +1234567980
 
@@ -41,15 +49,18 @@ client.PhoneNumber.create({ number : "+1234567890" }, function(err, number){});
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var number = await client.PhoneNumber.CreateAsync(new CreatePhoneNumberData {Number = "+1234567890"});
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 number = PhoneNumber.create(client, {:number => "+1234567890"})
 ```
 {% common %}
+
 
 > The above command returns HTTP Header structured like this:
 
@@ -58,3 +69,4 @@ HTTP/1.1 201 Created
 Location: /v1/users/{userId}/phoneNumbers/{numberId}
 ```
 {% endmethod %}
+

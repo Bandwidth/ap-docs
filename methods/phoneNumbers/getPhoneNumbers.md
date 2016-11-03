@@ -1,6 +1,11 @@
 {% method %}
-## GET phoneNumbers
+
+## List Phone Numbers
 Gets a list of your numbers. Since this operation uses HTTP GET, all the properties are specified as HTTP request parameters.
+
+### Request URL
+
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers`
 
 ### Supported Parameters
 | Parameter     | Description                                                                                                                                                                  | Mandatory |
@@ -31,9 +36,11 @@ Gets a list of your numbers. Since this operation uses HTTP GET, all the propert
 
 {% common %}
 
+
 ### Example: List phone numbers
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers \
 	-u {token}:{secret} \
@@ -41,6 +48,7 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers 
 ```
 
 {% sample lang="js" %}
+
 ```js
 // Promise
 client.PhoneNumber.list({size: 1000}).then(function(numbersResponse){});
@@ -50,12 +58,14 @@ client.PhoneNumber.list({size: 1000}, function(err, numbersResponse){});
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var numbers = client.PhoneNumber.List(new PhoneNumberQuery {Size = 1000});
 var firstNumberId = numbers.First().Id;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 numbers = PhoneNumber.list(client, {:size => 1000})
 first_number = numbers.next
@@ -63,6 +73,7 @@ first_number_id = first_number[:id]
 ```
 
 {% common %}
+
 
 > The above command returns JSON structured like this:
 
@@ -93,3 +104,4 @@ first_number_id = first_number[:id]
 ]
 ```
 {% endmethod %}
+

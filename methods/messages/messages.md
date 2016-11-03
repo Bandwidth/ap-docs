@@ -1,6 +1,10 @@
 # Messages
 The Messages resource lets you send SMS/MMS messages and view messages that were previously sent or received.
 
+## Base URL
+
+`https://api.catapult.inetwork.com/v1/users/{userId}/messages`
+
 | Verb                           | Method                                                               | about                           |
 |:-------------------------------|:---------------------------------------------------------------------|:--------------------------------|
 | <code class="get">GET</code>   | [`/v1/users/{userId}/messages`](getMessages.md)                      | Get a list of previous messages |

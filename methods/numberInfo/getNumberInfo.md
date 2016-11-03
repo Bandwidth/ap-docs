@@ -1,6 +1,11 @@
 {% method %}
-## GET numberInfo/{number}
+
+## Fetch CNAM Number Information
 This resource provides a CNAM number info. CNAM is an acronym which stands for Caller ID Name. CNAM can be used to display the calling party's name alongside the phone number, to help users easily identify a caller. CNAM API allows the user to get the CNAM information of a particular number.
+
+### Request URL
+
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/phoneNumbers/numberInfo/{number}`
 
 ## Properties
 | Property | Description                                                  |
@@ -11,9 +16,11 @@ This resource provides a CNAM number info. CNAM is an acronym which stands for C
 | updated  | The time this Caller ID information was last updated (UTC).  |
 
 {% common %}
+
 ### Example: Get Number Info
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/phoneNumbers/numberInfo/{number} \
 	-u {token}:{secret} \
@@ -21,6 +28,7 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/phoneNumbers/numberInfo/{num
 ```
 
 {% sample lang="js" %}
+
 ```js
 // Promise
 client.NumberInfo.get("+1234567890").then(function(info){});
@@ -30,18 +38,21 @@ client.NumberInfo.get("+1234567890", function(err, info){});
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var info = await client.NumberInfo.GetAsync("+1234567890");
 var number = info.Number;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 info = NumberInfo.get(client, "+1234567890")
 name = info[:name]
 ```
 
 {% common %}
+
 > The above command returns JSON structured like this:
 
 ```
@@ -53,3 +64,4 @@ name = info[:name]
 }
 ```
 {% endmethod %}
+

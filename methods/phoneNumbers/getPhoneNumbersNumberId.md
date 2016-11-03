@@ -1,10 +1,15 @@
 {% method %}
-## GET phoneNumbers/{numberId}
+
+## Fetch Phone Number information
 Gets information about one of your numbers using the number's ID. No query parameters are supported.
 
 or
 
 Gets information about one of your numbers using the E.164 number string, like "+19195551212". Remember to URL encode the plus sign prefix. No query parameters are supported.
+
+### Request URL
+
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/{numberId}`
 
 ## Properties
 | Property       | Description                                                                                      |
@@ -24,9 +29,11 @@ Gets information about one of your numbers using the E.164 number string, like "
 
 {% common %}
 
+
 ### Example: Get number properties by E.164 or Id
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/%20{number} \
 	-u {token}:{secret} \
@@ -34,6 +41,7 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/
 ```
 
 {% sample lang="js" %}
+
 
 ```js
 // Promise
@@ -48,18 +56,21 @@ client.PhoneNumber.get("+1234567890", function(err, number){});
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var number = await client.PhoneNumber.GetAsync("+1234567890");
 var city = number.City;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 number = PhoneNumber.get(client, "+1234567890")
 city = number.city
 ```
 
 {% common %}
+
 
 > The above command returns JSON structured like this:
 
@@ -78,3 +89,4 @@ city = number.city
 }
 ```
 {% endmethod %}
+

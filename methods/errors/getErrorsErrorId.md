@@ -1,6 +1,11 @@
 {% method %}
-## GET errors/{userErrorId}
+
+## Fetch Error Information
 Gets information about one error. No query parameters are supported.
+
+### Request URL
+
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/errors/{errorId}`
 
 ## Error Properties
 
@@ -20,8 +25,10 @@ Gets information about one error. No query parameters are supported.
 | value    | The detail value; the format and content depends on the name.                                                                                                        |
 
 {% common %}
+
 ### Example: Get information about an error
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/errors/{userErrorId} \
 	-u {token}:{secret} \
@@ -29,6 +36,7 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/errors/{userE
 ```
 
 {% sample lang="js" %}
+
 ```js
 // Promise
 client.Error.get(userErrorId).then(function(errorInfo){});
@@ -38,18 +46,21 @@ client.Error.get(userErrorId, function(err, errorInfo){});
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var error = async client.Error.GetAsync("{errorId1}");
 var message = error.Message;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 error = Error.get(client, "{errorId1}")
 message = error[:message]
 ```
 
 {% common %}
+
 > The above command returns JSON structured like this:
 
 ```
@@ -97,3 +108,4 @@ message = error[:message]
 }
 ```
 {% endmethod %}
+

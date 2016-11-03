@@ -1,6 +1,11 @@
 {% method %}
-## GET recordings/{recordingId}
+
+## Fetch Recording Information
 Retrieve a specific call recording information in JSON format, identified by recordingId. For more details on how to retrieve the recorded media file, please access Media documentation.
+
+### Request URL
+
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recordingId}`
 
 ## Properties
 
@@ -25,9 +30,11 @@ Retrieve a specific call recording information in JSON format, identified by rec
 
 {% common %}
 
+
 ### Example: Get recording properties
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recordingId} \
 	-u {token}:{secret} \
@@ -53,18 +60,21 @@ client.Recording.get("{recordingId}", function (err, recording) {
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var recording = await client.Recording.GetAsync("{recordingId}");
 var mediaName = recording.MediaName;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 recording = Recording.get(client, "{recordingId}")
 state = recording[:state]
 ```
 
 {% common %}
+
 
 > The above command returns JSON structured like this:
 
@@ -79,3 +89,4 @@ state = recording[:state]
 }
 ```
 {% endmethod %}
+

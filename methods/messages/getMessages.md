@@ -1,6 +1,11 @@
 {% method %}
-## GET messages
+
+## List Messages
 Gets a list messages you have sent or received. Since this operation uses HTTP GET, all the properties are specified as HTTP request parameters.
+
+### Request URL
+
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/messages`
 
 Message results are paginated based on the `size` parameter. If the number of messages found by the specified query parameters exceeds one page, the `link` header on the HTTP response will contain the URL to request the next page of results. The `link` header will continue to be set for each request, as long as there is another page of messages available.
 
@@ -75,9 +80,11 @@ Message results are paginated based on the `size` parameter. If the number of me
 
 
 {% common %}
+
 ### Example: List your messages
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages \
 	-u {token}:{secret} \
@@ -85,17 +92,20 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages \
 ```
 
 {% sample lang="js" %}
+
 ```js
 //need to add this
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var messages = client.Message.List();
 var firstMessageText = messages.First().Text;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 messages = Message.list(client)
 first_message = messages.next
@@ -103,6 +113,7 @@ first_message_text = first_message[:text]
 ```
 
 {% common %}
+
 > The above command returns JSON structured like this:
 
 ```
@@ -164,6 +175,7 @@ HEADER: <https://api.catapult.inetwork.com/v1/users/u-dkjf9094802375s/messages?s
 ### Example: List your messages by from number {fromNumber}
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages?from=%2b{fromNumber} \
 	-u {token}:{secret} \
@@ -171,21 +183,25 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages?from
 ```
 
 {% sample lang="js" %}
+
 ```js
 //Need to add this
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var messages = client.Message.List(new MessageQuery {From = "{fromNumber}"});
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 messages = Message.list(client, {:from => "{fromNumber}"})
 ```
 
 {% common %}
+
 > The above command returns JSON structured like this:
 
 ```json
@@ -218,6 +234,7 @@ messages = Message.list(client, {:from => "{fromNumber}"})
 ### Example: Gets a list messages filtering the direction and toDateTime
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages?from=%2b{fromNumber}&direction=out&toDateTime=2012-10-05%2020:37:39 \
 	-u {token}:{secret} \
@@ -225,11 +242,13 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages?from
 ```
 
 {% sample lang="js" %}
+
 ```js
 //need to add this
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var messages = client.Message.List(new MessageQuery {
 	From = "{fromNumber}",
@@ -239,6 +258,7 @@ var messages = client.Message.List(new MessageQuery {
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 messages = Message.list(client, {
 	:from => "{fromNumber}",
@@ -248,6 +268,7 @@ messages = Message.list(client, {
 ```
 
 {% common %}
+
 > The above command returns JSON structured like this:
 
 ```json
@@ -266,3 +287,4 @@ messages = Message.list(client, {
 ]
 ```
 {% endmethod %}
+

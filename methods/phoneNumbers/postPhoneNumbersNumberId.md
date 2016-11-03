@@ -1,6 +1,11 @@
 {% method %}
-## POST phoneNumbers/{numberId}
+
+## Update Phone Number
 Makes changes to a number you have. <code class="post">POST</code> a new JSON representation with the property values you desire to the URL that you got back in the "Location" header when you first allocated it. Properties you don't send will remain unchanged. The "numberId" refers to the numberId or the number itself. When using the number itself remember to URL encode the plus sign prefix.
+
+### Request URL
+
+<code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/{numberId}`
 
 ### Supported Parameters
 | Parameter      | Description                                                                                                      | Mandatory |
@@ -11,9 +16,11 @@ Makes changes to a number you have. <code class="post">POST</code> a new JSON re
 
 {% common %}
 
+
 ### Example: Change the Application resource a phone number uses for inbound calls and messages
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/{numberId} \
 	-u {token}:{secret} \
@@ -27,6 +34,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers
 
 {% sample lang="js" %}
 
+
 ```js
 // Promise
 client.PhoneNumber.update(numberId, {applicationId: "{application_id}"}).then(function(){});
@@ -36,6 +44,7 @@ client.PhoneNumber.update(numberId, {applicationId: "{application_id}"}, functio
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 await client.PhoneNumber.UpdateAsync(numberId, new UpdatePhoneNUmberData {
     ApplicationId = "{application_id}"
@@ -43,7 +52,9 @@ await client.PhoneNumber.UpdateAsync(numberId, new UpdatePhoneNUmberData {
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 phoneNumber.update({:application_id => "{application_id}"})
 ```
 {% endmethod %}
+

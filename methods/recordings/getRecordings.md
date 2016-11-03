@@ -1,6 +1,11 @@
 {% method %}
-## GET recordings
+
+## List Recordings
 List all users' call recordings. Since this operation uses HTTP GET, all the properties are specified as HTTP request parameters.
+
+### Request URL
+
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/recordings/`
 
 ### Supported Parameters
 | Parameter | Description                                                                                                                                                 | Mandatory |
@@ -31,9 +36,11 @@ List all users' call recordings. Since this operation uses HTTP GET, all the pro
 
 {% common %}
 
+
 ### Example: List all recordings
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/recordings \
 	-u {token}:{secret} \
@@ -41,6 +48,7 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/recordings \
 ```
 
 {% sample lang="js" %}
+
 
 ```js
 //Promise
@@ -56,12 +64,14 @@ client.Recording.list({}, function (err, recordings) {
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var recordings = client.Recording.List();
 var firstRecordingMediaName = recordings.First().MediaName
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 recordings = Recording.list(client)
 first_recording = recordings.next
@@ -69,6 +79,7 @@ first_recording_id = first_recording[:id]
 ```
 
 {% common %}
+
 
 > The above command returns JSON structured like this:
 
@@ -101,3 +112,4 @@ first_recording_id = first_recording[:id]
 ]
 ```
 {% endmethod %}
+

@@ -1,6 +1,11 @@
 {% method %}
-## GET media
+
+## List Media
 Gets a list of your media files. No query parameters are supported.
+
+### Request URL
+
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/media`
 
 ## Properties
 | Property      | Description                                   |
@@ -10,10 +15,12 @@ Gets a list of your media files. No query parameters are supported.
 | content       | URL to use to GET the specific media file.    |
 
 {% common %}
+
 ### Example: List Your Media Files
 
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/media \
 	-u {token}:{secret} \
@@ -21,6 +28,7 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/media \
 ```
 
 {% sample lang="js" %}
+
 ```js
 client.Media.list()
 then(function (media) {
@@ -29,12 +37,14 @@ then(function (media) {
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var list = client.Media.List();
 var firstMediaName = list.First().MediaName;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 list = Media.list(client)
 first_media = list.next
@@ -42,6 +52,7 @@ first_media_name = first_media[:media-name]
 ```
 
 {% common %}
+
 
 > The above command returns JSON structured like this:
 
@@ -65,3 +76,4 @@ first_media_name = first_media[:media-name]
 ]
 ```
 {% endmethod %}
+

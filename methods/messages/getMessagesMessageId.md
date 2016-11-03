@@ -1,5 +1,10 @@
 {% method %}
-## GET messages/{messageId}
+## Fetch Message information
+
+### Request URL
+
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}`
+
 Gets information about a previously sent or received message. No query parameters are supported.
 
 ## Properties
