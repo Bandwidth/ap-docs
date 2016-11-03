@@ -18,9 +18,5 @@ module.exports = function ($) {
 			li.children().first().html(newTxt);
 		}
 	});
-	$('li.chapter:has(ul.articles)').each(function(){
-		$(this).children('a').after('<i class="fa fa-eye expand" aria-hidden="true"></i>');
-	});
-	$('.active').parents().siblings('.expand').addClass('fa-eye-slash');
 	return $.html();
 }
