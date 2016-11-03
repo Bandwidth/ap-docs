@@ -17,6 +17,10 @@ module.exports = function ($) {
 			var newTxt = li.children().first().html().replace("PUT", "<code class=\"put\">PUT</code>");
 			li.children().first().html(newTxt);
 		}
-	})
+	});
+	$('li.chapter:has(ul.articles)').each(function(){
+		$(this).children('a').after('<i class="fa fa-eye expand" aria-hidden="true"></i>');
+	});
+	$('.active').parents().siblings('.expand').addClass('fa-eye-slash');
 	return $.html();
 }
