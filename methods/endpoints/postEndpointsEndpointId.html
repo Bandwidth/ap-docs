@@ -115,7 +115,7 @@
                 <a href="../../">
             
                     
-                    Bandwidth
+                    Get Started
             
                 </a>
             
@@ -137,7 +137,7 @@
                     
                     Rest API
             
-                </a>
+                </a><i class="fa fa-eye expand fa-eye-slash" aria-hidden="true"></i>
             
 
             
@@ -151,7 +151,7 @@
                     
                     /account
             
-                </a>
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
             
 
             
@@ -196,7 +196,7 @@
                     
                     /applications
             
-                </a>
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
             
 
             
@@ -280,7 +280,7 @@
                     
                     /availableNumbers
             
-                </a>
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
             
 
             
@@ -351,7 +351,7 @@
                     
                     /bridges
             
-                </a>
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
             
 
             
@@ -448,7 +448,7 @@
                     
                     /calls
             
-                </a>
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
             
 
             
@@ -636,7 +636,7 @@
                     
                     /conferences
             
-                </a>
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
             
 
             
@@ -772,7 +772,7 @@
                     
                     /domains
             
-                </a>
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
             
 
             
@@ -830,7 +830,7 @@
                     
                     /endpoints
             
-                </a>
+                </a><i class="fa fa-eye expand fa-eye-slash" aria-hidden="true"></i>
             
 
             
@@ -914,7 +914,7 @@
                     
                     /errors
             
-                </a>
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
             
 
             
@@ -959,7 +959,7 @@
                     
                     /media
             
-                </a>
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
             
 
             
@@ -1030,7 +1030,7 @@
                     
                     /messages
             
-                </a>
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
             
 
             
@@ -1088,7 +1088,7 @@
                     
                     /numberInfo
             
-                </a>
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
             
 
             
@@ -1120,7 +1120,7 @@
                     
                     /phoneNumbers
             
-                </a>
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
             
 
             
@@ -1204,7 +1204,7 @@
                     
                     /recordings
             
-                </a>
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
             
 
             
@@ -1249,7 +1249,7 @@
                     
                     /recordings/{id}/transcriptions
             
-                </a>
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
             
 
             
@@ -1319,7 +1319,7 @@
                     
                     Callbacks
             
-                </a>
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
             
 
             
@@ -1333,7 +1333,7 @@
                     
                     Messaging Events
             
-                </a>
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
             
 
             
@@ -1378,7 +1378,7 @@
                     
                     Voice Events
             
-                </a>
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
             
 
             
@@ -1604,7 +1604,7 @@
                     
                     BXML
             
-                </a>
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
             
 
             
@@ -1786,7 +1786,7 @@
                     
                     BXML Callbacks
             
-                </a>
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
             
 
             
@@ -1947,8 +1947,52 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"><h2 id="post-domainsdomain-idendpointsendpoint-id">POST domains/{domain-id}/endpoints/{endpoint-id}</h2>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="update-endpoint">Update Endpoint</h2>
 <p>This will update an endpoint.</p>
+<h3 id="request-url">Request URL</h3>
+<p><code class="post">POST</code> <code>https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domainId}/endpoints</code></p>
+<h3 id="supported-parameters">Supported Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">- The endpoint&apos;s name, which SIP clients use as the &quot;address of record&quot; in the &quot;To&quot; header when registering. <br> -The name must be a valid SIP &quot;user&quot; or &quot;telephone-subscriber&quot; string. RFC 3261 Section 19.1.1 defines the characters that are valid in those parts of a SIP URI. <br> -Names must be unique within the domain, and cannot be changed after the endpoint is created.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">description</td>
+<td style="text-align:left">String to describe endpoint</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">applicationId</td>
+<td style="text-align:left">The id of the application associated with this endpoint. Application_id is used to determine the callback URL to be used when a client associated with the endpoint attempts to make a call.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">enabled</td>
+<td style="text-align:left">When set to true, SIP clients can register as this device to receive and make calls. When set to false, registration, inbound, and outbound calling will not succeed. <br> Default: <code>true</code></td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">credentials</td>
+<td style="text-align:left">Contains SIP authentication credentials.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">credentials.password</td>
+<td style="text-align:left">-The plain-text password the SIP client must use when authenticating to use this device. <br> -The password is case-sensitive. <br> -The password must be at least 6 characters long and contain only Latin 1 (ISO 8859-1) characters.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+</tbody>
+</table>
 </div><div class="api-method-code"><div class="api-method-example"><h3 id="example-update-an-endpoint">Example: Update an endpoint</h3>
 </div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domain-id}/endpoints/{endpoint-id} \
     -u {token}:{secret} \
@@ -1975,6 +2019,7 @@ client.Endpoint.update(<span class="hljs-string">&quot;domainId&quot;</span>, <s
 </div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby"><span class="hljs-comment">#coming soon</span>
 </code></pre>
 </div></div></div>
+
 
                                 
                                 </section>
@@ -2008,7 +2053,7 @@ client.Endpoint.update(<span class="hljs-string">&quot;domainId&quot;</span>, <s
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST Update Endpoint","level":"2.1.8.5","depth":3,"next":{"title":"/errors","level":"2.1.9","depth":2,"path":"methods/errors/errors.md","ref":"methods/errors/errors.md","articles":[{"title":"GET List Errors","level":"2.1.9.1","depth":3,"path":"methods/errors/getErrors.md","ref":"methods/errors/getErrors.md","articles":[]},{"title":"GET Error info","level":"2.1.9.2","depth":3,"path":"methods/errors/getErrorsErrorId.md","ref":"methods/errors/getErrorsErrorId.md","articles":[]}]},"previous":{"title":"DELETE Remove Endpoint","level":"2.1.8.4","depth":3,"path":"methods/endpoints/deleteEndpointsEndpointId.md","ref":"methods/endpoints/deleteEndpointsEndpointId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","toggle-chapters","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/endpoints/postEndpointsEndpointId.md","mtime":"2016-11-02T01:13:33.915Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-02T16:14:16.667Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST Update Endpoint","level":"2.1.8.5","depth":3,"next":{"title":"/errors","level":"2.1.9","depth":2,"path":"methods/errors/errors.md","ref":"methods/errors/errors.md","articles":[{"title":"GET List Errors","level":"2.1.9.1","depth":3,"path":"methods/errors/getErrors.md","ref":"methods/errors/getErrors.md","articles":[]},{"title":"GET Error info","level":"2.1.9.2","depth":3,"path":"methods/errors/getErrorsErrorId.md","ref":"methods/errors/getErrorsErrorId.md","articles":[]}]},"previous":{"title":"DELETE Remove Endpoint","level":"2.1.8.4","depth":3,"path":"methods/endpoints/deleteEndpointsEndpointId.md","ref":"methods/endpoints/deleteEndpointsEndpointId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/endpoints/postEndpointsEndpointId.md","mtime":"2016-11-03T15:35:20.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-03T15:55:51.348Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
