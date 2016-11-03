@@ -7,6 +7,7 @@ Get a list of your applications
 
 <code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId}`
 
+---
 
 ### Supported Parameters
 | Parameter | Description                                                                                                                                                                  | Mandatory |
@@ -97,4 +98,3 @@ first_application_name = first_application[:name]
 ]
 ```
 {% endmethod %}
-

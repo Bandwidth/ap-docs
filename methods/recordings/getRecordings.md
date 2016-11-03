@@ -7,13 +7,15 @@ List all users' call recordings. Since this operation uses HTTP GET, all the pro
 
 <code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/recordings/`
 
+---
+
 ### Supported Parameters
 | Parameter | Description                                                                                                                                                 | Mandatory |
 |:----------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
 | page      | Used for pagination to indicate the page requested for querying a list. If no value is specified the default is 0.                                          | No        |
 | size      | Used for pagination to indicate the size of each page requested for querying a list. If no value is specified the default value is 25. (Maximum value 1000) | No        |
 
-## Properties
+### Properties
 
 | Property  | Description                                                                                                                                                               |
 |:----------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -26,7 +28,7 @@ List all users' call recordings. Since this operation uses HTTP GET, all the pro
 | page      | Used for pagination to indicate the page requested for querying a list of recordings. If no value is specified the default is 0.                                          |
 | size      | Used for pagination to indicate the size of each page requested for querying a list of recordings. If no value is specified the default value is 25. (Maximum value 1000) |
 
-## Recording States
+### Recording States
 | State     | Description                                                    |
 |:----------|:---------------------------------------------------------------|
 | recording | Recording is currently active.                                 |
@@ -112,4 +114,3 @@ first_recording_id = first_recording[:id]
 ]
 ```
 {% endmethod %}
-

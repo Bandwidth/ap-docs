@@ -38,4 +38,3 @@ using(var data = await client.Media.DownloadAsync("file.mp3"))
 content, media_type = Media.download(client, "file.mp3")
 ```
 {% endmethod %}
-

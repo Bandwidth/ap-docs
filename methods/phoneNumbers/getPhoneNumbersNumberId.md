@@ -11,7 +11,9 @@ Gets information about one of your numbers using the E.164 number string, like "
 
 <code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/{numberId}`
 
-## Properties
+---
+
+### Properties
 | Property       | Description                                                                                      |
 |:---------------|:-------------------------------------------------------------------------------------------------|
 | id             | The unique id of the phone number.                                                               |
@@ -89,4 +91,3 @@ city = number.city
 }
 ```
 {% endmethod %}
-

@@ -6,6 +6,8 @@ Update properties of an active phone call.
 
 <code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}`
 
+---
+
 ### Supported Parameters
 
 | Parameter           | Description                                                                                                                                                                                                                                                                                                                                                                                          | Mandatory |
@@ -17,6 +19,7 @@ Update properties of an active phone call.
 | transferCallerId    | This is the caller id that will be used when the call is transferred. This parameter is only considered in transfer state.<br>- transferring an incoming call: allowed values are 1) `private` 2) the incoming call `from` number or 3) any Bandwidth number owned by user.<br>- transferring an outgoing call call: allowed values are 1) `private` or 2) any Bandwidth phone number owned by user. | No        |
 | whisperAudio        | Audio to be played to the caller that the call will be transferred to. See /audio.                                                                                                                                                                                                                                                                                                                   | No        |
 | callbackUrl         | The server URL where the call events for the new call will be sent upon transferring.                                                                                                                                                                                                                                                                                                                | No        |
+
 {% common %}
 ### Example: Answer an Incoming Phone Call
 ### Example: Reject an Incoming Phone Call

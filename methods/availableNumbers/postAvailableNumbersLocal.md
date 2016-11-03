@@ -1,11 +1,12 @@
 {% method %}
 
 ## Order Local Phone Number
+Searches and order available local numbers by location criteria.
 
 ### Request URL
 <code class="post">POST</code> `https://api.catapult.inetwork.com/v1/availableNumbers/local?<queryParams>`
 
-Searches and order available local numbers by location criteria.
+---
 
 ### Supported Parameters
 
@@ -94,4 +95,3 @@ number_id = first_result[:id]
 ]
 ```
 {% endmethod %}
-

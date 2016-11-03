@@ -7,6 +7,8 @@ Sends one or more messages.
 
 <code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/messages`
 
+---
+
 Sending a single message: To send a single text message, submit a single message representation as your request body. The response indicates the created message's URL in the Location header if it was created successfully. If there was an error with the message, the response body contains error information.
 
 Sending multiple messages: To send multiple messages in a single request, submit an array of message representations as your request body. The response entity will contain an array of response objects, with the same length and order as the submitted message list, so you can iterate in the results to check for errors. Each result contains the URL of the of the message if it was created successfully or error information.
@@ -35,14 +37,14 @@ When sending MMS, the size of all medias for specific message summed up should n
 | fallbackUrl        | The server URL used to send the message events if the request to callbackUrl fails.                                                                                                    | No        |
 | tag                | Any string, it will be included in the callback events of the message.                                                                                                                 | No        |
 
-## Message Request Receipt
+### Message Request Receipt
 | Receipt | Description                                                     |
 |:--------|:----------------------------------------------------------------|
 | none    | Delivery receipt will not be sent as callback event.            |
 | error   | Only error delivery receipt event maybe sent as callback event. |
 | all     | Success or error delivery receipt maybe sent as callback event. |
 
-## Multiple Message Result Types
+### Multiple Message Result Types
 | Type     | Description                                                                                                                                                                                    |
 |:---------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | result   | Values are<br>`accepted` - the message was accepted and the location points to the message resource <br> `error` - the message was not accepted and the “error” property contains information. |
@@ -519,4 +521,3 @@ message = Message.create(client, {
 })
 ```
 {% endmethod %}
-

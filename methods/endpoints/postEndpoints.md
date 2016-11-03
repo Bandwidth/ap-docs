@@ -1,6 +1,14 @@
 {% method %}
-## POST domains/{domain-id}/endpoints
+
+## Create Endpoint on Domain
 This creates an endpoint.
+
+### Request URL
+<code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domainId}/endpoints`
+
+---
+
+### Supported Parameters
 
 | Parameter            | Description                                                                                                                                                                                                                                                                                                                                                                            | Mandatory |
 |:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
@@ -12,9 +20,11 @@ This creates an endpoint.
 | credentials.password | -The plain-text password the SIP client must use when authenticating to use this device. <br> -The password is case-sensitive. <br> -The password must be at least 6 characters long and contain only Latin 1 (ISO 8859-1) characters.                                                                                                                                                 | Yes       |
 
 {% common %}
+
 ### Example: Create an endpoint
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domain-id}/endpoints \
 	-u {token}:{secret} \
@@ -31,6 +41,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/domains/{dom
 ```
 
 {% sample lang="js" %}
+
 
 ```js
 var params = {
@@ -58,6 +69,7 @@ client.Endpoint.create("domainId", params, function (err, endpoint) {
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var endpoint = await client.Endpoint.CreateAsync(new CreateEndpointData {
 	Name = "jsmith_mobile",
@@ -69,6 +81,7 @@ var endpoint = await client.Endpoint.CreateAsync(new CreateEndpointData {
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 endpoint = domain.create_endpoint({
 	:name => "jsmith_mobile",
@@ -80,6 +93,7 @@ endpoint = domain.create_endpoint({
 ```
 
 {% common %}
+
 > The above command returns HTTP Header structured like this:
 
 ```

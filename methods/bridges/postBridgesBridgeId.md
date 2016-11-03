@@ -5,6 +5,16 @@ Change calls in a bridge and bridge/unbridge the audio.
 ### Request URL
 <code class="post">POST</code> `https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}`
 
+---
+
+### Supported Parameters
+
+| Parameter   | Description                                                                                                                                          | Mandatory |
+|:------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
+| bridgeAudio | Enable/Disable two way audio path (default = true).                                                                                                  | No        |
+| callIds     | The list of call ids in the bridge. If the list of call ids is not provided the bridge is logically created and it can be used to place calls later. | No        |
+
+
 {% common %}
 ### Example: Add call {callId1} and call {callId2} in a bridge {bridgeId} with two way voice path
 

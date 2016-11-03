@@ -5,6 +5,8 @@
 
 <code class="get">GET</code>`https://api.catapult.inetwork.com/v1/availableNumbers/tollFree?<queryParams>`
 
+---
+
 ###Supported Parameters
 
 | Parameter | Description                                                                                                                                                                                                                        | Mandatory |

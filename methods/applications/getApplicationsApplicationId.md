@@ -1,13 +1,13 @@
 {% method %}
 
 ## Fetch Application Information
+Gets information about one of your applications. No query parameters are supported.
 
 ### Request URL
 
 <code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId}`
 
-
-Gets information about one of your applications. No query parameters are supported.
+---
 
 ### Properties
 | Property                          | Description                                                                                                                                                                                                 |
@@ -84,4 +84,3 @@ application_name = application[:name]
 }
 ```
 {% endmethod %}
-

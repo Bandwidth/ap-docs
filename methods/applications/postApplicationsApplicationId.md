@@ -7,10 +7,11 @@ Makes changes to an application. POST a new JSON representation with the propert
 
 <code class="post">POST</code> `https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId}`
 
-
 <aside class="alert general small">
 NOTE: Properties you don't send will remain unchanged.
 </aside>
+
+---
 
 ### Supported Parameters
 
@@ -82,4 +83,3 @@ await client.Application.UpdateAsync("a-zuwwfzzrbea", new UpdateApplicationData{
 app.update({:name => "Rename App2", :auto_answer => false})
 ```
 {% endmethod %}
-

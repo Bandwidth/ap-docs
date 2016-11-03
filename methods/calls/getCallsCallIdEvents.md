@@ -7,6 +7,8 @@ Gets the events that occurred during the call. No query parameters are supported
 
 <code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/events`
 
+---
+
 ### Event Properties
 
 | Property | Description                  | Mandatory |
@@ -114,4 +116,3 @@ first_event_id = first_event[:id]
 ]
 ```
 {% endmethod %}
-

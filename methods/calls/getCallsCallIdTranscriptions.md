@@ -1,6 +1,6 @@
 {% method %}
 
-## List all Call Transcriptions 
+## List all Call Transcriptions
 Retrieve all transcriptions related to the call.
 
 ### Request URL
@@ -70,4 +70,3 @@ first_transcription_state = transcriptions[0][:state]
 ]
 ```
 {% endmethod %}
-

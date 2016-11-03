@@ -1,18 +1,20 @@
 # Messages
 The Messages resource lets you send SMS/MMS messages and view messages that were previously sent or received.
 
-## Base URL
+### Base URL
 
 `https://api.catapult.inetwork.com/v1/users/{userId}/messages`
 
-| Verb                           | Method                                                               | about                           |
+### Capabilities
+
+| Verb                           | Path                                                                 | about                           |
 |:-------------------------------|:---------------------------------------------------------------------|:--------------------------------|
 | <code class="get">GET</code>   | [`/v1/users/{userId}/messages`](getMessages.md)                      | Get a list of previous messages |
 | <code class="post">POST</code> | [`/v1/users/{userId}/messages`](postMessages.md)                     | Send message                    |
 | <code class="get">GET</code>   | [`/v1/users/{userId}/messages/{messageId}`](getMessagesMessageId.md) | Get information about a message |
 
 
-## Properties
+### Properties
 | Property            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |:--------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id                  | The unique ID of the message.                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
@@ -34,7 +36,7 @@ The Messages resource lets you send SMS/MMS messages and view messages that were
 | deliveryCode        | Numeric value of deliver code, see table for values.                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | deliveryDescription | Message delivery description for the respective delivery code                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
-## Message States
+### Message States
 | State    | Description                                                                            |
 |:---------|:---------------------------------------------------------------------------------------|
 | received | The message was received.                                                              |
@@ -43,14 +45,14 @@ The Messages resource lets you send SMS/MMS messages and view messages that were
 | sent     | The message was sent successfully.                                                     |
 | error    | There was an error sending or receiving a message (check errors resource for details). |
 
-## Message Delivery State
+### Message Delivery State
 | State         | Description                                        |
 |:--------------|:---------------------------------------------------|
 | waiting       | Waiting for receipt.                               |
 | delivered     | Receipt indicating that message was delivered.     |
 | not-delivered | Receipt indicating that message was not delivered. |
 
-## Message Delivery Code
+### Message Delivery Code
 | Code | Description                                   |
 |:-----|:----------------------------------------------|
 | 0    | Message delivered to carrier                  |

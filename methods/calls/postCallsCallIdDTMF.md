@@ -7,6 +7,8 @@ Send DTMF (phone keypad digit presses).
 
 <code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/dtmf`
 
+---
+
 ### Supported Parameters
 
 | Parameter | Description                                                 | Mandatory |
@@ -47,4 +49,3 @@ await client.Call.SendDtmfAsync("{callId1}", new SendDtmfData{DtmfOut = "9193334
 call.set_dtmf("9193334444")
 ```
 {% endmethod %}
-

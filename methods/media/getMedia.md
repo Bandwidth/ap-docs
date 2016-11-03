@@ -7,7 +7,9 @@ Gets a list of your media files. No query parameters are supported.
 
 <code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/media`
 
-## Properties
+---
+
+### Properties
 | Property      | Description                                   |
 |:--------------|:----------------------------------------------|
 | mediaName     | The mediaName is the unique name of the media |
@@ -76,4 +78,3 @@ first_media_name = first_media[:media-name]
 ]
 ```
 {% endmethod %}
-

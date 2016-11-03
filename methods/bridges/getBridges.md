@@ -8,6 +8,8 @@ Get list of bridges for a given user.
 
 <code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/bridges?<queryParams>`
 
+---
+
 ### Supported Parameters
 
 | Parameter | Description                                                                                                                                                            | Mandatory |
@@ -110,4 +112,3 @@ first_bridge_state = first_bridge[:state]
 ]
 ```
 {% endmethod %}
-

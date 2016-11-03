@@ -8,6 +8,7 @@ This will update an endpoint.
 
 <code class="post">POST</code> `https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domainId}/endpoints`
 
+---
 
 ### Supported Parameters
 
@@ -64,4 +65,3 @@ await client.Endpoint.UpdateAsync("{domainId1}", "{endpointId1}", new UpdateEndp
 #coming soon
 ```
 {% endmethod %}
-

@@ -1,11 +1,13 @@
 {% method %}
 
-## Fetch Conference information 
+## Fetch Conference information
 Retrieve current properties for a conference.
 
-## Request URL
+### Request URL
 
 <code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}`
+
+---
 
 ## Conference Properties
 
@@ -83,4 +85,3 @@ owner = conference.from
 ```
 
 {% endmethod %}
-

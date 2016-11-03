@@ -3,9 +3,11 @@
 ## Create Conference
 Creates a conference with no members.
 
-## Request URL
+### Request URL
 
 <code class="post">POST</code> `https://api.catapult.inetwork.com/v1/users/{userId}/conferences`
+
+---
 
 ### Supported Parameters
 
@@ -131,4 +133,3 @@ HTTP/1.1 201 CREATED
 Location: /v1/users/{userId}/conferences/{conferenceId}
 ```
 {% endmethod %}
-

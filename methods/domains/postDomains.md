@@ -7,11 +7,11 @@ This will create a domain.
 
 <code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/domains`
 
-
 <aside class="alert general small">
 There is a 100 domain max per account limit. Most use cases require using a single domain for all endpoints.
 </aside>
 
+---
 ### Supported Parameters
 
 | Parameter   | Description                                        | Mandatory |
@@ -78,4 +78,3 @@ HTTP/1.1 201 Created
 Location: /v1/users/{user-id}/domains/{domain-id}
 ```
 {% endmethod %}
-

@@ -8,6 +8,8 @@ Plays an audio file or speak a sentence in a phone call.
 
 <code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio`
 
+---
+
 ### Supported Parameters
 
 | Parameter   | Description                                                                                                                                                                                                                                                                                                                                                                                     | Mandatory |
@@ -218,4 +220,3 @@ call.play_audio({
 
 ### Example: Create an outbound call with tag property
 {% endmethod %}
-

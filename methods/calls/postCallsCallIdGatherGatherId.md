@@ -7,6 +7,8 @@ Update the gather.
 
 <code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather/{gatherId}`
 
+---
+
 <aside class="notice">
 The only update allowed is state:completed to stop the gather.
 </aside>
@@ -47,4 +49,3 @@ await client.Call.UpdateGatherAsync("{callId1}", "{gatherId1}", new UpdateGather
 call.update_gather("{gatherId1}", {:state => "completed"})
 ```
 {% endmethod %}
-

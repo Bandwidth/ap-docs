@@ -8,6 +8,8 @@ Create a new bridge.
 
 <code class="post">POST</code> `https://api.catapult.inetwork.com/v1/users/{userId}/bridges`
 
+---
+
 ### Supported Parameters
 
 | Parameter   | Description                                                                                                                                          | Mandatory |
@@ -140,4 +142,3 @@ Location: /v1/users/{userId}/calls/{bridgeId}
 ```
 
 {% endmethod %}
-

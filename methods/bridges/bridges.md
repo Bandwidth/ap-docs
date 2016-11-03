@@ -5,7 +5,9 @@ The Bridges resource allows you to bridge two calls together allowing for two wa
 
 `https://api.catapult.inetwork.com/v1/users/{userId}/bridges`
 
-| Verb                           | Method                                                                       | about                                                                   |
+### Capabilities
+
+| Verb                           | Path                                                                         | about                                                                   |
 |:-------------------------------|:-----------------------------------------------------------------------------|:------------------------------------------------------------------------|
 | <code class="get">GET</code>   | [`/v1/users/{userId}/bridges`](getBridges.md)                                | Get a list of previous bridges                                          |
 | <code class="post">POST</code> | [`/v1/users/{userId}/bridges`](postBridges.md)                               | Create a bridge                                                         |

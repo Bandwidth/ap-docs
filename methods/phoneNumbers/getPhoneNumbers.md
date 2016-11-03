@@ -7,6 +7,8 @@ Gets a list of your numbers. Since this operation uses HTTP GET, all the propert
 
 <code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers`
 
+---
+
 ### Supported Parameters
 | Parameter     | Description                                                                                                                                                                  | Mandatory |
 |:--------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
@@ -18,7 +20,7 @@ Gets a list of your numbers. Since this operation uses HTTP GET, all the propert
 | city          | Used to filter the retrieved list of numbers allocated for the authenticated user by it’s city.                                                                              | No        |
 | numberState   | Used to filter the retrieved list of numbers allocated for the authenticated user by the number state.                                                                       | No        |
 
-## Properties
+### Properties
 | Property       | Description                                                                                      |
 |:---------------|:-------------------------------------------------------------------------------------------------|
 | id             | The unique id of the phone number.                                                               |
@@ -104,4 +106,3 @@ first_number_id = first_number[:id]
 ]
 ```
 {% endmethod %}
-

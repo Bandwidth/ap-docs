@@ -7,26 +7,27 @@ Creates a new outbound phone call.
 
 <code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/calls`
 
+---
 
 ### Supported Parameters
 
-| Parameter            | Description                                                                                                                                  | Mandatory |
-|:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|:----------|
-| from                 | A Bandwidth phone number on your account the call should come from (must be in E.164 format, like `+19195551212`).                           | Yes       |
-| to                   | The number to call (must be either an E.164 formatted number, like `+19195551212`, or a valid SIP URI, like `sip:someone@somewhere.com`).    | Yes       |
-| callTimeout          | Determine how long should the platform wait for call answer before timing out in seconds.                                                    | No        |
-| callbackUrl          | The full server URL where the call events related to the Call will be sent to.                                                               | No        |
-| callbackTimeout      | Determine how long should the platform wait for callbackUrl’s response before timing out in milliseconds.                                    | No        |
+| Parameter            | Description                                                                                                                                                                                                        | Mandatory |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
+| from                 | A Bandwidth phone number on your account the call should come from (must be in E.164 format, like `+19195551212`).                                                                                                 | Yes       |
+| to                   | The number to call (must be either an E.164 formatted number, like `+19195551212`, or a valid SIP URI, like `sip:someone@somewhere.com`).                                                                          | Yes       |
+| callTimeout          | Determine how long should the platform wait for call answer before timing out in seconds.                                                                                                                          | No        |
+| callbackUrl          | The full server URL where the call events related to the Call will be sent to.                                                                                                                                     | No        |
+| callbackTimeout      | Determine how long should the platform wait for callbackUrl’s response before timing out in milliseconds.                                                                                                          | No        |
 | callbackHttpMethod   | Determine if the callback event should be sent via `HTTP GET` or `HTTP POST`. Values are <code class="get">GET</code> or <code class="post">POST</code> (if not set the default is <code class="get">POST</code>). | No        |
-| fallbackUrl          | The full server URL used to send the callback event if the request to callbackUrl fails.                                                     | No        |
-| bridgeId             | The id of the bridge where the call will be added.                                                                                           | No        |
-| conferenceId         | Id of the conference where the call will be added. This property is required if you want to add this call to a conference.                   | No        |
-| recordingEnabled     | Indicates if the call should be recorded after being created. Set to `true` to enable. Default is `false`.                                   | No        |
-| recordingMaxDuration | Indicates the maximum duration of call recording in seconds. Default value is 1 hour.                                                        | No        |
-| recordingFileFormat  | The file format of the recorded call. Supported values are `wav` (default) and `mp3`.                                                        | No        |
-| transcriptionEnabled | Whether all the recordings for this call is going to be automatically transcribed.                                                           | No        |
-| tag                  | A string that will be included in the callback events of the call.                                                                           | No        |
-| sipHeaders           | Map of Sip headers prefixed by `X-`. Up to 5 headers can be sent per call.                                                                   | No        |
+| fallbackUrl          | The full server URL used to send the callback event if the request to callbackUrl fails.                                                                                                                           | No        |
+| bridgeId             | The id of the bridge where the call will be added.                                                                                                                                                                 | No        |
+| conferenceId         | Id of the conference where the call will be added. This property is required if you want to add this call to a conference.                                                                                         | No        |
+| recordingEnabled     | Indicates if the call should be recorded after being created. Set to `true` to enable. Default is `false`.                                                                                                         | No        |
+| recordingMaxDuration | Indicates the maximum duration of call recording in seconds. Default value is 1 hour.                                                                                                                              | No        |
+| recordingFileFormat  | The file format of the recorded call. Supported values are `wav` (default) and `mp3`.                                                                                                                              | No        |
+| transcriptionEnabled | Whether all the recordings for this call is going to be automatically transcribed.                                                                                                                                 | No        |
+| tag                  | A string that will be included in the callback events of the call.                                                                                                                                                 | No        |
+| sipHeaders           | Map of Sip headers prefixed by `X-`. Up to 5 headers can be sent per call.                                                                                                                                         | No        |
 
 {% common %}
 
@@ -187,4 +188,3 @@ call = Call.create(client, {
 
 ### Example: Create an outbound call with tag property
 {% endmethod %}
-

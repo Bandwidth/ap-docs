@@ -7,6 +7,8 @@ Gets a list of active and historic calls you made or received. Since this operat
 
 <code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/calls/`
 
+---
+
 ### Supported Parameters
 
 | Parameter    | Description                                                                                                                                                          | Mandatory |
@@ -161,4 +163,3 @@ calls = Call.list(client, {:from => "+19195551212"})
 ]
 ```
 {% endmethod %}
-

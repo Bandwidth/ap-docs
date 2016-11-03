@@ -3,11 +3,13 @@
 ## List Members in Conference
 List all members from a conference. If a member had already hung up or removed from conference it will be displayed as completed.
 
-## Request URL
+### Request URL
 
 <code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members`
 
-## Conference Member Properties
+---
+
+### Conference Member Properties
 
 | Property    | Description                                                                                                                             |
 |:------------|:----------------------------------------------------------------------------------------------------------------------------------------|
@@ -96,4 +98,3 @@ first_member_state = members[0].state
 ]
 ```
 {% endmethod %}
-

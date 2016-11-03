@@ -21,7 +21,7 @@
    * [GET List Toll Free Numbers](methods/availableNumbers/getAvailableNumbersTollFree.md)
    * [POST Order Toll Free Number](methods/availableNumbers/postAvailableNumbersTollFree.md)
  * [/bridges](methods/bridges/bridges.md)
-   * [GET List all Bridges](methods/bridges/getBridges.md)
+   * [GET List Bridges](methods/bridges/getBridges.md)
    * [POST Create Bridge](methods/bridges/postBridges.md)
    * [GET Bridge info](methods/bridges/getBridgesBridgeId.md)
    * [POST Update Bridge](methods/bridges/postBridgesBridgeId.md)

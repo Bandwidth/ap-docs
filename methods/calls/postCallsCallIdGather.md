@@ -7,6 +7,8 @@ Collects a series of DTMF digits from a phone call with an optional prompt. This
 
 <code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather`
 
+---
+
 ### Supported Parameters
 
 | Parameter          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Mandatory |
@@ -91,4 +93,3 @@ gather = call.create_gather({
 })
 ```
 {% endmethod %}
-

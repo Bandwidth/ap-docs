@@ -6,6 +6,8 @@ Searches for available local numbers by location or pattern criteria.
 
 <code class="get">GET</code> `https://api.catapult.inetwork.com/v1/availableNumbers/local?<queryParams>`
 
+---
+
 ### Supported Parameters
 
 | Parameter          | Description                                                                                                                                                                                                                           | Mandatory |

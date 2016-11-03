@@ -40,4 +40,3 @@ await client.Endpoint.DeleteAsync("{domainId1}", "{endpointId1}");
 domain.delete_endpoint("{endpointId1}")
 ```
 {% endmethod %}
-

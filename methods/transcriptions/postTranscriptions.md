@@ -57,4 +57,3 @@ HTTP/1.1 201 Created
 Location: /v1/users/{user-id}/recordings/{recording-id}/transcriptions/{transcription-id}
 ```
 {% endmethod %}
-

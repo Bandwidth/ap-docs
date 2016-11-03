@@ -56,4 +56,3 @@ event_name = call_event[:name]
 }
 ```
 {% endmethod %}
-

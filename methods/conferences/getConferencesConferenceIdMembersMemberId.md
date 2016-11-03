@@ -3,9 +3,11 @@
 ## Fetch Member information
 Retrieve a conference member properties.
 
-## Request URL
+### Request URL
 
 <code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members/{memberId}`
+
+---
 
 ## Conference Member Properties
 
@@ -74,4 +76,3 @@ state = member.state
 }
 ```
 {% endmethod %}
-

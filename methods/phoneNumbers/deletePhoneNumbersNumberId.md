@@ -41,4 +41,3 @@ await client.PhoneNumber.DeleteAsync(numberId);
 phoneNumber.delete()
 ```
 {% endmethod %}
-

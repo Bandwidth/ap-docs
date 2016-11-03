@@ -7,6 +7,8 @@ Allocates a number so you can use it to make and receive calls and send and rece
 
 <code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers`
 
+---
+
 ### Supported Parameters
 | Parameter      | Description                                                                                 | Mandatory |
 |:---------------|:--------------------------------------------------------------------------------------------|:----------|
@@ -69,4 +71,3 @@ HTTP/1.1 201 Created
 Location: /v1/users/{userId}/phoneNumbers/{numberId}
 ```
 {% endmethod %}
-

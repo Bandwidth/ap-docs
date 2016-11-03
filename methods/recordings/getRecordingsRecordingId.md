@@ -7,7 +7,9 @@ Retrieve a specific call recording information in JSON format, identified by rec
 
 <code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recordingId}`
 
-## Properties
+---
+
+### Properties
 
 | Property  | Description                                                                                                                                                               |
 |:----------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -20,7 +22,7 @@ Retrieve a specific call recording information in JSON format, identified by rec
 | page      | Used for pagination to indicate the page requested for querying a list of recordings. If no value is specified the default is 0.                                          |
 | size      | Used for pagination to indicate the size of each page requested for querying a list of recordings. If no value is specified the default value is 25. (Maximum value 1000) |
 
-## Recording States
+### Recording States
 | State     | Description                                                    |
 |:----------|:---------------------------------------------------------------|
 | recording | Recording is currently active.                                 |
@@ -89,4 +91,3 @@ state = recording[:state]
 }
 ```
 {% endmethod %}
-

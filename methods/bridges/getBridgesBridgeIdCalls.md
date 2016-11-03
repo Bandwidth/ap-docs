@@ -8,6 +8,9 @@ Get the list of calls that are on the bridge.
 
 <code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/calls`
 
+{% common %}
+
+### Example: Fetch calls from Bridge
 {% sample lang="bash" %}
 
 ```bash
@@ -89,4 +92,3 @@ first_call_to = first_call[:to]
 ```
 
 {% endmethod %}
-

@@ -6,6 +6,8 @@ Gets the most recent user errors for the user. Since this operation uses HTTP GE
 ### Request URL
 <code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/errors`
 
+---
+
 ### Supported Parameters
 | Parameter | Description                                                                                                                                                                | Mandatory |
 |:----------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
@@ -108,4 +110,3 @@ first_error_message = first_error[:message]
 ]
 ```
 {% endmethod %}
-

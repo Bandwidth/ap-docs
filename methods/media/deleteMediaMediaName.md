@@ -37,4 +37,3 @@ Media.delete(client, "file.mp3")
 ```
 
 {% endmethod %}
-

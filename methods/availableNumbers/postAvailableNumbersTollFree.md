@@ -6,6 +6,8 @@ Searches and order available Toll Free numbers.
 ### Request URL
 <code class="post">POST</code> `https://api.catapult.inetwork.com/v1/availableNumbers/tollFree`
 
+---
+
 ### Supported Parameters
 
 | Parameter | Description                                                                      | Mandatory |
@@ -93,4 +95,3 @@ number_id = first_result[:id]
 ]
 ```
 {% endmethod %}
-

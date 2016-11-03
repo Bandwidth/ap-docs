@@ -7,7 +7,9 @@ This returns a list of the domains that have been created
 
 <code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/domains`
 
-## Properties
+---
+
+### Properties
 | Property    | Description                                         |
 |:------------|:----------------------------------------------------|
 | name        | The name is a unique URI to be used in DNS lookups  |
@@ -71,4 +73,3 @@ first_domain_name = first_domain.name
 ]
 ```
 {% endmethod %}
-

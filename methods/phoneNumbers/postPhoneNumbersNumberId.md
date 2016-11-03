@@ -7,6 +7,8 @@ Makes changes to a number you have. <code class="post">POST</code> a new JSON re
 
 <code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/{numberId}`
 
+---
+
 ### Supported Parameters
 | Parameter      | Description                                                                                                      | Mandatory |
 |:---------------|:-----------------------------------------------------------------------------------------------------------------|:----------|
@@ -57,4 +59,3 @@ await client.PhoneNumber.UpdateAsync(numberId, new UpdatePhoneNUmberData {
 phoneNumber.update({:application_id => "{application_id}"})
 ```
 {% endmethod %}
-

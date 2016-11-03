@@ -7,7 +7,9 @@ This resource provides a CNAM number info. CNAM is an acronym which stands for C
 
 <code class="get">GET</code>`https://api.catapult.inetwork.com/v1/phoneNumbers/numberInfo/{number}`
 
-## Properties
+---
+
+### Properties
 | Property | Description                                                  |
 |:---------|:-------------------------------------------------------------|
 | name     | The Caller ID name information.                              |
@@ -64,4 +66,3 @@ name = info[:name]
 }
 ```
 {% endmethod %}
-

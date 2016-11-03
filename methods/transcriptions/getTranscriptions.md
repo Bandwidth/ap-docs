@@ -6,7 +6,9 @@ Get all the transcriptions that were made for the given recodingId
 
 <code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recordingId}/transcriptions`
 
-## Properties
+---
+
+### Properties
 | Property           | Description                                                                                                                                                                       |
 |:-------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id                 | The unique id of the transcriptions resource.                                                                                                                                     |

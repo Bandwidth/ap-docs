@@ -1,11 +1,13 @@
 # Endpoints
 An endpoint represents is an entity that can register with the Application Platform SIP Registrar and place and receive calls. This can be a device like a phone or a pad, or it can be a softphone on a computer.
 
-## Base URL
+### Base URL
 
 `https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domainId}/endpoints`
 
-| Verb                               | Method                                                                                         | about                             |
+### Capabilities
+
+| Verb                               | Path                                                                                           | about                             |
 |:-----------------------------------|:-----------------------------------------------------------------------------------------------|:----------------------------------|
 | <code class="get">GET</code>       | [`/v1/users/{userId}/domains/{domainId}/endpoints`](getEndpoints.md)                           | List all endpoints on a domain    |
 | <code class="post">POST</code>     | [`/v1/users/{userId}/domains/{domainId}/endpoints`](postEndpoints.md)                          | Create a new endpoint on a domain |

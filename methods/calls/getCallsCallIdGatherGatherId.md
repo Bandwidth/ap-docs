@@ -58,4 +58,3 @@ digits = gather[:digits]
 }
 ```
 {% endmethod %}
-

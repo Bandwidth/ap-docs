@@ -1,6 +1,5 @@
 {% method %}
-## <code class="get">GET</code> Account
-
+## Fetch Account Information
 
 {% raw %}
 
@@ -49,6 +48,7 @@ function myFunction() {
 
 <button onclick="myFunction()">Update Creds</button>
 
+---
 
 ### Account Properties
 | PROPERTY    | DESCRIPTION                                                                                                                                                                                                                                                                          |

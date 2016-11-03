@@ -1,13 +1,14 @@
 {% method %}
 ## Fetch Message information
+Gets information about a previously sent or received message. No query parameters are supported.
 
 ### Request URL
 
 <code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}`
 
-Gets information about a previously sent or received message. No query parameters are supported.
+---
 
-## Properties
+### Properties
 | Property            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |:--------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id                  | The unique ID of the message.                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
@@ -30,7 +31,7 @@ Gets information about a previously sent or received message. No query parameter
 | deliveryDescription | Message delivery description for the respective delivery code                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 
-## Message States
+### Message States
 | State    | Description                                                                            |
 |:---------|:---------------------------------------------------------------------------------------|
 | received | The message was received.                                                              |
@@ -39,14 +40,14 @@ Gets information about a previously sent or received message. No query parameter
 | sent     | The message was sent successfully.                                                     |
 | error    | There was an error sending or receiving a message (check errors resource for details). |
 
-## Message Delivery State
+### Message Delivery State
 | State         | Description                                        |
 |:--------------|:---------------------------------------------------|
 | waiting       | Waiting for receipt.                               |
 | delivered     | Receipt indicating that message was delivered.     |
 | not-delivered | Receipt indicating that message was not delivered. |
 
-## Message Delivery Code
+### Message Delivery Code
 | Code | Description                                   |
 |:-----|:----------------------------------------------|
 | 0    | Message delivered to carrier                  |

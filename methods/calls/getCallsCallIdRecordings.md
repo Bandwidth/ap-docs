@@ -68,4 +68,3 @@ first_recording_state = first_recording[:state]
 ]
 ```
 {% endmethod %}
-

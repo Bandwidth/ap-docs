@@ -6,6 +6,7 @@ Creates an application that can handle calls and messages for one of your phone 
 
 <code class="post">POST</code> `https://api.catapult.inetwork.com/v1/users/{userId}/applications/`
 
+---
 
 ### Supported Parameters
 | Parameter                         | Description                                                                                                      | Mandatory |

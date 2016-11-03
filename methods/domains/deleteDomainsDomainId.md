@@ -37,4 +37,3 @@ domain.delete()
 ```
 
 {% endmethod %}
-

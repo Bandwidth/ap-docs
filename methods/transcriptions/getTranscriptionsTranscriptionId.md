@@ -7,7 +7,9 @@ Get information about the transcription, regardless its state.
 
 <code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recordingId}/transcriptions/{transcriptionId}`
 
-## Properties
+---
+
+### Properties
 | Property           | Description                                                                                                                                                                       |
 |:-------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id                 | The unique id of the transcriptions resource.                                                                                                                                     |
@@ -73,4 +75,3 @@ text = transcription[:text]
 }
 ```
 {% endmethod %}
-

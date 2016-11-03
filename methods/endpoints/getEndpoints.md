@@ -7,6 +7,8 @@ This returns a list of all endpoints associated with a domain.
 
 <code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domainId}/endpoints/`
 
+---
+
 ### Supported Parameters
 | Parameter | Description                                                                                                                                                              | Mandatory |
 |:----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
@@ -101,4 +103,3 @@ first_endpoint_name = endpoints[0].Name;
 ]
 ```
 {% endmethod %}
-

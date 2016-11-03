@@ -6,6 +6,8 @@ Uploads a file the normal HTTP way. You may add headers to the request in order 
 ### Request URL
 <code class="put">PUT</code> `https://api.catapult.inetwork.com/v1/users/{userId}/media/{mediaName}`
 
+---
+
 <aside class="alert general small">
 You can upload files up to `65MB` and file storage is free for an unlimited number of files.
 </aside>
@@ -50,4 +52,3 @@ await client.Media.UploadAsync(new UploadMediaData{
 Media.upload(client, "file.mp3", File.open("/path/to/file.mp3"), "audio/mp3")
 ```
 {% endmethod %}
-

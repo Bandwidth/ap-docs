@@ -7,6 +7,8 @@ Gets a list messages you have sent or received. Since this operation uses HTTP G
 
 <code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/messages`
 
+---
+
 Message results are paginated based on the `size` parameter. If the number of messages found by the specified query parameters exceeds one page, the `link` header on the HTTP response will contain the URL to request the next page of results. The `link` header will continue to be set for each request, as long as there is another page of messages available.
 
 ### Supported Parameters
@@ -23,7 +25,7 @@ Message results are paginated based on the `size` parameter. If the number of me
 | deliveryState | The message delivery state to filter. Values are `waiting` `delivered` `not-delivered `                                                                                                                                                                                                                                                                                                                               | No        |
 | sortOrder     | How to sort the messages. Values are `asc` or `desc` If no value is specified the default value is `asc`                                                                                                                                                                                                                                                                                                              | No        |
 
-## Properties
+### Properties
 | Property            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |:--------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id                  | The unique ID of the message.                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
@@ -45,7 +47,7 @@ Message results are paginated based on the `size` parameter. If the number of me
 | deliveryCode        | Numeric value of deliver code, see table for values.                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | deliveryDescription | Message delivery description for the respective delivery code                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
-## Message States
+### Message States
 | State    | Description                                                                            |
 |:---------|:---------------------------------------------------------------------------------------|
 | received | The message was received.                                                              |
@@ -54,14 +56,14 @@ Message results are paginated based on the `size` parameter. If the number of me
 | sent     | The message was sent successfully.                                                     |
 | error    | There was an error sending or receiving a message (check errors resource for details). |
 
-## Message Delivery State
+### Message Delivery State
 | State         | Description                                        |
 |:--------------|:---------------------------------------------------|
 | waiting       | Waiting for receipt.                               |
 | delivered     | Receipt indicating that message was delivered.     |
 | not-delivered | Receipt indicating that message was not delivered. |
 
-## Message Delivery Code
+### Message Delivery Code
 | Code | Description                                   |
 |:-----|:----------------------------------------------|
 | 0    | Message delivered to carrier                  |
@@ -287,4 +289,3 @@ messages = Message.list(client, {
 ]
 ```
 {% endmethod %}
-
