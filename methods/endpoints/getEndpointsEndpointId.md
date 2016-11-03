@@ -1,6 +1,12 @@
 {% method %}
-## GET domains/{domain-id}/endpoints/{endpoint-id}
+
+## Fetch Endpoint Information
+
 This returns a single endpoint.
+
+### Request URL
+
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domainId}/endpoints/{endpointId}`
 
 ## Properties
 | Property      | Description                                                                                                                                                                                                                                                                                                                                                              |
@@ -21,9 +27,11 @@ This returns a single endpoint.
 | password | The plain-text password the SIP client must use when authenticating to use this device.<br>The password is case-sensitive.<br>The password must be at least 6 characters long and contain only Latin 1 (ISO 8859-1) characters. |
 
 {% common %}
+
 ###Example: Get a single endpoint
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domain-id}/endpoints/{endpoint-id} \
 	-u {token}:{secret} \
@@ -31,6 +39,7 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/domains/{doma
 ```
 
 {% sample lang="js" %}
+
 ```js
 // Promise
 client.Endpoint.get(domainId, endpointId).then(function(endpoint){});
@@ -40,18 +49,21 @@ client.Endpoint.get(domainId, endpointId, function(err, endpoint){});
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var endpoint = await client.Endpoint.GetAsync("{domainId1}", "{endpointId1}");
 var name = endpoint.Name;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 endpoint = domain.get_endpoint("{endpoointId1}")
 name = endpoint.name
 ```
 
 {% common %}
+
 
 > The above command returns JSON structured like this:
 
@@ -70,3 +82,4 @@ name = endpoint.name
 }
 ```
 {% endmethod %}
+

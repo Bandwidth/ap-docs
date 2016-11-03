@@ -1,6 +1,11 @@
 {% method %}
-## GET domains/{domain-id}/endpoints
+
+## List all Endpoints on a Domain
 This returns a list of all endpoints associated with a domain.
+
+### Request URL
+
+<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domainId}/endpoints/`
 
 ### Supported Parameters
 | Parameter | Description                                                                                                                                                              | Mandatory |
@@ -27,9 +32,11 @@ This returns a list of all endpoints associated with a domain.
 | password | The plain-text password the SIP client must use when authenticating to use this device.<br>The password is case-sensitive.<br>The password must be at least 6 characters long and contain only Latin 1 (ISO 8859-1) characters. |
 
 {% common %}
+
 ### Example: Get a list of all endpoints for a domain
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domainId}/endpoints \
 	-u {token}:{secret} \
@@ -37,6 +44,7 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/domains/{doma
 ```
 
 {% sample lang="js" %}
+
 ```js
 // Default size (25) using promises
  client.Endpoint.list("domainId")
@@ -54,6 +62,7 @@ client.Endpoint.list("domainId" {size: 1000}, function (err, res) {});
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 // Default size (25)
 var endpoints = client.Endpoint.List("{domainId1}");
@@ -65,12 +74,14 @@ var firstEndpointName = endpoints.First().Name;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 endpoints = domain.get_endpoints()
 first_endpoint_name = endpoints[0].Name;
 ```
 
 {% common %}
+
 > The above command returns JSON structured like this:
 
 ```json
@@ -90,3 +101,4 @@ first_endpoint_name = endpoints[0].Name;
 ]
 ```
 {% endmethod %}
+

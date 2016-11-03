@@ -12,6 +12,8 @@ This will create a domain.
 There is a 100 domain max per account limit. Most use cases require using a single domain for all endpoints.
 </aside>
 
+### Supported Parameters
+
 | Parameter   | Description                                        | Mandatory |
 |:------------|:---------------------------------------------------|:----------|
 | name        | The name is a unique URI to be used in DNS lookups | Yes       |
