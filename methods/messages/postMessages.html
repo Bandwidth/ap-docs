@@ -363,7 +363,7 @@
                 <a href="../bridges/getBridges.html">
             
                     
-                    <code class="get">GET</code> List all Bridges
+                    <code class="get">GET</code> List Bridges
             
                 </a>
             
@@ -1951,6 +1951,7 @@
 <p>Sends one or more messages.</p>
 <h3 id="request-url">Request URL</h3>
 <p><code class="post">POST</code><code>https://api.catapult.inetwork.com/v1/users/{userId}/messages</code></p>
+<hr>
 <p>Sending a single message: To send a single text message, submit a single message representation as your request body. The response indicates the created message&apos;s URL in the Location header if it was created successfully. If there was an error with the message, the response body contains error information.</p>
 <p>Sending multiple messages: To send multiple messages in a single request, submit an array of message representations as your request body. The response entity will contain an array of response objects, with the same length and order as the submitted message list, so you can iterate in the results to check for errors. Each result contains the URL of the of the message if it was created successfully or error information.</p>
 <p>Important Note on Multiple Messages: There is a maximum limit of 50 messages sent per multiple messages request.</p>
@@ -2022,7 +2023,7 @@ When sending MMS, the size of all medias for specific message summed up should n
 </tr>
 </tbody>
 </table>
-<h2 id="message-request-receipt">Message Request Receipt</h2>
+<h3 id="message-request-receipt">Message Request Receipt</h3>
 <table>
 <thead>
 <tr>
@@ -2045,7 +2046,7 @@ When sending MMS, the size of all medias for specific message summed up should n
 </tr>
 </tbody>
 </table>
-<h2 id="multiple-message-result-types">Multiple Message Result Types</h2>
+<h3 id="multiple-message-result-types">Multiple Message Result Types</h3>
 <table>
 <thead>
 <tr>
@@ -2388,7 +2389,6 @@ Location: /v1/users/{userId}/messages/{messageId}
 </code></pre>
 </div></div></div>
 
-
                                 
                                 </section>
                             
@@ -2421,7 +2421,7 @@ Location: /v1/users/{userId}/messages/{messageId}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST Create Message","level":"2.1.11.2","depth":3,"next":{"title":"GET Message info","level":"2.1.11.3","depth":3,"path":"methods/messages/getMessagesMessageId.md","ref":"methods/messages/getMessagesMessageId.md","articles":[]},"previous":{"title":"GET List Messages","level":"2.1.11.1","depth":3,"path":"methods/messages/getMessages.md","ref":"methods/messages/getMessages.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/messages/postMessages.md","mtime":"2016-11-03T17:42:43.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-03T17:43:58.984Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST Create Message","level":"2.1.11.2","depth":3,"next":{"title":"GET Message info","level":"2.1.11.3","depth":3,"path":"methods/messages/getMessagesMessageId.md","ref":"methods/messages/getMessagesMessageId.md","articles":[]},"previous":{"title":"GET List Messages","level":"2.1.11.1","depth":3,"path":"methods/messages/getMessages.md","ref":"methods/messages/getMessages.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/messages/postMessages.md","mtime":"2016-11-03T20:31:21.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-03T20:33:00.170Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

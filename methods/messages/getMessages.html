@@ -363,7 +363,7 @@
                 <a href="../bridges/getBridges.html">
             
                     
-                    <code class="get">GET</code> List all Bridges
+                    <code class="get">GET</code> List Bridges
             
                 </a>
             
@@ -1951,6 +1951,7 @@
 <p>Gets a list messages you have sent or received. Since this operation uses HTTP GET, all the properties are specified as HTTP request parameters.</p>
 <h3 id="request-url">Request URL</h3>
 <p><code class="get">GET</code><code>https://api.catapult.inetwork.com/v1/users/{userId}/messages</code></p>
+<hr>
 <p>Message results are paginated based on the <code>size</code> parameter. If the number of messages found by the specified query parameters exceeds one page, the <code>link</code> header on the HTTP response will contain the URL to request the next page of results. The <code>link</code> header will continue to be set for each request, as long as there is another page of messages available.</p>
 <h3 id="supported-parameters">Supported Parameters</h3>
 <table>
@@ -2014,7 +2015,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="properties">Properties</h2>
+<h3 id="properties">Properties</h3>
 <table>
 <thead>
 <tr>
@@ -2097,7 +2098,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="message-states">Message States</h2>
+<h3 id="message-states">Message States</h3>
 <table>
 <thead>
 <tr>
@@ -2128,7 +2129,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="message-delivery-state">Message Delivery State</h2>
+<h3 id="message-delivery-state">Message Delivery State</h3>
 <table>
 <thead>
 <tr>
@@ -2151,7 +2152,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="message-delivery-code">Message Delivery Code</h2>
+<h3 id="message-delivery-code">Message Delivery Code</h3>
 <table>
 <thead>
 <tr>
@@ -2359,7 +2360,6 @@ first_message_text = first_message[<span class="hljs-symbol">:text</span>]
 </code></pre>
 </div></div></div>
 
-
                                 
                                 </section>
                             
@@ -2392,7 +2392,7 @@ first_message_text = first_message[<span class="hljs-symbol">:text</span>]
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET List Messages","level":"2.1.11.1","depth":3,"next":{"title":"POST Create Message","level":"2.1.11.2","depth":3,"path":"methods/messages/postMessages.md","ref":"methods/messages/postMessages.md","articles":[]},"previous":{"title":"/messages","level":"2.1.11","depth":2,"path":"methods/messages/messages.md","ref":"methods/messages/messages.md","articles":[{"title":"GET List Messages","level":"2.1.11.1","depth":3,"path":"methods/messages/getMessages.md","ref":"methods/messages/getMessages.md","articles":[]},{"title":"POST Create Message","level":"2.1.11.2","depth":3,"path":"methods/messages/postMessages.md","ref":"methods/messages/postMessages.md","articles":[]},{"title":"GET Message info","level":"2.1.11.3","depth":3,"path":"methods/messages/getMessagesMessageId.md","ref":"methods/messages/getMessagesMessageId.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/messages/getMessages.md","mtime":"2016-11-03T17:42:43.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-03T17:43:58.984Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET List Messages","level":"2.1.11.1","depth":3,"next":{"title":"POST Create Message","level":"2.1.11.2","depth":3,"path":"methods/messages/postMessages.md","ref":"methods/messages/postMessages.md","articles":[]},"previous":{"title":"/messages","level":"2.1.11","depth":2,"path":"methods/messages/messages.md","ref":"methods/messages/messages.md","articles":[{"title":"GET List Messages","level":"2.1.11.1","depth":3,"path":"methods/messages/getMessages.md","ref":"methods/messages/getMessages.md","articles":[]},{"title":"POST Create Message","level":"2.1.11.2","depth":3,"path":"methods/messages/postMessages.md","ref":"methods/messages/postMessages.md","articles":[]},{"title":"GET Message info","level":"2.1.11.3","depth":3,"path":"methods/messages/getMessagesMessageId.md","ref":"methods/messages/getMessagesMessageId.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/messages/getMessages.md","mtime":"2016-11-03T20:31:14.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-03T20:33:00.170Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
