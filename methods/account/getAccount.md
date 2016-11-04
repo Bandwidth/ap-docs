@@ -112,14 +112,6 @@ curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{{userId}}/account \
 
 <button onclick="addJSClient()" id="jsClient">See Client</button>
 
-```js
-var client = new Bandwidth({
-    userId    : "YOUR_USER_ID", // <-- note, this is not the same as the username you used to login to the portal
-    apiToken  : "YOUR_API_TOKEN",
-    apiSecret : "YOUR_API_SECRET"
-});
-```
-
 ```javascript
 // Promise
 client.Account.get().then(function(info){});
