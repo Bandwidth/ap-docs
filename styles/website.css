@@ -224,14 +224,14 @@ code:before, code:after{
 .alert:before{
 	display:inline-block;
 	font-family: 'Bandwidth', Open Sans, Oswald, Sans-Serif;
-	width: 2em;
-	height:2em;
-	line-height:2em;
+	width: 1.5em;
+	height:1.5em;
+	line-height:1.5em;
 	content: "!";
 	background-color: #fff;
 	border-radius:2em;
 	border: 2px solid #f6bbab;
-	margin-right: 1em;
+	margin-right: .7em;
 	vertical-align: middle;
 	text-align:center;
 }
