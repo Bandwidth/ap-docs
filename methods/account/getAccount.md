@@ -4,37 +4,77 @@
 {% raw %}
 
 <script>
+var bwPageStatus = {}
+
+bwPageStatus.credsShown = false;
+
 function myFunction() {
   'use strict';
-  var newApiToken = localStorage.getItem("apiToken");
-  var newApiSecret = localStorage.getItem("apiSecret");
-  var newUserId = localStorage.getItem("userId");
-  var tn = localStorage.getItem("tn");
+  var newApiToken = null;
+  var newApiSecret = null;
+  var newUserId = null;
+  var tn = null;
   var oldUserId = "{{userId}}";
   var oldApiToken = "{{apiToken}}";
   var oldApiSecret = "{{apiSecret}}";
+  var oldUserIdMatch = new RegExp(oldUserId, 'g');
+  var oldApiTokenMatch = new RegExp(oldApiToken, 'g');
+  var oldApiSecretMatch = new RegExp(oldApiSecret, 'g');
+
+  if (typeof(Storage) !== "undefined") {
+
+    newApiToken = localStorage.getItem("apiToken");
+    newApiSecret = localStorage.getItem("apiSecret");
+    newUserId = localStorage.getItem("userId");
+    tn = localStorage.getItem("tn");
+  } else {
+      Console.log("No localStorage Support");
+  }
 
   var targetedElements = 'code:not(.get, .post, .delete, .put)';
 
-  if (newUserId !== null){
-    var oldUserIdMatch = new RegExp(oldUserId, 'g');
-    $(targetedElements).each(function () {
-      $(this).text($(this).text().replace(oldUserIdMatch, newUserId));
+  var replaceCreds = function (elem) {
+    $(elem).each(function () {
+        var self = this;
+        if ($(self).children().length > 0) {
+            replaceCreds($(self).children());
+        }
+        else {
+            if (newUserId !== null){
+              $(self).text($(self).text().replace(oldUserIdMatch, newUserId));
+            }
+            if (newApiToken !== null){
+              $(self).text($(self).text().replace(oldApiTokenMatch, newApiToken));
+            }
+            if (newApiSecret !== null) {
+              $(self).text($(self).text().replace(oldApiSecretMatch, newApiSecret));
+            }
+        }
     });
   }
 
-  if (newApiToken !== null){
-    var oldApiTokenMatch = new RegExp(oldApiToken, 'g');
-    $(targetedElements).each(function () {
-      $(this).text($(this).text().replace(oldApiTokenMatch, newApiToken));
-    });
-  }
+  replaceCreds(targetedElements);
+  bwPageStatus.credsShown = true;
+};
 
-  if (newApiSecret !== null) {
-    var oldApiSecretMatch = new RegExp(oldApiSecret, 'g');
-    $(targetedElements).each(function () {
-      $(this).text($(this).text().replace(oldApiSecretMatch, newApiSecret));
-    });
+
+function addJSClient() {
+  var client = "<span class=\"hljs-comment\">// install sdk: npm install node-bandwidth</span>\n"+
+  "\n"+
+  "<span class=\"hljs-keyword\">var</span> Bandwidth = <span class=\"hljs-built_in\">require</span>(<span class=\"hljs-string\">\"node-bandwidth\"</span>);\n"+
+  "<span class=\"hljs-keyword\">var</span> client = <span class=\"hljs-keyword\">new</span> Bandwidth({\n"+
+  "    userId    : <span class=\"hljs-string\">\"{{userId}}\"</span>\n"+
+  "    apiToken  : <span class=\"hljs-string\">\"{{apiSecret}}\"</span>,\n"+
+  "    apiSecret : <span class=\"hljs-string\">\"{{apiToken}}\"</span>\n"+
+  "});\n";
+
+  var jsBlock = "code.lang-javascript";
+
+  $(jsBlock).prepend(client);
+  $("#jsClient").hide();
+
+  if (bwPageStatus.credsShown) {
+    myFunction();
   }
 };
 
@@ -69,6 +109,16 @@ curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{{userId}}/account \
   -H "Content-type: application/json" \
 ```
 {% sample lang="js" %}
+
+<button onclick="addJSClient()" id="jsClient">See Client</button>
+
+```js
+var client = new Bandwidth({
+    userId    : "YOUR_USER_ID", // <-- note, this is not the same as the username you used to login to the portal
+    apiToken  : "YOUR_API_TOKEN",
+    apiSecret : "YOUR_API_SECRET"
+});
+```
 
 ```javascript
 // Promise
