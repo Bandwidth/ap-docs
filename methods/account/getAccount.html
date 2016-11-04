@@ -1948,89 +1948,9 @@
                                 <section class="normal markdown-section">
                                 
                                 <div class="api-method"><div class="api-method-definition"><h2 id="fetch-account-information">Fetch Account Information</h2>
-<script>
-var bwPageStatus = {}
-
-bwPageStatus.credsShown = false;
-
-function myFunction() {
-  'use strict';
-  var newApiToken = null;
-  var newApiSecret = null;
-  var newUserId = null;
-  var tn = null;
-  var oldUserId = "{{userId}}";
-  var oldApiToken = "{{apiToken}}";
-  var oldApiSecret = "{{apiSecret}}";
-  var oldUserIdMatch = new RegExp(oldUserId, 'g');
-  var oldApiTokenMatch = new RegExp(oldApiToken, 'g');
-  var oldApiSecretMatch = new RegExp(oldApiSecret, 'g');
-
-  if (typeof(Storage) !== "undefined") {
-
-    newApiToken = localStorage.getItem("apiToken");
-    newApiSecret = localStorage.getItem("apiSecret");
-    newUserId = localStorage.getItem("userId");
-    tn = localStorage.getItem("tn");
-  } else {
-      Console.log("No localStorage Support");
-  }
-
-  var targetedElements = 'code:not(.get, .post, .delete, .put)';
-
-  var replaceCreds = function (elem) {
-    $(elem).each(function () {
-        var self = this;
-        if ($(self).children().length > 0) {
-            replaceCreds($(self).children());
-        }
-        else {
-            if (newUserId !== null){
-              $(self).text($(self).text().replace(oldUserIdMatch, newUserId));
-            }
-            if (newApiToken !== null){
-              $(self).text($(self).text().replace(oldApiTokenMatch, newApiToken));
-            }
-            if (newApiSecret !== null) {
-              $(self).text($(self).text().replace(oldApiSecretMatch, newApiSecret));
-            }
-        }
-    });
-  }
-
-  replaceCreds(targetedElements);
-  bwPageStatus.credsShown = true;
-};
-
-
-function addJSClient() {
-  var client = "<span class=\"hljs-comment\">// install sdk: npm install node-bandwidth</span>\n"+
-  "\n"+
-  "<span class=\"hljs-keyword\">var</span> Bandwidth = <span class=\"hljs-built_in\">require</span>(<span class=\"hljs-string\">\"node-bandwidth\"</span>);\n"+
-  "<span class=\"hljs-keyword\">var</span> client = <span class=\"hljs-keyword\">new</span> Bandwidth({\n"+
-  "    userId    : <span class=\"hljs-string\">\"{{userId}}\"</span>\n"+
-  "    apiToken  : <span class=\"hljs-string\">\"{{apiSecret}}\"</span>,\n"+
-  "    apiSecret : <span class=\"hljs-string\">\"{{apiToken}}\"</span>\n"+
-  "});\n";
-
-  var jsBlock = "code.lang-javascript";
-
-  $(jsBlock).prepend(client);
-  $("#jsClient").hide();
-
-  if (bwPageStatus.credsShown) {
-    myFunction();
-  }
-};
-
-</script>
-
-
-
+<p>Get information about user account.</p>
 <h3 id="request-url">Request URL:</h3>
 <p><code class="get">GET</code> <code>https://api.catapult.inetwork.com/v1/users/{{userId}}/account</code></p>
-<button onclick="myFunction()">Update Creds</button>
-
 <hr>
 <h3 id="account-properties">Account Properties</h3>
 <table>
@@ -2056,9 +1976,7 @@ function addJSClient() {
   -u {{apiToken}}:{{apiSecret}} \
   -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
 </code></pre>
-</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><button onclick="addJSClient()" id="jsClient">See Client</button>
-
-<pre><code class="lang-javascript"><span class="hljs-comment">// Promise</span>
+</div><div class="api-method-sample" data-lang="js" data-name="JavaScript"><pre><code class="lang-javascript"><span class="hljs-comment">// Promise</span>
 client.Account.get().then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">info</span>)</span>{});
 
 <span class="hljs-comment">// Callback</span>
@@ -2111,7 +2029,7 @@ balance = account[<span class="hljs-symbol">:balance</span>]
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET Account info","level":"2.1.1.1","depth":3,"next":{"title":"GET Account transactions","level":"2.1.1.2","depth":3,"path":"methods/account/getAccountTransactions.md","ref":"methods/account/getAccountTransactions.md","articles":[]},"previous":{"title":"/account","level":"2.1.1","depth":2,"path":"methods/account/account.md","ref":"methods/account/account.md","articles":[{"title":"GET Account info","level":"2.1.1.1","depth":3,"path":"methods/account/getAccount.md","ref":"methods/account/getAccount.md","articles":[]},{"title":"GET Account transactions","level":"2.1.1.2","depth":3,"path":"methods/account/getAccountTransactions.md","ref":"methods/account/getAccountTransactions.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/account/getAccount.md","mtime":"2016-11-04T17:55:25.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-04T17:55:45.604Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET Account info","level":"2.1.1.1","depth":3,"next":{"title":"GET Account transactions","level":"2.1.1.2","depth":3,"path":"methods/account/getAccountTransactions.md","ref":"methods/account/getAccountTransactions.md","articles":[]},"previous":{"title":"/account","level":"2.1.1","depth":2,"path":"methods/account/account.md","ref":"methods/account/account.md","articles":[{"title":"GET Account info","level":"2.1.1.1","depth":3,"path":"methods/account/getAccount.md","ref":"methods/account/getAccount.md","articles":[]},{"title":"GET Account transactions","level":"2.1.1.2","depth":3,"path":"methods/account/getAccountTransactions.md","ref":"methods/account/getAccountTransactions.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-api":{"languages":[{"lang":"js","name":"JavaScript","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/account/getAccount.md","mtime":"2016-11-04T18:14:30.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-04T18:17:26.224Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
