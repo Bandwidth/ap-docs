@@ -5,71 +5,8 @@ Before you can send your first SMS message, you will need to
 1. [Sign up](https://catapult.inetwork.com/beta/signup) for a free Bandwidth API account.
 2. Get a number under the “My Numbers” tab (more specific instructions [here](https://bandwidth.github.io/howto/buytn.html))
 
-## Base URL
+## Base API URL
 `https://api.catapult.inetwork.com/v1`
-
-## Send your First SMS Message
-To send your first SMS message we have included instructions for using Postman, a helpful program for testing APIs (download), and also code that can be found further down this page.
-
-### Run in Stoplight!
-<div style='display: inline-block;'>
-  <a href='https://app.stoplight.io/scenarios/share/pHgmMR4Wthk2Pdpo3'>
-    <img width='150' src='https://cdn.stoplight.io/run-buttons/solid-blue.png' alt='Run in Stoplight' style='display: block;' />
-  </a>
-</div>
-
-## Using Postman
-
-<input type="text" id="apiToken-input" placeholder="Your API Token">
-<input type="text" id="apiSecret-input" placeholder="Your API Secret">
-<input type="text" id="userId-input" placeholder="Your User Id">
-<input type="text" id="tn-input" placeholder="Your Phone Number">
-<button onclick="myFunction()">Update</button>
-
-<div class="postman-run-button"
-data-postman-action="collection/import"
-data-postman-var-1="4235678e85fc6b87e742"
-data-postman-param="env%5BBandwidth%20Creds%5D=W3sia2V5Ijoic2VjcmV0IiwidmFsdWUiOiIiLCJ0eXBlIjoidGV4dCIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoidG9rZW4iLCJ2YWx1ZSI6IiIsInR5cGUiOiJ0ZXh0IiwiZW5hYmxlZCI6dHJ1ZX0seyJrZXkiOiJ1c2VySWQiLCJ2YWx1ZSI6IiIsInR5cGUiOiJ0ZXh0IiwiZW5hYmxlZCI6dHJ1ZX0seyJrZXkiOiJmcm9tTnVtYmVyIiwidmFsdWUiOiIiLCJ0eXBlIjoidGV4dCIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoidG9OdW1iZXIiLCJ2YWx1ZSI6IiIsInR5cGUiOiJ0ZXh0IiwiZW5hYmxlZCI6dHJ1ZX1d"></div>
-<script type="text/javascript">
-  (function (p,o,s,t,m,a,n) {
-    !p[s] && (p[s] = function () { (p[t] || (p[t] = [])).push(arguments); });
-    !o.getElementById(s+t) && o.getElementsByTagName("head")[0].appendChild((
-      (n = o.createElement("script")),
-      (n.id = s+t), (n.async = 1), (n.src = m), n
-    ));
-  }(window, document, "_pm", "PostmanRunObject", "https://run.pstmn.io/button.js"));
- </script>
-
- <script>
-	function myFunction() {
-		var apiToken = document.getElementById('apiToken-input').value;
-		var apiSecret = document.getElementById('apiSecret-input').value;
-		var userId = document.getElementById('userId-input').value;
-		var tn = document.getElementById('tn-input').value;
-
-    if (typeof(Storage) !== "undefined") {
-
-        localStorage.setItem("apiToken", apiToken);
-        localStorage.setItem("apiSecret", apiSecret);
-        localStorage.setItem("userId", userId);
-        localStorage.setItem("tn", tn);
-    } else {
-        Console.log("No localStorage Support");
-    }
-
-		envData = { token: apiToken, secret: apiSecret, userId: userId, toNumber: tn };
-		//console.log(envData);
-		var res = _pm('env.assign', 'Bandwidth Creds', envData);
-		//console.log("PM: " + res);
-  };
-</script>
-
-
-
-
-* Import the example to Postman by clicking the button and access it in “Collections”.
-* Make sure to replace the `{userId}` in the url and the `{token}` and `{secret}` in Authorization.  Your credentials can be found in the “Account” tab of the API console.
-* Also set the phone numbers and message in Body.
 
 ## REST API Reference Index
 
