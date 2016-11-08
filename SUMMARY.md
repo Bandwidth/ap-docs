@@ -136,3 +136,6 @@
  * [Redirect event](bxml/callBacks/redirect.md)
  * [SMS event](bxml/callBacks/sms.md)
  * [Transfer Complete Event](bxml/callBacks/transfer.md)
+
+## HTTP Error Codes
+* [HTTP Errors](errors.md)

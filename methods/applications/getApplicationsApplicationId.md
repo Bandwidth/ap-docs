@@ -5,7 +5,7 @@ Gets information about one of your applications. No query parameters are support
 
 ### Request URL
 
-<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId}`
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId}`
 
 ---
 

@@ -5,7 +5,7 @@ This returns a list of all endpoints associated with a domain.
 
 ### Request URL
 
-<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domainId}/endpoints/`
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domainId}/endpoints/`
 
 ---
 

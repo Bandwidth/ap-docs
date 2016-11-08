@@ -5,7 +5,7 @@ Change the conference properties and/or status.
 
 ### Request URL
 
-<code class="post">POST</code> `https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}`
+<code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}`
 
 ---
 

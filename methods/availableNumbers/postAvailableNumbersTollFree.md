@@ -4,7 +4,7 @@
 Searches and order available Toll Free numbers.
 
 ### Request URL
-<code class="post">POST</code> `https://api.catapult.inetwork.com/v1/availableNumbers/tollFree`
+<code class="post">POST</code>`https://api.catapult.inetwork.com/v1/availableNumbers/tollFree`
 
 ---
 

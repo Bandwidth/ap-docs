@@ -6,7 +6,7 @@ Create a new bridge.
 
 ### Request URL
 
-<code class="post">POST</code> `https://api.catapult.inetwork.com/v1/users/{userId}/bridges`
+<code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/bridges`
 
 ---
 

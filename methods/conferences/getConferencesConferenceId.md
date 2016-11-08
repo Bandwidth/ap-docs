@@ -5,7 +5,7 @@ Retrieve current properties for a conference.
 
 ### Request URL
 
-<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}`
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}`
 
 ---
 

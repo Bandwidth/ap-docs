@@ -5,7 +5,7 @@ Makes changes to an application. POST a new JSON representation with the propert
 
 ### Request URL
 
-<code class="post">POST</code> `https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId}`
+<code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId}`
 
 <aside class="alert general small">
 NOTE: Properties you don't send will remain unchanged.

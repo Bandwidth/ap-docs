@@ -6,7 +6,7 @@ Get list of bridges for a given user.
 
 ### Request URL
 
-<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/bridges?<queryParams>`
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/bridges?<queryParams>`
 
 ---
 

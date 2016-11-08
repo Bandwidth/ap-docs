@@ -5,7 +5,7 @@ Gets information about a specific bridge. No query parameters are supported.
 
 ### Request URL
 
-<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}`
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}`
 
 ---
 

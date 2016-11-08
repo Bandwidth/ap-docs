@@ -5,7 +5,7 @@ Add members to a conference.
 
 ### Request URL
 
-<code class="post">POST</code> `https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members`
+<code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members`
 
 ---
 

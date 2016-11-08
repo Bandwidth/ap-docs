@@ -5,7 +5,7 @@ List all members from a conference. If a member had already hung up or removed f
 
 ### Request URL
 
-<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members`
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members`
 
 ---
 

@@ -5,7 +5,7 @@ Gets the events that occurred during the call. No query parameters are supported
 
 ### Request URL
 
-<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/events`
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/events`
 
 ---
 

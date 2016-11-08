@@ -6,7 +6,7 @@ Get the list of calls that are on the bridge.
 
 ### Request URL
 
-<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/calls`
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/calls`
 
 {% common %}
 

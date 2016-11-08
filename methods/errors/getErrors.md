@@ -4,7 +4,7 @@
 Gets the most recent user errors for the user. Since this operation uses HTTP GET, all the properties are specified as HTTP request parameters.
 
 ### Request URL
-<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/errors`
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/errors`
 
 ---
 

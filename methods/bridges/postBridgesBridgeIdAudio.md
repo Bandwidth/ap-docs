@@ -5,7 +5,7 @@
 Play an audio file or speak a sentence in a bridge.
 
 ### Request URL
-<code class="post">POST</code> `https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/audio`
+<code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/audio`
 
 ---
 

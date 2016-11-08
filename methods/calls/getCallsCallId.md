@@ -5,7 +5,7 @@ Gets information about an active or completed call. No query parameters are supp
 
 ### Request URL
 
-<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}`
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}`
 
 ---
 

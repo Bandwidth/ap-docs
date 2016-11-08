@@ -4,7 +4,7 @@ Searches for available local numbers by location or pattern criteria.
 
 ### Request URL
 
-<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/availableNumbers/local?<queryParams>`
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/availableNumbers/local?<queryParams>`
 
 ---
 

@@ -3,7 +3,7 @@
 Get the transactions from the user's account.
 
 ### Request Url
-<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/account/transactions`
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/account/transactions`
 
 ---
 

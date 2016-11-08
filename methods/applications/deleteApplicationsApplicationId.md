@@ -4,7 +4,7 @@ Permanently deletes an application.
 
 ### Request Url
 
-<code class="delete">DELETE</code> `https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId}`
+<code class="delete">DELETE</code>`https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId}`
 
 {% common %}
 ### Example: Delete an application.

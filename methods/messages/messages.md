@@ -68,3 +68,80 @@ The Messages resource lets you send SMS/MMS messages and view messages that were
 | 720  | Invalid destination number                    |
 | 740  | Invalid source number                         |
 | 999  | Unknown error                                 |
+
+<div id="Supported"></div>
+
+### Supported MMS File Types
+| Extenstion | File Type              |
+|:-----------|:-----------------------|
+| .json      | application/json       |
+| .ogv       | application/ogg        |
+| .oga       | application/ogg        |
+| .ogx       | application/ogg        |
+| .ogg       | application/ogg        |
+| .pdf       | application/pdf        |
+| .rtf       | application/rtf        |
+| .zip       | application/zip        |
+| .tar       | application/x-tar      |
+| .xml       | application/xml        |
+| .gz        | application/gzip       |
+| .bz2       | application/x-bzip2    |
+| .gz        | application/x-gzip     |
+| .smil      | application/smil       |
+| .js        | application/javascript |
+| .m4a       | audio/mp4              |
+| .m4p       | audio/mp4              |
+| .m4b       | audio/mp4              |
+| .m4r       | audio/mp4              |
+| .mp1       | audio/mpeg             |
+| .mp2       | audio/mpeg             |
+| .mp3       | audio/mpeg             |
+| .m1a       | audio/mpeg             |
+| .m2a       | audio/mpeg             |
+| .mpa       | audio/mpeg             |
+| .oga       | audio/ogg              |
+| .flac      | audio/flac             |
+| .webm      | audio/webm             |
+| .wav       | audio/wav              |
+| .amr       | audio/amr              |
+| .3ga       | audio/amr              |
+| .3gp       | audio/3gpp             |
+| .bmp       | image/bmp              |
+| .dib       | image/bmp              |
+| .gif       | image/gif              |
+| .jpg       | image/jpeg             |
+| .jpeg      | image/jpeg             |
+| .pjpeg     | image/pjpeg            |
+| .png       | image/png              |
+| .svg       | image/svg+xml          |
+| .tiff      | image/tiff             |
+| .tif       | image/tiff             |
+| .webp      | image/webp             |
+| .ico       | image/x-icon           |
+| .css       | text/css               |
+| .csv       | text/csv               |
+| .html      | text/html              |
+| .cal       | text/calendar          |
+| .txt       | text/plain             |
+| .js        | text/javascript        |
+| .vcf       | text/vcard             |
+| .vcard     | text/vcard             |
+| .wap       | text/vnd.wap.wml       |
+| .xml       | text/xml               |
+| .avi       | video/avi              |
+| .mp4       | video/mp4              |
+| .m4v       | video/mp4              |
+| .mpg       | video/mpeg             |
+| .mpeg      | video/mpeg             |
+| .m1v       | video/mpeg             |
+| .mpv       | video/mpeg             |
+| .ogv       | video/ogg              |
+| .ogx       | video/ogg              |
+| .ogg       | video/ogg              |
+| .spx       | video/ogg              |
+| .ogm       | video/ogg              |
+| .mov       | video/quicktime        |
+| .qt        | video/quicktime        |
+| .webm      | video/webm             |
+| .wmv       | video/x-ms-wmv         |
+| .flv       | video/x-flv            |

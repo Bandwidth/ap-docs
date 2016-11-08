@@ -5,7 +5,7 @@ Retrieve all recordings related to the call.
 
 ### Request URL
 
-<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/recordings`
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/recordings`
 
 {% common %}
 

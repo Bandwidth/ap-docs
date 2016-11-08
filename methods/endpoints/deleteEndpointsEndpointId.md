@@ -4,7 +4,7 @@
 
 ### Request URL
 
-<code class="delete">DELETE</code> `https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domainId}/endpoints/{endpointId}`
+<code class="delete">DELETE</code>`https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domainId}/endpoints/{endpointId}`
 
 
 {% common %}

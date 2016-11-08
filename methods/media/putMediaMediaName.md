@@ -4,7 +4,7 @@
 Uploads a file the normal HTTP way. You may add headers to the request in order to provide some control to your media-file.
 
 ### Request URL
-<code class="put">PUT</code> `https://api.catapult.inetwork.com/v1/users/{userId}/media/{mediaName}`
+<code class="put">PUT</code>`https://api.catapult.inetwork.com/v1/users/{userId}/media/{mediaName}`
 
 ---
 

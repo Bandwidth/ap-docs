@@ -5,7 +5,7 @@ This will delete a domain
 
 ## Request URL
 
-<code class="delete">DELETE</code> `https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domaidId}`
+<code class="delete">DELETE</code>`https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domaidId}`
 
 {% common %}
 

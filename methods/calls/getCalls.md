@@ -5,7 +5,7 @@ Gets a list of active and historic calls you made or received. Since this operat
 
 ### Request URL
 
-<code class="get">GET</code> `https://api.catapult.inetwork.com/v1/users/{userId}/calls/`
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/calls/`
 
 ---
 

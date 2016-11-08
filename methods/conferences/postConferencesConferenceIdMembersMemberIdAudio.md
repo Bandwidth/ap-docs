@@ -5,7 +5,7 @@ Speak text or play audio to **ONLY** a single conference member.
 
 ### Request URL
 
-<code class="post">POST</code> `https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members/{memberId}/audio`
+<code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members/{memberId}/audio`
 
 ---
 
