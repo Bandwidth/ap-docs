@@ -1,9 +1,6 @@
 # Get Started
 
-Before you can send your first SMS message, you will need to
-
-1. [Sign up](https://catapult.inetwork.com/beta/signup) for a free Bandwidth API account.
-2. Get a number under the “My Numbers” tab (more specific instructions [here](https://bandwidth.github.io/howto/buytn.html))
+Before you can send your first SMS message, you will need to [Sign up](https://catapult.inetwork.com/beta/signup) for a free Bandwidth API account.
 
 ## Base API URL
 `https://api.catapult.inetwork.com/v1`

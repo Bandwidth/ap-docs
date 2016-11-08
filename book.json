@@ -4,7 +4,8 @@
         "header",
         "sharing",
         "customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git",
-        "toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git"
+        "toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git",
+        "fontsettings"
     ],
     "pluginsConfig": {
         "theme-api": {
