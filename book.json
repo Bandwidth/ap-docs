@@ -5,7 +5,7 @@
         "sharing",
         "customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git",
         "toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git",
-        "customFavicon@git+https://github.com/dtolb/gitbook-plugin-customFavicon.git",
+        "custom-favicon",
         "fontsettings"
     ],
     "pluginsConfig": {
