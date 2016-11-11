@@ -1,5 +1,7 @@
 # Applications
-The Applications resource lets you define call and message handling applications. You write an application on your own servers and have Bandwidth API send events to it by configuring a callback URL.
+Applications allow you to receive incoming call and messaging events.  Each application can contain unlimited phone numbers and at least one call back URL for both calls _and_ messages.
+
+![application-info](../../images/app-welcome.svg)
 
 ### Base Url
 `https://api.catapult.inetwork.com/v1/users/{userId}/applications/`
