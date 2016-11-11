@@ -1,7 +1,7 @@
 # Applications
 Applications allow you to receive incoming call and messaging events.  Each application can contain unlimited phone numbers and at least one call back URL for both calls _and_ messages.
 
-![application-info](../../images/app-welcome.svg)
+![application-info](../../images/app-welcome.png)
 
 ### Base Url
 `https://api.catapult.inetwork.com/v1/users/{userId}/applications/`
