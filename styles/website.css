@@ -204,6 +204,9 @@ button:active{
     background-color: #272B2D;
     color: #D0D4D7;
 }
+.page-inner section{
+    font-size: 1em !important;
+}
 .api-method-code {
    color: #EEE;
    background-color: #272B2D !important;
@@ -328,6 +331,14 @@ th{
     border-radius: 3px;
     border: 1px solid #e4e4e4;
 }
+.markdown-section h2 code{
+    vertical-align: middle;
+    font-size: .65em;
+}
+.api-method-example code{
+  background-color: #272B2D;
+  border: none;
+}
 code {
     padding: .3em;
     margin: 0;
@@ -409,6 +420,9 @@ code:before, code:after{
 	padding: .5em 1em;
 	font-size: .8em;
 }
+.small:before{
+  line-height: 1em;
+}
 .general{
 	color: #3a455c;
     background: #d9f5fc;
@@ -436,14 +450,15 @@ code:before, code:after{
 .text-only:before{
 	display:none;
 }
-.api-method-definition code:nth-of-type(2) {
+.api-method-definition p code:nth-of-type(2) {
     display: inline-block;
     word-wrap: normal;
     overflow-x: auto;
     border-radius: 0px 3px 3px 0px;
     font-size: .8em !important;
+    white-space:nowrap;
 }
-.api-method-definition code:nth-of-type(1) {
+.api-method-definition p code:nth-of-type(1) {
     display: inline-block;
     vertical-align: top;
     border-radius: 3px 0px 0px 3px;
