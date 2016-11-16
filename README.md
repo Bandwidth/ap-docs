@@ -85,4 +85,10 @@ Before you can send your first SMS message, you will need to [Sign up](https://c
 | [SMS event](bxml/callBacks/sms.md)                    | Bandwidth API sends this event to the application when an SMS is sent or received                                                                                                              |
 | [Transfer Complete Event](bxml/callBacks/transfer.md) | Bandwidth API sends this event to the application when the `<Transfer>`is complete                                                                                                             |
 
+## Error Codes
+| Type | Description |
+|:--|:--|
+| [Rate Limits](rateLimits.md) | Every endpoint is rate limited, Calls and Messages are handled differently|
+| [HTTP Errors](errors.md) | Learn about the different errors that you may encounter using the API |
+
 ---

@@ -137,5 +137,8 @@
  * [SMS event](bxml/callBacks/sms.md)
  * [Transfer Complete Event](bxml/callBacks/transfer.md)
 
+## Rate Limits
+* [Rate Limits](rateLimits.md)
+
 ## HTTP Error Codes
 * [HTTP Errors](errors.md)
