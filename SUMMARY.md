@@ -142,3 +142,6 @@
 
 ## HTTP Error Codes
 * [HTTP Errors](errors.md)
+
+## FAQ
+* [FAQ](http://dev.bandwidth.com/faq)
