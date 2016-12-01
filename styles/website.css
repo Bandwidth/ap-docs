@@ -1,9 +1,21 @@
 @charset "UTF-8";
 /* CSS Document */
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,400i,600,600i,700,800,900');
+body{
+  font-family: 'Raleway', sans-serif !important;
+}
 body *{
    -webkit-box-sizing: border-box;
    -moz-box-sizing: border-box;
    box-sizing: border-box;
+}
+.book.font-family-1, .book-summary {
+  font-family: 'Raleway', sans-serif;
+}
+h1{
+  text-transform: uppercase;
+  font-weight: 900 !important;
+  margin-bottom: 0px !important;
 }
 .head{
    display: block;
@@ -32,10 +44,11 @@ body *{
    border-bottom: none;
    color: inherit;
 }
-.head h1{
-   float: left;
-   font-weight: 100;
-   color: #333333;
+.head h2{
+  float: left;
+  font-weight: 100;
+  font-size: 1.75em;
+  color: #333333;
 }
 .headbutton{
    padding: 10px 15px;
@@ -213,7 +226,7 @@ button:active{
  }
  .api-method-code pre {
    color: #EEE;
-   background-color: #2D3134;
+   background-color: #272B2D;
    border-radius: 3px;
 }
 .book-summary ul.summary li.active>a {
