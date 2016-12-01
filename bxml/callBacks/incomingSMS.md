@@ -1,5 +1,5 @@
 {% method %}
-##  SMS Status Change event – <SendMessage> verb
+## Incoming SMS event
 
 ### Properties
 | Property   | Description                                                                                                                                                                                                                                   |
@@ -15,22 +15,20 @@
 | state      | Message state, values are `received` `queued` `sending` `sent` `error`                                                                                                                                                                        |
 
 {% common %}
-#### HTTP request sent to the statusCallbackUrl from the [`<SendMessage>`](../verbs/sendMessage.md) verb:
+#### HTTP request sent to the `incomingMessageURL` configured in the [application](../../methods/applications/applications.md):
 
-`POST http://[statusCallbackUrl]`
-
-```json
-{
-    "to":"{to-number}",
-    "time":"2016-02-20T12:40:17Z",
-    "text":"This is a test message.",
-    "direction":"out",
-    "state":"sent",
-    "from":"{from-number}",
-    "eventType":"sms",
-    "messageId":"{message-id}",
-    "messageUri":"https://api.catapult.inetwork.com/v1/users/{user-id}/messages/{message-id}"
-}
+```html
+/{callbackUrl}?
+	messageId=m-asdf&
+	from=%2B19191231111&
+	eventType=sms&
+	text=test&
+	time=2016-12-01T16:04:49Z&
+	to=%2B13204601164&
+	state=received&
+	applicationId=a-yr3jpxasdfh5xh5e35saoi&
+	direction=in&
+	messageUri=https%3A%2F%2Fapi.catapult.inetwork.com%2Fv1%2Fusers%2Fu-123%2Fmessages%2Fm-asdf
 ```
 
 {% endmethod %}
