@@ -1,1 +1,177 @@
-require(["gitbook","jquery"],function(t,e){function n(e){r=t.storage.get("themeApi",{split:e.split,currentLang:null})}function a(){t.storage.set("themeApi",r),i()}function i(){e(".book").toggleClass("two-columns",r.split),s=e(".api-method-sample"),s.each(function(){var t=!(e(this).data("lang")==r.currentLang);e(this).toggleClass("hidden",t)})}function o(){t.toolbar.removeButtons(c),c=[],s=e(".api-method-sample");var n=[],i=!1;s.each(function(){var t,a,o=!1,s=e(this).data("lang"),c=e(this).data("name");s==r.currentLang&&(i=!0,o=!0),t=e.grep(n,function(t){return t.name==c}),a=!!t.length,a||n.push({name:c,lang:s,"default":o})}),n.reverse(),e.each(n,function(o,s){var l,g=s["default"]||!i&&o==n.length-1;l=t.toolbar.createButton({text:s.name,position:"right",className:"lang-switcher"+(g?" active":""),onClick:function(t){r.currentLang=s.lang,a(),e(".btn.lang-switcher.active").removeClass("active"),e(t.currentTarget).addClass("active")}}),c.push(l),g&&(r.currentLang=s.lang)})}var s,r,c=[],l=[{config:"light",text:"Light",id:0},{config:"dark",text:"Dark",id:3}];t.events.bind("start",function(e,i){var o=i["theme-api"];t.toolbar.createButton({icon:"fa fa-columns",label:"Change Layout",onClick:function(){r.split=!r.split,a()}}),t.fontsettings.setThemes(l),t.fontsettings.setTheme(o.theme),n(o)}),t.events.on("page.change",function(){o(),i()}),t.events.on("comment.toggled",function(e,n,a){if(n.parents(".api-method-definition").length){var i=t.state.$book.find(".page-wrapper");i.toggleClass("comments-open-from-definition",a&&r.split)}})});
+require(['gitbook', 'jquery'], function(gitbook, $) {
+    var buttonsId = [],
+        $codes,
+        themeApi;
+
+    // Default themes
+    var THEMES = [
+        {
+            config: 'light',
+            text: 'Light',
+            id: 0
+        },
+        {
+            config: 'dark',
+            text: 'Dark',
+            id: 3
+        }
+    ];
+
+    // Instantiate localStorage
+    function init(config) {
+        themeApi = gitbook.storage.get('themeApi', {
+            split:       config.split,
+            currentLang: null
+        });
+    }
+
+    // Update localStorage settings
+    function saveSettings() {
+        gitbook.storage.set('themeApi', themeApi);
+        updateDisplay();
+    }
+
+    // Update display
+    function updateDisplay() {
+        // Update layout
+        $('.book').toggleClass('two-columns', themeApi.split);
+
+        // Update code samples elements
+        $codes = $('.api-method-sample');
+        // Display corresponding code snippets
+        $codes.each(function() {
+            // Show corresponding
+            var hidden = !($(this).data('lang') == themeApi.currentLang);
+            $(this).toggleClass('hidden', hidden);
+        });
+    }
+
+    // Update code tabs
+    function updateCodeTabs() {
+        // Remove languages buttons
+        gitbook.toolbar.removeButtons(buttonsId);
+        buttonsId = [];
+
+        // Update code snippets elements
+        $codes = $('.api-method-sample');
+
+        // Recreate languages buttons
+        var languages = [],
+            hasCurrentLang = false;
+
+        $codes.each(function() {
+            var isDefault = false,
+                codeLang  = $(this).data('lang'),
+                codeName  = $(this).data('name'),
+                exists,
+                found;
+
+            // Check if is current language
+            if (codeLang == themeApi.currentLang) {
+                hasCurrentLang = true;
+                isDefault = true;
+            }
+
+            // Check if already added
+            exists = $.grep(languages, function(language) {
+                return language.name == codeName;
+            });
+
+            found = !!exists.length;
+
+            if (!found) {
+                // Add language
+                languages.push({
+                    name: codeName,
+                    lang: codeLang,
+                    default: isDefault
+                });
+            }
+        });
+
+        // Set languages in good order
+        // languages.reverse();
+        var a = 0;
+        $.each(languages, function(i, language) {
+            // Set first (last in array) language as active if no default
+
+            var isDefault = language.default || (!hasCurrentLang && i == (languages.length - 1)),
+                buttonId;
+            var className;
+            if (a === 0) {
+                className = 'lang-switcher first-code-lang ' + (isDefault? ' active ': '');
+            }
+            else if (a === languages.length - 1){
+                className = 'lang-switcher last-code-lang ' + (isDefault? ' active ': '');
+            }
+            else {
+                className = 'lang-switcher' + (isDefault? ' active ': '');
+            }
+            // Create button
+            buttonId = gitbook.toolbar.createButton({
+                text: language.name,
+                position: 'left',
+                className: className,
+                onClick: function(e) {
+                    // Update language
+                    themeApi.currentLang = language.lang;
+                    saveSettings();
+
+                    // Update active button
+                    $('.btn.lang-switcher.active').removeClass('active');
+                    $(e.currentTarget).addClass('active');
+                }
+            });
+
+            // Add to list of buttons
+            buttonsId.push(buttonId);
+            a += 1;
+            // Set as current language if is default
+            if (isDefault) {
+                themeApi.currentLang = language.lang;
+            }
+        });
+    }
+
+    // Initialization
+    gitbook.events.bind('start', function(e, config) {
+        var opts = config['theme-api'];
+
+        // Create layout button in toolbar
+        gitbook.toolbar.createButton({
+            icon: 'fa fa-columns',
+            label: 'Change Layout',
+            onClick: function() {
+                // Update layout
+                themeApi.split = !themeApi.split;
+                saveSettings();
+            }
+        });
+
+        // Initialize themes
+        gitbook.fontsettings.setThemes(THEMES);
+
+        // Set to configured theme
+        gitbook.fontsettings.setTheme(opts.theme);
+
+        // Init current settings
+        init(opts);
+    });
+
+    // Update state
+    gitbook.events.on('page.change', function() {
+        updateCodeTabs();
+        // updateComments();
+        updateDisplay();
+    });
+
+    // Comments toggled event
+    gitbook.events.on('comment.toggled', function(e, $from, open) {
+        // If triggering element is in a definition
+        if (!!$from.parents('.api-method-definition').length) {
+            // Add class to wrapper only if comments are open and in two-columns mode
+            var $wrapper = gitbook.state.$book.find('.page-wrapper');
+            $wrapper.toggleClass('comments-open-from-definition', open && themeApi.split);
+        }
+    });
+});
