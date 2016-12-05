@@ -134,7 +134,7 @@
  * [Incoming Call Event](bxml/callBacks/incomingCall.md)
  * [Recording event](bxml/callBacks/recording.md)
  * [Redirect event](bxml/callBacks/redirect.md)
- * [Incoming SMS event](bxml/callbacks/incomingSMS.md)
+ * [Incoming SMS event](bxml/callBacks/incomingSMS.md)
  * [SMS Status event](bxml/callBacks/sms.md)
  * [Transfer Complete Event](bxml/callBacks/transfer.md)
 
