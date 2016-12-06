@@ -12,6 +12,10 @@ body *{
 .book.font-family-1, .book-summary {
   font-family: 'Raleway', sans-serif;
 }
+.page-inner{
+  margin-top: 0px;
+  top: 50px;
+}
 h1{
   text-transform: uppercase;
   font-weight: 900 !important;
