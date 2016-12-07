@@ -21,6 +21,9 @@ h1{
   font-weight: 900 !important;
   margin-bottom: 0px !important;
 }
+a[aria-label="Change Layout"]{
+  display: none !important;
+}
 .head{
    display: block;
    height:70px;
@@ -203,6 +206,9 @@ button:active{
   bottom: 0;
   top: inherit;
 }
+.book-summary{
+  background-color: #f3f3f3;
+}
 .book-header{
   border-top: 1px solid rgba(0,0,0,.07);
   top: 70px;
@@ -212,14 +218,16 @@ button:active{
    border-bottom: none;
 }
 .book-header .btn.lang-switcher.active {
-    background-color: #2d3134;
-    border-bottom: 5px solid #00bcec;
-    color: #fff;
+  background-color: #272B2D;
+  color: #00bcec;
 }
 .book-header .btn.lang-switcher {
     text-transform: uppercase;
     background-color: #272B2D;
     color: #D0D4D7;
+    line-height: 70px;
+    padding-bottom: 70px;
+    font-weight: bold;
 }
 .page-inner section{
     font-size: 1em !important;
@@ -227,6 +235,7 @@ button:active{
 .api-method-code {
    color: #EEE;
    background-color: #272B2D !important;
+   min-height: 100vh;
  }
  .api-method-code pre {
    color: #EEE;
@@ -243,7 +252,7 @@ button:active{
   color: #008db1 !important;
 }
 .markdown-section {
-    padding: 0px 30px 0;
+    padding: 20px 30px;
 }
 .markdown-section h1 {
     padding-top: 15px;
@@ -279,7 +288,7 @@ li.chapter{
    width: 100%;
    height: 27px;
    clear:both;
-   border-left: 3px solid #fafafa;
+   border-left: 3px solid #f3f3f3;
 }
 li.chapter:hover{
    border-left: 3px solid #00bcec;
@@ -307,6 +316,16 @@ li.chapter .articles li.chapter .articles a{
 }
 .divider{
    clear: both;
+}
+.first-code-lang{
+  margin-left: calc(50% - 50px);
+  padding-left: 30px;
+}
+.last-code-lang{
+  padding-right: calc(50% - 244.52px);
+}
+.api-method-example h3{
+  margin-top: 0px;
 }
 a{
   font-weight: 500;
@@ -351,6 +370,25 @@ th{
 .markdown-section h2 code{
     vertical-align: middle;
     font-size: .65em;
+}
+
+.markdown-section h2 {
+    font-size: 1.5em;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: .85em;
+    margin-top: 1em;
+    line-height: initial;
+}
+.markdown-section>:first-child {
+    padding-top: 0!important;
+}
+.api-method-definition>:first-child{
+  padding-top: 0!important;
+  margin-top: 0!important;
+}
+h2 code{
+  text-transform: lowercase;
 }
 .api-method-example code{
   background-color: #272B2D;
@@ -492,29 +530,14 @@ code:before, code:after{
 .put + code{
     width: calc(100% - 36px);
 }
-/*
- * Icon Font Bandwidth
- * Made with love by Icons8 [ https://icons8.com/ ] using FontCustom [ https://github.com/FontCustom/fontcustom ]
- *
- * Contacts:
- *    [ https://icons8.com/contact ]
- *
- * Follow Icon8 on
- *    Twitter [ https://twitter.com/icons_8 ]
- *    Facebook [ https://www.facebook.com/Icons8 ]
- *    Google+ [ https://plus.google.com/+Icons8 ]
- *    GitHub [ https://github.com/icons8 ]
- */
-
-
 @font-face {
   font-family: "Bandwidth";
-  src: url("Bandwidth_2737b5c2f4775af7409d5c262a53eb2e.eot");
-  src: url("Bandwidth_2737b5c2f4775af7409d5c262a53eb2e.eot?#iefix") format("embedded-opentype"),
-       url("Bandwidth_2737b5c2f4775af7409d5c262a53eb2e.woff2") format("woff2"),
-       url("Bandwidth_2737b5c2f4775af7409d5c262a53eb2e.woff") format("woff"),
-       url("Bandwidth_2737b5c2f4775af7409d5c262a53eb2e.ttf") format("truetype"),
-       url("Bandwidth_2737b5c2f4775af7409d5c262a53eb2e.svg#Bandwidth") format("svg");
+  src: url("Bandwidth_7bcc72c72262137bb073a9172959118d.eot");
+  src: url("Bandwidth_7bcc72c72262137bb073a9172959118d.eot?#iefix") format("embedded-opentype"),
+       url("Bandwidth_7bcc72c72262137bb073a9172959118d.woff2") format("woff2"),
+       url("Bandwidth_7bcc72c72262137bb073a9172959118d.woff") format("woff"),
+       url("Bandwidth_7bcc72c72262137bb073a9172959118d.ttf") format("truetype"),
+       url("Bandwidth_7bcc72c72262137bb073a9172959118d.svg#Bandwidth") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -522,7 +545,7 @@ code:before, code:after{
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "Bandwidth";
-    src: url("Bandwidth_2737b5c2f4775af7409d5c262a53eb2e.svg#Bandwidth") format("svg");
+    src: url("Bandwidth_7bcc72c72262137bb073a9172959118d.svg#Bandwidth") format("svg");
   }
 }
 
@@ -628,6 +651,7 @@ code:before, code:after{
 .icons8-music-video:before,
 .icons8-ok:before,
 .icons8-ok-filled:before,
+.icons8-open-in-window:before,
 .icons8-pdf-2:before,
 .icons8-phone:before,
 .icons8-phone-filled:before,
@@ -786,6 +810,7 @@ code:before, code:after{
 .icons8-music-video:before { content: "\f169"; }
 .icons8-ok:before { content: "\f10a"; }
 .icons8-ok-filled:before { content: "\f10b"; }
+.icons8-open-in-window:before { content: "\f191"; }
 .icons8-pdf-2:before { content: "\f15e"; }
 .icons8-phone:before { content: "\f141"; }
 .icons8-phone-filled:before { content: "\f142"; }
