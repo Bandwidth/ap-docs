@@ -319,10 +319,10 @@ li.chapter .articles li.chapter .articles a{
 }
 .first-code-lang{
   margin-left: calc(50% - 50px);
-  padding-left: 30px;
+  padding-left: 30px !important;
 }
 .last-code-lang{
-  padding-right: calc(50% - 244.52px);
+  padding-right: calc(50% - 244.52px) !important;
 }
 .api-method-example h3{
   margin-top: 0px;
