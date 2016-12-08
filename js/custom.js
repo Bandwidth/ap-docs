@@ -24,5 +24,7 @@ module.exports = function ($) {
 		var newTitle = title.replace(' · GitBook', '');
 		$('title').text(newTitle);
 	}
+	$('li.chapter a:contains(FAQ)').append('<i class="icons8-open-in-window" style="float:right;"></i>');
+	$('li.chapter a:contains(FAQ)').css('width','100%');
 	return $.html();
 }
