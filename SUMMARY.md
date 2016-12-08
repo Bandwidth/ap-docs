@@ -121,6 +121,7 @@
  * [Pause](bxml/verbs/pause.md)
  * [PlayAudio](bxml/verbs/playAudio.md)
  * [Record](bxml/verbs/record.md)
+ * [Redirect](bxml/verbs/redirect.md)
  * [Reject](bxml/verbs/reject.md)
  * [SendMessage](bxml/verbs/sendMessage.md)
  * [SpeakSentence](bxml/verbs/speakSentence.md)
