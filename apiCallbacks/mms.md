@@ -17,6 +17,22 @@ Events sent to your server for inbound and outbound MMS messages.
 | state         | Message state, values are `received` `queued` `sending` `sent` `error`                                                                                                                                                                       |
 | media         | URIs of media files associate with the MMS message.                                                                                                                                                                                          |
 
+### Message States
+| State    | Description                                                                            |
+|:---------|:---------------------------------------------------------------------------------------|
+| received | The message was received.                                                              |
+| queued   | The message is waiting in queue and will be sent soon.                                 |
+| sending  | The message was removed from queue and is being sent.                                  |
+| sent     | The message was sent successfully.                                                     |
+| error    | There was an error sending or receiving a message (check errors resource for details). |
+
+### Message Delivery State
+| State         | Description                                        |
+|:--------------|:---------------------------------------------------|
+| waiting       | Waiting for receipt.                               |
+| delivered     | Receipt indicating that message was delivered.     |
+| not-delivered | Receipt indicating that message was not delivered. |
+
 {% common %}
 
 #### Example JSON

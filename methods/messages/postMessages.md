@@ -1,6 +1,6 @@
 {% method %}
 
-## Create Message(s)
+## Send SMS Message(s)
 Sends one or more messages.
 
 ### Request URL
@@ -9,20 +9,6 @@ Sends one or more messages.
 
 ---
 
-Sending a single message: To send a single text message, submit a single message representation as your request body. The response indicates the created message's URL in the Location header if it was created successfully. If there was an error with the message, the response body contains error information.
-
-Sending multiple messages: To send multiple messages in a single request, submit an array of message representations as your request body. The response entity will contain an array of response objects, with the same length and order as the submitted message list, so you can iterate in the results to check for errors. Each result contains the URL of the of the message if it was created successfully or error information.
-
-Important Note on Multiple Messages: There is a maximum limit of 50 messages sent per multiple messages request.
-
-Important Note on Rate Limits: You can send 1 message per second per Bandwidth phone number.
-
-International characters: Currently we support only the GSM 7 bit character set (GSM 03.38) .
-
-<aside class="alert warning small">
-When sending MMS, the size of all medias for specific message summed up should not exceed 1.5 MB
-</aside>
-
 ### Supported Parameters
 | Parameter          | Description                                                                                                                                                                            | Mandatory |
 |:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
@@ -30,21 +16,17 @@ When sending MMS, the size of all medias for specific message summed up should n
 | to                 | The phone number the message should be sent to (must be in E.164 format, like +19195551212).                                                                                           | Yes       |
 | text               | The contents of the text message (must be 2048 characters or less).                                                                                                                    | Yes       |
 | media              | For MMS messages, a media url to the location of the media or list of medias to be sent send with the message. For media details please check table Properties in the top of the page. | No        |
-| receiptRequested   | Requested receipt option for outbound messages: `none` `all` `error` Default is `none`.                                                                                                | No        |
+| receiptRequested   | Requested receipt option for outbound messages: <br>`none`: *(DEFAULT)* Delivery receipt will not be sent as callback event. <br> `all`: Success or error delivery receipt maybe sent as callback event. <br>`error`: Only error delivery receipt event maybe sent as callback event.                                                                                                | No        |
 | callbackUrl        | The server URL where the events related to the outgoing message will be sent to.                                                                                                       | No        |
 | callbackHttpMethod | Determine if the callback event should be sent via `HTTP GET` or `HTTP POST`. Values are get or post Default is <code class="post">POST</code>                                         | No        |
 | callbackTimeout    | Determine how long should the platform wait for callbackUrl’s response before timing out (milliseconds).                                                                               | No        |
 | fallbackUrl        | The server URL used to send the message events if the request to callbackUrl fails.                                                                                                    | No        |
 | tag                | Any string, it will be included in the callback events of the message.                                                                                                                 | No        |
 
-### Message Request Receipt
-| Receipt | Description                                                     |
-|:--------|:----------------------------------------------------------------|
-| none    | Delivery receipt will not be sent as callback event.            |
-| error   | Only error delivery receipt event maybe sent as callback event. |
-| all     | Success or error delivery receipt maybe sent as callback event. |
-
 ### Multiple Message Result Types
+
+Important Note on Multiple Messages: There is a maximum limit of 50 messages sent per multiple messages request.
+
 | Type     | Description                                                                                                                                                                                    |
 |:---------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | result   | Values are<br>`accepted` - the message was accepted and the location points to the message resource <br> `error` - the message was not accepted and the “error” property contains information. |

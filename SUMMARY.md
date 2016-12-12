@@ -71,7 +71,7 @@
    * [DELETE Remove Media](methods/media/deleteMediaMediaName.md)
  * [/messages](methods/messages/messages.md)
    * [GET List Messages](methods/messages/getMessages.md)
-   * [POST Create Message](methods/messages/postMessages.md)
+   * [POST Send SMS and MMS](methods/messages/postMessages.md)
    * [GET Message info](methods/messages/getMessagesMessageId.md)
  * [/numberInfo](methods/numberInfo/numberInfo.md)
    * [GET CNAM number info](methods/numberInfo/getNumberInfo.md)

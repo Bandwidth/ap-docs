@@ -68,6 +68,7 @@ Gets information about a previously sent or received message. No query parameter
 ### Example: Get a single message
 
 {% sample lang="bash" %}
+
 ```bash
 curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId} \
 	-u {token}:{secret} \
@@ -75,6 +76,7 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages/{mes
 ```
 
 {% sample lang="js" %}
+
 ```js
 //Promise
 client.Message.get("{messageId}")
@@ -94,12 +96,14 @@ client.Message.get("{messageId}", function (err, message) {
 ```
 
 {% sample lang="csharp" %}
+
 ```csharp
 var message = await client.Message.GetAsync("{messageId}");
 var text = message.Text;
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 message = Message.get(client, "{messageId1}")
 text = message[:text]

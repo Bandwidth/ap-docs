@@ -19,6 +19,22 @@ Bandwidth API sends this event to the application when an SMS is sent or receive
 | deliveryCode        | Numeric value of deliver code, see values [here](#message-delivery-code).                                                                                                                                                                        |
 | deliveryDescription | Message delivery description for the respective delivery code.                                                                                                                                                                                   |
 
+### Message States
+| State    | Description                                                                            |
+|:---------|:---------------------------------------------------------------------------------------|
+| received | The message was received.                                                              |
+| queued   | The message is waiting in queue and will be sent soon.                                 |
+| sending  | The message was removed from queue and is being sent.                                  |
+| sent     | The message was sent successfully.                                                     |
+| error    | There was an error sending or receiving a message (check errors resource for details). |
+
+### Message Delivery State
+| State         | Description                                        |
+|:--------------|:---------------------------------------------------|
+| waiting       | Waiting for receipt.                               |
+| delivered     | Receipt indicating that message was delivered.     |
+| not-delivered | Receipt indicating that message was not delivered. |
+
 {% common %}
 
 #### Example JSON
