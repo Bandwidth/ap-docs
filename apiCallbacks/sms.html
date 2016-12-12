@@ -33,7 +33,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-bandwidth/theme-api.css">
                 
             
         
@@ -1055,7 +1055,7 @@
                 <a href="../methods/messages/postMessages.html">
             
                     
-                    <code class="post">POST</code> Create Message
+                    <code class="post">POST</code> Send SMS and MMS
             
                 </a>
             
@@ -2098,6 +2098,60 @@
 </tr>
 </tbody>
 </table>
+<h3 id="message-states">Message States</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">State</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">received</td>
+<td style="text-align:left">The message was received.</td>
+</tr>
+<tr>
+<td style="text-align:left">queued</td>
+<td style="text-align:left">The message is waiting in queue and will be sent soon.</td>
+</tr>
+<tr>
+<td style="text-align:left">sending</td>
+<td style="text-align:left">The message was removed from queue and is being sent.</td>
+</tr>
+<tr>
+<td style="text-align:left">sent</td>
+<td style="text-align:left">The message was sent successfully.</td>
+</tr>
+<tr>
+<td style="text-align:left">error</td>
+<td style="text-align:left">There was an error sending or receiving a message (check errors resource for details).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="message-delivery-state">Message Delivery State</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">State</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">waiting</td>
+<td style="text-align:left">Waiting for receipt.</td>
+</tr>
+<tr>
+<td style="text-align:left">delivered</td>
+<td style="text-align:left">Receipt indicating that message was delivered.</td>
+</tr>
+<tr>
+<td style="text-align:left">not-delivered</td>
+<td style="text-align:left">Receipt indicating that message was not delivered.</td>
+</tr>
+</tbody>
+</table>
 </div><div class="api-method-code"><div class="api-method-example"><h4 id="example-json">Example JSON</h4>
 <pre><code class="lang-json">{
   <span class="hljs-string">&quot;eventType&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -2193,7 +2247,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SMS Event","level":"3.1.1.1","depth":3,"next":{"title":"MMS Event","level":"3.1.1.2","depth":3,"path":"apiCallbacks/mms.md","ref":"apiCallbacks/mms.md","articles":[]},"previous":{"title":"Messaging Events","level":"3.1.1","depth":2,"path":"apiCallbacks/messagingEvents.md","ref":"apiCallbacks/messagingEvents.md","articles":[{"title":"SMS Event","level":"3.1.1.1","depth":3,"path":"apiCallbacks/sms.md","ref":"apiCallbacks/sms.md","articles":[]},{"title":"MMS Event","level":"3.1.1.2","depth":3,"path":"apiCallbacks/mms.md","ref":"apiCallbacks/mms.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","fontsettings"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"favicon":"favicon/favicon.ico","theme-api":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"apiCallbacks/sms.md","mtime":"2016-12-08T20:02:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-08T20:03:06.467Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SMS Event","level":"3.1.1.1","depth":3,"next":{"title":"MMS Event","level":"3.1.1.2","depth":3,"path":"apiCallbacks/mms.md","ref":"apiCallbacks/mms.md","articles":[]},"previous":{"title":"Messaging Events","level":"3.1.1","depth":2,"path":"apiCallbacks/messagingEvents.md","ref":"apiCallbacks/messagingEvents.md","articles":[{"title":"SMS Event","level":"3.1.1.1","depth":3,"path":"apiCallbacks/sms.md","ref":"apiCallbacks/sms.md","articles":[]},{"title":"MMS Event","level":"3.1.1.2","depth":3,"path":"apiCallbacks/mms.md","ref":"apiCallbacks/mms.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","fontsettings"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"favicon":"favicon/favicon.ico","custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"apiCallbacks/sms.md","mtime":"2016-12-12T18:40:14.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T22:00:27.146Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -2231,7 +2285,7 @@
         
     
         
-        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
+        <script src="../gitbook/gitbook-plugin-theme-bandwidth/theme-api.js"></script>
         
     
 

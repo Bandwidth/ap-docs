@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>POST Create Message</title>
+        <title>POST Send SMS and MMS</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -33,7 +33,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-bandwidth/theme-api.css">
                 
             
         
@@ -1055,7 +1055,7 @@
                 <a href="postMessages.html">
             
                     
-                    <code class="post">POST</code> Create Message
+                    <code class="post">POST</code> Send SMS and MMS
             
                 </a>
             
@@ -2018,7 +2018,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../..">POST Create Message</a>
+        <a href="../..">POST Send SMS and MMS</a>
     </h1>
 </div>
 
@@ -2033,20 +2033,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div class="api-method"><div class="api-method-definition"><h2 id="create-messages">Create Message(s)</h2>
+                                <div class="api-method"><div class="api-method-definition"><h2 id="send-sms-messages">Send SMS Message(s)</h2>
 <p>Sends one or more messages.</p>
 <h3 id="request-url">Request URL</h3>
 <p><code class="post">POST</code><code>https://api.catapult.inetwork.com/v1/users/{userId}/messages</code></p>
 <hr>
-<p>Sending a single message: To send a single text message, submit a single message representation as your request body. The response indicates the created message&apos;s URL in the Location header if it was created successfully. If there was an error with the message, the response body contains error information.</p>
-<p>Sending multiple messages: To send multiple messages in a single request, submit an array of message representations as your request body. The response entity will contain an array of response objects, with the same length and order as the submitted message list, so you can iterate in the results to check for errors. Each result contains the URL of the of the message if it was created successfully or error information.</p>
-<p>Important Note on Multiple Messages: There is a maximum limit of 50 messages sent per multiple messages request.</p>
-<p>Important Note on Rate Limits: You can send 1 message per second per Bandwidth phone number.</p>
-<p>International characters: Currently we support only the GSM 7 bit character set (GSM 03.38) .</p>
-<aside class="alert warning small">
-When sending MMS, the size of all medias for specific message summed up should not exceed 1.5 MB
-</aside>
-
 <h3 id="supported-parameters">Supported Parameters</h3>
 <table>
 <thead>
@@ -2079,7 +2070,7 @@ When sending MMS, the size of all medias for specific message summed up should n
 </tr>
 <tr>
 <td style="text-align:left">receiptRequested</td>
-<td style="text-align:left">Requested receipt option for outbound messages: <code>none</code> <code>all</code> <code>error</code> Default is <code>none</code>.</td>
+<td style="text-align:left">Requested receipt option for outbound messages: <br><code>none</code>: <em>(DEFAULT)</em> Delivery receipt will not be sent as callback event. <br> <code>all</code>: Success or error delivery receipt maybe sent as callback event. <br><code>error</code>: Only error delivery receipt event maybe sent as callback event.</td>
 <td style="text-align:left">No</td>
 </tr>
 <tr>
@@ -2109,30 +2100,8 @@ When sending MMS, the size of all medias for specific message summed up should n
 </tr>
 </tbody>
 </table>
-<h3 id="message-request-receipt">Message Request Receipt</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Receipt</th>
-<th style="text-align:left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">none</td>
-<td style="text-align:left">Delivery receipt will not be sent as callback event.</td>
-</tr>
-<tr>
-<td style="text-align:left">error</td>
-<td style="text-align:left">Only error delivery receipt event maybe sent as callback event.</td>
-</tr>
-<tr>
-<td style="text-align:left">all</td>
-<td style="text-align:left">Success or error delivery receipt maybe sent as callback event.</td>
-</tr>
-</tbody>
-</table>
 <h3 id="multiple-message-result-types">Multiple Message Result Types</h3>
+<p>Important Note on Multiple Messages: There is a maximum limit of 50 messages sent per multiple messages request.</p>
 <table>
 <thead>
 <tr>
@@ -2507,7 +2476,7 @@ Location: /v1/users/{userId}/messages/{messageId}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST Create Message","level":"2.1.11.2","depth":3,"next":{"title":"GET Message info","level":"2.1.11.3","depth":3,"path":"methods/messages/getMessagesMessageId.md","ref":"methods/messages/getMessagesMessageId.md","articles":[]},"previous":{"title":"GET List Messages","level":"2.1.11.1","depth":3,"path":"methods/messages/getMessages.md","ref":"methods/messages/getMessages.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-api","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","fontsettings"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"favicon":"favicon/favicon.ico","theme-api":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/messages/postMessages.md","mtime":"2016-12-08T20:02:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-08T20:03:06.467Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST Send SMS and MMS","level":"2.1.11.2","depth":3,"next":{"title":"GET Message info","level":"2.1.11.3","depth":3,"path":"methods/messages/getMessagesMessageId.md","ref":"methods/messages/getMessagesMessageId.md","articles":[]},"previous":{"title":"GET List Messages","level":"2.1.11.1","depth":3,"path":"methods/messages/getMessages.md","ref":"methods/messages/getMessages.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","fontsettings"],"pluginsConfig":{"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"favicon":"favicon/favicon.ico","custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/messages/postMessages.md","mtime":"2016-12-12T21:49:55.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T22:00:27.146Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -2545,7 +2514,7 @@ Location: /v1/users/{userId}/messages/{messageId}
         
     
         
-        <script src="../../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
+        <script src="../../gitbook/gitbook-plugin-theme-bandwidth/theme-api.js"></script>
         
     
 
