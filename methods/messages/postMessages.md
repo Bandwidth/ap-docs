@@ -34,6 +34,10 @@ Important Note on Multiple Messages: There is a maximum limit of 50 messages sen
 
 {% common %}
 
+<aside class="alert general small">
+Bandwidth returns `HTTP 201` Created with the URI of the message in the `Location` Header
+</aside>
+
 ### Example: Send a single text message
 
 {% sample lang="bash" %}
@@ -48,8 +52,16 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 		"from": "{fromNumber}",
 		"to": "{toNumber}",
 		"text": "Good morning, this is a test message",
-		"callbackUrl": "http://my.callback.url"
+		"callbackUrl": "http://my.callback.com"
 	}'
+```
+
+
+> The above command returns HTTP Header structured like this:
+
+```
+HTTP/1.1 201 Created
+Location: /v1/users/{userId}/messages/{messageId}
 ```
 
 {% sample lang="js" %}
@@ -92,13 +104,6 @@ message = Message.create(client, {
 ```
 
 {% common %}
-
-> The above command returns HTTP Header structured like this:
-
-```
-HTTP/1.1 201 Created
-Location: /v1/users/{userId}/messages/{messageId}
-```
 
 ### Example: Send a single mms with Bandwidth Media
 

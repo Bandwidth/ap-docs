@@ -51,6 +51,14 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
 	}'
 ```
 
+> The above command returns HTTP Header structured like this:
+
+```
+HTTP/1.1 201 Created
+Location: /v1/users/{userId}/calls/{callId}
+```
+
+
 {% sample lang="js" %}
 
 ```js

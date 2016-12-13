@@ -9,12 +9,3 @@ This resource provides a CNAM number info. CNAM is an acronym which stands for C
 | Verb                         | Path                                                       | about                         |
 |:-----------------------------|:-----------------------------------------------------------|:------------------------------|
 | <code class="get">GET</code> | [`/v1/phoneNumbers/numberInfo/{number}`](getNumberInfo.md) | Get the CNAM info of a number |
-
-
-### Properties
-| Property | Description                                                  |
-|:---------|:-------------------------------------------------------------|
-| name     | The Caller ID name information.                              |
-| number   | The full phone number, specified in E.164 format.            |
-| created  | The time this Caller ID information was first queried (UTC). |
-| updated  | The time this Caller ID information was last updated (UTC).  |
