@@ -2055,6 +2055,10 @@ window.usabilla_live = lightningjs.require("usabilla_live", "//w.usabilla.com/c5
                                 
                                 <h1 id="calls">Calls</h1>
 <p>The Calls resource lets you make phone calls and view information about previous inbound and outbound calls.</p>
+<aside class="alert general small">
+Read More about Calls and Voice in the <a href="http://dev.bandwidth.com/faq/#voice" target="_blank">FAQ</a>
+</aside>
+
 <h3 id="base-url">Base URL</h3>
 <p><code>https://api.catapult.inetwork.com/v1/users/{userId}/calls/</code></p>
 <h3 id="capabilities">Capabilities</h3>
@@ -2134,137 +2138,12 @@ window.usabilla_live = lightningjs.require("usabilla_live", "//w.usabilla.com/c5
 </tr>
 </tbody>
 </table>
-<h2 id="properties">Properties</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Property</th>
-<th style="text-align:left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">id</td>
-<td style="text-align:left">The unique ID of the call.</td>
-</tr>
-<tr>
-<td style="text-align:left">direction</td>
-<td style="text-align:left">Call direction: values are <code>in</code> for an incoming call, <code>out</code> for an outgoing call</td>
-</tr>
-<tr>
-<td style="text-align:left">from</td>
-<td style="text-align:left">The phone number or SIP address that made the call. Phone numbers are in E.164 format (e.g. +15555555555) -or- SIP addresses (e.g. identify@domain.com).</td>
-</tr>
-<tr>
-<td style="text-align:left">to</td>
-<td style="text-align:left">The phone number or SIP address that received the call. Phone numbers are in E.164 format (e.g. +15555555555) -or- SIP addresses (e.g. identify@domain.com).</td>
-</tr>
-<tr>
-<td style="text-align:left">state</td>
-<td style="text-align:left">The call state. Described below, values are started <code>rejected</code>, <code>active</code>, <code>completed</code>, <code>transferring</code></td>
-</tr>
-<tr>
-<td style="text-align:left">startTime</td>
-<td style="text-align:left">Date when the call was created. Timestamp follows the ISO8601 format.</td>
-</tr>
-<tr>
-<td style="text-align:left">activeTime</td>
-<td style="text-align:left">Date when the call was answered. Timestamp follows the ISO8601 format.</td>
-</tr>
-<tr>
-<td style="text-align:left">endTime</td>
-<td style="text-align:left">Date when the call ended. Timestamp follows the ISO8601 format.</td>
-</tr>
-<tr>
-<td style="text-align:left">callTimeout</td>
-<td style="text-align:left">Determine how long should the platform wait for call answer before timing out in seconds (milliseconds).</td>
-</tr>
-<tr>
-<td style="text-align:left">callbackUrl</td>
-<td style="text-align:left">The server URL where the call events related to the call will be sent.</td>
-</tr>
-<tr>
-<td style="text-align:left">callbackHttpMethod</td>
-<td style="text-align:left">Determine if the callback event should be sent via HTTP GET or HTTP POST. Values are <code class="get">GET</code> or <code class="post">POST</code> Default is <code class="post">POST</code></td>
-</tr>
-<tr>
-<td style="text-align:left">callbackTimeout</td>
-<td style="text-align:left">Determine how long should the platform wait for callbackUrl&apos;s response before timing out (milliseconds).</td>
-</tr>
-<tr>
-<td style="text-align:left">fallbackUrl</td>
-<td style="text-align:left">The server URL used to send the call events if the request to callbackUrl fails.</td>
-</tr>
-<tr>
-<td style="text-align:left">chargeableDuration</td>
-<td style="text-align:left">The number of seconds the call will be billed for.</td>
-</tr>
-<tr>
-<td style="text-align:left">transferTo</td>
-<td style="text-align:left">Phone number or SIP address that the call is going to be transferred to.</td>
-</tr>
-<tr>
-<td style="text-align:left">transferCallerId</td>
-<td style="text-align:left">This is the caller id that will be used when the call is transferred. This parameter is only considered in transfer state. <br>- transferring an incoming call: allowed values are 1) &quot;private&quot; 2) the incoming call &quot;from&quot; number or 3) any Bandwidth number owned by user. <br>- transferring an outgoing call call: allowed values are 1) &quot;private&quot; or 2) any Bandwidth phone number owned by user.</td>
-</tr>
-<tr>
-<td style="text-align:left">whisperAudio</td>
-<td style="text-align:left">Audio to be played to the caller that the call will be transferred to.</td>
-</tr>
-<tr>
-<td style="text-align:left">bridgeId</td>
-<td style="text-align:left">The id of the bridge where the call will be added.</td>
-</tr>
-<tr>
-<td style="text-align:left">bridge</td>
-<td style="text-align:left">The URL of the bridge, if any, that contains the call.</td>
-</tr>
-<tr>
-<td style="text-align:left">conferenceId</td>
-<td style="text-align:left">The id of the conference where the call will be added. This property is required if you want to add this call to a conference.</td>
-</tr>
-<tr>
-<td style="text-align:left">conference</td>
-<td style="text-align:left">The complete URL of the conference resource the call is associated with.</td>
-</tr>
-<tr>
-<td style="text-align:left">events</td>
-<td style="text-align:left">The URL to retrieve the events related to the call.</td>
-</tr>
-<tr>
-<td style="text-align:left">recordingEnabled</td>
-<td style="text-align:left">Indicates if the call should be recorded after being created. Set to <code>true</code> to enable. Default is <code>false</code></td>
-</tr>
-<tr>
-<td style="text-align:left">recordingFileFormat</td>
-<td style="text-align:left">The file format of the recorded call. Supported values are <code>wav</code> (default) and <code>mp3</code>.</td>
-</tr>
-<tr>
-<td style="text-align:left">recordingMaxDuration</td>
-<td style="text-align:left">Indicates the maximum duration of call recording in seconds. Default value is 1 hour.</td>
-</tr>
-<tr>
-<td style="text-align:left">transcriptionEnabled</td>
-<td style="text-align:left">Whether all the recordings for this call should be be automatically transcribed.</td>
-</tr>
-<tr>
-<td style="text-align:left">tag</td>
-<td style="text-align:left">Any string, it will be included in the callback events of the call.</td>
-</tr>
-<tr>
-<td style="text-align:left">page</td>
-<td style="text-align:left">Used for pagination to indicate the page requested for querying a list of calls. If no value is specified the default is 0.</td>
-</tr>
-<tr>
-<td style="text-align:left">size</td>
-<td style="text-align:left">Used for pagination to indicate the size of each page requested for querying a list of calls. If no value is specified the default value is 25 (maximum value 1000).</td>
-</tr>
-<tr>
-<td style="text-align:left">sipHeaders</td>
-<td style="text-align:left">Map of Sip headers prefixed by &quot;X-&quot;. Up to 5 headers can be sent per call. Max length for header and value is 256 characters.</td>
-</tr>
-</tbody>
-</table>
+<h3 id="receive-incoming-calls">Receive Incoming Calls</h3>
+<p>To recieve <a href="../../apiCallbacks/voiceEvents.html">callbacks</a> for incoming calls. You need to have:</p>
+<ul>
+<li>A <a href="../applications/applications.html">Bandwidth Application</a> configured to send callbacks to your server.</li>
+<li>Assign the <a href="../phoneNumbers/postPhoneNumbersNumberId.html">phone number</a> to that application.</li>
+</ul>
 
                                 
                                 </section>
@@ -2298,7 +2177,7 @@ window.usabilla_live = lightningjs.require("usabilla_live", "//w.usabilla.com/c5
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"/calls","level":"2.1.5","depth":2,"next":{"title":"GET List Calls","level":"2.1.5.1","depth":3,"path":"methods/calls/getCalls.md","ref":"methods/calls/getCalls.md","articles":[]},"previous":{"title":"GET List Calls in Bridge","level":"2.1.4.6","depth":3,"path":"methods/bridges/getBridgesBridgeIdCalls.md","ref":"methods/bridges/getBridgesBridgeIdCalls.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","fontsettings","gtm"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"favicon":"favicon/favicon.ico","custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/calls.md","mtime":"2016-12-13T17:01:00.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-13T17:28:14.461Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"/calls","level":"2.1.5","depth":2,"next":{"title":"GET List Calls","level":"2.1.5.1","depth":3,"path":"methods/calls/getCalls.md","ref":"methods/calls/getCalls.md","articles":[]},"previous":{"title":"GET List Calls in Bridge","level":"2.1.4.6","depth":3,"path":"methods/bridges/getBridgesBridgeIdCalls.md","ref":"methods/bridges/getBridgesBridgeIdCalls.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","fontsettings","gtm"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"favicon":"favicon/favicon.ico","custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/calls.md","mtime":"2016-12-13T19:21:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-13T20:07:58.389Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
