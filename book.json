@@ -6,7 +6,8 @@
         "customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git",
         "toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git",
         "custom-favicon",
-        "fontsettings"
+        "fontsettings",
+        "gtm"
     ],
     "pluginsConfig": {
         "theme-bandwidth": {
@@ -36,6 +37,10 @@
         },
       "customJquery": {
         "js": "js/custom.js"
+      },
+      "gtm": {
+        "token": "GTM-P2JT7Z",
+        "virtualPageViews": true
       },
       "favicon" : "favicon/favicon.ico",
       "sharing": {
