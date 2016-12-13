@@ -37,29 +37,6 @@ Creates a new outbound phone call.
 The call resource returned in the "Location" header can be modified to change the call (for example, play audio files, transfer to a different number, or hang up).
 </aside>
 
-{% sample lang="json"%}
-
-
-```json
-{
-	"from"                : "",
-	"to"                  : "",
-	"callTimeout"         : "",
-	"callbackUrl"         : "",
-	"callbackTimeout"     : "",
-	"callbackHttpMethod"  : "",
-	"fallbackUrl"         : "",
-	"bridgeId"            : "",
-	"conferenceId"        : "",
-	"recordingEnabled"    : "",
-	"recordingMaxDuration": "",
-	"recordingFileFormat" : "",
-	"transcriptionEnabled": "",
-	"tag"                 : "",
-	"sipHeaders"          : ""
-}
-```
-
 {% sample lang="bash" %}
 
 ```bash
