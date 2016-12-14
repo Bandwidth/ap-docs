@@ -29,6 +29,15 @@ a[aria-label="Change Layout"]{
    height:70px;
    width: 100%;
 }
+#headerLogo{
+  background-image: url('/images/headerLogo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 188.23px;
+  height: 40px;
+  float: left;
+  margin: 15px;
+}
 .head img{
    padding: 15px;
    max-height: 70px;
