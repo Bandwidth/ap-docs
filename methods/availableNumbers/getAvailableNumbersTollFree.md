@@ -58,7 +58,9 @@ client.AvailableNumber.search("tollFree", {
 var results = await client.AvailableNumber.SearchTollFreeAsync(
   new TollFreeNumberQuery{ Pattern = "*2?9*", Quantity = 2}
 );
-var firstNumber = results.First().Number;
+var first = results.First();
+Console.WriteLine($"{first.Number} - {first.Price}");
+// +1234567890 - 0.1
 ```
 
 {% sample lang="ruby" %}

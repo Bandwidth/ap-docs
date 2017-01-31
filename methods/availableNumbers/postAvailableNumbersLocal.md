@@ -62,6 +62,9 @@ var results = await client.AvailableNumber.SearchAndOrderLocalAsync(
 var firstResult = results.First();
 var number = firstResult.Number;
 var numberId = firstResult.Id;
+Console.WriteLine($"{numberId} - {number}");
+// n-123456 - +1234567890
+
 ```
 
 {% sample lang="ruby" %}
