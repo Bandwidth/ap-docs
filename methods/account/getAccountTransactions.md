@@ -91,7 +91,9 @@ client.Account.getTransactions()
 
 ```csharp
 var transactions = client.Account.GetTransactions();
-var firstTransactionAmount = transactions.First().Amount;
+var firstTransaction = transactions.First();
+Console.WriteLine($"{firstTransaction.Type} - ${firstTransaction.Amount}");
+// charge - 0.00750
 ```
 
 {% sample lang="ruby" %}

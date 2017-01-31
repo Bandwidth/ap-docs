@@ -61,7 +61,8 @@ client.Application.get('a-zuwwfzzrbea',
 
 ```csharp
 var application = await client.Application.GetAsync("a-zuwwfzzrbea");
-var applicationName = application.Name;
+Console.WriteLine(application.Name);
+// MyFirstApp
 ```
 
 {% sample lang="ruby" %}
