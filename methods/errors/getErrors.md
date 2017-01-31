@@ -57,7 +57,9 @@ client.Error.list({size: 1000}, function(err, errorResponse){});
 
 ```csharp
 var errors = client.Error.List(new ErrorQuery{Size = 1000});
-var firstErrorMessage = errors.First().Message;
+var firstError = errors.First();
+Console.WriteLine($"{firstError.Code} - {firstError.Message}");
+// no-application-for-number - No application is configured for number +19195556666
 ```
 
 {% sample lang="ruby" %}
