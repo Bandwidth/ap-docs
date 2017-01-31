@@ -91,6 +91,9 @@ var message = await client.Message.SendAsync(new MessageData {
 	To = "+19195551213",
 	Text = "Thank you for susbcribing to Unicorn Enterprises!"
 });
+
+Console.WriteLine($"Created message with id {message.Id}");
+// Created message with id m-1234
 ```
 
 {% sample lang="ruby" %}
@@ -149,6 +152,8 @@ var message = await client.Message.SendAsync(new MessageData {
 	Media = new[] {"https://api.catapult.inetwork.com/v1/users/<user-id>/media/image-1.jpg"},
 	CallbackUrl = "http://my.callback.url"
 });
+Console.WriteLine($"Created message with id {message.Id}");
+// Created message with id m-1234
 ```
 
 {% sample lang="ruby" %}
@@ -217,6 +222,8 @@ var message = await client.Message.SendAsync(new MessageData {
 	Media = new[] {"http://your-site.com/image-1.jpg"},
 	CallbackUrl = "http://my.callback.url"
 });
+Console.WriteLine($"Created message with id {message.Id}");
+// Created message with id m-1234
 ```
 
 {% sample lang="ruby" %}
@@ -331,6 +338,8 @@ var messages = await client.Message.SendAsync(new[] {
 		Text = "Thank you for susbcribing to Unicorn Enterprises!"
 	}
 });
+Console.WriteLine($"Created messages with ids {messages.Select(m => m.Id).Join(", ")}");
+// Created messages with ids m-1234, m-2345
 ```
 
 {% sample lang="ruby" %}
@@ -412,6 +421,8 @@ var message = await client.Message.SendAsync(new MessageData {
 	Text = "Thank you for susbcribing to Unicorn Enterprises!",
 	ReceiptRequested = MessageReceiptRequested.All
 });
+Console.WriteLine($"Created message with id {message.Id}");
+// Created message with id m-1234
 ```
 
 {% sample lang="ruby" %}
@@ -451,6 +462,8 @@ var message = await client.Message.SendAsync(new MessageData {
 	CallbackUrl = "http://my.callback.url",
 	CallbackTimeout = 2000
 });
+Console.WriteLine($"Created message with id {message.Id}");
+// Created message with id m-1234
 ```
 
 {% sample lang="ruby" %}
@@ -493,6 +506,8 @@ var message = await client.Message.SendAsync(new MessageData {
 	CallbackTimeout = 2000,
 	FallbackUrl = "http://my.fallback.url"
 });
+Console.WriteLine($"Created message with id {message.Id}");
+// Created message with id m-1234
 ```
 
 {% sample lang="ruby" %}
