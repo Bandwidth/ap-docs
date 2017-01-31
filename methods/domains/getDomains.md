@@ -42,7 +42,9 @@ client.Domain.list()
 
 ```csharp
 var domains = client.Domain.List();
-var firstDomainName = domains.First().Name;
+var firstDomain = domains.First();
+Console.WriteLine($"{firstDomain.Name} - {firstDomain.Description}");
+// mycoolapp - disruptive app that's going to revolutonize telecom
 ```
 
 {% sample lang="ruby" %}

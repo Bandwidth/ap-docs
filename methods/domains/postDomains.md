@@ -57,6 +57,9 @@ var domain = await client.Domain.CreateAsync(new CreateDomainData{
 	Name = "mycoolapp",
 	Description = "disruptive app that is going to revolutionize telecom"
 });
+
+Console.WriteLine($"Created domain with id {domain.Id}");
+// Created domain with id d-1234
 ```
 
 {% sample lang="ruby" %}
