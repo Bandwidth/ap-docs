@@ -68,11 +68,15 @@ client.Endpoint.list("domainId" {size: 1000}, function (err, res) {});
 ```csharp
 // Default size (25)
 var endpoints = client.Endpoint.List("{domainId1}");
-var firstEndpointName = endpoints.First().Name;
+var firstEndpoint = endpoints.First();
+Console.WriteLine($"{firstEndpoint.Name} - {firstEndpoint.SipUri}");
+// jsmith-mobile - jsmith-mobile@doname.bwapp.bwsipp.io
 
 // Specify number of endpoints
 var endpoints = client.Endpoint.List("{domainId1}", new EndpointQuery {Size = 1000});
-var firstEndpointName = endpoints.First().Name;
+var firstEndpoint = endpoints.First();
+Console.WriteLine($"{firstEndpoint.Name} - {firstEndpoint.SipUri}");
+// jsmith-mobile - jsmith-mobile@doname.bwapp.bwsipp.io
 ```
 
 {% sample lang="ruby" %}
