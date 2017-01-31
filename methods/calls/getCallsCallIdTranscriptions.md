@@ -32,8 +32,9 @@ client.Call.getTranscriptions(callId, function (err, list) {});
 
 ```csharp
 var transcriptions = client.Call.GetTranscriptions("{callId1}");
-var firstTranscriptionState = transcriptions.First().State;
-
+var firstTranscription = transcriptions.First();
+Console.WriteLine($"{firstTranscription.Id} - {firstTranscription.State}");
+// tr-1234 - Completed
 ```
 
 {% sample lang="ruby" %}

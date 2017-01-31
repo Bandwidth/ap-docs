@@ -43,7 +43,10 @@ client.Call.getEvents(callId, function (err, events) {});
 
 ```csharp
 var events = client.Call.GetEvents("{callId1}");
-var firstEventId = events.First().Id;
+var firstEvent = events.First();
+Console.WriteLine($"{firstEvent.Id} {firstEvent.Name}");
+// ev-123 answer
+
 ```
 
 {% sample lang="ruby" %}

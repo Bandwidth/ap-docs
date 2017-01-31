@@ -59,7 +59,9 @@ client.Call.get("{callId}")
 
 ```csharp
 var call = await client.Call.GetAsync("{callId1}");
-var to = call.To;
+Console.WriteLine($"{call.From} - {call.To}");
+// +19195551212 - +1234567891
+
 ```
 
 {% sample lang="ruby" %}

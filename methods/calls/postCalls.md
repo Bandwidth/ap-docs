@@ -79,6 +79,8 @@ var call = await client.Call.CreateAsync(new CreateCallData{
 	From = "{fromNumber}",
 	To = "{toNumber}"
 });
+Console.WriteLine($"Created call with id {call.Id}");
+// Created call with id c-1234
 ```
 
 
@@ -148,6 +150,8 @@ var call = await client.Call.CreateAsync(new CreateCallData{
 		{"X-Header-2", "value2"}
 	}
 });
+Console.WriteLine($"Created call with id {call.Id}");
+// Created call with id c-1234
 ```
 
 

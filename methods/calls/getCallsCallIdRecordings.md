@@ -32,7 +32,9 @@ client.Call.getRecordings(callId, function (err, list) {});
 
 ```csharp
 var recordings = client.Call.GetRecordings("{callId1}");
-var firstRecordingState = recordigns.First().State;
+var firstRecording = recordigns.First();
+Console.WriteLine($"{firstRecording.Id} - {firstRecording.State}");
+// r-1234 - Complete
 ```
 
 {% sample lang="ruby" %}
