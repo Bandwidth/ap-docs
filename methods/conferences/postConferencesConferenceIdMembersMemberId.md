@@ -47,7 +47,7 @@ client.Conference.updateMember("conferenceID", "memberId", {state: "completed"},
 {% sample lang="csharp" %}
 
 ```csharp
-var member = await client.Conference.UpdateMemberAsync("{conferenceId1}", "{memberId1}", new UpdateMemberData {State = MemberState.Completed});
+await client.Conference.UpdateMemberAsync("{conferenceId1}", "{memberId1}", new UpdateMemberData {State = MemberState.Completed});
 ```
 
 {% sample lang="ruby" %}
