@@ -61,7 +61,8 @@ client.PhoneNumber.get("+1234567890", function(err, number){});
 
 ```csharp
 var number = await client.PhoneNumber.GetAsync("+1234567890");
-var city = number.City;
+Console.WriteLine(firstNumber.City);
+// Cary
 ```
 
 {% sample lang="ruby" %}

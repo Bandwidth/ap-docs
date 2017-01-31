@@ -54,6 +54,8 @@ client.PhoneNumber.create({ number : "+1234567890" }, function(err, number){});
 
 ```csharp
 var number = await client.PhoneNumber.CreateAsync(new CreatePhoneNumberData {Number = "+1234567890"});
+Console.WriteLine($"Created phone number with id {number.Id}");
+// Created phone number with id n-1234
 ```
 
 {% sample lang="ruby" %}
