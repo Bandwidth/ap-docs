@@ -69,7 +69,9 @@ client.Recording.list({}, function (err, recordings) {
 
 ```csharp
 var recordings = client.Recording.List();
-var firstRecordingMediaName = recordings.First().MediaName
+var firstRecording = recordings.First();
+Console.WriteLine($"{firstRecording.Id} - {firstRecording.State}");
+// r-1234 - Complete
 ```
 
 {% sample lang="ruby" %}
