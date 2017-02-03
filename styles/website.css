@@ -436,6 +436,11 @@ code:before, code:after{
    color: #fff !important;
    border:none !important;
 }
+.beta{
+  background-color: rgba(255, 255, 255, 0) !important;
+  color: #272B2D !important;
+  border: 1px solid #272B2D !important;
+}
 .alert{
 	display:inline-block;
 	padding: .5em 1em;
