@@ -114,7 +114,6 @@
 ## BXML
 * [BXML](bxml/bxml.md)
  * [Call](bxml/verbs/call.md)
- * [Conference](bxml/verbs/conference.md)
  * [Gather](bxml/verbs/gather.md)
  * [Hangup](bxml/verbs/hangup.md)
  * [Media](bxml/verbs/media.md)
@@ -123,7 +122,6 @@
  * [Record](bxml/verbs/record.md)
  * [Redirect](bxml/verbs/redirect.md)
  * [Reject](bxml/verbs/reject.md)
- * [SendMessage](bxml/verbs/sendMessage.md)
  * [SpeakSentence](bxml/verbs/speakSentence.md)
  * [Transfer](bxml/verbs/transfer.md)
 
@@ -136,7 +134,6 @@
  * [Recording event](bxml/callBacks/recording.md)
  * [Redirect event](bxml/callBacks/redirect.md)
  * [Incoming SMS event](bxml/callBacks/incomingSMS.md)
- * [SMS Status event](bxml/callBacks/sms.md)
  * [Transfer Complete Event](bxml/callBacks/transfer.md)
 
 ## Rate Limits
