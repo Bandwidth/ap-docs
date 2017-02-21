@@ -7,7 +7,12 @@
         "toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git",
         "custom-favicon",
         "fontsettings",
-        "gtm"
+        "gtm",
+        "-hightlight",
+        "-fontsettings",
+        "bandwidth-highlight",
+        "bandwidth-fonts",
+        "usabilla"
     ],
     "pluginsConfig": {
         "theme-bandwidth": {
@@ -42,6 +47,9 @@
         "token": "GTM-P2JT7Z",
         "virtualPageViews": true
       },
+      "usabilla" : {
+            "usabillaId" : "c590d7d0e7ac"
+      },
       "favicon" : "favicon/favicon.ico",
       "sharing": {
             "facebook": false,
@@ -54,6 +62,11 @@
             "facebook", "google", "twitter",
             "weibo", "instapaper"
         ]
-      }
+      },
+     "fontsettings": {
+            "theme": "white",
+            "family": "sans",
+            "size": 2
+        }
     }
 }
