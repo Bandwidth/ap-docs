@@ -42,7 +42,8 @@ then(function (media) {
 
 ```csharp
 var list = client.Media.List();
-var firstMediaName = list.First().MediaName;
+Console.WriteLine(list.First().MediaName);
+// file1.mp3
 ```
 
 {% sample lang="ruby" %}

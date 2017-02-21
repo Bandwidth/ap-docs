@@ -43,7 +43,9 @@ client.Recording.getTranscriptions(recordingId, function(err, transcriptions){})
 {% sample lang="csharp" %}
 ```csharp
 var transcriptions = client.Transcription.List("{recordingId}");
-var firstTranscriptionText = transcriptions.First().Text;
+var firstTranscription = transcriptions.First();
+Console.WriteLine($"{firstTranscription.Id} - {firstTranscription.Text}");
+// tr-1234 - Hello there
 ```
 
 {% sample lang="ruby" %}

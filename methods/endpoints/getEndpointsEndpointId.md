@@ -54,7 +54,9 @@ client.Endpoint.get(domainId, endpointId, function(err, endpoint){});
 
 ```csharp
 var endpoint = await client.Endpoint.GetAsync("{domainId1}", "{endpointId1}");
-var name = endpoint.Name;
+Console.WriteLine($"{endpoint.Name} - {endpoint.SipUri}");
+// jsmith-mobile - jsmith-mobile@doname.bwapp.bwsipp.io
+
 ```
 
 {% sample lang="ruby" %}

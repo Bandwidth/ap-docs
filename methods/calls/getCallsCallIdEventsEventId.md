@@ -33,7 +33,8 @@ client.Call.getEvent(callId, eventId, function (err, callEvent) {});
 
 ```csharp
 var callEvent = async client.Call.GetEventAsync("{callId1}", "{eventId1}");
-var eventName = callEvent.Name;
+Console.WriteLine(callEvent.Name);
+// answer
 ```
 
 {% sample lang="ruby" %}

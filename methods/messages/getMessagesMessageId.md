@@ -99,7 +99,9 @@ client.Message.get("{messageId}", function (err, message) {
 
 ```csharp
 var message = await client.Message.GetAsync("{messageId}");
-var text = message.Text;
+Console.WriteLine($"{message.From} -> {message.To}: {message.Text}");
+// +1234567890 -> +1234567891: message text
+
 ```
 
 {% sample lang="ruby" %}

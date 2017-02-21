@@ -48,7 +48,9 @@ client.Conference.getMembers("conferenceId", function(err, members){});
 
 ```csharp
 var members = client.Conference.GetMembers("{conferenceId1}");
-var firstMemberState = members.First().State;
+var firstMember = members.First().State;
+Console.WriteLine($"{firstMember.Id} - {firstMember.State}");
+// cm-1234 - Created
 ```
 
 {% sample lang="ruby" %}

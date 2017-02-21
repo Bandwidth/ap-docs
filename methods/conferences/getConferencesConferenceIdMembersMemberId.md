@@ -48,7 +48,8 @@ client.Conference.getMember("conferenceId", "memberId", function(err, member){})
 
 ```csharp
 var member = await client.Conference.GetMemberAsync("{conferenceId1}", "{memberId1}");
-var state = member.State;
+Console.WriteLine(member.State);
+// Created
 ```
 
 {% sample lang="ruby" %}

@@ -74,7 +74,9 @@ client.Bridge.list()
 
 ```csharp
 var bridges = client.Bridge.List();
-var firstBridgeState = bridges.First().State;
+var firstBridge = bridges.First();
+Console.WriteLine($"{firstBridge.Id} - {firstBridge.State}");
+// brg-123 - Completed
 ```
 
 {% sample lang="ruby" %}

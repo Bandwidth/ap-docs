@@ -39,6 +39,9 @@ client.Recording.createTranscription(recordingId, function(err, transcription){}
 
 ```csharp
 var transcription = await client.Transcription.CreateAsync("{recordingId}");
+Console.WriteLine($"Created transcription with id {transcription.Id}");
+// Created transcription with id tr-1234
+
 ```
 
 {% sample lang="ruby" %}

@@ -103,7 +103,9 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages \
 
 ```csharp
 var messages = client.Message.List();
-var firstMessageText = messages.First().Text;
+var firstMessage = messages.First();
+Console.WriteLine($"{firstMessage.From} -> {firstMessage.To}: {firstMessage.Text}");
+// +1234567890 -> +1234567891: message text
 ```
 
 {% sample lang="ruby" %}
@@ -194,6 +196,9 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages?from
 
 ```csharp
 var messages = client.Message.List(new MessageQuery {From = "{fromNumber}"});
+var firstMessage = messages.First();
+Console.WriteLine($"{firstMessage.From} -> {firstMessage.To}: {firstMessage.Text}");
+// +1234567890 -> +1234567891: message text
 ```
 
 {% sample lang="ruby" %}
@@ -257,6 +262,10 @@ var messages = client.Message.List(new MessageQuery {
 	Direction = MessageDirection.Out,
 	ToDateTime = new DateTime(2015, 10, 5, 20, 37, 39, 0, DateTimeKind.Utc)
 });
+var firstMessage = messages.First();
+Console.WriteLine($"{firstMessage.From} -> {firstMessage.To}: {firstMessage.Text}");
+// +1234567890 -> +1234567891: message text
+
 ```
 
 {% sample lang="ruby" %}

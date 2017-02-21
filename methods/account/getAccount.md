@@ -40,7 +40,8 @@ client.Account.get(function(err, info){});
 
 ```csharp
 var account = await client.Account.GetAsync();
-var balance = account.Balance;
+Console.WriteLine(account.Balance);
+// 538.37250
 ```
 
 {% sample lang="ruby" %}

@@ -70,7 +70,9 @@ client.AvailableNumber.search("local", { areaCode : "910", quantity : 3 }, funct
 
 ```csharp
 var results = await client.AvailableNumber.SearchLocalAsync(new LocalNumberQuery{ AreaCode = "910", Quantity = 3});
-var firstNumber = results.First().Number;
+var first = results.First();
+Console.WriteLine($"{first.Number} - {first.State}");
+// +1234567890 - NC
 ```
 
 {% sample lang="ruby" %}
@@ -136,7 +138,9 @@ var results = await client.AvailableNumber.SearchLocalAsync(
     Quantity = 2
   }
 );
-var firstNumber = results.First().Number;
+var first = results.First();
+Console.WriteLine($"{first.Number} - {first.State}");
+// +1234567890 - NC
 ```
 
 {% sample lang="ruby" %}

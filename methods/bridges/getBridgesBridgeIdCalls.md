@@ -44,7 +44,9 @@ client.Bridge.getCalls('brg-65dhjrmbasiei',
 
 ```csharp
 var calls = client.Bridge.GetCalls("brg-65dhmbasiei");
-var lastCallTo = calls.Last().To;
+var lastCall = calls.Last();
+Console.WriteLine($"{lastCall.From} - {lastCall.To}")
+// +1234567890 - +1234567891
 ```
 
 {% sample lang="ruby" %}

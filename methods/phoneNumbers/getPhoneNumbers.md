@@ -63,7 +63,9 @@ client.PhoneNumber.list({size: 1000}, function(err, numbersResponse){});
 
 ```csharp
 var numbers = client.PhoneNumber.List(new PhoneNumberQuery {Size = 1000});
-var firstNumberId = numbers.First().Id;
+var firstNumber = numbers.First();
+Console.WriteLine(firstNumber.Number);
+// +1234567890
 ```
 
 {% sample lang="ruby" %}

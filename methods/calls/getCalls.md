@@ -65,7 +65,9 @@ client.Call.list()
 
 ```csharp
 var calls = client.Call.List();
-var firstCallTo = calls.First().To;
+var firstCall = calls.First();
+Console.WriteLine($"{firstCall.From} - {firstCall.To}");
+// +1234567890 - +1234567891
 ```
 
 
@@ -141,6 +143,10 @@ client.Call.list({
 
 ```csharp
 var calls = client.Call.List(new CallQuery{From = "+19195551212"});
+var firstCall = calls.First();
+Console.WriteLine($"{firstCall.From} - {firstCall.To}");
+// +19195551212 - +1234567891
+
 ```
 
 {% sample lang="ruby" %}

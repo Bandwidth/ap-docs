@@ -32,7 +32,8 @@ client.Call.getGather("{callId}", "{gatherId}")
 
 ```csharp
 var gather = await client.Call.GetGatherAsync("{callId1}", "{gatherId1}");
-var digits = gather.Digits;
+Console.WriteLine(gather.Digits);
+// 123
 ```
 
 {% sample lang="ruby" %}
