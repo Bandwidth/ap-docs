@@ -35,7 +35,9 @@ Important Note on Multiple Messages: There is a maximum limit of 50 messages sen
 {% common %}
 
 <aside class="alert general small">
+<p>
 Bandwidth returns `HTTP 201` Created with the URI of the message in the `Location` Header
+</p>
 </aside>
 
 ### Example: Send a single text message

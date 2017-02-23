@@ -8,7 +8,9 @@ This will create a domain.
 <code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/domains`
 
 <aside class="alert general small">
+<p>
 There is a 100 domain max per account limit. Most use cases require using a single domain for all endpoints.
+</p>
 </aside>
 
 ---

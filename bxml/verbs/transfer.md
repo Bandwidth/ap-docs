@@ -26,9 +26,9 @@ These verbs might also be nested inside `<Transfer>`:
 
 
 
-<aside class="alert general small">The transfer will bridge the calls when all verbs inside Transfer were executed.</aside>
-<aside class="alert general small">The transferTo attribute will be ignored in the presence of a <PhoneNumber> collection.</aside>
-<aside class="alert general small">There can be a maximum of 7 phone numbers to try and transfer to.</aside>
+<aside class="alert general small"><p>The transfer will bridge the calls when all verbs inside Transfer were executed.</p></aside>
+<aside class="alert general small"><p>The transferTo attribute will be ignored in the presence of a <PhoneNumber> collection.</p></aside>
+<aside class="alert general small"><p>There can be a maximum of 7 phone numbers to try and transfer to.</p></aside>
 
 
 {% common %}

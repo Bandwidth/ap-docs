@@ -2,7 +2,9 @@
 The Messages resource lets you send SMS/MMS messages and view messages that were previously sent or received.
 
 <aside class="alert general small">
+<p>
 Read More about Messaging in the <a href="http://dev.bandwidth.com/faq/#messaging">FAQ</a>
+</p>
 </aside>
 
 ### Base URL
