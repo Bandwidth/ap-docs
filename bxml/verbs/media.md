@@ -3,7 +3,9 @@
 <Media> is a noun that is used exclusively within <SendMessage> to provide attached media (MMS) capability messages. This feature is coming soon.
 
 <aside class="alert general small">
+<p>
 The <Media> tag must contain at least one internal <Url> tag to specify the media URL to be sent as seen in the following example:
+</p>
 </aside>
 
 ### Attributes

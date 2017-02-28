@@ -34,7 +34,9 @@ Creates a new outbound phone call.
 ### Example: Create an outbound phone call
 
 <aside class="alert general small">
+<p>
 The call resource returned in the "Location" header can be modified to change the call (for example, play audio files, transfer to a different number, or hang up).
+</p>
 </aside>
 
 {% sample lang="bash" %}
@@ -98,9 +100,11 @@ call = Call.create(client, {:from => "{fromNumber}", :to => "{toNumber}"})
 Make a call to a SIP URI:
 
 <aside class="notice">
+<p>
 * The support is based on SIP RFC 3261.
 * If the INVITE fails (receive a non-2xx final response), an event will be generated to the application indicating the call has hung up.
 * SIPS is not currently supported.
+</p>
 </aside>
 
 {% sample lang="bash" %}

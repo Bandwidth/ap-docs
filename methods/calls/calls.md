@@ -2,7 +2,9 @@
 The Calls resource lets you make phone calls and view information about previous inbound and outbound calls.
 
 <aside class="alert general small">
+<p>
 Read More about Calls and Voice in the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>
+</p>
 </aside>
 
 ### Base URL

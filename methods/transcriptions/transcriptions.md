@@ -16,9 +16,13 @@ The Transcription resource lets you transcribe a voicemail recording. This resou
 
 
 <aside class="alert general">
+<p>
 It is important to note that our transcription service has been specifically tuned to transcribe voicemail recordings. It will not perform accurately when used in other scenarios such as IVR or support conversation recording.
+</p>
 </aside>
 
 <aside class="alert success">
+<p>
 If you are interested in using transcription for these use cases, please contact us at signup@bandwidth.com.
+</p>
 </aside>

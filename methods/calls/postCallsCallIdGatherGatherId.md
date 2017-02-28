@@ -10,7 +10,9 @@ Update the gather.
 ---
 
 <aside class="notice">
+<p>
 The only update allowed is state:completed to stop the gather.
+</p>
 </aside>
 
 {% common %}

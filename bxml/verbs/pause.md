@@ -3,7 +3,9 @@
 Pause is a verb to specify the length of seconds to wait before executing the next verb.
 
 <aside class="alert general small">
+<p>
 This feature is coming soon.
+</p>
 </aside>
 
 ### Attributes
