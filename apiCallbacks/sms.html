@@ -2072,7 +2072,7 @@
 </tr>
 <tr>
 <td style="text-align:left">deliveryCode</td>
-<td style="text-align:left">Numeric value of deliver code, see values <a href="#message-delivery-code">here</a>.</td>
+<td style="text-align:left">Numeric value of deliver code</td>
 </tr>
 <tr>
 <td style="text-align:left">deliveryDescription</td>
@@ -2131,6 +2131,69 @@
 <tr>
 <td style="text-align:left">not-delivered</td>
 <td style="text-align:left">Receipt indicating that message was not delivered.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="message-delivery-code">Message Delivery Code</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Code</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">0</td>
+<td style="text-align:left">Message delivered to carrier</td>
+</tr>
+<tr>
+<td style="text-align:left">100</td>
+<td style="text-align:left">Message not delivered to carrier</td>
+</tr>
+<tr>
+<td style="text-align:left">187</td>
+<td style="text-align:left">Statistical spam detected</td>
+</tr>
+<tr>
+<td style="text-align:left">188</td>
+<td style="text-align:left">Keyword spam detected</td>
+</tr>
+<tr>
+<td style="text-align:left">189</td>
+<td style="text-align:left">Spam detected</td>
+</tr>
+<tr>
+<td style="text-align:left">482</td>
+<td style="text-align:left">Loop detected</td>
+</tr>
+<tr>
+<td style="text-align:left">600</td>
+<td style="text-align:left">Destination carrier could not accept messages</td>
+</tr>
+<tr>
+<td style="text-align:left">610</td>
+<td style="text-align:left">Message submittion failed</td>
+</tr>
+<tr>
+<td style="text-align:left">620</td>
+<td style="text-align:left">Destination application error</td>
+</tr>
+<tr>
+<td style="text-align:left">630</td>
+<td style="text-align:left">Message not acknowledge</td>
+</tr>
+<tr>
+<td style="text-align:left">720</td>
+<td style="text-align:left">Invalid destination number</td>
+</tr>
+<tr>
+<td style="text-align:left">740</td>
+<td style="text-align:left">Invalid source number</td>
+</tr>
+<tr>
+<td style="text-align:left">999</td>
+<td style="text-align:left">Unknown error</td>
 </tr>
 </tbody>
 </table>
@@ -2229,7 +2292,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SMS Event","level":"3.1.1.1","depth":3,"next":{"title":"MMS Event","level":"3.1.1.2","depth":3,"path":"apiCallbacks/mms.md","ref":"apiCallbacks/mms.md","articles":[]},"previous":{"title":"Messaging Events","level":"3.1.1","depth":2,"path":"apiCallbacks/messagingEvents.md","ref":"apiCallbacks/messagingEvents.md","articles":[{"title":"SMS Event","level":"3.1.1.1","depth":3,"path":"apiCallbacks/sms.md","ref":"apiCallbacks/sms.md","articles":[]},{"title":"MMS Event","level":"3.1.1.2","depth":3,"path":"apiCallbacks/mms.md","ref":"apiCallbacks/mms.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","fontsettings","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"apiCallbacks/sms.md","mtime":"2017-02-24T15:42:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-28T14:49:54.035Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SMS Event","level":"3.1.1.1","depth":3,"next":{"title":"MMS Event","level":"3.1.1.2","depth":3,"path":"apiCallbacks/mms.md","ref":"apiCallbacks/mms.md","articles":[]},"previous":{"title":"Messaging Events","level":"3.1.1","depth":2,"path":"apiCallbacks/messagingEvents.md","ref":"apiCallbacks/messagingEvents.md","articles":[{"title":"SMS Event","level":"3.1.1.1","depth":3,"path":"apiCallbacks/sms.md","ref":"apiCallbacks/sms.md","articles":[]},{"title":"MMS Event","level":"3.1.1.2","depth":3,"path":"apiCallbacks/mms.md","ref":"apiCallbacks/mms.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","fontsettings","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"apiCallbacks/sms.md","mtime":"2017-03-02T16:30:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-02T16:40:43.469Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
