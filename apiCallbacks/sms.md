@@ -16,7 +16,7 @@ Bandwidth API sends this event to the application when an SMS is sent or receive
 | time                | The time the message resource was created (UTC, follows the ISO 8601 format).                                                                                                                                                                    |
 | state               | Message state, values are received queued sending sent error                                                                                                                                                                                     |
 | deliveryState       | One of the message delivery states `waiting` `delivered` `not-delivered`                                                                                                                                                                         |
-| deliveryCode        | Numeric value of deliver code, see values [here](#message-delivery-code).                                                                                                                                                                        |
+| deliveryCode        | Numeric value of deliver code                                                                                                                                                                        |
 | deliveryDescription | Message delivery description for the respective delivery code.                                                                                                                                                                                   |
 
 ### Message States
@@ -34,6 +34,23 @@ Bandwidth API sends this event to the application when an SMS is sent or receive
 | waiting       | Waiting for receipt.                               |
 | delivered     | Receipt indicating that message was delivered.     |
 | not-delivered | Receipt indicating that message was not delivered. |
+
+### Message Delivery Code
+| Code | Description                                   |
+|:-----|:----------------------------------------------|
+| 0    | Message delivered to carrier                  |
+| 100  | Message not delivered to carrier              |
+| 187  | Statistical spam detected                     |
+| 188  | Keyword spam detected                         |
+| 189  | Spam detected                                 |
+| 482  | Loop detected                                 |
+| 600  | Destination carrier could not accept messages |
+| 610  | Message submittion failed                     |
+| 620  | Destination application error                 |
+| 630  | Message not acknowledge                       |
+| 720  | Invalid destination number                    |
+| 740  | Invalid source number                         |
+| 999  | Unknown error                                 |
 
 {% common %}
 
