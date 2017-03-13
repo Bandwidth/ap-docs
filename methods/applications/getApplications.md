@@ -64,7 +64,9 @@ client.Application.list()
 
 ```csharp
 var applications = client.Application.List();
-var firstApplicationName = applications.First().Name;
+var firstApplication = applications.First();
+Console.WriteLine($"{firstApplication.Name} - {firstApplication.Id}");
+// MyFirstApp - a-12345
 ```
 
 {% sample lang="ruby" %}

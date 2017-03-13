@@ -10,7 +10,10 @@ The Redirect verb is used to redirect the current XML execution to another URL.
 | context           | (optional) Specify any call Id or message Id where the redirect will be applied to. |
 
 <aside class="alert general small">
+<p>
 Any verb after `<Redirect>` will not be executed.
+<p>
+</aside>
 
 {% common %}
 #### Example: Redirect Verb

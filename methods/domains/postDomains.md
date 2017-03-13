@@ -8,7 +8,9 @@ This will create a domain.
 <code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/domains`
 
 <aside class="alert general small">
+<p>
 There is a 100 domain max per account limit. Most use cases require using a single domain for all endpoints.
+</p>
 </aside>
 
 ---
@@ -57,6 +59,9 @@ var domain = await client.Domain.CreateAsync(new CreateDomainData{
 	Name = "mycoolapp",
 	Description = "disruptive app that is going to revolutionize telecom"
 });
+
+Console.WriteLine($"Created domain with id {domain.Id}");
+// Created domain with id d-1234
 ```
 
 {% sample lang="ruby" %}

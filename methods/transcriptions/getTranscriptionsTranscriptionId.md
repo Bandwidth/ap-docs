@@ -48,7 +48,8 @@ client.Recording.getTranscription(recordingId, transcriptionId, function(err, tr
 
 ```csharp
 var transcription = await client.Transcription.GetAsync("recordingId", "transcriptionId");
-var text = Transcription.Text;
+Console.WriteLine(transcription.State);
+// Completed
 ```
 
 {% sample lang="ruby" %}

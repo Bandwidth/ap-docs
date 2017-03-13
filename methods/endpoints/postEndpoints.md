@@ -78,6 +78,8 @@ var endpoint = await client.Endpoint.CreateAsync(new CreateEndpointData {
 	Enabled = false,
 	Credentials = new CreateEndpointCredentials {Password = "123456"}
 });
+Console.WriteLine($"Created endpoint with id {endpoint.Id}");
+// Created endpoint with id ep-1234
 ```
 
 {% sample lang="ruby" %}

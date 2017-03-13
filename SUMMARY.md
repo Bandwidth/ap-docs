@@ -116,12 +116,9 @@
  * [Call](bxml/verbs/call.md)
  * [Gather](bxml/verbs/gather.md)
  * [Hangup](bxml/verbs/hangup.md)
- * [Media](bxml/verbs/media.md)
- * [Pause](bxml/verbs/pause.md)
  * [PlayAudio](bxml/verbs/playAudio.md)
  * [Record](bxml/verbs/record.md)
  * [Redirect](bxml/verbs/redirect.md)
- * [Reject](bxml/verbs/reject.md)
  * [SpeakSentence](bxml/verbs/speakSentence.md)
  * [Transfer](bxml/verbs/transfer.md)
 

@@ -52,6 +52,8 @@ client.Conference.createMember("conferenceId", {callId: "callID"}, function(err,
 var member = await client.Conference.CreateMemberAsync("{conferenceId1}", new CreateConferenceMemberData {
 	CallId = "callID"
 });
+Console.WriteLine($"Created conference member with id {member.Id}");
+// Created conference member with id cm-1234
 ```
 
 {% sample lang="ruby" %}

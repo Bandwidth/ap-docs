@@ -22,10 +22,14 @@ Searches and order available local numbers by location criteria.
 | pattern            | A number pattern that may include letters, digits, and the following wildcard characters: <br> ? : matches any single digit <br> * : matches zero or more digits<br> Don't forget to encode wildcard characters in the requested URL. | No        |
 
 <aside class="notice">
+<p>
 ** state, zip and areaCode are mutually exclusive, you may use only one of them per request.
+</p>
 </aside>
 <aside class="notice">
+<p>
 *** localNumber and inLocalCallingArea only applies for searching numbers in specific areaCode.
+</p>
 </aside>
 
 {% common %}
@@ -62,6 +66,9 @@ var results = await client.AvailableNumber.SearchAndOrderLocalAsync(
 var firstResult = results.First();
 var number = firstResult.Number;
 var numberId = firstResult.Id;
+Console.WriteLine($"{numberId} - {number}");
+// n-123456 - +1234567890
+
 ```
 
 {% sample lang="ruby" %}

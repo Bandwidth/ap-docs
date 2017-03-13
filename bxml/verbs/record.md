@@ -18,7 +18,9 @@ The Record verb allows call recording. At the end of the call, a call recording 
 Any verb after recording will not be executed because the `requestUrl` <code class="get">GET</code> is performed after recording completes. The new BXML is expected (Less sense for Bandwidth Application Platform).
 
 <aside class="alert general small">
+<p>
 Transcription will not work with mp3 file format.
+</p>
 </aside>
 
 {% common %}

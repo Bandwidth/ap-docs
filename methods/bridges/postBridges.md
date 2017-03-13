@@ -63,6 +63,9 @@ var bridge = await client.Bridge.CreateAsync(new CreateBridgeData{
 	BridgeAudio = true,
 	CallIds = new[]{"c-qbsx6wsdi", "c-zan4g7prsq"}
 });
+
+Console.WriteLine($"Created bridge id {bridge.Id}");
+// Created bridge id brg-1234
 ```
 
 {% sample lang="ruby" %}
@@ -123,6 +126,10 @@ client.Bridge.create({
 var bridge = await client.Bridge.CreateAsync(new CreateBridgeData{
 	BridgeAudio = true
 });
+
+Console.WriteLine($"Created bridge id {bridge.Id}");
+// Created bridge id brg-1234
+
 ```
 
 {% sample lang="ruby" %}

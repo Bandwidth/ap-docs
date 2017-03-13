@@ -77,6 +77,12 @@ var application = await client.Application.CreateAsync(new CreateApplicationData
 	IncomingCallUrl = "http://your-server.com/CallCallback",
 	IncomingMessageUrl = "http://your-server.com/MsgCallback"
 });
+
+Console.WriteLine($"Created application with id {application.Id}");
+// Created application with id a-12345
+
+Console.WriteLine($"{application.Instance.Name} - {application.Instance.IncomingCallUrl}");
+// SampleApp2 - http://your-server.com/CallCallback
 ```
 
 {% sample lang="ruby" %}

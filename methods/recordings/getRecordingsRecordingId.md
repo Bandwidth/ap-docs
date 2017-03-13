@@ -65,7 +65,8 @@ client.Recording.get("{recordingId}", function (err, recording) {
 
 ```csharp
 var recording = await client.Recording.GetAsync("{recordingId}");
-var mediaName = recording.MediaName;
+Console.WriteLine(recording.MediaName);
+// c-bonay3r4mtwbplurq4nkt7q-1.wav
 ```
 
 {% sample lang="ruby" %}

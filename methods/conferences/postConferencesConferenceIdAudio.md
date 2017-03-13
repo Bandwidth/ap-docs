@@ -22,7 +22,9 @@ Speak a text or play audio in the conference
 | tag         | A string that will be included in the events delivered when the audio playback starts or finishes.                                                                                                                                                                                                                                                                                              | No        |
 
 <aside class="alert general small">
+<p>
 * For playing text-to-speech, sentence is required, for playing an audio file, fileUrl is required.
+</p>
 </aside>
 
 {% common %}
@@ -154,4 +156,3 @@ conference.play_audio({
 ```
 
 {% endmethod %}
-

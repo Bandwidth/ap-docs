@@ -16,7 +16,7 @@ Sends one or more messages.
 | to                 | The phone number the message should be sent to (must be in E.164 format, like +19195551212).                                                                                           | Yes       |
 | text               | The contents of the text message (must be 2048 characters or less).                                                                                                                    | Yes       |
 | media              | For MMS messages, a media url to the location of the media or list of medias to be sent send with the message. For media details please check table Properties in the top of the page. | No        |
-| receiptRequested   | Requested receipt option for outbound messages: <br>`none`: *(DEFAULT)* Delivery receipt will not be sent as callback event. <br> `all`: Success or error delivery receipt maybe sent as callback event. <br>`error`: Only error delivery receipt event maybe sent as callback event.                                                                                                | No        |
+| receiptRequested   | Requested receipt option for outbound messages: <br>`none`: *(DEFAULT)* Delivery receipt will not be sent as callback event. <br> `all`: Success or error delivery receipt maybe sent as callback event. <br>`error`: Only error delivery receipt event maybe sent as callback event. <br> The [callback](../../apiCallbacks/sms.md) will contain information about delivery                                                                                                | No        |
 | callbackUrl        | The server URL where the events related to the outgoing message will be sent to.                                                                                                       | No        |
 | callbackHttpMethod | Determine if the callback event should be sent via `HTTP GET` or `HTTP POST`. Values are get or post Default is <code class="post">POST</code>                                         | No        |
 | callbackTimeout    | Determine how long should the platform wait for callbackUrl’s response before timing out (milliseconds).                                                                               | No        |
@@ -35,7 +35,9 @@ Important Note on Multiple Messages: There is a maximum limit of 50 messages sen
 {% common %}
 
 <aside class="alert general small">
+<p>
 Bandwidth returns `HTTP 201` Created with the URI of the message in the `Location` Header
+</p>
 </aside>
 
 ### Example: Send a single text message
@@ -91,6 +93,9 @@ var message = await client.Message.SendAsync(new MessageData {
 	To = "+19195551213",
 	Text = "Thank you for susbcribing to Unicorn Enterprises!"
 });
+
+Console.WriteLine($"Created message with id {message.Id}");
+// Created message with id m-1234
 ```
 
 {% sample lang="ruby" %}
@@ -149,6 +154,8 @@ var message = await client.Message.SendAsync(new MessageData {
 	Media = new[] {"https://api.catapult.inetwork.com/v1/users/<user-id>/media/image-1.jpg"},
 	CallbackUrl = "http://my.callback.url"
 });
+Console.WriteLine($"Created message with id {message.Id}");
+// Created message with id m-1234
 ```
 
 {% sample lang="ruby" %}
@@ -217,6 +224,8 @@ var message = await client.Message.SendAsync(new MessageData {
 	Media = new[] {"http://your-site.com/image-1.jpg"},
 	CallbackUrl = "http://my.callback.url"
 });
+Console.WriteLine($"Created message with id {message.Id}");
+// Created message with id m-1234
 ```
 
 {% sample lang="ruby" %}
@@ -331,6 +340,8 @@ var messages = await client.Message.SendAsync(new[] {
 		Text = "Thank you for susbcribing to Unicorn Enterprises!"
 	}
 });
+Console.WriteLine($"Created messages with ids {messages.Select(m => m.Id).Join(", ")}");
+// Created messages with ids m-1234, m-2345
 ```
 
 {% sample lang="ruby" %}
@@ -412,6 +423,8 @@ var message = await client.Message.SendAsync(new MessageData {
 	Text = "Thank you for susbcribing to Unicorn Enterprises!",
 	ReceiptRequested = MessageReceiptRequested.All
 });
+Console.WriteLine($"Created message with id {message.Id}");
+// Created message with id m-1234
 ```
 
 {% sample lang="ruby" %}
@@ -451,6 +464,8 @@ var message = await client.Message.SendAsync(new MessageData {
 	CallbackUrl = "http://my.callback.url",
 	CallbackTimeout = 2000
 });
+Console.WriteLine($"Created message with id {message.Id}");
+// Created message with id m-1234
 ```
 
 {% sample lang="ruby" %}
@@ -493,6 +508,8 @@ var message = await client.Message.SendAsync(new MessageData {
 	CallbackTimeout = 2000,
 	FallbackUrl = "http://my.fallback.url"
 });
+Console.WriteLine($"Created message with id {message.Id}");
+// Created message with id m-1234
 ```
 
 {% sample lang="ruby" %}

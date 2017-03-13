@@ -7,6 +7,17 @@ Get the gather DTMF parameters and results.
 
 <code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather/{gatherId}`
 
+### Properties
+| Property      | Description                                                                                                                                                                                                                                                                                                                                                              |
+|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| state         | The state of the gather. Value is completed.                                                                                                                                                                                                                                                                                                                             |
+| digits        | The digits collected from user.                                                                                                                                                                                                                                                                                                                                          |
+| reason        | `max-digits` - The maximum number of digits specified for the gather com.<br> `terminating-digit` - The digit specified in the gather com was entered.<br> `inter-digit-timeout` - A timeout occurred indicating the maximum amount of time to wait between digits, or before the first digit was pressed.<br> `hung-up` - Call was hung up thus terminating the gather. |
+| call          | The call id associated with the event.                                                                                                                                                                                                                                                                                                                                   |
+| gatherId      | The gather event unique id.                                                                                                                                                                                                                                                                                                                                              |
+| createdTime   | Date/time of event. Timestamp follows the ISO8601 format (UTC).                                                                                                                                                                                                                                                                                                          |
+| completedTime | Date/time of event. Timestamp follows the ISO8601 format (UTC).                                                                                                                                                                                                                                                                                                          |
+
 {% common %}
 
 ### Example: Fetch information for a single gather
@@ -32,7 +43,8 @@ client.Call.getGather("{callId}", "{gatherId}")
 
 ```csharp
 var gather = await client.Call.GetGatherAsync("{callId1}", "{gatherId1}");
-var digits = gather.Digits;
+Console.WriteLine(gather.Digits);
+// 123
 ```
 
 {% sample lang="ruby" %}

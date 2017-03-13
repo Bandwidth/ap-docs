@@ -51,7 +51,9 @@ client.Error.get(userErrorId, function(err, errorInfo){});
 
 ```csharp
 var error = async client.Error.GetAsync("{errorId1}");
-var message = error.Message;
+Console.WriteLine($"{error.Code} - {error.Message}");
+// no-application-for-number - No application is configured for number +19195556666
+
 ```
 
 {% sample lang="ruby" %}

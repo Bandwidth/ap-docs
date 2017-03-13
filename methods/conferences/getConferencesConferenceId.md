@@ -60,7 +60,8 @@ client.Conference.get("conferenceId", function(err, conference){});
 
 ```csharp
 var conference = await client.Conference.GetAsync("{conferenceId1}");
-var owner = conference.From;
+Console.WriteLine($"{conference.From} - {conference.State}");
+// +1234567890 - Created
 ```
 
 {% sample lang="ruby" %}

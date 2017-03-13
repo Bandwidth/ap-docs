@@ -78,6 +78,10 @@ var gather = await client.Call.CreateGatherAsync("{callId1}", new CreateGatherDa
 		Sentence = "Please enter your 5 digit code"
 	}
 });
+
+Console.WriteLine($"Created gather with id {gather.Id}");
+// Created gather with id g-1234
+
 ```
 
 {% sample lang="ruby" %}

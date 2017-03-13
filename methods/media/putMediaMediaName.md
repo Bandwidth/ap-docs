@@ -9,7 +9,9 @@ Uploads a file the normal HTTP way. You may add headers to the request in order 
 ---
 
 <aside class="alert general small">
+<p>
 You can upload files up to `65MB` and file storage is free for an unlimited number of files.
+</p>
 </aside>
 
 ### Properties
