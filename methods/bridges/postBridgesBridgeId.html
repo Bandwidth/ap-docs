@@ -528,7 +528,20 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.5.5" data-path="../calls/postCallsCallIdAudio.html">
+        <li class="chapter " data-level="2.1.5.5" data-path="../calls/postTransferCall.html">
+            
+                <a href="../calls/postTransferCall.html">
+            
+                    
+                    <code class="post">POST</code> Transfer Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.6" data-path="../calls/postCallsCallIdAudio.html">
             
                 <a href="../calls/postCallsCallIdAudio.html">
             
@@ -541,7 +554,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.5.6" data-path="../calls/postCallsCallIdDTMF.html">
+        <li class="chapter " data-level="2.1.5.7" data-path="../calls/postCallsCallIdDTMF.html">
             
                 <a href="../calls/postCallsCallIdDTMF.html">
             
@@ -554,7 +567,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.5.7" data-path="../calls/getCallsCallIdEvents.html">
+        <li class="chapter " data-level="2.1.5.8" data-path="../calls/getCallsCallIdEvents.html">
             
                 <a href="../calls/getCallsCallIdEvents.html">
             
@@ -567,7 +580,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.5.8" data-path="../calls/getCallsCallIdEventsEventId.html">
+        <li class="chapter " data-level="2.1.5.9" data-path="../calls/getCallsCallIdEventsEventId.html">
             
                 <a href="../calls/getCallsCallIdEventsEventId.html">
             
@@ -580,7 +593,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.5.9" data-path="../calls/getCallsCallIdRecordings.html">
+        <li class="chapter " data-level="2.1.5.10" data-path="../calls/getCallsCallIdRecordings.html">
             
                 <a href="../calls/getCallsCallIdRecordings.html">
             
@@ -593,7 +606,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.5.10" data-path="../calls/getCallsCallIdTranscriptions.html">
+        <li class="chapter " data-level="2.1.5.11" data-path="../calls/getCallsCallIdTranscriptions.html">
             
                 <a href="../calls/getCallsCallIdTranscriptions.html">
             
@@ -606,7 +619,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.5.11" data-path="../calls/postCallsCallIdGather.html">
+        <li class="chapter " data-level="2.1.5.12" data-path="../calls/postCallsCallIdGather.html">
             
                 <a href="../calls/postCallsCallIdGather.html">
             
@@ -619,7 +632,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.5.12" data-path="../calls/getCallsCallIdGatherGatherId.html">
+        <li class="chapter " data-level="2.1.5.13" data-path="../calls/getCallsCallIdGatherGatherId.html">
             
                 <a href="../calls/getCallsCallIdGatherGatherId.html">
             
@@ -632,7 +645,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.5.13" data-path="../calls/postCallsCallIdGatherGatherId.html">
+        <li class="chapter " data-level="2.1.5.14" data-path="../calls/postCallsCallIdGatherGatherId.html">
             
                 <a href="../calls/postCallsCallIdGatherGatherId.html">
             
@@ -2004,10 +2017,81 @@
 </tbody>
 </table>
 </div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h3 id="example-add-call-callid1-and-call-callid2-in-a-bridge-bridgeid-with-two-way-voice-path">Example: Add call {callId1} and call {callId2} in a bridge {bridgeId} with two way voice path</h3>
-<h3 id="example-removing-call-callid2-from-the-bridge-created-in-the-example-above">Example: Removing call {callId2} from the bridge created in the example above</h3>
-<h3 id="example-adding-two-different-calls-callid3-and-callid4-in-the-bridge-above-and-put-them-on-hold">Example: Adding two different calls {callId3} and {callId4} in the bridge above and put them on hold</h3>
-<h3 id="example-bridging-the-audio-again">Example: Bridging the audio again</h3>
-<h3 id="example-removing-all-calls-from-bridge">Example: Removing all calls from bridge.</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}\
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+    <span class="hljs-_">-d</span> <span class="hljs-string">&apos;{&quot;bridgeAudio&quot;: &quot;true&quot;, &quot;callIds&quot;: [&quot;{callId1}&quot;,&quot;{callId2}&quot;] }&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-keyword">var</span> bridgeOptions = {
+    <span class="hljs-attr">bridgeAudio</span> : <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">callIds</span>: [<span class="hljs-string">&quot;{callId1&quot;</span>,<span class="hljs-string">&quot;callId2&quot;</span>]
+};
+client.Bridge.update(<span class="hljs-string">&quot;{bridgeId}&quot;</span>, bridgeOptions)
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">// continue</span>
+});
+</code></pre>
+</div><div class="api-method-example"><h3 id="example-removing-call-callid2-from-the-bridge-created-in-the-example-above">Example: Removing call {callId2} from the bridge created in the example above</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}\
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+    <span class="hljs-_">-d</span> <span class="hljs-string">&apos;{&quot;bridgeAudio&quot;: &quot;true&quot;, &quot;callIds&quot;: [&quot;{callId1}&quot;] }&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-keyword">var</span> bridgeOptions = {
+    <span class="hljs-attr">callIds</span>: [<span class="hljs-string">&quot;{callId1&quot;</span>]
+};
+
+client.Bridge.update(<span class="hljs-string">&quot;{bridgeId}&quot;</span>, bridgeOptions)
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">// continue</span>
+});
+</code></pre>
+</div><div class="api-method-example"><h3 id="example-adding-two-different-calls-callid3-and-callid4-in-the-bridge-above-and-put-them-on-hold">Example: Adding two different calls {callId3} and {callId4} in the bridge above and put them on hold</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}\
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+    <span class="hljs-_">-d</span> <span class="hljs-string">&apos;{&quot;bridgeAudio&quot;: &quot;false&quot;, &quot;callIds&quot;: [&quot;{callId3}, {callId3}&quot;] }&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-keyword">var</span> bridgeOptions = {
+    <span class="hljs-attr">bridgeAudio</span> : <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">callIds</span>: [<span class="hljs-string">&quot;{callId3&quot;</span>,<span class="hljs-string">&quot;callId4&quot;</span>]
+};
+
+client.Bridge.update(<span class="hljs-string">&quot;{bridgeId}&quot;</span>, bridgeOptions)
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">// continue</span>
+});
+</code></pre>
+</div><div class="api-method-example"><h3 id="example-bridging-the-audio-again">Example: Bridging the audio again</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}\
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+    <span class="hljs-_">-d</span> <span class="hljs-string">&apos;{&quot;bridgeAudio&quot;: &quot;true&quot;}&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-keyword">var</span> bridgeOptions = {
+    <span class="hljs-attr">bridgeAudio</span> : <span class="hljs-literal">true</span>
+};
+
+client.Bridge.update(<span class="hljs-string">&quot;{bridgeId}&quot;</span>, bridgeOptions)
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">// continue</span>
+});
+</code></pre>
+</div><div class="api-method-example"><h3 id="example-removing-all-calls-from-bridge">Example: Removing all calls from bridge.</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}\
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+    <span class="hljs-_">-d</span> <span class="hljs-string">&apos;{callIds&quot;: [] }&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-keyword">var</span> bridgeOptions = {
+    <span class="hljs-attr">callIds</span>: []
+};
+
+client.Bridge.update(<span class="hljs-string">&quot;{bridgeId}&quot;</span>, bridgeOptions)
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">// continue</span>
+});
+</code></pre>
 </div></div></div>
 
                                 
@@ -2042,7 +2126,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST Update Bridge","level":"2.1.4.4","depth":3,"next":{"title":"POST Play audio in Bridge","level":"2.1.4.5","depth":3,"path":"methods/bridges/postBridgesBridgeIdAudio.md","ref":"methods/bridges/postBridgesBridgeIdAudio.md","articles":[]},"previous":{"title":"GET Bridge info","level":"2.1.4.3","depth":3,"path":"methods/bridges/getBridgesBridgeId.md","ref":"methods/bridges/getBridgesBridgeId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","fontsettings","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/bridges/postBridgesBridgeId.md","mtime":"2017-03-07T19:49:52.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-13T15:22:16.747Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST Update Bridge","level":"2.1.4.4","depth":3,"next":{"title":"POST Play audio in Bridge","level":"2.1.4.5","depth":3,"path":"methods/bridges/postBridgesBridgeIdAudio.md","ref":"methods/bridges/postBridgesBridgeIdAudio.md","articles":[]},"previous":{"title":"GET Bridge info","level":"2.1.4.3","depth":3,"path":"methods/bridges/getBridgesBridgeId.md","ref":"methods/bridges/getBridgesBridgeId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","fontsettings","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/bridges/postBridgesBridgeId.md","mtime":"2017-03-15T19:32:39.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-15T19:33:29.432Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

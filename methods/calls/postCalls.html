@@ -528,7 +528,20 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.5.5" data-path="postCallsCallIdAudio.html">
+        <li class="chapter " data-level="2.1.5.5" data-path="postTransferCall.html">
+            
+                <a href="postTransferCall.html">
+            
+                    
+                    <code class="post">POST</code> Transfer Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.6" data-path="postCallsCallIdAudio.html">
             
                 <a href="postCallsCallIdAudio.html">
             
@@ -541,7 +554,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.5.6" data-path="postCallsCallIdDTMF.html">
+        <li class="chapter " data-level="2.1.5.7" data-path="postCallsCallIdDTMF.html">
             
                 <a href="postCallsCallIdDTMF.html">
             
@@ -554,7 +567,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.5.7" data-path="getCallsCallIdEvents.html">
+        <li class="chapter " data-level="2.1.5.8" data-path="getCallsCallIdEvents.html">
             
                 <a href="getCallsCallIdEvents.html">
             
@@ -567,7 +580,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.5.8" data-path="getCallsCallIdEventsEventId.html">
+        <li class="chapter " data-level="2.1.5.9" data-path="getCallsCallIdEventsEventId.html">
             
                 <a href="getCallsCallIdEventsEventId.html">
             
@@ -580,7 +593,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.5.9" data-path="getCallsCallIdRecordings.html">
+        <li class="chapter " data-level="2.1.5.10" data-path="getCallsCallIdRecordings.html">
             
                 <a href="getCallsCallIdRecordings.html">
             
@@ -593,7 +606,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.5.10" data-path="getCallsCallIdTranscriptions.html">
+        <li class="chapter " data-level="2.1.5.11" data-path="getCallsCallIdTranscriptions.html">
             
                 <a href="getCallsCallIdTranscriptions.html">
             
@@ -606,7 +619,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.5.11" data-path="postCallsCallIdGather.html">
+        <li class="chapter " data-level="2.1.5.12" data-path="postCallsCallIdGather.html">
             
                 <a href="postCallsCallIdGather.html">
             
@@ -619,7 +632,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.5.12" data-path="getCallsCallIdGatherGatherId.html">
+        <li class="chapter " data-level="2.1.5.13" data-path="getCallsCallIdGatherGatherId.html">
             
                 <a href="getCallsCallIdGatherGatherId.html">
             
@@ -632,7 +645,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.5.13" data-path="postCallsCallIdGatherGatherId.html">
+        <li class="chapter " data-level="2.1.5.14" data-path="postCallsCallIdGatherGatherId.html">
             
                 <a href="postCallsCallIdGatherGatherId.html">
             
@@ -2160,9 +2173,118 @@ Console.WriteLine(<span class="hljs-string">$&quot;Created call with id <span cl
 })
 </code></pre>
 </div><div class="api-method-example"><h3 id="example-create-call-and-start-recording-it">Example: Create call and start recording it</h3>
-<h3 id="example-create-a-call-in-a-bridge">Example: Create a call in a bridge</h3>
-<h3 id="example-create-an-outbound-call-with-callback-and-fallback-url">Example: Create an outbound call with callback and fallback URL</h3>
-<h3 id="example-create-an-outbound-call-with-tag-property">Example: Create an outbound call with tag property</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+    <span class="hljs-_">-d</span> \
+    <span class="hljs-string">&apos;
+    {
+        &quot;from&quot;: &quot;{fromNumber}&quot;,
+        &quot;to&quot;: &quot;{toNumber}&quot;,
+        &quot;recordingEnabled&quot;: &quot;true&quot;
+    }&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js">client.Call.create({
+    <span class="hljs-attr">from</span>: <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
+    <span class="hljs-attr">to</span>: <span class="hljs-string">&quot;{toNumber}&quot;</span>,
+    <span class="hljs-attr">recordingEnabled</span>: <span class="hljs-literal">true</span>
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(id);
+})
+</code></pre>
+</div><div class="api-method-example"><h3 id="example-create-a-call-in-a-bridge">Example: Create a call in a bridge</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/ \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+    <span class="hljs-_">-d</span> <span class="hljs-string">&apos;{&quot;bridgeAudio&quot;: &quot;true&quot; }&apos;</span>
+</code></pre>
+<blockquote>
+<p>The above command returns HTTP Status structured like this:</p>
+<pre><code>HTTP/1.1 201 Created
+Location: /v1/users/{userId}/calls/{bridgeId}
+</code></pre></blockquote>
+<pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+    <span class="hljs-_">-d</span> \
+    <span class="hljs-string">&apos;
+    {
+        &quot;from&quot;: &quot;{fromNumber}&quot;,
+        &quot;to&quot;: &quot;{toNumber}&quot;,
+        &quot;bridgeId&quot;: &quot;{bridgeId}&quot;
+    }&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js">client.bridge.create({
+    <span class="hljs-attr">bridgeAudio</span>: <span class="hljs-literal">true</span>
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">bridgeId</span>) </span>{
+    <span class="hljs-keyword">return</span> client.Call.create({
+        <span class="hljs-attr">from</span>: <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
+        <span class="hljs-attr">to</span>: <span class="hljs-string">&quot;{sip:someone@somewhere.com}&quot;</span>,
+        <span class="hljs-attr">bridgeId</span>: bridgeId
+    })
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">callId</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(callId);
+})
+</code></pre>
+</div><div class="api-method-example"><h3 id="example-create-an-outbound-call-with-callback-and-fallback-url">Example: Create an outbound call with callback and fallback URL</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+    <span class="hljs-_">-d</span> \
+    <span class="hljs-string">&apos;
+    {
+        &quot;from&quot;: &quot;{fromNumber}&quot;,
+        &quot;to&quot;: &quot;{toNumber}&quot;,
+        &quot;callbackUrl&quot; : &quot;http://google.com&quot;,
+        &quot;callbackHttpMethod&quot;: &quot;GET&quot;,
+        &quot;fallbackUrl&quot; : &quot;http://bing.com&quot;
+    }&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js">client.Call.create({
+    <span class="hljs-attr">from</span>: <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
+    <span class="hljs-attr">to</span>: <span class="hljs-string">&quot;{toNumber}&quot;</span>,
+    <span class="hljs-attr">callbackUrl</span> : <span class="hljs-string">&quot;http://google.com&quot;</span>,
+    <span class="hljs-attr">callbackHttpMethod</span>: <span class="hljs-string">&quot;GET&quot;</span>,
+    <span class="hljs-attr">fallbackUrl</span> : <span class="hljs-string">&quot;http://bing.com&quot;</span>
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(id);
+})
+</code></pre>
+</div><div class="api-method-example"><h3 id="example-create-an-outbound-call-with-tag-property">Example: Create an outbound call with tag property</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+    <span class="hljs-_">-d</span> \
+    <span class="hljs-string">&apos;
+    {
+        &quot;from&quot;: &quot;{fromNumber}&quot;,
+        &quot;to&quot;: &quot;{toNumber}&quot;,
+        &quot;tag&quot; : &quot;{ \&quot;context\&quot;: \&quot;key\&quot; }&quot;
+    }&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js">
+<span class="hljs-keyword">var</span> context = {
+    <span class="hljs-attr">key</span>: <span class="hljs-string">&quot;value1&quot;</span>,
+    <span class="hljs-attr">pair</span>: <span class="hljs-string">&quot;set&quot;</span>,
+    <span class="hljs-attr">username</span>: <span class="hljs-string">&quot;steve&quot;</span>,
+    <span class="hljs-attr">phonenumber</span>: <span class="hljs-string">&quot;+1918111333&quot;</span>
+}
+
+client.Call.create({
+    <span class="hljs-attr">from</span>: <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
+    <span class="hljs-attr">to</span>: <span class="hljs-string">&quot;{toNumber}&quot;</span>,
+    <span class="hljs-attr">callbackUrl</span> : <span class="hljs-string">&quot;http://google.com&quot;</span>,
+    <span class="hljs-attr">callbackHttpMethod</span>: <span class="hljs-string">&quot;GET&quot;</span>,
+    <span class="hljs-attr">tag</span> : <span class="hljs-built_in">JSON</span>.stringify(context)
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(id);
+})
+</code></pre>
 </div></div></div>
 
                                 
@@ -2197,7 +2319,7 @@ Console.WriteLine(<span class="hljs-string">$&quot;Created call with id <span cl
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST Create Call","level":"2.1.5.2","depth":3,"next":{"title":"GET Call info","level":"2.1.5.3","depth":3,"path":"methods/calls/getCallsCallId.md","ref":"methods/calls/getCallsCallId.md","articles":[]},"previous":{"title":"GET List Calls","level":"2.1.5.1","depth":3,"path":"methods/calls/getCalls.md","ref":"methods/calls/getCalls.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","fontsettings","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/postCalls.md","mtime":"2017-03-13T15:05:05.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-13T15:22:16.747Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST Create Call","level":"2.1.5.2","depth":3,"next":{"title":"GET Call info","level":"2.1.5.3","depth":3,"path":"methods/calls/getCallsCallId.md","ref":"methods/calls/getCallsCallId.md","articles":[]},"previous":{"title":"GET List Calls","level":"2.1.5.1","depth":3,"path":"methods/calls/getCalls.md","ref":"methods/calls/getCalls.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","fontsettings","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/postCalls.md","mtime":"2017-03-15T19:32:39.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-15T19:33:29.432Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
