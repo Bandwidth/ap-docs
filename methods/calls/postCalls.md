@@ -174,10 +174,159 @@ call = Call.create(client, {
 {% common %}
 
 ### Example: Create call and start recording it
+{% sample lang="bash" %}
 
+```bash
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
+	-u {token}:{secret} \
+	-H "Content-type: application/json" \
+	-d \
+	'
+	{
+		"from": "{fromNumber}",
+		"to": "{toNumber}",
+		"recordingEnabled": "true"
+	}'
+```
+
+{% sample lang="js" %}
+
+```js
+client.Call.create({
+	from: "{fromNumber}",
+	to: "{toNumber}",
+	recordingEnabled: true
+})
+.then(function (id) {
+	console.log(id);
+})
+```
+
+{% common %}
 ### Example: Create a call in a bridge
 
+{% sample lang="bash" %}
+
+```bash
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/ \
+    -u {token}:{secret} \
+    -H "Content-type: application/json" \
+    -d '{"bridgeAudio": "true" }'
+```
+
+> The above command returns HTTP Status structured like this:
+```
+HTTP/1.1 201 Created
+Location: /v1/users/{userId}/calls/{bridgeId}
+```
+
+```bash
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
+    -u {token}:{secret} \
+    -H "Content-type: application/json" \
+    -d \
+    '
+    {
+        "from": "{fromNumber}",
+        "to": "{toNumber}",
+        "bridgeId": "{bridgeId}"
+    }'
+```
+
+{% sample lang="js" %}
+
+```js
+client.bridge.create({
+	bridgeAudio: true
+})
+.then(function (bridgeId) {
+	return client.Call.create({
+		from: "{fromNumber}",
+		to: "{sip:someone@somewhere.com}",
+		bridgeId: bridgeId
+	})
+})
+.then(function (callId) {
+	console.log(callId);
+})
+```
+
+{% common %}
 ### Example: Create an outbound call with callback and fallback URL
 
+
+{% sample lang="bash" %}
+
+```bash
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
+	-u {token}:{secret} \
+	-H "Content-type: application/json" \
+	-d \
+	'
+	{
+		"from": "{fromNumber}",
+		"to": "{toNumber}",
+		"callbackUrl" : "http://google.com",
+		"callbackHttpMethod": "GET",
+		"fallbackUrl" : "http://bing.com"
+	}'
+```
+
+{% sample lang="js" %}
+
+```js
+client.Call.create({
+	from: "{fromNumber}",
+	to: "{toNumber}",
+	callbackUrl : "http://google.com",
+	callbackHttpMethod: "GET",
+	fallbackUrl : "http://bing.com"
+})
+.then(function (id) {
+	console.log(id);
+})
+```
+
+{% common %}
 ### Example: Create an outbound call with tag property
+
+
+{% sample lang="bash" %}
+
+```bash
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
+	-u {token}:{secret} \
+	-H "Content-type: application/json" \
+	-d \
+	'
+	{
+		"from": "{fromNumber}",
+		"to": "{toNumber}",
+		"tag" : "{ \"context\": \"key\" }"
+	}'
+```
+
+
+{% sample lang="js" %}
+
+```js
+
+var context = {
+	key: "value1",
+	pair: "set",
+	username: "steve",
+	phonenumber: "+1918111333"
+}
+
+client.Call.create({
+	from: "{fromNumber}",
+	to: "{toNumber}",
+	callbackUrl : "http://google.com",
+	callbackHttpMethod: "GET",
+	tag : JSON.stringify(context)
+})
+.then(function (id) {
+	console.log(id);
+})
+```
 {% endmethod %}

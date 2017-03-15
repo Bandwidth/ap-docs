@@ -32,6 +32,7 @@
    * [POST Create Call](methods/calls/postCalls.md)
    * [GET Call info](methods/calls/getCallsCallId.md)
    * [POST Update Call](methods/calls/postCallsCallId.md)
+   * [POST Transfer Call](methods/calls/postTransferCall.md)
    * [POST Play audio in Call](methods/calls/postCallsCallIdAudio.md)
    * [POST Send DTMF in Call](methods/calls/postCallsCallIdDTMF.md)
    * [GET List Call events](methods/calls/getCallsCallIdEvents.md)
