@@ -210,13 +210,4 @@ call.play_audio({
 })
 ```
 
-{% common %}
-
-### Example: Create call and start recording it
-
-### Example: Create a call in a bridge
-
-### Example: Create an outbound call with callback and fallback URL
-
-### Example: Create an outbound call with tag property
 {% endmethod %}

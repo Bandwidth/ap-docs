@@ -1,6 +1,6 @@
 {% method %}
-## Update active Call
-Update properties of an active phone call.
+## Transfer active Call
+Transfer a call to another phone number.  This is a subset of [update calls](postCallsCallId.md).
 
 ### Request URL
 
@@ -12,7 +12,7 @@ Update properties of an active phone call.
 
 | Parameter           | Description                                                                                                                                                                                                                                                                                                                                                                                          | Mandatory |
 |:--------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
-| state               | The call state. Possible values: <br> `rejected` to reject not answer<br> `active` to answer the call<br>`completed` to hangup the call<br>`transferring` to transfer the incoming call to another line. *THE CALL MUST BE ANSWERED*                                                                                                                                                                 | No        |
+| state               | `transferring` to transfer the incoming call to another line. <br> *THE CALL MUST BE ANSWERED*                                                                                                                                                                 | No        |
 | recordingEnabled    | Indicates if the call should be recorded. Values `true` or `false`. You can turn recording on/off and have multiple recordings on a single call.                                                                                                                                                                                                                                                     | No        |
 | recordingFileFormat | The file format of the recorded call. Supported values are `wav` (default) and `mp3`.                                                                                                                                                                                                                                                                                                                | No        |
 | transferTo          | Phone number or SIP address that the call is going to be transferred to.                                                                                                                                                                                                                                                                                                                             | No        |
@@ -21,7 +21,7 @@ Update properties of an active phone call.
 | callbackUrl         | The server URL where the call events for the new call will be sent upon transferring.                                                                                                                                                                                                                                                                                                                | No        |
 
 {% common %}
-### Example: Answer an Incoming Phone Call
+### Example: Transfer a call using the caller Id of the party being transferred
 {% sample lang="bash" %}
 
 ```bash
@@ -31,22 +31,23 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callI
 	-d \
 	'
 	{
-		"state":"active"
+		"state".    : "transferring",
+		"transferTo : "+19192223333"
 	}'
 ```
 
 {% sample lang="js" %}
 
 ```js
-//Promise
-client.Call.answer("callID").then(function () {});
-
-//Callback
-client.Call.answer("callID", function (err) {});
+var transferPayload = {
+	transferTo       : "+18382947878",
+};
+//Using Promises
+client.Call.transfer("callId", transferPayload).then(function (res) {});
 ```
 
 {% common %}
-### Example: Hang Up a Phone Call
+### Example: Transfer a call and play audio to the '838-294-7878' Line
 
 {% sample lang="bash" %}
 
@@ -57,98 +58,32 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callI
 	-d \
 	'
 	{
-		"state":"completed"
+		"state":"transferring",
+		"transferCallerId": "private"
+		"transferTo": "+18382947878",
+		"whisperAudio": {
+			"sentence" : "Hello! You have an incoming call"
+		}
 	}'
 ```
 
 {% sample lang="js" %}
 
 ```js
-//Promise
-client.Call.hangup("callID").then(function () {});
+//Transfer call
+var speakSentence = {
+	transferTo       : "+18382947878",
+	transferCallerId : "private",
+	whisperAudio     : {
+		sentence : "You have an incoming call",
+		gender   : "female",
+		voice    : "julie",
+		locale   : "en"
+	}
+};
 
-//Callback
-client.Call.hangup("callID", function (err) {});
+//Using Promises
+client.Call.transfer("callId", speakSentence).then(function (res) {});
+
 ```
-
-{% common %}
-### Example: Turn call recording ON
-
-{% sample lang="bash" %}
-
-```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}\
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
-	{
-		"recordingEnabled":"true"
-	}'
-```
-
-{% sample lang="js" %}
-
-```js
-//Turn on recording
-
-//Promise
-client.Call.enableRecording("callId").then(function (res) {});
-
-//Callback
-client.Call.enableRecording("callId", function (err, res) {});
-```
-
-{% common %}
-### Example: Turn call recording OFF
-{% sample lang="bash" %}
-
-```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}\
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
-	{
-		"recordingEnabled":"false"
-	}'
-```
-
-{% sample lang="js" %}
-
-```js
-//Turn off recording
-//Promise
-client.Call.disableRecording("callId").then(function (res) {});
-
-//Callback
-client.Call.disableRecording("callId", function (err, res) {});
-```
-
-{% common %}
-### Example: Reject an Incoming Phone Call
-
-{% sample lang="bash" %}
-
-```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}\
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
-	{
-		"state":"completed"
-	}'
-```
-
-{% sample lang="js" %}
-
-```js
-//Promise
-client.Call.reject("callID").then(function () {});
-
-//Callback
-client.Call.reject("callID", function (err) {});
-```
-
 {% endmethod %}
