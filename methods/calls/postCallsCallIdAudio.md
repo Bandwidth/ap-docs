@@ -172,7 +172,7 @@ call.play_audio({
 })
 ```
 
-
+{% common %}
 ### Example: Stop an Audio File Playing
 {% sample lang="bash" %}
 
