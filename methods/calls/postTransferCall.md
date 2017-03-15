@@ -2,17 +2,28 @@
 ## Transfer active Call
 Transfer a call to another phone number.  This is a subset of [update calls](postCallsCallId.md).
 
+<aside class="alert general small">
+<p>
+The call to be transferred must have state set to: <code>active</code>
+</p>
+</aside>
+
 ### Request URL
 
 <code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}`
 
 ---
 
+### Ensure call is `active`
+To answer a call (or set active) be sure to do one of the following:
+* All incoming calls to be auto-answered. Set [`{"autoAnswer": true}`](../applications/postApplicationsApplicationId.md) flag in your [`application`](../applications/applications.md).
+* Update the individual Call by: <code class="post">POST</code> to the [{callId}](postCallsCallId.md) with [`{"state": "active"}`](postCallsCallId.md).
+
 ### Supported Parameters
 
 | Parameter           | Description                                                                                                                                                                                                                                                                                                                                                                                          | Mandatory |
 |:--------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
-| state               | `transferring` to transfer the incoming call to another line. <br> <br>*The Call must be `active`* To answer a call (or set active) either set : <br><br> [`{"autoAnswer": true}`](../applications/postApplicationsApplicationId.md) flag in your [`application`](../applications/applications.md)<br> Or [update the call](postCallsCallId.md) to `{"state": "active"}`.                                 | No        |
+| state               | `transferring` to transfer the incoming call to another line. <br> <br>*The Call must be `active`*             | Yes        |
 | recordingEnabled    | Indicates if the call should be recorded. Values `true` or `false`. You can turn recording on/off and have multiple recordings on a single call.                                                                                                                                                                                                                                                     | No        |
 | recordingFileFormat | The file format of the recorded call. Supported values are `wav` (default) and `mp3`.                                                                                                                                                                                                                                                                                                                | No        |
 | transferTo          | Phone number or SIP address that the call is going to be transferred to.                                                                                                                                                                                                                                                                                                                             | No        |
