@@ -1991,9 +1991,21 @@
                                 
                                 <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h2 id="transfer-active-call">Transfer active Call</h2>
 <p>Transfer a call to another phone number.  This is a subset of <a href="postCallsCallId.html">update calls</a>.</p>
+<aside class="alert general small">
+<p>
+The call to be transferred must have state set to: <code>active</code>
+</p>
+</aside>
+
 <h3 id="request-url">Request URL</h3>
 <p><code class="post">POST</code><code>https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}</code></p>
 <hr>
+<h3 id="ensure-call-is-active">Ensure call is <code>active</code></h3>
+<p>To answer a call (or set active) be sure to do one of the following:</p>
+<ul>
+<li>All incoming calls to be auto-answered. Set <a href="../applications/postApplicationsApplicationId.html"><code>{&quot;autoAnswer&quot;: true}</code></a> flag in your <a href="../applications/applications.html"><code>application</code></a>.</li>
+<li>Update the individual Call by: <code class="post">POST</code> to the <a href="postCallsCallId.html">{callId}</a> with <a href="postCallsCallId.html"><code>{&quot;state&quot;: &quot;active&quot;}</code></a>.</li>
+</ul>
 <h3 id="supported-parameters">Supported Parameters</h3>
 <table>
 <thead>
@@ -2006,8 +2018,8 @@
 <tbody>
 <tr>
 <td style="text-align:left">state</td>
-<td style="text-align:left"><code>transferring</code> to transfer the incoming call to another line. <br> <br><em>The Call must be <code>active</code></em> To answer a call (or set active) either set : <br><br> <a href="../applications/postApplicationsApplicationId.html"><code>{&quot;autoAnswer&quot;: true}</code></a> flag in your <a href="../applications/applications.html"><code>application</code></a><br> Or <a href="postCallsCallId.html">update the call</a> to <code>{&quot;state&quot;: &quot;active&quot;}</code>.</td>
-<td style="text-align:left">No</td>
+<td style="text-align:left"><code>transferring</code> to transfer the incoming call to another line. <br> <br><em>The Call must be <code>active</code></em></td>
+<td style="text-align:left">Yes</td>
 </tr>
 <tr>
 <td style="text-align:left">recordingEnabled</td>
@@ -2121,7 +2133,7 @@ client.Call.transfer(<span class="hljs-string">&quot;callId&quot;</span>, speakS
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST Transfer Call","level":"2.1.5.5","depth":3,"next":{"title":"POST Play audio in Call","level":"2.1.5.6","depth":3,"path":"methods/calls/postCallsCallIdAudio.md","ref":"methods/calls/postCallsCallIdAudio.md","articles":[]},"previous":{"title":"POST Update Call","level":"2.1.5.4","depth":3,"path":"methods/calls/postCallsCallId.md","ref":"methods/calls/postCallsCallId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","fontsettings","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/postTransferCall.md","mtime":"2017-03-15T21:16:06.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-15T21:16:29.534Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST Transfer Call","level":"2.1.5.5","depth":3,"next":{"title":"POST Play audio in Call","level":"2.1.5.6","depth":3,"path":"methods/calls/postCallsCallIdAudio.md","ref":"methods/calls/postCallsCallIdAudio.md","articles":[]},"previous":{"title":"POST Update Call","level":"2.1.5.4","depth":3,"path":"methods/calls/postCallsCallId.md","ref":"methods/calls/postCallsCallId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","fontsettings","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/postTransferCall.md","mtime":"2017-03-15T21:48:15.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-15T21:48:39.786Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
