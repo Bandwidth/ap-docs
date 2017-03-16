@@ -13,7 +13,7 @@ An endpoint represents is an entity that can register with the Application Platf
 | <code class="post">POST</code>     | [`/v1/users/{userId}/domains/{domainId}/endpoints`](postEndpoints.md)                          | Create a new endpoint on a domain |
 | <code class="get">GET</code>       | [`/v1/users/{userId}/domains/{domainId}/endpoints/{endpointId}`](getEndpointsEndpointId.md)    | Get a single endpoint             |
 | <code class="delete">DELETE</code> | [`/v1/users/{userId}/domains/{domainId}/endpoints/{endpointId}`](deleteEndpointsEndpointId.md) | Delete specific endpoint          |
-| <code class="post">POST</code>     | [`/v1/users/{userId}/domains/endpoints/{endpointId}`](postEndpointsEndpointId.md)              | Update an endpoint                |
+| <code class="post">POST</code>     | [`/v1/users/{userId}/domains/{domainId}/endpoints/{endpointId}`](postEndpointsEndpointId.md)              | Update an endpoint                |
 
 An endpoint is addressable using a unique SIP URI which is constructed using the endpoint's user name and the domain in which the endpoint exists.
 
