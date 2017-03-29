@@ -100,8 +100,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/ \
 ```js
 //Promise
 client.Bridge.create({
-	bridgeAudio: true,
-	callIds: ['c-qbs5kwrsyx6wsdi', 'c-zan4g74pprsq']
+	bridgeAudio: true
 })
 .then(function (response) {
 	console.log(response);
