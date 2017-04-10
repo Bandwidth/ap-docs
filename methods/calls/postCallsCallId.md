@@ -45,6 +45,19 @@ client.Call.answer("callID").then(function () {});
 client.Call.answer("callID", function (err) {});
 ```
 
+{% sample lang="csharp" %}
+
+```csharp
+await client.Call.AnswerSync("callID");
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+call.answer_on_incoming()
+```
+
+
 {% common %}
 ### Example: Hang Up a Phone Call
 
@@ -70,6 +83,19 @@ client.Call.hangup("callID").then(function () {});
 //Callback
 client.Call.hangup("callID", function (err) {});
 ```
+
+{% sample lang="csharp" %}
+
+```csharp
+await client.Call.HangupAsync("callID");
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+call.hangup()
+```
+
 
 {% common %}
 ### Example: Turn call recording ON
@@ -98,6 +124,17 @@ client.Call.enableRecording("callId").then(function (res) {});
 //Callback
 client.Call.enableRecording("callId", function (err, res) {});
 ```
+{% sample lang="csharp" %}
+
+```csharp
+await client.Call.TurnCallRecordingAsync("callID", true);
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+call.recording_on()
+```
 
 {% common %}
 ### Example: Turn call recording OFF
@@ -125,6 +162,19 @@ client.Call.disableRecording("callId").then(function (res) {});
 client.Call.disableRecording("callId", function (err, res) {});
 ```
 
+{% sample lang="csharp" %}
+
+```csharp
+await client.Call.TurnCallRecordingAsync("callID", false);
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+call.recording_off()
+```
+
+
 {% common %}
 ### Example: Reject an Incoming Phone Call
 
@@ -149,6 +199,18 @@ client.Call.reject("callID").then(function () {});
 
 //Callback
 client.Call.reject("callID", function (err) {});
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+await client.Call.RejectAsync("callID");
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+call.reject_incoming()
 ```
 
 {% endmethod %}

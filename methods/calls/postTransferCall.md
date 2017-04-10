@@ -57,6 +57,19 @@ var transferPayload = {
 client.Call.transfer("callId", transferPayload).then(function (res) {});
 ```
 
+{% sample lang="csharp" %}
+
+```csharp
+await client.Call.TransferAsync("callID", "+18382947878");
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+call.update({:state => 'transferring', :transfer_to => '+18382947878' })
+```
+
+
 {% common %}
 ### Example: Transfer a call and play audio to the '838-294-7878' Line
 
@@ -97,4 +110,32 @@ var speakSentence = {
 client.Call.transfer("callId", speakSentence).then(function (res) {});
 
 ```
+
+{% sample lang="csharp" %}
+
+```csharp
+await client.Call.TransferAsync("callID", "+18382947878", "private", new WhisperAudio {
+	Sentence = "You have an incoming call",
+	Gender = "female",
+	Voice = "julie",
+	Locale = "en"
+});
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+call.update({
+	:state => 'transferring', 
+	:transfer_to => '+18382947878',
+	:transfer_caller_id => 'private',
+	:whisper_audio => {
+		:sentence => 'You have an incoming call',
+		:gender => 'female',
+		:voice => 'julie',
+		:locale => 'en'
+	}
+})
+```
+
 {% endmethod %}

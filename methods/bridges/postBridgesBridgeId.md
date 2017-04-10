@@ -33,13 +33,33 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bri
 ```js
 var bridgeOptions = {
 	bridgeAudio : true,
-	callIds: ["{callId1","callId2"]
+	callIds: ["callId1","callId2"]
 };
 client.Bridge.update("{bridgeId}", bridgeOptions)
 .then(function () {
 	// continue
 });
 ```
+
+{% sample lang="csharp" %}
+
+```csharp
+await client.Bridge.UpdateAsync("{bridgeId}", new UpdateBridgeData{
+	BridgeAudio = true,
+	CallIds = new[]{"callId1", "callId2"}
+});
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+bridge.update({
+	:bridge_audio => true,
+	:call_ids => ["callId1", "callId2"]
+})
+```
+
 
 {% common %}
 ### Example: Removing call {callId2} from the bridge created in the example above
@@ -64,6 +84,24 @@ client.Bridge.update("{bridgeId}", bridgeOptions)
 	// continue
 });
 ```
+{% sample lang="csharp" %}
+
+```csharp
+await client.Bridge.UpdateAsync("{bridgeId}", new UpdateBridgeData{
+	CallIds = new[]{"callId1"}
+});
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+bridge.update({
+	:call_ids => ["callId1"]
+})
+```
+
+
 {% common %}
 ### Example: Adding two different calls {callId3} and {callId4} in the bridge above and put them on hold
 {% sample lang="bash" %}
@@ -88,6 +126,26 @@ client.Bridge.update("{bridgeId}", bridgeOptions)
 	// continue
 });
 ```
+
+{% sample lang="csharp" %}
+```csharp
+await client.Bridge.UpdateAsync("{bridgeId}", new UpdateBridgeData{
+	BridgeAudio = false,
+	CallIds = new[]{"callId3", "callId4"}
+});
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+bridge.update({
+	:bridge_audio => false
+	:call_ids => ["callId3", "callId4"]
+})
+```
+
+
 {% common %}
 ### Example: Bridging the audio again
 {% sample lang="bash" %}
@@ -112,6 +170,23 @@ client.Bridge.update("{bridgeId}", bridgeOptions)
 });
 ```
 
+{% sample lang="csharp" %}
+```csharp
+await client.Bridge.UpdateAsync("{bridgeId}", new UpdateBridgeData{
+	BridgeAudio = true
+});
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+bridge.update({
+	:bridge_audio => true
+})
+```
+
+
 {% common %}
 ### Example: Removing all calls from bridge.
 {% sample lang="bash" %}
@@ -135,4 +210,21 @@ client.Bridge.update("{bridgeId}", bridgeOptions)
 	// continue
 });
 ```
+
+{% sample lang="csharp" %}
+```csharp
+await client.Bridge.UpdateAsync("{bridgeId}", new UpdateBridgeData{
+	CallIds = new string[0]
+});
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+bridge.update({
+	:call_ids => []
+})
+```
+
 {% endmethod %}

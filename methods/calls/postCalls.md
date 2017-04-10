@@ -202,6 +202,29 @@ client.Call.create({
 })
 ```
 
+{% sample lang="csharp" %}
+
+```csharp
+var call = await client.Call.CreateAsync(new CreateCallData{
+	From = "{fromNumber}",
+	To = "{toNumber}",
+	RecordingEnabled = true 
+});
+Console.WriteLine($"Created call with id {call.Id}");
+// Created call with id c-1234
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+call = Call.create(client, {
+	:from => "{fromNumber}",
+	:to => "{toNumber}",
+	:recording_enabled => true
+})
+```
+
 {% common %}
 ### Example: Create a call in a bridge
 
@@ -251,6 +274,30 @@ client.bridge.create({
 })
 ```
 
+{% sample lang="csharp" %}
+
+```csharp
+var call = await client.Call.CreateAsync(new CreateCallData{
+	From = "{fromNumber}",
+	To = "{sip:someone@somewhere.com}",
+	BridgeId = "bridgeId" 
+});
+Console.WriteLine($"Created call with id {call.Id}");
+// Created call with id c-1234
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+call = Call.create(client, {
+	:from => "{fromNumber}",
+	:to => "{sip:someone@somewhere.com}",
+	:bridge_id => "bridgeId"
+})
+```
+
+
 {% common %}
 ### Example: Create an outbound call with callback and fallback URL
 
@@ -284,6 +331,33 @@ client.Call.create({
 })
 .then(function (id) {
 	console.log(id);
+})
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+var call = await client.Call.CreateAsync(new CreateCallData{
+	From = "{fromNumber}",
+	To = "{toNumber}",
+	CallbackUrl = "http://google.com"
+	CallbackHttpMethod = "GET",
+	FallbackUrl = "http://bing.com"
+});
+Console.WriteLine($"Created call with id {call.Id}");
+// Created call with id c-1234
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+call = Call.create(client, {
+	:from => "{fromNumber}",
+	:to => "{toNumber}",
+	:callback_url => "http://google.com",
+	:callback_http_method => "GET",
+	:fallback_url => "http://bing.com"
 })
 ```
 
@@ -329,4 +403,32 @@ client.Call.create({
 	console.log(id);
 })
 ```
+
+{% sample lang="csharp" %}
+
+```csharp
+var call = await client.Call.CreateAsync(new CreateCallData{
+	From = "{fromNumber}",
+	To = "{toNumber}",
+	CallbackUrl = "http://google.com"
+	CallbackHttpMethod = "GET",
+	Tag = "Tag"
+});
+Console.WriteLine($"Created call with id {call.Id}");
+// Created call with id c-1234
+```
+
+
+{% sample lang="ruby" %}
+
+```ruby
+call = Call.create(client, {
+	:from => "{fromNumber}",
+	:to => "{toNumber}",
+	:callback_url => "http://google.com",
+	:callback_http_method => "GET",
+	:tag => "tag"
+})
+```
+
 {% endmethod %}
