@@ -4,7 +4,10 @@ import sys
 import os
 
 def main():
-    site_name = 'bw-' + os.environ.get('TRAVIS_BRANCH')
+    branch_name = os.environ.get('TRAVIS_BRANCH')
+    if branch_name == "master":
+        sys.exit(0)
+    site_name = 'bw-' + branch_name
     yaml_contents = "site: _book\ns3_bucket: " + site_name
     with open('.s3_website.yaml', 'w') as yaml_file:
         yaml_file.write(yaml_contents)

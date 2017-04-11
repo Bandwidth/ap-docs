@@ -34,7 +34,10 @@ if __name__ == '__main__':
     PR_NUMBER = os.environ.get('TRAVIS_PULL_REQUEST')
     REPO_SLUG = os.environ.get('TRAVIS_REPO_SLUG')
     TOKEN = os.environ.get('TRAVIS_BOT_GITHUB_TOKEN')
-    site_name = 'bw-' + os.environ.get('TRAVIS_BRANCH')
+    branch_name = os.environ.get('TRAVIS_BRANCH')
+    if branch_name == "master":
+        sys.exit(0)
+    site_name = 'bw-' + branch_name
 
     comment = "Preview Changes at:\nhttp://%s.s3-website-us-east-1.amazonaws.com/" % site_name
 
