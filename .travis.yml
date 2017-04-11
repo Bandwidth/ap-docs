@@ -1,6 +1,10 @@
 language: node_js
 node_js:
 - stable
+before_install:
+  - pip install virtualenv
+  - virtualenv my_project
+  - source my_project/bin/activate
 before_script:
 - npm install -g gitbook-cli
 script: bash ./deploy.sh
