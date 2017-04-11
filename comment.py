@@ -35,8 +35,8 @@ if __name__ == '__main__':
     PR_NUMBER = os.environ.get('TRAVIS_PULL_REQUEST')
     REPO_SLUG = os.environ.get('TRAVIS_REPO_SLUG')
     TOKEN = os.environ.get('TRAVIS_BOT_GITHUB_TOKEN')
-    branch_name = os.environ.get('TRAVIS_BRANCH')
-    if branch_name == "master":
+    branch_name = os.environ.get('TRAVIS_PULL_REQUEST_BRANCH')
+    if PR_NUMBER == "false":
         sys.exit(0)
     site_name = 'bw-' + branch_name
 
