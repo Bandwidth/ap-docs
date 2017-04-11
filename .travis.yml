@@ -4,7 +4,7 @@ node_js:
 before_install:
 - sudo apt-get update
 - sudo pip install virtualenv
-- sudo apt-get install python3.6
+- python3 -v
 - virtualenv my_project
 - virtualenv -p /usr/bin/python3.6 my_project
 - source my_project/bin/activate
