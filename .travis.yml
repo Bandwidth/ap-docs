@@ -12,8 +12,9 @@ after_success:
 - pip install travis_bot
 - pip install git+https://github.com/dtolb/s3-deploy-website.git
 - bash ./yaml.sh
+- ls
 - s3-deploy-website
-- echo "http://$TRAVIS_BRANCH".s3-website-us-east-1.amazonaws.com/ | travis_bot
+- bash ./comment.sh
 virtualenv:
     system_site_packages: true
 env:
