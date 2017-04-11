@@ -10,9 +10,6 @@ Notes:
     - TRAVIS_REPO_SLUG
     - TRAVIS_BOT_GITHUB_TOKEN
 """
-
-from __future__ import print_function
-
 import os
 import sys
 import json

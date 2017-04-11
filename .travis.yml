@@ -3,6 +3,7 @@ node_js:
 - stable
 before_install:
 - sudo apt-get update
+- sudo apt-get install python3-pip
 - sudo pip install virtualenv
 - virtualenv my_project
 - source my_project/bin/activate
@@ -10,12 +11,12 @@ before_script:
 - npm install -g gitbook-cli
 script: bash ./deploy.sh
 after_success:
-- pip install requests
+- pip3 install requests
 - pip install git+https://github.com/dtolb/s3-deploy-website.git
 - rm -rf _book/my_project
 - python ./make_yaml.py
 - s3-deploy-website
-- python ./comment.py
+- python3 ./comment.py
 virtualenv:
   system_site_packages: true
 env:
