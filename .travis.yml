@@ -4,9 +4,8 @@ node_js:
 before_install:
 - sudo apt-get update
 - sudo pip install virtualenv
-- python3 -v
 - virtualenv my_project
-- virtualenv -p /usr/bin/python3.6 my_project
+- virtualenv -p /usr/bin/python3.2 my_project
 - source my_project/bin/activate
 before_script:
 - npm install -g gitbook-cli
