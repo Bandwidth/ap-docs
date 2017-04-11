@@ -5,7 +5,6 @@ before_install:
 - sudo apt-get update
 - sudo pip install virtualenv
 - virtualenv my_project
-- virtualenv -p /usr/bin/python2.7 my_project
 - source my_project/bin/activate
 before_script:
 - npm install -g gitbook-cli
