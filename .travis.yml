@@ -10,6 +10,8 @@ after_success:
 - bash ./yaml.sh
 - s3-deploy-website
 - echo "http://$TRAVIS_BRANCH".s3-website-us-east-1.amazonaws.com/ | travis_bot
+virtualenv:
+    system_site_packages: true
 env:
   global:
   - ENCRYPTION_LABEL: 34fb19845977
