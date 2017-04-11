@@ -20,8 +20,6 @@ after_success:
 - python ./make_yaml.py
 - s3-deploy-website
 - python ./comment.py
-virtualenv:
-  system_site_packages: true
 env:
   global:
   - ENCRYPTION_LABEL: 34fb19845977
