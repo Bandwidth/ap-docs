@@ -9,10 +9,9 @@ before_script:
 - npm install -g gitbook-cli
 script: bash ./deploy.sh
 after_success:
-- pip install travis_bot
+- pip install requests
 - pip install git+https://github.com/dtolb/s3-deploy-website.git
 - python ./make_yaml.py
-- ls
 - s3-deploy-website
 - python ./comment.py
 virtualenv:

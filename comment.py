@@ -34,11 +34,12 @@ if __name__ == '__main__':
     PR_NUMBER = os.environ.get('TRAVIS_PULL_REQUEST')
     REPO_SLUG = os.environ.get('TRAVIS_REPO_SLUG')
     TOKEN = os.environ.get('TRAVIS_BOT_GITHUB_TOKEN')
-    branch_name = os.environ.get('TRAVIS_BRANCH')
+    site_name = 'bw-' + os.environ.get('TRAVIS_BRANCH')
 
-    comment = "Preview Changes at:\nhttp://%s.s3-website-us-east-1.amazonaws.com/" % branch_name
+    comment = "Preview Changes at:\nhttp://%s.s3-website-us-east-1.amazonaws.com/" % site_name
 
-    if all([PR_NUMBER, REPO_SLUG, TOKEN, branch_name]):
+    if all([PR_NUMBER, REPO_SLUG, TOKEN]):
+        print('Commenting on Pull Request')
         comment_on_pull_request(PR_NUMBER, REPO_SLUG, TOKEN, comment)
     else:
-        print('Not all neccesery variables are present')3.
+        print('Not all neccesery variables are present')
