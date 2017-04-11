@@ -42,6 +42,7 @@ if __name__ == '__main__':
 
     if all([PR_NUMBER, REPO_SLUG, TOKEN]):
         print('Commenting on Pull Request')
-        comment_on_pull_request(PR_NUMBER, REPO_SLUG, TOKEN, comment)
+        res = comment_on_pull_request(PR_NUMBER, REPO_SLUG, TOKEN, comment)
+        print(res)
     else:
         print('Not all neccesery variables are present')
