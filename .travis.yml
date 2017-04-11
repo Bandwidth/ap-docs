@@ -3,8 +3,6 @@ node_js:
 - stable
 before_install:
 - sudo apt-get update
-- sudo curl https://bootstrap.pypa.io/ez_setup.py -o - | sudo python3
-- sudo easy_install pip
 - sudo pip install virtualenv
 - virtualenv my_project
 - source my_project/bin/activate
@@ -12,7 +10,7 @@ before_script:
 - npm install -g gitbook-cli
 script: bash ./deploy.sh
 after_success:
-- pip3 install requests
+- pip install requests
 - pip install git+https://github.com/dtolb/s3-deploy-website.git
 - rm -rf _book/my_project
 - python ./make_yaml.py
