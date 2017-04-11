@@ -2,7 +2,6 @@ language: node_js
 node_js:
 - stable
 before_install:
-- sudo apt-get update
 - sudo pip install virtualenv
 - virtualenv my_project
 - source my_project/bin/activate
@@ -15,7 +14,7 @@ after_success:
 - rm -rf _book/my_project
 - python ./make_yaml.py
 - s3-deploy-website
-- python3 ./comment.py
+- python ./comment.py
 virtualenv:
   system_site_packages: true
 env:
