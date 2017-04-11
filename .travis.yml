@@ -10,6 +10,7 @@ before_script:
 script: bash ./deploy.sh
 after_success:
 - pip install requests
+- pip install urllib3
 - pip install git+https://github.com/dtolb/s3-deploy-website.git
 - rm -rf _book/my_project
 - python ./make_yaml.py
