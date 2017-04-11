@@ -2,7 +2,9 @@ language: node_js
 node_js:
 - stable
 before_install:
+- sudo add-apt-repository ppa:fkrull/deadsnakes-python2.7
 - sudo pip install virtualenv
+- sudo apt-get install python2.7
 - virtualenv my_project
 - source my_project/bin/activate
 before_script:
