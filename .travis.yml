@@ -1,24 +1,30 @@
-language: python
-python:
-- '3.6'
+#language: python
+language: node_js
+node_js:
+- stable
+# python:
+# - '3.6'
 before_install:
-- sudo apt-get update
-- sudo apt-get install build-essential libssl-dev
-- curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh -o install_nvm.sh
-- bash install_nvm.sh
-- source ~/.profile
-- nvm install stable
-- nvm use stable
+ - sudo pip install virtualenv
+ - virtualenv my_project
+ - source my_project/bin/activate
+# - sudo apt-get install build-essential libssl-dev
+# - curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh -o install_nvm.sh
+# - bash install_nvm.sh
+# - source ~/.profile
+# - nvm install stable
+# - nvm use stable
 before_script:
 - npm install -g gitbook-cli
 script: bash ./deploy.sh
 after_success:
-- pip install requests
-- pip install urllib3
-- pip install git+https://github.com/dtolb/s3-deploy-website.git
-- python ./make_yaml.py
+# - pip install requests
+# - pip install urllib3
+- rm -rf _book/my_project
+- pip install git+https://github.com/dtolb/s3-deploy-website.git@tighter-travis-integration
+# - python ./make_yaml.py
 - s3-deploy-website
-- python ./comment.py
+# - python ./comment.py
 env:
   global:
   - ENCRYPTION_LABEL: 34fb19845977
