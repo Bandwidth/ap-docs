@@ -24,7 +24,7 @@ after_success:
 - rm -rf _book/my_project
 - pip install git+https://github.com/dtolb/s3-deploy-website.git@tigher-travis-integration
 # - python ./make_yaml.py
-- s3-deploy-website stub="bw-apdocs"
+- s3-deploy-website "bw-apdocs"
 # - python ./comment.py
 env:
   global:
