@@ -20,6 +20,7 @@ script: bash ./deploy.sh
 after_success:
 # - pip install requests
 # - pip install urllib3
+- python --version
 - rm -rf _book/my_project
 - pip install git+https://github.com/dtolb/s3-deploy-website.git@tigher-travis-integration
 # - python ./make_yaml.py
