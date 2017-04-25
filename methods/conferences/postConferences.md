@@ -22,6 +22,12 @@ Creates a conference with no members.
 
 ### Button Presses (DTMF) During Conferences
 
+<aside class="alert general small">
+<p>
+These are enabled by default
+</p>
+</aside>
+
 | Button | Action                                                                    |
 |:-------|:--------------------------------------------------------------------------|
 | `1`    | Decrease member talk (mic) volume into conference                         |
