@@ -20,6 +20,23 @@ Creates a conference with no members.
 | fallbackUrl        | The URL used to send the callback event if the request to callbackUrl fails.                                                                                                                    | No        |
 | tag                | A string that will be included in the callback events of the conference.                                                                                                                        | No        |
 
+### Button Presses (DTMF) During Conferences
+
+| Button | Action                                                                    |
+|:-------|:--------------------------------------------------------------------------|
+| `1`    | Decrease member talk (mic) volume into conference                         |
+| `2`    | Reset talk volume to default setting                                      |
+| `3`    | Increase member talk (mic) volume into conference                         |
+| `4`    | Decrease member receive (earpiece) volume                                 |
+| `5`    | Reset member receive volume to default setting                            |
+| `6`    | Increase member receive (earpiece) volume                                 |
+| `7`    | Increase mic sensitivity (picks up more noise)                            |
+| `8`    | Reset mic sensitivity to default                                          |
+| `9`    | Decrease mic sensitivity (picks up less noise)                            |
+| `0`    | Toggle audio from this member into the conference                         |
+| `*`    | Block audio from conference to this member as well as mute, in one action |
+| `#`    | Leave the conference                                                      |
+
 {% common %}
 
 ### Example: Create conference
