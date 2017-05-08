@@ -2042,13 +2042,50 @@ The call to be transferred must have state set to: <code>active</code>
 <td style="text-align:left">No</td>
 </tr>
 <tr>
-<td style="text-align:left">whisperAudio</td>
-<td style="text-align:left">Audio to be played to the caller that the call will be transferred to. See /audio.</td>
+<td style="text-align:left">callbackUrl</td>
+<td style="text-align:left">The server URL where the call events for the new call will be sent upon transferring.</td>
 <td style="text-align:left">No</td>
 </tr>
 <tr>
-<td style="text-align:left">callbackUrl</td>
-<td style="text-align:left">The server URL where the call events for the new call will be sent upon transferring.</td>
+<td style="text-align:left">whisperAudio</td>
+<td style="text-align:left">Audio to be played to the caller that the call will be transferred to. See <strong>Audio Parameters</strong> below.</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+<h4 id="audio-parameters">Audio Parameters</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">fileUrl</td>
+<td style="text-align:left">The location of an audio file to play (WAV and MP3 supported).</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">sentence</td>
+<td style="text-align:left">The sentence to speak.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">gender</td>
+<td style="text-align:left">The gender of the voice used to synthesize the sentence. It will be considered only if sentence is not null. The female gender will be used by default.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">locale</td>
+<td style="text-align:left">The locale used to get the accent of the voice used to synthesize the sentence. Currently audio supports: <br> - en_US or en_UK (English) <br> - es or es_MX (Spanish) <br> - fr or fr_FR (French) <br> - de or de_DE (German) <br> - t or it_IT (Italian) It will be considered only if sentence is not null/empty. The en_US will be used by default.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left">voice</td>
+<td style="text-align:left">The voice to speak the sentence. Audio currently supports the following voices: <br> - English US: Kate, Susan, Julie, Dave, Paul <br> - English UK: Bridget <br> - Spanish: Esperanza, Violeta, Jorge <br> - French: Jolie, Bernard <br> - German: Katrin, Stefan <br> - Italian: Paola, Luca It will be considered only if sentence is not null/empty.<br>Susan&#x2019;s voice will be used by default.</td>
 <td style="text-align:left">No</td>
 </tr>
 </tbody>
@@ -2156,7 +2193,7 @@ client.Call.transfer(<span class="hljs-string">&quot;callId&quot;</span>, speakS
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST Transfer Call","level":"2.1.5.5","depth":3,"next":{"title":"POST Play audio in Call","level":"2.1.5.6","depth":3,"path":"methods/calls/postCallsCallIdAudio.md","ref":"methods/calls/postCallsCallIdAudio.md","articles":[]},"previous":{"title":"POST Update Call","level":"2.1.5.4","depth":3,"path":"methods/calls/postCallsCallId.md","ref":"methods/calls/postCallsCallId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","fontsettings","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/postTransferCall.md","mtime":"2017-05-02T18:51:27.373Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-02T18:52:46.946Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST Transfer Call","level":"2.1.5.5","depth":3,"next":{"title":"POST Play audio in Call","level":"2.1.5.6","depth":3,"path":"methods/calls/postCallsCallIdAudio.md","ref":"methods/calls/postCallsCallIdAudio.md","articles":[]},"previous":{"title":"POST Update Call","level":"2.1.5.4","depth":3,"path":"methods/calls/postCallsCallId.md","ref":"methods/calls/postCallsCallId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","fontsettings","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/postTransferCall.md","mtime":"2017-05-08T14:58:49.173Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-08T15:00:12.151Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
