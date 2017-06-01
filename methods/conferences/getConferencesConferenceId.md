@@ -26,6 +26,7 @@ Retrieve current properties for a conference.
 | callbackTimeout    | Determine how long should the platform wait for callbackUrl’s response before timing out in milliseconds.                                                                                       |
 | fallbackUrl        | The URL used to send the callback event if the request to callbackUrl fails.                                                                                                                    |
 | tag                | A string that will be included in the callback events of the conference.                                                                                                                        |
+| profile            | Pass through DTMF expect valids of                                                                                                                                                              |
 
 ## Conference States
 
@@ -81,7 +82,8 @@ owner = conference.from
 		"createdTime": "2013-07-12T15:22:47-02",
 		"from": "+19703255647",
 		"id": "{conferenceId}",
-		"state": "created"
+		"state": "created",
+        "profile": "passThrough"
 }
 ```
 

@@ -19,6 +19,7 @@ Creates a conference with no members.
 | callbackTimeout    | Determine how long should the platform wait for callbackUrl’s response before timing out in milliseconds.                                                                                       | No        |
 | fallbackUrl        | The URL used to send the callback event if the request to callbackUrl fails.                                                                                                                    | No        |
 | tag                | A string that will be included in the callback events of the conference.                                                                                                                        | No        |
+| profile            | Toggle and allows dtmf pass through <br> Valid values are: <br> * `passthru` <br> * `node`                                                                                                                                                            | No        |
 
 ### Button Presses (DTMF) During Conferences
 
