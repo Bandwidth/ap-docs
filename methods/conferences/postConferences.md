@@ -18,30 +18,8 @@ Creates a conference with no members.
 | callbackHttpMethod | Determine if the callback event should be sent via `HTTP GET` or `HTTP POST`. Values are <code class="get">GET</code> or <code class="get">POST</code>, default: <code class="get">POST</code>. | No        |
 | callbackTimeout    | Determine how long should the platform wait for callbackUrl’s response before timing out in milliseconds.                                                                                       | No        |
 | fallbackUrl        | The URL used to send the callback event if the request to callbackUrl fails.                                                                                                                    | No        |
+| profile            | The conference profile that determines how DTMF is used. Values are:<br/>- `interpret_digits`: the conference will handle DTMF with the [default behavior](conferences.md#default-button-presses-dtmf-during-conferences) <br/>-`passthru_digits`: allows the application to receive DTMF events and use the `gather` API.<br/>Default: `interpret_digits`  | No        |
 | tag                | A string that will be included in the callback events of the conference.                                                                                                                        | No        |
-
-### Button Presses (DTMF) During Conferences
-
-<aside class="alert general small">
-<p>
-These are enabled by default
-</p>
-</aside>
-
-| Button | Action                                                                    |
-|:-------|:--------------------------------------------------------------------------|
-| `1`    | Decrease member talk (mic) volume into conference                         |
-| `2`    | Reset talk volume to default setting                                      |
-| `3`    | Increase member talk (mic) volume into conference                         |
-| `4`    | Decrease member receive (earpiece) volume                                 |
-| `5`    | Reset member receive volume to default setting                            |
-| `6`    | Increase member receive (earpiece) volume                                 |
-| `7`    | Increase mic sensitivity (picks up more noise)                            |
-| `8`    | Reset mic sensitivity to default                                          |
-| `9`    | Decrease mic sensitivity (picks up less noise)                            |
-| `0`    | Toggle audio from this member into the conference                         |
-| `*`    | Block audio from conference to this member as well as mute, in one action |
-| `#`    | Leave the conference                                                      |
 
 {% common %}
 
