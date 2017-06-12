@@ -13,7 +13,7 @@ Send DTMF (phone keypad digit presses).
 
 | Parameter | Description                                                 | Mandatory |
 |:----------|:------------------------------------------------------------|:----------|
-| dtmfOut   | String containing the DTMF characters to be sent in a call. | No        |
+| dtmfOut   | String containing the DTMF characters to be sent in a call. Allows a maximum of 92 characters. | No        |
 
 {% common %}
 
@@ -46,6 +46,6 @@ await client.Call.SendDtmfAsync("{callId1}", new SendDtmfData{DtmfOut = "9193334
 {% sample lang="ruby" %}
 
 ```ruby
-call.set_dtmf("9193334444")
+call.send_dtmf("9193334444")
 ```
 {% endmethod %}
