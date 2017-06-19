@@ -23,7 +23,7 @@ Creates a conference with no members.
 
 {% common %}
 
-### Example: Create conference
+### Example 1 of 3: Create conference call
 
 {% sample lang="bash" %}
 
@@ -71,7 +71,7 @@ HTTP/1.1 201 CREATED
 Location: /v1/users/{userId}/conferences/{conferenceId}
 ```
 
-### Example: Create conference with callback and fallback and 2 seconds callback's timeout
+### Example 2 of 3: Create conference with callback, 2 seconds callback's timeout, and fallback
 
 {% sample lang="bash" %}
 
@@ -124,6 +124,75 @@ conference = Conference.create(client,  {
 	:callback_url => "http://my.callback.url",
 	:callback_timeout => 2000,
 	:fallback_url => "http://my.fallback.url"
+})
+```
+
+{% common %}
+
+> The above command returns HTTP Header structured like this:
+
+```
+HTTP/1.1 201 CREATED
+Location: /v1/users/{userId}/conferences/{conferenceId}
+```
+
+### Example 3 of 3: Create conference with callback, 2 seconds callback's timeout, fallback, and profile
+
+{% sample lang="bash" %}
+
+```bash
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+	-u {token}:{secret} \
+	-H "Content-type: application/json" \
+	-d \
+	'
+	{
+		"from": "{number}",
+		"callbackUrl":"http://my.callback.url",
+		"callbackTimeout":"2000",
+		"fallbackUrl":"http://my.fallback.url",
+		"profile": "passthru_digits"
+	}'
+```
+
+{% sample lang="js" %}
+
+```js
+var params = {
+	"from": "{number}",
+	"callbackUrl":"http://my.callback.url",
+	"callbackTimeout":"2000",
+	"fallbackUrl":"http://my.fallback.url",
+	"profile": "passthru_digits"
+};
+
+// Promise
+client.Conference.create(params).then(function(conference){});
+// Callback
+client.Conference.create(params, function(err, conference){});
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+var conference = await client.Conference.CreateAsync(new CreateConferenceData {
+	From = "{number}",
+	CallbackUrl ="http://my.callback.url",
+	CallbackTimeout = 2000,
+	FallbackUrl ="http://my.fallback.url",
+	Profile ="passthru_digits"
+});
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+conference = Conference.create(client,  {
+	:from => "+1234567890",
+	:callback_url => "http://my.callback.url",
+	:callback_timeout => 2000,
+	:fallback_url => "http://my.fallback.url",
+	:profile => "passthru_digits"
 })
 ```
 
