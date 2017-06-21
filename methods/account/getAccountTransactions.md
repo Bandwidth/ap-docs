@@ -265,7 +265,7 @@ The above command returns JSON structured like this:
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?number=+19199230192 \
+curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?number=+19191231234 \
   -u {{apiToken}}:{secret} \
   -H "Content-type: application/json" \
 ```
@@ -275,7 +275,7 @@ curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/tra
 //Get transactions limiting result
 //Promise
 var params = {
-  number: '+17208352955'
+  number: '+19191231234'
 }
 client.Account.getTransactions(params)
 .then(function (response) {
@@ -297,7 +297,7 @@ client.Account.getTransactions(params)
 ```csharp
 var transactions = await client.Account.GetTransactions(
   new AccountTransactionQuery {
-    number = +13035659555
+    Number = '+19191231234'
   }
 );
 ```
@@ -305,20 +305,21 @@ var transactions = await client.Account.GetTransactions(
 {% sample lang="ruby" %}
 
 ```ruby
-transactions = Account.get_transactions(client, {:number => "+19192130923"})
+transactions = Account.get_transactions(client, {:number => "+19191231234"})
 ```
 
 {% common %}
 The above command returns JSON structured like this:
 
 ```json
+[
   { "id": "{transactionId1}",
     "time": "2017-05-30T20:45:10Z",
     "amount": "0.005",
     "type": "charge",
     "units": "1",
     "productType": "sms-out",
-    "number": "{number}",
+    "number": "+19191231234",
     "resourceId": "m-asdf" },
   { "id": "{transactionId2}",
     "time": "2017-05-30T20:47:36Z",
@@ -326,16 +327,17 @@ The above command returns JSON structured like this:
     "type": "charge",
     "units": "1",
     "productType": "mms-out",
-    "number": "{number}",
+    "number": "+19191231234",
     "resourceId": "m-asdf" },
-  { "id": "pptx-7p4c5uy6c5fx5eeshdn6lnq",
+  { "id": "{transactionId3}",
     "time": "2017-05-30T20:57:13Z",
     "amount": "0.06",
     "type": "charge",
     "units": "6",
     "productType": "call-out",
-    "number": "{number}",
+    "number": "+19191231234",
     "resourceId": "c-asdf" }
+]
 ```
 
 ### Example 5 of 6: Get transactions limiting number of results
