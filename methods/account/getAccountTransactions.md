@@ -401,7 +401,7 @@ The above command returns JSON structured like this:
 ]
 ```
 
-### Example 6 0f 6: Get transactions by payment type
+### Example 6 of 6: Get transactions by payment type
 
 {% sample lang="bash" %}
 
