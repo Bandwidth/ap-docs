@@ -338,7 +338,7 @@ The above command returns JSON structured like this:
     "resourceId": "c-asdf" }
 ```
 
-### Example 5 of 6: Get transactions limiting result
+### Example 5 of 6: Get transactions limiting number of results
 
 {% sample lang="bash" %}
 
@@ -401,7 +401,7 @@ The above command returns JSON structured like this:
 ]
 ```
 
-### Example 6 0f 6: Get transactions of payment type
+### Example 6 0f 6: Get transactions by payment type
 
 {% sample lang="bash" %}
 
