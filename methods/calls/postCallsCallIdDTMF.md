@@ -13,7 +13,7 @@ Send DTMF (phone keypad digit presses).
 
 | Parameter | Description                                                 | Mandatory |
 |:----------|:------------------------------------------------------------|:----------|
-| dtmfOut   | String containing the DTMF characters to be sent in a call. Allows a maximum of 92 characters. | No        |
+| dtmfOut   | String containing the DTMF characters to be sent in a call. Allows a maximum of 92 characters.<br/>The digits will be sent one-by-one with a marginal delay. Valid characters are: given by the regular expression `[A-D0-9#*,wW]+`. The `,` and `w` characters introduce a half-second pause into the DTMF sequence. The `W` character introduces a one-second pause. | No        |
 
 {% common %}
 
