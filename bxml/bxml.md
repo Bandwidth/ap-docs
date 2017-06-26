@@ -20,7 +20,6 @@ BXML callbacks perform HTTP GET requests to the **requestUrl** when the notifica
 
 | Verb                                        | Description                                                                                                                                                                         |
 |:--------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`<Call>`](verbs/call.md)                   | The Call verb is used to create call to another number.                                                                                                                             |
 | [`<Gather>`](verbs/gather.md)               | The Gather verb is used to collect digits for some period of time.                                                                                                                  |
 | [`<Hangup>`](verbs/hangup.md)               | The Hangup verb is used to hangup current call.                                                                                                                                     |
 | [`<PlayAudio>`](verbs/playAudio.md)         | The PlayAudio verb is used to play an audio file in the call.                                                                                                                       |
@@ -28,3 +27,18 @@ BXML callbacks perform HTTP GET requests to the **requestUrl** when the notifica
 | [`<Redirect>`](verbs/redirect.md)           | The Redirect verb is used to redirect the current XML execution to another URL.                                                                                                     |
 | [`<SpeakSentence>`](verbs/speakSentence.md) | The SpeakSentence verb is used to convert any text into speak for the caller.                                                                                                       |
 | [`<Transfer>`](verbs/transfer.md)           | The Transfer verb is used to transfer the call to another number.                                                                                                                   |
+
+### BXML Callbacks
+
+BXML events are HTTP messages that are sent to your application server to notify you of activity related to your Bandwidth resources during a BXML usage.
+
+| Event                                             | Description                                                                                                                     |
+|:--------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------|
+| [Answer Event](callBacks/answer.md)               | Bandwidth API sends this message to the application when the call is answered.                                                  |
+| [Gather event](callBacks/gather.md)               | Bandwidth API generates a gather event when the gather command completes in a call.                                             |
+| [Hangup Event](callBacks/hangup.md)               | Bandwidth API sends this message to the application when the call ends.                                                         |
+| [Recording event](callBacks/recording.md)         | Bandwidth API sends this event to the application when an the recording media file is saved or an error occurs while saving it. |
+| [Transcription event](callBacks/transcription.md) | Bandwidth API sends this event to the application when the recording media file is transcribed if requested.                    |
+| [Redirect event](callBacks/redirect.md)           | Bandwidth API sends this event to the application when a `<Redirect>` is requested                                              |
+| [Transfer Complete Event](callBacks/transfer.md)  | Bandwidth API sends this event to the application when the `<Transfer>`is complete                                              |
+
