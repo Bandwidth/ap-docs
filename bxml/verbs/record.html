@@ -1645,20 +1645,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="4.1.1" data-path="call.html">
-            
-                <a href="call.html">
-            
-                    
-                    Call
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.2" data-path="gather.html">
+        <li class="chapter " data-level="4.1.1" data-path="gather.html">
             
                 <a href="gather.html">
             
@@ -1671,7 +1658,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.3" data-path="hangup.html">
+        <li class="chapter " data-level="4.1.2" data-path="hangup.html">
             
                 <a href="hangup.html">
             
@@ -1684,7 +1671,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.4" data-path="playAudio.html">
+        <li class="chapter " data-level="4.1.3" data-path="playAudio.html">
             
                 <a href="playAudio.html">
             
@@ -1697,7 +1684,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.1.5" data-path="record.html">
+        <li class="chapter active" data-level="4.1.4" data-path="record.html">
             
                 <a href="record.html">
             
@@ -1710,7 +1697,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.6" data-path="redirect.html">
+        <li class="chapter " data-level="4.1.5" data-path="redirect.html">
             
                 <a href="redirect.html">
             
@@ -1723,7 +1710,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.7" data-path="speakSentence.html">
+        <li class="chapter " data-level="4.1.6" data-path="speakSentence.html">
             
                 <a href="speakSentence.html">
             
@@ -1736,7 +1723,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.8" data-path="transfer.html">
+        <li class="chapter " data-level="4.1.7" data-path="transfer.html">
             
                 <a href="transfer.html">
             
@@ -1814,12 +1801,12 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.4" data-path="../callBacks/incomingCall.html">
+        <li class="chapter " data-level="5.1.4" data-path="../callBacks/recording.html">
             
-                <a href="../callBacks/incomingCall.html">
+                <a href="../callBacks/recording.html">
             
                     
-                    Incoming Call Event
+                    Recording event
             
                 </a>
             
@@ -1827,12 +1814,12 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.5" data-path="../callBacks/recording.html">
+        <li class="chapter " data-level="5.1.5" data-path="../callBacks/transcription.html">
             
-                <a href="../callBacks/recording.html">
+                <a href="../callBacks/transcription.html">
             
                     
-                    Recording event
+                    Transcription event
             
                 </a>
             
@@ -1853,20 +1840,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.7" data-path="../callBacks/incomingSMS.html">
-            
-                <a href="../callBacks/incomingSMS.html">
-            
-                    
-                    Incoming SMS event
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="5.1.8" data-path="../callBacks/transfer.html">
+        <li class="chapter " data-level="5.1.7" data-path="../callBacks/transfer.html">
             
                 <a href="../callBacks/transfer.html">
             
@@ -1990,7 +1964,7 @@
                                 <section class="normal markdown-section" style="padding-top: 0px;">
                                 
                                 <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h2 id="xml-record">XML: <code>&lt;Record&gt;</code></h2>
-<p>The Record verb allows call recording. At the end of the call, a call recording event containing the media with recorded audio URL is generated.</p>
+<p>The Record verb allows call recording. At the end of the call, a call <a href="../callBacks/recording.html">recording</a> event containing the media with recorded audio URL is generated.</p>
 <h3 id="attributes">Attributes</h3>
 <table>
 <thead>
@@ -2002,7 +1976,7 @@
 <tbody>
 <tr>
 <td style="text-align:left">requestUrl</td>
-<td style="text-align:left">(optional) Relative or absolute URL to send event and request new BXML.</td>
+<td style="text-align:left">(optional) Absolute URL to send event and request new BXML.</td>
 </tr>
 <tr>
 <td style="text-align:left">requestUrlTimeout</td>
@@ -2013,40 +1987,52 @@
 <td style="text-align:left">(optional) The format that the recording will be saved - mp3 or wav.</td>
 </tr>
 <tr>
-<td style="text-align:left">terminatingDigits</td>
-<td style="text-align:left">(optional) One or more digits that will finish the recording.</td>
-</tr>
-<tr>
-<td style="text-align:left">maxDuration</td>
-<td style="text-align:left">(optional) The time in second for max recording duration. Default is 300 seconds, up to 3600 seconds (1 hour).</td>
-</tr>
-<tr>
 <td style="text-align:left">transcribe</td>
-<td style="text-align:left">(optional) A boolean value to indicate that recording must be transcribed. Default is &#x2018;false&#x2019;.</td>
+<td style="text-align:left">(optional) A boolean value to indicate that recording must be transcribed.<br> Default is <code>false</code>.If transcription is requested, the only supported file format is wav. mp3 file format is not supported.</td>
 </tr>
 <tr>
 <td style="text-align:left">transcribeCallbackUrl</td>
-<td style="text-align:left">Relative or absolute URL to send transcribed event.</td>
+<td style="text-align:left">Absolute URL to send transcribed event. Required if the transcribe attribute is set to <code>true</code>.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="tip">Tip:</h5>
-<p>Any verb after recording will not be executed because the <code>requestUrl</code> <code class="get">GET</code> is performed after recording completes. The new BXML is expected (Less sense for Bandwidth Application Platform).</p>
 <aside class="alert general small">
 <p>
 Transcription will not work with mp3 file format.
 </p>
-</aside></div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h4 id="example-recording-verb">Example: Recording Verb</h4>
+</aside>
+
+<h3 id="callbacks-recevied">Callbacks Recevied</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Callbacks</th>
+<th style="text-align:left">Can reply with more BXML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="../callBacks/recording.html">Recording</a></td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="../callBacks/transcription.html">Transcription</a></td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h4 id="example-recording-verb">Example: Recording Verb</h4>
 <p>This shows how to use Bandwidth XML record a phone call.</p>
 <pre><code class="lang-XML"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">Response</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">SpeakSentence</span> <span class="hljs-attr">voice</span>=<span class="hljs-string">&quot;paul&quot;</span> <span class="hljs-attr">gender</span>=<span class="hljs-string">&quot;male&quot;</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">&quot;en_US&quot;</span>&gt;</span>Recording your call, type 1 2 3 4 * to stop recording<span class="hljs-tag">&lt;/<span class="hljs-name">SpeakSentence</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">SpeakSentence</span> <span class="hljs-attr">voice</span>=<span class="hljs-string">&quot;paul&quot;</span> <span class="hljs-attr">gender</span>=<span class="hljs-string">&quot;male&quot;</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">&quot;en_US&quot;</span>&gt;</span>Recording your call<span class="hljs-tag">&lt;/<span class="hljs-name">SpeakSentence</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">PlayAudio</span>&gt;</span>https://audio.url/audio.mp3<span class="hljs-tag">&lt;/<span class="hljs-name">PlayAudio</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">Record</span> <span class="hljs-attr">requestUrl</span>=<span class="hljs-string">&quot;/stepTransfer&quot;</span> <span class="hljs-attr">terminatingDigits</span>=<span class="hljs-string">&quot;1234*&quot;</span> <span class="hljs-attr">maxDuration</span>=<span class="hljs-string">&quot;60&quot;</span> <span class="hljs-attr">transcribe</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">transcribeCallbackUrl</span>=<span class="hljs-string">&quot;https://transcribe.url/result&quot;</span>/ &gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">Record</span> <span class="hljs-attr">requestUrl</span>=<span class="hljs-string">&quot;https://record.url.server/record&quot;</span> <span class="hljs-attr">transcribe</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">transcribeCallbackUrl</span>=<span class="hljs-string">&quot;https://transcribe.url/result&quot;</span>/ &gt;</span>
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">Response</span>&gt;</span>
 </code></pre>
@@ -2084,7 +2070,7 @@ Transcription will not work with mp3 file format.
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Record","level":"4.1.5","depth":2,"next":{"title":"Redirect","level":"4.1.6","depth":2,"path":"bxml/verbs/redirect.md","ref":"bxml/verbs/redirect.md","articles":[]},"previous":{"title":"PlayAudio","level":"4.1.4","depth":2,"path":"bxml/verbs/playAudio.md","ref":"bxml/verbs/playAudio.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"bxml/verbs/record.md","mtime":"2017-06-21T17:55:34.656Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-21T17:56:50.863Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Record","level":"4.1.4","depth":2,"next":{"title":"Redirect","level":"4.1.5","depth":2,"path":"bxml/verbs/redirect.md","ref":"bxml/verbs/redirect.md","articles":[]},"previous":{"title":"PlayAudio","level":"4.1.3","depth":2,"path":"bxml/verbs/playAudio.md","ref":"bxml/verbs/playAudio.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"bxml/verbs/record.md","mtime":"2017-06-26T19:02:08.874Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-26T19:03:19.525Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
