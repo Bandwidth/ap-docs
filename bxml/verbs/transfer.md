@@ -1,6 +1,10 @@
 {% method %}
+
 ## XML: `<Transfer>`
 The Transfer verb is used to transfer the call to another number.
+An attempt to transfer to an invalid destination completes the call and it is hung up. 
+The Call leg A is hungup after the transferee hangs up. Therefore, any verbs following `<Transfer>` will not be executed. 
+
 
 
 ### Attributes
@@ -17,19 +21,24 @@ The Transfer verb is used to transfer the call to another number.
 ### Nestable Verbs
 These verbs might also be nested inside `<Transfer>`:
 
-| Verb          | Description                                                                                                           |
-|:--------------|:----------------------------------------------------------------------------------------------------------------------|
-| PhoneNumber   | (optional) A collection of phone numbers to transfer the call to. The first to answer will be transferred.            |
-| SpeakSentence | (optional) Using the SpeakSentence inside the Transfer verb will speak the text to the callee before transferring it. |
-| PlayAudio     | (optional) Using the PlayAudio inside the Transfer verb will play the media to the callee before transferring it.     |
-| Record        | (optional) Using Record inside Transfer verb will record the transferred call.                                        |
+| Verb          | Description                                                                                                                                                                         |
+|:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| PhoneNumber   | (optional) A collection of phone numbers to transfer the call to. The first to answer will be transferred. This is in addition to the number specified in the transferTo attribute. |
+| SpeakSentence | (optional) Using the SpeakSentence inside the Transfer verb will speak the text to the callee before transferring it.                                                               |
+| PlayAudio     | (optional) Using the PlayAudio inside the Transfer verb will play the media to the callee before transferring it.                                                                   |
+| Record        | (optional) Using Record inside Transfer verb will record the transferred call.                                                                                                      |
 
 
 
 <aside class="alert general small"><p>The transfer will bridge the calls when all verbs inside Transfer were executed.</p></aside>
-<aside class="alert general small"><p>The transferTo attribute will be ignored in the presence of a <PhoneNumber> collection.</p></aside>
-<aside class="alert general small"><p>There can be a maximum of 7 phone numbers to try and transfer to.</p></aside>
+<aside class="alert general small"><p>There can be a maximum of 7 phone numbers (including transferTo attribute) to try and transfer to . </p></aside>
 
+### Callbacks Recevied
+
+| Callbacks                                    | Can reply with more BXML |
+|:---------------------------------------------|:-------------------------|
+| [Hangup](../callBacks/hangup.md)             | No                       |
+| [transferComplete](../callBacks/transfer.md) | No                       |
 
 {% common %}
 #### Example: Simple Transfer
@@ -39,10 +48,10 @@ This shows how to use Bandwidth XML to transfer a phone call.
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-	<SpeakSentence gender="male" locale="en_US" voice="paul">Transferring your call, please wait.</SpeakSentence>
-	<Transfer transferCallerId="+11234567891" transferTo="+11234567892">
-				<SpeakSentence gender="male" locale="en_US" voice="paul">Inner speak sentence.</SpeakSentence>
-	</Transfer>
+    <SpeakSentence gender="male" locale="en_US" voice="paul">Transferring your call, please wait.</SpeakSentence>
+    <Transfer transferCallerId="+11234567891" transferTo="+11234567892">
+                <SpeakSentence gender="male" locale="en_US" voice="paul">Inner speak sentence.</SpeakSentence>
+    </Transfer>
 </Response>
 ```
 
@@ -52,11 +61,11 @@ This example shows how to use Bandwidth XML in a multi transfer scenario.
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-	<Transfer transferCallerId="+15552221235">
-		<PhoneNumber>+15552221234</PhoneNumber>
-		<PhoneNumber>+15552221233</PhoneNumber>
-		<SpeakSentence gender="male" locale="en_US" voice="paul">This call has been forwarded.</SpeakSentence>
-	</Transfer>
+    <Transfer transferCallerId="+15552221235" transferTo="+15552121243>
+        <PhoneNumber>+15552221234</PhoneNumber>
+        <PhoneNumber>+15552221233</PhoneNumber>
+        <SpeakSentence gender="male" locale="en_US" voice="paul">This call has been forwarded.</SpeakSentence>
+    </Transfer>
 </Response>
 
 ```

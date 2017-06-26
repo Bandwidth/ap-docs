@@ -19,14 +19,14 @@
 
 ```html
 /{requestUrl}?
-	terminatingDigit=%23&
-	time=2016-02-20T13%3A04%3A37Z&
-	reason=terminating-digit&
-	state=completed&
-	eventType=gather&
-	digits={digits}&
-	callId={call-id}&
-	callUri=https%3A%2F%2Fapi.catapult.inetwork.com%2Fv1%2Fusers%2F{user-id}%2Fcalls%2F{call-id}&
-	gatherId={gather-id}
+    terminatingDigit=%23&
+    time=2016-02-20T13%3A04%3A37Z&
+    reason=terminating-digit&
+    state=completed&
+    eventType=gather&
+    digits={digits}&
+    callId={call-id}&
+    callUri=https%3A%2F%2Fapi.catapult.inetwork.com%2Fv1%2Fusers%2F{user-id}%2Fcalls%2F{call-id}&
+    gatherId={gather-id}
 ```
 {% endmethod %}

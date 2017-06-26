@@ -114,7 +114,6 @@
 
 ## BXML
 * [BXML](bxml/bxml.md)
- * [Call](bxml/verbs/call.md)
  * [Gather](bxml/verbs/gather.md)
  * [Hangup](bxml/verbs/hangup.md)
  * [PlayAudio](bxml/verbs/playAudio.md)
@@ -128,10 +127,9 @@
  * [Answer Event](bxml/callBacks/answer.md)
  * [Gather event](bxml/callBacks/gather.md)
  * [Hangup Event](bxml/callBacks/hangup.md)
- * [Incoming Call Event](bxml/callBacks/incomingCall.md)
  * [Recording event](bxml/callBacks/recording.md)
+ * [Transcription event](bxml/callBacks/transcription.md)
  * [Redirect event](bxml/callBacks/redirect.md)
- * [Incoming SMS event](bxml/callBacks/incomingSMS.md)
  * [Transfer Complete Event](bxml/callBacks/transfer.md)
 
 ## Rate Limits
