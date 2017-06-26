@@ -74,7 +74,7 @@ Before you can make your first API Request, you will need to [Sign up](https://c
 | [Gather event](bxml/callBacks/gather.md)              | Bandwidth API generates a gather event when the gather command completes in a call.                                             |
 | [Hangup Event](bxml/callBacks/hangup.md)              | Bandwidth API sends this message to the application when the call ends.                                                         |
 | [Recording event](bxml/callBacks/recording.md)        | Bandwidth API sends this event to the application when an the recording media file is saved or an error occurs while saving it. |
-| [Transcription event](events/transcription.md)        | Bandwidth API sends this event to the application when the recording media file is transcribed if requested.                    |
+| [Transcription event](bxml/callBacks/transcription.md)        | Bandwidth API sends this event to the application when the recording media file is transcribed if requested.                    |
 | [Redirect event](bxml/callBacks/redirect.md)          | Bandwidth API sends this event to the application when a `<Redirect>` is requested                                              |
 | [Transfer Complete Event](bxml/callBacks/transfer.md) | Bandwidth API sends this event to the application when the `<Transfer>`is complete                                              |
 
