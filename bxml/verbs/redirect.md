@@ -3,10 +3,10 @@
 The Redirect verb is used to redirect the current XML execution to another URL.
 
 ### Attributes
-| Attribute         | Description                                                             |
-|:------------------|:------------------------------------------------------------------------|
-| requestUrl        | (required) Relative or absolute URL to send event and request new BXML. |
-| requestUrlTimeout | (required) Time (milliseconds) to wait for requestUrl response.         |
+| Attribute         | Description                                                     |
+|:------------------|:----------------------------------------------------------------|
+| requestUrl        | (required) Absolute URL to send event and request new BXML.     |
+| requestUrlTimeout | (required) Time (milliseconds) to wait for requestUrl response. |
 
 <aside class="alert general small">
 <p>

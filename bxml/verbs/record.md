@@ -23,7 +23,7 @@ Transcription will not work with mp3 file format.
 
 | Callbacks                                      | Can reply with more BXML |
 |:-----------------------------------------------|:-------------------------|
-| [Record](../callBacks/recording.md)            | No                       |
+| [Recording](../callBacks/recording.md)         | No                       |
 | [Transcription](../callBacks/transcription.md) | No                       |
 
 {% common %}

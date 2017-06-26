@@ -8,7 +8,7 @@ The Gather verb is used to collect digits for some period of time.
 |:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | requestUrl        | (required) Absolute URL to send events to and request new BXML                                                                                                |
 | requestUrlTimeout | (optional) Integer time in milliseconds to wait for requestUrl response (Default value is 30000).                                                             |
-| terminatingDigits | (optional) Digits to stop gather (Default value is `“\#”`).                                                                                                   |
+| terminatingDigits | (optional) Digits to stop gather (Default value is `“#”`).                                                                                                   |
 | maxDigits         | (optional) Quantity of digits to collect (Default value is 128).                                                                                              |
 | interDigitTimeout | (optional) Integer time indicating the timeout between digits (Default value is 5 seconds).                                                                   |
 | bargeable         | (optional) **Deprecated**. Always considered 'true'. Boolean to indicate if audio playback should be stopped when digit is pressed (Default value is ‘true’). |
