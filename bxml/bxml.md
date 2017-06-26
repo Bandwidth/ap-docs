@@ -1,6 +1,6 @@
 # Bandwidth XML (BXML)
 
-Bandwidth XML allows you to create a voice or messaging application as easily as you create a Web application. Using Bandwidth XML (or BXML) your application handles incoming call and messaging events using standard action verbs that are described in XML.
+Bandwidth XML allows you to create a voice application as easily as you create a Web application. Using Bandwidth XML (or BXML) your application handles incoming call events using standard action verbs that are described in XML.
 
 Before we begin creating a new BXML application you’ll need two things initially setup:
 
