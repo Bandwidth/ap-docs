@@ -1980,12 +1980,12 @@
 <tbody>
 <tr>
 <td style="text-align:left">dtmfOut</td>
-<td style="text-align:left">String containing the DTMF characters to be sent in a call.</td>
+<td style="text-align:left">String containing the DTMF characters to be sent in a call. Allows a maximum of 92 characters.<br>The digits will be sent one-by-one with a marginal delay. Valid characters are given by the regular expression <code>[A-D0-9#*,wW]+</code>.<br>- The <code>,</code> and lowercase <code>w</code> characters introduce a half-second pause into the DTMF sequence.<br>- The <code>W</code> character introduces a one-second pause.<br>Example: The DTMF string <code>1WWW,59#</code> will send a <code>1</code>, wait 3.5 seconds, then send <code>59#</code> in quick succession.<br>Example: The DTMF string &apos;1Ww2Ww1Ww#&apos; will send a &apos;1&apos;, then &apos;2&apos;, then &apos;1&apos;, then &apos;#&apos; with a wait time of 1.5 seconds between each character sent.</td>
 <td style="text-align:left">No</td>
 </tr>
 </tbody>
 </table>
-</div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h3 id="example-send-the-digits-9193334444">Example: Send the digits &quot;9193334444&quot;</h3>
+</div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h3 id="example-1-of-3-send-the-digits-9193334444-in-immediate-succession">Example 1 of 3: Send the digits &quot;9193334444&quot; in immediate succession</h3>
 </div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/dtmf \
     -u {token}:{secret} \
     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
@@ -1999,6 +1999,36 @@ client.Call.sendDtmf(callId, <span class="hljs-string">&quot;9193334444&quot;</s
 </div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Call.SendDtmfAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>, <span class="hljs-keyword">new</span> SendDtmfData{DtmfOut = <span class="hljs-string">&quot;9193334444&quot;</span>});
 </code></pre>
 </div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">call.set_dtmf(<span class="hljs-string">&quot;9193334444&quot;</span>)
+</code></pre>
+</div><div class="api-method-example"><h3 id="example-2-of-3-send-the-digit-1-wait-35-seconds-then-send-59">Example 2 of 3: Send the digit &apos;1&apos;, wait 3.5 seconds, then send &apos;59#&apos;</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/dtmf \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+    <span class="hljs-_">-d</span> <span class="hljs-string">&apos;{&quot;dtmfOut&quot;: &quot;1WWW,59#&quot;}&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
+client.Call.sendDtmf(callId, <span class="hljs-string">&quot;1WWW,59#&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{});
+<span class="hljs-comment">// Callback</span>
+client.Call.sendDtmf(callId, <span class="hljs-string">&quot;1WWW,59#&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Call.SendDtmfAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>, <span class="hljs-keyword">new</span> SendDtmfData{DtmfOut = <span class="hljs-string">&quot;1WWW,59#&quot;</span>});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">call.send_dtmf(<span class="hljs-string">&quot;1WWW,59#&quot;</span>)
+</code></pre>
+</div><div class="api-method-example"><h3 id="example-3-of-3-send-a-1-then-2-then-1-then--with-a-wait-time-of-15-seconds-between-each-character">Example 3 of 3: Send a &apos;1&apos;, then &apos;2&apos;, then &apos;1&apos;, then &apos;#&apos; with a wait time of 1.5 seconds between each character</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/dtmf \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+    <span class="hljs-_">-d</span> <span class="hljs-string">&apos;{&quot;dtmfOut&quot;: &quot;1Ww2Ww1Ww#&quot;}&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-comment">// Promise</span>
+client.Call.sendDtmf(callId, <span class="hljs-string">&quot;1Ww2Ww1Ww#&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{});
+<span class="hljs-comment">// Callback</span>
+client.Call.sendDtmf(callId, <span class="hljs-string">&quot;1Ww2Ww1Ww#&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Call.SendDtmfAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>, <span class="hljs-keyword">new</span> SendDtmfData{DtmfOut = <span class="hljs-string">&quot;1Ww2Ww1Ww#&quot;</span>});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">call.send_dtmf(<span class="hljs-string">&quot;1Ww2Ww1Ww#&quot;</span>)
 </code></pre>
 </div></div></div>
 
@@ -2034,7 +2064,7 @@ client.Call.sendDtmf(callId, <span class="hljs-string">&quot;9193334444&quot;</s
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST Send DTMF in Call","level":"2.1.5.7","depth":3,"next":{"title":"GET List Call events","level":"2.1.5.8","depth":3,"path":"methods/calls/getCallsCallIdEvents.md","ref":"methods/calls/getCallsCallIdEvents.md","articles":[]},"previous":{"title":"POST Play audio in Call","level":"2.1.5.6","depth":3,"path":"methods/calls/postCallsCallIdAudio.md","ref":"methods/calls/postCallsCallIdAudio.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/postCallsCallIdDTMF.md","mtime":"2017-06-22T17:18:10.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-26T21:02:45.234Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST Send DTMF in Call","level":"2.1.5.7","depth":3,"next":{"title":"GET List Call events","level":"2.1.5.8","depth":3,"path":"methods/calls/getCallsCallIdEvents.md","ref":"methods/calls/getCallsCallIdEvents.md","articles":[]},"previous":{"title":"POST Play audio in Call","level":"2.1.5.6","depth":3,"path":"methods/calls/postCallsCallIdAudio.md","ref":"methods/calls/postCallsCallIdAudio.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/postCallsCallIdDTMF.md","mtime":"2017-06-27T18:11:15.099Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-27T18:13:14.359Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
