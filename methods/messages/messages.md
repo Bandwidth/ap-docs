@@ -20,7 +20,4 @@ Read More about Messaging in the <a href="http://dev.bandwidth.com/faq/#messagin
 | <code class="get">GET</code>   | [`/v1/users/{userId}/messages/{messageId}`](getMessagesMessageId.md) | Get information about a message |
 
 ### Receive Incoming Messages
-To recieve [callbacks](../../apiCallbacks/messagingEvents.md) for incoming text messages (both SMS and MMS). You need to have:
-
-* A [Bandwidth Application](../applications/applications.md) configured to send callbacks to your server.
-* Assign the [phone number](../phoneNumbers/postPhoneNumbersNumberId.md) to that application.
+To recieve [callbacks](../../apiCallbacks/messagingEvents.md) for incoming text messages (both SMS and MMS). You need to have [set up your account](http://dev.bandwidth.com/howto/incomingCallandMessaging.html) to point to your callback Url.
