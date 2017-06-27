@@ -11,13 +11,9 @@ Send DTMF (phone keypad digit presses).
 
 ### Supported Parameters
 
-| Parameter | Description                                                 | Mandatory |
-|:----------|:------------------------------------------------------------|:----------|
-<<<<<<< HEAD
-| dtmfOut   | String containing the DTMF characters to be sent in a call. | No        |
-=======
+| Parameter | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Mandatory |
+|:----------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
 | dtmfOut   | String containing the DTMF characters to be sent in a call. Allows a maximum of 92 characters.<br/>The digits will be sent one-by-one with a marginal delay. Valid characters are given by the regular expression `[A-D0-9#*,wW]+`.<br/>- The `,` and lowercase `w` characters introduce a half-second pause into the DTMF sequence.<br/>- The `W` character introduces a one-second pause.<br/>Example: The DTMF string `1WWW,59#` will send a `1`, wait 3.5 seconds, then send `59#` in quick succession.<br/>Example: The DTMF string '1Ww2Ww1Ww#' will send a '1', then '2', then '1', then '#' with a wait time of 1.5 seconds between each character sent. | No        |
->>>>>>> e481e86... added new dtmf example and wrote out the code for the existing example
 
 {% common %}
 
