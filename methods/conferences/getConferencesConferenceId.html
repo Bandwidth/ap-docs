@@ -2007,7 +2007,11 @@
 </tr>
 <tr>
 <td style="text-align:left">mute</td>
-<td style="text-align:left">If <code>true</code>, all member can&#x2019;t speak in the conference. If <code>false</code>, all members can speak in the conference (unless set at the member level).</td>
+<td style="text-align:left">If <code>true</code>, all member can&#x2019;t speak in the conference. If <code>false</code>, all members can speak in the conference (unless set at the member level).      </td>
+</tr>
+<tr>
+<td style="text-align:left">profile</td>
+<td style="text-align:left">The conference profile that determines how DTMF is used. Values are:<br>- <code>interpret_digits</code>: the conference will handle DTMF with the <a href="conferences.html#default-button-presses-dtmf-during-conferences">default behavior</a> <br>-<code>passthru_digits</code>: allows the application to receive DTMF events and use the <code>gather</code> API.<br>Default: <code>interpret_digits</code></td>
 </tr>
 <tr>
 <td style="text-align:left">callbackUrl</td>
@@ -2074,14 +2078,16 @@ owner = conference.from
 </div><div class="api-method-example"><blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre><code>{
-        &quot;activeMembers&quot;: 0,
-        &quot;createdTime&quot;: &quot;2013-07-12T15:22:47-02&quot;,
-        &quot;from&quot;: &quot;+19703255647&quot;,
-        &quot;id&quot;: &quot;{conferenceId}&quot;,
-        &quot;state&quot;: &quot;created&quot;
+<pre><code class="lang-json">{
+        <span class="hljs-attr">&quot;activeMembers&quot;</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">&quot;createdTime&quot;</span>: <span class="hljs-string">&quot;2013-07-12T15:22:47-02&quot;</span>,
+        <span class="hljs-attr">&quot;from&quot;</span>: <span class="hljs-string">&quot;+19703255647&quot;</span>,
+        <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;{conferenceId}&quot;</span>,
+        <span class="hljs-attr">&quot;profile&quot;</span>: <span class="hljs-string">&quot;interpret_digits&quot;</span>,
+        <span class="hljs-attr">&quot;state&quot;</span>: <span class="hljs-string">&quot;created&quot;</span>
 }
-</code></pre></div></div></div>
+</code></pre>
+</div></div></div>
 
                                 
                                 </section>
@@ -2115,7 +2121,7 @@ owner = conference.from
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GET Conference info","level":"2.1.6.2","depth":3,"next":{"title":"POST Update Conference","level":"2.1.6.3","depth":3,"path":"methods/conferences/postConferencesConferenceId.md","ref":"methods/conferences/postConferencesConferenceId.md","articles":[]},"previous":{"title":"POST Create Conference","level":"2.1.6.1","depth":3,"path":"methods/conferences/postConferences.md","ref":"methods/conferences/postConferences.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/conferences/getConferencesConferenceId.md","mtime":"2017-06-27T18:11:15.099Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-27T18:13:14.359Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GET Conference info","level":"2.1.6.2","depth":3,"next":{"title":"POST Update Conference","level":"2.1.6.3","depth":3,"path":"methods/conferences/postConferencesConferenceId.md","ref":"methods/conferences/postConferencesConferenceId.md","articles":[]},"previous":{"title":"POST Create Conference","level":"2.1.6.1","depth":3,"path":"methods/conferences/postConferences.md","ref":"methods/conferences/postConferences.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/conferences/getConferencesConferenceId.md","mtime":"2017-06-29T13:41:47.432Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-29T13:43:04.083Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

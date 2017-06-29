@@ -2004,78 +2004,18 @@
 <td style="text-align:left">No</td>
 </tr>
 <tr>
+<td style="text-align:left">profile</td>
+<td style="text-align:left">The conference profile that determines how DTMF is used. Values are:<br>- <code>interpret_digits</code>: the conference will handle DTMF with the <a href="conferences.html#default-button-presses-dtmf-during-conferences">default behavior</a> <br>-<code>passthru_digits</code>: allows the application to receive DTMF events and use the <code>gather</code> API.<br>Default: <code>interpret_digits</code></td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
 <td style="text-align:left">tag</td>
 <td style="text-align:left">A string that will be included in the callback events of the conference.</td>
 <td style="text-align:left">No</td>
 </tr>
 </tbody>
 </table>
-<h3 id="button-presses-dtmf-during-conferences">Button Presses (DTMF) During Conferences</h3>
-<aside class="alert general small">
-<p>
-These are enabled by default
-</p>
-</aside>
-
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Button</th>
-<th style="text-align:left">Action</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>1</code></td>
-<td style="text-align:left">Decrease member talk (mic) volume into conference</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>2</code></td>
-<td style="text-align:left">Reset talk volume to default setting</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>3</code></td>
-<td style="text-align:left">Increase member talk (mic) volume into conference</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>4</code></td>
-<td style="text-align:left">Decrease member receive (earpiece) volume</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>5</code></td>
-<td style="text-align:left">Reset member receive volume to default setting</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>6</code></td>
-<td style="text-align:left">Increase member receive (earpiece) volume</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>7</code></td>
-<td style="text-align:left">Increase mic sensitivity (picks up more noise)</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>8</code></td>
-<td style="text-align:left">Reset mic sensitivity to default</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>9</code></td>
-<td style="text-align:left">Decrease mic sensitivity (picks up less noise)</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>0</code></td>
-<td style="text-align:left">Toggle audio from this member into the conference</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>*</code></td>
-<td style="text-align:left">Block audio from conference to this member as well as mute, in one action</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>#</code></td>
-<td style="text-align:left">Leave the conference</td>
-</tr>
-</tbody>
-</table>
-</div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h3 id="example-create-conference">Example: Create conference</h3>
+</div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h3 id="example-1-of-3-create-conference-call">Example 1 of 3: Create conference call</h3>
 </div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences \
     -u {token}:{secret} \
     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
@@ -2101,7 +2041,7 @@ Console.WriteLine(<span class="hljs-string">$&quot;Created conference with id <s
 </blockquote>
 <pre><code>HTTP/1.1 201 CREATED
 Location: /v1/users/{userId}/conferences/{conferenceId}
-</code></pre><h3 id="example-create-conference-with-callback-and-fallback-and-2-seconds-callbacks-timeout">Example: Create conference with callback and fallback and 2 seconds callback&apos;s timeout</h3>
+</code></pre><h3 id="example-2-of-3-create-conference-with-callback-2-seconds-callbacks-timeout-and-fallback">Example 2 of 3: Create conference with callback, 2 seconds callback&apos;s timeout, and fallback</h3>
 </div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
     -u {token}:{secret} \
     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
@@ -2145,6 +2085,54 @@ client.Conference.create(params, <span class="hljs-function"><span class="hljs-k
 </blockquote>
 <pre><code>HTTP/1.1 201 CREATED
 Location: /v1/users/{userId}/conferences/{conferenceId}
+</code></pre><h3 id="example-3-of-3-create-conference-with-callback-2-seconds-callbacks-timeout-fallback-and-profile">Example 3 of 3: Create conference with callback, 2 seconds callback&apos;s timeout, fallback, and profile</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+    <span class="hljs-_">-d</span> \
+    <span class="hljs-string">&apos;
+    {
+        &quot;from&quot;: &quot;{number}&quot;,
+        &quot;callbackUrl&quot;:&quot;http://my.callback.url&quot;,
+        &quot;callbackTimeout&quot;:&quot;2000&quot;,
+        &quot;fallbackUrl&quot;:&quot;http://my.fallback.url&quot;,
+        &quot;profile&quot;: &quot;passthru_digits&quot;
+    }&apos;</span>
+</code></pre>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-keyword">var</span> params = {
+    <span class="hljs-string">&quot;from&quot;</span>: <span class="hljs-string">&quot;{number}&quot;</span>,
+    <span class="hljs-string">&quot;callbackUrl&quot;</span>:<span class="hljs-string">&quot;http://my.callback.url&quot;</span>,
+    <span class="hljs-string">&quot;callbackTimeout&quot;</span>:<span class="hljs-string">&quot;2000&quot;</span>,
+    <span class="hljs-string">&quot;fallbackUrl&quot;</span>:<span class="hljs-string">&quot;http://my.fallback.url&quot;</span>,
+    <span class="hljs-string">&quot;profile&quot;</span>: <span class="hljs-string">&quot;passthru_digits&quot;</span>
+};
+
+<span class="hljs-comment">// Promise</span>
+client.Conference.create(params).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">conference</span>)</span>{});
+<span class="hljs-comment">// Callback</span>
+client.Conference.create(params, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, conference</span>)</span>{});
+</code></pre>
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> conference = <span class="hljs-keyword">await</span> client.Conference.CreateAsync(<span class="hljs-keyword">new</span> CreateConferenceData {
+    From = <span class="hljs-string">&quot;{number}&quot;</span>,
+    CallbackUrl =<span class="hljs-string">&quot;http://my.callback.url&quot;</span>,
+    CallbackTimeout = <span class="hljs-number">2000</span>,
+    FallbackUrl =<span class="hljs-string">&quot;http://my.fallback.url&quot;</span>,
+    Profile =<span class="hljs-string">&quot;passthru_digits&quot;</span>
+});
+</code></pre>
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">conference = Conference.create(client,  {
+    <span class="hljs-symbol">:from</span> =&gt; <span class="hljs-string">&quot;+1234567890&quot;</span>,
+    <span class="hljs-symbol">:callback_url</span> =&gt; <span class="hljs-string">&quot;http://my.callback.url&quot;</span>,
+    <span class="hljs-symbol">:callback_timeout</span> =&gt; <span class="hljs-number">2000</span>,
+    <span class="hljs-symbol">:fallback_url</span> =&gt; <span class="hljs-string">&quot;http://my.fallback.url&quot;</span>,
+    <span class="hljs-symbol">:profile</span> =&gt; <span class="hljs-string">&quot;passthru_digits&quot;</span>
+})
+</code></pre>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns HTTP Header structured like this:</p>
+</blockquote>
+<pre><code>HTTP/1.1 201 CREATED
+Location: /v1/users/{userId}/conferences/{conferenceId}
 </code></pre></div></div></div>
 
                                 
@@ -2179,7 +2167,7 @@ Location: /v1/users/{userId}/conferences/{conferenceId}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST Create Conference","level":"2.1.6.1","depth":3,"next":{"title":"GET Conference info","level":"2.1.6.2","depth":3,"path":"methods/conferences/getConferencesConferenceId.md","ref":"methods/conferences/getConferencesConferenceId.md","articles":[]},"previous":{"title":"/conferences","level":"2.1.6","depth":2,"path":"methods/conferences/conferences.md","ref":"methods/conferences/conferences.md","articles":[{"title":"POST Create Conference","level":"2.1.6.1","depth":3,"path":"methods/conferences/postConferences.md","ref":"methods/conferences/postConferences.md","articles":[]},{"title":"GET Conference info","level":"2.1.6.2","depth":3,"path":"methods/conferences/getConferencesConferenceId.md","ref":"methods/conferences/getConferencesConferenceId.md","articles":[]},{"title":"POST Update Conference","level":"2.1.6.3","depth":3,"path":"methods/conferences/postConferencesConferenceId.md","ref":"methods/conferences/postConferencesConferenceId.md","articles":[]},{"title":"POST Play audio in Conference","level":"2.1.6.4","depth":3,"path":"methods/conferences/postConferencesConferenceIdAudio.md","ref":"methods/conferences/postConferencesConferenceIdAudio.md","articles":[]},{"title":"POST Add Member to Conference","level":"2.1.6.5","depth":3,"path":"methods/conferences/postConferencesConferenceIdMembers.md","ref":"methods/conferences/postConferencesConferenceIdMembers.md","articles":[]},{"title":"GET List Members in Conference","level":"2.1.6.6","depth":3,"path":"methods/conferences/getConferencesConferenceIdMembers.md","ref":"methods/conferences/getConferencesConferenceIdMembers.md","articles":[]},{"title":"POST Update Member","level":"2.1.6.7","depth":3,"path":"methods/conferences/postConferencesConferenceIdMembersMemberId.md","ref":"methods/conferences/postConferencesConferenceIdMembersMemberId.md","articles":[]},{"title":"GET Member info","level":"2.1.6.8","depth":3,"path":"methods/conferences/getConferencesConferenceIdMembersMemberId.md","ref":"methods/conferences/getConferencesConferenceIdMembersMemberId.md","articles":[]},{"title":"POST Play audio to Member","level":"2.1.6.9","depth":3,"path":"methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.md","ref":"methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/conferences/postConferences.md","mtime":"2017-06-27T18:11:15.099Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-27T18:13:14.359Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST Create Conference","level":"2.1.6.1","depth":3,"next":{"title":"GET Conference info","level":"2.1.6.2","depth":3,"path":"methods/conferences/getConferencesConferenceId.md","ref":"methods/conferences/getConferencesConferenceId.md","articles":[]},"previous":{"title":"/conferences","level":"2.1.6","depth":2,"path":"methods/conferences/conferences.md","ref":"methods/conferences/conferences.md","articles":[{"title":"POST Create Conference","level":"2.1.6.1","depth":3,"path":"methods/conferences/postConferences.md","ref":"methods/conferences/postConferences.md","articles":[]},{"title":"GET Conference info","level":"2.1.6.2","depth":3,"path":"methods/conferences/getConferencesConferenceId.md","ref":"methods/conferences/getConferencesConferenceId.md","articles":[]},{"title":"POST Update Conference","level":"2.1.6.3","depth":3,"path":"methods/conferences/postConferencesConferenceId.md","ref":"methods/conferences/postConferencesConferenceId.md","articles":[]},{"title":"POST Play audio in Conference","level":"2.1.6.4","depth":3,"path":"methods/conferences/postConferencesConferenceIdAudio.md","ref":"methods/conferences/postConferencesConferenceIdAudio.md","articles":[]},{"title":"POST Add Member to Conference","level":"2.1.6.5","depth":3,"path":"methods/conferences/postConferencesConferenceIdMembers.md","ref":"methods/conferences/postConferencesConferenceIdMembers.md","articles":[]},{"title":"GET List Members in Conference","level":"2.1.6.6","depth":3,"path":"methods/conferences/getConferencesConferenceIdMembers.md","ref":"methods/conferences/getConferencesConferenceIdMembers.md","articles":[]},{"title":"POST Update Member","level":"2.1.6.7","depth":3,"path":"methods/conferences/postConferencesConferenceIdMembersMemberId.md","ref":"methods/conferences/postConferencesConferenceIdMembersMemberId.md","articles":[]},{"title":"GET Member info","level":"2.1.6.8","depth":3,"path":"methods/conferences/getConferencesConferenceIdMembersMemberId.md","ref":"methods/conferences/getConferencesConferenceIdMembersMemberId.md","articles":[]},{"title":"POST Play audio to Member","level":"2.1.6.9","depth":3,"path":"methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.md","ref":"methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/conferences/postConferences.md","mtime":"2017-06-29T13:41:47.432Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-29T13:43:04.083Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
