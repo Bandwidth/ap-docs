@@ -20,7 +20,8 @@ Retrieve current properties for a conference.
 | completedTime      | The time that the Conference was completed (UTC).                                                                                                                                               |
 | activeMembers      | The number of active conference members.                                                                                                                                                        |
 | hold               | If `true`, all member can’t hear or speak in the conference. If `false”, all members can hear and speak in the conference (unless set at the member level).                                     |
-| mute               | If `true`, all member can’t speak in the conference. If `false`, all members can speak in the conference (unless set at the member level).                                                      |
+| mute               | If `true`, all member can’t speak in the conference. If `false`, all members can speak in the conference (unless set at the member level).      
+| profile            | The conference profile that determines how DTMF is used. Values are:<br/>- `interpret_digits`: the conference will handle DTMF with the [default behavior](conferences.md#default-button-presses-dtmf-during-conferences) <br/>-`passthru_digits`: allows the application to receive DTMF events and use the `gather` API.<br/>Default: `interpret_digits`  | 
 | callbackUrl        | The complete URL where the events related to the Conference will be sent to.                                                                                                                    |
 | callbackHttpMethod | Determine if the callback event should be sent via `HTTP GET` or `HTTP POST`. Values are <code class="get">GET</code> or <code class="get">POST</code>, default: <code class="get">POST</code>. |
 | callbackTimeout    | Determine how long should the platform wait for callbackUrl’s response before timing out in milliseconds.                                                                                       |
@@ -75,12 +76,13 @@ owner = conference.from
 
 > The above command returns JSON structured like this:
 
-```
+```json
 {
 		"activeMembers": 0,
 		"createdTime": "2013-07-12T15:22:47-02",
 		"from": "+19703255647",
 		"id": "{conferenceId}",
+		"profile": "interpret_digits",
 		"state": "created"
 }
 ```

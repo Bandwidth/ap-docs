@@ -46,7 +46,75 @@ await client.Call.SendDtmfAsync("{callId1}", new SendDtmfData{DtmfOut = "9193334
 {% sample lang="ruby" %}
 
 ```ruby
-call.set_dtmf("9193334444")
+call.send_dtmf("9193334444")
+```
+
+{% common %}
+
+### Example 2 of 3: Send the digit '1', wait 3.5 seconds, then send '59#'
+
+{% sample lang="bash" %}
+
+```bash
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/dtmf \
+	-u {token}:{secret} \
+	-H "Content-type: application/json" \
+	-d '{"dtmfOut": "1WWW,59#"}'
+```
+
+{% sample lang="js" %}
+
+```js
+// Promise
+client.Call.sendDtmf(callId, "1WWW,59#").then(function () {});
+// Callback
+client.Call.sendDtmf(callId, "1WWW,59#", function (err) {});
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+await client.Call.SendDtmfAsync("{callId1}", new SendDtmfData{DtmfOut = "1WWW,59#"});
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+call.send_dtmf("1WWW,59#")
+```
+
+{% common %}
+
+### Example 3 of 3: Send a '1', then '2', then '1', then '#' with a wait time of 1.5 seconds between each character
+
+{% sample lang="bash" %}
+
+```bash
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/dtmf \
+	-u {token}:{secret} \
+	-H "Content-type: application/json" \
+	-d '{"dtmfOut": "1Ww2Ww1Ww#"}'
+```
+
+{% sample lang="js" %}
+
+```js
+// Promise
+client.Call.sendDtmf(callId, "1Ww2Ww1Ww#").then(function () {});
+// Callback
+client.Call.sendDtmf(callId, "1Ww2Ww1Ww#", function (err) {});
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+await client.Call.SendDtmfAsync("{callId1}", new SendDtmfData{DtmfOut = "1Ww2Ww1Ww#"});
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+call.send_dtmf("1Ww2Ww1Ww#")
 ```
 
 {% common %}

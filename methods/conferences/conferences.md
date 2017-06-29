@@ -19,11 +19,11 @@ The Conference resource allows you create conferences, add members to it, play a
 | <code class="get">GET</code>   | [`/v1/users/{userId}/conferences/{conferenceId}/members/{memberId}`](getConferencesConferenceIdMembersMemberId.md)             | Retrieve properties for a single conference member |
 | <code class="post">POST</code> | [`/v1/users/{userId}/conferences/{conferenceId}/members/{memberId}/audio`](postConferencesConferenceIdMembersMemberIdAudio.md) | Play audio/speak to only one conference member     |
 
-### Button Presses (DTMF) During Conferences
+### Default Button Presses (DTMF) During Conferences 
 
 <aside class="alert general small">
 <p>
-These are enabled by default
+These are enabled by default or when the creating a conference with the parameter `profile` set to `interpret_digits`
 </p>
 </aside>
 
