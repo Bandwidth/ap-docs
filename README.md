@@ -56,34 +56,32 @@ Before you can make your first API Request, you will need to [Sign up](https://c
 
 ## BXML verbs
 
-| Verb                                             | Description                                                                                                                                                                              |
-|:-------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`<Call>`](bxml/verbs/call.md)                   | The Call verb is used to create call to another number.                                                                                                                                  |
-| [`<Gather>`](bxml/verbs/gather.md)               | The Gather verb is used to collect digits for some period of time.                                                                                                                       |
-| [`<Hangup>`](bxml/verbs/hangup.md)               | The Hangup verb is used to hangup current call.                                                                                                                                          |
-| [`<PlayAudio>`](bxml/verbs/playAudio.md)         | The PlayAudio verb is used to play an audio file in the call.                                                                                                                            |
-| [`<Record>`](bxml/verbs/record.md)               | The Record verb allows call recording. At the end of the call, a call recording event containing the media with recorded audio URL is generated                                          |
-| [`<Redirect>`](bxml/verbs/redirect.md)           | The Redirect verb is used to redirect the current XML execution to another URL.                                                                                                          |
-| [`<SpeakSentence>`](bxml/verbs/speakSentence.md) | The SpeakSentence verb is used to convert any text into speak for the caller.                                                                                                            |
-| [`<Transfer>`](bxml/verbs/transfer.md)           | The Transfer verb is used to transfer the call to another number.                                                                                                                        |
+| Verb                                             | Description                                                                                                                                     |
+|:-------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`<Gather>`](bxml/verbs/gather.md)               | The Gather verb is used to collect digits for some period of time.                                                                              |
+| [`<Hangup>`](bxml/verbs/hangup.md)               | The Hangup verb is used to hangup current call.                                                                                                 |
+| [`<PlayAudio>`](bxml/verbs/playAudio.md)         | The PlayAudio verb is used to play an audio file in the call.                                                                                   |
+| [`<Record>`](bxml/verbs/record.md)               | The Record verb allows call recording. At the end of the call, a call recording event containing the media with recorded audio URL is generated |
+| [`<Redirect>`](bxml/verbs/redirect.md)           | The Redirect verb is used to redirect the current XML execution to another URL.                                                                 |
+| [`<SpeakSentence>`](bxml/verbs/speakSentence.md) | The SpeakSentence verb is used to convert any text into speak for the caller.                                                                   |
+| [`<Transfer>`](bxml/verbs/transfer.md)           | The Transfer verb is used to transfer the call to another number.                                                                               |
 
 ## BXML Callbacks
 
-| Event                                                 | Description                                                                                                                                                                                    |
-|:------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Answer Event](bxml/callBacks/answer.md)              | Bandwidth API sends this message to the application when the call is answered.                                                                                                                 |
-| [Gather event](bxml/callBacks/gather.md)              | Bandwidth API generates a gather event when the gather command completes in a call.                                                                                                            |
-| [Hangup Event](bxml/callBacks/hangup.md)              | Bandwidth API sends this message to the application when the call ends.                                                                                                                        |
-| [Incoming Call Event](bxml/callBacks/incomingCall.md) | Bandwidth API sends this message to the application when an incoming call arrives. For incoming call the callback set is the one related to the Application associated with the called number. |
-| [Recording event](bxml/callBacks/recording.md)        | Bandwidth API sends this event to the application when an the recording media file is saved or an error occurs while saving it.                                                                |
-| [Redirect event](bxml/callBacks/redirect.md)          | Bandwidth API sends this event to the application when a `<Redirect>` is requested                                                                                                             |
-| [SMS event](bxml/callBacks/sms.md)                    | Bandwidth API sends this event to the application when an SMS is sent or received                                                                                                              |
-| [Transfer Complete Event](bxml/callBacks/transfer.md) | Bandwidth API sends this event to the application when the `<Transfer>`is complete                                                                                                             |
+| Event                                                  | Description                                                                                                                     |
+|:-------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------|
+| [Answer Event](bxml/callBacks/answer.md)               | Bandwidth API sends this message to the application when the call is answered.                                                  |
+| [Gather event](bxml/callBacks/gather.md)               | Bandwidth API generates a gather event when the gather command completes in a call.                                             |
+| [Hangup Event](bxml/callBacks/hangup.md)               | Bandwidth API sends this message to the application when the call ends.                                                         |
+| [Recording event](bxml/callBacks/recording.md)         | Bandwidth API sends this event to the application when an the recording media file is saved or an error occurs while saving it. |
+| [Transcription event](bxml/callBacks/transcription.md) | Bandwidth API sends this event to the application when the recording media file is transcribed if requested.                    |
+| [Redirect event](bxml/callBacks/redirect.md)           | Bandwidth API sends this event to the application when a `<Redirect>` is requested                                              |
+| [Transfer Complete Event](bxml/callBacks/transfer.md)  | Bandwidth API sends this event to the application when the `<Transfer>`is complete                                              |
 
 ## Error Codes
-| Type | Description |
-|:--|:--|
-| [Rate Limits](rateLimits.md) | Every endpoint is rate limited, Calls and Messages are handled differently|
-| [HTTP Errors](errors.md) | Learn about the different errors that you may encounter using the API |
+| Type                         | Description                                                                |
+|:-----------------------------|:---------------------------------------------------------------------------|
+| [Rate Limits](rateLimits.md) | Every endpoint is rate limited, Calls and Messages are handled differently |
+| [HTTP Errors](errors.md)     | Learn about the different errors that you may encounter using the API      |
 
 ---
