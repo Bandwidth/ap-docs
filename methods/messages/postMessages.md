@@ -3,6 +3,12 @@
 ## Send SMS Message(s)
 Sends one or more messages.
 
+<aside class="alert general small">
+<p>
+Read More about Messaging in the <a href="http://dev.bandwidth.com/faq/#messaging">FAQ</a>
+</p>
+</aside>
+
 ### Request URL
 
 <code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/messages`
@@ -15,7 +21,7 @@ Sends one or more messages.
 | from               | One of your telephone numbers the message should come from (must be in E.164 format, like +19195551212).                                                                                                                                                                                                                                                                                                                                                 | Yes       |
 | to                 | The phone number the message should be sent to (must be in E.164 format, like +19195551212).                                                                                                                                                                                                                                                                                                                                                             | Yes       |
 | text               | The contents of the text message (must be 2048 characters or less).                                                                                                                                                                                                                                                                                                                                                                                      | Yes       |
-| media              | For MMS messages, a media url to the location of the media or list of medias to be sent send with the message. For media details please check table Properties in the top of the page.                                                                                                                                                                                                                                                                   | No        |
+| media              | For MMS messages, a media url to the location of the media or list of medias to be sent send with the message. <br> Check the [faq](http://dev.bandwidth.com/faq/messaging/mediaType.html) to see what media types are supported                                                                                                                                                                                                                                                                   | No        |
 | receiptRequested   | Requested receipt option for outbound messages: <br>`none`: *(DEFAULT)* Delivery receipt will not be sent as callback event. <br> `all`: Success or error delivery receipt maybe sent as callback event. <br>`error`: Only error delivery receipt event maybe sent as callback event. <br> The [callback](../../apiCallbacks/sms.md) will contain information about delivery  <br> **Can not send `media` _and_ `receiptRequested` in the same request** | No        |
 | callbackUrl        | The server URL where the events related to the outgoing message will be sent to.                                                                                                                                                                                                                                                                                                                                                                         | No        |
 | callbackHttpMethod | Determine if the callback event should be sent via `HTTP GET` or `HTTP POST`. Values are get or post Default is <code class="post">POST</code>                                                                                                                                                                                                                                                                                                           | No        |
