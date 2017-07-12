@@ -6,8 +6,7 @@ before_install:
  - virtualenv my_project
  - source my_project/bin/activate
 before_script:
-- npm install -g gitbook-cli
-- git clone https://github.com/GitbookIO/gitbook.git ~/.gitbook/versions/3.2.2 && cd ~/.gitbook/versions/3.2.2 && git checkout 3.2.2 && npm i && cd ~
+- npm install -g gitbook-cli@2.3.0
 script: bash ./deploy.sh
 after_success:
 - rm -rf _book/my_project
