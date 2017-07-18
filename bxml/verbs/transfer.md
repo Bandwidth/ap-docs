@@ -61,7 +61,7 @@ This example shows how to use Bandwidth XML in a multi transfer scenario.
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-    <Transfer transferCallerId="+15552221235" transferTo="+15552121243>
+    <Transfer transferCallerId="+15552221235" transferTo="+15552121243">
         <PhoneNumber>+15552221234</PhoneNumber>
         <PhoneNumber>+15552221233</PhoneNumber>
         <SpeakSentence gender="male" locale="en_US" voice="paul">This call has been forwarded.</SpeakSentence>
