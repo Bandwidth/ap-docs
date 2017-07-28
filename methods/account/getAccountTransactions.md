@@ -16,7 +16,7 @@ Get the transactions from the user's account.
 | type      | Return only transactions that are this type.                                                                                                                                | No        |
 | page      | Used for pagination to indicate the page requested for querying a list of transactions. If no value is specified the default is 0.                                          | No        |
 | size      | Used for pagination to indicate the size of each page requested for querying a list of transactions. If no value is specified the default value is 25 (maximum value 1000). | No        |
-| number    | Return only transactions that are from the specified number. (coming soon)                                                                                                  | No        |
+| number    | Return only transactions that are from the specified number.                                                                                                  | No        |
 
 ### Transaction Properties
 
@@ -58,7 +58,7 @@ Get the transactions from the user's account.
 | cnam-search                | A CNAM lookup request for a phone number.                                   |
 
 {% common %}
-### Example: Get transactions
+### Example 1 of 6: Get transactions
 
 {% sample lang="bash" %}
 
@@ -73,18 +73,18 @@ curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/tra
 ```javascript
 //Promise
 client.Account.getTransactions()
-	.then(function (response) {
-		console.log(response.transactions);
-		if(response.hasNextPage) {
-			return response.getNextPage();
-		}
-		else {
-			return {transactions: []};
-		}
-	})
-	.then(function(response) {
-		console.log(response.transactions);
-	});
+  .then(function (response) {
+    console.log(response.transactions);
+    if(response.hasNextPage) {
+      return response.getNextPage();
+    }
+    else {
+      return {transactions: []};
+    }
+  })
+  .then(function(response) {
+    console.log(response.transactions);
+  });
 ```
 
 {% sample lang="csharp" %}
@@ -130,7 +130,7 @@ The above command returns JSON structured like this:
 ]
 ```
 
-### Example: Get transactions by date
+### Example 2 of 6: Get transactions by date
 
 {% sample lang="bash" %}
 
@@ -146,21 +146,21 @@ curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/tra
 //Get transactions filtering by date
 //Promise
 var params = {
-	fromDate: "2013-02-21T13:38:00"
+  fromDate: "2013-02-21T13:38:00"
 };
 client.Account.getTransactions(params)
-	.then(function (response) {
-		console.log(response.transactions);
-		if(response.hasNextPage) {
-			return response.getNextPage();
-		}
-		else {
-			return {transactions: []};
-		}
-	})
-	.then(function(response) {
-		console.log(response.transactions);
-	});
+  .then(function (response) {
+    console.log(response.transactions);
+    if(response.hasNextPage) {
+      return response.getNextPage();
+    }
+    else {
+      return {transactions: []};
+    }
+  })
+  .then(function(response) {
+    console.log(response.transactions);
+  });
 ```
 
 {% sample lang="csharp" %}
@@ -196,7 +196,7 @@ The above command returns JSON structured like this:
 ]
 ```
 
-### Example: Get transactions filtering by date
+### Example 3 of 6: Get transactions filtering by date
 
 {% sample lang="bash" %}
 
@@ -212,22 +212,22 @@ curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/tra
 //Get transactions filtering by date
 //Promise
 var params = {
-	fromDate: "2013-02-21T13:38:00",
-	toDate:   "2013-02-21T13:40:00"
+  fromDate: "2013-02-21T13:38:00",
+  toDate:   "2013-02-21T13:40:00"
 };
 client.Account.getTransactions(params)
-	.then(function (response) {
-		console.log(response.transactions);
-		if(response.hasNextPage) {
-			return response.getNextPage();
-		}
-		else {
-			return {transactions: []};
-		}
-	})
-	.then(function(response) {
-		console.log(response.transactions);
-	});
+  .then(function (response) {
+    console.log(response.transactions);
+    if(response.hasNextPage) {
+      return response.getNextPage();
+    }
+    else {
+      return {transactions: []};
+    }
+  })
+  .then(function(response) {
+    console.log(response.transactions);
+  });
   ```
 
 {% sample lang="csharp" %}
@@ -260,9 +260,87 @@ The above command returns JSON structured like this:
   }
 ]
 ```
+### Example 4 of 6: Get transactions by number
 
+{% sample lang="bash" %}
 
-### Example: Get transactions limiting result
+```bash
+curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?number=+19191231234 \
+  -u {{apiToken}}:{secret} \
+  -H "Content-type: application/json" \
+```
+{% sample lang="js" %}
+
+```js
+//Get transactions limiting result
+//Promise
+var params = {
+  number: '+19191231234'
+}
+client.Account.getTransactions(params)
+.then(function (response) {
+    console.log(response.transactions);
+    if(response.hasNextPage) {
+        return response.getNextPage();
+    }
+    else {
+        return {transactions: []};
+    }
+})
+.then(function(response) {
+    console.log(response.transactions);
+});
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+var transactions = await client.Account.GetTransactions(
+  new AccountTransactionQuery {
+    Number = '+19191231234'
+  }
+);
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+transactions = Account.get_transactions(client, {:number => "+19191231234"})
+```
+
+{% common %}
+The above command returns JSON structured like this:
+
+```json
+[
+  { "id": "{transactionId1}",
+    "time": "2017-05-30T20:45:10Z",
+    "amount": "0.005",
+    "type": "charge",
+    "units": "1",
+    "productType": "sms-out",
+    "number": "+19191231234",
+    "resourceId": "m-asdf" },
+  { "id": "{transactionId2}",
+    "time": "2017-05-30T20:47:36Z",
+    "amount": "0.015",
+    "type": "charge",
+    "units": "1",
+    "productType": "mms-out",
+    "number": "+19191231234",
+    "resourceId": "m-asdf" },
+  { "id": "{transactionId3}",
+    "time": "2017-05-30T20:57:13Z",
+    "amount": "0.06",
+    "type": "charge",
+    "units": "6",
+    "productType": "call-out",
+    "number": "+19191231234",
+    "resourceId": "c-asdf" }
+]
+```
+
+### Example 5 of 6: Get transactions limiting number of results
 
 {% sample lang="bash" %}
 
@@ -277,21 +355,21 @@ curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/tra
 //Get transactions limiting result
 //Promise
 var params = {
-	maxItems: 1
+  maxItems: 1
 };
 client.Account.getTransactions(params)
-	.then(function (response) {
-		console.log(response.transactions);
-		if(response.hasNextPage) {
-			return response.getNextPage();
-		}
-		else {
-			return {transactions: []};
-		}
-	})
-	.then(function(response) {
-		console.log(response.transactions);
-	});
+  .then(function (response) {
+    console.log(response.transactions);
+    if(response.hasNextPage) {
+      return response.getNextPage();
+    }
+    else {
+      return {transactions: []};
+    }
+  })
+  .then(function(response) {
+    console.log(response.transactions);
+  });
   ```
 
 {% sample lang="csharp" %}
@@ -325,7 +403,7 @@ The above command returns JSON structured like this:
 ]
 ```
 
-### Example: Get transactions of payment type
+### Example 6 of 6: Get transactions by payment type
 
 {% sample lang="bash" %}
 
@@ -341,21 +419,21 @@ curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/tra
 //Get transactions of `payment` type
 //Promise
 var params = {
-	type: "Payment"
+  type: "Payment"
 };
 client.Account.getTransactions(params)
-	.then(function (response) {
-		console.log(response.transactions);
-		if(response.hasNextPage) {
-			return response.getNextPage();
-		}
-		else {
-			return {transactions: []};
-		}
-	})
-	.then(function(response) {
-		console.log(response.transactions);
-	});
+  .then(function (response) {
+    console.log(response.transactions);
+    if(response.hasNextPage) {
+      return response.getNextPage();
+    }
+    else {
+      return {transactions: []};
+    }
+  })
+  .then(function(response) {
+    console.log(response.transactions);
+  });
   ```
 
 {% sample lang="csharp" %}

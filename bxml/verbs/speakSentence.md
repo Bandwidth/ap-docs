@@ -1,6 +1,7 @@
 {% method %}
 ## XML: `<SpeakSentence>`
-The SpeakSentence verb is used to convert any text into speak for the caller.
+The SpeakSentence verb is used to convert any text into speech for the caller.
+Note: If `<SpeakSentence>` is the last verb in the BXML, the call shall be disconnected after 30 seconds. Use [Redirect](redirect.md) verb to send the next BXML if the call needs to continue or [Hangup](hangup.md) to hangup the call immediately.
 
 
 ### Attributes
@@ -39,7 +40,14 @@ The SpeakSentence verb is used to convert any text into speak for the caller.
 |            | it_it      | luca      |
 
 
+### Callbacks Recevied
+
+| Callbacks | Can reply with more BXML |
+|:----------|:-------------------------|
+| None      | No                       |
+
 {% common %}
+
 #### Example:  SpeakSentence Verb
 This shows how to use Bandwidth XML to use text to speech to speak a sentence into a phone call.
 
@@ -54,5 +62,6 @@ Questo è un test
 
 </Response>
 ```
+
 
 {% endmethod %}
