@@ -2005,7 +2005,7 @@
 </tr>
 </tbody>
 </table>
-</div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h3 id="example-play-an-audio-file">Example: Play an Audio file</h3>
+</div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h3 id="example-1-of-4-play-an-audio-file">Example 1 of 4: Play an Audio file</h3>
 </div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/audio \
     -u {token}:{secret} \
     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
@@ -2023,7 +2023,7 @@ client.Bridge.playAudioFile(<span class="hljs-string">&quot;bridgeID&quot;</span
 </code></pre>
 </div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">bridge.play_audio({<span class="hljs-symbol">:file_url</span> =&gt; <span class="hljs-string">&quot;http://myurl.com/file.wav&quot;</span>})
 </code></pre>
-</div><div class="api-method-example"><h3 id="example-stop-an-audio-file-playing">Example: Stop an Audio File Playing</h3>
+</div><div class="api-method-example"><h3 id="example-2-of-4-stop-an-audio-file-playing">Example 2 of 4: Stop an Audio File Playing</h3>
 </div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/audio \
     -u {token}:{secret} \
     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
@@ -2033,16 +2033,16 @@ client.Bridge.playAudioFile(<span class="hljs-string">&quot;bridgeID&quot;</span
 <span class="hljs-comment">//Stop Audio file on bridge</span>
 
 <span class="hljs-comment">//Promise</span>
-client.Bridge.playAudioFile(<span class="hljs-string">&quot;bridgeID&quot;</span>, <span class="hljs-string">&quot;&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
+client.Bridge.stopAudioFilePlayback(<span class="hljs-string">&quot;bridgeID&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
 
 <span class="hljs-comment">//Callback</span>
-client.Bridge.playAudioFile(<span class="hljs-string">&quot;bridgeID&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, res</span>) </span>{});
+client.Bridge.stopAudioFilePlayback(<span class="hljs-string">&quot;bridgeID&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, res</span>) </span>{});
 </code></pre>
 </div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Bridge.PlayAudioFileAsync(<span class="hljs-string">&quot;brg-65dhmbasiei&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);
 </code></pre>
 </div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">bridge.play_audio({<span class="hljs-symbol">:file_url</span> =&gt; <span class="hljs-string">&quot;&quot;</span>})
 </code></pre>
-</div><div class="api-method-example"><h3 id="example-speak-a-sentence">Example: Speak a Sentence</h3>
+</div><div class="api-method-example"><h3 id="example-3-of-4-speak-a-sentence">Example 3 of 4: Speak a Sentence</h3>
 </div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/audio \
     -u {token}:{secret} \
     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
@@ -2080,7 +2080,7 @@ client.Bridge.speakSentence(<span class="hljs-string">&quot;bridgeID&quot;</span
 </code></pre>
 </div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby"><span class="hljs-comment">#coming soon</span>
 </code></pre>
-</div><div class="api-method-example"><h3 id="example-stop-a-sentence">Example: Stop a Sentence</h3>
+</div><div class="api-method-example"><h3 id="example-4-of-4-stop-a-sentence">Example 4 of 4: Stop a Sentence</h3>
 </div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/audio \
     -u {token}:{secret} \
     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
@@ -2090,16 +2090,16 @@ client.Bridge.speakSentence(<span class="hljs-string">&quot;bridgeID&quot;</span
 <span class="hljs-comment">//Speak sentence in a bridge</span>
 
 <span class="hljs-comment">//Promise</span>
-client.Bridge.speakSentence(<span class="hljs-string">&quot;bridgeID&quot;</span>, <span class="hljs-string">&quot;&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
+client.Bridge.stopSpeaking(<span class="hljs-string">&quot;bridgeID&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
 
 <span class="hljs-comment">//Callback</span>
-client.Bridge.speakSentence(<span class="hljs-string">&quot;bridgeID&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, res</span>) </span>{});
+client.Bridge.stopSpeaking(<span class="hljs-string">&quot;bridgeID&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, res</span>) </span>{});
 </code></pre>
 </div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Bridge.SpeakSentenceAsync(<span class="hljs-string">&quot;brg-65dhmbasiei&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);
 </code></pre>
 </div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">bridge.play_audio({<span class="hljs-symbol">:sentence</span> =&gt; <span class="hljs-string">&quot;&quot;</span>})
 </code></pre>
-</div></div></div>
+</div><div class="api-method-example"></div></div></div>
 
                                 
                                 </section>
@@ -2133,7 +2133,7 @@ client.Bridge.speakSentence(<span class="hljs-string">&quot;bridgeID&quot;</span
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST Play audio in Bridge","level":"2.1.4.5","depth":3,"next":{"title":"GET List Calls in Bridge","level":"2.1.4.6","depth":3,"path":"methods/bridges/getBridgesBridgeIdCalls.md","ref":"methods/bridges/getBridgesBridgeIdCalls.md","articles":[]},"previous":{"title":"POST Update Bridge","level":"2.1.4.4","depth":3,"path":"methods/bridges/postBridgesBridgeId.md","ref":"methods/bridges/postBridgesBridgeId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/bridges/postBridgesBridgeIdAudio.md","mtime":"2017-08-02T15:31:04.329Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-02T15:32:30.686Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST Play audio in Bridge","level":"2.1.4.5","depth":3,"next":{"title":"GET List Calls in Bridge","level":"2.1.4.6","depth":3,"path":"methods/bridges/getBridgesBridgeIdCalls.md","ref":"methods/bridges/getBridgesBridgeIdCalls.md","articles":[]},"previous":{"title":"POST Update Bridge","level":"2.1.4.4","depth":3,"path":"methods/bridges/postBridgesBridgeId.md","ref":"methods/bridges/postBridgesBridgeId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/bridges/postBridgesBridgeIdAudio.md","mtime":"2017-08-02T15:51:04.273Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-02T15:52:38.319Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

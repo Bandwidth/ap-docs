@@ -2015,7 +2015,7 @@
 </tr>
 </tbody>
 </table>
-</div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h3 id="example-speak-a-sentence">Example: Speak a Sentence</h3>
+</div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h3 id="example-1-of-4-speak-a-sentence">Example 1 of 4: Speak a Sentence</h3>
 </div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio \
     -u {token}:{secret} \
     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
@@ -2068,7 +2068,7 @@ client.Call.speakSentence(<span class="hljs-string">&quot;callId&quot;</span>, <
     <span class="hljs-symbol">:locale</span> =&gt; <span class="hljs-string">&quot;es&quot;</span>
 })
 </code></pre>
-</div><div class="api-method-example"><h3 id="example-interruptstop-a-sentence-from-speaking">Example: Interrupt/stop a sentence from speaking.</h3>
+</div><div class="api-method-example"><h3 id="example-2-of-4-interruptstop-a-sentence-from-speaking">Example 2 of 4: Interrupt/stop a sentence from speaking.</h3>
 </div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio \
     -u {token}:{secret} \
     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
@@ -2078,10 +2078,10 @@ client.Call.speakSentence(<span class="hljs-string">&quot;callId&quot;</span>, <
 <span class="hljs-comment">//Speak sentence in a call</span>
 
 <span class="hljs-comment">//Promise</span>
-client.Call.speakSentence(<span class="hljs-string">&quot;callId&quot;</span>, <span class="hljs-string">&quot;&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
+client.Call.stopSpeaking(<span class="hljs-string">&quot;callId&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
 
 <span class="hljs-comment">//Callback</span>
-client.Call.speakSentence(<span class="hljs-string">&quot;callId&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, res</span>) </span>{});
+client.Call.stopSpeaking(<span class="hljs-string">&quot;callId&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, res</span>) </span>{});
 </code></pre>
 </div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Call.SpeakSentenceAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);
 </code></pre>
@@ -2089,7 +2089,7 @@ client.Call.speakSentence(<span class="hljs-string">&quot;callId&quot;</span>, <
     <span class="hljs-symbol">:sentence</span> =&gt; <span class="hljs-string">&quot;&quot;</span>
 })
 </code></pre>
-</div><div class="api-method-example"><h3 id="example-play-an-audio-file">Example: Play an Audio File</h3>
+</div><div class="api-method-example"><h3 id="example-3-of-4-play-an-audio-file">Example 3 of 4: Play an Audio File</h3>
 </div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio \
     -u {token}:{secret} \
     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
@@ -2109,7 +2109,7 @@ client.Call.playAudioFile(<span class="hljs-string">&quot;callId&quot;</span>, <
     <span class="hljs-symbol">:file_url</span> =&gt; <span class="hljs-string">&quot;http://myurl.com/file.wav&quot;</span>
 })
 </code></pre>
-</div><div class="api-method-example"><h3 id="example-stop-an-audio-file-playing">Example: Stop an Audio File Playing</h3>
+</div><div class="api-method-example"><h3 id="example-4-of-4-stop-an-audio-file-playing">Example 4 of 4: Stop an Audio File Playing</h3>
 </div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio \
     -u {token}:{secret} \
     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
@@ -2119,10 +2119,10 @@ client.Call.playAudioFile(<span class="hljs-string">&quot;callId&quot;</span>, <
 <span class="hljs-comment">//Stop Audio file on bridge</span>
 
 <span class="hljs-comment">//Promise</span>
-client.Call.playAudioFile(<span class="hljs-string">&quot;callId&quot;</span>, <span class="hljs-string">&quot;&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
+client.Call.stopAudioFilePlayback(<span class="hljs-string">&quot;callId&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{});
 
 <span class="hljs-comment">//Callback</span>
-client.Call.playAudioFile(<span class="hljs-string">&quot;callId&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, res</span>) </span>{});
+client.Call.stopAudioFilePlayback(<span class="hljs-string">&quot;callId&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, res</span>) </span>{});
 </code></pre>
 </div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">await</span> client.Call.PlayAudioFileAsync(<span class="hljs-string">&quot;{callId1}&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);
 </code></pre>
@@ -2164,7 +2164,7 @@ client.Call.playAudioFile(<span class="hljs-string">&quot;callId&quot;</span>, <
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST Play audio in Call","level":"2.1.5.6","depth":3,"next":{"title":"POST Send DTMF in Call","level":"2.1.5.7","depth":3,"path":"methods/calls/postCallsCallIdDTMF.md","ref":"methods/calls/postCallsCallIdDTMF.md","articles":[]},"previous":{"title":"POST Transfer Call","level":"2.1.5.5","depth":3,"path":"methods/calls/postTransferCall.md","ref":"methods/calls/postTransferCall.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/postCallsCallIdAudio.md","mtime":"2017-08-02T15:31:04.329Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-02T15:32:30.686Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST Play audio in Call","level":"2.1.5.6","depth":3,"next":{"title":"POST Send DTMF in Call","level":"2.1.5.7","depth":3,"path":"methods/calls/postCallsCallIdDTMF.md","ref":"methods/calls/postCallsCallIdDTMF.md","articles":[]},"previous":{"title":"POST Transfer Call","level":"2.1.5.5","depth":3,"path":"methods/calls/postTransferCall.md","ref":"methods/calls/postTransferCall.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/postCallsCallIdAudio.md","mtime":"2017-08-02T15:51:04.277Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-02T15:52:38.319Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
