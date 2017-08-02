@@ -29,7 +29,7 @@ Speak a text or play audio in the conference
 
 {% common %}
 
-### Example: Speak text in conference
+### Example 1 of 4: Speak text in conference
 
 {% sample lang="bash" %}
 
@@ -98,7 +98,7 @@ conference.play_audio({
 
 {% common %}
 
-### Example: Interrupt/Stop a sentence from speaking
+### Example 2 of 4: Interrupt/Stop a sentence from speaking
 
 {% sample lang="bash" %}
 
@@ -114,9 +114,9 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/
 ```js
 //Speak sentence in a conference
 //Promise
-client.Conference.speakSentence("conferenceID", "").then(function (res) {});
+client.Conference.stopSpeaking("conferenceID", "").then(function (res) {});
 //Callback
-client.Conference.speakSentence("conferenceID", "", function (err, res) {});
+client.Conference.stopSpeaking("conferenceID", "", function (err, res) {});
 
 //Speak sentence with options
 var options = {sentence : ""}
@@ -146,7 +146,7 @@ conference.play_audio({:sentence => ""})
 
 {% common %}
 
-### Example: Play audio in conference
+### Example 3 of 4: Play audio in conference
 
 {% sample lang="bash" %}
 
@@ -204,7 +204,7 @@ conference.play_audio({
 
 {% common %}
 
-### Example: Stop an Audio File Playing in Conference
+### Example 4 of 4: Stop an Audio File Playing in Conference
 
 {% sample lang="bash" %}
 
@@ -220,9 +220,9 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/
 ```js
 //Play Audio file on conference
 //Promise
-client.Conference.playAudioFile("conferenceID", "").then(function (res) {});
+client.Conference.stopAudioFilePlayback("conferenceID").then(function (res) {});
 //Callback
-client.Conference.playAudioFile("conferenceID", "", function (err, res) {});
+client.Conference.stopAudioFilePlayback("conferenceID", function (err, res) {});
 
 //Play Audio File on loop
 var options = {

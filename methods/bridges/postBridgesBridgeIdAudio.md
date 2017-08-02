@@ -21,7 +21,7 @@ Play an audio file or speak a sentence in a bridge.
 
 {% common %}
 
-### Example: Play an Audio file
+### Example 1 of 4: Play an Audio file
 
 {% sample lang="bash" %}
 
@@ -59,7 +59,7 @@ bridge.play_audio({:file_url => "http://myurl.com/file.wav"})
 
 {% common %}
 
-### Example: Stop an Audio File Playing
+### Example 2 of 4: Stop an Audio File Playing
 {% sample lang="bash" %}
 
 ```bash
@@ -76,10 +76,10 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bri
 //Stop Audio file on bridge
 
 //Promise
-client.Bridge.playAudioFile("bridgeID", "").then(function (res) {});
+client.Bridge.stopAudioFilePlayback("bridgeID").then(function (res) {});
 
 //Callback
-client.Bridge.playAudioFile("bridgeID", "", function (err, res) {});
+client.Bridge.stopAudioFilePlayback("bridgeID", function (err, res) {});
 ```
 
 {% sample lang="csharp" %}
@@ -97,7 +97,7 @@ bridge.play_audio({:file_url => ""})
 {% common %}
 
 
-### Example: Speak a Sentence
+### Example 3 of 4: Speak a Sentence
 {% sample lang="bash" %}
 
 ```bash
@@ -155,7 +155,7 @@ await client.Bridge.SpeakSentenceAsync("brg-65dhmbasiei", "Hello From Bandwidth"
 {% common %}
 
 
-### Example: Stop a Sentence
+### Example 4 of 4: Stop a Sentence
 {% sample lang="bash" %}
 
 ```bash
@@ -172,10 +172,10 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bri
 //Speak sentence in a bridge
 
 //Promise
-client.Bridge.speakSentence("bridgeID", "").then(function (res) {});
+client.Bridge.stopSpeaking("bridgeID").then(function (res) {});
 
 //Callback
-client.Bridge.speakSentence("bridgeID", "", function (err, res) {});
+client.Bridge.stopSpeaking("bridgeID", function (err, res) {});
 ```
 {% sample lang="csharp" %}
 
@@ -188,6 +188,8 @@ await client.Bridge.SpeakSentenceAsync("brg-65dhmbasiei", "");
 ```ruby
 bridge.play_audio({:sentence => ""})
 ```
+
+{% common %}
 
 
 {% endmethod %}
