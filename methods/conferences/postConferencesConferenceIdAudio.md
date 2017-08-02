@@ -29,7 +29,7 @@ Speak a text or play audio in the conference
 
 {% common %}
 
-### Example: Speak text in conference
+### Example 1 of 4: Speak text in conference
 
 {% sample lang="bash" %}
 
@@ -98,7 +98,55 @@ conference.play_audio({
 
 {% common %}
 
-### Example: Play audio in conference
+### Example 2 of 4: Interrupt/Stop a sentence from speaking
+
+{% sample lang="bash" %}
+
+```bash
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/audio \
+	-u {token}:{secret} \
+	-H "Content-type: application/json" \
+	-d '{"sentence": ""}'
+```
+
+{% sample lang="js" %}
+
+```js
+//Speak sentence in a conference
+//Promise
+client.Conference.stopSpeaking("conferenceID", "").then(function (res) {});
+//Callback
+client.Conference.stopSpeaking("conferenceID", "", function (err, res) {});
+
+//Speak sentence with options
+var options = {sentence : ""}
+//Promise
+client.Conference.playAudioAdvanced("conferenceId", options).then(function (res) {});
+
+//Callback
+client.Conference.playAudioAdvanced("conferenceId", options, function (err,res) {});
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+// Speak sentence in a conference
+await client.Conference.SpeakSentenceAsync("{conferenceId1}", "");
+
+// Speak sentence with options
+await client.Conference.PlayAudioAsync("{conferenceId1}", new PlayAudioData {Sentence = ""});
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+conference.play_audio({:sentence => ""})
+```
+
+
+{% common %}
+
+### Example 3 of 4: Play audio in conference
 
 {% sample lang="bash" %}
 
@@ -150,9 +198,56 @@ await client.Conference.PlayAudioAsync("{conferenceId1}", new PlayAudioData {
 
 ```ruby
 conference.play_audio({
-	:file_url => "http://myurl.com/file.mp3",
-	:loop_enabled => true
+	:file_url => "http://myurl.com/file.mp3"
 })
+```
+
+{% common %}
+
+### Example 4 of 4: Stop an Audio File Playing in Conference
+
+{% sample lang="bash" %}
+
+```bash
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/audio \
+	-u {token}:{secret} \
+	-H "Content-type: application/json" \
+	-d '{"fileUrl": ""}'
+```
+
+{% sample lang="js" %}
+
+```js
+//Play Audio file on conference
+//Promise
+client.Conference.stopAudioFilePlayback("conferenceID").then(function (res) {});
+//Callback
+client.Conference.stopAudioFilePlayback("conferenceID", function (err, res) {});
+
+//Play Audio File on loop
+var options = {
+	fileUrl     : ""
+}
+//Promise
+client.Conference.playAudioAdvanced("conferenceId", options).then(function (res) {});
+//Callback
+client.Conference.playAudioAdvanced("conferenceId", options, function (err,res) {});
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+// Play audio file in a conference
+await client.Conference.PlayAudioFileAsync("{conferenceId1}", "");
+
+// Play audio file with options
+await client.Conference.PlayAudioAsync("{conferenceId1}", new PlayAudioData {FileUrl = ""});
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+conference.play_audio({:file_url => ""})
 ```
 
 {% endmethod %}
