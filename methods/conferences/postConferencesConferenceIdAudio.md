@@ -13,8 +13,8 @@ Speak a text or play audio in the conference
 
 | Parameter   | Description                                                                                                                                                                                                                                                                                                                                                                                     | Mandatory |
 |:------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
-| fileUrl     | The location of an audio file to play (WAV and MP3 supported).                                                                                                                                                                                                                                                                                                                                  | No        |
-| sentence    | The sentence to speak.                                                                                                                                                                                                                                                                                                                                                                          | No        |
+| fileUrl     | The location of an audio file to play (WAV and MP3 supported). <br> <br> To **STOP AUDIO FILE PLAYBACK** send an empty string like: `{"fileUrl": ""}`                                                                                                                                                                                                                                           | No        |
+| sentence    | The sentence to speak **MAXIMUM LENGTH 1000 CHARACTERS**. <br> <br> To **STOP SENTENCE PLAYBACK** send an empty string like: `{"sentence": ""}`                                                                                                                                                                                                                                                 | No        |
 | gender      | The gender of the voice used to synthesize the sentence. It will be considered only if sentence is not null. The female gender will be used by default.                                                                                                                                                                                                                                         | No        |
 | locale      | The locale used to get the accent of the voice used to synthesize the sentence. Currently audio supports: <br> - en\_US or en\_UK (English) <br> - es or es\_MX (Spanish) <br> - fr or fr\_FR (French) <br> - de or de\_DE (German) <br> - t or it\_IT (Italian) It will be considered only if sentence is not null/empty. The en\_US will be used by default.                                  | No        |
 | voice       | The voice to speak the sentence. Audio currently supports the following voices: <br> - English US: Kate, Susan, Julie, Dave, Paul <br> - English UK: Bridget <br> - Spanish: Esperanza, Violeta, Jorge <br> - French: Jolie, Bernard <br> - German: Katrin, Stefan <br> - Italian: Paola, Luca It will be considered only if sentence is not null/empty. Susan’s voice will be used by default. | No        |
@@ -114,9 +114,9 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/
 ```js
 //Speak sentence in a conference
 //Promise
-client.Conference.stopSpeaking("conferenceID", "").then(function (res) {});
+client.Conference.stopSpeaking("conferenceID").then(function (res) {});
 //Callback
-client.Conference.stopSpeaking("conferenceID", "", function (err, res) {});
+client.Conference.stopSpeaking("conferenceID", function (err, res) {});
 
 //Speak sentence with options
 var options = {sentence : ""}
