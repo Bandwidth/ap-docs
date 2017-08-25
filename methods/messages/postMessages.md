@@ -61,11 +61,6 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 
 > The above command returns HTTP Header structured like this:
 
-```
-HTTP/1.1 201 Created
-Location: /v1/users/{userId}/messages/{messageId}
-```
-
 {% sample lang="js" %}
 
 ```js
@@ -109,6 +104,11 @@ message = Message.create(client, {
 ```
 
 {% common %}
+
+```
+HTTP/1.1 201 Created
+Location: /v1/users/{userId}/messages/{messageId}
+```
 
 ### Example: Send a single mms with Bandwidth Media
 
@@ -405,13 +405,44 @@ To send a text message with request receipt from {fromNumber} to {toNumber}, sen
 {% sample lang="bash" %}
 
 ```bash
-#coming soon
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+	-u {token}:{secret} \
+	-H "Content-type: application/json" \
+		-d \
+	'
+	{
+		"from": "+19195551212",
+		"to": "+19195551213",
+		"text": "Thank you for subscribing to Unicorn Enterprises!",
+		"callbackUrl": "http://my.callback.url",
+		"receiptRequested": "all"
+	}'
 ```
 
 {% sample lang="js" %}
 
 ```js
-//coming soon
+var Bandwidth = require("node-bandwidth");
+var client = new Bandwidth({
+    userId    : "YOUR_USERID",
+    apiToken  : "YOUR_APITOKEN",
+    apiSecret : "YOUR_APISECRET"
+});
+var message = {
+    from: "+19195551212", // <-- This must be a Bandwidth number on your account
+    to: "+19195551213",
+    text: "Thank you for subscribing to Unicorn Enterprises!",
+    callbackUrl: "http://my.callback.url",
+    receiptRequested: "all"
+};
+
+client.Message.send(message)
+.then(function(message) {
+    console.log("Message sent with ID " + message.id);
+})
+.catch(function(err) {
+    console.log(err.message);
+});
 ```
 
 {% sample lang="csharp" %}
@@ -445,13 +476,44 @@ message = Message.create(client, {
 {% sample lang="bash" %}
 
 ```bash
-#coming soon
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+	-u {token}:{secret} \
+	-H "Content-type: application/json" \
+		-d \
+	'
+	{
+		"from": "+19195551212",
+		"to": "+19195551213",
+		"text": "Thank you for subscribing to Unicorn Enterprises!",
+		"callbackUrl": "http://my.callback.url",
+		"callbackTimeout" : "2000"
+	}'
 ```
 
 {% sample lang="js" %}
 
 ```js
-//coming soon
+var Bandwidth = require("node-bandwidth");
+var client = new Bandwidth({
+    userId    : "YOUR_USERID",
+    apiToken  : "YOUR_APITOKEN",
+    apiSecret : "YOUR_APISECRET"
+});
+var message = {
+    from: "+19195551212", // <-- This must be a Bandwidth number on your account
+    to: "+19195551213",
+    text: "Thank you for subscribing to Unicorn Enterprises!",
+    callbackUrl: "http://my.callback.url",
+    callbackTimeout: "2000"
+};
+
+client.Message.send(message)
+.then(function(message) {
+    console.log("Message sent with ID " + message.id);
+})
+.catch(function(err) {
+    console.log(err.message);
+});
 ```
 
 {% sample lang="csharp" %}
@@ -488,13 +550,46 @@ message = Message.create(client, {
 {% sample lang="bash" %}
 
 ```bash
-#coming soon
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+	-u {token}:{secret} \
+	-H "Content-type: application/json" \
+		-d \
+	'
+	{
+		"from": "+19195551212",
+		"to": "+19195551213",
+		"text": "Thank you for subscribing to Unicorn Enterprises!",
+		"callbackUrl": "http://my.callback.url",
+		"callbackTimeout" : "2000",
+		"fallbackUrl" : "http://my.fallback.url"
+	}'
 ```
 
 {% sample lang="js" %}
 
 ```js
-//coming soon
+var Bandwidth = require("node-bandwidth");
+var client = new Bandwidth({
+    userId    : "YOUR_USERID",
+    apiToken  : "YOUR_APITOKEN",
+    apiSecret : "YOUR_APISECRET"
+});
+var message = {
+    from: "+19195551212", // <-- This must be a Bandwidth number on your account
+    to: "+19195551213",
+    text: "Thank you for subscribing to Unicorn Enterprises!",
+    callbackUrl: "http://my.callback.url",
+    callbackTimeout: "2000",
+    fallbackUrl: "http://my.fallback.url"
+};
+
+client.Message.send(message)
+.then(function(message) {
+    console.log("Message sent with ID " + message.id);
+})
+.catch(function(err) {
+    console.log(err.message);
+});
 ```
 
 {% sample lang="csharp" %}
