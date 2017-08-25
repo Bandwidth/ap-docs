@@ -39,7 +39,7 @@ Gets a list of your numbers. Since this operation uses HTTP GET, all the propert
 {% common %}
 
 
-### Example: List phone numbers
+### Example 1 of 1: List phone numbers
 
 {% sample lang="bash" %}
 

@@ -20,7 +20,7 @@ Get the gather DTMF parameters and results.
 
 {% common %}
 
-### Example: Fetch information for a single gather
+### Example 1 of 1: Fetch information for a single gather
 
 {% sample lang="bash" %}
 

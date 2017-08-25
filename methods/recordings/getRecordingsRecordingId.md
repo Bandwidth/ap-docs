@@ -33,7 +33,7 @@ Retrieve a specific call recording information in JSON format, identified by rec
 {% common %}
 
 
-### Example: Get recording properties
+### Example 1 of 1: Get recording properties
 
 {% sample lang="bash" %}
 

@@ -19,7 +19,7 @@ This resource provides a CNAM number info. CNAM is an acronym which stands for C
 
 {% common %}
 
-### Example: Get Number Info
+### Example 1 of 1: Get Number Info
 
 {% sample lang="bash" %}
 

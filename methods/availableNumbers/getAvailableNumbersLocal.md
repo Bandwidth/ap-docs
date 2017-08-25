@@ -46,7 +46,7 @@ Searches for available local numbers by location or pattern criteria.
 | price          | The monthly price for the phone number.                                                                                                                                              |
 
 {% common %}
-### Example: Search for City/State and Pattern
+### Example 1 of 2: Search for City/State and Pattern
 
 >To find up to two available local numbers in the city of Cary, North Carolina, that match the pattern "*2?9*", make the following request:
 
@@ -114,7 +114,7 @@ first_number = first_result[:number]
 ]
 ```
 
-### Example: Search with areaCode and localNumber
+### Example 2 of 2: Search with areaCode and localNumber
 > To find up to two available local numbers in the area code 919 which the numbers begins with 867 and inside overlayed areas, make the following request:
 
 {% sample lang="bash" %}

@@ -17,7 +17,7 @@ The only update allowed is state:completed to stop the gather.
 
 {% common %}
 
-### Example: Stop the gather DTMF
+### Example 1 of 1: Stop the gather DTMF
 
 {% sample lang="bash" %}
 

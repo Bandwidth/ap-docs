@@ -31,7 +31,7 @@ Get a list of your applications
 
 {% common %}
 
-### Example: List your applications.
+### Example 1 of 1: List your applications.
 
 {% sample lang="bash" %}
 

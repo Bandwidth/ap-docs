@@ -16,7 +16,7 @@ Change calls in a bridge and bridge/unbridge the audio.
 
 
 {% common %}
-### Example: Add call {callId1} and call {callId2} in a bridge {bridgeId} with two way voice path
+### Example 1 of 5: Add call {callId1} and call {callId2} in a bridge {bridgeId} with two way voice path
 
 
 {% sample lang="bash" %}
@@ -62,7 +62,7 @@ bridge.update({
 
 
 {% common %}
-### Example: Removing call {callId2} from the bridge created in the example above
+### Example 2 of 5: Removing call {callId2} from the bridge created in the example above
 {% sample lang="bash" %}
 
 ```bash
@@ -103,7 +103,7 @@ bridge.update({
 
 
 {% common %}
-### Example: Adding two different calls {callId3} and {callId4} in the bridge above and put them on hold
+### Example 3 of 5: Adding two different calls {callId3} and {callId4} in the bridge above and put them on hold
 {% sample lang="bash" %}
 
 ```bash
@@ -147,7 +147,7 @@ bridge.update({
 
 
 {% common %}
-### Example: Bridging the audio again
+### Example 4 of 5: Bridging the audio again
 {% sample lang="bash" %}
 
 ```bash
@@ -188,7 +188,7 @@ bridge.update({
 
 
 {% common %}
-### Example: Removing all calls from bridge.
+### Example 5 of 5: Removing all calls from bridge.
 {% sample lang="bash" %}
 
 ```bash

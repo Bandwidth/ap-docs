@@ -22,7 +22,7 @@ Creates an application that can handle calls and messages for one of your phone 
 | autoAnswer                        | Determines whether or not an incoming call should be automatically answered. Default value is 'true'.            | No        |
 
 {% common %}
-### Example: Create an application named: 'MyFirstApp'
+### Example 1 of 1: Create an application named: 'MyFirstApp'
 
 
 {% sample lang="bash" %}

@@ -26,7 +26,7 @@ Gets information about one of your applications. No query parameters are support
 
 {% common %}
 
-### Example: Get an application's information
+### Example 1 of 1: Get an application's information
 
 {% sample lang="bash" %}
 

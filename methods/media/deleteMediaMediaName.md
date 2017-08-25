@@ -10,7 +10,7 @@ Deletes a media file from Bandwidth API server. Make sure you don't have any app
 
 {% common %}
 
-### Example: Delete an MP3 File
+### Example 1 of 1: Delete an MP3 File
 
 {% sample lang="bash" %}
 

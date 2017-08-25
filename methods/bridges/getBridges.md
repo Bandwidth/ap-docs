@@ -42,7 +42,7 @@ Get list of bridges for a given user.
 
 {% common %}
 
-### Example: List of a user's bridges
+### Example 1 of 1: List of a user's bridges
 
 {% sample lang="bash" %}
 

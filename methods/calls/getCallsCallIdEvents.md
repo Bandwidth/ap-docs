@@ -20,7 +20,7 @@ Gets the events that occurred during the call. No query parameters are supported
 
 {% common %}
 
-### Example: Get events for a call.
+### Example 1 of 1: Get events for a call.
 
 {% sample lang="bash" %}
 

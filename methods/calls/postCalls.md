@@ -31,7 +31,7 @@ Creates a new outbound phone call.
 
 {% common %}
 
-### Example: Create an outbound phone call
+### Example 1 of 6: Create an outbound phone call
 
 <aside class="alert general small">
 <p>
@@ -95,7 +95,7 @@ call = Call.create(client, {:from => "{fromNumber}", :to => "{toNumber}"})
 {% common %}
 
 
-### Example: Create an outbound call to a SIP URI
+### Example 2 of 6: Create an outbound call to a SIP URI
 
 Make a call to a SIP URI:
 
@@ -173,7 +173,7 @@ call = Call.create(client, {
 ```
 {% common %}
 
-### Example: Create call and start recording it
+### Example 3 of 6: Create call and start recording it
 {% sample lang="bash" %}
 
 ```bash
@@ -226,7 +226,7 @@ call = Call.create(client, {
 ```
 
 {% common %}
-### Example: Create a call in a bridge
+### Example 4 of 6: Create a call in a bridge
 
 {% sample lang="bash" %}
 
@@ -299,7 +299,7 @@ call = Call.create(client, {
 
 
 {% common %}
-### Example: Create an outbound call with callback and fallback URL
+### Example 5 of 6: Create an outbound call with callback and fallback URL
 
 
 {% sample lang="bash" %}
@@ -362,7 +362,7 @@ call = Call.create(client, {
 ```
 
 {% common %}
-### Example: Create an outbound call with tag property
+### Example 6 of 6: Create an outbound call with tag property
 
 
 {% sample lang="bash" %}

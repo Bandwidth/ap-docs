@@ -36,7 +36,7 @@ Gets information about an active or completed call. No query parameters are supp
 
 {% common %}
 
-### Example: Get Call Information
+### Example 1 of 1: Get Call Information
 
 {% sample lang="bash" %}
 

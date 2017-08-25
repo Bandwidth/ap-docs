@@ -38,7 +38,7 @@ Retrieve current properties for a conference.
 
 {% common %}
 
-### Example: Get conference
+### Example 1 of 1: Get conference
 
 {% sample lang="bash" %}
 

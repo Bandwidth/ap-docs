@@ -28,7 +28,7 @@ Gets information about one error. No query parameters are supported.
 
 {% common %}
 
-### Example: Get information about an error
+### Example 1 of 1: Get information about an error
 {% sample lang="bash" %}
 
 ```bash

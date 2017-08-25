@@ -25,7 +25,7 @@ Retrieve a conference member properties.
 
 {% common %}
 
-### Example: Get conference member information
+### Example 1 of 1: Get conference member information
 
 {% sample lang="bash" %}
 

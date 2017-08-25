@@ -81,7 +81,7 @@ Message results are paginated based on the `size` parameter. If the number of me
 
 {% common %}
 
-### Example: List your messages
+### Example 1 of 3: List your messages
 
 {% sample lang="bash" %}
 
@@ -174,7 +174,7 @@ HEADER: <https://api.catapult.inetwork.com/v1/users/u-dkjf9094802375s/messages?s
 ]
 ```
 
-### Example: List your messages by from number {fromNumber}
+### Example 2 of 3: List your messages by from number {fromNumber}
 
 {% sample lang="bash" %}
 
@@ -236,7 +236,7 @@ messages = Message.list(client, {:from => "{fromNumber}"})
 ]
 ```
 
-### Example: Gets a list messages filtering the direction and toDateTime
+### Example 3 of 3: Gets a list messages filtering the direction and toDateTime
 
 {% sample lang="bash" %}
 

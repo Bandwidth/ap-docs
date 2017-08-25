@@ -23,7 +23,7 @@ You can upload files up to `65MB` and file storage is free for an unlimited numb
 
 {% common %}
 
-### Example: Upload an MP3 File
+### Example 1 of 1: Upload an MP3 File
 
 {% sample lang="bash" %}
 

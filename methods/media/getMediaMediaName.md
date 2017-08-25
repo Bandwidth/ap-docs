@@ -9,7 +9,7 @@ Downloads a media file you previously uploaded.
 
 {% common %}
 
-### Example: Download an MP3 File
+### Example 1 of 1: Download an MP3 File
 
 {% sample lang="bash" %}
 

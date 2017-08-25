@@ -58,6 +58,7 @@ Get the transactions from the user's account.
 | cnam-search                | A CNAM lookup request for a phone number.                                   |
 
 {% common %}
+
 ### Example 1 of 6: Get transactions
 
 {% sample lang="bash" %}
@@ -130,7 +131,9 @@ The above command returns JSON structured like this:
 ]
 ```
 
+
 ### Example 2 of 6: Get transactions by date
+
 
 {% sample lang="bash" %}
 
