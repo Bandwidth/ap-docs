@@ -40,7 +40,7 @@ Bandwidth returns `HTTP 201` Created with the URI of the message in the `Locatio
 </p>
 </aside>
 
-### Example: Send a single text message
+### Example 1 of 7: Send a single text message
 
 {% sample lang="bash" %}
 
@@ -57,9 +57,6 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 		"callbackUrl": "http://my.callback.com"
 	}'
 ```
-
-
-> The above command returns HTTP Header structured like this:
 
 {% sample lang="js" %}
 
@@ -105,12 +102,14 @@ message = Message.create(client, {
 
 {% common %}
 
+> The above command returns HTTP Header structured like this:
+
 ```
 HTTP/1.1 201 Created
 Location: /v1/users/{userId}/messages/{messageId}
 ```
 
-### Example: Send a single mms with Bandwidth Media
+### Example 2 of 7: Send a single mms with Bandwidth Media
 
 {% sample lang="bash" %}
 
@@ -180,7 +179,7 @@ Location: /v1/users/{userId}/messages/{messageId}
 ```
 
 
-### Example: Send a single mms with external media
+### Example 3 of 7: Send a single mms with external media
 
 {% sample lang="bash" %}
 
@@ -250,7 +249,7 @@ HTTP/1.1 201 Created
 Location: /v1/users/{userId}/messages/{messageId}
 ```
 
-### Example: Send three messages in a single request
+### Example 4 of 7: Send three messages in a single request
 
 {% sample lang="bash" %}
 
@@ -399,7 +398,7 @@ messages = Message.create(client, [{
 
 {% common %}
 
-### Example: Request receipt for single text message
+### Example 5 of 7: Request receipt for single text message
 To send a text message with request receipt from {fromNumber} to {toNumber}, send the following request:
 
 {% sample lang="bash" %}
@@ -422,12 +421,6 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 {% sample lang="js" %}
 
 ```js
-var Bandwidth = require("node-bandwidth");
-var client = new Bandwidth({
-    userId    : "YOUR_USERID",
-    apiToken  : "YOUR_APITOKEN",
-    apiSecret : "YOUR_APISECRET"
-});
 var message = {
     from: "+19195551212", // <-- This must be a Bandwidth number on your account
     to: "+19195551213",
@@ -471,7 +464,7 @@ message = Message.create(client, {
 
 {% common %}
 
-### Example: Send a single text message with custom callback timeout of 2 seconds
+### Example 6 of 7: Send a single text message with custom callback timeout of 2 seconds
 
 {% sample lang="bash" %}
 
@@ -493,12 +486,6 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 {% sample lang="js" %}
 
 ```js
-var Bandwidth = require("node-bandwidth");
-var client = new Bandwidth({
-    userId    : "YOUR_USERID",
-    apiToken  : "YOUR_APITOKEN",
-    apiSecret : "YOUR_APISECRET"
-});
 var message = {
     from: "+19195551212", // <-- This must be a Bandwidth number on your account
     to: "+19195551213",
@@ -545,7 +532,7 @@ message = Message.create(client, {
 {% common %}
 
 
-### Example: Send a single text message with custom callback timeout of 2 seconds and a fallback URL
+### Example 7 of 7: Send a single text message with custom callback timeout of 2 seconds and a fallback URL
 
 {% sample lang="bash" %}
 
@@ -568,12 +555,6 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 {% sample lang="js" %}
 
 ```js
-var Bandwidth = require("node-bandwidth");
-var client = new Bandwidth({
-    userId    : "YOUR_USERID",
-    apiToken  : "YOUR_APITOKEN",
-    apiSecret : "YOUR_APISECRET"
-});
 var message = {
     from: "+19195551212", // <-- This must be a Bandwidth number on your account
     to: "+19195551213",
