@@ -63,7 +63,7 @@ state = member.state
 
 > The above command returns JSON structured like this:
 
-```
+```json
 {
 		"addedTime": "2013-07-12T15:47:04-03",
 		"hold": false,
