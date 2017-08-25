@@ -2062,7 +2062,7 @@ Bandwidth returns `HTTP 201` Created with the URI of the message in the `Locatio
 </p>
 </aside>
 
-<h3 id="example-send-a-single-text-message">Example: Send a single text message</h3>
+<h3 id="example-1-of-7-send-a-single-text-message">Example 1 of 7: Send a single text message</h3>
 </div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
     -u {token}:{secret} \
     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
@@ -2075,12 +2075,7 @@ Bandwidth returns `HTTP 201` Created with the URI of the message in the `Locatio
         &quot;callbackUrl&quot;: &quot;http://my.callback.com&quot;
     }&apos;</span>
 </code></pre>
-<blockquote>
-<p>The above command returns HTTP Header structured like this:</p>
-</blockquote>
-<pre><code>HTTP/1.1 201 Created
-Location: /v1/users/{userId}/messages/{messageId}
-</code></pre></div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js">client.Message.send({
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js">client.Message.send({
     <span class="hljs-attr">from</span> : <span class="hljs-string">&quot;+19195551212&quot;</span>,
     <span class="hljs-attr">to</span>   : <span class="hljs-string">&quot;+19195551213&quot;</span>,
     <span class="hljs-attr">text</span> : <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>
@@ -2110,7 +2105,12 @@ Console.WriteLine(<span class="hljs-string">$&quot;Created message with id <span
     <span class="hljs-symbol">:text</span> =&gt; <span class="hljs-string">&quot;Thank you for susbcribing to Unicorn Enterprises!&quot;</span>
 })
 </code></pre>
-</div><div class="api-method-example"><h3 id="example-send-a-single-mms-with-bandwidth-media">Example: Send a single mms with Bandwidth Media</h3>
+</div><div class="api-method-example"><blockquote>
+<p>The above command returns HTTP Header structured like this:</p>
+</blockquote>
+<pre><code>HTTP/1.1 201 Created
+Location: /v1/users/{userId}/messages/{messageId}
+</code></pre><h3 id="example-2-of-7-send-a-single-mms-with-bandwidth-media">Example 2 of 7: Send a single mms with Bandwidth Media</h3>
 </div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
     -u {token}:{secret} \
     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
@@ -2158,7 +2158,7 @@ Console.WriteLine(<span class="hljs-string">$&quot;Created message with id <span
 </blockquote>
 <pre><code>HTTP/1.1 201 Created
 Location: /v1/users/{userId}/messages/{messageId}
-</code></pre><h3 id="example-send-a-single-mms-with-external-media">Example: Send a single mms with external media</h3>
+</code></pre><h3 id="example-3-of-7-send-a-single-mms-with-external-media">Example 3 of 7: Send a single mms with external media</h3>
 </div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
     -u {token}:{secret} \
     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
@@ -2206,7 +2206,7 @@ Console.WriteLine(<span class="hljs-string">$&quot;Created message with id <span
 </blockquote>
 <pre><code>HTTP/1.1 201 Created
 Location: /v1/users/{userId}/messages/{messageId}
-</code></pre><h3 id="example-send-three-messages-in-a-single-request">Example: Send three messages in a single request</h3>
+</code></pre><h3 id="example-4-of-7-send-three-messages-in-a-single-request">Example 4 of 7: Send three messages in a single request</h3>
 </div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
     -u {token}:{secret} \
     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
@@ -2329,11 +2329,36 @@ Console.WriteLine(<span class="hljs-string">$&quot;Created messages with ids <sp
     }
 }]
 </code></pre>
-</div><div class="api-method-example"><h3 id="example-request-receipt-for-single-text-message">Example: Request receipt for single text message</h3>
+</div><div class="api-method-example"><h3 id="example-5-of-7-request-receipt-for-single-text-message">Example 5 of 7: Request receipt for single text message</h3>
 <p>To send a text message with request receipt from {fromNumber} to {toNumber}, send the following request:</p>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash"><span class="hljs-comment">#coming soon</span>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+        <span class="hljs-_">-d</span> \
+    <span class="hljs-string">&apos;
+    {
+        &quot;from&quot;: &quot;+19195551212&quot;,
+        &quot;to&quot;: &quot;+19195551213&quot;,
+        &quot;text&quot;: &quot;Thank you for subscribing to Unicorn Enterprises!&quot;,
+        &quot;callbackUrl&quot;: &quot;http://my.callback.url&quot;,
+        &quot;receiptRequested&quot;: &quot;all&quot;
+    }&apos;</span>
 </code></pre>
-</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-comment">//coming soon</span>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-keyword">var</span> message = {
+    <span class="hljs-attr">from</span>: <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-comment">// &lt;-- This must be a Bandwidth number on your account</span>
+    to: <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;Thank you for subscribing to Unicorn Enterprises!&quot;</span>,
+    <span class="hljs-attr">callbackUrl</span>: <span class="hljs-string">&quot;http://my.callback.url&quot;</span>,
+    <span class="hljs-attr">receiptRequested</span>: <span class="hljs-string">&quot;all&quot;</span>
+};
+
+client.Message.send(message)
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">message</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Message sent with ID &quot;</span> + message.id);
+})
+.catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(err.message);
+});
 </code></pre>
 </div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> message = <span class="hljs-keyword">await</span> client.Message.SendAsync(<span class="hljs-keyword">new</span> MessageData {
     From = <span class="hljs-string">&quot;+19195551212&quot;</span>,
@@ -2351,10 +2376,35 @@ Console.WriteLine(<span class="hljs-string">$&quot;Created message with id <span
     <span class="hljs-symbol">:receipt_requested</span> =&gt; <span class="hljs-string">&quot;all&quot;</span>
 })
 </code></pre>
-</div><div class="api-method-example"><h3 id="example-send-a-single-text-message-with-custom-callback-timeout-of-2-seconds">Example: Send a single text message with custom callback timeout of 2 seconds</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash"><span class="hljs-comment">#coming soon</span>
+</div><div class="api-method-example"><h3 id="example-6-of-7-send-a-single-text-message-with-custom-callback-timeout-of-2-seconds">Example 6 of 7: Send a single text message with custom callback timeout of 2 seconds</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+        <span class="hljs-_">-d</span> \
+    <span class="hljs-string">&apos;
+    {
+        &quot;from&quot;: &quot;+19195551212&quot;,
+        &quot;to&quot;: &quot;+19195551213&quot;,
+        &quot;text&quot;: &quot;Thank you for subscribing to Unicorn Enterprises!&quot;,
+        &quot;callbackUrl&quot;: &quot;http://my.callback.url&quot;,
+        &quot;callbackTimeout&quot; : &quot;2000&quot;
+    }&apos;</span>
 </code></pre>
-</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-comment">//coming soon</span>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-keyword">var</span> message = {
+    <span class="hljs-attr">from</span>: <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-comment">// &lt;-- This must be a Bandwidth number on your account</span>
+    to: <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;Thank you for subscribing to Unicorn Enterprises!&quot;</span>,
+    <span class="hljs-attr">callbackUrl</span>: <span class="hljs-string">&quot;http://my.callback.url&quot;</span>,
+    <span class="hljs-attr">callbackTimeout</span>: <span class="hljs-string">&quot;2000&quot;</span>
+};
+
+client.Message.send(message)
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">message</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Message sent with ID &quot;</span> + message.id);
+})
+.catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(err.message);
+});
 </code></pre>
 </div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> message = <span class="hljs-keyword">await</span> client.Message.SendAsync(<span class="hljs-keyword">new</span> MessageData {
     From = <span class="hljs-string">&quot;+19195551212&quot;</span>,
@@ -2374,10 +2424,37 @@ Console.WriteLine(<span class="hljs-string">$&quot;Created message with id <span
     <span class="hljs-symbol">:callback_timeout</span> =&gt; <span class="hljs-number">2000</span>
 })
 </code></pre>
-</div><div class="api-method-example"><h3 id="example-send-a-single-text-message-with-custom-callback-timeout-of-2-seconds-and-a-fallback-url">Example: Send a single text message with custom callback timeout of 2 seconds and a fallback URL</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash"><span class="hljs-comment">#coming soon</span>
+</div><div class="api-method-example"><h3 id="example-7-of-7-send-a-single-text-message-with-custom-callback-timeout-of-2-seconds-and-a-fallback-url">Example 7 of 7: Send a single text message with custom callback timeout of 2 seconds and a fallback URL</h3>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+    -u {token}:{secret} \
+    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+        <span class="hljs-_">-d</span> \
+    <span class="hljs-string">&apos;
+    {
+        &quot;from&quot;: &quot;+19195551212&quot;,
+        &quot;to&quot;: &quot;+19195551213&quot;,
+        &quot;text&quot;: &quot;Thank you for subscribing to Unicorn Enterprises!&quot;,
+        &quot;callbackUrl&quot;: &quot;http://my.callback.url&quot;,
+        &quot;callbackTimeout&quot; : &quot;2000&quot;,
+        &quot;fallbackUrl&quot; : &quot;http://my.fallback.url&quot;
+    }&apos;</span>
 </code></pre>
-</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-comment">//coming soon</span>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-keyword">var</span> message = {
+    <span class="hljs-attr">from</span>: <span class="hljs-string">&quot;+19195551212&quot;</span>, <span class="hljs-comment">// &lt;-- This must be a Bandwidth number on your account</span>
+    to: <span class="hljs-string">&quot;+19195551213&quot;</span>,
+    <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;Thank you for subscribing to Unicorn Enterprises!&quot;</span>,
+    <span class="hljs-attr">callbackUrl</span>: <span class="hljs-string">&quot;http://my.callback.url&quot;</span>,
+    <span class="hljs-attr">callbackTimeout</span>: <span class="hljs-string">&quot;2000&quot;</span>,
+    <span class="hljs-attr">fallbackUrl</span>: <span class="hljs-string">&quot;http://my.fallback.url&quot;</span>
+};
+
+client.Message.send(message)
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">message</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Message sent with ID &quot;</span> + message.id);
+})
+.catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(err.message);
+});
 </code></pre>
 </div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> message = <span class="hljs-keyword">await</span> client.Message.SendAsync(<span class="hljs-keyword">new</span> MessageData {
     From = <span class="hljs-string">&quot;+19195551212&quot;</span>,
@@ -2433,7 +2510,7 @@ Console.WriteLine(<span class="hljs-string">$&quot;Created message with id <span
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST Send SMS and MMS","level":"2.1.11.2","depth":3,"next":{"title":"GET Message info","level":"2.1.11.3","depth":3,"path":"methods/messages/getMessagesMessageId.md","ref":"methods/messages/getMessagesMessageId.md","articles":[]},"previous":{"title":"GET List Messages","level":"2.1.11.1","depth":3,"path":"methods/messages/getMessages.md","ref":"methods/messages/getMessages.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.7.10","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/messages/postMessages.md","mtime":"2017-08-23T15:26:37.936Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-23T15:28:06.872Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST Send SMS and MMS","level":"2.1.11.2","depth":3,"next":{"title":"GET Message info","level":"2.1.11.3","depth":3,"path":"methods/messages/getMessagesMessageId.md","ref":"methods/messages/getMessagesMessageId.md","articles":[]},"previous":{"title":"GET List Messages","level":"2.1.11.1","depth":3,"path":"methods/messages/getMessages.md","ref":"methods/messages/getMessages.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.7.10","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/messages/postMessages.md","mtime":"2017-08-25T19:22:06.551Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-25T19:23:56.636Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
