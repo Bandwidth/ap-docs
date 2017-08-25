@@ -19,7 +19,7 @@ Allocates a number so you can use it to make and receive calls and send and rece
 
 {% common %}
 
-### Example: Allocate a phone number to your account
+### Example 1 of 1: Allocate a phone number to your account
 To allocate the phone number {number} with the name "home phone" and the fallbackNumber {fallback_number} you can make calls with it, send the following request:
 
 {% sample lang="bash" %}

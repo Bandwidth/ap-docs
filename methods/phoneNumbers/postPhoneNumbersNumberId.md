@@ -19,7 +19,7 @@ Makes changes to a number you have. <code class="post">POST</code> a new JSON re
 {% common %}
 
 
-### Example: Change the Application resource a phone number uses for inbound calls and messages
+### Example 1 of 1: Change the Application resource a phone number uses for inbound calls and messages
 
 {% sample lang="bash" %}
 

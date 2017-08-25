@@ -9,7 +9,7 @@ This will delete a domain
 
 {% common %}
 
-### Example: Delete a domain
+### Example 1 of 1: Delete a domain
 
 {% sample lang="bash" %}
 

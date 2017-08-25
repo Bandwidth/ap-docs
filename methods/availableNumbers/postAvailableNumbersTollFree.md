@@ -16,7 +16,7 @@ Searches and order available Toll Free numbers.
 
 {% common %}
 
-### Example: Search and activate toll free phone number
+### Example 1 of 1: Search and activate toll free phone number
 > To search and order two available toll free numbers, make the following request:
 
 {% sample lang="bash" %}

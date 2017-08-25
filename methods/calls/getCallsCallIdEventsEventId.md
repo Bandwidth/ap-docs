@@ -10,7 +10,7 @@ Gets information about one call event. No query parameters are supported.
 
 {% common %}
 
-### Example: Fetch event information
+### Example 1 of 1: Fetch event information
 
 {% sample lang="bash" %}
 

@@ -21,7 +21,7 @@ Play an audio file or speak a sentence in a bridge.
 
 {% common %}
 
-### Example: Play an Audio file
+### Example 1 of 4: Play an Audio file
 
 {% sample lang="bash" %}
 
@@ -59,7 +59,7 @@ bridge.play_audio({:file_url => "http://myurl.com/file.wav"})
 
 {% common %}
 
-### Example: Stop an Audio File Playing
+### Example 2 of 4: Stop an Audio File Playing
 {% sample lang="bash" %}
 
 ```bash
@@ -97,7 +97,7 @@ bridge.play_audio({:file_url => ""})
 {% common %}
 
 
-### Example: Speak a Sentence
+### Example 3 of 4: Speak a Sentence
 {% sample lang="bash" %}
 
 ```bash
@@ -155,7 +155,7 @@ await client.Bridge.SpeakSentenceAsync("brg-65dhmbasiei", "Hello From Bandwidth"
 {% common %}
 
 
-### Example: Stop a Sentence
+### Example 4 of 4: Stop a Sentence
 {% sample lang="bash" %}
 
 ```bash

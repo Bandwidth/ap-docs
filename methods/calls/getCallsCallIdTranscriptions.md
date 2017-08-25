@@ -9,7 +9,7 @@ Retrieve all transcriptions related to the call.
 
 {% common %}
 
-### Example: Retrieve all transcriptions related to the call.
+### Example 1 of 1: Retrieve all transcriptions related to the call.
 
 {% sample lang="bash" %}
 

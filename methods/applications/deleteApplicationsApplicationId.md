@@ -7,7 +7,7 @@ Permanently deletes an application.
 <code class="delete">DELETE</code>`https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId}`
 
 {% common %}
-### Example: Delete an application.
+### Example 1 of 1: Delete an application.
 
 {% sample lang="bash" %}
 

@@ -29,7 +29,7 @@ Speak a text or play audio in the conference
 
 {% common %}
 
-### Example: Speak text in conference
+### Example 1 of 2: Speak text in conference
 
 {% sample lang="bash" %}
 
@@ -98,7 +98,7 @@ conference.play_audio({
 
 {% common %}
 
-### Example: Play audio in conference
+### Example 2 of 2: Play audio in conference
 
 {% sample lang="bash" %}
 

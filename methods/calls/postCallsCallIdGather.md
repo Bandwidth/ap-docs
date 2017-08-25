@@ -26,7 +26,7 @@ Collects a series of DTMF digits from a phone call with an optional prompt. This
 
 {% common %}
 
-### Example: Play a prompt sentence
+### Example 1 of 1: Play a prompt sentence
 Play a prompt sentence, then wait until 5 digits are pressed. Stop gathering digits if * is pressed, or if 7 seconds pass with no digits pressed.
 
 {% sample lang="bash" %}

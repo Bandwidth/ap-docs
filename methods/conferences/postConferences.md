@@ -45,7 +45,7 @@ These are enabled by default
 
 {% common %}
 
-### Example: Create conference
+### Example 1 of 2: Create conference
 
 {% sample lang="bash" %}
 
@@ -93,7 +93,7 @@ HTTP/1.1 201 CREATED
 Location: /v1/users/{userId}/conferences/{conferenceId}
 ```
 
-### Example: Create conference with callback and fallback and 2 seconds callback's timeout
+### Example 2 of 2: Create conference with callback and fallback and 2 seconds callback's timeout
 
 {% sample lang="bash" %}
 

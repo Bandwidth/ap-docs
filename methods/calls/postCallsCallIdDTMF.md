@@ -17,7 +17,7 @@ Send DTMF (phone keypad digit presses).
 
 {% common %}
 
-### Example: Send the digits "9193334444"
+### Example 1 of 1: Send the digits "9193334444"
 
 {% sample lang="bash" %}
 

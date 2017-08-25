@@ -28,7 +28,7 @@ Speak text or play audio to **ONLY** a single conference member.
 
 {% common %}
 
-### Example: Speak text to a conference member
+### Example 1 of 2: Speak text to a conference member
 
 {% sample lang="bash" %}
 
@@ -94,7 +94,7 @@ await client.Conference.SpeakSentenceToMemberAsync("{conferenceId1}", "{memberId
 # coming soon
 ```
 
-### Example: Play audio to a conference member
+### Example 2 of 2: Play audio to a conference member
 
 {% sample lang="bash" %}
 

@@ -21,7 +21,7 @@ This creates an endpoint.
 
 {% common %}
 
-### Example: Create an endpoint
+### Example 1 of 1: Create an endpoint
 
 {% sample lang="bash" %}
 

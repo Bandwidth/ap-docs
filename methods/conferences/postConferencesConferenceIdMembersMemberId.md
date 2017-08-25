@@ -20,7 +20,7 @@ Update a member status/properties.
 
 {% common %}
 
-### Example: Remove member from conference
+### Example 1 of 3: Remove member from conference
 
 {% sample lang="bash" %}
 
@@ -58,7 +58,7 @@ await client.Conference.UpdateMemberAsync("{conferenceId1}", "{memberId1}", new 
 
 {% common %}
 
-### Example: Keep member from speaking in the conference
+### Example 2 of 3: Keep member from speaking in the conference
 
 {% sample lang="bash" %}
 
@@ -95,7 +95,7 @@ await client.Conference.MuteMemberAsync("{conferenceId1}", "{memberId1}", true);
 ```
 
 
-### Example: Keep member from hearing the conference audio
+### Example 3 of 3: Keep member from hearing the conference audio
 
 {% sample lang="bash" %}
 

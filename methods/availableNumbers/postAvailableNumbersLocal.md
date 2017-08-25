@@ -34,7 +34,7 @@ Searches and order available local numbers by location criteria.
 
 {% common %}
 
-### Example: Search and allocate for city/state
+### Example 1 of 1: Search and allocate for city/state
 
 > To search and order two available local numbers in the city of Cary, North Carolina, make the following request
 

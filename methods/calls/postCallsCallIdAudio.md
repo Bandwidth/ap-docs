@@ -23,7 +23,7 @@ Plays an audio file or speak a sentence in a phone call.
 | tag         | A string that will be included in the events delivered when the audio playback starts or finishes.                                                                                                                                                                                                                                                                                              | No        |
 {% common %}
 
-### Example: Speak a Sentence
+### Example 1 of 4: Speak a Sentence
 
 {% sample lang="bash" %}
 
@@ -95,7 +95,7 @@ call.play_audio({
 
 {% common %}
 
-### Example: Interrupt/stop a sentence from speaking.
+### Example 2 of 4: Interrupt/stop a sentence from speaking.
 {% sample lang="bash" %}
 
 
@@ -135,7 +135,7 @@ call.play_audio({
 
 {% common %}
 
-### Example: Play an Audio File
+### Example 3 of 4: Play an Audio File
 
 {% sample lang="bash" %}
 
@@ -173,7 +173,7 @@ call.play_audio({
 ```
 
 {% common %}
-### Example: Stop an Audio File Playing
+### Example 4 of 4: Stop an Audio File Playing
 {% sample lang="bash" %}
 
 ```bash

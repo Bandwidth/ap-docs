@@ -9,7 +9,7 @@ Retrieve all recordings related to the call.
 
 {% common %}
 
-### Example: Get recordings for a call Id.
+### Example 1 of 1: Get recordings for a call Id.
 
 {% sample lang="bash" %}
 

@@ -25,7 +25,7 @@ List all members from a conference. If a member had already hung up or removed f
 
 {% common %}
 
-### Example: Listing members from a conference
+### Example 1 of 1: Listing members from a conference
 
 {% sample lang="bash" %}
 

@@ -65,7 +65,7 @@ Gets information about a previously sent or received message. No query parameter
 | 999  | Unknown error                                 |
 
 {% common %}
-### Example: Get a single message
+### Example 1 of 1: Get a single message
 
 {% sample lang="bash" %}
 

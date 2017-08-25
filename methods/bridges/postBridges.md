@@ -19,7 +19,7 @@ Create a new bridge.
 
 {% common %}
 
-### Example: Create a bridge with two calls and two way voice path
+### Example 1 of 2: Create a bridge with two calls and two way voice path
 
 {% sample lang="bash" %}
 
@@ -85,7 +85,7 @@ HTTP/1.1 201 Created
 Location: /v1/users/{userId}/calls/{bridgeId}
 ```
 
-### Example: Create a bridge without calls
+### Example 2 of 2: Create a bridge without calls
 
 {% sample lang="bash" %}
 

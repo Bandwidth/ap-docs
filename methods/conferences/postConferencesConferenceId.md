@@ -25,7 +25,7 @@ Change the conference properties and/or status.
 
 {% common %}
 
-### Example: Terminate Conference
+### Example 1 of 2: Terminate Conference
 
 {% sample lang="bash" %}
 
@@ -63,7 +63,7 @@ conference.complete()
 
 {% common %}
 
-### Example: Prevent all members from speaking
+### Example 2 of 2: Prevent all members from speaking
 {% sample lang="bash" %}
 
 ```bash
