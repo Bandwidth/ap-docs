@@ -51,7 +51,7 @@ Bandwidth returns `HTTP 201` Created with the URI of the message in the `Locatio
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
 		-d \
@@ -120,7 +120,7 @@ Location: /v1/users/{userId}/messages/{messageId}
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
 		-d \
@@ -190,7 +190,7 @@ Location: /v1/users/{userId}/messages/{messageId}
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
 		-d \
@@ -260,7 +260,7 @@ Location: /v1/users/{userId}/messages/{messageId}
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
 		-d \
@@ -410,7 +410,7 @@ To send a text message with request receipt from {fromNumber} to {toNumber}, sen
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
 		-d \
@@ -475,7 +475,7 @@ message = Message.create(client, {
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
 		-d \
@@ -543,7 +543,7 @@ message = Message.create(client, {
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
 		-d \
