@@ -475,7 +475,7 @@ message = Message.create(client, {
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
 		-d \
