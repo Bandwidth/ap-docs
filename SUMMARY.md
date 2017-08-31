@@ -112,6 +112,23 @@
    * [Speak Event](apiCallbacks/speak.md)
    * [Transcription Event – BETA](apiCallbacks/transcription.md)
 
+## Messaging 2.0
+* [Messaging 2.0](messaging-2/getStarted.md)
+ * [Send Messages](messaging-2/methods/sendMessages.md)
+   * [POST Single Message](messaging-2/methods/createSingle.md)
+   * [POST Group Message](messaging-2/methods/createGroup.md)
+ * [Message Events](messaging-2/events/messageEvents.md)
+   * [Incoming SMS/MMS Message](messaging-2/events/receiveSingle.md)
+   * [Incoming Group Message](messaging-2/events/incomingGroup.md)
+   * [Message Sent](messaging-2/events/outSent.md)
+   * [Message Delivered](messaging-2/events/msgDelivered.md)
+   * [Group Message Rejected](messaging-2/events/groupReject.md)
+ * [Api Error Response](messaging-2/errors/errors.md)
+   * [400 - Bad Request](messaging-2/errors/badRequest.md)
+   * [401 - Unauthorized](messaging-2/errors/unauth.md)
+   * [403 - Forbidden](messaging-2/errors/forbidden.md)
+   * [429 - Too Many Requests](messaging-2/errors/tooManyReq.md)
+
 ## BXML
 * [BXML](bxml/bxml.md)
  * [Gather](bxml/verbs/gather.md)
