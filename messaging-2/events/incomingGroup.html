@@ -1,0 +1,2400 @@
+
+<!DOCTYPE HTML>
+<html lang="">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Incoming Group Message</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-bandwidth-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-bandwidth-fonts/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-bandwidth/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="outSent.html">
+    
+    
+    <link rel="prev" href="receiveSingle.html">
+    
+
+    </head>
+    <body>
+        
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-P2JT7Z" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+        (function(w,d,s,l,i){
+            w[l]=w[l]||[];
+            w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+            var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),
+                dl=l!='dataLayer'?'&l='+l:'';
+            j.async=true;
+            j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;
+            f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P2JT7Z');
+    </script>
+    
+    
+<div class="book"><div class="head">
+   <a href="http://www.bandwidth.com" class="aimg"><div id="headerLogo"></div></a>
+   <h2> &#x203A;&#xA0; <a href="http://dev.bandwidth.com" style="color: #008db1;">Docs for Developers</a> &#xA0;&#x203A;&#xA0; API Reference</h2>
+   <ul>
+   	<li><a href="https://catapult.inetwork.com/portal/signup" target="_blank"><button class="free-trial">Free trial</button></a></li>
+   	<li><a href="https://catapult.inetwork.com/pages/login.jsf" class="headerLink" target="_blank">Log in</a></li>
+   	<li><a href="https://support.bandwidth.com/access/unauthenticated" class="headerLink" target="_blank">Support</a></li>
+   </ul>
+</div>
+
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Overview</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Get Started
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Rest API</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../methods/restApi.html">
+            
+                <a href="../../methods/restApi.html">
+            
+                    
+                    Rest API
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../../methods/account/account.html">
+            
+                <a href="../../methods/account/account.html">
+            
+                    
+                    /account
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1.1" data-path="../../methods/account/getAccount.html">
+            
+                <a href="../../methods/account/getAccount.html">
+            
+                    
+                    <code class="get">GET </code> Account info
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.2" data-path="../../methods/account/getAccountTransactions.html">
+            
+                <a href="../../methods/account/getAccountTransactions.html">
+            
+                    
+                    <code class="get">GET </code> Account transactions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../../methods/applications/applications.html">
+            
+                <a href="../../methods/applications/applications.html">
+            
+                    
+                    /applications
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.2.1" data-path="../../methods/applications/getApplications.html">
+            
+                <a href="../../methods/applications/getApplications.html">
+            
+                    
+                    <code class="get">GET </code> List Application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.2" data-path="../../methods/applications/postApplications.html">
+            
+                <a href="../../methods/applications/postApplications.html">
+            
+                    
+                    <code class="post">POST</code> Create Application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.3" data-path="../../methods/applications/getApplicationsApplicationId.html">
+            
+                <a href="../../methods/applications/getApplicationsApplicationId.html">
+            
+                    
+                    <code class="get">GET </code> Application info
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.4" data-path="../../methods/applications/postApplicationsApplicationId.html">
+            
+                <a href="../../methods/applications/postApplicationsApplicationId.html">
+            
+                    
+                    <code class="post">POST</code> Update Application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.5" data-path="../../methods/applications/deleteApplicationsApplicationId.html">
+            
+                <a href="../../methods/applications/deleteApplicationsApplicationId.html">
+            
+                    
+                    <code class="delete">DEL </code> Remove Application
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../../methods/availableNumbers/availableNumbers.html">
+            
+                <a href="../../methods/availableNumbers/availableNumbers.html">
+            
+                    
+                    /availableNumbers
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.3.1" data-path="../../methods/availableNumbers/getAvailableNumbersLocal.html">
+            
+                <a href="../../methods/availableNumbers/getAvailableNumbersLocal.html">
+            
+                    
+                    <code class="get">GET </code> List Local Numbers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.2" data-path="../../methods/availableNumbers/postAvailableNumbersLocal.html">
+            
+                <a href="../../methods/availableNumbers/postAvailableNumbersLocal.html">
+            
+                    
+                    <code class="post">POST</code> Order Local Number
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.3" data-path="../../methods/availableNumbers/getAvailableNumbersTollFree.html">
+            
+                <a href="../../methods/availableNumbers/getAvailableNumbersTollFree.html">
+            
+                    
+                    <code class="get">GET </code> List Toll Free Numbers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.4" data-path="../../methods/availableNumbers/postAvailableNumbersTollFree.html">
+            
+                <a href="../../methods/availableNumbers/postAvailableNumbersTollFree.html">
+            
+                    
+                    <code class="post">POST</code> Order Toll Free Number
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../../methods/bridges/bridges.html">
+            
+                <a href="../../methods/bridges/bridges.html">
+            
+                    
+                    /bridges
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.4.1" data-path="../../methods/bridges/getBridges.html">
+            
+                <a href="../../methods/bridges/getBridges.html">
+            
+                    
+                    <code class="get">GET </code> List Bridges
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.2" data-path="../../methods/bridges/postBridges.html">
+            
+                <a href="../../methods/bridges/postBridges.html">
+            
+                    
+                    <code class="post">POST</code> Create Bridge
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.3" data-path="../../methods/bridges/getBridgesBridgeId.html">
+            
+                <a href="../../methods/bridges/getBridgesBridgeId.html">
+            
+                    
+                    <code class="get">GET </code> Bridge info
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.4" data-path="../../methods/bridges/postBridgesBridgeId.html">
+            
+                <a href="../../methods/bridges/postBridgesBridgeId.html">
+            
+                    
+                    <code class="post">POST</code> Update Bridge
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.5" data-path="../../methods/bridges/postBridgesBridgeIdAudio.html">
+            
+                <a href="../../methods/bridges/postBridgesBridgeIdAudio.html">
+            
+                    
+                    <code class="post">POST</code> Play audio in Bridge
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.6" data-path="../../methods/bridges/getBridgesBridgeIdCalls.html">
+            
+                <a href="../../methods/bridges/getBridgesBridgeIdCalls.html">
+            
+                    
+                    <code class="get">GET </code> List Calls in Bridge
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../../methods/calls/calls.html">
+            
+                <a href="../../methods/calls/calls.html">
+            
+                    
+                    /calls
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.5.1" data-path="../../methods/calls/getCalls.html">
+            
+                <a href="../../methods/calls/getCalls.html">
+            
+                    
+                    <code class="get">GET </code> List Calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.2" data-path="../../methods/calls/postCalls.html">
+            
+                <a href="../../methods/calls/postCalls.html">
+            
+                    
+                    <code class="post">POST</code> Create Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.3" data-path="../../methods/calls/getCallsCallId.html">
+            
+                <a href="../../methods/calls/getCallsCallId.html">
+            
+                    
+                    <code class="get">GET </code> Call info
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.4" data-path="../../methods/calls/postCallsCallId.html">
+            
+                <a href="../../methods/calls/postCallsCallId.html">
+            
+                    
+                    <code class="post">POST</code> Update Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.5" data-path="../../methods/calls/postTransferCall.html">
+            
+                <a href="../../methods/calls/postTransferCall.html">
+            
+                    
+                    <code class="post">POST</code> Transfer Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.6" data-path="../../methods/calls/postCallsCallIdAudio.html">
+            
+                <a href="../../methods/calls/postCallsCallIdAudio.html">
+            
+                    
+                    <code class="post">POST</code> Play audio in Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.7" data-path="../../methods/calls/postCallsCallIdDTMF.html">
+            
+                <a href="../../methods/calls/postCallsCallIdDTMF.html">
+            
+                    
+                    <code class="post">POST</code> Send DTMF in Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.8" data-path="../../methods/calls/getCallsCallIdEvents.html">
+            
+                <a href="../../methods/calls/getCallsCallIdEvents.html">
+            
+                    
+                    <code class="get">GET </code> List Call events
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.9" data-path="../../methods/calls/getCallsCallIdEventsEventId.html">
+            
+                <a href="../../methods/calls/getCallsCallIdEventsEventId.html">
+            
+                    
+                    <code class="get">GET </code> Call Event Info
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.10" data-path="../../methods/calls/getCallsCallIdRecordings.html">
+            
+                <a href="../../methods/calls/getCallsCallIdRecordings.html">
+            
+                    
+                    <code class="get">GET </code> List Call Recordings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.11" data-path="../../methods/calls/getCallsCallIdTranscriptions.html">
+            
+                <a href="../../methods/calls/getCallsCallIdTranscriptions.html">
+            
+                    
+                    <code class="get">GET </code> List Call Transcriptions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.12" data-path="../../methods/calls/postCallsCallIdGather.html">
+            
+                <a href="../../methods/calls/postCallsCallIdGather.html">
+            
+                    
+                    <code class="post">POST</code> Create Gather on Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.13" data-path="../../methods/calls/getCallsCallIdGatherGatherId.html">
+            
+                <a href="../../methods/calls/getCallsCallIdGatherGatherId.html">
+            
+                    
+                    <code class="get">GET </code> Gather info
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5.14" data-path="../../methods/calls/postCallsCallIdGatherGatherId.html">
+            
+                <a href="../../methods/calls/postCallsCallIdGatherGatherId.html">
+            
+                    
+                    <code class="post">POST</code> Stop Gather on Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../../methods/conferences/conferences.html">
+            
+                <a href="../../methods/conferences/conferences.html">
+            
+                    
+                    /conferences
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.6.1" data-path="../../methods/conferences/postConferences.html">
+            
+                <a href="../../methods/conferences/postConferences.html">
+            
+                    
+                    <code class="post">POST</code> Create Conference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.2" data-path="../../methods/conferences/getConferencesConferenceId.html">
+            
+                <a href="../../methods/conferences/getConferencesConferenceId.html">
+            
+                    
+                    <code class="get">GET </code> Conference info
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.3" data-path="../../methods/conferences/postConferencesConferenceId.html">
+            
+                <a href="../../methods/conferences/postConferencesConferenceId.html">
+            
+                    
+                    <code class="post">POST</code> Update Conference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.4" data-path="../../methods/conferences/postConferencesConferenceIdAudio.html">
+            
+                <a href="../../methods/conferences/postConferencesConferenceIdAudio.html">
+            
+                    
+                    <code class="post">POST</code> Play audio in Conference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.5" data-path="../../methods/conferences/postConferencesConferenceIdMembers.html">
+            
+                <a href="../../methods/conferences/postConferencesConferenceIdMembers.html">
+            
+                    
+                    <code class="post">POST</code> Add Member to Conference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.6" data-path="../../methods/conferences/getConferencesConferenceIdMembers.html">
+            
+                <a href="../../methods/conferences/getConferencesConferenceIdMembers.html">
+            
+                    
+                    <code class="get">GET </code> List Members in Conference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.7" data-path="../../methods/conferences/postConferencesConferenceIdMembersMemberId.html">
+            
+                <a href="../../methods/conferences/postConferencesConferenceIdMembersMemberId.html">
+            
+                    
+                    <code class="post">POST</code> Update Member
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.8" data-path="../../methods/conferences/getConferencesConferenceIdMembersMemberId.html">
+            
+                <a href="../../methods/conferences/getConferencesConferenceIdMembersMemberId.html">
+            
+                    
+                    <code class="get">GET </code> Member info
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.9" data-path="../../methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.html">
+            
+                <a href="../../methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.html">
+            
+                    
+                    <code class="post">POST</code> Play audio to Member
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../../methods/domains/domains.html">
+            
+                <a href="../../methods/domains/domains.html">
+            
+                    
+                    /domains
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.7.1" data-path="../../methods/domains/getDomains.html">
+            
+                <a href="../../methods/domains/getDomains.html">
+            
+                    
+                    <code class="get">GET </code> List Domains
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.2" data-path="../../methods/domains/postDomains.html">
+            
+                <a href="../../methods/domains/postDomains.html">
+            
+                    
+                    <code class="post">POST</code> Create Domain
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.3" data-path="../../methods/domains/deleteDomainsDomainId.html">
+            
+                <a href="../../methods/domains/deleteDomainsDomainId.html">
+            
+                    
+                    <code class="delete">DEL </code> Remove Domain
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../../methods/endpoints/endpoints.html">
+            
+                <a href="../../methods/endpoints/endpoints.html">
+            
+                    
+                    /endpoints
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.8.1" data-path="../../methods/endpoints/getEndpoints.html">
+            
+                <a href="../../methods/endpoints/getEndpoints.html">
+            
+                    
+                    <code class="get">GET </code> List Endpoints on Domain
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.2" data-path="../../methods/endpoints/postEndpoints.html">
+            
+                <a href="../../methods/endpoints/postEndpoints.html">
+            
+                    
+                    <code class="post">POST</code> Create Endpoint on Domain
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.3" data-path="../../methods/endpoints/getEndpointsEndpointId.html">
+            
+                <a href="../../methods/endpoints/getEndpointsEndpointId.html">
+            
+                    
+                    <code class="get">GET </code> Endpoint info
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.4" data-path="../../methods/endpoints/deleteEndpointsEndpointId.html">
+            
+                <a href="../../methods/endpoints/deleteEndpointsEndpointId.html">
+            
+                    
+                    <code class="delete">DEL </code> Remove Endpoint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.5" data-path="../../methods/endpoints/postEndpointsEndpointId.html">
+            
+                <a href="../../methods/endpoints/postEndpointsEndpointId.html">
+            
+                    
+                    <code class="post">POST</code> Update Endpoint
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../../methods/errors/errors.html">
+            
+                <a href="../../methods/errors/errors.html">
+            
+                    
+                    /errors
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.9.1" data-path="../../methods/errors/getErrors.html">
+            
+                <a href="../../methods/errors/getErrors.html">
+            
+                    
+                    <code class="get">GET </code> List Errors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9.2" data-path="../../methods/errors/getErrorsErrorId.html">
+            
+                <a href="../../methods/errors/getErrorsErrorId.html">
+            
+                    
+                    <code class="get">GET </code> Error info
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10" data-path="../../methods/media/media.html">
+            
+                <a href="../../methods/media/media.html">
+            
+                    
+                    /media
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.10.1" data-path="../../methods/media/getMedia.html">
+            
+                <a href="../../methods/media/getMedia.html">
+            
+                    
+                    <code class="get">GET </code> List Media
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10.2" data-path="../../methods/media/putMediaMediaName.html">
+            
+                <a href="../../methods/media/putMediaMediaName.html">
+            
+                    
+                    <code class="put">PUT </code> Upload Media
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10.3" data-path="../../methods/media/getMediaMediaName.html">
+            
+                <a href="../../methods/media/getMediaMediaName.html">
+            
+                    
+                    <code class="get">GET </code> Download Media
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10.4" data-path="../../methods/media/deleteMediaMediaName.html">
+            
+                <a href="../../methods/media/deleteMediaMediaName.html">
+            
+                    
+                    <code class="delete">DEL </code> Remove Media
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.11" data-path="../../methods/messages/messages.html">
+            
+                <a href="../../methods/messages/messages.html">
+            
+                    
+                    /messages
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.11.1" data-path="../../methods/messages/getMessages.html">
+            
+                <a href="../../methods/messages/getMessages.html">
+            
+                    
+                    <code class="get">GET </code> List Messages
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.11.2" data-path="../../methods/messages/postMessages.html">
+            
+                <a href="../../methods/messages/postMessages.html">
+            
+                    
+                    <code class="post">POST</code> Send SMS and MMS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.11.3" data-path="../../methods/messages/getMessagesMessageId.html">
+            
+                <a href="../../methods/messages/getMessagesMessageId.html">
+            
+                    
+                    <code class="get">GET </code> Message info
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.12" data-path="../../methods/numberInfo/numberInfo.html">
+            
+                <a href="../../methods/numberInfo/numberInfo.html">
+            
+                    
+                    /numberInfo
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.12.1" data-path="../../methods/numberInfo/getNumberInfo.html">
+            
+                <a href="../../methods/numberInfo/getNumberInfo.html">
+            
+                    
+                    <code class="get">GET </code> CNAM number info
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.13" data-path="../../methods/phoneNumbers/phoneNumbers.html">
+            
+                <a href="../../methods/phoneNumbers/phoneNumbers.html">
+            
+                    
+                    /phoneNumbers
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.13.1" data-path="../../methods/phoneNumbers/getPhoneNumbers.html">
+            
+                <a href="../../methods/phoneNumbers/getPhoneNumbers.html">
+            
+                    
+                    <code class="get">GET </code> List Phone Numbers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.13.2" data-path="../../methods/phoneNumbers/postPhoneNumbers.html">
+            
+                <a href="../../methods/phoneNumbers/postPhoneNumbers.html">
+            
+                    
+                    <code class="post">POST</code> Order Phone Number
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.13.3" data-path="../../methods/phoneNumbers/getPhoneNumbersNumberId.html">
+            
+                <a href="../../methods/phoneNumbers/getPhoneNumbersNumberId.html">
+            
+                    
+                    <code class="get">GET </code> Phone Number info
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.13.4" data-path="../../methods/phoneNumbers/postPhoneNumbersNumberId.html">
+            
+                <a href="../../methods/phoneNumbers/postPhoneNumbersNumberId.html">
+            
+                    
+                    <code class="post">POST</code> Update Phone Number
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.13.5" data-path="../../methods/phoneNumbers/deletePhoneNumbersNumberId.html">
+            
+                <a href="../../methods/phoneNumbers/deletePhoneNumbersNumberId.html">
+            
+                    
+                    <code class="delete">DEL </code> Remove Phone Number
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.14" data-path="../../methods/recordings/recordings.html">
+            
+                <a href="../../methods/recordings/recordings.html">
+            
+                    
+                    /recordings
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.14.1" data-path="../../methods/recordings/getRecordings.html">
+            
+                <a href="../../methods/recordings/getRecordings.html">
+            
+                    
+                    <code class="get">GET </code> List Recordings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.14.2" data-path="../../methods/recordings/getRecordingsRecordingId.html">
+            
+                <a href="../../methods/recordings/getRecordingsRecordingId.html">
+            
+                    
+                    <code class="get">GET </code> Recording info
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.15" data-path="../../methods/transcriptions/transcriptions.html">
+            
+                <a href="../../methods/transcriptions/transcriptions.html">
+            
+                    
+                    /recordings/{id}/transcriptions
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.15.1" data-path="../../methods/transcriptions/postTranscriptions.html">
+            
+                <a href="../../methods/transcriptions/postTranscriptions.html">
+            
+                    
+                    <code class="post">POST</code> Create new Transcription
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.15.2" data-path="../../methods/transcriptions/getTranscriptions.html">
+            
+                <a href="../../methods/transcriptions/getTranscriptions.html">
+            
+                    
+                    <code class="get">GET </code> List Transcriptions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.15.3" data-path="../../methods/transcriptions/getTranscriptionsTranscriptionId.html">
+            
+                <a href="../../methods/transcriptions/getTranscriptionsTranscriptionId.html">
+            
+                    
+                    <code class="get">GET </code> Transcription info
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Rest API Callbacks</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../apiCallbacks/callbacks.html">
+            
+                <a href="../../apiCallbacks/callbacks.html">
+            
+                    
+                    Callbacks
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../apiCallbacks/messagingEvents.html">
+            
+                <a href="../../apiCallbacks/messagingEvents.html">
+            
+                    
+                    Messaging Events
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1.1" data-path="../../apiCallbacks/sms.html">
+            
+                <a href="../../apiCallbacks/sms.html">
+            
+                    
+                    SMS Event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.2" data-path="../../apiCallbacks/mms.html">
+            
+                <a href="../../apiCallbacks/mms.html">
+            
+                    
+                    MMS Event
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../apiCallbacks/voiceEvents.html">
+            
+                <a href="../../apiCallbacks/voiceEvents.html">
+            
+                    
+                    Voice Events
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.2.1" data-path="../../apiCallbacks/answer.html">
+            
+                <a href="../../apiCallbacks/answer.html">
+            
+                    
+                    Answer Event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.2" data-path="../../apiCallbacks/audio.html">
+            
+                <a href="../../apiCallbacks/audio.html">
+            
+                    
+                    Audio File Playback Events
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.3" data-path="../../apiCallbacks/timeout.html">
+            
+                <a href="../../apiCallbacks/timeout.html">
+            
+                    
+                    CallTimeout Event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.4" data-path="../../apiCallbacks/conf.html">
+            
+                <a href="../../apiCallbacks/conf.html">
+            
+                    
+                    Conference Event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.5" data-path="../../apiCallbacks/confAudio.html">
+            
+                <a href="../../apiCallbacks/confAudio.html">
+            
+                    
+                    Conference Audio File Playback Event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.6" data-path="../../apiCallbacks/confMember.html">
+            
+                <a href="../../apiCallbacks/confMember.html">
+            
+                    
+                    Conference Member Event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.7" data-path="../../apiCallbacks/confSpeak.html">
+            
+                <a href="../../apiCallbacks/confSpeak.html">
+            
+                    
+                    Conference Speak Event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.8" data-path="../../apiCallbacks/dtmf.html">
+            
+                <a href="../../apiCallbacks/dtmf.html">
+            
+                    
+                    DTMF Event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.9" data-path="../../apiCallbacks/gather.html">
+            
+                <a href="../../apiCallbacks/gather.html">
+            
+                    
+                    Gather Event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.10" data-path="../../apiCallbacks/incomingCall.html">
+            
+                <a href="../../apiCallbacks/incomingCall.html">
+            
+                    
+                    Incoming Call Event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.11" data-path="../../apiCallbacks/hangup.html">
+            
+                <a href="../../apiCallbacks/hangup.html">
+            
+                    
+                    Hangup Event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.12" data-path="../../apiCallbacks/recording.html">
+            
+                <a href="../../apiCallbacks/recording.html">
+            
+                    
+                    Recording Event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.13" data-path="../../apiCallbacks/reject.html">
+            
+                <a href="../../apiCallbacks/reject.html">
+            
+                    
+                    Reject Event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.14" data-path="../../apiCallbacks/speak.html">
+            
+                <a href="../../apiCallbacks/speak.html">
+            
+                    
+                    Speak Event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.15" data-path="../../apiCallbacks/transcription.html">
+            
+                <a href="../../apiCallbacks/transcription.html">
+            
+                    
+                    Transcription Event &#x2013; <code class="beta">BETA </code>
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Messaging 2.0</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../getStarted.html">
+            
+                <a href="../getStarted.html">
+            
+                    
+                    Messaging 2.0
+            
+                </a><i class="fa fa-eye expand fa-eye-slash" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../methods/sendMessages.html">
+            
+                <a href="../methods/sendMessages.html">
+            
+                    
+                    Send Messages
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1.1" data-path="../methods/createSingle.html">
+            
+                <a href="../methods/createSingle.html">
+            
+                    
+                    <code class="post">POST</code> Single Message
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.2" data-path="../methods/createGroup.html">
+            
+                <a href="../methods/createGroup.html">
+            
+                    
+                    <code class="post">POST</code> Group Message
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="messageEvents.html">
+            
+                <a href="messageEvents.html">
+            
+                    
+                    Message Events
+            
+                </a><i class="fa fa-eye expand fa-eye-slash" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.2.1" data-path="receiveSingle.html">
+            
+                <a href="receiveSingle.html">
+            
+                    
+                    Incoming SMS/MMS Message
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.1.2.2" data-path="incomingGroup.html">
+            
+                <a href="incomingGroup.html">
+            
+                    
+                    Incoming Group Message
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.3" data-path="outSent.html">
+            
+                <a href="outSent.html">
+            
+                    
+                    Message Sent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.4" data-path="msgDelivered.html">
+            
+                <a href="msgDelivered.html">
+            
+                    
+                    Message Delivered
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2.5" data-path="groupReject.html">
+            
+                <a href="groupReject.html">
+            
+                    
+                    Group Message Rejected
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../errors/errors.html">
+            
+                <a href="../errors/errors.html">
+            
+                    
+                    Api Error Response
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.3.1" data-path="../errors/badRequest.html">
+            
+                <a href="../errors/badRequest.html">
+            
+                    
+                    400 - Bad Request
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.2" data-path="../errors/unauth.html">
+            
+                <a href="../errors/unauth.html">
+            
+                    
+                    401 - Unauthorized
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.3" data-path="../errors/forbidden.html">
+            
+                <a href="../errors/forbidden.html">
+            
+                    
+                    403 - Forbidden
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.4" data-path="../errors/tooManyReq.html">
+            
+                <a href="../errors/tooManyReq.html">
+            
+                    
+                    429 - Too Many Requests
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">BXML</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../../bxml/bxml.html">
+            
+                <a href="../../bxml/bxml.html">
+            
+                    
+                    BXML
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../../bxml/verbs/gather.html">
+            
+                <a href="../../bxml/verbs/gather.html">
+            
+                    
+                    Gather
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../../bxml/verbs/hangup.html">
+            
+                <a href="../../bxml/verbs/hangup.html">
+            
+                    
+                    Hangup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="../../bxml/verbs/playAudio.html">
+            
+                <a href="../../bxml/verbs/playAudio.html">
+            
+                    
+                    PlayAudio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4" data-path="../../bxml/verbs/record.html">
+            
+                <a href="../../bxml/verbs/record.html">
+            
+                    
+                    Record
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.5" data-path="../../bxml/verbs/redirect.html">
+            
+                <a href="../../bxml/verbs/redirect.html">
+            
+                    
+                    Redirect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.6" data-path="../../bxml/verbs/speakSentence.html">
+            
+                <a href="../../bxml/verbs/speakSentence.html">
+            
+                    
+                    SpeakSentence
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.7" data-path="../../bxml/verbs/transfer.html">
+            
+                <a href="../../bxml/verbs/transfer.html">
+            
+                    
+                    Transfer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">BXML Callbacks</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../../bxml/bxmlCallbacks.html">
+            
+                <a href="../../bxml/bxmlCallbacks.html">
+            
+                    
+                    BXML Callbacks
+            
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../../bxml/callBacks/answer.html">
+            
+                <a href="../../bxml/callBacks/answer.html">
+            
+                    
+                    Answer Event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" data-path="../../bxml/callBacks/gather.html">
+            
+                <a href="../../bxml/callBacks/gather.html">
+            
+                    
+                    Gather event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.3" data-path="../../bxml/callBacks/hangup.html">
+            
+                <a href="../../bxml/callBacks/hangup.html">
+            
+                    
+                    Hangup Event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.4" data-path="../../bxml/callBacks/recording.html">
+            
+                <a href="../../bxml/callBacks/recording.html">
+            
+                    
+                    Recording event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.5" data-path="../../bxml/callBacks/transcription.html">
+            
+                <a href="../../bxml/callBacks/transcription.html">
+            
+                    
+                    Transcription event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.6" data-path="../../bxml/callBacks/redirect.html">
+            
+                <a href="../../bxml/callBacks/redirect.html">
+            
+                    
+                    Redirect event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.7" data-path="../../bxml/callBacks/transfer.html">
+            
+                <a href="../../bxml/callBacks/transfer.html">
+            
+                    
+                    Transfer Complete Event
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Rate Limits</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../../rateLimits.html">
+            
+                <a href="../../rateLimits.html">
+            
+                    
+                    Rate Limits
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">HTTP Error Codes</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../../errors.html">
+            
+                <a href="../../errors.html">
+            
+                    
+                    HTTP Errors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">FAQ</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1">
+            
+                <a target="_blank" href="http://dev.bandwidth.com/faq" style="width: 100%;">
+            
+                    
+                    FAQ
+            
+                <i class="icons8-open-in-window" style="float:right;"></i></a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../..">Incoming Group Message</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section" style="padding-top: 0px;">
+                                
+                                <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h1 id="incoming-group-message-event">Incoming Group Message Event</h1>
+<p>In order to receive message events, you need to ensure you have set up your application to send callbacks to your server&apos;s URL.</p>
+<h3 id="parameters">Parameters</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">type</td>
+<td style="text-align:left"><code>string</code></td>
+<td style="text-align:left">The Event type</td>
+</tr>
+<tr>
+<td style="text-align:left">time</td>
+<td style="text-align:left"><code>array</code></td>
+<td style="text-align:left">The time of the event described in the receipt</td>
+</tr>
+<tr>
+<td style="text-align:left">description</td>
+<td style="text-align:left"><code>string</code></td>
+<td style="text-align:left">A detailed description of the event described by the receipt</td>
+</tr>
+<tr>
+<td style="text-align:left">to</td>
+<td style="text-align:left"><code>array</code></td>
+<td style="text-align:left">The destination number for an outbound group message receipt</td>
+</tr>
+<tr>
+<td style="text-align:left">message</td>
+<td style="text-align:left"><code>string</code></td>
+<td style="text-align:left">Any string, it will be included in the callback events of the message.</td>
+</tr>
+<tr>
+<td style="text-align:left">message.id</td>
+<td style="text-align:left"><code>string</code></td>
+<td style="text-align:left">The unique ID of this message</td>
+</tr>
+<tr>
+<td style="text-align:left">message.owner</td>
+<td style="text-align:left"><code>string</code></td>
+<td style="text-align:left">The phone number this particular message is associated with.<br> For an outbound message, this is always the <code>from</code> number.<br> For an inbound message, this will be (one of) the <code>to</code> number(s).<br>For instance, if this is an inbound group message, the <code>owner</code> field will be set to the <code>to</code> number that this particular copy of the group message belongs to.</td>
+</tr>
+<tr>
+<td style="text-align:left">message.time</td>
+<td style="text-align:left"><code>string</code></td>
+<td style="text-align:left">The time stamp of when message was created</td>
+</tr>
+<tr>
+<td style="text-align:left">message.direction</td>
+<td style="text-align:left"><code>string</code></td>
+<td style="text-align:left">Whether the message was sent from Bandwidth, or received by a Bandwidth number</td>
+</tr>
+<tr>
+<td style="text-align:left">message.to</td>
+<td style="text-align:left"><code>array</code></td>
+<td style="text-align:left">The phone number (or numbers) the message the message is sent to. On a POST, this can be a String, or an array of one or more numbers. In all other places, this will be an array.</td>
+</tr>
+<tr>
+<td style="text-align:left">message.from</td>
+<td style="text-align:left"><code>string</code></td>
+<td style="text-align:left">The phone number the message was sent from</td>
+</tr>
+<tr>
+<td style="text-align:left">message.text</td>
+<td style="text-align:left"><code>string</code></td>
+<td style="text-align:left">The text content of the message</td>
+</tr>
+<tr>
+<td style="text-align:left">message.applicationId</td>
+<td style="text-align:left"><code>string</code></td>
+<td style="text-align:left">The ID of the Application your <code>from</code> number is associated with in the Bandwidth Phone Number Dashboard.</td>
+</tr>
+<tr>
+<td style="text-align:left">message.media</td>
+<td style="text-align:left"><code>array</code></td>
+<td style="text-align:left">A list of URLs to include as media attachments as part of the message</td>
+</tr>
+<tr>
+<td style="text-align:left">message.tag</td>
+<td style="text-align:left"><code>string</code></td>
+<td style="text-align:left">An custom String that you can use to track this particular message</td>
+</tr>
+</tbody>
+</table>
+</div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h3 id="incoming-group-message">Incoming group message</h3>
+</div><div class="api-method-sample" data-lang="http" data-name="HTTP"><pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/your_url</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">User-Agent</span>: BandwidthAPI/v2
+
+<span class="json">[
+  {
+    <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;message-received&quot;</span>,
+    <span class="hljs-attr">&quot;time&quot;</span>: <span class="hljs-string">&quot;2016-09-14T18:20:16Z&quot;</span>,
+    <span class="hljs-attr">&quot;description&quot;</span>: <span class="hljs-string">&quot;Incoming message received&quot;</span>,
+    <span class="hljs-attr">&quot;to&quot;</span>: <span class="hljs-string">&quot;+12345678902&quot;</span>,
+    <span class="hljs-attr">&quot;message&quot;</span>: {
+      <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;14762070468292kw2fuqty55yp2b2&quot;</span>,
+      <span class="hljs-attr">&quot;time&quot;</span>: <span class="hljs-string">&quot;2016-09-14T18:20:16Z&quot;</span>,
+      <span class="hljs-attr">&quot;to&quot;</span>: [
+        <span class="hljs-string">&quot;+12345678902&quot;</span>,
+        <span class="hljs-string">&quot;+12345678903&quot;</span>
+      ],
+      <span class="hljs-attr">&quot;from&quot;</span>: <span class="hljs-string">&quot;+12345678901&quot;</span>,
+      <span class="hljs-attr">&quot;text&quot;</span>: <span class="hljs-string">&quot;Hey, check this out!&quot;</span>,
+      <span class="hljs-attr">&quot;applicationId&quot;</span>: <span class="hljs-string">&quot;93de2206-9669-4e07-948d-329f4b722ee2&quot;</span>,
+      <span class="hljs-attr">&quot;media&quot;</span>: [
+        <span class="hljs-string">&quot;https://s3.amazonaws.com/bw-v2-api/demo.jpg&quot;</span>
+      ],
+      <span class="hljs-attr">&quot;owner&quot;</span>: <span class="hljs-string">&quot;+12345678902&quot;</span>,
+      <span class="hljs-attr">&quot;direction&quot;</span>: <span class="hljs-string">&quot;in&quot;</span>
+    }
+  }
+]
+</span></code></pre>
+</div></div></div>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class="search-results-count"></span> results matching &quot;<span class="search-query"></span>&quot;</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching &quot;<span class="search-query"></span>&quot;</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Incoming Group Message","level":"4.1.2.2","depth":3,"next":{"title":"Message Sent","level":"4.1.2.3","depth":3,"path":"messaging-2/events/outSent.md","ref":"messaging-2/events/outSent.md","articles":[]},"previous":{"title":"Incoming SMS/MMS Message","level":"4.1.2.1","depth":3,"path":"messaging-2/events/receiveSingle.md","ref":"messaging-2/events/receiveSingle.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.7.10","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"messaging-2/events/incomingGroup.md","mtime":"2017-08-31T17:48:04.244Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-08-31T17:49:44.662Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+	<!-- begin usabilla live embed code -->
+	<script type="text/javascript">/*{literal}<![CDATA[*/window.lightningjs||function(c){function g(b,d){d&&(d+=(/\?/.test(d)?"&":"?")+"lv=1");c[b]||function(){var i=window,h=document,j=b,g=h.location.protocol,l="load",k=0;(function(){function b(){a.P(l);a.w=1;c[j]("_load")}c[j]=function(){function m(){m.id=e;return c[j].apply(m,arguments)}var b,e=++k;b=this&&this!=i?this.id||0:0;(a.s=a.s||[]).push([e,b,arguments]);m.then=function(b,c,h){var d=a.fh[e]=a.fh[e]||[],j=a.eh[e]=a.eh[e]||[],f=a.ph[e]=a.ph[e]||[];b&&d.push(b);c&&j.push(c);h&&f.push(h);return m};return m};var a=c[j]._={};a.fh={};a.eh={};a.ph={};a.l=d?d.replace(/^\/\//,(g=="https:"?g:"http:")+"//"):d;a.p={0:+new Date};a.P=function(b){a.p[b]=new Date-a.p[0]};a.w&&b();i.addEventListener?i.addEventListener(l,b,!1):i.attachEvent("on"+l,b);var q=function(){function b(){return["<head></head><",c,' onload="var d=',n,";d.getElementsByTagName('head')[0].",d,"(d.",g,"('script')).",i,"='",a.l,"'\"></",c,">"].join("")}var c="body",e=h[c];if(!e)return setTimeout(q,100);a.P(1);var d="appendChild",g="createElement",i="src",k=h[g]("div"),l=k[d](h[g]("div")),f=h[g]("iframe"),n="document",p;k.style.display="none";e.insertBefore(k,e.firstChild).id=o+"-"+j;f.frameBorder="0";f.id=o+"-frame-"+j;/MSIE[ ]+6/.test(navigator.userAgent)&&(f[i]="javascript:false");f.allowTransparency="true";l[d](f);try{f.contentWindow[n].open()}catch(s){a.domain=h.domain,p="javascript:var d="+n+".open();d.domain='"+h.domain+"';",f[i]=p+"void(0);"}try{var r=f.contentWindow[n];r.write(b());r.close()}catch(t){f[i]=p+'d.write("'+b().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};a.l&&setTimeout(q,0)})()}();c[b].lv="1";return c[b]}var o="lightningjs",k=window[o]=g(o);k.require=g;k.modules=c}({});
+	window.usabilla_live = lightningjs.require("usabilla_live", "//w.usabilla.com/c590d7d0e7ac.js");
+	/*]]>{/literal}*/</script>
+	<!-- end usabilla live embed code -->
+
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-gtm/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-bandwidth-fonts/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-bandwidth/theme-api.js"></script>
+        
+    
+
+    </body>
+</html>
+
