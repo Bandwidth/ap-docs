@@ -1,7 +1,7 @@
-# Bandwidth V2 Messaging API
+# Bandwidth Messaging 2.0
 
 ### About
-The Bandwidth V2 Messaging API is an all new way to send and receive SMS, MMS, and Group Messages on the Bandwidth network. It works with your numbers you already have in the Number Management section of the Bandwidth Phone Number Dashboard.
+The Messaging 2.0 API is an all new way to send and receive SMS, MMS, and Group Messages on the Bandwidth network. It works with your numbers you already have in the Number Management section of the Bandwidth Phone Number Dashboard.
 
 ### Getting Started
 
