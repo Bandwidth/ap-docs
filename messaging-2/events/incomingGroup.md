@@ -22,7 +22,7 @@ In order to receive message events, you need to ensure you have set up your appl
 | message.tag           | `string` | An custom String that you can use to track this particular message                                                                                                                                                                                                                                                                                                  |
 
 {% common %}
-### Incoming group message
+### Example 1 of 2: Incoming group message with single media
 
 {% sample lang='http' %}
 
@@ -48,7 +48,44 @@ User-Agent: BandwidthAPI/v2
       "text": "Hey, check this out!",
       "applicationId": "93de2206-9669-4e07-948d-329f4b722ee2",
       "media": [
-        "https://s3.amazonaws.com/bw-v2-api/demo.jpg"
+        "https://api.catapult.inetwork.com/v1/users/{userId}/media/14762070468292kw2fuqty55yp2b2/0/bw.png"
+      ],
+      "owner": "+12345678902",
+      "direction": "in"
+    }
+  }
+]
+```
+
+### Example 2 of 2: Incoming group message with multiple media
+
+{% sample lang='http' %}
+
+```http
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v2
+
+[
+  {
+    "type": "message-received",
+    "time": "2016-09-14T18:20:16Z",
+    "description": "Incoming message received",
+    "to": "+12345678902",
+    "message": {
+      "id": "14762070468292kw2fuqty55yp2b2",
+      "time": "2016-09-14T18:20:16Z",
+      "to": [
+        "+12345678902",
+        "+12345678903"
+      ],
+      "from": "+12345678901",
+      "text": "Hey, check this out!",
+      "applicationId": "93de2206-9669-4e07-948d-329f4b722ee2",
+      "media": [
+        "https://api.catapult.inetwork.com/v1/users/{userId}/media/14762070468292kw2fuqty55yp2b2/0/bw.png",
+        "https://api.catapult.inetwork.com/v1/users/{userId}/media/14762070468292kw2fuqty55yp2b2/1/bandwidth_logo.png",
+        "https://api.catapult.inetwork.com/v1/users/{userId}/media/14762070468292kw2fuqty55yp2b2/2/Bandwidth_Contact.txt"
       ],
       "owner": "+12345678902",
       "direction": "in"
