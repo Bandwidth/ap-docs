@@ -36,6 +36,7 @@ User-Agent: BandwidthAPI/v2
     "type": "message-received",
     "time": "2016-09-14T18:20:16Z",
     "description": "Incoming message received",
+    "to": "+12345678902",
     "message": {
       "id": "14762070468292kw2fuqty55yp2b2",
       "time": "2016-09-14T18:20:16Z",
@@ -70,6 +71,7 @@ User-Agent: BandwidthAPI/v2
     "type": "message-received",
     "time": "2016-09-14T18:20:16Z",
     "description": "Incoming message received",
+    "to": "+12345678902",
     "message": {
       "id": "14762070468292kw2fuqty55yp2b2",
       "time": "2016-09-14T18:20:16Z",
