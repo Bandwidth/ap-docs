@@ -118,7 +118,7 @@
    * [POST Single Message](messaging-2/methods/createSingle.md)
    * [POST Group Message](messaging-2/methods/createGroup.md)
  * [Message Events](messaging-2/events/messageEvents.md)
-   * [Incoming SMS/MMS Message](messaging-2/events/receiveSingle.md)
+   * [Incoming SMS/MMS Message](messaging-2/events/incomingSingle.md)
    * [Incoming Group Message](messaging-2/events/incomingGroup.md)
    * [Message Sent](messaging-2/events/outSent.md)
    * [Message Delivered](messaging-2/events/msgDelivered.md)
