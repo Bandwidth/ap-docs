@@ -12,7 +12,7 @@ Send a group text message or picture message
 | Parameter     | Type                 | Description                                                                                                  | Mandatory |
 |:--------------|:---------------------|:-------------------------------------------------------------------------------------------------------------|:----------|
 | from          | `string`             | One of your telephone numbers the message should come from (must be in E.164 format, like +19195551212).     | Yes       |
-| to            | `array` of `string`  | The phone number or numbers the message should be sent to (must be in E.164 format, like +19195551212).      | Yes       |
+| to            | `array` of `string`  | The phone numbers the message should be sent to (must be in E.164 format, like +19195551212).                | Yes       |
 | text          | `string`             | The contents of the text message (must be 2048 characters or less).                                          | Yes       |
 | applicationId | `string`             | The ID of the Application your `from` number is associated with in the Bandwidth Phone Number Dashboard.     | Yes       |
 | media         | `array`              | A list of URLs to include as media attachments as part of the message.                                       | No        |
