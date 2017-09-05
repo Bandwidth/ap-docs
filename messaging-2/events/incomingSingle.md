@@ -1,6 +1,6 @@
 {% method %}
-# Incoming Group Message Event
-In order to receive message events, you need to ensure you have set up your application to send callbacks to your server's URL.
+# Incoming Text Message Event
+In order to receive text messages events, you need to ensure you have set up your application to send callbacks to your server's URL.
 
 ### Parameters
 | Parameter             | Type     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
@@ -18,11 +18,11 @@ In order to receive message events, you need to ensure you have set up your appl
 | message.from          | `string` | The phone number the message was sent from                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | message.text          | `string` | The text content of the message                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | message.applicationId | `string` | The ID of the Application your `from` number is associated with in the Bandwidth Phone Number Dashboard.                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| message.media         | `array`  | A list of URLs to include as media attachments as part of the message. <br> Using the [v1 media api](../../methods/media/getMediaMediaName.md) You can download the media **WITHIN 30 DAYS** <br><br> The URL will look something like: <br> `https://api.catapult.inetwork.com/v1/users/{userId}/media/{messageId}/{index}/{filename}` <br><br> Where `messageId` is the ID of the incoming message that had the media, `index` is the index of that media in the message (starting from `0`) and `filename` is the original filename |
+| message.media         | `array`  | A list of URLs to include as media attachments as part of the message. <br> Using the [v1 media api](../../methods/media/getMediaMediaName.md) you can download the media **WITHIN 30 DAYS** <br><br> The URL will look something like: <br> `https://api.catapult.inetwork.com/v1/users/{userId}/media/{messageId}/{index}/{filename}` <br><br> Where `messageId` is the ID of the incoming message that had the media, `index` is the index of that media in the message (starting from `0`) and `filename` is the original filename |
 | message.tag           | `string` | An custom String that you can use to track this particular message                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 {% common %}
-### Example 1 of 2: Incoming group message with single media
+### Example 1 of 2: Incoming text message with single media
 
 {% sample lang='http' %}
 
@@ -41,8 +41,7 @@ User-Agent: BandwidthAPI/v2
       "id": "14762070468292kw2fuqty55yp2b2",
       "time": "2016-09-14T18:20:16Z",
       "to": [
-        "+12345678902",
-        "+12345678903"
+        "+12345678902"
       ],
       "from": "+12345678901",
       "text": "Hey, check this out!",
@@ -58,8 +57,7 @@ User-Agent: BandwidthAPI/v2
 ```
 
 {% common %}
-
-### Example 2 of 2: Incoming group message with multiple media
+### Example 2 of 2: Incoming text message with multiple media
 
 {% sample lang='http' %}
 
@@ -78,8 +76,7 @@ User-Agent: BandwidthAPI/v2
       "id": "14762070468292kw2fuqty55yp2b2",
       "time": "2016-09-14T18:20:16Z",
       "to": [
-        "+12345678902",
-        "+12345678903"
+        "+12345678902"
       ],
       "from": "+12345678901",
       "text": "Hey, check this out!",
