@@ -1,16 +1,116 @@
 # Bandwidth Messaging 2.0
 
-### About
+## About
 The Messaging 2.0 API is an all new way to send and receive SMS, MMS, and Group Messages on the Bandwidth network. It works with your numbers you already have in the Number Management section of the Bandwidth Phone Number Dashboard.
+
+### Contact your [CSA](http://support.bandwidth.com) to get your intial setup.
+
+* Creating Bandwidth Phone Number Dashboard (AKA: Dashboard, Iris) login and account
+* Modifying account to enable HTTP Messaging
+* Modifying account to point to correct Proxy ID
+* Linking Bandwidth Voice and Messaging APIs (AKA Catapult, Application Platform) userid to Bandwidth Phone Number Dashboard (AKA: Dashboard, Iris) account
+
+---
 
 ### Getting Started
 
+1. Create application
+2. Create subaccount (_site_)
+3. Create location (_sippeer_) and assign the application
+4. Order Phone numbers to location (_sippeer_)
+5. Send Text Message
+
+#### Get your account ID
+
+![Get Account Id](../images/messaging-2/getAccount.gif)
+
 #### Set up your Application
-* To get started, you'll want to head over to the [Bandwidth Phone Number Dashboard](https://dashboard.bandwidth.com/portal/report/) and set up an Application on your Location (SipPeer) that you want to use for HTTP Messaging. Specific documentation on this process is still in progress. You'll get an `applicationId` for the Application you created, which will be used when sending messages.
+The Application contains the HTTP URL you want to use for both inbound and outbound messages.
+
+* To get started, you'll want to head over to the [Bandwidth Phone Number Dashboard](https://dashboard.bandwidth.com/portal/report/) and set up an Application on your Location (SipPeer) that you want to use for HTTP Messaging. You'll get an `applicationId` for the Application you created, which will be used when sending messages.
+
+![Create Application](../images/messaging-2/createApplication.gif)
+
+```http
+POST https://dashboard.bandwidth.com/api/accounts/{{accountId}}/applications
+Content-Type: application/xml; charset=utf-8
+Authorization: Basic dc123
+```
+```xml
+<Application>
+    <AppName>Demo Server</AppName>
+    <CallbackUrl>https://requestb.in/zuaqjbzu</CallbackUrl>
+    <CallbackCreds/>
+</Application>
+```
+
+> Returns
+
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ApplicationProvisioningResponse>
+    <Application>
+        <ApplicationId>7cc3c4f7-3b8f-4fff-a211-45070792b431</ApplicationId>
+        <ServiceType>Messaging-V2</ServiceType>
+        <AppName>Demo Server</AppName>
+        <CallbackUrl>https://requestb.in/1m009f61</CallbackUrl>
+        <CallbackCreds/>
+    </Application>
+</ApplicationProvisioningResponse>
+```
+
+---
+
+#### Create sub-account (_site_)
+
+* You'll need a sub-account (_site_) in order to create a location (_sippeer_).
+* Fill in the address and set the `type` to `Service`
+
+![Create Sub-account](../images/messaging-2/getAccount.gif)
+
+---
+
+#### Create location (_sippeer_)
+
+* You'll need a location (_sippeer_) in order to group phone numbers.
+* When creating the location be sure to check:
+	* `SMS Enabled`
+	* `Toll Free` (if available)
+	* `Short Code` (if available)
+	* `V2 Messaging`
+	* `Application` - Select the application created above
+* If you need `Toll Free` or `Short Code` support contact [support](http://support.bandwidth.com) to enable.
+
+![Create Location](../images/messaging-2/createLocation.gif)
+
+![detail Location](../images/messaging-2/detailLodation.gif)
+
+---
+
+#### Order Phone Number
+* Once your application, sub-account (_site_), and location (_sippeer_) have been configured you're ready to start ordering phone numbers to use.
+* Using the UI, search for a number and order it to the sub-account (_site_) and location (_sippeer_) created above.
+
+![Order Phone Number](../images/messaging-2/orderNumber.gif)
+
+---
 
 #### Sending Messages
 * To send a message, `POST` to the [`/messages` endpoint](methods/createSingle.md)
 * In the V2 Messaging API, messages are sent asynchronously. Message validation will happen after the server returns `202`. API clients should listen for HTTP callback events if they need to track message state after the initial `POST` request.
+
+![Send Message](../images/messaging-2/sendMessage.gif)
+
+```http
+POST https://api.catapult.inetwork.com/v2/users/{{userId}}/messages
+
+{
+  "from"          : "{{your-bandwidth-number}}",
+  "to"            : "{{yourTN}}",
+  "text"          : "Good morning, this is a test message",
+  "applicationId" : "{{your-application-id}}"
+}
+```
 
 #### Callbacks and Delivery Receipts
 * Callbacks will be sent to the Callback URL for the Application associated with the `from` number on the outgoing message.
