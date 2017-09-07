@@ -1,3 +1,7 @@
+{% multimethod %}
+{% endmultimethod %}
+
+
 # Bandwidth Messaging 2.0
 
 ## About
@@ -22,7 +26,7 @@ The Messaging 2.0 API is an all new way to send and receive SMS, MMS, and Group 
 
 #### Get your account ID
 
-![Get Account Id](../images/messaging-2/getAccount.gif)
+![Get Account Id](../images/messaging-2/getAccountId.gif)
 
 #### Set up your Application
 The Application contains the HTTP URL you want to use for both inbound and outbound messages.
@@ -31,12 +35,25 @@ The Application contains the HTTP URL you want to use for both inbound and outbo
 
 ![Create Application](../images/messaging-2/createApplication.gif)
 
+{% extendmethod %}
+
+| Parameters      | Mandatory | Description                                                                        |
+|:----------------|:----------|:-----------------------------------------------------------------------------------|
+| `AppName`       | Yes       | Plain text name of the application                                                 |
+| `CallbackUrl`   | Yes       | Url to recieve _all_ [message events](./events/msgDelivered.md)                    |
+| `CallBackCreds` | No        | Basic auth credentials to apply to your [message events](./events/msgDelivered.md) |
+
+{% common %}
+
+### Create Application
+
+{% sample lang="http" %}
+
 ```http
-POST https://dashboard.bandwidth.com/api/accounts/{{accountId}}/applications
+POST https://dashboard.bandwidth.com/api/accounts/{{accountId}}/applications HTTP/1.1
 Content-Type: application/xml; charset=utf-8
-Authorization: Basic dc123
-```
-```xml
+Authorization: {user:password}
+
 <Application>
     <AppName>Demo Server</AppName>
     <CallbackUrl>https://requestb.in/zuaqjbzu</CallbackUrl>
@@ -44,7 +61,12 @@ Authorization: Basic dc123
 </Application>
 ```
 
-> Returns
+{% common %}
+
+### Response
+
+* Status: 201
+* Content-Type: "application/xml"
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -59,6 +81,8 @@ Authorization: Basic dc123
 </ApplicationProvisioningResponse>
 ```
 
+{% endextendmethod %}
+
 ---
 
 #### Create sub-account (_site_)
@@ -66,7 +90,7 @@ Authorization: Basic dc123
 * You'll need a sub-account (_site_) in order to create a location (_sippeer_).
 * Fill in the address and set the `type` to `Service`
 
-![Create Sub-account](../images/messaging-2/getAccount.gif)
+![Create Sub-account](../images/messaging-2/createSubAccount.gif)
 
 ---
 
@@ -83,7 +107,7 @@ Authorization: Basic dc123
 
 ![Create Location](../images/messaging-2/createLocation.gif)
 
-![detail Location](../images/messaging-2/detailLodation.gif)
+![detail Location](../images/messaging-2/detailLocation.gif)
 
 ---
 
@@ -101,8 +125,26 @@ Authorization: Basic dc123
 
 ![Send Message](../images/messaging-2/sendMessage.gif)
 
+{% extendmethod %}
+
+
+| Parameter       | Mandatory | Description                                                                                              |
+|:----------------|:----------|:---------------------------------------------------------------------------------------------------------|
+| `from`          | Yes       | One of your telephone numbers the message should come from (must be in E.164 format, like +19195551212). |
+| `to`            | Yes       | The phone number the message should be sent to (must be in E.164 format, like `+19195551212`).           |
+| `text`          | Yes       | The contents of the text message (must be 2048 characters or less).                                      |
+| `applicationId` | Yes       | The ID of the Application your `from` number is associated with in the Bandwidth Phone Number Dashboard. |
+
+{% common %}
+
+### Send Single Text Message
+
+{% sample lang="http" %}
+
 ```http
-POST https://api.catapult.inetwork.com/v2/users/{{userId}}/messages
+POST https://api.catapult.inetwork.com/v2/users/{{userId}}/messages HTTP/1.1
+Content-Type: application/json; charset=utf-8
+Authorization: {token:secret}
 
 {
   "from"          : "{{your-bandwidth-number}}",
@@ -111,6 +153,28 @@ POST https://api.catapult.inetwork.com/v2/users/{{userId}}/messages
   "applicationId" : "{{your-application-id}}"
 }
 ```
+
+{% common %}
+
+### Response
+
+* Status: 202
+* Content-Type: "application/json;charset=UTF-8"
+
+```json
+{
+    "id"            : "15047516192013g5tuga77zsa6jrp",
+    "owner"         : "+19193529968",
+    "applicationId" : "05851417-c78b-4636-81a2-014a54d8f119",
+    "time"          : "2017-09-07T02:33:39.201Z",
+    "direction"     : "out",
+    "to"            : ["+19191231234"],
+    "from"          : "+19193524444",
+    "text"          : "Hi from Bandwidth!"
+}
+```
+
+{% endextendmethod %}
 
 #### Callbacks and Delivery Receipts
 * Callbacks will be sent to the Callback URL for the Application associated with the `from` number on the outgoing message.
