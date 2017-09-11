@@ -53,7 +53,7 @@ await client.Conference.UpdateMemberAsync("{conferenceId1}", "{memberId1}", new 
 {% sample lang="ruby" %}
 
 ```ruby
-# coming soon
+#coming soon
 ```
 
 {% common %}

@@ -128,7 +128,22 @@ curl -v -X GET  https://api.catapult.inetwork.com/v1/availableNumbers/local?city
 {% sample lang="js" %}
 
 ```js
-//coming soon
+
+// Promise
+client.AvailableNumber.search("local", {
+  city : "Cary", 
+  state : "NC",
+  pattern: "*2?9*",
+  quantity : 2 })
+.then(function (numbers) {});
+
+// Callback
+client.AvailableNumber.search("local", {
+  city : "Cary", 
+  state : "NC",
+  pattern: "*2?9*",
+  quantity : 2 }
+ , function (err, numbers) {});
 ```
 
 {% sample lang="csharp" %}

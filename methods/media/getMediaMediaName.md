@@ -20,7 +20,10 @@ Downloads a media file you previously uploaded.
 {% sample lang="js" %}
 
 ```js
-//Coming soon
+client.Media.download("file.mp3").
+then(function (media) {
+  console.log(media);
+});
 ```
 
 {% sample lang="csharp" %}

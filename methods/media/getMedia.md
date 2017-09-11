@@ -24,9 +24,7 @@ Gets a list of your media files. No query parameters are supported.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/media \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+//coming soon 
 ```
 
 {% sample lang="js" %}

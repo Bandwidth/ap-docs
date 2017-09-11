@@ -15,13 +15,16 @@ Deletes a media file from Bandwidth API server. Make sure you don't have any app
 {% sample lang="bash" %}
 
 ```bash
-# Coming soon
+#Coming soon
 ```
 
 {% sample lang="js" %}
 
 ```js
-//Coming soon
+client.Media.delete("file.mp3").
+then(function (media) {
+  console.log(media);
+});
 ```
 
 {% sample lang="csharp" %}

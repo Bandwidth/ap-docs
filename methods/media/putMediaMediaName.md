@@ -34,7 +34,10 @@ You can upload files up to `65MB` and file storage is free for an unlimited numb
 {% sample lang="js" %}
 
 ```js
-//Coming soon
+client.Media.upload("file.mp3").
+then(function (media) {
+  console.log(media);
+});
 ```
 
 {% sample lang="csharp" %}
