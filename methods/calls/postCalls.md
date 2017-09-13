@@ -3,6 +3,8 @@
 ## Create Call
 Creates a new outbound phone call.
 
+For more information about conference calls and bridging calls, see the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>
+
 ### Request URL
 
 <code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/calls`
@@ -208,7 +210,7 @@ client.Call.create({
 var call = await client.Call.CreateAsync(new CreateCallData{
 	From = "{fromNumber}",
 	To = "{toNumber}",
-	RecordingEnabled = true 
+	RecordingEnabled = true
 });
 Console.WriteLine($"Created call with id {call.Id}");
 // Created call with id c-1234
@@ -280,7 +282,7 @@ client.bridge.create({
 var call = await client.Call.CreateAsync(new CreateCallData{
 	From = "{fromNumber}",
 	To = "{sip:someone@somewhere.com}",
-	BridgeId = "bridgeId" 
+	BridgeId = "bridgeId"
 });
 Console.WriteLine($"Created call with id {call.Id}");
 // Created call with id c-1234

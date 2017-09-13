@@ -1,7 +1,7 @@
 {% method %}
 
 ## Fetch Application Information
-Gets information about one of your applications. No query parameters are supported.
+Gets information about one of your applications. No query parameters are supported.For more information on how to integrate voice and messaging in your application, visit the <a href="http://dev.bandwidth.com/faq/#general">FAQ</a>
 
 ### Request URL
 

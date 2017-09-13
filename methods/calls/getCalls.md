@@ -3,6 +3,8 @@
 ## List Calls
 Gets a list of active and historic calls you made or received. Since this operation uses HTTP GET, all the properties are specified as HTTP request parameters.
 
+For more information about bridged calls and conference calls, see the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>
+
 ### Request URL
 
 <code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/calls/`

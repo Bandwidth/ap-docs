@@ -1,7 +1,7 @@
 {% method %}
 
 ## Remove Phone Number
-Removes a number from your account so you can no longer make or receive calls, or send or receive messages with it. When you remove a number from your account, it will not be available to add back to your account, so be careful.
+Removes a number from your account so you can no longer make or receive calls, or send or receive messages with it. When you remove a number from your account, it will not be available to add back to your account, so be careful. To learn more about deleting a phone number, visit the <a href="http://dev.bandwidth.com/faq/#Phone">FAQ</a>
 
 ### Request URL
 

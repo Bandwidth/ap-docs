@@ -1,7 +1,7 @@
 {% method %}
 
 ## Order Phone Number
-Allocates a number so you can use it to make and receive calls and send and receive messages.
+Allocates a number so you can use it to make and receive calls and send and receive messages. For more information about a new phone number, see the <a href="http://dev.bandwidth.com/faq/#Phone">FAQ</a>
 
 ### Request URL
 

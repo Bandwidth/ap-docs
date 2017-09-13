@@ -3,6 +3,8 @@
 ## Order Toll Free Phone Number
 Searches and order available Toll Free numbers.
 
+For more information about Bandwidth’s toll free phone numbers, see the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>
+
 ### Request URL
 <code class="post">POST</code>`https://api.catapult.inetwork.com/v1/availableNumbers/tollFree`
 
