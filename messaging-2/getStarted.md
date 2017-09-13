@@ -17,11 +17,13 @@ The Messaging 2.0 API is an all new way to send and receive SMS, MMS, and Group 
 
 ### Getting Started
 
-1. Create application
-2. Create subaccount (_site_)
-3. Create location (_sippeer_) and assign the application
-4. Order Phone numbers to location (_sippeer_)
-5. Send Text Message
+1. Get your account ID
+2. Set up your Application
+3. Create subaccount (_site_)
+4. Create location (_sippeer_) and assign the application
+5. Order Phone numbers to location (_sippeer_)
+6. Send Text Message
+7. Video Walk through
 
 #### Get your account ID
 
@@ -84,7 +86,7 @@ Authorization: {user:password}
 
 ---
 
-#### Create sub-account (_site_)
+#### Create subaccount (_site_)
 
 * You'll need a sub-account (_site_) in order to create a location (_sippeer_).
 * Fill in the address and set the `type` to `Service`
@@ -93,7 +95,7 @@ Authorization: {user:password}
 
 ---
 
-#### Create location (_sippeer_)
+#### Create location (_sippeer_) and assign the application (_sippeer_)
 
 * You'll need a location (_sippeer_) in order to group phone numbers.
 * When creating the location be sure to check:
@@ -110,7 +112,8 @@ Authorization: {user:password}
 
 ---
 
-#### Order Phone Number
+#### Order Phone numbers to location (_sippeer_)
+
 * Once your application, sub-account (_site_), and location (_sippeer_) have been configured you're ready to start ordering phone numbers to use.
 * Using the UI, search for a number and order it to the sub-account (_site_) and location (_sippeer_) created above.
 
@@ -136,7 +139,7 @@ Authorization: {user:password}
 
 {% common %}
 
-### Send Single Text Message
+### Send Text Message
 
 {% sample lang="http" %}
 
@@ -174,6 +177,13 @@ Authorization: {token:secret}
 ```
 
 {% endextendmethod %}
+
+
+### Video Walk through
+
+{% raw %}
+<iframe width="700" height="395" src="https://www.youtube.com/embed/ZMAz2UaZeVg" frameborder="0" allowfullscreen></iframe>
+{% endraw %}
 
 #### Callbacks and Delivery Receipts
 * Callbacks will be sent to the Callback URL for the Application associated with the `from` number on the outgoing message.
