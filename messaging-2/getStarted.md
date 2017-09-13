@@ -39,9 +39,9 @@ The Application contains the HTTP URL you want to use for both inbound and outbo
 
 ![Create Application](../images/messaging-2/createApplication.gif)
 
-{% extendmethod %}
-
 #### Application Parameters
+
+{% extendmethod %}
 
 | Parameters      | Mandatory | Description                                                                        |
 |:----------------|:----------|:-----------------------------------------------------------------------------------|
@@ -115,7 +115,8 @@ Authorization: {user:password}
 
 ![Create Location](../images/messaging-2/createLocation.gif)
 
-![detail Location](../images/messaging-2/detailLocation.gif)
+#### More Detail
+![detail Location](../images/messaging-2/detailLocation.png)
 
 ---
 
@@ -138,9 +139,9 @@ Authorization: {user:password}
 
 ![Send Message](../images/messaging-2/sendMessage.gif)
 
-{% extendmethod %}
-
 #### Message Parameters
+
+{% extendmethod %}
 
 | Parameter       | Mandatory | Description                                                                                              |
 |:----------------|:----------|:---------------------------------------------------------------------------------------------------------|
