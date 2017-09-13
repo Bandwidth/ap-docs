@@ -15,21 +15,24 @@ The Messaging 2.0 API is an all new way to send and receive SMS, MMS, and Group 
 
 ---
 
-### Getting Started
+## Getting Started
 
-1. Get your account ID
-2. Set up your Application
-3. Create subaccount (_site_)
-4. Create location (_sippeer_) and assign the application
-5. Order Phone numbers to location (_sippeer_)
-6. Send Text Message
-7. Video Walk through
+1. [Get your account ID](#get-your-account-id)
+2. [Setup your Application](#setup-your-application)
+3. [Create subaccount (_site_)](#create-subaccount-site)
+4. [Create location (_sippeer_) and assign the application](#create-location-sippeer-and-assign-the-application-sippeer)
+5. [Order Phone numbers to location (_sippeer_)](#order-numbers-to-location)
+6. [Sending Messages](#sending-messages)
+7. [Video Walk through](#video-walk-through)
 
-#### Get your account ID
+### Get your account ID
+<a name="get-your-account-id"></a>
 
 ![Get Account Id](../images/messaging-2/getAccountId.gif)
 
-#### Set up your Application
+### Setup your Application
+<a name="setup-your-application"></a>
+
 The Application contains the HTTP URL you want to use for both inbound and outbound messages.
 
 * To get started, you'll want to head over to the [Bandwidth Phone Number Dashboard](https://dashboard.bandwidth.com/portal/report/) and set up an Application on your Location (SipPeer) that you want to use for HTTP Messaging. You'll get an `applicationId` for the Application you created, which will be used when sending messages.
@@ -37,6 +40,8 @@ The Application contains the HTTP URL you want to use for both inbound and outbo
 ![Create Application](../images/messaging-2/createApplication.gif)
 
 {% extendmethod %}
+
+#### Application Parameters
 
 | Parameters      | Mandatory | Description                                                                        |
 |:----------------|:----------|:-----------------------------------------------------------------------------------|
@@ -86,7 +91,8 @@ Authorization: {user:password}
 
 ---
 
-#### Create subaccount (_site_)
+### Create subaccount (_site_)
+<a name="create-subaccount-site"></a>
 
 * You'll need a sub-account (_site_) in order to create a location (_sippeer_).
 * Fill in the address and set the `type` to `Service`
@@ -95,7 +101,8 @@ Authorization: {user:password}
 
 ---
 
-#### Create location (_sippeer_) and assign the application (_sippeer_)
+### Create location (_sippeer_) and assign the application (_sippeer_)
+<a name="create-location-sippeer-and-assign-the-application-sippeer"></a>
 
 * You'll need a location (_sippeer_) in order to group phone numbers.
 * When creating the location be sure to check:
@@ -112,7 +119,8 @@ Authorization: {user:password}
 
 ---
 
-#### Order Phone numbers to location (_sippeer_)
+### Order Phone numbers to location (_sippeer_)
+<a name="order-numbers-to-location"></a>
 
 * Once your application, sub-account (_site_), and location (_sippeer_) have been configured you're ready to start ordering phone numbers to use.
 * Using the UI, search for a number and order it to the sub-account (_site_) and location (_sippeer_) created above.
@@ -121,7 +129,10 @@ Authorization: {user:password}
 
 ---
 
-#### Sending Messages
+### Sending Messages
+
+<a name="sending-messages"></a>
+
 * To send a message, `POST` to the [`/messages` endpoint](methods/createSingle.md)
 * In the V2 Messaging API, messages are sent asynchronously. Message validation will happen after the server returns `202`. API clients should listen for HTTP callback events if they need to track message state after the initial `POST` request.
 
@@ -129,6 +140,7 @@ Authorization: {user:password}
 
 {% extendmethod %}
 
+#### Message Parameters
 
 | Parameter       | Mandatory | Description                                                                                              |
 |:----------------|:----------|:---------------------------------------------------------------------------------------------------------|
@@ -180,6 +192,7 @@ Authorization: {token:secret}
 
 
 ### Video Walk through
+<a name="video-walk-through"></a>
 
 {% raw %}
 <iframe width="700" height="395" src="https://www.youtube.com/embed/ZMAz2UaZeVg" frameborder="0" allowfullscreen></iframe>
