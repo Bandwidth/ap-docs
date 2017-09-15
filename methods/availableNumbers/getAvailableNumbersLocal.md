@@ -2,6 +2,8 @@
 ## List available local numbers
 Searches for available local numbers by location or pattern criteria.
 
+For more information about Bandwidth’s local phone numbers, see the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>
+
 ### Request URL
 
 <code class="get">GET</code>`https://api.catapult.inetwork.com/v1/availableNumbers/local?<queryParams>`

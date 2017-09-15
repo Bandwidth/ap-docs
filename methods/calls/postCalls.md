@@ -3,8 +3,6 @@
 ## Create Call
 Creates a new outbound phone call.
 
-For more information about conference calls and bridging calls, see the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>
-
 ### Request URL
 
 <code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/calls`
