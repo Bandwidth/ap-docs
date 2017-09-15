@@ -173,10 +173,10 @@ Authorization: {token:secret}
 
 ### Response
 
-* Status: 202
-* Content-Type: "application/json;charset=UTF-8"
+```http
+HTTP/1.1 202
+Content-Type: "application/json;charset=UTF-8"
 
-```json
 {
     "id"            : "15047516192013g5tuga77zsa6jrp",
     "owner"         : "+19193529968",
