@@ -80,6 +80,7 @@ Console.WriteLine($"{first.Number} - {first.State}");
 ```
 
 {% sample lang="ruby" %}
+
 ```ruby
 results = AvailableNumber.search_local(client, {:area_code => "910", :quantity => 3})
 first_result = results.next

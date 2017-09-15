@@ -28,7 +28,9 @@ You can upload files up to `65MB` and file storage is free for an unlimited numb
 {% sample lang="bash" %}
 
 ```bash
-#coming soon
+curl -v -X PUT https://api.catapult.inetwork.com/v1/users/{your_user_id}/media/{file.mp3}\
+    -u {{token}}:{{secret}} \
+    -F "data=@{/filepath/file.mp3}"
 ```
 
 {% sample lang="js" %}
