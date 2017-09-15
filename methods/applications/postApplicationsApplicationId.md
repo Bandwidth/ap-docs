@@ -31,7 +31,7 @@ NOTE: Properties you don't send will remain unchanged.
 
 {% common %}
 
-### Example: Update Application
+### Example 1 of 1: Update Application
 
 {% sample lang="bash" %}
 

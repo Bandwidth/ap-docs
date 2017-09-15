@@ -34,8 +34,8 @@ This returns a list of all endpoints associated with a domain.
 | password | The plain-text password the SIP client must use when authenticating to use this device.<br>The password is case-sensitive.<br>The password must be at least 6 characters long and contain only Latin 1 (ISO 8859-1) characters. |
 
 {% common %}
-
-### Example: Get a list of all endpoints for a domain
+ 
+### Example 1 of 1: Get a list of all endpoints for a domain
 
 {% sample lang="bash" %}
 

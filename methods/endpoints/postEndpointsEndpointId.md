@@ -22,7 +22,7 @@ This will update an endpoint.
 
 {% common %}
 
-### Example: Update an endpoint
+### Example 1 of 1: Update an endpoint
 
 {% sample lang="bash" %}
 

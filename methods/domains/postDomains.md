@@ -23,7 +23,7 @@ There is a 100 domain max per account limit. Most use cases require using a sing
 
 {% common %}
 
-### Example: Create a domain
+### Example 1 of 1: Create a domain
 
 {% sample lang="bash" %}
 

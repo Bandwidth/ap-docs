@@ -42,7 +42,7 @@ To answer a call (or set active) be sure to do one of the following:
 | voice       | The voice to speak the sentence. Audio currently supports the following voices: <br> - English US: Kate, Susan, Julie, Dave, Paul <br> - English UK: Bridget <br> - Spanish: Esperanza, Violeta, Jorge <br> - French: Jolie, Bernard <br> - German: Katrin, Stefan <br> - Italian: Paola, Luca It will be considered only if sentence is not null/empty.<br>Susan’s voice will be used by default. | No        |
 
 {% common %}
-### Example: Transfer a call using the caller Id of the party being transferred
+### Example 1 of 2: Transfer a call using the caller Id of the party being transferred
 {% sample lang="bash" %}
 
 ```bash
@@ -81,7 +81,7 @@ call.update({:state => 'transferring', :transfer_to => '+18382947878' })
 
 
 {% common %}
-### Example: Transfer a call and play audio to the '838-294-7878' Line
+### Example 2 of 2: Transfer a call and play audio to the '838-294-7878' Line
 
 {% sample lang="bash" %}
 

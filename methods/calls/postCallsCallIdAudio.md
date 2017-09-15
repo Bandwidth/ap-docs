@@ -14,8 +14,8 @@ Plays an audio file or speak a sentence in a phone call.
 
 | Parameter   | Description                                                                                                                                                                                                                                                                                                                                                                                     | Mandatory |
 |:------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
-| fileUrl     | The location of an audio file to play (WAV and MP3 supported).                                                                                                                                                                                                                                                                                                                                  | No        |
-| sentence    | The sentence to speak.                                                                                                                                                                                                                                                                                                                                                                          | No        |
+| fileUrl     | The location of an audio file to play (WAV and MP3 supported). <br> <br>To **STOP AUDIO FILE PLAYBACK** send an empty string like: `{"fileUrl": ""}`                                                                                                                                                                                                                                            | No        |
+| sentence    | The sentence to speak. **MAXIMUM LENGTH 1000 CHARACTERS**  <br> <br> To **STOP SENTENCE PLAYBACK** send an empty string like: `{"sentence": ""}`                                                                                                                                                                                                                                                | No        |
 | gender      | The gender of the voice used to synthesize the sentence. It will be considered only if sentence is not null. The female gender will be used by default.                                                                                                                                                                                                                                         | No        |
 | locale      | The locale used to get the accent of the voice used to synthesize the sentence. Currently audio supports: <br> - en\_US or en\_UK (English) <br> - es or es\_MX (Spanish) <br> - fr or fr\_FR (French) <br> - de or de\_DE (German) <br> - t or it\_IT (Italian) It will be considered only if sentence is not null/empty. The en\_US will be used by default.                                  | No        |
 | voice       | The voice to speak the sentence. Audio currently supports the following voices: <br> - English US: Kate, Susan, Julie, Dave, Paul <br> - English UK: Bridget <br> - Spanish: Esperanza, Violeta, Jorge <br> - French: Jolie, Bernard <br> - German: Katrin, Stefan <br> - Italian: Paola, Luca It will be considered only if sentence is not null/empty. Susan’s voice will be used by default. | No        |
@@ -23,7 +23,7 @@ Plays an audio file or speak a sentence in a phone call.
 | tag         | A string that will be included in the events delivered when the audio playback starts or finishes.                                                                                                                                                                                                                                                                                              | No        |
 {% common %}
 
-### Example: Speak a Sentence
+### Example 1 of 4: Speak a Sentence
 
 {% sample lang="bash" %}
 
@@ -95,7 +95,7 @@ call.play_audio({
 
 {% common %}
 
-### Example: Interrupt/stop a sentence from speaking.
+### Example 2 of 4: Interrupt/stop a sentence from speaking.
 {% sample lang="bash" %}
 
 
@@ -113,10 +113,10 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callI
 //Speak sentence in a call
 
 //Promise
-client.Call.speakSentence("callId", "").then(function (res) {});
+client.Call.stopSpeaking("callId").then(function (res) {});
 
 //Callback
-client.Call.speakSentence("callId", "", function (err, res) {});
+client.Call.stopSpeaking("callId", function (err, res) {});
 ```
 
 {% sample lang="csharp" %}
@@ -135,7 +135,7 @@ call.play_audio({
 
 {% common %}
 
-### Example: Play an Audio File
+### Example 3 of 4: Play an Audio File
 
 {% sample lang="bash" %}
 
@@ -173,7 +173,7 @@ call.play_audio({
 ```
 
 {% common %}
-### Example: Stop an Audio File Playing
+### Example 4 of 4: Stop an Audio File Playing
 {% sample lang="bash" %}
 
 ```bash
@@ -190,10 +190,10 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callI
 //Stop Audio file on bridge
 
 //Promise
-client.Call.playAudioFile("callId", "").then(function (res) {});
+client.Call.stopAudioFilePlayback("callId").then(function (res) {});
 
 //Callback
-client.Call.playAudioFile("callId", "", function (err, res) {});
+client.Call.stopAudioFilePlayback("callId", function (err, res) {});
 ```
 
 {% sample lang="csharp" %}

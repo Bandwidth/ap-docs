@@ -33,7 +33,7 @@ Gets the most recent user errors for the user. Since this operation uses HTTP GE
 
 {% common %}
 
-### Example: Get errors
+### Example 1 of 1: Get errors
 
 {% sample lang="bash" %}
 

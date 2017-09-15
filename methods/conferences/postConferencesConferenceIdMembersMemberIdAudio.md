@@ -12,8 +12,8 @@ Speak text or play audio to **ONLY** a single conference member.
 ### Supported Parameters
 | Parameter   | Description                                                                                                                                                                                                                                                                                                                                                                                     | Mandatory |
 |:------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
-| fileUrl     | The location of an audio file to play (WAV and MP3 supported).                                                                                                                                                                                                                                                                                                                                  | *         |
-| sentence    | The sentence to speak.                                                                                                                                                                                                                                                                                                                                                                          | *         |
+| fileUrl     | The location of an audio file to play (WAV and MP3 supported).  <br> <br>To **STOP AUDIO FILE PLAYBACK** send an empty string like: `{"fileUrl": ""}`                                                                                                                                                                                                                                           | *         |
+| sentence    | The sentence to speak **MAXIMUM LENGTH 1000 CHARACTERS**.   <br> <br> To **STOP SENTENCE PLAYBACK** send an empty string like: `{"sentence": ""}`                                                                                                                                                                                                                                               | *         |
 | gender      | The gender of the voice used to synthesize the sentence. It will be considered only if sentence is not null. The female gender will be used by default.                                                                                                                                                                                                                                         | No        |
 | locale      | The locale used to get the accent of the voice used to synthesize the sentence. Currently audio supports: <br> - en\_US or en\_UK (English) <br> - es or es\_MX (Spanish) <br> - fr or fr\_FR (French) <br> - de or de\_DE (German) <br> - t or it\_IT (Italian) It will be considered only if sentence is not null/empty. The en\_US will be used by default.                                  | No        |
 | voice       | The voice to speak the sentence. Audio currently supports the following voices: <br> - English US: Kate, Susan, Julie, Dave, Paul <br> - English UK: Bridget <br> - Spanish: Esperanza, Violeta, Jorge <br> - French: Jolie, Bernard <br> - German: Katrin, Stefan <br> - Italian: Paola, Luca It will be considered only if sentence is not null/empty. Susan’s voice will be used by default. | No        |
@@ -28,7 +28,7 @@ Speak text or play audio to **ONLY** a single conference member.
 
 {% common %}
 
-### Example: Speak text to a conference member
+### Example 1 of 2: Speak text to a conference member
 
 {% sample lang="bash" %}
 
@@ -94,7 +94,7 @@ await client.Conference.SpeakSentenceToMemberAsync("{conferenceId1}", "{memberId
 member.speak_sentence(:sentence => "Hello From Bandwidth")
 ```
 
-### Example: Play audio to a conference member
+### Example 2 of 2: Play audio to a conference member
 
 {% sample lang="bash" %}
 

@@ -21,7 +21,7 @@ Update a member status/properties.
 
 {% common %}
 
-### Example: Remove member from conference
+### Example 1 of 3: Remove member from conference
 
 {% sample lang="bash" %}
 
@@ -59,7 +59,7 @@ member.update(:state=>completed)
 
 {% common %}
 
-### Example: Keep member from speaking in the conference
+### Example 2 of 3: Keep member from speaking in the conference
 
 {% sample lang="bash" %}
 
@@ -96,7 +96,7 @@ member.update(:mute=>true)
 ```
 
 
-### Example: Keep member from hearing the conference audio
+### Example 3 of 3: Keep member from hearing the conference audio
 
 {% sample lang="bash" %}
 

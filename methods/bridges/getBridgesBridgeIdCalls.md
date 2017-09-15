@@ -10,7 +10,7 @@ Get the list of calls that are on the bridge.
 
 {% common %}
 
-### Example: Fetch calls from Bridge
+### Example 1 of 1: Fetch calls from Bridge
 {% sample lang="bash" %}
 
 ```bash

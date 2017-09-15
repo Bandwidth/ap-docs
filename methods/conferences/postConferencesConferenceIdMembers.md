@@ -20,7 +20,7 @@ Add members to a conference.
 
 {% common %}
 
-### Example: Add member to a conference
+### Example 1 of 1: Add member to a conference
 
 {% sample lang="bash" %}
 

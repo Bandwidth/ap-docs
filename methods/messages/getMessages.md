@@ -3,6 +3,8 @@
 ## List Messages
 Gets a list messages you have sent or received. Since this operation uses HTTP GET, all the properties are specified as HTTP request parameters.
 
+We only store the message contents for 30 days. Any messages older than 30 days will not contain text. For more information, see the <a href="http://dev.bandwidth.com/faq/#messaging">FAQ</a>
+
 ### Request URL
 
 <code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/messages`
@@ -31,7 +33,7 @@ Message results are paginated based on the `size` parameter. If the number of me
 | from                | The message sender’s telephone number (or short code).                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | to                  | Message recipient telephone number (or short code).                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | direction           | Direction of message, in - a message that came from the telephone network to one of your numbers (an “inbound” message) or out - a message that was sent from one of your numbers to the telephone network (an “outbound” message)                                                                                                                                                                                                                                                                          |
-| text                | The message contents. NOTE: We only store the message contents for 30 days. Any messages older than 30 days will not contain text.                                                                                                                                                                                                                                                                                                                                                                          |
+| text                | The message contents.                                                                                                                                                                                                                                                                                                                                                                           |
 | media               | Json array containing list of media urls to be sent as content for an mms. Valid URLs are: <br> https://api.catapult.inetwork.com/v1/users/&lt;user-id&gt;/media/<media-name></media-name> <br>We also support media URLs that are external to Bandwidth API, http:// or https:// format: <br> Example: http://customer-web-site.com/file.jpg <br> And coming soon, we are going to use file name from Content-Disposition header in case it’s passed by the media URLs that are external to Bandwidth API. |
 | state               | Message state, values are:  <br> * `received`<br> * `queued`<br> * `sending`<br> * `sent` <br> * `error`                                                                                                                                                                                                                                                                                                                                                                                                    |
 | time                | The time the message resource was created (UTC, follows the ISO 8601 format).                                                                                                                                                                                                                                                                                                                                                                                                                               |
@@ -81,7 +83,7 @@ Message results are paginated based on the `size` parameter. If the number of me
 
 {% common %}
 
-### Example: List your messages
+### Example 1 of 3: List your messages
 
 {% sample lang="bash" %}
 
@@ -176,7 +178,7 @@ HEADER: <https://api.catapult.inetwork.com/v1/users/u-dkjf9094802375s/messages?s
 ]
 ```
 
-### Example: List your messages by from number {fromNumber}
+### Example 2 of 3: List your messages by from number {fromNumber}
 
 {% sample lang="bash" %}
 
@@ -240,7 +242,7 @@ messages = Message.list(client, {:from => "{fromNumber}"})
 ]
 ```
 
-### Example: Gets a list messages filtering the direction and toDateTime
+### Example 3 of 3: Gets a list messages filtering the direction and toDateTime
 
 {% sample lang="bash" %}
 

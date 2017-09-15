@@ -23,6 +23,7 @@ Searches and order available local numbers by location criteria.
 
 <aside class="notice">
 <p>
+** You must choose one of state, zip, or areaCode in request.
 ** state, zip and areaCode are mutually exclusive, you may use only one of them per request.
 </p>
 </aside>
@@ -34,7 +35,7 @@ Searches and order available local numbers by location criteria.
 
 {% common %}
 
-### Example: Search and allocate for city/state
+### Example 1 of 1: Search and allocate for city/state
 
 > To search and order two available local numbers in the city of Cary, North Carolina, make the following request
 
@@ -42,8 +43,7 @@ Searches and order available local numbers by location criteria.
 
 ```bash
 curl -v -X POST  https://api.catapult.inetwork.com/v1/availableNumbers/local?city=Cary&state=NC&quantity=2 \
-  -u {token}:{secret} \
-  -H "Content-type: application/json" \
+  -u {token}:{secret}
 ```
 
 {% sample lang="js" %}

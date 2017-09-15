@@ -25,7 +25,7 @@ Retrieve a conference member properties.
 
 {% common %}
 
-### Example: Get conference member information
+### Example 1 of 1: Get conference member information
 
 {% sample lang="bash" %}
 
@@ -63,7 +63,7 @@ state = member.state
 
 > The above command returns JSON structured like this:
 
-```
+```json
 {
 		"addedTime": "2013-07-12T15:47:04-03",
 		"hold": false,

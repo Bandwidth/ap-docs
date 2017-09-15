@@ -34,7 +34,7 @@ Gets information about a specific bridge. No query parameters are supported.
 
 {% common %}
 
-### Example: Get information about a bridge
+### Example 1 of 1: Get information about a bridge
 
 {% sample lang="bash" %}
 

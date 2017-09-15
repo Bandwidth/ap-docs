@@ -21,7 +21,7 @@ Get all the transcriptions that were made for the given recodingId
 
 {% common %}
 
-### Example: Get all the transcriptions for a recording resource id
+### Example 1 of 1: Get all the transcriptions for a recording resource id
 
 {% sample lang="bash" %}
 ```bash

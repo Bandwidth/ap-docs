@@ -23,7 +23,7 @@ Get information about the transcription, regardless its state.
 {% common %}
 
 
-### Example: Get transcription properties
+### Example 1 of 1: Get transcription properties
 
 {% sample lang="bash" %}
 

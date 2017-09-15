@@ -39,7 +39,7 @@ List all users' call recordings. Since this operation uses HTTP GET, all the pro
 {% common %}
 
 
-### Example: List all recordings
+### Example 1 of 1: List all recordings
 
 {% sample lang="bash" %}
 

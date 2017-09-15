@@ -19,7 +19,7 @@ This returns a list of the domains that have been created
 
 {% common %}
 
-### Example: List all domains
+### Example 1 of 1: List all domains
 
 {% sample lang="bash" %}
 

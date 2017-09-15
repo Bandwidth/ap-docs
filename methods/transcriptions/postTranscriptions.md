@@ -9,7 +9,7 @@ Request the transcription process to be started for the given recording id.
 
 {% common %}
 
-### Example: Start Transcription process
+### Example 1 of 1: Start Transcription process
 
 {% sample lang="bash" %}
 

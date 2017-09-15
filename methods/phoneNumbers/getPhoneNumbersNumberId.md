@@ -32,7 +32,7 @@ Gets information about one of your numbers using the E.164 number string, like "
 {% common %}
 
 
-### Example: Get number properties by E.164 or Id
+### Example 1 of 1: Get number properties by E.164 or Id
 
 {% sample lang="bash" %}
 

@@ -43,7 +43,7 @@ Gets a list of active and historic calls you made or received. Since this operat
 
 {% common %}
 
-### Example: List your calls
+### Example 1 of 2: List your calls
 
 {% sample lang="bash" %}
 
@@ -118,7 +118,7 @@ first_call_to = first_call[:to]
 ]
 ```
 
-### Example: List your calls by from number {fromNumber}
+### Example 2 of 2: List your calls by from number {fromNumber}
 
 {% sample lang="bash" %}
 

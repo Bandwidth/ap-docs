@@ -15,7 +15,7 @@
 | pattern   | A number pattern that may include letters, digits, and the following wildcard characters:<br>? : matches any single digit<br> \* : matches zero or more digits<br>Don’t forget to encode wildcard characters in the requested URL. | No        |
 
 {% common %}
-### Example: Search and allocate tollFree number
+### Example 1 of 1: Search and allocate tollFree number
 > To find up to two available toll free numbers that match the pattern "*2?9*", make the following request:
 
 {% sample lang="bash" %}

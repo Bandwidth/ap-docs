@@ -30,7 +30,7 @@ This returns a single endpoint.
 
 {% common %}
 
-###Example: Get a single endpoint
+###Example 1 of 1: Get a single endpoint
 
 {% sample lang="bash" %}
 

@@ -21,7 +21,7 @@ Update properties of an active phone call.
 | callbackUrl         | The server URL where the call events for the new call will be sent upon transferring.                                                                                                                                                                                                                                                                                                                | No        |
 
 {% common %}
-### Example: Answer an Incoming Phone Call
+### Example 1 of 5: Answer an Incoming Phone Call
 {% sample lang="bash" %}
 
 ```bash
@@ -59,7 +59,7 @@ call.answer_on_incoming()
 
 
 {% common %}
-### Example: Hang Up a Phone Call
+### Example 2 of 5: Hang Up a Phone Call
 
 {% sample lang="bash" %}
 
@@ -98,7 +98,7 @@ call.hangup()
 
 
 {% common %}
-### Example: Turn call recording ON
+### Example 3 of 5: Turn call recording ON
 
 {% sample lang="bash" %}
 
@@ -137,7 +137,7 @@ call.recording_on()
 ```
 
 {% common %}
-### Example: Turn call recording OFF
+### Example 4 of 5: Turn call recording OFF
 {% sample lang="bash" %}
 
 ```bash
@@ -176,7 +176,7 @@ call.recording_off()
 
 
 {% common %}
-### Example: Reject an Incoming Phone Call
+### Example 5 of 5: Reject an Incoming Phone Call
 
 {% sample lang="bash" %}
 

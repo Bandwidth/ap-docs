@@ -18,7 +18,7 @@ Gets a list of your media files. No query parameters are supported.
 
 {% common %}
 
-### Example: List Your Media Files
+### Example 1 of 1: List Your Media Files
 
 
 {% sample lang="bash" %}

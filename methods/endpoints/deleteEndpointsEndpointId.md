@@ -9,7 +9,7 @@
 
 {% common %}
 
-### Example: Remove an endpoint
+### Example 1 of 1: Remove an endpoint
 
 {% sample lang="bash" %}
 

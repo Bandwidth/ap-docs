@@ -3,6 +3,12 @@
 ## Send SMS Message(s)
 Sends one or more messages.
 
+<aside class="alert general small">
+<p>
+Read More about Messaging in the <a href="http://dev.bandwidth.com/faq/#messaging">FAQ</a>
+</p>
+</aside>
+
 ### Request URL
 
 <code class="post">POST</code>`https://api.catapult.inetwork.com/v1/users/{userId}/messages`
@@ -10,18 +16,18 @@ Sends one or more messages.
 ---
 
 ### Supported Parameters
-| Parameter          | Description                                                                                                                                                                            | Mandatory |
-|:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
-| from               | One of your telephone numbers the message should come from (must be in E.164 format, like +19195551212).                                                                               | Yes       |
-| to                 | The phone number the message should be sent to (must be in E.164 format, like +19195551212).                                                                                           | Yes       |
-| text               | The contents of the text message (must be 2048 characters or less).                                                                                                                    | Yes       |
-| media              | For MMS messages, a media url to the location of the media or list of medias to be sent send with the message. For media details please check table Properties in the top of the page. | No        |
-| receiptRequested   | Requested receipt option for outbound messages: <br>`none`: *(DEFAULT)* Delivery receipt will not be sent as callback event. <br> `all`: Success or error delivery receipt maybe sent as callback event. <br>`error`: Only error delivery receipt event maybe sent as callback event. <br> The [callback](../../apiCallbacks/sms.md) will contain information about delivery                                                                                                | No        |
-| callbackUrl        | The server URL where the events related to the outgoing message will be sent to.                                                                                                       | No        |
-| callbackHttpMethod | Determine if the callback event should be sent via `HTTP GET` or `HTTP POST`. Values are get or post Default is <code class="post">POST</code>                                         | No        |
-| callbackTimeout    | Determine how long should the platform wait for callbackUrl’s response before timing out (milliseconds).                                                                               | No        |
-| fallbackUrl        | The server URL used to send the message events if the request to callbackUrl fails.                                                                                                    | No        |
-| tag                | Any string, it will be included in the callback events of the message.                                                                                                                 | No        |
+| Parameter          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                              | Mandatory |
+|:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
+| from               | One of your telephone numbers the message should come from (must be in E.164 format, like +19195551212).                                                                                                                                                                                                                                                                                                                                                 | Yes       |
+| to                 | The phone number the message should be sent to (must be in E.164 format, like +19195551212).                                                                                                                                                                                                                                                                                                                                                             | Yes       |
+| text               | The contents of the text message (must be 2048 characters or less). <br> Standard text messages are 160 characters. Messages larger than 160 characters are automatically fragmented and re-assembled to fit within the 160 character transport constraints.                                                                                                                                                                                             | Yes       |
+| media              | For MMS messages, a media url to the location of the media or list of medias to be sent send with the message. <br> Check the [faq](http://dev.bandwidth.com/faq/messaging/mediaType.html) to see what media types are supported                                                                                                                                                                                                                         | No        |
+| receiptRequested   | Requested receipt option for outbound messages: <br>`none`: *(DEFAULT)* Delivery receipt will not be sent as callback event. <br> `all`: Success or error delivery receipt maybe sent as callback event. <br>`error`: Only error delivery receipt event maybe sent as callback event. <br> The [callback](../../apiCallbacks/sms.md) will contain information about delivery  <br> **Can not send `media` _and_ `receiptRequested` in the same request** | No        |
+| callbackUrl        | The server URL where the events related to the outgoing message will be sent to.                                                                                                                                                                                                                                                                                                                                                                         | No        |
+| callbackHttpMethod | Determine if the callback event should be sent via `HTTP GET` or `HTTP POST`. Values are get or post Default is <code class="post">POST</code>                                                                                                                                                                                                                                                                                                           | No        |
+| callbackTimeout    | Determine how long should the platform wait for callbackUrl’s response before timing out (milliseconds).                                                                                                                                                                                                                                                                                                                                                 | No        |
+| fallbackUrl        | The server URL used to send the message events if the request to callbackUrl fails.                                                                                                                                                                                                                                                                                                                                                                      | No        |
+| tag                | Any string, it will be included in the callback events of the message.                                                                                                                                                                                                                                                                                                                                                                                   | No        |
 
 ### Multiple Message Result Types
 
@@ -40,12 +46,12 @@ Bandwidth returns `HTTP 201` Created with the URI of the message in the `Locatio
 </p>
 </aside>
 
-### Example: Send a single text message
+### Example 1 of 7: Send a single text message
 
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
 		-d \
@@ -56,14 +62,6 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 		"text": "Good morning, this is a test message",
 		"callbackUrl": "http://my.callback.com"
 	}'
-```
-
-
-> The above command returns HTTP Header structured like this:
-
-```
-HTTP/1.1 201 Created
-Location: /v1/users/{userId}/messages/{messageId}
 ```
 
 {% sample lang="js" %}
@@ -110,12 +108,19 @@ message = Message.create(client, {
 
 {% common %}
 
-### Example: Send a single mms with Bandwidth Media
+> The above command returns HTTP Header structured like this:
+
+```
+HTTP/1.1 201 Created
+Location: /v1/users/{userId}/messages/{messageId}
+```
+
+### Example 2 of 7: Send a single mms with Bandwidth Media
 
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
 		-d \
@@ -180,12 +185,12 @@ Location: /v1/users/{userId}/messages/{messageId}
 ```
 
 
-### Example: Send a single mms with external media
+### Example 3 of 7: Send a single mms with external media
 
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
 		-d \
@@ -250,12 +255,12 @@ HTTP/1.1 201 Created
 Location: /v1/users/{userId}/messages/{messageId}
 ```
 
-### Example: Send three messages in a single request
+### Example 4 of 7: Send three messages in a single request
 
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
 		-d \
@@ -399,19 +404,44 @@ messages = Message.create(client, [{
 
 {% common %}
 
-### Example: Request receipt for single text message
+### Example 5 of 7: Request receipt for single text message
 To send a text message with request receipt from {fromNumber} to {toNumber}, send the following request:
 
 {% sample lang="bash" %}
 
 ```bash
-#coming soon
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
+	-u {token}:{secret} \
+	-H "Content-type: application/json" \
+		-d \
+	'
+	{
+		"from": "+19195551212",
+		"to": "+19195551213",
+		"text": "Thank you for subscribing to Unicorn Enterprises!",
+		"callbackUrl": "http://my.callback.url",
+		"receiptRequested": "all"
+	}'
 ```
 
 {% sample lang="js" %}
 
 ```js
-//coming soon
+var message = {
+    from: "+19195551212", // <-- This must be a Bandwidth number on your account
+    to: "+19195551213",
+    text: "Thank you for subscribing to Unicorn Enterprises!",
+    callbackUrl: "http://my.callback.url",
+    receiptRequested: "all"
+};
+
+client.Message.send(message)
+.then(function(message) {
+    console.log("Message sent with ID " + message.id);
+})
+.catch(function(err) {
+    console.log(err.message);
+});
 ```
 
 {% sample lang="csharp" %}
@@ -440,18 +470,43 @@ message = Message.create(client, {
 
 {% common %}
 
-### Example: Send a single text message with custom callback timeout of 2 seconds
+### Example 6 of 7: Send a single text message with custom callback timeout of 2 seconds
 
 {% sample lang="bash" %}
 
 ```bash
-#coming soon
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
+	-u {token}:{secret} \
+	-H "Content-type: application/json" \
+		-d \
+	'
+	{
+		"from": "+19195551212",
+		"to": "+19195551213",
+		"text": "Thank you for subscribing to Unicorn Enterprises!",
+		"callbackUrl": "http://my.callback.url",
+		"callbackTimeout" : "2000"
+	}'
 ```
 
 {% sample lang="js" %}
 
 ```js
-//coming soon
+var message = {
+    from: "+19195551212", // <-- This must be a Bandwidth number on your account
+    to: "+19195551213",
+    text: "Thank you for subscribing to Unicorn Enterprises!",
+    callbackUrl: "http://my.callback.url",
+    callbackTimeout: "2000"
+};
+
+client.Message.send(message)
+.then(function(message) {
+    console.log("Message sent with ID " + message.id);
+})
+.catch(function(err) {
+    console.log(err.message);
+});
 ```
 
 {% sample lang="csharp" %}
@@ -483,18 +538,45 @@ message = Message.create(client, {
 {% common %}
 
 
-### Example: Send a single text message with custom callback timeout of 2 seconds and a fallback URL
+### Example 7 of 7: Send a single text message with custom callback timeout of 2 seconds and a fallback URL
 
 {% sample lang="bash" %}
 
 ```bash
-#coming soon
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
+	-u {token}:{secret} \
+	-H "Content-type: application/json" \
+		-d \
+	'
+	{
+		"from": "+19195551212",
+		"to": "+19195551213",
+		"text": "Thank you for subscribing to Unicorn Enterprises!",
+		"callbackUrl": "http://my.callback.url",
+		"callbackTimeout" : "2000",
+		"fallbackUrl" : "http://my.fallback.url"
+	}'
 ```
 
 {% sample lang="js" %}
 
 ```js
-//coming soon
+var message = {
+    from: "+19195551212", // <-- This must be a Bandwidth number on your account
+    to: "+19195551213",
+    text: "Thank you for subscribing to Unicorn Enterprises!",
+    callbackUrl: "http://my.callback.url",
+    callbackTimeout: "2000",
+    fallbackUrl: "http://my.fallback.url"
+};
+
+client.Message.send(message)
+.then(function(message) {
+    console.log("Message sent with ID " + message.id);
+})
+.catch(function(err) {
+    console.log(err.message);
+});
 ```
 
 {% sample lang="csharp" %}

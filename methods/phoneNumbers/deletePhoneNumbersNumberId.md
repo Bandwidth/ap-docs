@@ -9,7 +9,7 @@ Removes a number from your account so you can no longer make or receive calls, o
 
 {% common %}
 
-### Example: Delete Number from user
+### Example 1 of 1: Delete Number from user
 
 {% sample lang="bash" %}
 
