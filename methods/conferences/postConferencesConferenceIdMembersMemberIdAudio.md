@@ -91,7 +91,7 @@ await client.Conference.SpeakSentenceToMemberAsync("{conferenceId1}", "{memberId
 {% sample lang="ruby" %}
 
 ```ruby
-# coming soon
+member.speak_sentence(:sentence => "Hello From Bandwidth")
 ```
 
 ### Example: Play audio to a conference member
@@ -153,6 +153,6 @@ await client.Conference.PlayAudioFileToMemberAsync("{conferenceId1}", "{memberId
 {% sample lang="ruby" %}
 
 ```ruby
-# coming soon
+member.play_audio(:file_url => "http://host1")
 ```
 {% endmethod %}

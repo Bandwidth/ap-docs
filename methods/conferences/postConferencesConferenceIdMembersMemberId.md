@@ -13,6 +13,7 @@ Update a member status/properties.
 ### Supported Parameters
 | Parameter   | Description                                                                                                                                            | Mandatory |
 |:------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
+| state    | If `completed`, member will be removed from the conference.                 | No        |
 | joinTone    | If `true`, will play a tone when the member joins the conference. If `false`, no tone is played when the member joins the conference.                  | No        |
 | leavingTone | If `true`, will play a tone when the member leaves the conference. If `false`, no tone is played when the member leaves the conference.                | No        |
 | mute        | If `true`, member can’t speak in the conference. If `false`, this members can speak in the conference (unless set at the conference level).            | No        |
@@ -53,7 +54,7 @@ await client.Conference.UpdateMemberAsync("{conferenceId1}", "{memberId1}", new 
 {% sample lang="ruby" %}
 
 ```ruby
-#coming soon
+member.update(:state=>completed)
 ```
 
 {% common %}
@@ -91,7 +92,7 @@ await client.Conference.MuteMemberAsync("{conferenceId1}", "{memberId1}", true);
 {% sample lang="ruby" %}
 
 ```ruby
-# coming soon
+member.update(:mute=>true)
 ```
 
 
@@ -128,6 +129,6 @@ await client.Conference.HoldMemberAsync("{conferenceId1}", "{memberId1}", true);
 {% sample lang="ruby" %}
 
 ```ruby
-# coming soon
+member.update(:hold=>true)
 ```
 {% endmethod %}
