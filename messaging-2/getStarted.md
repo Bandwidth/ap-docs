@@ -20,7 +20,7 @@ The Messaging 2.0 API is an all new way to send and receive SMS, MMS, and Group 
 1. [Get your account ID](#get-your-account-id)
 2. [Setup your Application](#setup-your-application)
 3. [Create subaccount (_site_)](#create-subaccount-site)
-4. [Create location (_sippeer_) and assign the application](#create-location-sippeer-and-assign-the-application-sippeer)
+4. [Create location (_sippeer_) and assign the application](#create-location-sippeer-and-assign-the-application)
 5. [Order Phone numbers to location (_sippeer_)](#order-numbers-to-location)
 6. [Sending Messages](#sending-messages)
 7. [Video Walk through](#video-walk-through)
@@ -101,8 +101,8 @@ Authorization: {user:password}
 
 ---
 
-### Create location (_sippeer_) and assign the application (_sippeer_)
-<a name="create-location-sippeer-and-assign-the-application-sippeer"></a>
+### Create location (_sippeer_) and assign the application
+<a name="create-location-sippeer-and-assign-the-application"></a>
 
 * You'll need a location (_sippeer_) in order to group phone numbers.
 * When creating the location be sure to check:

@@ -114,6 +114,7 @@
 
 ## Messaging 2.0
 * [Messaging 2.0](messaging-2/getStarted.md)
+ * [API Setup](messaging-2/getStartedAPI.md)
  * [Send Messages](messaging-2/methods/sendMessages.md)
    * [POST Single Message](messaging-2/methods/createSingle.md)
    * [POST Group Message](messaging-2/methods/createGroup.md)
