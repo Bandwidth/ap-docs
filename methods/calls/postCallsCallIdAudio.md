@@ -109,8 +109,6 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callI
 {% sample lang="js" %}
 
 ```js
-// coming soon
-//Speak sentence in a call
 
 //Promise
 client.Call.stopSpeaking("callId").then(function (res) {});
