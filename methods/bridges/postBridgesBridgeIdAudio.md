@@ -72,8 +72,6 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bri
 {% sample lang="js" %}
 
 ```js
-// coming soon in the mean time:
-//Stop Audio file on bridge
 
 //Promise
 client.Bridge.stopAudioFilePlayback("bridgeID").then(function (res) {});
