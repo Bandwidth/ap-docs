@@ -14,13 +14,17 @@ Downloads a media file you previously uploaded.
 {% sample lang="bash" %}
 
 ```bash
-# Coming soon
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/media/{mediaName} \
+	-u {token}:{secret} \
 ```
 
 {% sample lang="js" %}
 
 ```js
-//Coming soon
+client.Media.download("file.mp3").
+then(function (media) {
+  console.log(media);
+});
 ```
 
 {% sample lang="csharp" %}

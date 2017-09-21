@@ -96,7 +96,9 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages \
 {% sample lang="js" %}
 
 ```js
-//need to add this
+client.message.List().then(function(response){
+	console.log(response);
+});
 ```
 
 {% sample lang="csharp" %}
@@ -189,7 +191,9 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages?from
 {% sample lang="js" %}
 
 ```js
-//Need to add this
+client.message.List({from : "fromNumber"}).then(function(response){
+	console.log(response);
+});
 ```
 
 {% sample lang="csharp" %}
@@ -251,7 +255,12 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages?from
 {% sample lang="js" %}
 
 ```js
-//need to add this
+client.message.List(
+	direction : {"direction"},
+	toDateTime: {"ToDateTime"})
+.then(function(response){
+	console.log(response);
+});
 ```
 
 {% sample lang="csharp" %}
