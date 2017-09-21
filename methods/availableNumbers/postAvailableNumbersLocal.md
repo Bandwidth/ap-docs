@@ -3,6 +3,8 @@
 ## Order Local Phone Number
 Searches and order available local numbers by location criteria.
 
+For more information about Bandwidth’s local phone numbers, see the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>
+
 ### Request URL
 <code class="post">POST</code>`https://api.catapult.inetwork.com/v1/availableNumbers/local?<queryParams>`
 
@@ -23,6 +25,7 @@ Searches and order available local numbers by location criteria.
 
 <aside class="notice">
 <p>
+** You must choose one of state, zip, or areaCode in request.
 ** state, zip and areaCode are mutually exclusive, you may use only one of them per request.
 </p>
 </aside>
@@ -42,8 +45,7 @@ Searches and order available local numbers by location criteria.
 
 ```bash
 curl -v -X POST  https://api.catapult.inetwork.com/v1/availableNumbers/local?city=Cary&state=NC&quantity=2 \
-  -u {token}:{secret} \
-  -H "Content-type: application/json" \
+  -u {token}:{secret}
 ```
 
 {% sample lang="js" %}

@@ -3,6 +3,8 @@
 ## List all Call Transcriptions
 Retrieve all transcriptions related to the call.
 
+For more information about transcribing calls, see the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>
+
 ### Request URL
 
 <code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/transcriptions`

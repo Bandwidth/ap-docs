@@ -2,6 +2,12 @@
 ## List Transcriptions on Recording
 Get all the transcriptions that were made for the given recodingId
 
+<aside class="alert general small">
+<p>
+Read More about Transcriptions in the <a href="http://dev.bandwidth.com/faq/#messaging">FAQ</a>
+</p>
+</aside>
+
 ### Request URL
 
 <code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recordingId}/transcriptions`

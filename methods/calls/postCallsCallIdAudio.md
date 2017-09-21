@@ -109,8 +109,6 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callI
 {% sample lang="js" %}
 
 ```js
-// coming soon
-//Speak sentence in a call
 
 //Promise
 client.Call.stopSpeaking("callId").then(function (res) {});
@@ -149,7 +147,6 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callI
 {% sample lang="js" %}
 
 ```js
-//Play Audio file on call
 
 //Promise
 client.Call.playAudioFile("callId", "http://myurl.com/file.mp3").then(function (res) {});
@@ -186,9 +183,6 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callI
 {% sample lang="js" %}
 
 ```js
-// coming soon in the mean time:
-//Stop Audio file on bridge
-
 //Promise
 client.Call.stopAudioFilePlayback("callId").then(function (res) {});
 

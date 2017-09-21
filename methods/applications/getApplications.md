@@ -1,7 +1,7 @@
 {% method %}
 
 ## List Applications
-Get a list of your applications
+Get a list of your applications.
 
 ### Request URL
 

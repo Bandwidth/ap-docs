@@ -3,6 +3,12 @@ Applications allow you to receive incoming call and messaging events.  Each appl
 
 ![application-info](../../images/app-welcome.png)
 
+<aside class="alert general small">
+<p>
+Read More about adding Voice and Messaging to your application in the <a href="http://dev.bandwidth.com/faq/#general">FAQ</a>
+</p>
+</aside>
+
 ### Base Url
 `https://api.catapult.inetwork.com/v1/users/{userId}/applications/`
 

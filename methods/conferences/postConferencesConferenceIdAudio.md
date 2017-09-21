@@ -218,13 +218,11 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/
 {% sample lang="js" %}
 
 ```js
-//Play Audio file on conference
 //Promise
 client.Conference.stopAudioFilePlayback("conferenceID").then(function (res) {});
 //Callback
 client.Conference.stopAudioFilePlayback("conferenceID", function (err, res) {});
 
-//Play Audio File on loop
 var options = {
 	fileUrl     : ""
 }

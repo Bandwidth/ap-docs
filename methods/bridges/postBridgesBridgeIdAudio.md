@@ -72,8 +72,6 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bri
 {% sample lang="js" %}
 
 ```js
-// coming soon in the mean time:
-//Stop Audio file on bridge
 
 //Promise
 client.Bridge.stopAudioFilePlayback("bridgeID").then(function (res) {});
@@ -149,7 +147,7 @@ await client.Bridge.SpeakSentenceAsync("brg-65dhmbasiei", "Hello From Bandwidth"
 
 
 ```ruby
-#coming soon
+bridge.play_audio({:sentence => "Hello from Bandwidth"})
 ```
 
 {% common %}
@@ -168,8 +166,6 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bri
 {% sample lang="js" %}
 
 ```js
-// coming soon
-//Speak sentence in a bridge
 
 //Promise
 client.Bridge.stopSpeaking("bridgeID").then(function (res) {});
