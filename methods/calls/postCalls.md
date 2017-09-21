@@ -208,7 +208,7 @@ client.Call.create({
 var call = await client.Call.CreateAsync(new CreateCallData{
 	From = "{fromNumber}",
 	To = "{toNumber}",
-	RecordingEnabled = true 
+	RecordingEnabled = true
 });
 Console.WriteLine($"Created call with id {call.Id}");
 // Created call with id c-1234
@@ -280,7 +280,7 @@ client.bridge.create({
 var call = await client.Call.CreateAsync(new CreateCallData{
 	From = "{fromNumber}",
 	To = "{sip:someone@somewhere.com}",
-	BridgeId = "bridgeId" 
+	BridgeId = "bridgeId"
 });
 Console.WriteLine($"Created call with id {call.Id}");
 // Created call with id c-1234

@@ -1,6 +1,12 @@
 # Conferences
 The Conference resource allows you create conferences, add members to it, play audio, speak text, mute/unmute members, hold/unhold members and other things related to conferencing. Once a conference is created there is no timeout associated with it, i.e., the conference will stay in created state until it is explicitly terminated. After the last member of a conference is removed from it, the conference will be set automatically as completed.
 
+<aside class="alert general small">
+<p>
+Read More about Conferences in the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>
+</p>
+</aside>
+
 ### Base URL
 
 `https://api.catapult.inetwork.com/v1/users/{userId}/conferences`
@@ -19,7 +25,7 @@ The Conference resource allows you create conferences, add members to it, play a
 | <code class="get">GET</code>   | [`/v1/users/{userId}/conferences/{conferenceId}/members/{memberId}`](getConferencesConferenceIdMembersMemberId.md)             | Retrieve properties for a single conference member |
 | <code class="post">POST</code> | [`/v1/users/{userId}/conferences/{conferenceId}/members/{memberId}/audio`](postConferencesConferenceIdMembersMemberIdAudio.md) | Play audio/speak to only one conference member     |
 
-### Default Button Presses (DTMF) During Conferences 
+### Default Button Presses (DTMF) During Conferences
 
 <aside class="alert general small">
 <p>
