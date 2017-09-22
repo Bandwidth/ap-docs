@@ -531,12 +531,12 @@ Content-Type: application/xml; charset=utf-8
 #### Request URL
 <code class="post">POST</code>`https://api.catapult.inetwork.com/v2/users/{{userId}}/messages`
 
-| Parameter       | Mandatory | Description                                                                                              |
-|:----------------|:----------|:---------------------------------------------------------------------------------------------------------|
-| `from`          | Yes       | One of your telephone numbers the message should come from (must be in E.164 format, like +19195551212). |
-| `to`            | Yes       | The phone number the message should be sent to (must be in E.164 format, like `+19195551212`).           |
-| `text`          | Yes       | The contents of the text message (must be 2048 characters or less).                                      |
-| `applicationId` | Yes       | The ID of the Application your `from` number is associated with in the Bandwidth Phone Number Dashboard. |
+| Parameter       | Mandatory | Description                                                                                                                                                                                       |
+|:----------------|:----------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `from`          | Yes       | One of your telephone numbers the message should come from (should be in E.164 format, like `+19195551212`). <br> <br> **The `+1` can be omitted for US numbers in the `from` or `to` parameter** |
+| `to`            | Yes       | The phone number the message should be sent to (must be in E.164 format, like `+19195551212`).  <br> <br> **The `+1` can be omitted for US numbers in the `from` or `to` parameter**              |
+| `text`          | Yes       | The contents of the text message (must be 2048 characters or less).                                                                                                                               |
+| `applicationId` | Yes       | The ID of the Application your `from` number is associated with in the Bandwidth Phone Number Dashboard.                                                                                          |
 
 {% common %}
 
