@@ -1,19 +1,14 @@
 {% multimethod %}
 {% endmultimethod %}
 
-# Bandwidth Messaging 2.0 API Setup
+# Messaging 2.0 API Setup
 
 ## Pre-reqs
 
 * [Bandwidth Phone Number Dashboard (AKA: Dashboard, Iris) Account](http://dashboard.bandwidth.com)
-    * You will also need your
-* [Bandwidth Voice and Messaging APIs (AKA Catapult, Application Platform) Account](https://catapult.inetwork.com/pages/login.jsf)
+    * You will also need your [Bandwidth Voice and Messaging APIs (AKA Catapult, Application Platform) Account](https://catapult.inetwork.com/pages/login.jsf)
 * Communicated to your [Customer Service Advocate](http://support.bandwidth.com) (CSA) and have messaging 2.0 enabled.
 * [Sub-account]()
-
-## Follow along with Postman
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/53bb13675c43def87aaf)
 
 ## Getting Started
 
@@ -25,6 +20,10 @@
 6. Order Available Numbers
 7. Check Order Status
 8. Send Text Message
+
+## Follow along with Postman
+
+<iframe src="./postman.html" width="100%" height="1000px"></iframe>
 
 ### Create application
 
