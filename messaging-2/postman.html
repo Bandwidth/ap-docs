@@ -3,40 +3,46 @@
 	<link href="https://d3l0ifulerbodr.cloudfront.net/main.css" rel="stylesheet">
 </head>
 <body>
-<div class="form-input clearfix">
-    <label for="input-text">Dashboard Username:</label>
-    <input type="text" value="" id="db_user" />
-    <div class="help">Your username to signin to Bandwidth Dashboard</div>
+<div class="inline-wrap">
+	<div class="form-input clearfix blocks half-block">
+	    <label for="input-text">Dashboard Username:</label>
+	    <input type="text" value="" id="db_user" />
+	    <div class="help">Your username to signin to Bandwidth Dashboard</div>
+	</div>
+	<div class="form-input clearfix blocks half-block">
+	    <label for="input-text">Dashboard Password:</label>
+	    <input type="text" value="" id="db_password" />
+	    <div class="help">Your Password to signin to Bandwidth Dashboard</div>
+	</div>
 </div>
-<div class="form-input clearfix">
-    <label for="input-text">Dashboard Password:</label>
-    <input type="text" value="" id="db_password" />
-    <div class="help">Your Password to signin to Bandwidth Dashboard</div>
+<div class="inline-wrap">
+	<div class="form-input clearfix blocks half-block">
+	    <label for="input-text">Dashboard Account Id:</label>
+	    <input type="text" value="" id="db_account_id" />
+	    <div class="help">Your Bandwidth Dashboard Accound ID</div>
+	</div>
+	<div class="form-input clearfix blocks half-block">
+	    <label for="input-text">Dashboard Sub-account Id:</label>
+	    <input type="text" value="" id="db_subaccount_id" />
+	    <div class="help">Your Bandwidth Dashboard Sub-account Id</div>
+	</div>
 </div>
-<div class="form-input clearfix">
-    <label for="input-text">Dashboard Account Id:</label>
-    <input type="text" value="" id="db_account_id" />
-    <div class="help">Your Bandwidth Dashboard Accound ID</div>
-</div>
-<div class="form-input clearfix">
-    <label for="input-text">Dashboard Sub-account Id:</label>
-    <input type="text" value="" id="db_subaccount_id" />
-    <div class="help">Your Bandwidth Dashboard Sub-account Id</div>
-</div>
-<div class="form-input clearfix">
-    <label for="input-text">Messaging API User Id:</label>
-    <input type="text" value="" id="messaging_user_id" />
-    <div class="help">Your Messaging API User Id</div>
-</div>
-<div class="form-input clearfix">
-    <label for="input-text">Messaging API Token:</label>
-    <input type="text" value="" id="messaging_api_token" />
-    <div class="help">Your Messaging API Token</div>
-</div>
-<div class="form-input clearfix">
-    <label for="input-text">Messaging API Secret:</label>
-    <input type="text" value="" id="messaging_api_secret" />
-    <div class="help">Your Messaging API Secret</div>
+<div class="inline-wrap">
+	<div class="form-input clearfix blocks medium-block">
+	    <label for="input-text">Messaging API User Id:</label>
+	    <input type="text" value="" id="messaging_user_id" />
+	    <div class="help">Your Messaging API User Id</div>
+	</div>
+	<div class="form-input clearfix blocks medium-block">
+	    <label for="input-text">Messaging API Token:</label>
+	    <input type="text" value="" id="messaging_api_token" />
+	    <div class="help">Your Messaging API Token</div>
+	</div>
+	<div class="form-input clearfix blocks medium-block">
+	    <label for="input-text">Messaging API Secret:</label>
+	    <input type="text" value="" id="messaging_api_secret" />
+	    <div class="help">Your Messaging API Secret</div>
+	</div>
 </div>
 
 <button class="button button--medium button--hover-go button--right" onclick="create_env">Create Postman Env</button>

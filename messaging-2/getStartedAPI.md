@@ -23,7 +23,7 @@
 
 ## Follow along with Postman
 
-<iframe src="./postman.html" width="100%" height="1000px"></iframe>
+<iframe src="./postman.html" width="100%" height="600px" frameborder="0"></iframe>
 
 ### Create application
 
