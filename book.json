@@ -11,7 +11,8 @@
         "-fontsettings",
         "bandwidth-highlight",
         "bandwidth-fonts",
-        "usabilla"
+        "usabilla",
+        "include-html@0.2.0"
     ],
     "pluginsConfig": {
         "theme-bandwidth": {
