@@ -49,7 +49,7 @@ User-Agent: BandwidthAPI/v1
 
 #### Example: Text to Speech - Done Events
 
-```json
+```http
 POST /your_url HTTP/1.1
 Content-Type: application/json; charset=utf-8
 User-Agent: BandwidthAPI/v1
