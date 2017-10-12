@@ -2254,18 +2254,18 @@
 }
 </span></code></pre>
 <h4 id="example-text-to-speech---done-events">Example: Text to Speech - Done Events</h4>
-<pre><code class="lang-json">POST /your_url HTTP/1.1
-Content-Type: application/json; charset=utf-8
-User-Agent: BandwidthAPI/v1
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/your_url</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">User-Agent</span>: BandwidthAPI/v1
 
-{
-   &quot;callId&quot;    : &quot;{callId}&quot;,
-   &quot;callUri&quot;   : &quot;https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}&quot;,
-   &quot;eventType&quot; : &quot;speak&quot;,
-   &quot;status&quot;    : &quot;done&quot;,
-   &quot;time&quot;      : &quot;2013-06-26T17:55:46.768Z&quot;
+<span class="json">{
+   <span class="hljs-attr">&quot;callId&quot;</span>    : <span class="hljs-string">&quot;{callId}&quot;</span>,
+   <span class="hljs-attr">&quot;callUri&quot;</span>   : <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}&quot;</span>,
+   <span class="hljs-attr">&quot;eventType&quot;</span> : <span class="hljs-string">&quot;speak&quot;</span>,
+   <span class="hljs-attr">&quot;status&quot;</span>    : <span class="hljs-string">&quot;done&quot;</span>,
+   <span class="hljs-attr">&quot;time&quot;</span>      : <span class="hljs-string">&quot;2013-06-26T17:55:46.768Z&quot;</span>
 }
-</code></pre>
+</span></code></pre>
 </div></div></div>
 
                                 
@@ -2300,7 +2300,7 @@ User-Agent: BandwidthAPI/v1
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Speak Event","level":"3.1.2.14","depth":3,"next":{"title":"Transcription Event – BETA","level":"3.1.2.15","depth":3,"path":"apiCallbacks/transcription.md","ref":"apiCallbacks/transcription.md","articles":[]},"previous":{"title":"Reject Event","level":"3.1.2.13","depth":3,"path":"apiCallbacks/reject.md","ref":"apiCallbacks/reject.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.7.11","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"apiCallbacks/speak.md","mtime":"2017-10-12T14:35:07.575Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-12T14:36:34.434Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Speak Event","level":"3.1.2.14","depth":3,"next":{"title":"Transcription Event – BETA","level":"3.1.2.15","depth":3,"path":"apiCallbacks/transcription.md","ref":"apiCallbacks/transcription.md","articles":[]},"previous":{"title":"Reject Event","level":"3.1.2.13","depth":3,"path":"apiCallbacks/reject.md","ref":"apiCallbacks/reject.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.7.11","header","sharing","customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"apiCallbacks/speak.md","mtime":"2017-10-12T16:02:04.719Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-12T16:03:33.879Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
