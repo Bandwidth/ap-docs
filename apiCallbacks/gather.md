@@ -12,6 +12,7 @@ The Bandwidth API generates a gather event when the gather command completes in 
 | callId    | The call id associated with the event.                                                                                                                                                                                                                                                                                                                                   |
 | gatherId  | The gather event unique id.                                                                                                                                                                                                                                                                                                                                              |
 | time      | Date/time of event. Timestamp follows the ISO8601 format (UTC).                                                                                                                                                                                                                                                                                                          |
+| tag       | String used when creating the [gather](../methods/calls/postCallsCallIdGather.md)                                                                                                                                                                                                                                                                                        |
 
 {% common %}
 
@@ -19,31 +20,33 @@ The Bandwidth API generates a gather event when the gather command completes in 
 
 ```json
 {
-  "eventType": "string",
-  "callId": "string",
-  "gatherId": "string",
-  "reason": "string",
-  "state": "string",
-  "digits": "string",
-  "time": "date"
+    "eventType" : "string",
+    "callId"    : "string",
+    "gatherId"  : "string",
+    "reason"    : "string",
+    "state"     : "string",
+    "digits"    : "string",
+    "time"      : "date",
+    "tag"       : "string"
 }
 ```
 
 #### Example: Gather event completed because the max-digits were reached
 
-```
-POST http://[External server URL]
-```
+```http
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
 
-```json
 {
-	"eventType":"gather",
-	"reason":"max-digits",
-	"state":"completed",
-	"digits":"25",
-	"time":"2014-07-31T01:01:27Z",
-	"callId":"{callId}",
-	"gatherId":"{gatherId}"
+    "eventType" : "gather",
+    "reason"    : "max-digits",
+    "state"     : "completed",
+    "digits"    : "25",
+    "time"      : "2014-07-31T01:01:27Z",
+    "callId"    : "{callId}",
+    "gatherId"  : "{gatherId}",
+    "tag"       : "{tag}"
 }
 ```
 
