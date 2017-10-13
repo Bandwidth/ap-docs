@@ -93,33 +93,28 @@ const updateEnv = function () {
     }
 }
 
-document.querySelectorAll(".postman-env").addEventListener("change", updateEnv, false);
-document.querySelectorAll(".postman-env").addEventListener("keyup", updateEnv, false);
-document.querySelectorAll(".postman-env").addEventListener("paste", updateEnv, false);
+document.getElementById("db_user").addEventListener("change", updateEnv, false);
+document.getElementById("db_password").addEventListener("change", updateEnv, false);
+document.getElementById("db_account_id").addEventListener("change", updateEnv, false);
+document.getElementById("messaging_user_id").addEventListener("change", updateEnv, false);
+document.getElementById("messaging_api_token").addEventListener("change", updateEnv, false);
+document.getElementById("messaging_api_secret").addEventListener("change", updateEnv, false);
+document.getElementById("db_subaccount_id").addEventListener("change", updateEnv, false);
 
+document.getElementById("db_user").addEventListener("keyup", updateEnv, false);
+document.getElementById("db_password").addEventListener("keyup", updateEnv, false);
+document.getElementById("db_account_id").addEventListener("keyup", updateEnv, false);
+document.getElementById("messaging_user_id").addEventListener("keyup", updateEnv, false);
+document.getElementById("messaging_api_token").addEventListener("keyup", updateEnv, false);
+document.getElementById("messaging_api_secret").addEventListener("keyup", updateEnv, false);
+document.getElementById("db_subaccount_id").addEventListener("keyup", updateEnv, false);
 
-// document.getElementById("db_user").addEventListener("change", updateEnv, false);
-// document.getElementById("db_password").addEventListener("change", updateEnv, false);
-// document.getElementById("db_account_id").addEventListener("change", updateEnv, false);
-// document.getElementById("messaging_user_id").addEventListener("change", updateEnv, false);
-// document.getElementById("messaging_api_token").addEventListener("change", updateEnv, false);
-// document.getElementById("messaging_api_secret").addEventListener("change", updateEnv, false);
-// document.getElementById("db_subaccount_id").addEventListener("change", updateEnv, false);
-
-// document.getElementById("db_user").addEventListener("keyup", updateEnv, false);
-// document.getElementById("db_password").addEventListener("keyup", updateEnv, false);
-// document.getElementById("db_account_id").addEventListener("keyup", updateEnv, false);
-// document.getElementById("messaging_user_id").addEventListener("keyup", updateEnv, false);
-// document.getElementById("messaging_api_token").addEventListener("keyup", updateEnv, false);
-// document.getElementById("messaging_api_secret").addEventListener("keyup", updateEnv, false);
-// document.getElementById("db_subaccount_id").addEventListener("keyup", updateEnv, false);
-
-// document.getElementById("db_user").addEventListener("paste", updateEnv, false);
-// document.getElementById("db_password").addEventListener("paste", updateEnv, false);
-// document.getElementById("db_account_id").addEventListener("paste", updateEnv, false);
-// document.getElementById("messaging_user_id").addEventListener("paste", updateEnv, false);
-// document.getElementById("messaging_api_token").addEventListener("paste", updateEnv, false);
-// document.getElementById("messaging_api_secret").addEventListener("paste", updateEnv, false);
-// document.getElementById("db_subaccount_id").addEventListener("paste", updateEnv, false);
+document.getElementById("db_user").addEventListener("paste", updateEnv, false);
+document.getElementById("db_password").addEventListener("paste", updateEnv, false);
+document.getElementById("db_account_id").addEventListener("paste", updateEnv, false);
+document.getElementById("messaging_user_id").addEventListener("paste", updateEnv, false);
+document.getElementById("messaging_api_token").addEventListener("paste", updateEnv, false);
+document.getElementById("messaging_api_secret").addEventListener("paste", updateEnv, false);
+document.getElementById("db_subaccount_id").addEventListener("paste", updateEnv, false);
 
 </script>
