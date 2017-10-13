@@ -66,7 +66,7 @@ const checkAllVal = function (obj) {
     return result;
 }
 
-const updateEnv = function () {
+const updateMessaging20Env = function () {
 //instead of triggering on button, do onchange (keyup, paste, enter, tab, bbrown will send all this fun stuff)
     const user       = document.getElementById("db_user").value;
     const password   = document.getElementById("db_password").value;
@@ -89,32 +89,32 @@ const updateEnv = function () {
     if (checkAllVal(envData)) {
         console.log('All set, updating postman');
         _pm("env.replace", "Bandwidth API Keys", envData);
-        document.querySelector('#postman-container').style.display = '';
+        document.getElementById("postman-container").removeAttribute("hidden");
     }
 }
 
-document.getElementById("db_user").addEventListener("change", updateEnv, false);
-document.getElementById("db_password").addEventListener("change", updateEnv, false);
-document.getElementById("db_account_id").addEventListener("change", updateEnv, false);
-document.getElementById("messaging_user_id").addEventListener("change", updateEnv, false);
-document.getElementById("messaging_api_token").addEventListener("change", updateEnv, false);
-document.getElementById("messaging_api_secret").addEventListener("change", updateEnv, false);
-document.getElementById("db_subaccount_id").addEventListener("change", updateEnv, false);
+document.getElementById("db_user").addEventListener("change", updateMessaging20Env, false);
+document.getElementById("db_password").addEventListener("change", updateMessaging20Env, false);
+document.getElementById("db_account_id").addEventListener("change", updateMessaging20Env, false);
+document.getElementById("messaging_user_id").addEventListener("change", updateMessaging20Env, false);
+document.getElementById("messaging_api_token").addEventListener("change", updateMessaging20Env, false);
+document.getElementById("messaging_api_secret").addEventListener("change", updateMessaging20Env, false);
+document.getElementById("db_subaccount_id").addEventListener("change", updateMessaging20Env, false);
 
-document.getElementById("db_user").addEventListener("keyup", updateEnv, false);
-document.getElementById("db_password").addEventListener("keyup", updateEnv, false);
-document.getElementById("db_account_id").addEventListener("keyup", updateEnv, false);
-document.getElementById("messaging_user_id").addEventListener("keyup", updateEnv, false);
-document.getElementById("messaging_api_token").addEventListener("keyup", updateEnv, false);
-document.getElementById("messaging_api_secret").addEventListener("keyup", updateEnv, false);
-document.getElementById("db_subaccount_id").addEventListener("keyup", updateEnv, false);
+document.getElementById("db_user").addEventListener("keyup", updateMessaging20Env, false);
+document.getElementById("db_password").addEventListener("keyup", updateMessaging20Env, false);
+document.getElementById("db_account_id").addEventListener("keyup", updateMessaging20Env, false);
+document.getElementById("messaging_user_id").addEventListener("keyup", updateMessaging20Env, false);
+document.getElementById("messaging_api_token").addEventListener("keyup", updateMessaging20Env, false);
+document.getElementById("messaging_api_secret").addEventListener("keyup", updateMessaging20Env, false);
+document.getElementById("db_subaccount_id").addEventListener("keyup", updateMessaging20Env, false);
 
-document.getElementById("db_user").addEventListener("paste", updateEnv, false);
-document.getElementById("db_password").addEventListener("paste", updateEnv, false);
-document.getElementById("db_account_id").addEventListener("paste", updateEnv, false);
-document.getElementById("messaging_user_id").addEventListener("paste", updateEnv, false);
-document.getElementById("messaging_api_token").addEventListener("paste", updateEnv, false);
-document.getElementById("messaging_api_secret").addEventListener("paste", updateEnv, false);
-document.getElementById("db_subaccount_id").addEventListener("paste", updateEnv, false);
+document.getElementById("db_user").addEventListener("paste", updateMessaging20Env, false);
+document.getElementById("db_password").addEventListener("paste", updateMessaging20Env, false);
+document.getElementById("db_account_id").addEventListener("paste", updateMessaging20Env, false);
+document.getElementById("messaging_user_id").addEventListener("paste", updateMessaging20Env, false);
+document.getElementById("messaging_api_token").addEventListener("paste", updateMessaging20Env, false);
+document.getElementById("messaging_api_secret").addEventListener("paste", updateMessaging20Env, false);
+document.getElementById("db_subaccount_id").addEventListener("paste", updateMessaging20Env, false);
 
 </script>

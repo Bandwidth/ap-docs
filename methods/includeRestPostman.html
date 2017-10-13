@@ -57,15 +57,15 @@ data-postman-param="env%5BBandwidth%20API%20Keys%5D=W3sia2V5IjoidXNlciIsInZhbHVl
 const checkRequiredVal = function (obj, required) {
     var result = true;
     for (var i in required) {
-    	if (obj[i] === '') {
-    		result = false;
-    		break
-    	}
+        if (obj[required[i]] === '') {
+            result = false;
+            break
+        }
     }
     return result;
 }
 
-const updateEnv = function () {
+const updateRESTEnv = function () {
 //instead of triggering on button, do onchange (keyup, paste, enter, tab, bbrown will send all this fun stuff)
     const user       = document.getElementById("db_user").value;
     const password   = document.getElementById("db_password").value;
@@ -88,32 +88,32 @@ const updateEnv = function () {
     if (checkRequiredVal(envData, ["userId", "token", "secret"])) {
         console.log('All set, updating postman');
         _pm("env.replace", "Bandwidth API Keys", envData);
-        document.querySelector('#postman-container').style.display = '';
+        document.getElementById("postman-container").removeAttribute("hidden");
     }
 }
 
-document.getElementById("db_user").addEventListener("change", updateEnv, false);
-document.getElementById("db_password").addEventListener("change", updateEnv, false);
-document.getElementById("db_account_id").addEventListener("change", updateEnv, false);
-document.getElementById("messaging_user_id").addEventListener("change", updateEnv, false);
-document.getElementById("messaging_api_token").addEventListener("change", updateEnv, false);
-document.getElementById("messaging_api_secret").addEventListener("change", updateEnv, false);
-document.getElementById("db_subaccount_id").addEventListener("change", updateEnv, false);
+document.getElementById("db_user").addEventListener("change", updateRESTEnv, false);
+document.getElementById("db_password").addEventListener("change", updateRESTEnv, false);
+document.getElementById("db_account_id").addEventListener("change", updateRESTEnv, false);
+document.getElementById("messaging_user_id").addEventListener("change", updateRESTEnv, false);
+document.getElementById("messaging_api_token").addEventListener("change", updateRESTEnv, false);
+document.getElementById("messaging_api_secret").addEventListener("change", updateRESTEnv, false);
+document.getElementById("db_subaccount_id").addEventListener("change", updateRESTEnv, false);
 
-document.getElementById("db_user").addEventListener("keyup", updateEnv, false);
-document.getElementById("db_password").addEventListener("keyup", updateEnv, false);
-document.getElementById("db_account_id").addEventListener("keyup", updateEnv, false);
-document.getElementById("messaging_user_id").addEventListener("keyup", updateEnv, false);
-document.getElementById("messaging_api_token").addEventListener("keyup", updateEnv, false);
-document.getElementById("messaging_api_secret").addEventListener("keyup", updateEnv, false);
-document.getElementById("db_subaccount_id").addEventListener("keyup", updateEnv, false);
+document.getElementById("db_user").addEventListener("keyup", updateRESTEnv, false);
+document.getElementById("db_password").addEventListener("keyup", updateRESTEnv, false);
+document.getElementById("db_account_id").addEventListener("keyup", updateRESTEnv, false);
+document.getElementById("messaging_user_id").addEventListener("keyup", updateRESTEnv, false);
+document.getElementById("messaging_api_token").addEventListener("keyup", updateRESTEnv, false);
+document.getElementById("messaging_api_secret").addEventListener("keyup", updateRESTEnv, false);
+document.getElementById("db_subaccount_id").addEventListener("keyup", updateRESTEnv, false);
 
-document.getElementById("db_user").addEventListener("paste", updateEnv, false);
-document.getElementById("db_password").addEventListener("paste", updateEnv, false);
-document.getElementById("db_account_id").addEventListener("paste", updateEnv, false);
-document.getElementById("messaging_user_id").addEventListener("paste", updateEnv, false);
-document.getElementById("messaging_api_token").addEventListener("paste", updateEnv, false);
-document.getElementById("messaging_api_secret").addEventListener("paste", updateEnv, false);
-document.getElementById("db_subaccount_id").addEventListener("paste", updateEnv, false);
+document.getElementById("db_user").addEventListener("paste", updateRESTEnv, false);
+document.getElementById("db_password").addEventListener("paste", updateRESTEnv, false);
+document.getElementById("db_account_id").addEventListener("paste", updateRESTEnv, false);
+document.getElementById("messaging_user_id").addEventListener("paste", updateRESTEnv, false);
+document.getElementById("messaging_api_token").addEventListener("paste", updateRESTEnv, false);
+document.getElementById("messaging_api_secret").addEventListener("paste", updateRESTEnv, false);
+document.getElementById("db_subaccount_id").addEventListener("paste", updateRESTEnv, false);
 
 </script>
