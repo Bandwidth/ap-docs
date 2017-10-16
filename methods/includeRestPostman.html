@@ -40,21 +40,61 @@
     </div>
 </div>
 
-<div id="postman-container" hidden>
+<div id="postman-container" style="pointer-events: none; opacity: 0.5;">
 <div class="postman-run-button"
 data-postman-action="collection/import"
 data-postman-var-1="b904cfc9a207a67e7f7d"
-data-postman-param="env%5BBandwidth%20API%20Keys%5D=W3sia2V5IjoidXNlciIsInZhbHVlIjoiIiwiZGVzY3JpcHRpb24iOiIiLCJ0eXBlIjoidGV4dCIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoicGFzc3dvcmQiLCJ2YWx1ZSI6IiIsImRlc2NyaXB0aW9uIjoiIiwidHlwZSI6InRleHQiLCJlbmFibGVkIjp0cnVlfSx7ImtleSI6InVzZXJJZCIsInZhbHVlIjoiIiwiZGVzY3JpcHRpb24iOiIiLCJ0eXBlIjoidGV4dCIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoidG9rZW4iLCJ2YWx1ZSI6IiIsImRlc2NyaXB0aW9uIjoiIiwidHlwZSI6InRleHQiLCJlbmFibGVkIjp0cnVlfSx7ImtleSI6InNlY3JldCIsInZhbHVlIjoiIiwiZGVzY3JpcHRpb24iOiIiLCJ0eXBlIjoidGV4dCIsImVuYWJsZWQiOnRydWV9LHsia2V5Ijoic3ViYWNjb3VudCIsInZhbHVlIjoiIiwiZGVzY3JpcHRpb24iOiIiLCJ0eXBlIjoidGV4dCIsImVuYWJsZWQiOnRydWV9XQ=="></div></div>
+data-postman-param="env%5BBandwidth%20API%20Keys%5D=W3sia2V5IjoidXNlciIsInZhbHVlIjoiIiwiZGVzY3JpcHRpb24iOiIiLCJ0eXBlIjoidGV4dCIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoicGFzc3dvcmQiLCJ2YWx1ZSI6IiIsImRlc2NyaXB0aW9uIjoiIiwidHlwZSI6InRleHQiLCJlbmFibGVkIjp0cnVlfSx7ImtleSI6InVzZXJJZCIsInZhbHVlIjoiIiwiZGVzY3JpcHRpb24iOiIiLCJ0eXBlIjoidGV4dCIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoidG9rZW4iLCJ2YWx1ZSI6IiIsImRlc2NyaXB0aW9uIjoiIiwidHlwZSI6InRleHQiLCJlbmFibGVkIjp0cnVlfSx7ImtleSI6InNlY3JldCIsInZhbHVlIjoiIiwiZGVzY3JpcHRpb24iOiIiLCJ0eXBlIjoidGV4dCIsImVuYWJsZWQiOnRydWV9LHsia2V5Ijoic3ViYWNjb3VudCIsInZhbHVlIjoiIiwiZGVzY3JpcHRpb24iOiIiLCJ0eXBlIjoidGV4dCIsImVuYWJsZWQiOnRydWV9XQ==">
+</div>
+<!-- <a href="https://app.getpostman.com/run-collection/b904cfc9a207a67e7f7d#?env%5BBandwidth%20API%20Keys%5D=W3sia2V5IjoidXNlciIsInZhbHVlIjoiIiwiZGVzY3JpcHRpb24iOiIiLCJ0eXBlIjoidGV4dCIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoicGFzc3dvcmQiLCJ2YWx1ZSI6IiIsImRlc2NyaXB0aW9uIjoiIiwidHlwZSI6InRleHQiLCJlbmFibGVkIjp0cnVlfSx7ImtleSI6InVzZXJJZCIsInZhbHVlIjoiIiwiZGVzY3JpcHRpb24iOiIiLCJ0eXBlIjoidGV4dCIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoidG9rZW4iLCJ2YWx1ZSI6IiIsImRlc2NyaXB0aW9uIjoiIiwidHlwZSI6InRleHQiLCJlbmFibGVkIjp0cnVlfSx7ImtleSI6InNlY3JldCIsInZhbHVlIjoiIiwiZGVzY3JpcHRpb24iOiIiLCJ0eXBlIjoidGV4dCIsImVuYWJsZWQiOnRydWV9LHsia2V5Ijoic3ViYWNjb3VudCIsInZhbHVlIjoiIiwiZGVzY3JpcHRpb24iOiIiLCJ0eXBlIjoidGV4dCIsImVuYWJsZWQiOnRydWV9XQ=="><img src="https://run.pstmn.io/button.svg")</a> -->
+</div>
 <script type="text/javascript">
-  (function (p,o,s,t,m,a,n) {
-    !p[s] && (p[s] = function () { (p[t] || (p[t] = [])).push(arguments); });
-    !o.getElementById(s+t) && o.getElementsByTagName("head")[0].appendChild((
-      (n = o.createElement("script")),
-      (n.id = s+t), (n.async = 1), (n.src = m), n
-    ));
-  }(window, document, "_pm", "PostmanRunObject", "https://run.pstmn.io/button.js"));
+function enableOnChange (functionName) {
+    console.log('Enabling On Change for elements');
+    document.getElementById("db_user").addEventListener("change", functionName, false);
+    document.getElementById("db_password").addEventListener("change", functionName, false);
+    document.getElementById("db_account_id").addEventListener("change", functionName, false);
+    document.getElementById("messaging_user_id").addEventListener("change", functionName, false);
+    document.getElementById("messaging_api_token").addEventListener("change", functionName, false);
+    document.getElementById("messaging_api_secret").addEventListener("change", functionName, false);
+    document.getElementById("db_subaccount_id").addEventListener("change", functionName, false);
 
-const checkRequiredVal = function (obj, required) {
+    document.getElementById("db_user").addEventListener("keyup", functionName, false);
+    document.getElementById("db_password").addEventListener("keyup", functionName, false);
+    document.getElementById("db_account_id").addEventListener("keyup", functionName, false);
+    document.getElementById("messaging_user_id").addEventListener("keyup", functionName, false);
+    document.getElementById("messaging_api_token").addEventListener("keyup", functionName, false);
+    document.getElementById("messaging_api_secret").addEventListener("keyup", functionName, false);
+    document.getElementById("db_subaccount_id").addEventListener("keyup", functionName, false);
+
+    document.getElementById("db_user").addEventListener("paste", functionName, false);
+    document.getElementById("db_password").addEventListener("paste", functionName, false);
+    document.getElementById("db_account_id").addEventListener("paste", functionName, false);
+    document.getElementById("messaging_user_id").addEventListener("paste", functionName, false);
+    document.getElementById("messaging_api_token").addEventListener("paste", functionName, false);
+    document.getElementById("messaging_api_secret").addEventListener("paste", functionName, false);
+    document.getElementById("db_subaccount_id").addEventListener("paste", functionName, false);
+}
+
+function loadPostman () {
+    console.log('loading postman');
+    try {
+        document.getElementById("_pmPostmanRunObject").outerHTML="";
+        document.getElementById("pm-oip-overlay").outerHTML="";
+    }
+    catch (e) {
+        console.log('Postman was not loaded');
+    }
+    (function (p,o,s,t,m,a,n) {
+        !p[s] && (p[s] = function () { (p[t] || (p[t] = [])).push(arguments); });
+        !o.getElementById(s+t) && o.getElementsByTagName("head")[0].appendChild((
+          (n = o.createElement("script")),
+          (n.id = s+t), (n.async = 1), (n.src = m), n
+        ));
+        }(window, document, "_pm", "PostmanRunObject", "https://run.pstmn.io/button.js"));
+}
+
+function checkRequiredVal(obj, required) {
     var result = true;
     for (var i in required) {
         if (obj[required[i]] === '') {
@@ -65,7 +105,7 @@ const checkRequiredVal = function (obj, required) {
     return result;
 }
 
-const updateRESTEnv = function () {
+function updateRESTEnv () {
 //instead of triggering on button, do onchange (keyup, paste, enter, tab, bbrown will send all this fun stuff)
     const user       = document.getElementById("db_user").value;
     const password   = document.getElementById("db_password").value;
@@ -87,33 +127,23 @@ const updateRESTEnv = function () {
     //INstead of creating, replace. will need update collection to contain default empty enviornment
     if (checkRequiredVal(envData, ["userId", "token", "secret"])) {
         console.log('All set, updating postman');
-        _pm("env.replace", "Bandwidth API Keys", envData);
-        document.getElementById("postman-container").removeAttribute("hidden");
+        const success = _pm("env.replace", "Bandwidth API Keys", envData);
+        if (!success) {
+            _pm("env.create", "Bandwidth API Keys", envData);
+        }
+        document.getElementById("postman-container").removeAttribute("style");
+    }
+    else {
+        console.log('Nothing yet');
+        const success = _pm("env.replace", "Bandwidth API Keys", envData);
+        if (!success) {
+            _pm("env.create", "Bandwidth API Keys", envData);
+        }
+        document.getElementById("postman-container").setAttribute("style", "pointer-events: none; opacity: 0.5;");
     }
 }
 
-document.getElementById("db_user").addEventListener("change", updateRESTEnv, false);
-document.getElementById("db_password").addEventListener("change", updateRESTEnv, false);
-document.getElementById("db_account_id").addEventListener("change", updateRESTEnv, false);
-document.getElementById("messaging_user_id").addEventListener("change", updateRESTEnv, false);
-document.getElementById("messaging_api_token").addEventListener("change", updateRESTEnv, false);
-document.getElementById("messaging_api_secret").addEventListener("change", updateRESTEnv, false);
-document.getElementById("db_subaccount_id").addEventListener("change", updateRESTEnv, false);
-
-document.getElementById("db_user").addEventListener("keyup", updateRESTEnv, false);
-document.getElementById("db_password").addEventListener("keyup", updateRESTEnv, false);
-document.getElementById("db_account_id").addEventListener("keyup", updateRESTEnv, false);
-document.getElementById("messaging_user_id").addEventListener("keyup", updateRESTEnv, false);
-document.getElementById("messaging_api_token").addEventListener("keyup", updateRESTEnv, false);
-document.getElementById("messaging_api_secret").addEventListener("keyup", updateRESTEnv, false);
-document.getElementById("db_subaccount_id").addEventListener("keyup", updateRESTEnv, false);
-
-document.getElementById("db_user").addEventListener("paste", updateRESTEnv, false);
-document.getElementById("db_password").addEventListener("paste", updateRESTEnv, false);
-document.getElementById("db_account_id").addEventListener("paste", updateRESTEnv, false);
-document.getElementById("messaging_user_id").addEventListener("paste", updateRESTEnv, false);
-document.getElementById("messaging_api_token").addEventListener("paste", updateRESTEnv, false);
-document.getElementById("messaging_api_secret").addEventListener("paste", updateRESTEnv, false);
-document.getElementById("db_subaccount_id").addEventListener("paste", updateRESTEnv, false);
+loadPostman();
+enableOnChange(updateRESTEnv);
 
 </script>
