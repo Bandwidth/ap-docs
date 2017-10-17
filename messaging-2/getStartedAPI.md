@@ -25,7 +25,7 @@
 
 ℹ️ Fill in your Bandwidth API Credentials here to get a customized postman environment ℹ️
 
-!INCLUDE "includePostman.html"
+!INCLUDE "includeMessagingPostman.html"
 
 ### Create application
 
