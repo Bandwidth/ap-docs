@@ -57,9 +57,9 @@ terminatingDigits="#">
 
 #### Example: Gather with JSON Tag
 
-Be sure to to use `&quot;` for `"`
+Be sure to to use <code class="post">&amp;quot;</code> for quotes <code class="post">&quot;</code>
 
-```
+```xml
 <Response>
   <Gather requestUrl="https://gather.url/nextBXML" requestUrlTimeout="10000" terminatingDigits="#" maxDigits="1" tag="{&quot;Hellow&quot;:&quot;World&quot;,&quot;Foo&quot;:&quot;Bar&quot;}">
     <SpeakSentence gender="female" locale="en_US" voice="susan">Thanks for calling Press 1 for more options</SpeakSentence>
@@ -67,11 +67,11 @@ Be sure to to use `&quot;` for `"`
 </Response>
 ```
 
-#### Example: Gather with extra query parameters in the `requestUrl`
+#### Example: Gather with extra query parameters in the <code class="post">requestUrl</code>
 
-Be sure to to use `&amp;` for `&`
+Be sure to to use <code class="post">&amp;amp;</code> for <code class="post">&</code>
 
-```
+```xml
 <Response>
   <Gather requestUrl="https://gather.url/nextBXML?Hello=World&amp;Foo=Bar" requestUrlTimeout="10000" terminatingDigits="#" maxDigits="1">
     <SpeakSentence gender="female" locale="en_US" voice="susan">Thanks for calling Press 1 for more options</SpeakSentence>
