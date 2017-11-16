@@ -12,7 +12,8 @@
         "bandwidth-highlight",
         "bandwidth-fonts",
         "usabilla",
-        "include-html@0.2.0"
+        "include-html@0.2.0",
+        "codetabs"
     ],
     "pluginsConfig": {
         "theme-bandwidth": {

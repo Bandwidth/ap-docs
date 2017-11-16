@@ -65,79 +65,81 @@ Bandwidth API sends this event to the application when an SMS is sent or receive
 
 ```json
 {
-  "eventType": "string",
-  "direction": "string",
-  "from": "string",
-  "to": "string",
-  "messageId": "string",
-  "messageUri": "string",
-  "text": "string",
-  "applicationId": "string",
-  "time": "date",
-  "state": "string",
-  "deliveryState": "string",
-  "deliveryCode": "string",
-  "deliveryDescription": "string"
+  "eventType"           : "string",
+  "direction"           : "string",
+  "from"                : "string",
+  "to"                  : "string",
+  "messageId"           : "string",
+  "messageUri"          : "string",
+  "text"                : "string",
+  "applicationId"       : "string",
+  "time"                : "date",
+  "state"               : "string",
+  "deliveryState"       : "string",
+  "deliveryCode"        : "string",
+  "deliveryDescription" : "string"
 }
 ```
 
 
 #### Example: Incoming SMS Event
 
-```
-POST http://[External server URL]
-```
+```http
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
 
-```json
 {
- "eventType":"sms",
- "direction":"in",
- "messageId": "{messageId}",
- "messageUri": "https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}",
- "from":"+13233326955",
- "to":"+13865245000",
- "text":"Example",
- "applicationId":"{appId}",
- "time":"2012-11-14T16:13:06.076Z",
- "state":"received"
+ "eventType"     : "sms",
+ "direction"     : "in",
+ "messageId"     : "{messageId}",
+ "messageUri"    : "https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}",
+ "from"          : "+13233326955",
+ "to"            : "+13865245000",
+ "text"          : "Example",
+ "applicationId" : "{appId}",
+ "time"          : "2012-11-14T16:13:06.076Z",
+ "state"         : "received"
 }
 ```
 
 #### Example: Outgoing SMS Event
-```
-POST http://[External server URL]
-```
 
-```json
+```http
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
+
 {
-   "eventType":"sms",
-   "direction":"out",
-   "messageId": "{messageId}",
-   "messageUri": "https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}",
-   "from":"+13233326955",
-   "to":"+13865245000",
-   "text":"Example",
-   "time":"2012-11-14T16:13:06.076Z",
-   "state":"sent"
+   "eventType"  : "sms",
+   "direction"  : "out",
+   "messageId"  : "{messageId}",
+   "messageUri" : "https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}",
+   "from"       : "+13233326955",
+   "to"         : "+13865245000",
+   "text"       : "Example",
+   "time"       : "2012-11-14T16:13:06.076Z",
+   "state"      : "sent"
 }
 ```
 #### Example: Outgoing SMS with Delivery Request Event
-```
-POST http://[External server URL]
-```
 
-```json
+```http
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
+
 {
-   "eventType":"sms",
-   "direction":"in",
-   "messageId": "{messageId}",
-   "messageUri": "https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}",
-   "from":"+13233326955",
-   "to":"+13865245000",
-   "text":"Example",
-   "applicationId":"{appId}",
-   "time":"2012-11-14T16:13:06.076Z",
-   "state":"received"
+   "eventType"     : "sms",
+   "direction"     : "in",
+   "messageId"     : "{messageId}",
+   "messageUri"    : "https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}",
+   "from"          : "+13233326955",
+   "to"            : "+13865245000",
+   "text"          : "Example",
+   "applicationId" : "{appId}",
+   "time"          : "2012-11-14T16:13:06.076Z",
+   "state"         : "received"
 }
 ```
 {% endmethod %}

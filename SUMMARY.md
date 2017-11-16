@@ -115,6 +115,7 @@
 ## v2 Rest API aka Messaging 2.0
 * [v2 Rest API aka Messaging 2.0](messaging-2/getStarted.md)
  * [API Setup](messaging-2/getStartedAPI.md)
+ * [v2 Migration Guide](messaging-2/messaging2Migration.md)
  * [v2/messages](messaging-2/methods/sendMessages.md)
    * [POST Single Message](messaging-2/methods/createSingle.md)
    * [POST Group Message](messaging-2/methods/createGroup.md)
