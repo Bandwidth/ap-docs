@@ -6,7 +6,9 @@
 ## About
 The Messaging 2.0 API is an all new way to send and receive SMS, MMS, and Group Messages on the Bandwidth network. It works with your numbers you already have in the Number Management section of the Bandwidth Phone Number Dashboard.
 
-### Contact your [CSA](http://support.bandwidth.com) to get your intial setup.
+⚠️ Messaging 2.0 Does not store **ANY** messages or records for fetching later. If you need message history you need to implement a storage solution that meets your needs. ⚠️
+
+### Contact  your [CSA](http://support.bandwidth.com) to get your intial setup.
 
 * Creating Bandwidth Phone Number Dashboard (AKA: Dashboard, Iris) login and account
 * Modifying account to enable HTTP Messaging
