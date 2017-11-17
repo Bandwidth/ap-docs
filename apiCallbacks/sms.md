@@ -16,7 +16,7 @@ Bandwidth API sends this event to the application when an SMS is sent or receive
 | time                | The time the message resource was created (UTC, follows the ISO 8601 format).                                                                                                                                                                    |
 | state               | Message state, values are received queued sending sent error                                                                                                                                                                                     |
 | deliveryState       | One of the message delivery states `waiting` `delivered` `not-delivered`                                                                                                                                                                         |
-| deliveryCode        | Numeric value of deliver code                                                                                                                                                                        |
+| deliveryCode        | Numeric value of delivery code                                                                                                                                                                        |
 | deliveryDescription | Message delivery description for the respective delivery code.                                                                                                                                                                                   |
 
 ### Message States
@@ -45,7 +45,7 @@ Bandwidth API sends this event to the application when an SMS is sent or receive
 | 189  | Spam detected                                 |
 | 482  | Loop detected                                 |
 | 600  | Destination carrier could not accept messages |
-| 610  | Message submittion failed                     |
+| 610  | Message submission failed                     |
 | 620  | Destination application error                 |
 | 630  | Message not acknowledge                       |
 | 720  | Invalid destination number                    |
