@@ -1,5 +1,13 @@
 # Bandwidth Messaging 2.0
 
+{% raw %}
+<aside class="alert general small">
+<p>
+Messaging 2.0 APIs are currently restricted to only our Beta clients.  Check with your designated customer support associate for more info or <a href="https://support.bandwidth.com/" class="anchor-external">open a support ticket.</a>
+</p>
+</aside>
+{% endraw %}
+
 ### About
 The Messaging 2.0 API is an all new way to send and receive SMS, MMS, and Group Messages on the Bandwidth network. It works with your numbers you already have in the Number Management section of the Bandwidth Phone Number Dashboard.
 
