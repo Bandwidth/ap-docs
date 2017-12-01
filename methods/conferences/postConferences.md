@@ -50,8 +50,8 @@ client.Conference.create({from: "+1234567890"}, function(err, conference){});
 {% sample lang="csharp" %}
 
 ```csharp
-var conference = await client.Conference.CreateAsync(new CreateConferenceData {From = "+1234567890"});
-Console.WriteLine($"Created conference with id {conference.Id}");
+var conferenceId = await client.Conference.CreateAsync(new CreateConferenceData {From = "+1234567890"});
+Console.WriteLine($"Created conference with id {conferenceId}");
 // Created conference with id c-1234
 ```
 
