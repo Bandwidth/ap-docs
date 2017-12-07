@@ -25,13 +25,13 @@ For more information about Bandwidth’s local phone numbers, see the <a href="h
 
 <aside class="notice">
 <p>
-`**` You must choose one of state, zip, or areaCode in request.
-`**` state, zip and areaCode are mutually exclusive, you may use only one of them per request.
+<code>**</code> You must choose one of state, zip, or areaCode in request.
+<code>**</code> state, zip and areaCode are mutually exclusive, you may use only one of them per request.
 </p>
 </aside>
 <aside class="notice">
 <p>
-`***` localNumber and inLocalCallingArea only applies for searching numbers in specific areaCode.
+<code>***</code> localNumber and inLocalCallingArea only applies for searching numbers in specific areaCode.
 </p>
 </aside>
 
