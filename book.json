@@ -1,9 +1,9 @@
 {
     "plugins": [
-        "theme-bandwidth@1.7.11",
+        "theme-bandwidth@1.7.15",
         "header",
         "sharing",
-        "customJquery@git+https://github.com/dtolb/gitbook-plugin-customJquery.git",
+        "custom-jquery-postprocessing",
         "toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git",
         "custom-favicon",
         "gtm",

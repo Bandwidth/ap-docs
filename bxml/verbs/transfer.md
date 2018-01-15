@@ -2,8 +2,8 @@
 
 ## XML: `<Transfer>`
 The Transfer verb is used to transfer the call to another number.
-An attempt to transfer to an invalid destination completes the call and it is hung up. 
-The Call leg A is hungup after the transferee hangs up. Therefore, any verbs following `<Transfer>` will not be executed. 
+An attempt to transfer to an invalid destination completes the call and it is hung up.
+The Call leg A is hungup after the transferee hangs up. Therefore, any verbs following `<Transfer>` will not be executed.
 
 
 
@@ -15,7 +15,7 @@ The Call leg A is hungup after the transferee hangs up. Therefore, any verbs fol
 | callTimeout       | (optional) This is the timeout (seconds) for the callee to answer the call.                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | requestUrl        | (optional) Relative or absolute URL to send event and request new BXML when transferred call hangs up.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | requestUrlTimeout | (optional) Timeout (milliseconds) to request new BXML.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| tag               | (optional) A string that will be included in the callback events of the conference.                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| tag               | (optional) A string that will be included in the callback events of the transfer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
 
 ### Nestable Verbs

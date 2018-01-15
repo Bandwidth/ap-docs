@@ -21,45 +21,45 @@ Bandwidth API sends this message to the application when text-to-speech starts o
 
 ```json
 {
-  "eventType": "string",
-  "callId": "string",
-  "callUri": "string",
-  "status": "string",
-  "time": "date",
-  "tag": "string"
+  "eventType" : "string",
+  "callId"    : "string",
+  "callUri"   : "string",
+  "status"    : "string",
+  "time"      : "date",
+  "tag"       : "string"
 }
 ```
 
 
 #### Example: Text to Speech - Started Events
 
-```
-POST http://[External server URL]
-```
+```http
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
 
-```json
 {
-   "callId": "{callId}",
-   "callUri": "https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}",
-   "eventType": "speak",
-   "status": "started",
-   "time": "2013-06-26T17:55:45.748Z"
+   "callId"    : "{callId}",
+   "callUri"   : "https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}",
+   "eventType" : "speak",
+   "status"    : "started",
+   "time"      : "2013-06-26T17:55:45.748Z"
 }
 ```
 
 #### Example: Text to Speech - Done Events
 
-```
-POST http://[External server URL]
-```
+```http
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
 
-```json
 {
-   "callId": "{callId}",
-   "callUri": "https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}",
-   "eventType": "speak",
-   "status": "done",
-   "time": "2013-06-26T17:55:46.768Z"
+   "callId"    : "{callId}",
+   "callUri"   : "https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}",
+   "eventType" : "speak",
+   "status"    : "done",
+   "time"      : "2013-06-26T17:55:46.768Z"
 }
 ```
 
