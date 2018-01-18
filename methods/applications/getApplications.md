@@ -5,7 +5,7 @@ Get a list of your applications.
 
 ### Request URL
 
-<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId}`
+<code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/applications`
 
 ---
 
@@ -36,7 +36,7 @@ Get a list of your applications.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/applications \
+curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/applications \
   -u {token}:{secret} \
   -H "Content-type: application/json" \
 ```
