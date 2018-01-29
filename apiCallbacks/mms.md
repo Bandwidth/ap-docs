@@ -27,20 +27,20 @@ Events sent to your server for inbound and outbound MMS messages.
 
 ```json
 {
-  "eventType": "string",
-  "direction": "string",
-  "from": "string",
-  "to": "string",
-  "messageId": "string",
-  "messageUri": "string",
-  "text": "string",
-  "applicationId": "string",
-  "time": "date",
-  "state": "string",
-  "deliveryState": "string",
-  "deliveryCode": "string",
-  "deliveryDescription": "string",
-  "media": ["mediaUri1", "mediaUri2"...]
+  "eventType"           : "string",
+  "direction"           : "string",
+  "from"                : "string",
+  "to"                  : "string",
+  "messageId"           : "string",
+  "messageUri"          : "string",
+  "text"                : "string",
+  "applicationId"       : "string",
+  "time"                : "date",
+  "state"               : "string",
+  "deliveryState"       : "string",
+  "deliveryCode"        : "string",
+  "deliveryDescription" : "string",
+  "media"               : ["mediaUri1", "mediaUri2"...]
 }
 ```
 
@@ -53,20 +53,20 @@ POST http://[External server URL]
 
 ```json
 {
-   "eventType":"mms",
-   "to":"+12534483100",
-   "from":"+15035555555",
-   "time":"2015-08-04T21:50:12Z",
-   "text":"Hello MMS!",
-   "direction":"in",
-   "applicationId":"a-rj7jf3fz7teaqupveqpug3i",
-   "state":"received",
-   "messageId":"m-dr4mcch2wfb6frcls677glq",
-   "media":[
+   "eventType"     : "mms",
+   "to"            : "+12534483100",
+   "from"          : "+15035555555",
+   "time"          : "2015-08-04T21:50:12Z",
+   "text"          : "Hello MMS!",
+   "direction"     : "in",
+   "applicationId" : "a-rj7jf3fz7teaqupveqpug3i",
+   "state"         : "received",
+   "messageId"     : "m-dr4mcch2wfb6frcls677glq",
+   "media"         : [
       "https://api.catapult.inetwork.com/v1/users/{user-id}/media/A3087419-73C2-4A03-BB39-06BF3B1C240F-m-dr4mcch2wfb6frcls677glq.jpg",
       "https://api.catapult.inetwork.com/v1/users/{user-id}/media/123_1-m-dr4mcch2wfb6frcls677glq.smil"
       ],
-    "messageUri":"https://api.catapult.inetwork.com/v1/users/{user-id}/messages/m-dr4mcch2wfb6frcls677glq"
+    "messageUri"   : "https://api.catapult.inetwork.com/v1/users/{user-id}/messages/m-dr4mcch2wfb6frcls677glq"
 }
 ```
 {% endmethod %}
