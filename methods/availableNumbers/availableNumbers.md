@@ -1,4 +1,5 @@
 # Available Numbers
+If you need advanced control over the number ordering process, like managing line features, you can find documentation <a href="#">here.</a><br><br>
 The Available Numbers resource lets you search for numbers that are available for use with your application.
 
 <aside class="alert general small">
