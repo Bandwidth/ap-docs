@@ -15,23 +15,23 @@ For more information about Bandwidth’s local phone numbers, see the <a href="h
 | Parameter          | Description                                                                                                                                                                                                                           | Mandatory |
 |:-------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
 | city               | A city name.                                                                                                                                                                                                                          | No        |
-| state              | A two-letter US state abbreviation ("CA" for California).                                                                                                                                                                             | **        |
-| zip                | A 5-digit US ZIP code.                                                                                                                                                                                                                | **        |
-| areaCode           | A 3-digit telephone area code.                                                                                                                                                                                                        | **        |
-| localNumber        | It is defined as the first digits of a telephone number inside an area code for filtering the results. It must have at least 3 digits and the areaCode field must be filled.                                                          | ***       |
-| inLocalCallingArea | Boolean value to indicate that the search for available numbers must consider overlayed areas. Only applied for localNumber searching.                                                                                                | ***       |
+| state              | A two-letter US state abbreviation ("CA" for California).                                                                                                                                                                             | `**`        |
+| zip                | A 5-digit US ZIP code.                                                                                                                                                                                                                | `**`        |
+| areaCode           | A 3-digit telephone area code.                                                                                                                                                                                                        | `**`        |
+| localNumber        | It is defined as the first digits of a telephone number inside an area code for filtering the results. It must have at least 3 digits and the areaCode field must be filled.                                                          | `***`       |
+| inLocalCallingArea | Boolean value to indicate that the search for available numbers must consider overlayed areas. Only applied for localNumber searching.                                                                                                | `***`       |
 | quantity           | The maximum number of numbers to return (default 10, maximum 5000).                                                                                                                                                                   | No        |
-| pattern            | A number pattern that may include letters, digits, and the following wildcard characters: <br> ? : matches any single digit <br> * : matches zero or more digits<br> Don't forget to encode wildcard characters in the requested URL. | No        |
+| pattern            | A number pattern that may include letters, digits, and the following wildcard characters: <br> ? : matches any single digit <br> - : matches zero or more digits<br> Don't forget to encode wildcard characters in the requested URL. | No        |
 
 <aside class="notice">
 <p>
-** You must choose one of state, zip, or areaCode in request.
-** state, zip and areaCode are mutually exclusive, you may use only one of them per request.
+<code>**</code> You must choose one of state, zip, or areaCode in request.
+<code>**</code> state, zip and areaCode are mutually exclusive, you may use only one of them per request.
 </p>
 </aside>
 <aside class="notice">
 <p>
-*** localNumber and inLocalCallingArea only applies for searching numbers in specific areaCode.
+<code>***</code> localNumber and inLocalCallingArea only applies for searching numbers in specific areaCode.
 </p>
 </aside>
 
@@ -134,7 +134,7 @@ curl -v -X GET  https://api.catapult.inetwork.com/v1/availableNumbers/local?city
 
 // Promise
 client.AvailableNumber.search("local", {
-  city : "Cary", 
+  city : "Cary",
   state : "NC",
   pattern: "*2?9*",
   quantity : 2 })
@@ -142,7 +142,7 @@ client.AvailableNumber.search("local", {
 
 // Callback
 client.AvailableNumber.search("local", {
-  city : "Cary", 
+  city : "Cary",
   state : "NC",
   pattern: "*2?9*",
   quantity : 2 }
