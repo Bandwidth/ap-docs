@@ -6,12 +6,6 @@
 ## Conventions
 Some of the URLs in this documentation contain placeholders for values that your API client program must provide. These placeholders are shown in curly braces, like {this}. When you construct the URL to access these resources, replace those placeholders with the values you want to use.
 
-## Follow along with Postman
-
-ℹ️ Fill in your Bandwidth API Credentials here to get a customized postman environment ℹ️
-
-!INCLUDE "includeRestPostman.html"
-
 ## REST API Reference Index
 
 | Resource                                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |

@@ -15,30 +15,6 @@
         <div class="help">Your Voice and Messaging API Secret</div>
     </div>
 </div>
-<div class="inline-wrap">
-    <div class="form-input clearfix blocks half-block postman-env">
-        <label for="input-text">Dashboard Username:</label>
-        <input type="text" value="" id="db_user" />
-        <div class="help">Your username to signin to Bandwidth Dashboard</div>
-    </div>
-    <div class="form-input clearfix blocks half-block postman-env">
-        <label for="input-text">Dashboard Password:</label>
-        <input type="text" value="" id="db_password" />
-        <div class="help">Your Password to signin to Bandwidth Dashboard</div>
-    </div>
-</div>
-<div class="inline-wrap">
-    <div class="form-input clearfix blocks half-block postman-env">
-        <label for="input-text">Dashboard Account Id:</label>
-        <input type="text" value="" id="db_account_id" />
-        <div class="help">Your Bandwidth Dashboard Accound ID</div>
-    </div>
-    <div class="form-input clearfix blocks half-block postman-env">
-        <label for="input-text">Dashboard Sub-account Id:</label>
-        <input type="text" value="" id="db_subaccount_id" />
-        <div class="help">Your Bandwidth Dashboard Sub-account Id</div>
-    </div>
-</div>
 
 <div id="postman-container" style="pointer-events: none; opacity: 0.5;">
 <div class="postman-run-button"
@@ -99,21 +75,13 @@ function restApiPage () {
 
     function updateRESTEnv () {
     //instead of triggering on button, do onchange (keyup, paste, enter, tab, bbrown will send all this fun stuff)
-        const user       = document.getElementById("db_user").value;
-        const password   = document.getElementById("db_password").value;
-        const account    = document.getElementById("db_account_id").value;
         const userId     = document.getElementById("messaging_user_id").value;
         const token      = document.getElementById("messaging_api_token").value;
         const secret     = document.getElementById("messaging_api_secret").value;
-        const subaccount = document.getElementById("db_subaccount_id").value;
         const envData = {
-          user       : user,
-          password   : password,
-          account    : account,
           userId     : userId,
           token      : token,
           secret     : secret,
-          subaccount : subaccount
         };
         console.log(envData);
         //INstead of creating, replace. will need update collection to contain default empty enviornment
