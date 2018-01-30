@@ -4,7 +4,7 @@
 
 * [Get Started](README.md)
 * [Postman](methods/postman.md)
-* [v2 Messaging Beta](messaging-2/getStarted.md)
+* [Messaging v2 Reference](messaging-2/getStarted.md)
 
 ## Rest API
 * [v1 Rest API](methods/restApi.md)

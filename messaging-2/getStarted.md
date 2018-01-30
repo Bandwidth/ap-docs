@@ -1,1 +1,1 @@
-# This page has moved to [dev.bandwidth.com/v2-messaging/](http://dev.bandwidth.com/v2-messaging/)
+!REDIRECT "http://dev.bandwidth.com/v2-messaging"
