@@ -1,32 +1,25 @@
-# Bandwidth Messaging 2.0
-
 {% raw %}
-<aside class="alert general small">
-<p>
-Messaging 2.0 APIs are currently restricted to only our Beta clients.  Check with your designated customer support associate for more info or <a href="https://support.bandwidth.com/" class="anchor-external">open a support ticket.</a>
-</p>
-</aside>
+
+<script type="text/javascript">
+var count = 10;
+var redirect = "http://dev.bandwidth.com/v2-messaging";
+
+function countDown(){
+    var timer = document.getElementById("timer");
+    if(count > 0){
+        count--;
+        timer.innerHTML = "This page will redirect in "+count+" seconds.";
+        setTimeout("countDown()", 1000);
+    }else{
+        window.location.href = redirect;
+    }
+}
+</script>
+
+The Messaging v2 Reference documentation has moved to <a href="http://dev.bandwidth.com/v2-messaging">http://dev.bandwidth.com/v2-messaging</a>. Please update your bookmarks.
+<br>
+
+<span id="timer"/>
+<script type="text/javascript">countDown();</script>
+
 {% endraw %}
-
-### About
-The Messaging 2.0 API is an all new way to send and receive SMS, MMS, and Group Messages on the Bandwidth network. It works with your numbers you already have in the Number Management section of the Bandwidth Phone Number Dashboard.
-
-### Getting Started
-
-#### Set up your Application
-* To get started, you'll want to head over to the [Bandwidth Phone Number Dashboard](https://dashboard.bandwidth.com/portal/report/) and set up an Application on your Location (SipPeer) that you want to use for HTTP Messaging. Specific documentation on this process is still in progress. You'll get an `applicationId` for the Application you created, which will be used when sending messages.
-
-#### Sending Messages
-* To send a message, `POST` to the [`/messages` endpoint](methods/createSingle.md)
-* In the V2 Messaging API, messages are sent asynchronously. Message validation will happen after the server returns `202`. API clients should listen for HTTP callback events if they need to track message state after the initial `POST` request.
-
-#### Callbacks and Delivery Receipts
-* Callbacks will be sent to the Callback URL for the Application associated with the `from` number on the outgoing message.
-* You will get a callback for any event related to that message. For example, you will get an HTTP callback if your message was sent, delivered, or blocked. In addition, you will get an event for any kind of Delivery Receipt that the destination carrier sends back, regarding the delivery of your message.
-* For incoming messages sent to your numbers, a callback will also be received, notifying your Application of the incoming message. For group messages where you own multiple recipient phone numbers, you will receive a distinct event and `messageId` for each individual recipient.
-
-#### Tags
-* If there is a need to identify individual outbound messages, or correlate them with an ID in your own application, the `tag` field can be set to any string. The custom `tag` will be included in all callbacks for an outbound message.
-
-#### API Credentials
-* API Credentials work the same way they do in the V1 Messaging API. Use your API Token and Secret with Basic Auth when making API requests to send messages. [See here for more details](http://dev.bandwidth.com/security.html).
