@@ -43,3 +43,5 @@ tmp_readme.md
 .nvmrc
 
 my_project
+
+.DS_Store

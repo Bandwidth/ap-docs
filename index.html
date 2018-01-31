@@ -17,7 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-bandwidth-toggle-chapters/toggle.css">
                 
             
                 
@@ -26,6 +26,10 @@
             
                 
                 <link rel="stylesheet" href="gitbook/gitbook-plugin-bandwidth-fonts/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-codetabs/codetabs.css">
                 
             
                 
@@ -71,7 +75,7 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="methods/restApi.html">
+    <link rel="next" href="methods/postman.html">
     
     
 
@@ -142,6 +146,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2" data-path="methods/postman.html">
+            
+                <a href="methods/postman.html">
+            
+                    
+                    Postman
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
         
@@ -154,7 +171,7 @@
                 <a href="methods/restApi.html">
             
                     
-                    Rest API
+                    Voice &amp; Messaging v1 REST API
             
                 </a><i class="fa fa-eye expand" aria-hidden="true"></i>
             
@@ -1060,7 +1077,7 @@
                 <a href="methods/messages/messages.html">
             
                     
-                    /messages
+                    v1/messages
             
                 </a><i class="fa fa-eye expand" aria-hidden="true"></i>
             
@@ -1337,6 +1354,19 @@
             
         </li>
     
+        <li class="chapter " data-level="2.2" data-path="messaging-2/getStarted.html">
+            
+                <a href="messaging-2/getStarted.html">
+            
+                    
+                    Messaging v2 Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
         
@@ -1363,7 +1393,7 @@
                 <a href="apiCallbacks/messagingEvents.html">
             
                     
-                    Messaging Events
+                    v1 Messaging Events
             
                 </a><i class="fa fa-eye expand" aria-hidden="true"></i>
             
@@ -1443,20 +1473,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.2.3" data-path="apiCallbacks/timeout.html">
-            
-                <a href="apiCallbacks/timeout.html">
-            
-                    
-                    CallTimeout Event
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.2.4" data-path="apiCallbacks/conf.html">
+        <li class="chapter " data-level="3.1.2.3" data-path="apiCallbacks/conf.html">
             
                 <a href="apiCallbacks/conf.html">
             
@@ -1469,7 +1486,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.2.5" data-path="apiCallbacks/confAudio.html">
+        <li class="chapter " data-level="3.1.2.4" data-path="apiCallbacks/confAudio.html">
             
                 <a href="apiCallbacks/confAudio.html">
             
@@ -1482,7 +1499,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.2.6" data-path="apiCallbacks/confMember.html">
+        <li class="chapter " data-level="3.1.2.5" data-path="apiCallbacks/confMember.html">
             
                 <a href="apiCallbacks/confMember.html">
             
@@ -1495,7 +1512,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.2.7" data-path="apiCallbacks/confSpeak.html">
+        <li class="chapter " data-level="3.1.2.6" data-path="apiCallbacks/confSpeak.html">
             
                 <a href="apiCallbacks/confSpeak.html">
             
@@ -1508,7 +1525,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.2.8" data-path="apiCallbacks/dtmf.html">
+        <li class="chapter " data-level="3.1.2.7" data-path="apiCallbacks/dtmf.html">
             
                 <a href="apiCallbacks/dtmf.html">
             
@@ -1521,7 +1538,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.2.9" data-path="apiCallbacks/gather.html">
+        <li class="chapter " data-level="3.1.2.8" data-path="apiCallbacks/gather.html">
             
                 <a href="apiCallbacks/gather.html">
             
@@ -1534,7 +1551,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.2.10" data-path="apiCallbacks/incomingCall.html">
+        <li class="chapter " data-level="3.1.2.9" data-path="apiCallbacks/incomingCall.html">
             
                 <a href="apiCallbacks/incomingCall.html">
             
@@ -1547,7 +1564,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.2.11" data-path="apiCallbacks/hangup.html">
+        <li class="chapter " data-level="3.1.2.10" data-path="apiCallbacks/hangup.html">
             
                 <a href="apiCallbacks/hangup.html">
             
@@ -1560,7 +1577,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.2.12" data-path="apiCallbacks/recording.html">
+        <li class="chapter " data-level="3.1.2.11" data-path="apiCallbacks/recording.html">
             
                 <a href="apiCallbacks/recording.html">
             
@@ -1573,7 +1590,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.2.13" data-path="apiCallbacks/reject.html">
+        <li class="chapter " data-level="3.1.2.12" data-path="apiCallbacks/reject.html">
             
                 <a href="apiCallbacks/reject.html">
             
@@ -1586,12 +1603,25 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.2.14" data-path="apiCallbacks/speak.html">
+        <li class="chapter " data-level="3.1.2.13" data-path="apiCallbacks/speak.html">
             
                 <a href="apiCallbacks/speak.html">
             
                     
                     Speak Event
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.14" data-path="apiCallbacks/timeout.html">
+            
+                <a href="apiCallbacks/timeout.html">
+            
+                    
+                    Timeout Event
             
                 </a>
             
@@ -1625,237 +1655,11 @@
 
     
         
-        <li class="header">Messaging 2.0</li>
-        
-        
-    
-        <li class="chapter " data-level="4.1" data-path="messaging-2/getStarted.html">
-            
-                <a href="messaging-2/getStarted.html">
-            
-                    
-                    Messaging 2.0
-            
-                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="4.1.1" data-path="messaging-2/methods/sendMessages.html">
-            
-                <a href="messaging-2/methods/sendMessages.html">
-            
-                    
-                    Send Messages
-            
-                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="4.1.1.1" data-path="messaging-2/methods/createSingle.html">
-            
-                <a href="messaging-2/methods/createSingle.html">
-            
-                    
-                    <code class="post">POST</code> Single Message
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.1.2" data-path="messaging-2/methods/createGroup.html">
-            
-                <a href="messaging-2/methods/createGroup.html">
-            
-                    
-                    <code class="post">POST</code> Group Message
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.2" data-path="messaging-2/events/messageEvents.html">
-            
-                <a href="messaging-2/events/messageEvents.html">
-            
-                    
-                    Message Events
-            
-                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="4.1.2.1" data-path="messaging-2/events/incomingSingle.html">
-            
-                <a href="messaging-2/events/incomingSingle.html">
-            
-                    
-                    Incoming SMS/MMS Message
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.2.2" data-path="messaging-2/events/incomingGroup.html">
-            
-                <a href="messaging-2/events/incomingGroup.html">
-            
-                    
-                    Incoming Group Message
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.2.3" data-path="messaging-2/events/outSent.html">
-            
-                <a href="messaging-2/events/outSent.html">
-            
-                    
-                    Message Sent
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.2.4" data-path="messaging-2/events/msgDelivered.html">
-            
-                <a href="messaging-2/events/msgDelivered.html">
-            
-                    
-                    Message Delivered
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.2.5" data-path="messaging-2/events/groupReject.html">
-            
-                <a href="messaging-2/events/groupReject.html">
-            
-                    
-                    Group Message Rejected
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.3" data-path="messaging-2/errors/errors.html">
-            
-                <a href="messaging-2/errors/errors.html">
-            
-                    
-                    Api Error Response
-            
-                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="4.1.3.1" data-path="messaging-2/errors/badRequest.html">
-            
-                <a href="messaging-2/errors/badRequest.html">
-            
-                    
-                    400 - Bad Request
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.3.2" data-path="messaging-2/errors/unauth.html">
-            
-                <a href="messaging-2/errors/unauth.html">
-            
-                    
-                    401 - Unauthorized
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.3.3" data-path="messaging-2/errors/forbidden.html">
-            
-                <a href="messaging-2/errors/forbidden.html">
-            
-                    
-                    403 - Forbidden
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.3.4" data-path="messaging-2/errors/tooManyReq.html">
-            
-                <a href="messaging-2/errors/tooManyReq.html">
-            
-                    
-                    429 - Too Many Requests
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
         <li class="header">BXML</li>
         
         
     
-        <li class="chapter " data-level="5.1" data-path="bxml/bxml.html">
+        <li class="chapter " data-level="4.1" data-path="bxml/bxml.html">
             
                 <a href="bxml/bxml.html">
             
@@ -1869,7 +1673,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.1.1" data-path="bxml/verbs/gather.html">
+        <li class="chapter " data-level="4.1.1" data-path="bxml/verbs/gather.html">
             
                 <a href="bxml/verbs/gather.html">
             
@@ -1882,7 +1686,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.2" data-path="bxml/verbs/hangup.html">
+        <li class="chapter " data-level="4.1.2" data-path="bxml/verbs/hangup.html">
             
                 <a href="bxml/verbs/hangup.html">
             
@@ -1895,7 +1699,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.3" data-path="bxml/verbs/playAudio.html">
+        <li class="chapter " data-level="4.1.3" data-path="bxml/verbs/playAudio.html">
             
                 <a href="bxml/verbs/playAudio.html">
             
@@ -1908,7 +1712,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.4" data-path="bxml/verbs/record.html">
+        <li class="chapter " data-level="4.1.4" data-path="bxml/verbs/record.html">
             
                 <a href="bxml/verbs/record.html">
             
@@ -1921,7 +1725,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.5" data-path="bxml/verbs/redirect.html">
+        <li class="chapter " data-level="4.1.5" data-path="bxml/verbs/redirect.html">
             
                 <a href="bxml/verbs/redirect.html">
             
@@ -1934,7 +1738,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.6" data-path="bxml/verbs/speakSentence.html">
+        <li class="chapter " data-level="4.1.6" data-path="bxml/verbs/speakSentence.html">
             
                 <a href="bxml/verbs/speakSentence.html">
             
@@ -1947,7 +1751,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.7" data-path="bxml/verbs/transfer.html">
+        <li class="chapter " data-level="4.1.7" data-path="bxml/verbs/transfer.html">
             
                 <a href="bxml/verbs/transfer.html">
             
@@ -1972,7 +1776,7 @@
         
         
     
-        <li class="chapter " data-level="6.1" data-path="bxml/bxmlCallbacks.html">
+        <li class="chapter " data-level="5.1" data-path="bxml/bxmlCallbacks.html">
             
                 <a href="bxml/bxmlCallbacks.html">
             
@@ -1986,7 +1790,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="6.1.1" data-path="bxml/callBacks/answer.html">
+        <li class="chapter " data-level="5.1.1" data-path="bxml/callBacks/answer.html">
             
                 <a href="bxml/callBacks/answer.html">
             
@@ -1999,7 +1803,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.1.2" data-path="bxml/callBacks/gather.html">
+        <li class="chapter " data-level="5.1.2" data-path="bxml/callBacks/gather.html">
             
                 <a href="bxml/callBacks/gather.html">
             
@@ -2012,7 +1816,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.1.3" data-path="bxml/callBacks/hangup.html">
+        <li class="chapter " data-level="5.1.3" data-path="bxml/callBacks/hangup.html">
             
                 <a href="bxml/callBacks/hangup.html">
             
@@ -2025,7 +1829,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.1.4" data-path="bxml/callBacks/recording.html">
+        <li class="chapter " data-level="5.1.4" data-path="bxml/callBacks/recording.html">
             
                 <a href="bxml/callBacks/recording.html">
             
@@ -2038,7 +1842,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.1.5" data-path="bxml/callBacks/transcription.html">
+        <li class="chapter " data-level="5.1.5" data-path="bxml/callBacks/transcription.html">
             
                 <a href="bxml/callBacks/transcription.html">
             
@@ -2051,7 +1855,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.1.6" data-path="bxml/callBacks/redirect.html">
+        <li class="chapter " data-level="5.1.6" data-path="bxml/callBacks/redirect.html">
             
                 <a href="bxml/callBacks/redirect.html">
             
@@ -2064,7 +1868,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.1.7" data-path="bxml/callBacks/transfer.html">
+        <li class="chapter " data-level="5.1.7" data-path="bxml/callBacks/transfer.html">
             
                 <a href="bxml/callBacks/transfer.html">
             
@@ -2089,7 +1893,7 @@
         
         
     
-        <li class="chapter " data-level="7.1" data-path="rateLimits.html">
+        <li class="chapter " data-level="6.1" data-path="rateLimits.html">
             
                 <a href="rateLimits.html">
             
@@ -2109,7 +1913,7 @@
         
         
     
-        <li class="chapter " data-level="8.1" data-path="errors.html">
+        <li class="chapter " data-level="7.1" data-path="errors.html">
             
                 <a href="errors.html">
             
@@ -2129,7 +1933,7 @@
         
         
     
-        <li class="chapter " data-level="9.1">
+        <li class="chapter " data-level="8.1">
             
                 <a target="_blank" href="http://dev.bandwidth.com/faq" style="width: 100%;">
             
@@ -2189,9 +1993,9 @@
                                 
                                 <h1 id="get-started">Get Started</h1>
 <p>Before you can make your first API Request, you will need to <a href="https://catapult.inetwork.com/beta/signup" target="_blank">Sign up</a> for a free Bandwidth API account.</p>
-<h2 id="base-api-url">Base API URL</h2>
+<h2 id="v1-base-api-url">v1 Base API URL</h2>
 <p><code>https://api.catapult.inetwork.com/v1</code></p>
-<h2 id="rest-api-reference-index">REST API Reference Index</h2>
+<h2 id="v1-rest-api-reference-index">v1 REST API Reference Index</h2>
 <table>
 <thead>
 <tr>
@@ -2201,69 +2005,69 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><a href="methods/account/account.html"><code>/account</code></a></td>
+<td style="text-align:left"><a href="methods/account/account.html"><code>v1/account</code></a></td>
 <td style="text-align:left">Account API allows you to retrieve your current balance, transaction list, account type and all elements related to your platform account.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="methods/applications/applications.html"><code>/applications</code></a></td>
+<td style="text-align:left"><a href="methods/applications/applications.html"><code>v1/applications</code></a></td>
 <td style="text-align:left">The Applications resource lets you define call and message handling applications. You write an application on your own servers and have Bandwidth API send events to it by configuring a callback URL.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="methods/availableNumbers/availableNumbers.html"><code>/availableNumbers</code></a></td>
+<td style="text-align:left"><a href="methods/availableNumbers/availableNumbers.html"><code>v1/availableNumbers</code></a></td>
 <td style="text-align:left">The Available Numbers resource lets you search for numbers that are available for use with your application.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="methods/bridges/bridges.html"><code>/bridges</code></a></td>
+<td style="text-align:left"><a href="methods/bridges/bridges.html"><code>v1/bridges</code></a></td>
 <td style="text-align:left">The Bridges resource allows you to bridge two calls together allowing for two way audio between them. A common example is bridging an incoming phone call together with a outgoing phone call.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="methods/calls/calls.html"><code>/calls</code></a></td>
+<td style="text-align:left"><a href="methods/calls/calls.html"><code>v1/calls</code></a></td>
 <td style="text-align:left">The Calls resource lets you make phone calls and view information about previous inbound and outbound calls.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="methods/conferences/conferences.html"><code>/conferences</code></a></td>
+<td style="text-align:left"><a href="methods/conferences/conferences.html"><code>v1/conferences</code></a></td>
 <td style="text-align:left">The Conference resource allows you create conferences, add members to it, play audio, speak text, mute/unmute members, hold/unhold members and other things related to conferencing. Once a conference is created there is no timeout associated with it, i.e., the conference will stay in created state until it is explicitly terminated. After the last member of a conference is removed from it, the conference will be set automatically as completed.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="methods/domains/domains.html"><code>/domains</code></a></td>
+<td style="text-align:left"><a href="methods/domains/domains.html"><code>v1/domains</code></a></td>
 <td style="text-align:left">A domain is a way to logically group endpoints. There is a 100 domain max. per account limit. Most use cases require using a single domain for all endpoints. The name of the domain will be part of a public DNS record. For that reason, we let the customer choose their domain names. Once a domain has been created, endpoints can be created and managed within the context of the domain. Because endpoints can only exist within the context of a domain, creating a domain is the first step in creating endpoints.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="methods/endpoints/endpoints.html"><code>/endpoints</code></a></td>
+<td style="text-align:left"><a href="methods/endpoints/endpoints.html"><code>v1/endpoints</code></a></td>
 <td style="text-align:left">An endpoint represents is an entity that can register with the Application Platform SIP Registrar and place and receive calls. This can be a device like a phone or a pad, or it can be a softphone on a computer.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="methods/errors/errors.html"><code>/errors</code></a></td>
+<td style="text-align:left"><a href="methods/errors/errors.html"><code>v1/errors</code></a></td>
 <td style="text-align:left">The Errors resource lets you see information about errors that happened in your API calls and during applications callbacks. This error information can be very helpful when you&apos;re debugging an application. Because error information can be large, and errors in the distant past are less useful than new ones, Bandwidth API limits the number of user errors it keeps.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="methods/media/media.html"><code>/media</code></a></td>
+<td style="text-align:left"><a href="methods/media/media.html"><code>v1/media</code></a></td>
 <td style="text-align:left">The Media resource lets you upload your media files to Bandwidth API servers so they can be used in applications without requiring a separate hosting provider. You can upload files up to 65MB and file storage is free for an unlimited number of files. Files you upload can only be accessed by you when you supply your API access token and secret. They are not available to anonymous users. Bandwidth API supports the Cache-Control header when you upload files.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="methods/messages/messages.html"><code>/messages</code></a></td>
+<td style="text-align:left"><a href="methods/messages/messages.html"><code>v1/messages</code></a></td>
 <td style="text-align:left">The Messages resource lets you send SMS/MMS messages and view messages that were previously sent or received.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="methods/numberInfo/numberInfo.html"><code>/numberInfo</code></a></td>
+<td style="text-align:left"><a href="methods/numberInfo/numberInfo.html"><code>v1/numberInfo</code></a></td>
 <td style="text-align:left">This resource provides a CNAM number info. CNAM is an acronym which stands for Caller ID Name. CNAM can be used to display the calling party&apos;s name alongside the phone number, to help users easily identify a caller. CNAM API allows the user to get the CNAM information of a particular number.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="methods/phoneNumbers/phoneNumbers.html"><code>/phoneNumbers</code></a></td>
+<td style="text-align:left"><a href="methods/phoneNumbers/phoneNumbers.html"><code>v1/phoneNumbers</code></a></td>
 <td style="text-align:left">The Phone Numbers resource lets you get phone numbers for use with your programs and manage numbers you already have.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="methods/recordings/recordings.html"><code>/recordings</code></a></td>
+<td style="text-align:left"><a href="methods/recordings/recordings.html"><code>v1/recordings</code></a></td>
 <td style="text-align:left">Retrieve information about call recordings. The recording information retrieved by GET method contains only textual data related to call recording as described on Properties section. To properly work with recorded media content such as download and removal of media file, please access /media documentation. To learn about how to transcribe recordings, read the /recordings/{id}/transcriptions documentation.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="methods/transcriptions/transcriptions.html"><code>/recordings/{id}/transcriptions</code></a></td>
+<td style="text-align:left"><a href="methods/transcriptions/transcriptions.html"><code>v1/recordings/{id}/transcriptions</code></a></td>
 <td style="text-align:left">The Transcription resource lets you transcribe a voicemail recording. This resource can be either created automatically when the call property transcriptionEnabled is set to true, when call is created, or during the call by posting an event. The transcription is based on a call audio recording. By enabling/disabling call property recordingEnabled, a call can have more than one recording, so it&apos;s possible to have one or more transcriptions for each one of those recordings. When transcriptionEnabled is set to true all the recordings generated within that call are going to be transcribed, i.e, if you start to record a call, at any given time when the call is active, and then terminate the recording, the transcription resource will be automatically started for this recording; this process can happen many times.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="rest-api-callback-reference-index">REST API Callback Reference Index</h2>
-<h2 id="messaging-events">Messaging Events</h2>
+<h2 id="v1-rest-api-callback-reference-index">v1 REST API Callback Reference Index</h2>
+<h2 id="v1-messaging-events">v1 Messaging Events</h2>
 <table>
 <thead>
 <tr>
@@ -2273,11 +2077,11 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><a href="apiCallbacks/sms.html">SMS Event</a></td>
+<td style="text-align:left"><a href="apiCallbacks/sms.html">v1 SMS Event</a></td>
 <td style="text-align:left">Bandwidth API sends this event to the application when an SMS is sent or received</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="apiCallbacks/mms.html">MMS Event</a></td>
+<td style="text-align:left"><a href="apiCallbacks/mms.html">v1 MMS Event</a></td>
 <td style="text-align:left">Events sent to your server for inbound and outbound MMS messages.</td>
 </tr>
 </tbody>
@@ -2484,7 +2288,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Get Started","level":"1.1","depth":1,"next":{"title":"Rest API","level":"2.1","depth":1,"path":"methods/restApi.md","ref":"methods/restApi.md","articles":[{"title":"/account","level":"2.1.1","depth":2,"path":"methods/account/account.md","ref":"methods/account/account.md","articles":[{"title":"GET Account info","level":"2.1.1.1","depth":3,"path":"methods/account/getAccount.md","ref":"methods/account/getAccount.md","articles":[]},{"title":"GET Account transactions","level":"2.1.1.2","depth":3,"path":"methods/account/getAccountTransactions.md","ref":"methods/account/getAccountTransactions.md","articles":[]}]},{"title":"/applications","level":"2.1.2","depth":2,"path":"methods/applications/applications.md","ref":"methods/applications/applications.md","articles":[{"title":"GET List Application","level":"2.1.2.1","depth":3,"path":"methods/applications/getApplications.md","ref":"methods/applications/getApplications.md","articles":[]},{"title":"POST Create Application","level":"2.1.2.2","depth":3,"path":"methods/applications/postApplications.md","ref":"methods/applications/postApplications.md","articles":[]},{"title":"GET Application info","level":"2.1.2.3","depth":3,"path":"methods/applications/getApplicationsApplicationId.md","ref":"methods/applications/getApplicationsApplicationId.md","articles":[]},{"title":"POST Update Application","level":"2.1.2.4","depth":3,"path":"methods/applications/postApplicationsApplicationId.md","ref":"methods/applications/postApplicationsApplicationId.md","articles":[]},{"title":"DELETE Remove Application","level":"2.1.2.5","depth":3,"path":"methods/applications/deleteApplicationsApplicationId.md","ref":"methods/applications/deleteApplicationsApplicationId.md","articles":[]}]},{"title":"/availableNumbers","level":"2.1.3","depth":2,"path":"methods/availableNumbers/availableNumbers.md","ref":"methods/availableNumbers/availableNumbers.md","articles":[{"title":"GET List Local Numbers","level":"2.1.3.1","depth":3,"path":"methods/availableNumbers/getAvailableNumbersLocal.md","ref":"methods/availableNumbers/getAvailableNumbersLocal.md","articles":[]},{"title":"POST Order Local Number","level":"2.1.3.2","depth":3,"path":"methods/availableNumbers/postAvailableNumbersLocal.md","ref":"methods/availableNumbers/postAvailableNumbersLocal.md","articles":[]},{"title":"GET List Toll Free Numbers","level":"2.1.3.3","depth":3,"path":"methods/availableNumbers/getAvailableNumbersTollFree.md","ref":"methods/availableNumbers/getAvailableNumbersTollFree.md","articles":[]},{"title":"POST Order Toll Free Number","level":"2.1.3.4","depth":3,"path":"methods/availableNumbers/postAvailableNumbersTollFree.md","ref":"methods/availableNumbers/postAvailableNumbersTollFree.md","articles":[]}]},{"title":"/bridges","level":"2.1.4","depth":2,"path":"methods/bridges/bridges.md","ref":"methods/bridges/bridges.md","articles":[{"title":"GET List Bridges","level":"2.1.4.1","depth":3,"path":"methods/bridges/getBridges.md","ref":"methods/bridges/getBridges.md","articles":[]},{"title":"POST Create Bridge","level":"2.1.4.2","depth":3,"path":"methods/bridges/postBridges.md","ref":"methods/bridges/postBridges.md","articles":[]},{"title":"GET Bridge info","level":"2.1.4.3","depth":3,"path":"methods/bridges/getBridgesBridgeId.md","ref":"methods/bridges/getBridgesBridgeId.md","articles":[]},{"title":"POST Update Bridge","level":"2.1.4.4","depth":3,"path":"methods/bridges/postBridgesBridgeId.md","ref":"methods/bridges/postBridgesBridgeId.md","articles":[]},{"title":"POST Play audio in Bridge","level":"2.1.4.5","depth":3,"path":"methods/bridges/postBridgesBridgeIdAudio.md","ref":"methods/bridges/postBridgesBridgeIdAudio.md","articles":[]},{"title":"GET List Calls in Bridge","level":"2.1.4.6","depth":3,"path":"methods/bridges/getBridgesBridgeIdCalls.md","ref":"methods/bridges/getBridgesBridgeIdCalls.md","articles":[]}]},{"title":"/calls","level":"2.1.5","depth":2,"path":"methods/calls/calls.md","ref":"methods/calls/calls.md","articles":[{"title":"GET List Calls","level":"2.1.5.1","depth":3,"path":"methods/calls/getCalls.md","ref":"methods/calls/getCalls.md","articles":[]},{"title":"POST Create Call","level":"2.1.5.2","depth":3,"path":"methods/calls/postCalls.md","ref":"methods/calls/postCalls.md","articles":[]},{"title":"GET Call info","level":"2.1.5.3","depth":3,"path":"methods/calls/getCallsCallId.md","ref":"methods/calls/getCallsCallId.md","articles":[]},{"title":"POST Update Call","level":"2.1.5.4","depth":3,"path":"methods/calls/postCallsCallId.md","ref":"methods/calls/postCallsCallId.md","articles":[]},{"title":"POST Transfer Call","level":"2.1.5.5","depth":3,"path":"methods/calls/postTransferCall.md","ref":"methods/calls/postTransferCall.md","articles":[]},{"title":"POST Play audio in Call","level":"2.1.5.6","depth":3,"path":"methods/calls/postCallsCallIdAudio.md","ref":"methods/calls/postCallsCallIdAudio.md","articles":[]},{"title":"POST Send DTMF in Call","level":"2.1.5.7","depth":3,"path":"methods/calls/postCallsCallIdDTMF.md","ref":"methods/calls/postCallsCallIdDTMF.md","articles":[]},{"title":"GET List Call events","level":"2.1.5.8","depth":3,"path":"methods/calls/getCallsCallIdEvents.md","ref":"methods/calls/getCallsCallIdEvents.md","articles":[]},{"title":"GET Call Event Info","level":"2.1.5.9","depth":3,"path":"methods/calls/getCallsCallIdEventsEventId.md","ref":"methods/calls/getCallsCallIdEventsEventId.md","articles":[]},{"title":"GET List Call Recordings","level":"2.1.5.10","depth":3,"path":"methods/calls/getCallsCallIdRecordings.md","ref":"methods/calls/getCallsCallIdRecordings.md","articles":[]},{"title":"GET List Call Transcriptions","level":"2.1.5.11","depth":3,"path":"methods/calls/getCallsCallIdTranscriptions.md","ref":"methods/calls/getCallsCallIdTranscriptions.md","articles":[]},{"title":"POST Create Gather on Call","level":"2.1.5.12","depth":3,"path":"methods/calls/postCallsCallIdGather.md","ref":"methods/calls/postCallsCallIdGather.md","articles":[]},{"title":"GET Gather info","level":"2.1.5.13","depth":3,"path":"methods/calls/getCallsCallIdGatherGatherId.md","ref":"methods/calls/getCallsCallIdGatherGatherId.md","articles":[]},{"title":"POST Stop Gather on Call","level":"2.1.5.14","depth":3,"path":"methods/calls/postCallsCallIdGatherGatherId.md","ref":"methods/calls/postCallsCallIdGatherGatherId.md","articles":[]}]},{"title":"/conferences","level":"2.1.6","depth":2,"path":"methods/conferences/conferences.md","ref":"methods/conferences/conferences.md","articles":[{"title":"POST Create Conference","level":"2.1.6.1","depth":3,"path":"methods/conferences/postConferences.md","ref":"methods/conferences/postConferences.md","articles":[]},{"title":"GET Conference info","level":"2.1.6.2","depth":3,"path":"methods/conferences/getConferencesConferenceId.md","ref":"methods/conferences/getConferencesConferenceId.md","articles":[]},{"title":"POST Update Conference","level":"2.1.6.3","depth":3,"path":"methods/conferences/postConferencesConferenceId.md","ref":"methods/conferences/postConferencesConferenceId.md","articles":[]},{"title":"POST Play audio in Conference","level":"2.1.6.4","depth":3,"path":"methods/conferences/postConferencesConferenceIdAudio.md","ref":"methods/conferences/postConferencesConferenceIdAudio.md","articles":[]},{"title":"POST Add Member to Conference","level":"2.1.6.5","depth":3,"path":"methods/conferences/postConferencesConferenceIdMembers.md","ref":"methods/conferences/postConferencesConferenceIdMembers.md","articles":[]},{"title":"GET List Members in Conference","level":"2.1.6.6","depth":3,"path":"methods/conferences/getConferencesConferenceIdMembers.md","ref":"methods/conferences/getConferencesConferenceIdMembers.md","articles":[]},{"title":"POST Update Member","level":"2.1.6.7","depth":3,"path":"methods/conferences/postConferencesConferenceIdMembersMemberId.md","ref":"methods/conferences/postConferencesConferenceIdMembersMemberId.md","articles":[]},{"title":"GET Member info","level":"2.1.6.8","depth":3,"path":"methods/conferences/getConferencesConferenceIdMembersMemberId.md","ref":"methods/conferences/getConferencesConferenceIdMembersMemberId.md","articles":[]},{"title":"POST Play audio to Member","level":"2.1.6.9","depth":3,"path":"methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.md","ref":"methods/conferences/postConferencesConferenceIdMembersMemberIdAudio.md","articles":[]}]},{"title":"/domains","level":"2.1.7","depth":2,"path":"methods/domains/domains.md","ref":"methods/domains/domains.md","articles":[{"title":"GET List Domains","level":"2.1.7.1","depth":3,"path":"methods/domains/getDomains.md","ref":"methods/domains/getDomains.md","articles":[]},{"title":"POST Create Domain","level":"2.1.7.2","depth":3,"path":"methods/domains/postDomains.md","ref":"methods/domains/postDomains.md","articles":[]},{"title":"DELETE Remove Domain","level":"2.1.7.3","depth":3,"path":"methods/domains/deleteDomainsDomainId.md","ref":"methods/domains/deleteDomainsDomainId.md","articles":[]}]},{"title":"/endpoints","level":"2.1.8","depth":2,"path":"methods/endpoints/endpoints.md","ref":"methods/endpoints/endpoints.md","articles":[{"title":"GET List Endpoints on Domain","level":"2.1.8.1","depth":3,"path":"methods/endpoints/getEndpoints.md","ref":"methods/endpoints/getEndpoints.md","articles":[]},{"title":"POST Create Endpoint on Domain","level":"2.1.8.2","depth":3,"path":"methods/endpoints/postEndpoints.md","ref":"methods/endpoints/postEndpoints.md","articles":[]},{"title":"GET Endpoint info","level":"2.1.8.3","depth":3,"path":"methods/endpoints/getEndpointsEndpointId.md","ref":"methods/endpoints/getEndpointsEndpointId.md","articles":[]},{"title":"DELETE Remove Endpoint","level":"2.1.8.4","depth":3,"path":"methods/endpoints/deleteEndpointsEndpointId.md","ref":"methods/endpoints/deleteEndpointsEndpointId.md","articles":[]},{"title":"POST Update Endpoint","level":"2.1.8.5","depth":3,"path":"methods/endpoints/postEndpointsEndpointId.md","ref":"methods/endpoints/postEndpointsEndpointId.md","articles":[]}]},{"title":"/errors","level":"2.1.9","depth":2,"path":"methods/errors/errors.md","ref":"methods/errors/errors.md","articles":[{"title":"GET List Errors","level":"2.1.9.1","depth":3,"path":"methods/errors/getErrors.md","ref":"methods/errors/getErrors.md","articles":[]},{"title":"GET Error info","level":"2.1.9.2","depth":3,"path":"methods/errors/getErrorsErrorId.md","ref":"methods/errors/getErrorsErrorId.md","articles":[]}]},{"title":"/media","level":"2.1.10","depth":2,"path":"methods/media/media.md","ref":"methods/media/media.md","articles":[{"title":"GET List Media","level":"2.1.10.1","depth":3,"path":"methods/media/getMedia.md","ref":"methods/media/getMedia.md","articles":[]},{"title":"PUT Upload Media","level":"2.1.10.2","depth":3,"path":"methods/media/putMediaMediaName.md","ref":"methods/media/putMediaMediaName.md","articles":[]},{"title":"GET Download Media","level":"2.1.10.3","depth":3,"path":"methods/media/getMediaMediaName.md","ref":"methods/media/getMediaMediaName.md","articles":[]},{"title":"DELETE Remove Media","level":"2.1.10.4","depth":3,"path":"methods/media/deleteMediaMediaName.md","ref":"methods/media/deleteMediaMediaName.md","articles":[]}]},{"title":"/messages","level":"2.1.11","depth":2,"path":"methods/messages/messages.md","ref":"methods/messages/messages.md","articles":[{"title":"GET List Messages","level":"2.1.11.1","depth":3,"path":"methods/messages/getMessages.md","ref":"methods/messages/getMessages.md","articles":[]},{"title":"POST Send SMS and MMS","level":"2.1.11.2","depth":3,"path":"methods/messages/postMessages.md","ref":"methods/messages/postMessages.md","articles":[]},{"title":"GET Message info","level":"2.1.11.3","depth":3,"path":"methods/messages/getMessagesMessageId.md","ref":"methods/messages/getMessagesMessageId.md","articles":[]}]},{"title":"/numberInfo","level":"2.1.12","depth":2,"path":"methods/numberInfo/numberInfo.md","ref":"methods/numberInfo/numberInfo.md","articles":[{"title":"GET CNAM number info","level":"2.1.12.1","depth":3,"path":"methods/numberInfo/getNumberInfo.md","ref":"methods/numberInfo/getNumberInfo.md","articles":[]}]},{"title":"/phoneNumbers","level":"2.1.13","depth":2,"path":"methods/phoneNumbers/phoneNumbers.md","ref":"methods/phoneNumbers/phoneNumbers.md","articles":[{"title":"GET List Phone Numbers","level":"2.1.13.1","depth":3,"path":"methods/phoneNumbers/getPhoneNumbers.md","ref":"methods/phoneNumbers/getPhoneNumbers.md","articles":[]},{"title":"POST Order Phone Number","level":"2.1.13.2","depth":3,"path":"methods/phoneNumbers/postPhoneNumbers.md","ref":"methods/phoneNumbers/postPhoneNumbers.md","articles":[]},{"title":"GET Phone Number info","level":"2.1.13.3","depth":3,"path":"methods/phoneNumbers/getPhoneNumbersNumberId.md","ref":"methods/phoneNumbers/getPhoneNumbersNumberId.md","articles":[]},{"title":"POST Update Phone Number","level":"2.1.13.4","depth":3,"path":"methods/phoneNumbers/postPhoneNumbersNumberId.md","ref":"methods/phoneNumbers/postPhoneNumbersNumberId.md","articles":[]},{"title":"DELETE Remove Phone Number","level":"2.1.13.5","depth":3,"path":"methods/phoneNumbers/deletePhoneNumbersNumberId.md","ref":"methods/phoneNumbers/deletePhoneNumbersNumberId.md","articles":[]}]},{"title":"/recordings","level":"2.1.14","depth":2,"path":"methods/recordings/recordings.md","ref":"methods/recordings/recordings.md","articles":[{"title":"GET List Recordings","level":"2.1.14.1","depth":3,"path":"methods/recordings/getRecordings.md","ref":"methods/recordings/getRecordings.md","articles":[]},{"title":"GET Recording info","level":"2.1.14.2","depth":3,"path":"methods/recordings/getRecordingsRecordingId.md","ref":"methods/recordings/getRecordingsRecordingId.md","articles":[]}]},{"title":"/recordings/{id}/transcriptions","level":"2.1.15","depth":2,"path":"methods/transcriptions/transcriptions.md","ref":"methods/transcriptions/transcriptions.md","articles":[{"title":"POST Create new Transcription","level":"2.1.15.1","depth":3,"path":"methods/transcriptions/postTranscriptions.md","ref":"methods/transcriptions/postTranscriptions.md","articles":[]},{"title":"GET List Transcriptions","level":"2.1.15.2","depth":3,"path":"methods/transcriptions/getTranscriptions.md","ref":"methods/transcriptions/getTranscriptions.md","articles":[]},{"title":"GET Transcription info","level":"2.1.15.3","depth":3,"path":"methods/transcriptions/getTranscriptionsTranscriptionId.md","ref":"methods/transcriptions/getTranscriptionsTranscriptionId.md","articles":[]}]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.7.15","header","sharing","custom-jquery-postprocessing","toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-01-18T14:46:40.869Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-01-18T14:48:16.000Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Get Started","level":"1.1","depth":1,"next":{"title":"Postman","level":"1.2","depth":1,"path":"methods/postman.md","ref":"methods/postman.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.8.1","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-01-31T18:14:55.102Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-01-31T18:16:24.685Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -2505,7 +2309,7 @@
         
     
         
-        <script src="gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        <script src="gitbook/gitbook-plugin-bandwidth-toggle-chapters/toggle.js"></script>
         
     
         
@@ -2514,6 +2318,10 @@
     
         
         <script src="gitbook/gitbook-plugin-bandwidth-fonts/fontsettings.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-codetabs/codetabs.js"></script>
         
     
         
