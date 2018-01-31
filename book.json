@@ -1,6 +1,6 @@
 {
     "plugins": [
-        "theme-bandwidth@1.7.15",
+        "theme-bandwidth@1.8.1",
         "header",
         "sharing",
         "custom-jquery-postprocessing",
@@ -13,8 +13,7 @@
         "bandwidth-fonts",
         "usabilla",
         "include-html@0.2.0",
-        "codetabs",
-        "redirect"
+        "codetabs"
     ],
     "pluginsConfig": {
         "theme-bandwidth": {

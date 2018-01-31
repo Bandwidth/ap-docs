@@ -1,1 +1,25 @@
-!REDIRECT "http://dev.bandwidth.com/v2-messaging"
+{% raw %}
+
+<script type="text/javascript">
+var count = 10;
+var redirect = "http://dev.bandwidth.com/v2-messaging";
+
+function countDown(){
+    var timer = document.getElementById("timer");
+    if(count > 0){
+        count--;
+        timer.innerHTML = "This page will redirect in "+count+" seconds.";
+        setTimeout("countDown()", 1000);
+    }else{
+        window.location.href = redirect;
+    }
+}
+</script>
+
+The Messaging v2 Reference documentation has moved to <a href="http://dev.bandwidth.com/v2-messaging">http://dev.bandwidth.com/v2-messaging</a>. Please update your bookmarks.
+<br>
+
+<span id="timer"/>
+<script type="text/javascript">countDown();</script>
+
+{% endraw %}
