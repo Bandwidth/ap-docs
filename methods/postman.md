@@ -5,7 +5,6 @@
 ## Assumptions
 * You have downloaded [Postman](https://www.getpostman.com/)
 * You have your [Voice and Messaging API](https://app.bandwidth.com) `userId`, `token`, `secret`
-* You have your [Phone Number API](https://dashboard.bandwidth.com) `username` and `password`
 
 ## Fill in the form then Click Run in Postman below to explore our V2 API Collection.
 

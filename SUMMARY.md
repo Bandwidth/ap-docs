@@ -4,10 +4,9 @@
 
 * [Get Started](README.md)
 * [Postman](methods/postman.md)
-* [Messaging v2 Reference](messaging-2/getStarted.md)
 
 ## Rest API
-* [v1 Rest API](methods/restApi.md)
+* [Voice & Messaging v1 REST API](methods/restApi.md)
  * [/account](methods/account/account.md)
    * [GET Account info](methods/account/getAccount.md)
    * [GET Account transactions](methods/account/getAccountTransactions.md)
@@ -91,6 +90,8 @@
    * [POST Create new Transcription](methods/transcriptions/postTranscriptions.md)
    * [GET List Transcriptions](methods/transcriptions/getTranscriptions.md)
    * [GET Transcription info](methods/transcriptions/getTranscriptionsTranscriptionId.md)
+
+* [Messaging v2 Reference](messaging-2/getStarted.md)
 
 ## Rest API Callbacks
 * [Callbacks](apiCallbacks/callbacks.md)
