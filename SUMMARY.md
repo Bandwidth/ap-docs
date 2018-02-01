@@ -3,9 +3,10 @@
 ## Overview
 
 * [Get Started](README.md)
+* [Postman](methods/postman.md)
 
 ## Rest API
-* [Rest API](methods/restApi.md)
+* [Voice & Messaging v1 REST API](methods/restApi.md)
  * [/account](methods/account/account.md)
    * [GET Account info](methods/account/getAccount.md)
    * [GET Account transactions](methods/account/getAccountTransactions.md)
@@ -70,7 +71,7 @@
    * [PUT Upload Media](methods/media/putMediaMediaName.md)
    * [GET Download Media](methods/media/getMediaMediaName.md)
    * [DELETE Remove Media](methods/media/deleteMediaMediaName.md)
- * [/messages](methods/messages/messages.md)
+ * [v1/messages](methods/messages/messages.md)
    * [GET List Messages](methods/messages/getMessages.md)
    * [POST Send SMS and MMS](methods/messages/postMessages.md)
    * [GET Message info](methods/messages/getMessagesMessageId.md)
@@ -90,15 +91,16 @@
    * [GET List Transcriptions](methods/transcriptions/getTranscriptions.md)
    * [GET Transcription info](methods/transcriptions/getTranscriptionsTranscriptionId.md)
 
+* [Messaging v2 Reference](messaging-2/getStarted.md)
+
 ## Rest API Callbacks
 * [Callbacks](apiCallbacks/callbacks.md)
- * [Messaging Events](apiCallbacks/messagingEvents.md)
+ * [v1 Messaging Events](apiCallbacks/messagingEvents.md)
    * [SMS Event](apiCallbacks/sms.md)
    * [MMS Event](apiCallbacks/mms.md)
  * [Voice Events](apiCallbacks/voiceEvents.md)
    * [Answer Event](apiCallbacks/answer.md)
    * [Audio File Playback Events](apiCallbacks/audio.md)
-   * [CallTimeout Event](apiCallbacks/timeout.md)
    * [Conference Event](apiCallbacks/conf.md)
    * [Conference Audio File Playback Event](apiCallbacks/confAudio.md)
    * [Conference Member Event](apiCallbacks/confMember.md)
@@ -110,24 +112,8 @@
    * [Recording Event](apiCallbacks/recording.md)
    * [Reject Event](apiCallbacks/reject.md)
    * [Speak Event](apiCallbacks/speak.md)
+   * [Timeout Event](apiCallbacks/timeout.md)
    * [Transcription Event – BETA](apiCallbacks/transcription.md)
-
-## Messaging 2.0
-* [Messaging 2.0](messaging-2/getStarted.md)
- * [Send Messages](messaging-2/methods/sendMessages.md)
-   * [POST Single Message](messaging-2/methods/createSingle.md)
-   * [POST Group Message](messaging-2/methods/createGroup.md)
- * [Message Events](messaging-2/events/messageEvents.md)
-   * [Incoming SMS/MMS Message](messaging-2/events/incomingSingle.md)
-   * [Incoming Group Message](messaging-2/events/incomingGroup.md)
-   * [Message Sent](messaging-2/events/outSent.md)
-   * [Message Delivered](messaging-2/events/msgDelivered.md)
-   * [Group Message Rejected](messaging-2/events/groupReject.md)
- * [Api Error Response](messaging-2/errors/errors.md)
-   * [400 - Bad Request](messaging-2/errors/badRequest.md)
-   * [401 - Unauthorized](messaging-2/errors/unauth.md)
-   * [403 - Forbidden](messaging-2/errors/forbidden.md)
-   * [429 - Too Many Requests](messaging-2/errors/tooManyReq.md)
 
 ## BXML
 * [BXML](bxml/bxml.md)
