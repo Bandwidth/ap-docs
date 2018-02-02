@@ -3,19 +3,22 @@
 Events sent to your server for inbound and outbound MMS messages.
 
 ### Properties
-| PROPERTY      | DESCRIPTION                                                                                                                                                                                                                                  |
-|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| eventType     | The event type, value is `mms`.                                                                                                                                                                                                              |
-| direction     | Direction of message<br> * `in` - a message that came from the telephone network to one of your numbers (an “inbound” message)<br>*`out` - a message that was sent from one of your numbers to the telephone network (an “outbound” message) |
-| from          | The message sender’s telephone number (or short code).                                                                                                                                                                                       |
-| to            | Message recipient telephone number (or short code).                                                                                                                                                                                          |
-| messageId     | The unique id of the message resource for this event.                                                                                                                                                                                        |
-| messageUri    | The full URL of the message resource.                                                                                                                                                                                                        |
-| text          | The message contents.                                                                                                                                                                                                                        |
-| applicationId | The application id associated with the phone number receiving the inbound messages.                                                                                                                                                          |
-| time          | The time the message resource was created (UTC, follows the ISO 8601 format).                                                                                                                                                                |
-| state         | Message state, values are `received`                                                                                                                                                              |
-| media         | URIs of media files associate with the MMS message.                                                                                                                                                                                          |
+| PROPERTY            | DESCRIPTION                                                                                                                                                                                                                                  |
+|:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| eventType           | The event type, value is `mms`.                                                                                                                                                                                                              |
+| direction           | Direction of message<br> * `in` - a message that came from the telephone network to one of your numbers (an “inbound” message)<br>*`out` - a message that was sent from one of your numbers to the telephone network (an “outbound” message) |
+| from                | The message sender’s telephone number (or short code).                                                                                                                                                                                       |
+| to                  | Message recipient telephone number (or short code).                                                                                                                                                                                          |
+| messageId           | The unique id of the message resource for this event.                                                                                                                                                                                        |
+| messageUri          | The full URL of the message resource.                                                                                                                                                                                                        |
+| text                | The message contents.                                                                                                                                                                                                                        |
+| applicationId       | The application id associated with the phone number receiving the inbound messages.                                                                                                                                                          |
+| time                | The time the message resource was created (UTC, follows the ISO 8601 format).                                                                                                                                                                |
+| state               | Message state, values are `received`                                                                                                                                                                                                         |
+| media               | URIs of media files associate with the MMS message.                                                                                                                                                                                          |
+| deliveryState       | Delivery state of the message--present only sometimes, to indicate certain errors                                                                                                                                                            |
+| deliveryCode        | Numerical code indicating the delivery status of the message--present only sometimes, to indicate certain errors                                                                                                                             |
+| deliveryDescription | Human-readable description of the delivery status--present only sometimes, to indicate certain errors                                                                                                                                  |
 
 {% common %}
 
@@ -37,7 +40,7 @@ Events sent to your server for inbound and outbound MMS messages.
   "deliveryState"       : "string",
   "deliveryCode"        : "string",
   "deliveryDescription" : "string",
-  "media"               : "mediaUri"
+  "media"               : ["mediaUri1", "mediaUri2"...]
 }
 ```
 
