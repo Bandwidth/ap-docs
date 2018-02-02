@@ -44,11 +44,11 @@ This shows how to use Bandwidth XML record a phone call.
 
 <Response>
 
-<SpeakSentence voice="paul" gender="male" locale="en_US">Recording your call</SpeakSentence>
+<SpeakSentence voice="paul" gender="male" locale="en_US">Recording your call after the beep</SpeakSentence>
 
-<PlayAudio>https://audio.url/audio.mp3</PlayAudio>
+<PlayAudio>https://audio.url/voicemailBeep.mp3</PlayAudio>
 
-<Record requestUrl="https://record.url.server/record" transcribe="true" transcribeCallbackUrl="https://transcribe.url/result"/ >
+<Record requestUrl="https://record.url.server/recordVoicemail" transcribe="true" transcribeCallbackUrl="https://transcribe.url/result"/ >
 
 </Response>
 ```
