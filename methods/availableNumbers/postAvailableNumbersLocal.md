@@ -3,7 +3,7 @@
 ## Order Local Phone Number
 Searches and order available local numbers by location criteria.
 
-<aside class="alert general small">
+<aside class="alert general">
 <p>
 If you need advanced control over the number ordering process, like managing line features, you can find documentation <a href="#">here.</a>
 </p>
