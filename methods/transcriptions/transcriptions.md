@@ -8,11 +8,11 @@ The Transcription resource lets you transcribe a voicemail recording. This resou
 
 ### Capabilities
 
-| Verb                           | Path                                                                                                                 | about                                           |
-|:-------------------------------|:---------------------------------------------------------------------------------------------------------------------|:------------------------------------------------|
-| <code class="post">POST</code> | [`/v1/users/{userId}/recordings/{recordingId}/transcriptions`](postTranscriptions.md)                                | Create a new transcription                      |
-| <code class="get">GET</code>   | [`/v1/users/{userId}/recordings/{recordingId}/transcriptions`](getTranscriptions.md)                                 | Get properties for a transcription              |
-| <code class="get">GET</code>   | [`/v1/users/{userId}/recordings/{recordingId}/transcriptions{transcriptionId}`](getTranscriptionsTranscriptionId.md) | Get all transcriptions for a recording resource |
+| Verb                           | Path                                                                                                                  | about                                           |
+|:-------------------------------|:----------------------------------------------------------------------------------------------------------------------|:------------------------------------------------|
+| <code class="post">POST</code> | [`/v1/users/{userId}/recordings/{recordingId}/transcriptions`](postTranscriptions.md)                                 | Create a new transcription                      |
+| <code class="get">GET</code>   | [`/v1/users/{userId}/recordings/{recordingId}/transcriptions`](getTranscriptions.md)                                  | Get all transcriptions for a recording resource |
+| <code class="get">GET</code>   | [`/v1/users/{userId}/recordings/{recordingId}/transcriptions/{transcriptionId}`](getTranscriptionsTranscriptionId.md) | Get properties for a specific transcription     |
 
 
 <aside class="alert general">

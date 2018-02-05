@@ -1,0 +1,984 @@
+#%RAML 0.8
+---
+title: Bandwidth Dashboard REST API Documentation
+# Use null host here to trigger automatic replacement in javascript
+baseUri: https://dashboard.bandwidth.com/api/
+version: v1
+
+securedBy: [basic]
+
+securitySchemes:
+   - basic:
+        type: Basic Authentication
+
+/accounts:
+    description: |
+        The account is the root resource for many of the operations in the Bandwidth Dashboard API.  <br>
+        The account is represented by an account id, which is the resource that represents a Bandwidth customer, providing a root resource for all of the customer's attributes and services <br>
+        The API calls that are used to manage the details of a customer account, and to manage the resources that a Bandwidth customer has access to or control over, are accessed through the /accounts resource.
+
+    /{accountId}:
+        description: This API retrieves and updates an account's information as specified by the given account ID. Access to information pertaining to a specific account will require credentials that have been assigned to that account, preserving the security of a customer’s information. <br>Note that DELETE is currently unsupported.
+
+        /applications:
+            description: |
+                The application is internal Catapult resource that will provide Iris with possibility to send and recieve sms to/from outside world.  <br>
+                The application is represented by an application id. <br>
+                The API calls that are used to manage the details of a application and to manage the application that a Bandwidth customer has access to or control over, are accessed through the /accounts/{accountId}/channles/applications resource.
+
+            post:
+                description: Create an Application
+                body:
+                    application/xml:
+                        example:
+                            <?xml version="1.0"?>
+                            <ApplicationProvisioningResponse>
+                                <Application>
+                                    <AppName>applicationName</AppName>
+                                    <CallbackUrl>https://example.com</CallbackUrl>
+                                    <CallbackCreds>
+                                        <UserId>UserName</UserId>
+                                        <Password>Password</Password>
+                                    </CallbackCreds>
+                                </Application>
+                            </ApplicationProvisioningResponse>
+                responses:
+                    201:
+                        body:
+                            application/xml:
+                                example:
+                                    <?xml version="1.0"?>
+                                    <ApplicationProvisioningResponse>
+                                        <Application>
+                                            <AppName>applicationName</AppName>
+                                            <AppId>a-pvcirtaqlsgimgirgj37ayi</AppId>
+                                            <CallbackUrl>https://example.com</CallbackUrl>
+                                            <CallbackCreds>
+                                                <UserId>UserName</UserId>
+                                                <Password>Password</Password>
+                                            </CallbackCreds>
+                                        </Application>
+                                    </ApplicationProvisioningResponse>
+            /{applicationId}:
+              get:
+                description: Retrieve an Application
+                responses:
+                    200:
+                        body:
+                            application/xml:
+                                example:
+                                    <?xml version="1.0"?>
+                                    <ApplicationProvisioningResponse>
+                                        <Application>
+                                            <AppName>applicationName</AppName>
+                                            <AppId>a-pvcirtaqlsgimgirgj37ayi</AppId>
+                                            <CallbackUrl>https://example.com</CallbackUrl>
+                                            <CallbackCreds>
+                                                <UserId>UserName</UserId>
+                                                <Password>Password</Password>
+                                            </CallbackCreds>
+                                        </Application>
+                                    </ApplicationProvisioningResponse>
+
+              put:
+                description: Update an Application
+                body:
+                     application/xml:
+                         example:
+                            <?xml version="1.0"?>
+                            <ApplicationProvisioningResponse>
+                                <Application>
+                                    <AppName>applicationName</AppName>
+                                    <CallbackUrl>https://example.com</CallbackUrl>
+                                    <CallbackCreds>
+                                        <UserId>AnotherName</UserId>
+                                        <Password>Password</Password>
+                                    </CallbackCreds>
+                                </Application>
+                            </ApplicationProvisioningResponse>
+                responses:
+                    200:
+                        body:
+                            application/xml:
+                                example:
+                                    <?xml version="1.0"?>
+                                    <ApplicationProvisioningResponse>
+                                        <Application>
+                                            <AppName>applicationName</AppName>
+                                            <AppId>a-pvcirtaqlsgimgirgj37ayi</AppId>
+                                            <CallbackUrl>https://example.com</CallbackUrl>
+                                            <CallbackCreds>
+                                                <UserId>AnotherName</UserId>
+                                                <Password>Password</Password>
+                                            </CallbackCreds>
+                                        </Application>
+                                    </ApplicationProvisioningResponse>
+
+              patch:
+                description: Patch update an Application
+                body:
+                     application/xml:
+                         example:
+                            <?xml version="1.0"?>
+                            <ApplicationProvisioningResponse>
+                                <Application>
+                                    <CallbackUrl>https://newUrl.com</CallbackUrl>
+                                </Application>
+                            </ApplicationProvisioningResponse>
+                responses:
+                    200:
+                        body:
+                            application/xml:
+                                example:
+                                    <?xml version="1.0"?>
+                                    <ApplicationProvisioningResponse>
+                                        <Application>
+                                            <AppName>applicationName</AppName>
+                                            <AppId>a-pvcirtaqlsgimgirgj37ayi</AppId>
+                                            <CallbackUrl>https://newUrl.com</CallbackUrl>
+                                            <CallbackCreds>
+                                                <UserId>UserName</UserId>
+                                                <Password>Password</Password>
+                                            </CallbackCreds>
+                                        </Application>
+                                    </ApplicationProvisioningResponse>
+              delete:
+                  description: Delete an Application
+                  responses:
+                      200:
+                          body:
+                              application/xml:
+                                  example: None
+
+            /{applicationId}/associatedsippeers:
+              get:
+                description: Retrieve a list of sippeers, associated with application
+                responses:
+                    200:
+                        body:
+                            application/xml:
+                                example:
+                                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                    <AssociatedSipPeersResponse>
+                                        <AssociatedSipPeers>
+                                            <AssociatedSipPeer>
+                                                <siteId>482</siteId>
+                                                <siteName>site_e867f</siteName>
+                                                <peerId>500018</peerId>
+                                                <peerName>sippeer-e867f</peerName>
+                                            </AssociatedSipPeer>
+                                            <AssociatedSipPeer>
+                                                <siteId>483</siteId>
+                                                <siteName>site_e867d</siteName>
+                                                <peerId>500019</peerId>
+                                                <peerName>sippeer-e867d</peerName>
+                                            </AssociatedSipPeer>
+                                        </AssociatedSipPeers>
+                                    </AssociatedSipPeersResponse>
+                    400:
+                        body:
+                            application/xml:
+                                example:
+                                    <AssociatedSipPeersResponse>
+                                        <ResponseStatus>
+                                            <ErrorCode>12103</ErrorCode>
+                                            <Description>
+                                                Current 1 Account have no Catapult association
+                                            </Description>
+                                        </ResponseStatus>
+                                    </AssociatedSipPeersResponse>
+                    404:
+                        body:
+                            application/xml:
+                                example:
+                                    <AssociatedSipPeersResponse>
+                                        <ResponseStatus>
+                                            <ErrorCode>13629</ErrorCode>
+                                                <Description>
+                                                    Application with id 'non_existing' not found
+                                                </Description>
+                                        </ResponseStatus>
+                                    </AssociatedSipPeersResponse>
+
+        /sites:
+
+            description: |
+                Use this method to add or update a site to an existing account. <br>
+                Each site creation or update must have the following input parameters:
+                <table>
+                    <tr>
+                        <th>Parameter</th><th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>accountid</td><td>The numerical Account ID that you will be adding the site to.</td>
+                    </tr>
+                    <tr>
+                        <td>Name</td><td>The name of the site. Max length restricted to 10 characters.</td>
+                    </tr>
+                    <tr>
+                        <td>Description</td><td>Customer provided description of the site.</td>
+                    </tr>
+                    <tr>
+                        <td>Address</td><td>Service Address for the site.</td>
+                    </tr>
+                    <tr>
+                        <td>CustomerProvidedID</td><td>Customer can provide an optional id (max 10 digits). Note that the customer can use the same id across multiple orders.</td>
+                    </tr>
+                    <tr>
+                        <td>CustomerName</td><td>Customer can provide an optional name</td>
+                    </tr>
+                    <tr>
+                        <td>UcTrunkingConfiguration</td><td>For UC Trunking accounts the UcTrunkingConfiguration element describes the kind of UC trunking that is provided.  The <b>Type</b> parameter is one of Seats, Premise, or Cloud, and the <b>UsageCategory</b> parameter is one of UC250, UC500 or UC1000. </td>
+                    </tr>
+                </table>
+
+            get:
+                description: retrieve a list of all the sites associated with the account
+                responses:
+                    200:
+                        body:
+                            application/xml:
+                                example: |
+                                    <?xml version="1.0"?>
+                                    <SitesResponse>
+                                        <Sites>
+                                            <Site>
+                                                <Id>399</Id>
+                                                <Name>Testsite</Name>
+                                                <Description>NewSite</Description>
+                                            </Site>
+                                            <Site>
+                                                <Id>403</Id>
+                                                <Name>GABESITEa</Name>
+                                                <Description>Awesomeness</Description>
+                                            </Site>
+                                        </Sites>
+                                    </SitesResponse>
+            post:
+                description: Add a site to the account
+                body:
+                    application/xml:
+                        example: |
+                            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                            <Site>
+                                <Name>Raleigh</Name>
+                                <Description>Test Gateway</Description>
+                                <CustomerName>BW</CustomerName>
+                                <Address>
+                                    <HouseNumber>6300</HouseNumber>
+                                    <StreetName>Lee Hall</StreetName>
+                                    <City>Raleigh</City>
+                                    <StateCode>NC</StateCode>
+                                    <Zip>27606</Zip>
+                                    <AddressType>Service</AddressType>
+                                </Address>
+                            </Site>
+                            <!-- and for a UC account ... -->
+                            <Site>
+                                <Name>Raleigh</Name>
+                                <Description>Test Gateway</Description>
+                                <CustomerName>BW</CustomerName>
+                                <Address>
+                                    <HouseNumber>6300</HouseNumber>
+                                    <StreetName>Lee Hall</StreetName>
+                                    <City>Raleigh</City>
+                                    <StateCode>NC</StateCode>
+                                    <Zip>27606</Zip>
+                                    <AddressType>Service</AddressType>
+                                </Address>
+                                <UcTrunkingConfiguration>
+                                    <Type>Seats</Type>
+                                    <UsageCategory>UC500</UsageCategory>
+                                </UcTrunkingConfiguration>
+                            </Site>
+                responses:
+                    201:
+                        description: The site has been successfully added to the account
+                    400:
+                        description: Information is missing from the body of the add site request
+                        body:
+                            application/xml:
+                                example: |
+                                    <SiteResponse>
+                                        <ResponseStatus>
+                                            <ErrorCode>1003</ErrorCode>
+                                            <Description>Address is required</Description>
+                                        </ResponseStatus>
+                                    </SiteResponse>
+
+                /{siteId}:
+                    description: This method updates or deletes a site based on the id, as well as adds a SIP Peer to the given site.
+
+                    /sippeers:
+                        description: |
+                            The SIP Peer API is used to display and configure SIP Peers
+
+                            The values for this payload are as follows:
+                            <table border="1">
+                            <tbody>
+                                <tr>
+                                    <th>Element</th>
+                                    <th>Description</th>
+                                    <th>Example</th>
+                                </tr>
+                                <tr>
+                                    <td>SiteId</td>
+                                    <td>The internally allocated SIP Peer ID</td>
+                                    <td>12345</td>
+                                </tr>
+                                <tr>
+                                    <td>PeerName</td>
+                                    <td>Mandatory name for the SIP Peer (Max 10 chars)</td>
+                                    <td>Downtown Branch</td>
+                                </tr>
+                                <tr>
+                                    <td>Description</td>
+                                    <td>Optional description for the SIP Peer</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>IsDefaultPeer</td>
+                                    <td>Value is True or False. The Default SIP Peer is the default "destination" for any Telephone Numbers that are ordered for the Site in which the SIP Peer resides.&nbsp; Each site can have only 1 default SIP Peer. You can configure multiple SIP Peers on a Site</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>ShortMessagingProtocol</td>
+                                    <td>Used to specify the protocol used by the endpoints for exchanging SMS messages: allowed values are SIP and SMPP.&nbsp; The element is optional, with a default of SMPP.&nbsp; This element can be updated if SMS is enabled on the Account and SIP Peer.</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>HostName</td>
+                                    <td>The IP Address or Host Name of the address to be used for the SmsHosts, VoiceHosts or VoiceHostGroups addresses.</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Port</td>
+                                    <td>Optional Port Number for Voice and Termination hosts. This is an optional parameter that has default values that are dependent on the Application.&nbsp; It is not valid for SMS.</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>VoiceHosts</td>
+                                    <td>These addresses, comprised of HostName and optional Port, are used by the Bandwidth network to send calls to for Origination services. The VoiceHosts list of IP addresses used for an active/standby address selection mechanism, where the first address is attempted, followed by the second address and so on.  Except under failure situations the first address in the list is preferred. Maximum of 10 hosts - can be IP address or Fully Qualified Domain Name</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>VoiceHostGroups</td>
+                                    <td>The VoiceHostGroups element is comprised of a list of up to five VoiceHostGroup elements, each of which is used to randomly distribute traffic amongst up to 10 IP addresses.  One of the VoiceHostGroups elements in the group is chosen at random to receive traffic, and then the calls are placed at random amongst the addresses in the group.  Once a group is chose, failover behavior is retained within the group.</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>VoiceHostGroup</td>
+                                    <td>A VoiceHostGroup is a list of IP Addresses (the Host element).  This traffic distribution model distributes traffic in a Random manner amongst the addresses in the group.</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>SmsHosts</td>
+                                    <td>Used for SMS traffic only – can be IP address of Fully Qualified Domain Name</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>TerminationHosts</td>
+                                    <td>These addresses, comprised of IP or Subnet(CIDR format) and optional Port, are used by the Bandwidth network to send calls to for Termination services. Maximum of 10 hosts - can be IP address or subnets. In case of subnet you should specify NetworkAddress of subnet as IP.</td>
+                                    <td>135.23.78.145 or
+                                    <br>
+                                    12.45.67.48/29
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>CustomerTrafficAllowed</td>
+                                    <td>A TerminationHost can be configured to allow different customer traffic types.&nbsp; Allowed values are LITE, DOMESTIC and ALL. This is an optional parameter.</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>DataAllowed</td>
+                                    <td>True or False (Enables or Disables SMS messaging for a TerminationHost). Optional parameter.</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Address</td>
+                                    <td>Billing or Service Address for the SIP Peer.&nbsp;
+                                        This element is optional for accounts except for accounts with the UC
+                                        Trunking Product.&nbsp; If the address element is provided the
+                                        following fields can be provided, some of which are Mandatory:<br>
+                                        &nbsp;&nbsp;&nbsp; HouseNumber - MANDATORY<br>
+                                        &nbsp;&nbsp;&nbsp; HouseSuffix - OPTIONAL<br>
+                                        &nbsp;&nbsp;&nbsp; PreDirectional - OPTIONAL<br>
+                                        &nbsp;&nbsp;&nbsp; StreetName - MANDATORY<br>
+                                        &nbsp;&nbsp;&nbsp; StreetSuffix - OPTIONAL<br>
+                                        &nbsp;&nbsp;&nbsp; PostDirectional- OPTIONAL<br>
+                                        &nbsp;&nbsp;&nbsp; AddressLine2- OPTIONAL<br>
+                                        &nbsp;&nbsp;&nbsp; City - MANDATORY<br>
+                                        &nbsp;&nbsp;&nbsp; StateCode - MANDATORY<br>
+                                        &nbsp;&nbsp;&nbsp; Zip - MANDATORY<br>
+                                        &nbsp;&nbsp;&nbsp; PlusFour - OPTIONAL<br>
+                                        &nbsp;&nbsp;&nbsp; County - OPTIONAL<br>
+                                        &nbsp;&nbsp;&nbsp; Country - OPTIONAL (Defaults to 'US')<br>
+                                        &nbsp;&nbsp;&nbsp; AddressType - MANDATORY (Billing or
+                                        Service)</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                  <td>CallingName</td>
+                                  <td>Determines whether the Calling Name Displayl service is applied to the Telephone Numbers associates with the SIP Peer</td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Display</td>
+                                  <td>Controls the Display of Calling Name information. If &lt;true> then the calling name information is displayed by default for all calls,</td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>Enforced</td>
+                                  <td>Determines whether the Default Display behavior (Display) is enforced for all TNs associated with the SIP Peer.  If &lt;true> then no TN-level overrde is possible</td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td>FinalDestinationURI</td>
+                                  <td>Last attempt for routing of calls </td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        post:
+                            description: Create a Sip Peer
+                            body:
+                                application/xml:
+                                    example: |
+                                        <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                        <SipPeer>
+                                            <PeerName>name</PeerName>
+                                            <Description>description</Description>
+                                            <IsDefaultPeer>false</IsDefaultPeer>
+                                            <FinalDestinationUri>uri</FinalDestinationUri>
+                                            <ShortMessagingProtocol>SMPP</ShortMessagingProtocol>
+                                            <VoiceHosts>
+                                                <Host>
+                                                    <HostName>10.10.10.1</HostName>
+                                                </Host>
+                                                <Host>
+                                                    <HostName>10.10.10.2</HostName>
+                                                </Host>
+                                            </VoiceHosts>
+                                            <SmsHosts>
+                                                <Host>
+                                                    <HostName>2.1.1.9</HostName>
+                                                </Host>
+                                            </SmsHosts>
+                                            <TerminationHosts>
+                                                <TerminationHost>
+                                                    <HostName>2.1.1.9</HostName>
+                                                    <Port>0</Port>
+                                                    <CustomerTrafficAllowed>DOMESTIC</CustomerTrafficAllowed>
+                                                    <DataAllowed>true</DataAllowed>
+                                                </TerminationHost>
+                                                <TerminationHost>
+                                                    <HostName>2.1.1.96/30</HostName>
+                                                    <Port>0</Port>
+                                                    <CustomerTrafficAllowed>DOMESTIC</CustomerTrafficAllowed>
+                                                    <DataAllowed>true</DataAllowed>
+                                                </TerminationHost>
+                                            </TerminationHosts>
+                                              <Address>
+                                                  <HouseNumber>1600</HouseNumber>
+                                                  <HouseSuffix/>
+                                                  <PreDirectional/>
+                                                  <StreetName>Pennsylvania Avenue Northwest</StreetName>
+                                                  <StreetSuffix/>
+                                                  <PostDirectional/>
+                                                  <AddressLine2/>
+                                                  <City>Washington</City>
+                                                  <StateCode>DC</StateCode>
+                                                  <Zip>20500</Zip>
+                                                  <PlusFour/>
+                                                  <County/>
+                                                  <Country>United States</Country>
+                                                  <AddressType>Service</AddressType>
+                                              </Address>
+                                            <PremiseTrunks>PremiseTrunks</PremiseTrunks>
+                                            <CallingName>
+                                                <Display>true</Display>
+                                                <Enforced>true</Enforced>
+                                            </CallingName>
+                                        </SipPeer>
+
+                                        or alternatively, using VoiceHostGroups instead of VoiceHosts
+                                        <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                        <SipPeer>
+                                            <PeerName>name</PeerName>
+                                            <Description>description</Description>
+                                            <IsDefaultPeer>false</IsDefaultPeer>
+                                            <FinalDestinationUri>uri</FinalDestinationUri>
+                                            <ShortMessagingProtocol>SMPP</ShortMessagingProtocol>
+                                            <VoiceHostGroups>
+                                                <VoiceHostGroup>
+                                                   <Host>
+                                                       <HostName>10.10.10.1</HostName>
+                                                   </Host>
+                                                   <Host>
+                                                       <HostName>10.10.10.2</HostName>
+                                                   </Host>
+                                                </VoiceHostGroup>
+                                            </VoiceHostGroups>
+                                            <SmsHosts>
+                                                <Host>
+                                                    <HostName>2.1.1.9</HostName>
+                                                </Host>
+                                            </SmsHosts>
+                                            <TerminationHosts>
+                                                <TerminationHost>
+                                                    <HostName>2.1.1.9</HostName>
+                                                    <Port>0</Port>
+                                                    <CustomerTrafficAllowed>DOMESTIC</CustomerTrafficAllowed>
+                                                    <DataAllowed>true</DataAllowed>
+                                                </TerminationHost>
+                                                <TerminationHost>
+                                                    <HostName>2.1.1.96/30</HostName>
+                                                    <Port>0</Port>
+                                                    <CustomerTrafficAllowed>DOMESTIC</CustomerTrafficAllowed>
+                                                    <DataAllowed>true</DataAllowed>
+                                                </TerminationHost>
+                                            </TerminationHosts>
+                                        </SipPeer>
+                            responses:
+                                201:
+                                    description: Sip Peer created
+                                    body:
+                                        application/xml:
+                                            example: None
+                                400:
+                                    description: |
+                                        Bad Request. Possible errors in response:
+                                           Possible errors in response:
+                                           <ul>
+                                                <li>13569 "A termination host with HostName = 2.1.1.9 is already in use"</li>
+                                                <li>13562 "Must have either no hosts or SmsHosts and TerminationHosts"</li>
+                                                <li>13509 "'wrong.ip' is not a valid host. Provide valid IP or domain name"</li>
+                                                <li>13553 "Duplicate host (and port) in VoiceHosts"</li>
+                                                <li>13510 "'wrong.url' is not a valid Destination URI"</li>
+                                                <li>13522 "IsDefaultPeer cannot be false right now. The account requires at least one Default Sip Peer"</li>
+                                                <li>13552 "A termination host with HostName = %s and Port = %s is already in use"</li>
+                                                <li>12024 "Region with state '%s' and country '%s' does not exist"</li>
+                                                <li>13576 "Account 9999999 has no CNAM product feature"</li>
+                                                <li>13581 "Display option is missing"</li>
+                                                <li>13582 "Enforce option is missing"</li>
+                                                <li>13590 "The supplied CustomerTrafficAllowed and DataAllowed values on host %s:%s are not allowed for this sippeer"</li>
+                                                <li>13591 "Termination Settings at the SIP Peer level are not allowed for accounts with the 'DedicatedPrivateNetworkTopology' product."</li>
+                                                <li>13592 "Calling name 'Display' and 'Enforced' values can't be updated for 'DedicatedPrivateNetworkTopology' account.</li>
+                                                <li>13593 "%s has invalid mask. Valid mask values: 20-32"</li>
+                                                <li>13594 "%s is not valid host"</li>
+                                                <li>13595 "The IP address provided: %s contains a non zero subnet portion. An equivalent IP address such as %s with a zero subnet value must be provided."</li>
+                                           </ul>
+                                    body:
+                                        application/xml:
+                                            example: |
+                                                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                <SipPeerResponse>
+                                                    <ResponseStatus>
+                                                        <ErrorCode>13582</ErrorCode>
+                                                        <Description>Enforce option is missing</Description>
+                                                    </ResponseStatus>
+                                                </SipPeerResponse>
+                                409:
+                                    description: Conflict - Sip Peer with such name already exists
+                                    body:
+                                        application/xml:
+                                            example: |
+                                                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                <SipPeerResponse>
+                                                    <ResponseStatus>
+                                                        <ErrorCode>13524</ErrorCode>
+                                                        <Description>SipPeer name 'testDocSipPeers1' already exists for Account '9999999' and Site '45'</Description>
+                                                    </ResponseStatus>
+                                                </SipPeerResponse>
+                                503:
+                                    description: Service unavailable
+                                    body:
+                                        application/xml:
+                                            example: |
+                                                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                <SipPeerResponse>
+                                                    <ResponseStatus>
+                                                        <ErrorCode>13566</ErrorCode>
+                                                        <Description>Our E911 service is unavaliable</Description>
+                                                    </ResponseStatus>
+                                                </SipPeerResponse>
+
+                        /{sippeerId}:
+                            description:  |
+                                The SIPpeerID Resource deals with retrieving or updating a specific identified SIP Peer, identified by the SIP Peer ID.
+                                The elements of the payload are described in the /sippeers resource.
+
+                            /products:
+                                description:  |
+                                    This API will expose products that are associated directly with the SIP Peer.
+                                    At this time all of these products are limited to Admin access, and not exposed to the normal user base
+
+                                    The current products that can be associated with a SIP Peer are: <br>
+                                    * Termination <br>
+                                    * EdgeManagement <br>
+                                    * Messaging <br>
+                                    * Origination <br>
+
+                                get:
+                                    description: list the products associated with a SIP Peer
+                                    responses:
+                                        200:
+                                            description: There is at least one product associated with the SIP Peer. If there is no products associated with Sip Peer, empty list will be displayed.
+                                            body:
+                                                application/xml:
+                                                    example: |
+                                                        <SipPeerProductResponse>
+                                                            <Products>
+                                                                <Product>
+                                                                    <Name>Termination</Name>
+                                                                </Product>
+                                                                <Product>
+                                                                    <Name>EdgeManagement</Name>
+                                                                </Product>
+                                                            </Products>
+                                                        </SipPeerProductResponse>
+
+                                /messaging/features/sms:
+                                    get:
+                                        description: |
+                                            Retrieve sms feature settings for sippeer
+                                        responses:
+                                            200:
+                                                description: A successful result that contains the response data
+                                                body:
+                                                    application/xml:
+                                                        example: |
+                                                            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                            <SipPeerSmsFeatureResponse>
+                                                                <SipPeerSmsFeature>
+                                                                    <SipPeerSmsFeatureSettings>
+                                                                        <TollFree>true</TollFree>
+                                                                        <ShortCode>true</ShortCode>
+                                                                        <Protocol>SMPP</Protocol>
+                                                                        <Zone1>true</Zone1>
+                                                                        <Zone2>true</Zone2>
+                                                                        <Zone3>true</Zone3>
+                                                                        <Zone4>true</Zone4>
+                                                                        <Zone5>true</Zone5>
+                                                                    </SipPeerSmsFeatureSettings>
+                                                                    <SmppHosts>
+                                                                        <SmppHost>
+                                                                            <HostName>54.10.88.146</HostName>
+                                                                            <HostId>18</HostId>
+                                                                            <Priority>0</Priority>
+                                                                            <ConnectionType>RECEIVER_ONLY</ConnectionType>
+                                                                        </SmppHost>
+                                                                    </SmppHosts>
+                                                                </SipPeerSmsFeature>
+                                                            </SipPeerSmsFeatureResponse>
+                                    post:
+                                        description: |
+
+                                            Set sms feature settings
+
+                                        body:
+                                            application/xml:
+                                                example: |
+                                                    <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+                                                    <SipPeerSmsFeature>
+                                                        <SipPeerSmsFeatureSettings>
+                                                            <TollFree>true</TollFree>
+                                                            <ShortCode>true</ShortCode>
+                                                            <Protocol>SMPP</Protocol>
+                                                            <Zone1>true</Zone1>
+                                                            <Zone2>true</Zone2>
+                                                            <Zone3>true</Zone3>
+                                                            <Zone4>true</Zone4>
+                                                            <Zone5>true</Zone5>
+                                                        </SipPeerSmsFeatureSettings>
+                                                        <SmppHosts>
+                                                            <SmppHost>
+                                                                <HostName>54.10.88.146</HostName>
+                                                                <Priority>0</Priority>
+                                                                <ConnectionType>RECEIVER_ONLY</ConnectionType>
+                                                            </SmppHost>
+                                                        </SmppHosts>
+                                                    </SipPeerSmsFeature>
+                                        responses:
+                                            201:
+                                                description: setting were successfully added
+                                                body:
+                                                    application/xml:
+                                                        example: |
+                                                            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                            <SipPeerSmsFeatureResponse>
+                                                                <SipPeerSmsFeature>
+                                                                    <SipPeerSmsFeatureSettings>
+                                                                        <TollFree>true</TollFree>
+                                                                        <ShortCode>true</ShortCode>
+                                                                        <Protocol>SMPP</Protocol>
+                                                                        <Zone1>true</Zone1>
+                                                                        <Zone2>true</Zone2>
+                                                                        <Zone3>true</Zone3>
+                                                                        <Zone4>true</Zone4>
+                                                                        <Zone5>true</Zone5>
+                                                                    </SipPeerSmsFeatureSettings>
+                                                                    <SmppHosts>
+                                                                        <SmppHost>
+                                                                            <HostName>54.10.88.146</HostName>
+                                                                            <HostId>18</HostId>
+                                                                            <Priority>0</Priority>
+                                                                            <ConnectionType>RECEIVER_ONLY</ConnectionType>
+                                                                        </SmppHost>
+                                                                    </SmppHosts>
+                                                                </SipPeerSmsFeature>
+                                                            </SipPeerSmsFeatureResponse>
+                                            400:
+                                                description: |
+                                                    Bad Request. Possible errors in response:
+                                                    <ul>
+                                                       <li>Account level settings don`t exist</li>
+                                                    </ul>
+                                                body:
+                                                    application/xml:
+                                                        example: |
+                                                            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                            <SipPeerSmsFeatureResponse>
+                                                                <ResponseStatus>
+                                                                    <ErrorCode>13609</ErrorCode>
+                                                                    <Description>Can't create sip peer http protocol sms feature without account level http settings.</Description>
+                                                                </ResponseStatus>
+                                                            </SipPeerSmsFeatureResponse>
+                                    put:
+                                        description: update sms feature settings
+                                        body:
+                                            application/json:
+                                                example: |
+                                                    <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+                                                    <SipPeerSmsFeature>
+                                                        <SipPeerSmsFeatureSettings>
+                                                            <TollFree>false</TollFree>
+                                                            <ShortCode>true</ShortCode>
+                                                            <Protocol>SMPP</Protocol>
+                                                            <Zone1>true</Zone1>
+                                                            <Zone2>false</Zone2>
+                                                            <Zone3>false</Zone3>
+                                                            <Zone4>false</Zone4>
+                                                            <Zone5>false</Zone5>
+                                                        </SipPeerSmsFeatureSettings>
+                                                        <SmppHosts>
+                                                            <SmppHost>
+                                                                <HostName>235.133.23.79</HostName>
+                                                                <HostId>6</HostId>
+                                                                <Priority>0</Priority>
+                                                                <ConnectionType>TRANSCEIVER</ConnectionType>
+                                                            </SmppHost>
+                                                        </SmppHosts>
+                                                    </SipPeerSmsFeature>
+
+                                        responses:
+                                            200:
+                                                description: settings were successfully updated
+                                    delete:
+                                        description: delete sms settings
+                                        responses:
+                                            200:
+                                                description: settings were deleted
+                                            404:
+                                                description: sms settings were not found
+
+                                /messaging/features/mms:
+                                    get:
+                                        description: |
+                                            Retrieve mms feature settings for sippeer
+                                        responses:
+                                            200:
+                                                description: A successful result that contains the response data
+                                                body:
+                                                    application/xml:
+                                                        example: |
+                                                            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                            <MmsFeatureResponse>
+                                                              <MmsFeature>
+                                                                <MmsSettings>
+                                                                  <protocol>HTTP</protocol>
+                                                                </MmsSettings>
+                                                                <Protocols>
+                                                                  <HTTP>
+                                                                    <HttpSettings>
+                                                                      <proxyPeerId>500017</proxyPeerId>
+                                                                    </HttpSettings>
+                                                                  </HTTP>
+                                                                </Protocols>
+                                                              </MmsFeature>
+                                                            </MmsFeatureResponse>
+                                    post:
+                                        description: |
+
+                                            Set mms feature settings
+
+                                        body:
+                                            application/xml:
+                                                example: |
+                                                    <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+                                                    <MmsFeature>
+                                                      <MmsSettings>
+                                                        <protocol>MM4</protocol>
+                                                      </MmsSettings>
+                                                      <Protocols>
+                                                        <MM4>
+                                                          <MmsMM4TermHosts>
+                                                            <TermHosts>
+                                                              <TermHost>
+                                                                <HostName>206.107.248.58</HostName>
+                                                              </TermHost>
+                                                            </TermHosts>
+                                                          </MmsMM4TermHosts>
+                                                          <MmsMM4OrigHosts>
+                                                            <OrigHosts>
+                                                              <OrigHost>
+                                                                <HostName>30.239.72.55</HostName>
+                                                                <Port>8726</Port>
+                                                                <Priority>0</Priority>
+                                                              </OrigHost>
+                                                            </OrigHosts>
+                                                          </MmsMM4OrigHosts>
+                                                        </MM4>
+                                                      </Protocols>
+                                                    </MmsFeature>
+                                        responses:
+                                            201:
+                                                description: setting was successfully added
+                                                body:
+                                                    application/xml:
+                                                        example: |
+                                                            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                            <MmsFeatureResponse>
+                                                              <MmsFeature>
+                                                                <MmsSettings>
+                                                                  <protocol>MM4</protocol>
+                                                                </MmsSettings>
+                                                                <Protocols>
+                                                                  <MM4>
+                                                                    <MmsMM4TermHosts>
+                                                                      <TermHosts>
+                                                                        <TermHost>
+                                                                          <HostId>1</HostId>
+                                                                          <HostName>206.107.248.58</HostName>
+                                                                        </TermHost>
+                                                                      </TermHosts>
+                                                                    </MmsMM4TermHosts>
+                                                                    <MmsMM4OrigHosts>
+                                                                      <OrigHosts>
+                                                                        <OrigHost>
+                                                                          <HostName>30.239.72.55</HostName>
+                                                                          <Port>8726</Port>
+                                                                          <HostId>1</HostId>
+                                                                          <Priority>0</Priority>
+                                                                        </OrigHost>
+                                                                      </OrigHosts>
+                                                                    </MmsMM4OrigHosts>
+                                                                  </MM4>
+                                                                </Protocols>
+                                                              </MmsFeature>
+                                                            </MmsFeatureResponse>
+                                            400:
+                                                description: |
+                                                    Bad Request. Possible errors in response:
+                                                    <ul>
+                                                       <li>Pauload contains two protocol</li>
+                                                    </ul>
+                                                body:
+                                                    application/xml:
+                                                        example: |
+                                                            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                            <MmsFeatureResponse>
+                                                              <ResponseStatus>
+                                                                <ErrorCode>13606</ErrorCode>
+                                                                <Description>Messaging feature may have only one protocol assigned.</Description>
+                                                              </ResponseStatus>
+                                                            </MmsFeatureResponse>
+                                    put:
+                                        description: update mms feature settings
+                                        body:
+                                            application/json:
+                                                example: |
+                                                    <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+                                                    <MmsFeature>
+                                                      <MmsSettings>
+                                                        <protocol>HTTP</protocol>
+                                                      </MmsSettings>
+                                                      <Protocols>
+                                                        <HTTP>
+                                                          <HttpSettings>
+                                                            <proxyPeerId>500017</proxyPeerId>
+                                                          </HttpSettings>
+                                                        </HTTP>
+                                                      </Protocols>
+                                                    </MmsFeature>
+                                        responses:
+                                            200:
+                                                description: settings were successfully updated
+                                    delete:
+                                        description: delete mms settings
+                                        responses:
+                                            200:
+                                                description: settings were deleted
+                                            404:
+                                                description: mms settings were not found
+                                    /settings:
+                                      get:
+                                          description: |
+                                              Retrieve mms feature settings for sippeer
+                                          responses:
+                                              200:
+                                                  description: A successful result that contains the response data
+                                                  body:
+                                                      application/xml:
+                                                          example: |
+                                                              <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                              <MmsFeatureMmsSettingsResponse>
+                                                                <MmsSettings>
+                                                                  <protocol>MM4</protocol>
+                                                                </MmsSettings>
+                                                              </MmsFeatureMmsSettingsResponse>
+                                /messaging/applicationSettings:
+                                    get:
+                                        description: |
+                                            Retrieve sipper application settings
+                                        responses:
+                                            200:
+                                                description: A successful result that contains the response data
+                                                body:
+                                                    application/xml:
+                                                        example: |
+                                                            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                            <ApplicationsSettingsResponse>
+                                                              <ApplicationsSettings>
+                                                                <HttpMessagingV2AppId>4a4ca6c1-156b-4fca-84e9-34e35e2afc32</HttpMessagingV2AppId>
+                                                              </ApplicationsSettings>
+                                                            </ApplicationsSettingsResponse>
+                                    put:
+                                        description: create/update/delete application settings for sippeer (use value 'REMOVE' to unassing application)
+                                        body:
+                                            application/json:
+                                                example: |
+                                                    <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+                                                    <ApplicationsSettings>
+                                                      <HttpMessagingV2AppId>c3b0f805-06ab-4d36-8bf4-8baff7623398</HttpMessagingV2AppId>
+                                                    </ApplicationsSettings>
+                                        responses:
+                                            200:
+                                                description: settings were successfully created/updated
+                                                body:
+                                                  application/xml:
+                                                      example: |
+                                                          <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                                                          <ApplicationsSettingsResponse>
+                                                            <ApplicationsSettings>
+                                                              <HttpMessagingV2AppId>c3b0f805-06ab-4d36-8bf4-8baff7623398</HttpMessagingV2AppId>
+                                                            </ApplicationsSettings>
+                                                          </ApplicationsSettingsResponse>
+
+

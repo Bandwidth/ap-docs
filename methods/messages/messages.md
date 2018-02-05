@@ -7,6 +7,8 @@ Read More about Messaging in the <a href="http://dev.bandwidth.com/faq/#messagin
 </p>
 </aside>
 
+
+
 ### Base URL
 
 `https://api.catapult.inetwork.com/v1/users/{userId}/messages`
