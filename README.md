@@ -1,6 +1,6 @@
 # Get Started
 
-Before you can make your first API Request, you will need to [Sign up](https://catapult.inetwork.com/beta/signup) for a free Bandwidth API account.
+Before you can make your first API Request, you will need to [Sign up](https://catapult.inetwork.com/beta/signup) for a free Voice & Messaging API account.
 
 ## Base API URL
 `https://api.catapult.inetwork.com/v1`

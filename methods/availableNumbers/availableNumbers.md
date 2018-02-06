@@ -4,7 +4,7 @@ The Available Numbers resource lets you search for numbers that are available fo
 
 <aside class="alert general">
 <p>
-If you need advanced control over the number ordering process, like managing line features, you can find documentation <a href="#">here.</a>
+If you need advanced control over the number ordering process, like managing line features, you can find documentation <a href="http://dev.bandwidth.com/docs/">here.</a>
 </p>
 </aside>
 

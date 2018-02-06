@@ -5,7 +5,7 @@ Searches and order available local numbers by location criteria.
 
 <aside class="alert general">
 <p>
-If you need advanced control over the number ordering process, like managing line features, you can find documentation <a href="#">here.</a>
+If you need advanced control over the number ordering process, like managing line features, you can find documentation <a href="http://dev.bandwidth.com/docs/">here.</a>
 </p>
 </aside>
 
