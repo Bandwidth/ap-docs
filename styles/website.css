@@ -25,3 +25,11 @@ li.chapter .articles li.chapter .articles a{
 	width: 230px;
   padding-right: 0px;
 }
+.codetabs .codetabs-header .tab{
+   margin-right: 15px;
+   padding: 8px 0px;
+   font-weight: 800;
+}
+.codetabs-header .tab.active{
+   color: #00bcec;
+}

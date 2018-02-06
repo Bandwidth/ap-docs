@@ -1,17 +1,19 @@
 {
     "plugins": [
-        "theme-bandwidth@1.7.15",
+        "theme-bandwidth@alpha",
         "header",
         "sharing",
         "custom-jquery-postprocessing",
-        "toggle-chapters@git+https://github.com/dtolb/gitbook-plugin-toggle-chapters.git",
+        "bandwidth-toggle-chapters",
         "custom-favicon",
         "gtm",
         "-hightlight",
         "-fontsettings",
         "bandwidth-highlight",
         "bandwidth-fonts",
-        "usabilla"
+        "usabilla",
+        "include-html@0.2.0",
+        "codetabs"
     ],
     "pluginsConfig": {
         "theme-bandwidth": {
