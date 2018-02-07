@@ -96,8 +96,10 @@
 ## Rest API Callbacks
 * [Callbacks](apiCallbacks/callbacks.md)
  * [v1 Messaging Events](apiCallbacks/messagingEvents.md)
-   * [SMS Event](apiCallbacks/sms.md)
-   * [MMS Event](apiCallbacks/mms.md)
+   * [POST SMS Event](apiCallbacks/sms.md)
+   * [POST MMS Event](apiCallbacks/mms.md)
+   * [GET SMS Event](apiCallbacks/get-sms.md)
+   * [GET MMS Event](apiCallbacks/get-mms.md)
  * [Voice Events](apiCallbacks/voiceEvents.md)
    * [Answer Event](apiCallbacks/answer.md)
    * [Audio File Playback Events](apiCallbacks/audio.md)
