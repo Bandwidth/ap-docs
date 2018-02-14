@@ -266,7 +266,7 @@ client.bridge.create({
 	return client.Call.create({
 		from: "{fromNumber}",
 		to: "{sip:someone@somewhere.com}",
-		bridgeId: bridgeId
+		bridgeId: bridgeId.id
 	})
 })
 .then(function (callId) {
