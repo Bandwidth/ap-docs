@@ -40,6 +40,8 @@ client.Bridge.create({
 })
 .then(function (response) {
 	console.log(response);
+	// Print the bridge ID
+	console.log(response.id);
 });
 
 //Callback
