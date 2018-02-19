@@ -42,7 +42,6 @@ Gets a list of active and historic calls you made or received. Since this operat
 | recordingEnabled     | Indicates if the call was recorded. <br> `true` if enabled. <br> `false` *(Default)* if disabled                                                                                              |
 | recordingFileFormat  | The file format of the recorded call. Supported values are `wav` *(default)* and `mp3`.                                                                                                       |
 | transcriptionEnabled | Whether all the recordings for this call was automatically transcribed.                                                                                                                       |
-| tag                  | Any string, it will be included in the callback events of the call.                                                                                                                           |
 | sipHeaders           | Map of Sip headers prefixed by "X-". Up to 5 headers can be sent per call. Max length for header and value is 256 characters. <br> *Only Returned if Exist*                                   |
 
 
