@@ -32,7 +32,6 @@ Gets information about an active or completed call. No query parameters are supp
 | recordings           | The URL to retrieve the recordings related to the call. For more information about call recordings, see the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>                              |
 | recordingEnabled     | Indicates if the call should be recorded after being created. Set to `true` to enable. Default is `false`                                                                                      |
 | transcriptionEnabled | Whether all the recordings for this call should be be automatically transcribed. For more information about call transcriptions, see the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a> |
-| tag                  | Any string, it will be included in the callback events of the call.                                                                                                                            |
 | sipHeaders           | Map of Sip headers prefixed by "X-". Up to 5 headers can be sent per call. Max length for header and value is 256 characters.                                                                  |
 
 
