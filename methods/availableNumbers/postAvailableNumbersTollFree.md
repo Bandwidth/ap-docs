@@ -3,6 +3,12 @@
 ## Order Toll Free Phone Number
 Searches and order available Toll Free numbers.
 
+<aside class="alert general">
+<p>
+If you need advanced control over the number ordering process, like managing line features, you can find documentation <a href="http://dev.bandwidth.com/docs/phone-numbers/">here.</a>
+</p>
+</aside>
+
 For more information about Bandwidth’s toll free phone numbers, see the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>
 
 ### Request URL
