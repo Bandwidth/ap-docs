@@ -8,7 +8,7 @@ BXML is a much simpler way to interact with a call. Rather than working with cal
 
 * You have a way to recieve way to recieve webhooks.
 * You have downloaded [Postman](https://www.getpostman.com) or have another way to make Post requests to the API.
-* You have your [Voice and Messaging API](https://app.bandwidth.com) {userId}, {apiToken}, {apiSecret}
+* You have your [Voice and Messaging API](https://app.bandwidth.com) {userId}, {apiToken}, {apiSecret}. Form mor information about finding your credentials, visit the [Get Started](http://dev.bandwidth.com/get-started.html) guide under Set -> Setup Environment Variables.
 * You have a [Bandwidth phone number](https://dev.bandwidth.com/howto/phonenumbers.html).
 
 ## About BXML
@@ -42,6 +42,7 @@ Authorization: {apiToken:apiSecret}
 ### Using the Voice and Messaging Dashboard
 
 To allow the program to answer incoming calls, login to the [app.bandwidth.com](https://app.bandwidth.com) dashboard. Either create a new [application](https://app.bandwidth.com/applications/manage/) or edit an existing [application](https://app.bandwidth.com/applications/manage/). The callback request method should be <code class="get">GET</code> and the application type should be set to Voice. Add a callback URL and toggle “Automatically answer incoming calls” to on. Finally, add a Bandwidth phone number to this application. This number will be the number users can call. When the user calls the bandwidth number, the number will answer and notify the callback url that there is an active call. From there, the program acts the same way as create call.
+
 ![BXML Application Setup](bxmlApplicationSetup.png)
 
 ### Using the REST API
