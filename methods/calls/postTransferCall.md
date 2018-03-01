@@ -52,7 +52,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callI
 	-d \
 	'
 	{
-		"state".    : "transferring",
+		"state"     : "transferring",
 		"transferTo : "+19192223333"
 	}'
 ```

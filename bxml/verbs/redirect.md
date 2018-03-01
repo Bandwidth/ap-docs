@@ -31,7 +31,7 @@ This shows how to use Bandwidth XML to redirect the response to a new url.
 
 <Response>
 
-<Redirect requestUrl="http://flow.url/newFlow" requestUrlTimeout="10000"></Redirect>
+<Redirect requestUrl="http://flow.url/nextBXML" requestUrlTimeout="10000"></Redirect>
 
 </Response>
 ```
