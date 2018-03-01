@@ -137,6 +137,9 @@
  * [Redirect event](bxml/callBacks/redirect.md)
  * [Transfer Complete Event](bxml/callBacks/transfer.md)
 
+## BXML Concepts and Vocabulary
+* [BXML Concepts and Vocabulary](bxml/bxmlConcepts.md)
+
 ## Rate Limits
 * [Rate Limits](rateLimits.md)
 
