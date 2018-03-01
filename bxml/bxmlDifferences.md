@@ -8,12 +8,12 @@ Below are key differences between BXML and API to help you choose which method w
 
 | API                                    | BXML                                                                                                                                                                        |
 |:--------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Has Messaging events                        | Does not handle messaging, only handles calls|
+| Has messaging and call events                        | Does not handle messaging, only handles calls|
 | Requires familiarity with coding language syntax to execute the command | Uses simple easy-to-learn syntax with start and end tags                                                                                                 |
 | Uses POST (JSON parameters) or GET (Query parameters) | Exclusively uses GET                                          |
-| Auto-answer on incoming calls is optional   | Auto-answer on incoming calls must be on                                    |
-| More customizable                           | Not as flexible but nesting commands is allowed, so there is room to be creative |
-| More callbacks are received.                | Less callbacks received, only received when necessary or when the event callback gets redirected |
+| Auto-answer on incoming calls is optional   | Auto-answer on incoming calls is mandatory                                   |
+| More customizable                           | Not as flexible but nesting commands is allowed|
+| More callbacks are received                 | Less callbacks received, only received when necessary or when the event callback gets redirected |
 | Requires more code                          | Requires much less code                                                     |
-| More event options?                         | Does not offer conference calling options                                    |
-| POST requests allows the coder to intercept or interrupt an event | These events are played all the way through unless it is waiting for an action on the caller/callee's end               |
+| More event options                          | Does not offer conference calling options                                    |
+| POST requests allows the coder to intercept or interrupt an event (ie. playAudio)| No events can be stopped unless nested within a gather or transfer verb (CHECK WITH DAN)     |
