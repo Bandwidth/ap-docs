@@ -22,7 +22,7 @@ The word that instigates the method. This is always first word and followed by a
 
 A REST API defines a set of functions where developers can perform requests and receive responses via an HTTP protocol such as GET and POST. Here at Bandwidth, we have a Voice and Messaging API that gives a user the capability to customizably send and receive calls or messages over the internet. We will use the REST API in BXML to make an outbound call.
 
-[Click here to learn more](methods/restApi.md)
+[Click here to learn more](../methods/restApi.md)
 
 ## Webhook (HTTP Callback)
 
