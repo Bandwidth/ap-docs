@@ -43,7 +43,7 @@ Authorization: {apiToken:apiSecret}
 
 To allow the program to answer incoming calls, login to the [app.bandwidth.com](https://app.bandwidth.com) dashboard. Either create a new [application](https://app.bandwidth.com/applications/manage/) or edit an existing [application](https://app.bandwidth.com/applications/manage/). The callback request method should be <code class="get">GET</code> and the application type should be set to Voice. Add a callback URL and toggle “Automatically answer incoming calls” to on. Finally, add a Bandwidth phone number to this application. This number will be the number users can call. When the user calls the bandwidth number, the number will answer and notify the callback url that there is an active call. From there, the program acts the same way as create call.
 
-![BXML Application Setup](bxmlApplicationSetup.png)
+![BXML Application Setup](bxmlCallFlow.png)
 
 ### Using the REST API
 
