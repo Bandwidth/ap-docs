@@ -4,7 +4,7 @@ There are slight differences between Bandwidth's Voice and Messaging API and BXM
 
 
 ### Differences Chart
-Below are key differences between BXML and API to help you choose which method will best suit
+Below are key differences between BXML and API to help you choose which method will best suited for your needs.
 
 | API                                    | BXML                                                                                                                                                                        |
 |:--------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
