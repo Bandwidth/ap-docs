@@ -127,9 +127,6 @@
  * [SpeakSentence](bxml/verbs/speakSentence.md)
  * [Transfer](bxml/verbs/transfer.md)
 
-## BXML Overview
-* [BXML Overview](bxml/bxmlOverview.md)
-
 ## BXML Callbacks
 * [BXML Callbacks](bxml/bxmlCallbacks.md)
  * [Answer Event](bxml/callBacks/answer.md)
@@ -142,6 +139,9 @@
 
 ## BXML Concepts and Vocabulary
 * [BXML Concepts and Vocabulary](bxml/bxmlConcepts.md)
+
+## BXML Overview
+* [BXML Overview](bxml/bxmlOverview.md)
 
 ## Rate Limits
 * [Rate Limits](rateLimits.md)
