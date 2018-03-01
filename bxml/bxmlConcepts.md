@@ -6,9 +6,15 @@ XML is a metalanguage that allows a developer to build up their own customized c
 
 [Click here to learn more](http://dev.bandwidth.com/ap-docs/bxml/bxml.html)
 
+## BXML Verbs
+
+The word that instigates the method. This is always first word and followed by any parameters such as a timeout parameter or the speak sentence voice parameter.
+
+[Click here to learn more](http://dev.bandwidth.com/ap-docs/bxml/bxml.html)
+
 ## BXML
 
-Bandwidth XML is the coding language that Bandwidth developed to make it easier to create a web application using Bandwidth’s software. BXML strictly handles incoming call events using standard action verbs that are listed in the BXML library.
+Bandwidth XML is the coding language that Bandwidth developed to make it easier to create a web application using Bandwidth’s software. BXML strictly handles active call events using standard action verbs that are listed in the BXML library.
 
 [Click here to learn more](http://dev.bandwidth.com/ap-docs/bxml/bxml.html)
 
@@ -34,6 +40,7 @@ The user-specified URL where the user would like the callbacks sent to.
 
 The URL that, when notified, will direct the call to the next section of the BXML code. This is the URL specified in the BXML code block.
 
+
 [Click here to learn more](http://dev.bandwidth.com/ap-docs/bxml/bxml.html)
 
 ## BXML Callback Events
@@ -42,11 +49,6 @@ Bandwidth’s server notifies the user that an event has occurred by sending not
 
 [Click here to learn more](http://dev.bandwidth.com/ap-docs/bxml/bxmlCallbacks.html)
 
-## BXML Verbs
-
-The word that instigates the method. This is always first word and followed by any parameters such as a timeout parameter or the speak sentence voice parameter.
-
-[Click here to learn more](http://dev.bandwidth.com/ap-docs/bxml/bxml.html)
 
 ## Postman
 
