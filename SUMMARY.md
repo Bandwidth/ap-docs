@@ -80,6 +80,7 @@
  * [/phoneNumbers](methods/phoneNumbers/phoneNumbers.md)
    * [GET List Phone Numbers](methods/phoneNumbers/getPhoneNumbers.md)
    * [POST Order Phone Number](methods/phoneNumbers/postPhoneNumbers.md)
+   * [POST Import Phone Number](methods/phoneNumbers/postImportPhoneNumber.md)
    * [GET Phone Number info](methods/phoneNumbers/getPhoneNumbersNumberId.md)
    * [POST Update Phone Number](methods/phoneNumbers/postPhoneNumbersNumberId.md)
    * [DELETE Remove Phone Number](methods/phoneNumbers/deletePhoneNumbersNumberId.md)
