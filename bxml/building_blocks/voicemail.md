@@ -20,8 +20,8 @@ The structure below imitates the standard voicemail system.
         <PhoneNumber>+15552221233</PhoneNumber>
         <PhoneNumber>+15552221233</PhoneNumber>
         <SpeakSentence gender="male" locale="en_US" voice="susan">This call has been forwarded.</SpeakSentence>
-    </Transfer>
-<SpeakSentence voice="susan">We're sorry, none of our operators are available at the moment. Please leave your name and number, and we will return your call as soon as possible</SpeakSentence>
+</Transfer>
+<SpeakSentence voice="susan">We're sorry, none of our operators are available at the moment. After the beep, please leave your name and number, and we will return your call as soon as possible</SpeakSentence>
 <PlayAudio>https://audio.url/beep.mp3</PlayAudio>
 <Record requestUrl="${baseUrl+'/recordResponse'}"></Record>
 </Response>`                                                                                              |
