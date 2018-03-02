@@ -1,6 +1,6 @@
-#Voicemail
+# Voicemail
 
-##Concept
+## Concept
 We exmplify the easy of use of BXML by building a simple voicemail system.
 The structure below imitates the standard voicemail system.
 1) When the call is answered, an automated voice says "Please leave a message after the tone"
@@ -8,7 +8,7 @@ The structure below imitates the standard voicemail system.
 3) The call starts recording
 4) When the call is hung up, the recording callback gets printed in your terminal window and there you can see the recording URI in which you can access the recording 
 
-##Use Cases
+## Use Cases
 | Use Case                                    | BXML Code                                                 |
 |:--------------------------------------------|:----------------------------------------------------------|
 | Transfer call to next available operator. If there's no answer in 10 seconds, then leave voicemail| 
@@ -26,7 +26,7 @@ The structure below imitates the standard voicemail system.
 <Record requestUrl="${baseUrl+'/recordResponse'}"></Record>
 </Response>`                                                                                              |
 
-##Code
+## Code
 Not 100% sure how much code we should show.  I put the Record BXML inside the coding frame, but I also included some of the frame because I wanted to show how the code below uses a Request URL (ie. /recordResponse).
 
 ```js

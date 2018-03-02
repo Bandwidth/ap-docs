@@ -1,9 +1,9 @@
-#Record
+# Record
 
-##Concept
+## Concept
 The Record verb is used to record a call. In the example below, the it records the call as soon as the call gets answered. The callback then gets prints in the terminal in which you can access the recording by going to the recording URI.
 
-##Use Cases
+## Use Cases
 | Use Case                                    | BXML Code                                                 |
 |:--------------------------------------------|:----------------------------------------------------------|
 | Record after answering                      | Does not handle messaging, only handles calls.            |
@@ -34,7 +34,7 @@ The Record verb is used to record a call. In the example below, the it records t
 </Response>`                                                                                              | 
 
 
-##Code
+## Code
 
 Not 100% sure how much code we should show.  I put the Record BXML inside the coding frame, but I also included some of the frame because I wanted to show how the code below uses a Request URL (ie. /recordResponse).
 
