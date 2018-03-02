@@ -31,27 +31,32 @@ const http = require("http").Server(app);
 ```js
 //Use a json body parser
 app.use(bodyParser.json());
-
 app.get("/", function (req, res) {
     console.log(req);
     res.send("Hello from Bandwidth!");
 });
-
 // Launch the Server
 http.listen(app.get('port'), function(){
     console.log('listening on *:' + app.get('port'));
 });
-
 //This is the port to be used oto direct online traffic to your localhost using Ngrok
-//set port to an environment variable port or 3000
-//In terminal, type: ./ngrok 3000
+//In terminal, type: ./ngrok http 3000
 app.set('port', (process.env.PORT || 3000));
+
+
+//Bandwidth Credentials
+var client = new Bandwidth({
+    // Uses my environment variables
+    userId    : process.env.BANDWIDTH_USER_ID, 
+    apiToken  : process.env.BANDWIDTH_API_TOKEN,
+    apiSecret : process.env.BANDWIDTH_API_SECRET
+});
 ```
 
 3. Make an active inbound or outbound call using the API
 
 A) Outbound Call: Use Postman to Create a Call for demo purposes
-	i. Set up your postman with Bandwidth's API and your personal Bandwidth credentials (bxml/postmanSetup.md)
+	i. Set up your postman with Bandwidth's API and your personal Bandwidth credentials (bxml/postmanSetup.md).  Under Authorization -> TYPE: Basic Auth.
 	ii. POST
 	iii. Bandwidth REST API -> /calls -> POST /users/{{userId}}/calls.  This will fill the address to which the command will be sent to.
 	iv. Under Body -> select Raw.  Paste the following JSON in this section.
@@ -67,8 +72,8 @@ A) Outbound Call: Use Postman to Create a Call for demo purposes
 
 //Example:
 {
-    "to": "+18286385873",
-    "from": "+17042663397",
+    "to": "+11234567890",
+    "from": "+11231231234",
     "callbackUrl": "http://bc66e785.ngrok.io/call-events",
     "callbackHttpMethod": "GET"
 }
@@ -115,7 +120,7 @@ const handleAnswerEvent = (req, res) => {
 
 app.get(CALL_EVENTS, handleAnswerEvent);
 
-//Example:
+//Example: Make an outbound call to your cell number
 
 const baseUrl = `http://bc66e785.ngrok.io`;
 const CALL_EVENTS = '/call-events';
@@ -139,3 +144,11 @@ const handleAnswerEvent = (req, res) => {
 app.get(CALL_EVENTS, handleAnswerEvent);
 
 ```
+
+5. In your terminal, cd into the folder that the file is held in, then type the following to test the code.
+
+```js
+node 'filename'
+```
+
+6. Click SEND on Postman, and then answer the call.  You should hear "Welcome to Bandwidth!".
