@@ -19,8 +19,6 @@ Imoprt a previously orderd phone number from the Bandwidth Phone Number API so y
 | `properties.userName`   | This is your user name used to log into the Bandwidth Dashboard.                                                                                            | Yes       |
 | `properties.password`   | This is your password used to log into the Bandwidth Dashboard.                                                                                             | Yes       |
 
-{% common %}
-
 ### Example: Import Numbers (One at a time)
 
 ```http
@@ -52,5 +50,79 @@ Status: 201 Created
 Location: https://api.catapult.inetwork.com/v1/users/{{UserId}}/phoneNumbers/n-id3x6rblp4jrkih2u7zxjdy
 ```
 
+{% common %}
+
+### Example: Import Number (One at a time)
+
+{% sample lang="bash" %}
+
+```bash
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers \
+  -u {token}:{secret} \
+  -H "Content-type: application/json" \
+  -d \
+  '
+  {
+    "number"        : "+14352154439",
+    "applicationId" : "{{applicationId}}",
+    "name"          : "text messaging TN",
+    "provider"      : {
+      "providerName" : "bandwidth-dashboard",
+      "properties"   : {
+        "accountId" : "9999999",
+        "userName"  : "wileCoyote",
+        "password"  : "catchThatBird"
+      }
+    }
+  }'
+```
+
+{% sample lang="js" %}
+
+```js
+
+var importNumberPayload = {
+  "number"        : "+14352154439",
+  "applicationId" : "{{applicationId}}",
+  "name"          : "text messaging TN",
+  "provider"      : {
+    "providerName" : "bandwidth-dashboard",
+    "properties"   : {
+      "accountId" : "9999999",
+      "userName"  : "wileCoyote",
+      "password"  : "catchThatBird"
+    }
+  }
+};
+
+
+client.PhoneNumber.create(importNumberPayload)
+.then(function(number){
+  console.log(number);
+});
+```
+
+
+{% sample lang="csharp" %}
+
+```csharp
+
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+## coming soon
+```
+
+{% common %}
+
+
+> The above command returns HTTP Header structured like this:
+
+```
+HTTP/1.1 201 Created
+Location: /v1/users/{userId}/phoneNumbers/{numberId}
+```
 
 {% endmethod %}
