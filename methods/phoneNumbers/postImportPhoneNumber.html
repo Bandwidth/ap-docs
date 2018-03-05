@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>POST Order Phone Number</title>
+        <title>POST Import Phone Number</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -75,10 +75,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="postImportPhoneNumber.html">
+    <link rel="next" href="getPhoneNumbersNumberId.html">
     
     
-    <link rel="prev" href="getPhoneNumbers.html">
+    <link rel="prev" href="postPhoneNumbers.html">
     
 
     </head>
@@ -1191,7 +1191,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.1.13.2" data-path="postPhoneNumbers.html">
+        <li class="chapter " data-level="2.1.13.2" data-path="postPhoneNumbers.html">
             
                 <a href="postPhoneNumbers.html">
             
@@ -1204,7 +1204,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.13.3" data-path="postImportPhoneNumber.html">
+        <li class="chapter active" data-level="2.1.13.3" data-path="postImportPhoneNumber.html">
             
                 <a href="postImportPhoneNumber.html">
             
@@ -2057,7 +2057,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../..">POST Order Phone Number</a>
+        <a href="../..">POST Import Phone Number</a>
     </h1>
 </div>
 
@@ -2072,12 +2072,10 @@
     
                                 <section class="normal markdown-section" style="padding-top: 0px;">
                                 
-                                <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h2 id="order-phone-number">Order Phone Number</h2>
-<p>Allocates a number so you can use it to make and receive calls and send and receive messages. For more information about a new phone number, see the <a href="http://dev.bandwidth.com/faq/#Phone" target="_blank">FAQ</a></p>
+                                <div class="api-method"><div class="api-method-definition"><div class="api-definition-top"></div><h2 id="import-phone-number">Import Phone Number</h2>
+<p>Imoprt a previously orderd phone number from the Bandwidth Phone Number API so you can use it to make and receive calls and send and receive messages with the Voice And Messaing APIs. For more information about a new phone number, see the <a href="http://dev.bandwidth.com/faq/#Phone" target="_blank">FAQ</a></p>
 <h3 id="request-url">Request URL</h3>
 <p><code class="post">POST</code><code>https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers</code></p>
-<hr>
-<h3 id="supported-parameters">Supported Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -2088,52 +2086,116 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">number</td>
-<td style="text-align:left">An available telephone number you want to use (must be in E.164 format, like +19195551212).</td>
+<td style="text-align:left"><code>number</code></td>
+<td style="text-align:left">Dashboard Phone Number being imported. E.164 format.</td>
 <td style="text-align:left">Yes</td>
 </tr>
 <tr>
-<td style="text-align:left">name</td>
+<td style="text-align:left"><code>name</code></td>
 <td style="text-align:left">A name you choose for this number.</td>
 <td style="text-align:left">No</td>
 </tr>
 <tr>
-<td style="text-align:left">applicationId</td>
-<td style="text-align:left">The unique id of an Application you want to associate with this number.</td>
+<td style="text-align:left"><code>applicationId</code></td>
+<td style="text-align:left">HTTP Application you want the phone number to be registered to for inbound messages.</td>
 <td style="text-align:left">No</td>
 </tr>
 <tr>
-<td style="text-align:left">fallbackNumber</td>
-<td style="text-align:left">Number to transfer an incoming call when the callback/fallback events can&#x2019;t be delivered.</td>
-<td style="text-align:left">No</td>
+<td style="text-align:left"><code>provider.providerName</code></td>
+<td style="text-align:left">Always use this provider &#x201C;bandwidth-dashboard&#x201D;</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>provider.properties</code></td>
+<td style="text-align:left">The details associated with the provider from which you&apos;re importing the Phone Number</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>properties.accountId</code></td>
+<td style="text-align:left">This ID is associated with your Bandwidth Dashboard account. Note: If you don&#x2019;t know your Provider Account ID, please open a ticket with our support group.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>properties.userName</code></td>
+<td style="text-align:left">This is your user name used to log into the Bandwidth Dashboard.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>properties.password</code></td>
+<td style="text-align:left">This is your password used to log into the Bandwidth Dashboard.</td>
+<td style="text-align:left">Yes</td>
 </tr>
 </tbody>
 </table>
-</div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h3 id="example-1-of-1-allocate-a-phone-number-to-your-account">Example 1 of 1: Allocate a phone number to your account</h3>
-<p>To allocate the phone number {number} with the name &quot;home phone&quot; and the fallbackNumber {fallback_number} you can make calls with it, send the following request:</p>
+<h3 id="example-import-numbers-one-at-a-time">Example: Import Numbers (One at a time)</h3>
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">https://api.catapult.inetwork.com/v1/users/{{UserId}}/phoneNumbers</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">Authorization</span>: {apiToken:apiSecret}
+
+<span class="json">{
+  <span class="hljs-attr">&quot;number&quot;</span>        : <span class="hljs-string">&quot;+14352154439&quot;</span>,
+  <span class="hljs-attr">&quot;applicationId&quot;</span> : <span class="hljs-string">&quot;{{applicationId}}&quot;</span>,
+  <span class="hljs-attr">&quot;name&quot;</span>          : <span class="hljs-string">&quot;text messaging TN&quot;</span>,
+  <span class="hljs-attr">&quot;provider&quot;</span>      : {
+    <span class="hljs-attr">&quot;providerName&quot;</span> : <span class="hljs-string">&quot;bandwidth-dashboard&quot;</span>,
+    <span class="hljs-attr">&quot;properties&quot;</span>   : {
+      <span class="hljs-attr">&quot;accountId&quot;</span> : <span class="hljs-string">&quot;9999999&quot;</span>,
+      <span class="hljs-attr">&quot;userName&quot;</span>  : <span class="hljs-string">&quot;wileCoyote&quot;</span>,
+      <span class="hljs-attr">&quot;password&quot;</span>  : <span class="hljs-string">&quot;catchThatBird&quot;</span>
+    }
+  }
+}
+</span></code></pre>
+<h4 id="example-respone-201---created">Example Respone: 201 - Created</h4>
+<p>The <strong>numberId</strong> is returned in the <strong>Location</strong> Header.</p>
+<pre><code class="lang-http"><span class="hljs-attribute">Status</span>: 201 Created
+<span class="hljs-attribute">Location</span>: https://api.catapult.inetwork.com/v1/users/{{UserId}}/phoneNumbers/n-id3x6rblp4jrkih2u7zxjdy
+</code></pre>
+</div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h3 id="example-import-number-one-at-a-time">Example: Import Number (One at a time)</h3>
 </div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> \
-    <span class="hljs-string">&apos;
-    {
-        &quot;number&quot;: &quot;+15555555555&quot;,
-        &quot;name&quot;: &quot;home phone&quot;
-        &quot;fallbackNumber&quot;: &quot;{fallback_number}&quot;
-    }&apos;</span>
+  -u {token}:{secret} \
+  -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
+  <span class="hljs-_">-d</span> \
+  <span class="hljs-string">&apos;
+  {
+    &quot;number&quot;        : &quot;+14352154439&quot;,
+    &quot;applicationId&quot; : &quot;{{applicationId}}&quot;,
+    &quot;name&quot;          : &quot;text messaging TN&quot;,
+    &quot;provider&quot;      : {
+      &quot;providerName&quot; : &quot;bandwidth-dashboard&quot;,
+      &quot;properties&quot;   : {
+        &quot;accountId&quot; : &quot;9999999&quot;,
+        &quot;userName&quot;  : &quot;wileCoyote&quot;,
+        &quot;password&quot;  : &quot;catchThatBird&quot;
+      }
+    }
+  }&apos;</span>
 </code></pre>
-</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-comment">//Allocate number +1234567980</span>
+</div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js">
+<span class="hljs-keyword">var</span> importNumberPayload = {
+  <span class="hljs-string">&quot;number&quot;</span>        : <span class="hljs-string">&quot;+14352154439&quot;</span>,
+  <span class="hljs-string">&quot;applicationId&quot;</span> : <span class="hljs-string">&quot;{{applicationId}}&quot;</span>,
+  <span class="hljs-string">&quot;name&quot;</span>          : <span class="hljs-string">&quot;text messaging TN&quot;</span>,
+  <span class="hljs-string">&quot;provider&quot;</span>      : {
+    <span class="hljs-string">&quot;providerName&quot;</span> : <span class="hljs-string">&quot;bandwidth-dashboard&quot;</span>,
+    <span class="hljs-string">&quot;properties&quot;</span>   : {
+      <span class="hljs-string">&quot;accountId&quot;</span> : <span class="hljs-string">&quot;9999999&quot;</span>,
+      <span class="hljs-string">&quot;userName&quot;</span>  : <span class="hljs-string">&quot;wileCoyote&quot;</span>,
+      <span class="hljs-string">&quot;password&quot;</span>  : <span class="hljs-string">&quot;catchThatBird&quot;</span>
+    }
+  }
+};
 
-<span class="hljs-comment">// Promise</span>
-client.PhoneNumber.create({ <span class="hljs-attr">number</span> : <span class="hljs-string">&quot;+1234567890&quot;</span> }).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">number</span>)</span>{});
 
-<span class="hljs-comment">// Callback</span>
-client.PhoneNumber.create({ <span class="hljs-attr">number</span> : <span class="hljs-string">&quot;+1234567890&quot;</span> }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, number</span>)</span>{});
+client.PhoneNumber.create(importNumberPayload)
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">number</span>)</span>{
+  <span class="hljs-built_in">console</span>.log(number);
+});
 </code></pre>
-</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp"><span class="hljs-keyword">var</span> number = <span class="hljs-keyword">await</span> client.PhoneNumber.CreateAsync(<span class="hljs-keyword">new</span> CreatePhoneNumberData {Number = <span class="hljs-string">&quot;+1234567890&quot;</span>});
-Console.WriteLine(<span class="hljs-string">$&quot;Created phone number with id <span class="hljs-subst">{number.Id}</span>&quot;</span>);
+</div><div class="api-method-sample" data-lang="csharp" data-name="C#"><pre><code class="lang-csharp">
+
 </code></pre>
-</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">number = PhoneNumber.create(client, {<span class="hljs-symbol">:number</span> =&gt; <span class="hljs-string">&quot;+1234567890&quot;</span>})
+</div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby"><span class="hljs-comment">## coming soon</span>
 </code></pre>
 </div><div class="api-method-example"><blockquote>
 <p>The above command returns HTTP Header structured like this:</p>
@@ -2174,7 +2236,7 @@ Location: /v1/users/{userId}/phoneNumbers/{numberId}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST Order Phone Number","level":"2.1.13.2","depth":3,"next":{"title":"POST Import Phone Number","level":"2.1.13.3","depth":3,"path":"methods/phoneNumbers/postImportPhoneNumber.md","ref":"methods/phoneNumbers/postImportPhoneNumber.md","articles":[]},"previous":{"title":"GET List Phone Numbers","level":"2.1.13.1","depth":3,"path":"methods/phoneNumbers/getPhoneNumbers.md","ref":"methods/phoneNumbers/getPhoneNumbers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.1","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/phoneNumbers/postPhoneNumbers.md","mtime":"2018-03-05T14:48:15.668Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-05T14:49:46.985Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST Import Phone Number","level":"2.1.13.3","depth":3,"next":{"title":"GET Phone Number info","level":"2.1.13.4","depth":3,"path":"methods/phoneNumbers/getPhoneNumbersNumberId.md","ref":"methods/phoneNumbers/getPhoneNumbersNumberId.md","articles":[]},"previous":{"title":"POST Order Phone Number","level":"2.1.13.2","depth":3,"path":"methods/phoneNumbers/postPhoneNumbers.md","ref":"methods/phoneNumbers/postPhoneNumbers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.1","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/phoneNumbers/postImportPhoneNumber.md","mtime":"2018-03-05T14:48:15.668Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-05T14:49:46.985Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
