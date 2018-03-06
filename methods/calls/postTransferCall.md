@@ -136,7 +136,7 @@ await client.Call.TransferAsync("callID", "+18382947878", "private", new Whisper
 
 ```ruby
 call.update({
-	:state => 'transferring', 
+	:state => 'transferring',
 	:transfer_to => '+18382947878',
 	:transfer_caller_id => 'private',
 	:whisper_audio => {

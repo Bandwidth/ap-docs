@@ -20,49 +20,50 @@ Bandwidth API sends this message to the application when the call is answered.
 
 ```json
 {
-	"eventType":"string",
-	"from":"string",
-	"to":"string",
-	"callId":"string",
-	"callUri": "string",
-	"callState":"string",
-	"time":"date"
+	"eventType" : "string",
+	"from"      : "string",
+	"to"        : "string",
+	"callId"    : "string",
+	"callUri"   : "string",
+	"callState" : "string",
+	"time"      : "date"
 }
 ```
 
 #### Example: Basic answer event
 
-```
-POST http://[External server URL]
-```
+```http
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
 
-```json
 {
-	"eventType":"answer",
-	"from":"+15753222083",
-	"to":"+13865245000",
-	"callId":"{call-id}",
-	"callUri": "https://api.catapult.inetwork.com/v1/users/{user-id}/calls/{call-id}",
-	"callState":"active",
-	"time":"2012-11-14T16:28:31.536Z"
+	"eventType" : "answer",
+	"from"      : "+15753222083",
+	"to"        : "+13865245000",
+	"callId"    : "{call-id}",
+	"callUri"   : "https://api.catapult.inetwork.com/v1/users/{user-id}/calls/{call-id}",
+	"callState" : "active",
+	"time"      : "2012-11-14T16:28:31.536Z"
 }
 ```
 
 #### Example: Answer event with tag property
 
-```
-POST http://[External server URL]
-```
-```json
+```http
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
+
 {
-	"eventType":"answer",
-	"from":"+15753222083",
-	"to":"+13865245000",
-	"callId":"{call-id}",
-	"callUri": "https://api.catapult.inetwork.com/v1/users/{user-id}/calls/{call-id}",
-	"callState":"active",
-	"time":"2012-11-14T16:29:35.427Z",
-	"tag":"example-tag"
+	"eventType" : "answer",
+	"from"      : "+15753222083",
+	"to"        : "+13865245000",
+	"callId"    : "{call-id}",
+	"callUri"   : "https://api.catapult.inetwork.com/v1/users/{user-id}/calls/{call-id}",
+	"callState" : "active",
+	"time"      : "2012-11-14T16:29:35.427Z",
+	"tag"       : "example-tag"
 }
 ```
 {% endmethod %}

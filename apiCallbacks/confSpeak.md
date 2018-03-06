@@ -20,43 +20,43 @@ Bandwidth API sends this message to the application when text-to-speech speaking
 
 ```json
 {
-    "eventType":"string",
-    "conferenceId":"string",
-    "conferenceUri":"string",
-    "status":"string",
-    "time":"date"
+    "eventType"     : "string",
+    "conferenceId"  : "string",
+    "conferenceUri" : "string",
+    "status"        : "string",
+    "time"          : "date"
 }
 ```
 
 #### Example: Text-to-speech in a conference has started
 
-```
-POST http://[External server URL]
-```
+```http
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
 
-```json
 {
-    "eventType":"conference-speak",
-    "conferenceId":"{conferenceId}",
-    "conferenceUri": "https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}",
-    "status":"started",
-    "time":"2013-07-12T21:18:19.966Z"
+    "eventType"     : "conference-speak",
+    "conferenceId"  : "{conferenceId}",
+    "conferenceUri" : "https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}",
+    "status"        : "started",
+    "time"          : "2013-07-12T21:18:19.966Z"
 }
 ```
 
 #### Example: Text-to-speech in a conference is done
 
-```
-POST http://[External server URL]
-```
+```http
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
 
-```json
 {
-    "eventType":"conference-speak",
-    "conferenceId":"{conferenceId}",
-    "conferenceUri": "https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}",
-    "status":"done",
-    "time":"2013-07-12T21:18:19.966Z"
+    "eventType"     : "conference-speak",
+    "conferenceId"  : "{conferenceId}",
+    "conferenceUri" : "https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}",
+    "status"        : "done",
+    "time"          : "2013-07-12T21:18:19.966Z"
 }
 ```
 {% endmethod %}
