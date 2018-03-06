@@ -22,33 +22,33 @@ Bandwidth API sends this message to the application when an incoming call arrive
 
 ```json
 {
-  "eventType": "string",
-  "from": "string",
-  "to": "string",
-  "callId": "string",
-  "callUri": "string",
-  "callState": "string",
-  "applicationId": "string",
-  "time": "date"
+  "eventType"     : "string",
+  "from"          : "string",
+  "to"            : "string",
+  "callId"        : "string",
+  "callUri"       : "string",
+  "callState"     : "string",
+  "applicationId" : "string",
+  "time"          : "date"
 }
 ```
 
 #### Example: Incoming Call Event
 
-```
-POST http://[External server URL]
-```
+```http
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
 
-```json
 {
-   "eventType":"incomingcall",
-   "from":"+13233326955",
-   "to":"+13865245000",
-   "callId":"{callId}",
-   "callUri": "https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}",
-   "callState":"active",
-   "applicationId":"{appId}",
-   "time":"2012-11-14T16:21:59.616Z"
+   "eventType"     : "incomingcall",
+   "from"          : "+13233326955",
+   "to"            : "+13865245000",
+   "callId"        : "{callId}",
+   "callUri"       : "https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}",
+   "callState"     : "active",
+   "applicationId" : "{appId}",
+   "time"          : "2012-11-14T16:21:59.616Z"
 }
 ```
 {% endmethod %}

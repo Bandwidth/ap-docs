@@ -19,8 +19,6 @@ Retrieve a specific call recording information in JSON format, identified by rec
 | call      | The complete URL to the call resource this recording is associated with.                                                                                                  |
 | media     | The complete URL to the media resource this recording is associated with.                                                                                                 |
 | state     | The state of the recording, values are <br> `recording` <br> *`complete`<br> *`saving` <br> *`error`                                                                      |
-| page      | Used for pagination to indicate the page requested for querying a list of recordings. If no value is specified the default is 0.                                          |
-| size      | Used for pagination to indicate the size of each page requested for querying a list of recordings. If no value is specified the default value is 25. (Maximum value 1000) |
 
 ### Recording States
 | State     | Description                                                    |

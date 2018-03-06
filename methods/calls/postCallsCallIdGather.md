@@ -38,11 +38,11 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 		-d \
 	'
 	{
-		"maxDigits":"5",
-		"terminatingDigits":"*",
-		"interDigitTimeout":"7",
-		"prompt": {
-			"sentence": "Please enter your 5 digit code"
+		"maxDigits"         : "5",
+		"terminatingDigits" : "*",
+		"interDigitTimeout" : "7",
+		"prompt"            : {
+			"sentence" : "Please enter your 5 digit code"
 		}
 	}'
 ```
