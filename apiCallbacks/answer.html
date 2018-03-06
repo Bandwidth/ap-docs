@@ -2119,40 +2119,46 @@
 </table>
 </div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h4 id="example-json">Example JSON</h4>
 <pre><code class="lang-json">{
-    <span class="hljs-attr">&quot;eventType&quot;</span>:<span class="hljs-string">&quot;string&quot;</span>,
-    <span class="hljs-attr">&quot;from&quot;</span>:<span class="hljs-string">&quot;string&quot;</span>,
-    <span class="hljs-attr">&quot;to&quot;</span>:<span class="hljs-string">&quot;string&quot;</span>,
-    <span class="hljs-attr">&quot;callId&quot;</span>:<span class="hljs-string">&quot;string&quot;</span>,
-    <span class="hljs-attr">&quot;callUri&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-    <span class="hljs-attr">&quot;callState&quot;</span>:<span class="hljs-string">&quot;string&quot;</span>,
-    <span class="hljs-attr">&quot;time&quot;</span>:<span class="hljs-string">&quot;date&quot;</span>
+    <span class="hljs-attr">&quot;eventType&quot;</span> : <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;from&quot;</span>      : <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;to&quot;</span>        : <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;callId&quot;</span>    : <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;callUri&quot;</span>   : <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;callState&quot;</span> : <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;time&quot;</span>      : <span class="hljs-string">&quot;date&quot;</span>
 }
 </code></pre>
 <h4 id="example-basic-answer-event">Example: Basic answer event</h4>
-<pre><code>POST http://[External server URL]
-</code></pre><pre><code class="lang-json">{
-    <span class="hljs-attr">&quot;eventType&quot;</span>:<span class="hljs-string">&quot;answer&quot;</span>,
-    <span class="hljs-attr">&quot;from&quot;</span>:<span class="hljs-string">&quot;+15753222083&quot;</span>,
-    <span class="hljs-attr">&quot;to&quot;</span>:<span class="hljs-string">&quot;+13865245000&quot;</span>,
-    <span class="hljs-attr">&quot;callId&quot;</span>:<span class="hljs-string">&quot;{call-id}&quot;</span>,
-    <span class="hljs-attr">&quot;callUri&quot;</span>: <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{user-id}/calls/{call-id}&quot;</span>,
-    <span class="hljs-attr">&quot;callState&quot;</span>:<span class="hljs-string">&quot;active&quot;</span>,
-    <span class="hljs-attr">&quot;time&quot;</span>:<span class="hljs-string">&quot;2012-11-14T16:28:31.536Z&quot;</span>
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/your_url</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">User-Agent</span>: BandwidthAPI/v1
+
+<span class="json">{
+    <span class="hljs-attr">&quot;eventType&quot;</span> : <span class="hljs-string">&quot;answer&quot;</span>,
+    <span class="hljs-attr">&quot;from&quot;</span>      : <span class="hljs-string">&quot;+15753222083&quot;</span>,
+    <span class="hljs-attr">&quot;to&quot;</span>        : <span class="hljs-string">&quot;+13865245000&quot;</span>,
+    <span class="hljs-attr">&quot;callId&quot;</span>    : <span class="hljs-string">&quot;{call-id}&quot;</span>,
+    <span class="hljs-attr">&quot;callUri&quot;</span>   : <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{user-id}/calls/{call-id}&quot;</span>,
+    <span class="hljs-attr">&quot;callState&quot;</span> : <span class="hljs-string">&quot;active&quot;</span>,
+    <span class="hljs-attr">&quot;time&quot;</span>      : <span class="hljs-string">&quot;2012-11-14T16:28:31.536Z&quot;</span>
 }
-</code></pre>
+</span></code></pre>
 <h4 id="example-answer-event-with-tag-property">Example: Answer event with tag property</h4>
-<pre><code>POST http://[External server URL]
-</code></pre><pre><code class="lang-json">{
-    <span class="hljs-attr">&quot;eventType&quot;</span>:<span class="hljs-string">&quot;answer&quot;</span>,
-    <span class="hljs-attr">&quot;from&quot;</span>:<span class="hljs-string">&quot;+15753222083&quot;</span>,
-    <span class="hljs-attr">&quot;to&quot;</span>:<span class="hljs-string">&quot;+13865245000&quot;</span>,
-    <span class="hljs-attr">&quot;callId&quot;</span>:<span class="hljs-string">&quot;{call-id}&quot;</span>,
-    <span class="hljs-attr">&quot;callUri&quot;</span>: <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{user-id}/calls/{call-id}&quot;</span>,
-    <span class="hljs-attr">&quot;callState&quot;</span>:<span class="hljs-string">&quot;active&quot;</span>,
-    <span class="hljs-attr">&quot;time&quot;</span>:<span class="hljs-string">&quot;2012-11-14T16:29:35.427Z&quot;</span>,
-    <span class="hljs-attr">&quot;tag&quot;</span>:<span class="hljs-string">&quot;example-tag&quot;</span>
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/your_url</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">User-Agent</span>: BandwidthAPI/v1
+
+<span class="json">{
+    <span class="hljs-attr">&quot;eventType&quot;</span> : <span class="hljs-string">&quot;answer&quot;</span>,
+    <span class="hljs-attr">&quot;from&quot;</span>      : <span class="hljs-string">&quot;+15753222083&quot;</span>,
+    <span class="hljs-attr">&quot;to&quot;</span>        : <span class="hljs-string">&quot;+13865245000&quot;</span>,
+    <span class="hljs-attr">&quot;callId&quot;</span>    : <span class="hljs-string">&quot;{call-id}&quot;</span>,
+    <span class="hljs-attr">&quot;callUri&quot;</span>   : <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{user-id}/calls/{call-id}&quot;</span>,
+    <span class="hljs-attr">&quot;callState&quot;</span> : <span class="hljs-string">&quot;active&quot;</span>,
+    <span class="hljs-attr">&quot;time&quot;</span>      : <span class="hljs-string">&quot;2012-11-14T16:29:35.427Z&quot;</span>,
+    <span class="hljs-attr">&quot;tag&quot;</span>       : <span class="hljs-string">&quot;example-tag&quot;</span>
 }
-</code></pre>
+</span></code></pre>
 </div></div></div>
 
                                 
@@ -2187,7 +2193,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Answer Event","level":"3.1.2.1","depth":3,"next":{"title":"Audio File Playback Events","level":"3.1.2.2","depth":3,"path":"apiCallbacks/audio.md","ref":"apiCallbacks/audio.md","articles":[]},"previous":{"title":"Voice Events","level":"3.1.2","depth":2,"path":"apiCallbacks/voiceEvents.md","ref":"apiCallbacks/voiceEvents.md","articles":[{"title":"Answer Event","level":"3.1.2.1","depth":3,"path":"apiCallbacks/answer.md","ref":"apiCallbacks/answer.md","articles":[]},{"title":"Audio File Playback Events","level":"3.1.2.2","depth":3,"path":"apiCallbacks/audio.md","ref":"apiCallbacks/audio.md","articles":[]},{"title":"Conference Event","level":"3.1.2.3","depth":3,"path":"apiCallbacks/conf.md","ref":"apiCallbacks/conf.md","articles":[]},{"title":"Conference Audio File Playback Event","level":"3.1.2.4","depth":3,"path":"apiCallbacks/confAudio.md","ref":"apiCallbacks/confAudio.md","articles":[]},{"title":"Conference Member Event","level":"3.1.2.5","depth":3,"path":"apiCallbacks/confMember.md","ref":"apiCallbacks/confMember.md","articles":[]},{"title":"Conference Speak Event","level":"3.1.2.6","depth":3,"path":"apiCallbacks/confSpeak.md","ref":"apiCallbacks/confSpeak.md","articles":[]},{"title":"DTMF Event","level":"3.1.2.7","depth":3,"path":"apiCallbacks/dtmf.md","ref":"apiCallbacks/dtmf.md","articles":[]},{"title":"Gather Event","level":"3.1.2.8","depth":3,"path":"apiCallbacks/gather.md","ref":"apiCallbacks/gather.md","articles":[]},{"title":"Incoming Call Event","level":"3.1.2.9","depth":3,"path":"apiCallbacks/incomingCall.md","ref":"apiCallbacks/incomingCall.md","articles":[]},{"title":"Hangup Event","level":"3.1.2.10","depth":3,"path":"apiCallbacks/hangup.md","ref":"apiCallbacks/hangup.md","articles":[]},{"title":"Recording Event","level":"3.1.2.11","depth":3,"path":"apiCallbacks/recording.md","ref":"apiCallbacks/recording.md","articles":[]},{"title":"Reject Event","level":"3.1.2.12","depth":3,"path":"apiCallbacks/reject.md","ref":"apiCallbacks/reject.md","articles":[]},{"title":"Speak Event","level":"3.1.2.13","depth":3,"path":"apiCallbacks/speak.md","ref":"apiCallbacks/speak.md","articles":[]},{"title":"Timeout Event","level":"3.1.2.14","depth":3,"path":"apiCallbacks/timeout.md","ref":"apiCallbacks/timeout.md","articles":[]},{"title":"Transcription Event – BETA","level":"3.1.2.15","depth":3,"path":"apiCallbacks/transcription.md","ref":"apiCallbacks/transcription.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.1","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"apiCallbacks/answer.md","mtime":"2018-03-05T14:48:15.572Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-05T14:49:46.985Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Answer Event","level":"3.1.2.1","depth":3,"next":{"title":"Audio File Playback Events","level":"3.1.2.2","depth":3,"path":"apiCallbacks/audio.md","ref":"apiCallbacks/audio.md","articles":[]},"previous":{"title":"Voice Events","level":"3.1.2","depth":2,"path":"apiCallbacks/voiceEvents.md","ref":"apiCallbacks/voiceEvents.md","articles":[{"title":"Answer Event","level":"3.1.2.1","depth":3,"path":"apiCallbacks/answer.md","ref":"apiCallbacks/answer.md","articles":[]},{"title":"Audio File Playback Events","level":"3.1.2.2","depth":3,"path":"apiCallbacks/audio.md","ref":"apiCallbacks/audio.md","articles":[]},{"title":"Conference Event","level":"3.1.2.3","depth":3,"path":"apiCallbacks/conf.md","ref":"apiCallbacks/conf.md","articles":[]},{"title":"Conference Audio File Playback Event","level":"3.1.2.4","depth":3,"path":"apiCallbacks/confAudio.md","ref":"apiCallbacks/confAudio.md","articles":[]},{"title":"Conference Member Event","level":"3.1.2.5","depth":3,"path":"apiCallbacks/confMember.md","ref":"apiCallbacks/confMember.md","articles":[]},{"title":"Conference Speak Event","level":"3.1.2.6","depth":3,"path":"apiCallbacks/confSpeak.md","ref":"apiCallbacks/confSpeak.md","articles":[]},{"title":"DTMF Event","level":"3.1.2.7","depth":3,"path":"apiCallbacks/dtmf.md","ref":"apiCallbacks/dtmf.md","articles":[]},{"title":"Gather Event","level":"3.1.2.8","depth":3,"path":"apiCallbacks/gather.md","ref":"apiCallbacks/gather.md","articles":[]},{"title":"Incoming Call Event","level":"3.1.2.9","depth":3,"path":"apiCallbacks/incomingCall.md","ref":"apiCallbacks/incomingCall.md","articles":[]},{"title":"Hangup Event","level":"3.1.2.10","depth":3,"path":"apiCallbacks/hangup.md","ref":"apiCallbacks/hangup.md","articles":[]},{"title":"Recording Event","level":"3.1.2.11","depth":3,"path":"apiCallbacks/recording.md","ref":"apiCallbacks/recording.md","articles":[]},{"title":"Reject Event","level":"3.1.2.12","depth":3,"path":"apiCallbacks/reject.md","ref":"apiCallbacks/reject.md","articles":[]},{"title":"Speak Event","level":"3.1.2.13","depth":3,"path":"apiCallbacks/speak.md","ref":"apiCallbacks/speak.md","articles":[]},{"title":"Timeout Event","level":"3.1.2.14","depth":3,"path":"apiCallbacks/timeout.md","ref":"apiCallbacks/timeout.md","articles":[]},{"title":"Transcription Event – BETA","level":"3.1.2.15","depth":3,"path":"apiCallbacks/transcription.md","ref":"apiCallbacks/transcription.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.1","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"apiCallbacks/answer.md","mtime":"2018-03-06T19:32:41.245Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-06T19:34:24.792Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

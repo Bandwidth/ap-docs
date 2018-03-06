@@ -2119,40 +2119,46 @@
 </table>
 </div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h4 id="example-json">Example JSON</h4>
 <pre><code class="lang-json">{
-  <span class="hljs-attr">&quot;callId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;eventType&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;recordingId&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;recordingUri&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;state&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;startTime&quot;</span>: <span class="hljs-string">&quot;date&quot;</span>,
-  <span class="hljs-attr">&quot;endTime&quot;</span>: <span class="hljs-string">&quot;date&quot;</span>
+  <span class="hljs-attr">&quot;callId&quot;</span>       : <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;eventType&quot;</span>    : <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;recordingId&quot;</span>  : <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;recordingUri&quot;</span> : <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;state&quot;</span>        : <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;status&quot;</span>       : <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;startTime&quot;</span>    : <span class="hljs-string">&quot;date&quot;</span>,
+  <span class="hljs-attr">&quot;endTime&quot;</span>      : <span class="hljs-string">&quot;date&quot;</span>
 }
 </code></pre>
 <h4 id="example-recording-media-file-saved-and-available">Example: Recording media file saved and available</h4>
-<pre><code>POST http://[External server URL]
-</code></pre><pre><code class="lang-json">{
-   <span class="hljs-attr">&quot;callId&quot;</span>: <span class="hljs-string">&quot;{callId}&quot;</span>,
-   <span class="hljs-attr">&quot;eventType&quot;</span>: <span class="hljs-string">&quot;recording&quot;</span>,
-   <span class="hljs-attr">&quot;recordingId&quot;</span>: <span class="hljs-string">&quot;{recordingId}&quot;</span>,
-   <span class="hljs-attr">&quot;recordingUri&quot;</span>: <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recordingId}&quot;</span>,
-   <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;complete&quot;</span>,
-   <span class="hljs-attr">&quot;startTime&quot;</span>: <span class="hljs-string">&quot;2013-08-19T16:56:57.643Z&quot;</span>,
-   <span class="hljs-attr">&quot;endTime&quot;</span>: <span class="hljs-string">&quot;2013-08-19T16:57:08.712Z&quot;</span>
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/your_url</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">User-Agent</span>: BandwidthAPI/v1
+
+<span class="json">{
+   <span class="hljs-attr">&quot;callId&quot;</span>       : <span class="hljs-string">&quot;{callId}&quot;</span>,
+   <span class="hljs-attr">&quot;eventType&quot;</span>    : <span class="hljs-string">&quot;recording&quot;</span>,
+   <span class="hljs-attr">&quot;recordingId&quot;</span>  : <span class="hljs-string">&quot;{recordingId}&quot;</span>,
+   <span class="hljs-attr">&quot;recordingUri&quot;</span> : <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recordingId}&quot;</span>,
+   <span class="hljs-attr">&quot;status&quot;</span>       : <span class="hljs-string">&quot;complete&quot;</span>,
+   <span class="hljs-attr">&quot;startTime&quot;</span>    : <span class="hljs-string">&quot;2013-08-19T16:56:57.643Z&quot;</span>,
+   <span class="hljs-attr">&quot;endTime&quot;</span>      : <span class="hljs-string">&quot;2013-08-19T16:57:08.712Z&quot;</span>
 }
-</code></pre>
+</span></code></pre>
 <h4 id="example-recording-media-file-saving-failed">Example: Recording media file saving failed</h4>
-<pre><code>POST http://[External server URL]
-</code></pre><pre><code class="lang-json">{
-   <span class="hljs-attr">&quot;callId&quot;</span>: <span class="hljs-string">&quot;{callId}&quot;</span>,
-   <span class="hljs-attr">&quot;eventType&quot;</span>: <span class="hljs-string">&quot;recording&quot;</span>,
-   <span class="hljs-attr">&quot;recordingId&quot;</span>: <span class="hljs-string">&quot;{recordingId}&quot;</span>,
-   <span class="hljs-attr">&quot;recordingUri&quot;</span>: <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recordingId}&quot;</span>,
-   <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;error&quot;</span>,
-   <span class="hljs-attr">&quot;startTime&quot;</span>: <span class="hljs-string">&quot;2013-08-19T16:56:57.643Z&quot;</span>,
-   <span class="hljs-attr">&quot;endTime&quot;</span>: <span class="hljs-string">&quot;2013-08-19T16:57:08.712Z&quot;</span>
+<pre><code class="lang-http"><span class="hljs-keyword">POST</span> <span class="hljs-string">/your_url</span> HTTP/1.1
+<span class="hljs-attribute">Content-Type</span>: application/json; charset=utf-8
+<span class="hljs-attribute">User-Agent</span>: BandwidthAPI/v1
+
+<span class="json">{
+   <span class="hljs-attr">&quot;callId&quot;</span>       : <span class="hljs-string">&quot;{callId}&quot;</span>,
+   <span class="hljs-attr">&quot;eventType&quot;</span>    : <span class="hljs-string">&quot;recording&quot;</span>,
+   <span class="hljs-attr">&quot;recordingId&quot;</span>  : <span class="hljs-string">&quot;{recordingId}&quot;</span>,
+   <span class="hljs-attr">&quot;recordingUri&quot;</span> : <span class="hljs-string">&quot;https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recordingId}&quot;</span>,
+   <span class="hljs-attr">&quot;status&quot;</span>       : <span class="hljs-string">&quot;error&quot;</span>,
+   <span class="hljs-attr">&quot;startTime&quot;</span>    : <span class="hljs-string">&quot;2013-08-19T16:56:57.643Z&quot;</span>,
+   <span class="hljs-attr">&quot;endTime&quot;</span>      : <span class="hljs-string">&quot;2013-08-19T16:57:08.712Z&quot;</span>
 }
-</code></pre>
+</span></code></pre>
 </div></div></div>
 
                                 
@@ -2187,7 +2193,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Recording Event","level":"3.1.2.11","depth":3,"next":{"title":"Reject Event","level":"3.1.2.12","depth":3,"path":"apiCallbacks/reject.md","ref":"apiCallbacks/reject.md","articles":[]},"previous":{"title":"Hangup Event","level":"3.1.2.10","depth":3,"path":"apiCallbacks/hangup.md","ref":"apiCallbacks/hangup.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.1","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"apiCallbacks/recording.md","mtime":"2018-03-05T14:48:15.576Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-05T14:49:46.985Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Recording Event","level":"3.1.2.11","depth":3,"next":{"title":"Reject Event","level":"3.1.2.12","depth":3,"path":"apiCallbacks/reject.md","ref":"apiCallbacks/reject.md","articles":[]},"previous":{"title":"Hangup Event","level":"3.1.2.10","depth":3,"path":"apiCallbacks/hangup.md","ref":"apiCallbacks/hangup.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.1","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","gtm","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs"],"pluginsConfig":{"gtm":{"token":"GTM-P2JT7Z","virtualPageViews":true},"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"c590d7d0e7ac"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"apiCallbacks/recording.md","mtime":"2018-03-06T19:32:41.245Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-06T19:34:24.792Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
