@@ -22,50 +22,51 @@ Bandwidth API sends this event to the application when an the recording media fi
 
 ```json
 {
-  "callId": "string",
-  "eventType": "string",
-  "recordingId": "string",
-  "recordingUri": "string",
-  "state": "string",
-  "status": "string",
-  "startTime": "date",
-  "endTime": "date"
+  "callId"       : "string",
+  "eventType"    : "string",
+  "recordingId"  : "string",
+  "recordingUri" : "string",
+  "state"        : "string",
+  "status"       : "string",
+  "startTime"    : "date",
+  "endTime"      : "date"
 }
 ```
 
 #### Example: Recording media file saved and available
 
-```
-POST http://[External server URL]
-```
 
-```json
+```http
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
+
 {
-   "callId": "{callId}",
-   "eventType": "recording",
-   "recordingId": "{recordingId}",
-   "recordingUri": "https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recordingId}",
-   "status": "complete",
-   "startTime": "2013-08-19T16:56:57.643Z",
-   "endTime": "2013-08-19T16:57:08.712Z"
+   "callId"       : "{callId}",
+   "eventType"    : "recording",
+   "recordingId"  : "{recordingId}",
+   "recordingUri" : "https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recordingId}",
+   "status"       : "complete",
+   "startTime"    : "2013-08-19T16:56:57.643Z",
+   "endTime"      : "2013-08-19T16:57:08.712Z"
 }
 ```
 
 #### Example: Recording media file saving failed
 
-```
-POST http://[External server URL]
-```
+```http
+POST /your_url HTTP/1.1
+Content-Type: application/json; charset=utf-8
+User-Agent: BandwidthAPI/v1
 
-```json
 {
-   "callId": "{callId}",
-   "eventType": "recording",
-   "recordingId": "{recordingId}",
-   "recordingUri": "https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recordingId}",
-   "status": "error",
-   "startTime": "2013-08-19T16:56:57.643Z",
-   "endTime": "2013-08-19T16:57:08.712Z"
+   "callId"       : "{callId}",
+   "eventType"    : "recording",
+   "recordingId"  : "{recordingId}",
+   "recordingUri" : "https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recordingId}",
+   "status"       : "error",
+   "startTime"    : "2013-08-19T16:56:57.643Z",
+   "endTime"      : "2013-08-19T16:57:08.712Z"
 }
 ```
 {% endmethod %}
