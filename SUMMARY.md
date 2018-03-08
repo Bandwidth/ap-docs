@@ -138,8 +138,15 @@
  * [Redirect event](bxml/callBacks/redirect.md)
  * [Transfer Complete Event](bxml/callBacks/transfer.md)
 
-## BXML Concepts and Vocabulary
-* [BXML Concepts and Vocabulary](bxml/bxmlConcepts.md)
+## BXML Guides
+* [BXML Guides](bxml/guides.md)
+ * [BXML Concepts and Vocabulary](bxml/bxmlConcepts.md)
+ * [BXML Overview](bxml/bxmlOverview.md)
+ * [BXML Building Blocks](bxml/buildingBlocks/about.md)
+   * [Environment Setup](bxml/buildingBlocks/frame.md)
+   * [Record](bxml/buildingBlocks/record.md)
+   * [Voicemail](bxml/buildingBlocks/voicemail.md)
+
 
 ## BXML Overview
 * [BXML Overview](bxml/bxmlOverview.md)
