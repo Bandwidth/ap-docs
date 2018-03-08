@@ -32,7 +32,7 @@ Play a prompt sentence, then wait until 5 digits are pressed. Stop gathering dig
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
 		-d \
