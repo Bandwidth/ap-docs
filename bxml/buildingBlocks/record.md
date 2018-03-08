@@ -11,10 +11,12 @@ The Record verb is used to record a call. In the example below, the it records t
     </tr>
     <tr>
         <td>Record and Transcribe</td>
-        <td>`<?xml version="1.0" encoding="UTF-8"?>
+        <td><plaintext>
+             <?xml version="1.0" encoding="UTF-8"?>
              <Response>
              <Record requestUrl="${baseUrl+'/recordResponse'}" transcribe="true" transcribeCallbackUrl="https://transcribe.url/result"></Record>
-             </Response>`
+             </Response>
+            </plaintext>
         </td>
     </tr>
     <tr>
