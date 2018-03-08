@@ -25,10 +25,10 @@ To allocate the phone number {number} with the name "home phone" and the fallbac
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
-		-d \
+	-d \
 	'
 	{
 		"number": "+15555555555",
@@ -55,7 +55,7 @@ client.PhoneNumber.create({ number : "+1234567890" }, function(err, number){});
 ```csharp
 var number = await client.PhoneNumber.CreateAsync(new CreatePhoneNumberData {Number = "+1234567890"});
 Console.WriteLine($"Created phone number with id {number.Id}");
-// Created phone number with id n-1234
+
 ```
 
 {% sample lang="ruby" %}

@@ -34,10 +34,10 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callI
 	-d \
 	'
 	{
-		"gender": "female",
-		"sentence": "Hello, thank you for calling.",
-		"locale": "en_US",
-		"voice": "julie"
+		"gender"   : "female",
+		"sentence" : "Hello, thank you for calling.",
+		"locale"   : "en_US",
+		"voice"    : "julie"
 	}'
 ```
 

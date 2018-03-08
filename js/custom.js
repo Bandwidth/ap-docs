@@ -31,6 +31,7 @@ module.exports = function ($) {
 	$('li.chapter a:contains(FAQ)').append('<i class="icons8-open-in-window" style="float:right;"></i>');
 	$('li.chapter a:contains(FAQ)').css('width','100%');
 	$('.markdown-section').has('.api-method-code').css('padding-top','0px');
+	$('a[href*="docs/phone-numbers"]').removeAttr('target');
 
 	return $.html();
 }
