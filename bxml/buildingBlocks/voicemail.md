@@ -27,7 +27,6 @@ The structure below imitates the standard voicemail system.
 </Response>`                                                                                              |
 
 ## Code
-Not 100% sure how much code we should show.  I put the Record BXML inside the coding frame, but I also included some of the frame because I wanted to show how the code below uses a Request URL (ie. /recordResponse).
 
 ```js
 const baseUrl = `http://bc66e785.ngrok.io`;
