@@ -20,15 +20,17 @@ BXML callbacks perform HTTP GET requests to the **requestUrl** when the notifica
 
 ### Verbs
 
-| Verb                                        | Description                                                                                                                                                                         |
-|:--------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`<Gather>`](verbs/gather.md)               | The Gather verb is used to collect digits for some period of time.                                                                                                                  |
-| [`<Hangup>`](verbs/hangup.md)               | The Hangup verb is used to hangup current call.                                                                                                                                     |
-| [`<PlayAudio>`](verbs/playAudio.md)         | The PlayAudio verb is used to play an audio file in the call.                                                                                                                       |
-| [`<Record>`](verbs/record.md)               | The Record verb allows call recording. At the end of the call, a call recording event containing the media with recorded audio URL is generated                                     |
-| [`<Redirect>`](verbs/redirect.md)           | The Redirect verb is used to redirect the current XML execution to another URL.                                                                                                     |
-| [`<SpeakSentence>`](verbs/speakSentence.md) | The SpeakSentence verb is used to convert any text into speak for the caller.                                                                                                       |
-| [`<Transfer>`](verbs/transfer.md)           | The Transfer verb is used to transfer the call to another number.                                                                                                                   |
+| Verb                                        | Description                                                                                                                                     |
+|:--------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`<Gather>`](verbs/gather.md)               | The Gather verb is used to collect digits for some period of time.                                                                              |
+| [`<Hangup>`](verbs/hangup.md)               | The Hangup verb is used to hangup current call.                                                                                                 |
+| [`<PlayAudio>`](verbs/playAudio.md)         | The PlayAudio verb is used to play an audio file in the call.                                                                                   |
+| [`<Record>`](verbs/record.md)               | The Record verb allows call recording. At the end of the call, a call recording event containing the media with recorded audio URL is generated |
+| [`<Redirect>`](verbs/redirect.md)           | The Redirect verb is used to redirect the current XML execution to another URL.                                                                 |
+| [`<SpeakSentence>`](verbs/speakSentence.md) | The SpeakSentence verb is used to convert any text into speak for the caller.                                                                   |
+| [`<Transfer>`](verbs/transfer.md)           | The Transfer verb is used to transfer the call to another number.                                                                               |
+| [`<Pause>`](verbs/pause.md)                 | The Pause verb is used to pause between other verbs within the BXML document                                                                    |
+| [`<DTMF>`](verbs/dtmf.md)                   | The DTMF verb is used to send button presses on a live call                                                                                     |
 
 ### BXML Callbacks
 
