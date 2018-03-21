@@ -35,7 +35,7 @@ The `<DTMF>` element is used to send digits on a live call. This will usually be
 {% common %}
 ## Example:  Pause then Send DTMF
 
-This shows how to use Bandwidth XML to pause before sending DTMF button presses
+This shows how to use Bandwidth XML to pause before sending DTMF button presses.
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -48,7 +48,7 @@ This shows how to use Bandwidth XML to pause before sending DTMF button presses
 
 ## Example: Send digits with a 2.5 second delay
 
-This shows how to use Bandwidth XML to pause 2.5 seconds between sending the 1 and 234 button presses
+This shows how to use Bandwidth XML to pause 2.5 seconds between sending the 1 and 234 button presses.
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
