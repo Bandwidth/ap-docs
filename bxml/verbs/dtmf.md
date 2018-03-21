@@ -2,7 +2,7 @@
 ## XML: `<DTMF>`
 The `<DTMF>` element is used to send digits on a live call. This will usually be used to automate the process of navigating through an external phone tree (IVR).
 
-String containing the DTMF characters to be sent in a call. Allows a maximum of 92 characters.<br/>The digits will be sent one-by-one with a marginal delay. - The `,` and lowercase `w` characters introduce a half-second pause into the DTMF sequence.<br/>- The `W` character introduces a one-second pause.<br/>Example: The DTMF string `1WWW,59#` will send a `1`, wait 3.5 seconds, then send `59#` in quick succession.<br/>Example: The DTMF string '1Ww2Ww1Ww#' will send a '1', then '2', then '1', then '#' with a wait time of 1.5 seconds between each character sent.
+String containing the DTMF characters to be sent in a call. **Allows a maximum of 92 characters.**<br/>The digits will be sent one-by-one with a marginal delay. - The `,` and lowercase `w` characters introduce a half-second pause into the DTMF sequence.<br/>- The `W` character introduces a one-second pause.<br/>Example: The DTMF string `1WWW,59#` will send a `1`, wait 3.5 seconds, then send `59#` in quick succession.<br/>Example: The DTMF string '1Ww2Ww1Ww#' will send a '1', then '2', then '1', then '#' with a wait time of 1.5 seconds between each character sent.
 
 ### Attributes
 | Attribute | Description |
