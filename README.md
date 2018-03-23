@@ -77,7 +77,7 @@ Before you can make your first API Request, you will need to [Sign up](https://c
 | [Recording event](bxml/callBacks/recording.md)         | Bandwidth API sends this event to the application when an the recording media file is saved or an error occurs while saving it. |
 | [Transcription event](bxml/callBacks/transcription.md) | Bandwidth API sends this event to the application when the recording media file is transcribed if requested.                    |
 | [Redirect event](bxml/callBacks/redirect.md)           | Bandwidth API sends this event to the application when a `<Redirect>` is requested                                              |
-| [Transfer Complete Event](bxml/callBacks/transfer.md)  | Bandwidth API sends this event to the application when the `<Transfer>`is complete                                              |
+| [Transfer Complete Event](bxml/callBacks/transfer.md)  | Bandwidth API sends this event to the application when the `<Transfer>`is complete.                                              |
 
 ## Error Codes
 | Type                         | Description                                                                |
