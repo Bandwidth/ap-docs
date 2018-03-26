@@ -8,10 +8,15 @@ Copy and paste the credentials code block on the left. Add your `userID`, `apiTo
 To access your credentials, login to the [Voice and Messaging Dashboard](https://app.bandwidth.com/login). Visit the account tab on the upper right hand side menu. Your userID is displayed in the API Information (THIS IS NOT THE SAME AS YOUR LOGIN USERNAME). Your apiToken and apiSecret are displayed when you select "Show token and secret". For more information on your credentials or to change your credentials, visit the [security page](http://dev.bandwidth.com/security.html).
 
 ![Creds](creds.png)
+
 {% common %}
+
 {% sample lang="js" %}
+
 #### Credentials Code Block
-```js
+
+```javascript
+
 var client = new Bandwidth({
   userId    : process.env.BANDWIDTH_USER_ID,
   apiToken  : process.env.BANDWIDTH_API_TOKEN,
