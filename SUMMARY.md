@@ -127,6 +127,8 @@
  * [Redirect](bxml/verbs/redirect.md)
  * [SpeakSentence](bxml/verbs/speakSentence.md)
  * [Transfer](bxml/verbs/transfer.md)
+ * [Pause](bxml/verbs/pause.md)
+ * [DTMF](bxml/verbs/dtmf.md)
 
 ## BXML Callbacks
 * [BXML Callbacks](bxml/bxmlCallbacks.md)
