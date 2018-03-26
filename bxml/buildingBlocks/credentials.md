@@ -9,6 +9,7 @@ To access your credentials, login to the [Voice and Messaging Dashboard](https:/
 
 ![Creds](creds.png)
 {% common %}
+{% sample lang="js" %}
 #### Credentials Code Block
 ```js
 var client = new Bandwidth({
