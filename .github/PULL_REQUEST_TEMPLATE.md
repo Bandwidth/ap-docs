@@ -33,4 +33,5 @@
 
 ## TL;DR
 
-[ ] I did these things, or it was such a small change that I didn't take the time.
+- [ ] I did these things
+- [ ] I'm ready for these changes to be made live
