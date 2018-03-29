@@ -90,7 +90,34 @@ B) Inbound Call: Use app.bw to automatically answer incoming calls
 		d. Automatically answer calls: Turn ON
 		e. Assign a Bandwidth number to the application
 	iii. Make a call to the Bandwidth number
-	iv. The callback URL that the callbacks for this outgoing call is key for using BXML
+
+C) Inbound Call: Create an application with code to automatically answer incoming calls. Paste after the code from 2).
+
+```js
+//Template: 
+client.Application.create({
+    name: 'name',
+    incomingCallUrl: 'http://bc66e785.ngrok.io/call-events',
+    callbackHttpMethod: 'GET',
+    autoAnswer: true
+
+})
+.then(function (response) {
+    console.log(response);
+});
+
+//Example:
+client.Application.create({
+    name: 'MyBXMLTestApp',
+    incomingCallUrl: 'base Nrgok URL + /callbackURL',
+    callbackHttpMethod: 'GET',
+    autoAnswer: true
+
+})
+.then(function (response) {
+    console.log(response);
+});
+```
 
 4. Catch the callbacks and start handling call events using BXML
 
