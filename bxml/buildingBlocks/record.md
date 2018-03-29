@@ -11,12 +11,13 @@ The Record verb is used to record a call. In the example below, the it records t
     </tr>
     <tr>
         <td>Record and Transcribe</td>
-        <td><code>
-             <?xml version="1.0" encoding="UTF-8"?>
+        <td>
+            ```xml
+            <?xml version="1.0" encoding="UTF-8"?>
              <Response>
              <Record requestUrl="${baseUrl+'/recordResponse'}" transcribe="true" transcribeCallbackUrl="https://transcribe.url/result"></Record>
              </Response>
-            </code>
+             ```
         </td>
     </tr>
     <tr>
@@ -54,8 +55,6 @@ The Record verb is used to record a call. In the example below, the it records t
 </table>
 
 ## Code
-
-Not 100% sure how much code we should show.  I put the Record BXML inside the coding frame, but I also included some of the frame because I wanted to show how the code below uses a Request URL (ie. /recordResponse).
 
 ```js
 const baseUrl = `http://bc66e785.ngrok.io`;

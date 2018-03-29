@@ -53,7 +53,7 @@ var client = new Bandwidth({
 });
 ```
 
-3. Make an active inbound or outbound call using the API
+3. Make an active inbound or outbound call using the API.
 
 A) Outbound Call: Use Postman to Create a Call for demo purposes
 	i. Set up your postman with Bandwidth's API and your personal Bandwidth credentials (bxml/postmanSetup.md).  Under Authorization -> TYPE: Basic Auth.

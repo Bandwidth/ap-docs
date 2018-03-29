@@ -1,38 +1,38 @@
-# Record
+# Play Audio
 
 ## Concept
-The Record verb is used to record a call. In the example below, the it records the call as soon as the call gets answered. The callback then gets prints in the terminal in which you can access the recording by going to the recording URI.
+The Play Audio verb is used to play an audio file within an active call. 
+In the example below, when the call gets answered the audio file for 'holding' music is played followed by a beep audio file.
+Only supports .wav and .mp3 files.
 
-## Use Cases
-| Use Case                                    | BXML Code                                                 |
-|:--------------------------------------------|:----------------------------------------------------------|
-| Record after answering                      | Does not handle messaging, only handles calls.            |
-| Record and Transcribe                       | 
-`<?xml version="1.0" encoding="UTF-8"?>
-<Response>
-<Record requestUrl="${baseUrl+'/recordResponse'}" transcribe="true" transcribeCallbackUrl="https://transcribe.url/result"></Record>
-</Response>`                                                                                              |
-| Record for 20sec                            | 
-`<?xml version="1.0" encoding="UTF-8"?>
-<Response>
-<Record requestUrl="${baseUrl+'/recordResponse'}" maxDuration="20"></Record>
-</Response>`                                                                                              |
-| Stop recording after 5 second of silence    | 
-`<?xml version="1.0" encoding="UTF-8"?>
-<Response>
-<Record requestUrl="${baseUrl+'/recordResponse'}" silenceTimeout="5"></Record>
-</Response>`                                                                                              |
-| Stop recording after 5 second of silence in a noisy setting| 
-`<?xml version="1.0" encoding="UTF-8"?>
-<Response>
-<Record requestUrl="${baseUrl+'/recordResponse'}" silenceTimeout="5" silenceThreshold="150"></Record>
-</Response>`                                                                                              | 
-| Caller can press 0 to stop recording        | 
-`<?xml version="1.0" encoding="UTF-8"?>
-<Response>
-<Record requestUrl="${baseUrl+'/recordResponse'}" terminatingDigits="0"></Record>
-</Response>`                                                                                              | 
-
+## Use Cases                                                                                           | 
+<table>
+    <tr>
+        <th>Use Case</th>
+        <th>BXML Code</th>
+    </tr>
+    <tr>
+        <td>Play "This call has been disconnected" Audio followed by Hangup</td>
+        <td>
+            ```xml
+            <?xml version="1.0" encoding="UTF-8"?>
+             <Response>
+             <PlayAudio>https://audio.url/DisconnectedAudio.mp3</PlayAudio>
+             <Hangup></Hangup>
+             </Response>
+             ```
+        </td>
+    </tr>
+    <tr>
+        <td>Play Audio then Callback redirect to execute another BXML verb with a Timeout of 10sec</td>
+        <td>`<?xml version="1.0" encoding="UTF-8"?>
+             <Response>
+             <PlayAudio>https://audio.url/DisconnectedAudio.mp3</PlayAudio>
+             <Redirect requestUrl="http://flow.url/nextBXML" requestUrlTimeout="10000"></Redirect>
+             </Response>`
+        </td>
+    </tr>
+</table>
 
 ## Code
 
@@ -46,20 +46,15 @@ const handleAnswerEvent = (req, res) => {
         return;
     }
     const bxml = `<?xml version="1.0" encoding="UTF-8"?>
+                  <Response>
 
-				  <Response>
+                  <PlayAudio>https://audio.url/holdMusic.mp3</PlayAudio>
+                  <PlayAudio>https://audio.url/voicemailBeep.wav</PlayAudio>
 
-				  <Record requestUrl="${baseUrl+'/recordResponse'}"></Record>
-
-				  </Response>`
+                  </Response>`
 
     res.send(bxml);
 };
 
 app.get(CALL_EVENTS, handleAnswerEvent);
-
-app.get("/recordResponse", (req, res) => {
-    console.log(req.query);
-    res.send(200);
-});
 ```
