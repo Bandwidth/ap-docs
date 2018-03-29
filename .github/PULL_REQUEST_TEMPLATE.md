@@ -2,7 +2,7 @@
 
 - [ ] I made sure that the site looks great and functions perfectly live
 - [ ] I ran splell check
-- [ ] I'm ready for these 
+- [ ] I'm ready for these changes to be made live
 
 ## For the Reviewer
 
