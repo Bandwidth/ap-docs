@@ -11,6 +11,9 @@ We only store the message contents for 30 days. Any messages older than 30 days 
 
 ### Request Body
 
+The following must be the body of your PATCH request. This request does not support updating text to anything other than the empty string ("").
+This request also does not support redacting any fields other than text. Adding additional fields to the request body will result in a bad request exception.
+
 <code>
 	{
 		"text" : ""
