@@ -115,7 +115,7 @@ The above command returns JSON structured like this:
     "time": "2013-02-21T13:39:09.122Z",
     "amount": "0.00750",
     "type": "charge",
-    "units": "1",
+    "units": 1,
     "productType": "sms-out",
     "number": "{number}"
   },
@@ -124,7 +124,7 @@ The above command returns JSON structured like this:
     "time": "2013-02-21T13:37:42.079Z",
     "amount": "0.00750",
     "type": "charge",
-    "units": "1",
+    "units": 1,
     "productType": "sms-out",
     "number": "{number}"
   }
@@ -192,7 +192,7 @@ The above command returns JSON structured like this:
     "time": "2013-02-21T13:39:09.122Z",
     "amount": "0.00750",
     "type": "charge",
-    "units": "1",
+    "units": 1,
     "productType": "sms-out",
     "number": "{number}"
   }
@@ -257,7 +257,7 @@ The above command returns JSON structured like this:
     "time": "2013-02-21T13:39:09.122Z",
     "amount": "0.00750",
     "type": "charge",
-    "units": "1",
+    "units": 1,
     "productType": "sms-out",
     "number": "{number}"
   }
@@ -320,7 +320,7 @@ The above command returns JSON structured like this:
     "time": "2017-05-30T20:45:10Z",
     "amount": "0.005",
     "type": "charge",
-    "units": "1",
+    "units": 1,
     "productType": "sms-out",
     "number": "+19191231234",
     "resourceId": "m-asdf" },
@@ -328,7 +328,7 @@ The above command returns JSON structured like this:
     "time": "2017-05-30T20:47:36Z",
     "amount": "0.015",
     "type": "charge",
-    "units": "1",
+    "units": 1,
     "productType": "mms-out",
     "number": "+19191231234",
     "resourceId": "m-asdf" },
@@ -336,7 +336,7 @@ The above command returns JSON structured like this:
     "time": "2017-05-30T20:57:13Z",
     "amount": "0.06",
     "type": "charge",
-    "units": "6",
+    "units": 6,
     "productType": "call-out",
     "number": "+19191231234",
     "resourceId": "c-asdf" }
@@ -399,7 +399,7 @@ The above command returns JSON structured like this:
     "time": "2013-02-21T13:39:09.122Z",
     "amount": "0.00750",
     "type": "charge",
-    "units": "1",
+    "units": 1,
     "productType": "sms-out",
     "number": "{number}"
   }
@@ -463,14 +463,14 @@ The above command returns JSON structured like this:
     "time": "2013-02-15T18:43:50.602Z",
     "amount": "1000.00000",
     "type": "payment",
-    "units": "0"
+    "units": 0
   },
   {
     "id": "{transactionId2}",
     "time": "2013-02-05T14:56:51.279Z",
     "amount": "5000.00000",
     "type": "payment",
-    "units": "0"
+    "units": 0
   }
 ]
 ```
