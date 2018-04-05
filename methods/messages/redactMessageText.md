@@ -7,3 +7,12 @@ We only store the message contents for 30 days. Any messages older than 30 days 
 ### Request URL
 
 <code class="patch">PATCH</code>`https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}`
+
+
+### Request Body
+
+<code>
+	{
+		"text" : ""
+	}
+</code>
