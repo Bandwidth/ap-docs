@@ -26,7 +26,7 @@ This request also does not support redacting any fields other than text. Adding 
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
+curl -v -X PATCH https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId} \
 	-u {token}:{secret} \
 	-H "Content-type: application/json" \
 		-d \
