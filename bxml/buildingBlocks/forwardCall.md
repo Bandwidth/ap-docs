@@ -2,7 +2,7 @@
 
 ## Concept
 
-To forward a call to another number, we will use the transfer BXML verb.
+To forward a call to another number, we will use the [`<Transfer>`](../verbs/transfer.md) BXML verb.
 
 ## Use Cases
 
