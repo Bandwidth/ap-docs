@@ -1,4 +1,5 @@
 {% method %}
+
 # Create an Outbound Call
 
 ## Concept
@@ -8,8 +9,13 @@ To create an outbound call, we will use the RestAPI. The biggest difference is t
 ## Code
 
 The from number is a Bandwith number you own. Change the `to`, `from`, and `callbackUrl` parameters.
+
 {% common %}
+
 {% sample lang="js" %}
+
+### Making an outbound call to use with BXML
+
 ```js
 var callParameters = {
     to                 :  "+12345678901",
