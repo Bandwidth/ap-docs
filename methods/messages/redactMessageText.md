@@ -19,3 +19,19 @@ This request also does not support redacting any fields other than text. Adding 
 		"text" : ""
 	}
 </code>
+
+
+### Example
+
+{% sample lang="bash" %}
+
+```bash
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages \
+	-u {token}:{secret} \
+	-H "Content-type: application/json" \
+		-d \
+	'
+	{
+		"text": ""
+	}'
+```
