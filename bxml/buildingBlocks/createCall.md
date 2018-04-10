@@ -12,9 +12,12 @@ The from number is a Bandwith number you own. Change the `to`, `from`, and `call
 
 {% common %}
 
-{% sample lang="js" %}
 
 ### Making an outbound call to use with BXML
+
+The `from` number is a Bandwith number you own. Change the `to`, `from`, and `callbackUrl` parameters.
+
+{% sample lang="js" %}
 
 ```js
 var callParameters = {
@@ -24,6 +27,6 @@ var callParameters = {
     callbackHttpMethod : "GET"
 }
 var call = await client.Call.create(callParameters);
-
 ```
+
 {% endmethod %}
