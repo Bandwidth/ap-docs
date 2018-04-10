@@ -145,6 +145,7 @@
    * [Environment Setup](bxml/buildingBlocks/frame.md)
    * [Record](bxml/buildingBlocks/record.md)
    * [Voicemail](bxml/buildingBlocks/voicemail.md)
+   * [Forward a Call](bxml/buildingBlocks/forwardCall.md)
 
 
 ## Rate Limits
