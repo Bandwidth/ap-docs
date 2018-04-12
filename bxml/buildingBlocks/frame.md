@@ -91,7 +91,7 @@ B) Inbound Call: Use app.bw to automatically answer incoming calls
 		e. Assign a Bandwidth number to the application
 	iii. Make a call to the Bandwidth number
 
-C) Inbound Call: Create an application with code to automatically answer incoming calls. Paste after the code from 2)
+C) Inbound Call: Create an application with code to automatically answer incoming calls. Paste after the code from 2).  Every time this code is run, an applictation is created.
 
 ```js
 //Only need to fill out the three requirements indicated by {{ }}
