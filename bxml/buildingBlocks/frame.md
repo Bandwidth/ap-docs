@@ -53,7 +53,7 @@ var client = new Bandwidth({
 });
 ```
 
-3. Make an active inbound or outbound call using the API.
+3. Make an active inbound or outbound call using the API. This can be done with either of the three options below:
 
 A) Outbound Call: Use Postman to Create a Call for demo purposes
 	i. Set up your postman with Bandwidth's API and your personal Bandwidth credentials (bxml/postmanSetup.md).  Under Authorization -> TYPE: Basic Auth.
@@ -91,32 +91,49 @@ B) Inbound Call: Use app.bw to automatically answer incoming calls
 		e. Assign a Bandwidth number to the application
 	iii. Make a call to the Bandwidth number
 
-C) Inbound Call: Create an application with code to automatically answer incoming calls. Paste after the code from 2).
+C) Inbound Call: Create an application with code to automatically answer incoming calls. Paste after the code from 2)
 
 ```js
-//Template: 
-client.Application.create({
-    name: 'name',
-    incomingCallUrl: 'http://bc66e785.ngrok.io/call-events',
+//Only need to fill out the three requirements indicated by {{ }}
+var appName = {{Your app name}}
+var BWnumber = {{Your Bandwidth number with '+1'}}
+
+client.Application.create({                             //Create Application with necessary requirements
+    name: appName,
+    incomingCallUrl: {{base Ngrok URL + callbackURL}},
     callbackHttpMethod: 'GET',
     autoAnswer: true
-
 })
-.then(function (response) {
-    console.log(response);
+.then(function (response) {                             //List all current applications including app just created
+    client.Application.list()
+    .then(function (response) {
+        if(response.hasNextPage) {
+            return response.getNextPage();
+        }
+        else {
+            return {applications: []};
+        }
+    })
+    .then(function(response) {                          //Search for application just created by name, grab app id
+        for (var i; i < response.applications.length-1; i++){
+            if (response.applications[i].name == appName){
+                return response.applications[i].id
+            }
+        }
+    })
+    .then(function(reponse){                            //Assign a BW number you own to new application
+        var s = `New application ${appName} successfully created`;
+        console.log(s);
+        console.log(response)
+        client.PhoneNumber.update(BWnumber, {
+            applicationId: response.id})
+        .then(function(response){
+            var p = `${BWnumber} successfully assigned to ${appName}`;
+            console.log(p);
+        });
+    });
 });
 
-//Example:
-client.Application.create({
-    name: 'MyBXMLTestApp',
-    incomingCallUrl: 'base Nrgok URL + /callbackURL',
-    callbackHttpMethod: 'GET',
-    autoAnswer: true
-
-})
-.then(function (response) {
-    console.log(response);
-});
 ```
 
 4. Catch the callbacks and start handling call events using BXML
@@ -178,4 +195,7 @@ app.get(CALL_EVENTS, handleAnswerEvent);
 node 'filename'
 ```
 
-6. Click SEND on Postman, and then answer the call.  You should hear "Welcome to Bandwidth!".
+6. Click SEND on Postman if making an outbound call, and then answer the call.  
+OR
+Call the Bandwidth number (used in your code above) with your personal phone number. 
+You should hear "Welcome to Bandwidth!".
