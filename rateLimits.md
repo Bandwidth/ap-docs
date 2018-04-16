@@ -29,7 +29,7 @@ All of Bandwidth's endpoints are rate limited.
 | Type                          | Count | Period (sec) | Sample Period (sec) |
 |:------------------------------|:------|:-------------|:--------------------|
 | Outbound Message Per Number   | 1     | 1            | 10                  |
-| Outbound Messages Per Account | ∞     | ∞            | ∞                   |
+| Outbound Messages Per Account | Variable | 1         | 10                  |
 | Outbound Calls Per Number     | 1     | 1            | 10                  |
 | Outbound Calls Per Account    | 1     | 1            | 10                  |
 
