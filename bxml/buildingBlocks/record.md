@@ -4,6 +4,7 @@
 The Record verb is used to record a call. In the example below, the it records the call as soon as the call gets answered. The callback then gets prints in the terminal in which you can access the recording by going to the recording URI.
 
 ## Use Cases
+
 | Use Case                                    | BXML Code                                                 |
 |:--------------------------------------------|:----------------------------------------------------------|
 | Record after answering                      | Does not handle messaging, only handles calls.            |
@@ -21,10 +22,7 @@ The Record verb is used to record a call. In the example below, the it records t
 | Appointment reminders: If a customer would like to reschedule, you can transfer their call to the scheduling office | The code will be the same as the example|
 | Operator: Often times customers can press 0 to be connected to an operator. | The code would need to [collect digits](../verbs/gather.md) then transfer to an operator if 0 is pushed|                                                                                     | 
 
-
 ## Code
-
-Not 100% sure how much code we should show.  I put the Record BXML inside the coding frame, but I also included some of the frame because I wanted to show how the code below uses a Request URL (ie. /recordResponse).
 
 ```js
 const baseUrl = `http://bc66e785.ngrok.io`;
