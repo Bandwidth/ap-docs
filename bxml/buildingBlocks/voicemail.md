@@ -9,30 +9,10 @@ The structure below imitates the standard voicemail system.
 4) When the call is hung up, the recording callback gets printed in your terminal window and there you can see the recording URI in which you can access the recording 
 
 ## Use Cases
-<table>
-    <tr>
-        <th>Use Case</th>
-        <th>BXML Code</th>
-    </tr>
-    <tr>
-        <td>Transfer call to next available operator. If there's no answer in 10 seconds, then leave voicemail</td>
-        <td>
-            `<?xml version="1.0" encoding="UTF-8"?>
-             <Response>
-             <SpeakSentence voice="susan">Please wait for the next available operator</SpeakSentence>
-             <Transfer callTimeout="10">
-                <PhoneNumber>+15552221234</PhoneNumber>
-                <PhoneNumber>+15552221233</PhoneNumber>
-                <PhoneNumber>+15552221233</PhoneNumber>
-                <SpeakSentence gender="male" locale="en_US" voice="susan">This call has been forwarded.</SpeakSentence>
-             </Transfer>
-             <SpeakSentence voice="susan">We're sorry, none of our operators are available at the moment. After the beep, please leave your name and number, and we will return your call as soon as possible</SpeakSentence>
-             <PlayAudio>https://audio.url/beep.mp3</PlayAudio>
-             <Record requestUrl="${baseUrl+'/recordResponse'}"></Record>
-             </Response>` 
-        </td>
-    </tr>
-</table>
+| Use Case                                    | BXML Code                                                 |
+|:--------------------------------------------|:----------------------------------------------------------|
+| Transfer call to next available operator. If there is no answer after 10 seconds, then leave a voicemail| 
+Upon answering, an automated sentence is spoken (`<SpeakSentence voice="susan">Please wait for the next available operator</SpeakSentence>`). Then, nested in a [`</Transfer>`](../verbs/transfer.md) verb, the call will transfer to one of a list of numbers.  When the transferred gets picked up, a sentence is spoken - "This call has been forwarded", also nested in the Transfer verb. If nobody picks up after 10 sec, the call gets sent to voicemail ([`</SpeakSentence>](../verbs/speakSentence.md)[</PlayAudio>](../verbs/playAudio.md)[</Record>`](../verbs/record.md))|
 
 
 ## Code
