@@ -75,7 +75,7 @@
    * [GET List Messages](methods/messages/getMessages.md)
    * [POST Send SMS and MMS](methods/messages/postMessages.md)
    * [GET Message info](methods/messages/getMessagesMessageId.md)
-   * [PATCH Redact Message Text](methods/messages/redactMessageText.md)
+   * [<code class="patch">PATCH</code>  Redact Message Text](methods/messages/redactMessageText.md)
  * [/numberInfo](methods/numberInfo/numberInfo.md)
    * [GET CNAM number info](methods/numberInfo/getNumberInfo.md)
  * [/phoneNumbers](methods/phoneNumbers/phoneNumbers.md)
