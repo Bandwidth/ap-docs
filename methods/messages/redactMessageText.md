@@ -35,3 +35,5 @@ curl -v -X PATCH https://api.catapult.inetwork.com/v1/users/{userId}/messages/{m
 		"text": ""
 	}'
 ```
+
+{% endmethod %}
