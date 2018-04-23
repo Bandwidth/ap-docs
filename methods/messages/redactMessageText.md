@@ -30,8 +30,8 @@ status code.
 ### Response Codes
 | Response Code | Description                                                                                      |
 |:--------------|:-------------------------------------------------------------------------------------------------|
-| 200           | good								   															   |
-| 400			| bad 		                   																	   |
+| 200           | The request was valid and the text of the message has been redacted.								   															   |
+| 400			| The request was malformed and the text of the message has not been redacted.		                   																	   |
 
 
 {% sample lang="bash" %}
