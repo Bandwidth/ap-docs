@@ -96,7 +96,7 @@ first_bridge_state = first_bridge[:state]
   {
     "id": "{bridgeId}",
     "state": "completed",
-    "bridgeAudio": "true",
+    "bridgeAudio": true,
     "calls":"https://.../v1/users/{userId}/bridges/{bridgeId}/calls",
     "createdTime": "2013-04-22T13:55:30.279Z",
     "activatedTime": "2013-04-22T13:55:30.280Z",
@@ -105,7 +105,7 @@ first_bridge_state = first_bridge[:state]
   {
     "id": "{bridgeId}",
     "state": "completed",
-    "bridgeAudio": "true",
+    "bridgeAudio": true,
     "calls":"https://.../v1/users/{userId}/bridges/{bridgeId}/calls",
     "createdTime": "2013-04-22T13:58:30.121Z",
     "activatedTime": "2013-04-22T13:58:30.122Z",

@@ -10,6 +10,7 @@ If you need advanced control over the number ordering process, like managing lin
 </aside>
 
 For more information about Bandwidth’s toll free phone numbers, see the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>
+To learn more about MMS on toll-free numbers, see the [FAQ](http://dev.bandwidth.com/faq/messaging/tollfreeMMS.html).
 
 ### Request URL
 <code class="post">POST</code>`https://api.catapult.inetwork.com/v1/availableNumbers/tollFree`

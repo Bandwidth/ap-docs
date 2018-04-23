@@ -1,7 +1,9 @@
 {% method %}
 ## List available toll free numbers
 
-For more information about Bandwidth’s toll free phone numbers, see the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>
+For more information about Bandwidth’s toll free phone numbers, see the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>. To learn more about MMS on toll-free numbers, see the [FAQ](http://dev.bandwidth.com/faq/messaging/tollfreeMMS.html).
+
+
 
 ### Request URL
 
@@ -11,10 +13,10 @@ For more information about Bandwidth’s toll free phone numbers, see the <a hre
 
 ###Supported Parameters
 
-| Parameter | Description                                                                                                                                                                                                                        | Mandatory |
-|:----------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
-| quantity  | The maximum number of numbers to return (default 10, maximum 5000).                                                                                                                                                                | No        |
-| pattern   | A number pattern that may include letters, digits, and the following wildcard characters:<br>? : matches any single digit<br> \* : matches zero or more digits<br>Don’t forget to encode wildcard characters in the requested URL. | No        |
+| Parameter | Description                                                                                                                                                                                                                                | Mandatory |
+|:----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
+| quantity  | The maximum number of numbers to return (default 10, maximum 5000).                                                                                                                                                                        | No        |
+| pattern   | A number pattern that may include letters, digits, and the following wildcard characters:<br> - `?` : matches any single digit<br> - `*` : matches zero or more digits<br>Don’t forget to encode wildcard characters in the requested URL. | No        |
 
 {% common %}
 ### Example 1 of 1: Search and allocate tollFree number
