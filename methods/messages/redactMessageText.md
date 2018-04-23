@@ -1,6 +1,7 @@
 {% method %}
 ## Redact Message Text information
-Redact the text of a previously sent message.
+This endpoint can be used to redact the text of a previously sent message. Use your catapult user-id and the message id of the message of which you would like to 
+redact its text to form the URL. 
 
 We only store the message contents for 30 days. Any messages older than 30 days will not contain text. For more information, see the <a href="http://dev.bandwidth.com/faq/#messaging">FAQ</a>
 
@@ -12,7 +13,8 @@ We only store the message contents for 30 days. Any messages older than 30 days 
 ### Request Body
 
 The following must be the body of your PATCH request. This request does not support updating text to anything other than the empty string ("").
-This request also does not support redacting any fields other than text. Adding additional fields to the request body will result in a bad request exception.
+This request also does not support redacting any fields other than text. Adding additional fields to the request body will return a 400 bad request 
+status code. 
 
 <code>
 	{
@@ -24,6 +26,14 @@ This request also does not support redacting any fields other than text. Adding 
 | Parameter          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Mandatory |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
 | text               | The contents of the text must be the empty string (""). Any other value will fail.                                                                                                                                                                                                                                               | Yes       |
+
+### Response Codes
+| Response Code          | Description
+
+|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+| 200				| Test
+| 400 				| test 400
+
 
 {% sample lang="bash" %}
 
