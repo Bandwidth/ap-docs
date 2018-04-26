@@ -11,11 +11,12 @@ The structure below imitates the standard voicemail system.
 ## Use Cases
 | Use Case                                    | BXML Code                                                 |
 |:--------------------------------------------|:----------------------------------------------------------|
-| Transfer call to next available operator. If there is no answer after 10 seconds, then leave a voicemail| 
-Upon answering, an automated sentence is spoken (`<SpeakSentence voice="susan">Please wait for the next available operator</SpeakSentence>`). Then, nested in a [`</Transfer>`](../verbs/transfer.md) verb, the call will transfer to one of a list of numbers.  When the transferred gets picked up, a sentence is spoken - "This call has been forwarded", also nested in the Transfer verb. If nobody picks up after 10 sec, the call gets sent to voicemail ([`</SpeakSentence>](../verbs/speakSentence.md)[</PlayAudio>](../verbs/playAudio.md)[</Record>`](../verbs/record.md))|
+| Transfer call to next available operator. If there is no answer after 10 seconds, then leave a voicemail|
+| Upon answering, an automated sentence is spoken (`<SpeakSentence voice="susan"> Please wait for the next available operator </SpeakSentence>`). Then, nested in a [`</Transfer>`](../verbs/transfer.md) verb, the call will transfer to one of a list of numbers.  When the transferred gets picked up, a sentence is spoken - "This call has been forwarded", also nested in the Transfer verb. If nobody picks up after 10 sec, the call gets sent to voicemail (refer below)|
 
 
 ## Code
+Change the `baseUrl` parameter. The recording will be sent to the callback URL: baseUrl + /recordResponse.
 
 ```js
 const baseUrl = `http://bc66e785.ngrok.io`;

@@ -14,6 +14,7 @@ The Record verb is used to record a call. In the example below, the it records t
 
 
 ## Code
+Change the `baseUrl` parameter. The recording will be sent to the callback URL: baseUrl + /recordResponse.
 
 ```js
 const baseUrl = `http://bc66e785.ngrok.io`;
@@ -28,7 +29,7 @@ const handleAnswerEvent = (req, res) => {
 
 				  <Response>
 
-				  <Record requestUrl="${baseUrl+'/recordResponse'}"></Record>
+				  <Record requestUrl="${baseUrl + '/recordResponse'}"></Record>
 
 				  </Response>`
 

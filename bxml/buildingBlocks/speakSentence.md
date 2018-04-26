@@ -6,13 +6,14 @@ In the example below, when the call gets answered the sentence "Hi, thank you fo
 
 ## Use Cases
  Use Case                                    | BXML Code                                                 |
-|:--------------------------------------------|:----------------------------------------------------------|
+|:-------------------------------------------|:----------------------------------------------------------|
 | Change Language | Speak sentence "Salut! Nous espérons que vous passerez une merveilleuse journée!" in French with settings `voice="bernard" locale="fr" gender="male"` |
 | Promotional Intro | Speak sentence advertising company upon answer, then have them leave a voicemail using [</PlayAudio>](../verbs/playAudio.md) for the beep and [</Record>](../verbs/record.md)|
 
 
 
 ## Code
+
 
 ```js
 const baseUrl = `http://bc66e785.ngrok.io`;
