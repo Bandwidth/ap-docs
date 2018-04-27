@@ -1,6 +1,6 @@
 {% method %}
 ## Redact Message Text information
-This endpoint can be used to redact the text of a previously sent message. You will need to send the catapult user-id and the message id (of the message for which you wish to redact the content) in the request URL.
+This API can be used to redact the text of a previously sent message.
 
 We only store the message contents for 30 days. Any messages older than 30 days will not contain text. For more information, see the <a href="http://dev.bandwidth.com/faq/messaging/retainSMS.html">FAQ</a>
 
