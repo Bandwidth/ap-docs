@@ -123,8 +123,10 @@
  * [Gather](bxml/verbs/gather.md)
  * [Hangup](bxml/verbs/hangup.md)
  * [PlayAudio](bxml/verbs/playAudio.md)
+ * [Pause](bxml/verbs/pause.md)
  * [Record](bxml/verbs/record.md)
  * [Redirect](bxml/verbs/redirect.md)
+ * [SendDTMF](bxml/verbs/sendDtmf.md)
  * [SpeakSentence](bxml/verbs/speakSentence.md)
  * [Transfer](bxml/verbs/transfer.md)
 
