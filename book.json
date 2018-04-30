@@ -6,15 +6,13 @@
         "custom-jquery-postprocessing",
         "bandwidth-toggle-chapters",
         "custom-favicon",
-        "gtm",
         "-hightlight",
         "-fontsettings",
         "bandwidth-highlight",
         "bandwidth-fonts",
         "usabilla",
         "include-html@0.2.0",
-        "codetabs",
-        "mouseflow"
+        "codetabs" 
     ],
     "pluginsConfig": {
         "theme-bandwidth": {
@@ -45,10 +43,6 @@
       "customJquery": {
         "js": "js/custom.js"
       },
-      "gtm": {
-        "token": "GTM-P2JT7Z",
-        "virtualPageViews": true
-      },
       "usabilla" : {
             "usabillaId" : "c590d7d0e7ac"
       },
@@ -69,9 +63,6 @@
             "theme": "white",
             "family": "sans",
             "size": 2
-        },
-        "mouseflow": {
-            "projectId": "e48d3324-5985-479f-a9fc-7283fb266917"
         }
     }
 }
