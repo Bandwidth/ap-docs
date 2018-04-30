@@ -126,7 +126,7 @@
  * [Pause](bxml/verbs/pause.md)
  * [Record](bxml/verbs/record.md)
  * [Redirect](bxml/verbs/redirect.md)
- * [SendDTMF](bxml/verbs/sendDtmf.md)
+ * [SendDtmf](bxml/verbs/sendDtmf.md)
  * [SpeakSentence](bxml/verbs/speakSentence.md)
  * [Transfer](bxml/verbs/transfer.md)
 
