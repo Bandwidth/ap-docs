@@ -5,10 +5,10 @@ The `<SendDtmf>` element is used to send digits on a live call. This will usuall
 String containing the DTMF characters to be sent in a call. **Allows a maximum of 92 characters.**
 The digits will be sent one-by-one with a marginal delay. 
 
-- The , and lowercase w characters introduce a half-second pause into the DTMF sequence. 
-- The W character introduces a one-second pause. 
+- The `,` and lowercase `w` characters introduce a half-second pause into the DTMF sequence. 
+- The uppercase `W` character introduces a one-second pause. 
 
-Example: The DTMF string 1WWW,59# will send a 1, wait 3.5 seconds, then send 59# in quick succession.
+Example: The DTMF string '1WWW,59#'' will send a 1, wait 3.5 seconds, then send 59# in quick succession.
 Example: The DTMF string '1Ww2Ww1Ww#' will send a '1', then '2', then '1', then '#' with a wait time of 1.5 seconds between each character sent. If <SendDtmf> is the last verb in the document then the call will be disconnected 30 seconds after the <SendDtmf> ends.
 
 ### Attributes
