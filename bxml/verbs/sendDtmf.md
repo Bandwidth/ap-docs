@@ -2,7 +2,14 @@
 ## XML: `<SendDtmf>`
 The `<SendDtmf>` element is used to send digits on a live call. This will usually be used to automate the process of navigating through an external phone tree (IVR).
 
-String containing the DTMF characters to be sent in a call. Allows a maximum of 92 characters.[br/]The digits will be sent one-by-one with a marginal delay. - The , and lowercase w characters introduce a half-second pause into the DTMF sequence.[br/]- The W character introduces a one-second pause.[br/]Example: The DTMF string 1WWW,59# will send a 1, wait 3.5 seconds, then send 59# in quick succession.[br/]Example: The DTMF string '1Ww2Ww1Ww#' will send a '1', then '2', then '1', then '#' with a wait time of 1.5 seconds between each character sent. If <SendDtmf> is the last verb in the document then the call will be disconnected 30 seconds after the <SendDtmf> ends.
+String containing the DTMF characters to be sent in a call. **Allows a maximum of 92 characters.**
+The digits will be sent one-by-one with a marginal delay. 
+
+- The , and lowercase w characters introduce a half-second pause into the DTMF sequence. 
+- The W character introduces a one-second pause. 
+
+Example: The DTMF string 1WWW,59# will send a 1, wait 3.5 seconds, then send 59# in quick succession.
+Example: The DTMF string '1Ww2Ww1Ww#' will send a '1', then '2', then '1', then '#' with a wait time of 1.5 seconds between each character sent. If <SendDtmf> is the last verb in the document then the call will be disconnected 30 seconds after the <SendDtmf> ends.
 
 ### Attributes
 | Attribute | Description |
@@ -46,7 +53,7 @@ This shows how to use Bandwidth XML to pause before sending DTMF button presses.
 
 <Response>
   <Pause length="5"/>
-  <DTMF>1234</DTMF>
+  <SendDtmf>1234</SendDtmf>
 </Response>
 ```
 
@@ -58,7 +65,7 @@ This shows how to use Bandwidth XML to pause 2.5 seconds between sending the 1 a
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Response>
-  <DTMF>1WW,234</DTMF>
+  <SendDtmf>1WW,234</SendDtmf>
 </Response>
 ```
 
