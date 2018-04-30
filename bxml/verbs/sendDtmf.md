@@ -10,7 +10,7 @@ The digits will be sent one-by-one with a marginal delay.
 
 Example: The DTMF string '1WWW,59#'' will send a 1, wait 3.5 seconds, then send 59# in quick succession.
 
-Example: The DTMF string '1Ww2Ww1Ww#' will send a '1', then '2', then '1', then '#' with a wait time of 1.5 seconds between each character sent. If <SendDtmf> is the last verb in the document then the call will be disconnected 30 seconds after the <SendDtmf> ends.
+Example: The DTMF string '1Ww2Ww1Ww#' will send a '1', then '2', then '1', then '#' with a wait time of 1.5 seconds between each character sent. If `<SendDtmf>` is the last verb in the document then the call will be disconnected 30 seconds after the `<SendDtmf>` ends.
 
 ### Attributes
 | Attribute | Description |
