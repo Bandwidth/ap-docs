@@ -1,6 +1,6 @@
 {
     "plugins": [
-        "theme-bandwidth@1.9.3",
+        "theme-bandwidth@1.9.8",
         "header",
         "sharing",
         "custom-jquery-postprocessing",
