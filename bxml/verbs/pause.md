@@ -39,16 +39,4 @@ This shows how to use Bandwidth XML to pause before Speaking a Sentence
 </Response>
 ```
 
-## Example: Pause call for 3 hours
-```XML
-<?xml version="1.0" encoding="UTF-8"?>
-<Response>
-  <Record requestUrl="https://record.url.server/recordVoicemail" transcribe="true" transcribeCallbackUrl="https://transcribe.url/result"/ >
-  <Pause length="3600"/>
-  <Pause length="3600"/>
-  <Pause length="3600"/>
-  <Hangup/>
-</Response>
-```
-
 {% endmethod %}
