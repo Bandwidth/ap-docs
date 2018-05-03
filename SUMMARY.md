@@ -154,4 +154,4 @@
 * [HTTP Errors](errors.md)
 
 ## FAQ
-* [FAQ](http://dev.bandwidth.com/faq)
+* [FAQ](https://dev.bandwidth.com/faq)
