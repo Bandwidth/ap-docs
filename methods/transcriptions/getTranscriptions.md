@@ -4,7 +4,7 @@ Get all the transcriptions that were made for the given recodingId
 
 <aside class="alert general small">
 <p>
-Read More about Transcriptions in the <a href="http://dev.bandwidth.com/faq/#messaging">FAQ</a>
+Read More about Transcriptions in the <a href="https://dev.bandwidth.com/faq/#messaging">FAQ</a>
 </p>
 </aside>
 

@@ -1,6 +1,6 @@
 {% method %}
 ## Create Application
-Creates an application that can handle calls and messages for one of your phone number. Many phone numbers can share an application. For more information on how to integrate voice and messaging in your application, visit the <a href="http://dev.bandwidth.com/faq/#general">FAQ</a>
+Creates an application that can handle calls and messages for one of your phone number. Many phone numbers can share an application. For more information on how to integrate voice and messaging in your application, visit the <a href="https://dev.bandwidth.com/faq/#general">FAQ</a>
 
 ### Request URL
 

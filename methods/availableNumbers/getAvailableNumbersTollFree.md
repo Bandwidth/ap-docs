@@ -1,7 +1,7 @@
 {% method %}
 ## List available toll free numbers
 
-For more information about Bandwidth’s toll free phone numbers, see the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>. To learn more about MMS on toll-free numbers, see the [FAQ](http://dev.bandwidth.com/faq/messaging/tollfreeMMS.html).
+For more information about Bandwidth’s toll free phone numbers, see the <a href="https://dev.bandwidth.com/faq/#voice">FAQ</a>. To learn more about MMS on toll-free numbers, see the [FAQ](https://dev.bandwidth.com/faq/messaging/tollfreeMMS.html).
 
 
 

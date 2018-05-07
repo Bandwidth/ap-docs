@@ -29,9 +29,9 @@ Gets information about an active or completed call. No query parameters are supp
 | bridgeId             | The id of the bridge for the call                                                                                                                                                              |
 | conferenceId         | The id of the conference for the call                                                                                                                                                          |
 | events               | The URL to retrieve the events related to the call.                                                                                                                                            |
-| recordings           | The URL to retrieve the recordings related to the call. For more information about call recordings, see the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>                              |
+| recordings           | The URL to retrieve the recordings related to the call. For more information about call recordings, see the <a href="https://dev.bandwidth.com/faq/#voice">FAQ</a>                              |
 | recordingEnabled     | Indicates if the call should be recorded after being created. Set to `true` to enable. Default is `false`                                                                                      |
-| transcriptionEnabled | Whether all the recordings for this call should be be automatically transcribed. For more information about call transcriptions, see the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a> |
+| transcriptionEnabled | Whether all the recordings for this call should be be automatically transcribed. For more information about call transcriptions, see the <a href="https://dev.bandwidth.com/faq/#voice">FAQ</a> |
 | sipHeaders           | Map of Sip headers prefixed by "X-". Up to 5 headers can be sent per call. Max length for header and value is 256 characters.                                                                  |
 
 

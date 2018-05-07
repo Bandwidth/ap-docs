@@ -3,7 +3,7 @@ The Messages resource lets you send SMS/MMS messages and view messages that were
 
 <aside class="alert general small">
 <p>
-Read More about Messaging in the <a href="http://dev.bandwidth.com/faq/#messaging">FAQ</a>
+Read More about Messaging in the <a href="https://dev.bandwidth.com/faq/#messaging">FAQ</a>
 </p>
 </aside>
 
