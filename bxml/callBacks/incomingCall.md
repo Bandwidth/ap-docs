@@ -3,7 +3,7 @@
 
 When your account is configured to use BXML, by setting the [application](../../methods/applications/applications.md) with `{ "autoAnswer": true }` and `{ "callbackHttpMethod": "GET" }`. For each incoming call to your Bandwidth Phone Number, Bandwidth will send your server configured as the `incomingCallUrl` both an `incomingCall` event immediately followed by an [`answer`](answer.md) event.
 
-⚠️ **Your server should only reply with HTTP 2xx to the incomingCall event.  BXML will only be processed in response to the [answer](answer.md) event**
+⚠️ **Your server should reply with HTTP 200 to the incomingCall event.  BXML will only be processed in response to the [answer](answer.md) event**
 
 ### Properties
 | Property  | Description                                                                                                                                                  |
