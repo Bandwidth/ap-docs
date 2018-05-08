@@ -6,7 +6,7 @@ Bandwidth API sends this message to the application when an incoming call arrive
 
 | Property      | Description                                                                                                                                                  |
 |:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| eventType     | The event type, value is incomingcall.                                                                                                                       |
+| eventType     | The event type, value is `incomingcall`.                                                                                                                       |
 | callId        | The call id associated with the event.                                                                                                                       |
 | callUri       | The complete URL of the call resource for this event.                                                                                                        |
 | from          | The phone number or SIP address that made the call. Phone numbers are in E.164 format (e.g. +15555555555) -or- SIP addresses (e.g. identify@domain.com).     |
