@@ -2,7 +2,7 @@
 ## Update active Call
 Update properties of an active phone call.
 
-For more information about recording and transcribing calls, see the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>
+For more information about recording and transcribing calls, see the <a href="https://dev.bandwidth.com/faq/#voice">FAQ</a>
 
 ### Request URL
 

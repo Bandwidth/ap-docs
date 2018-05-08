@@ -3,7 +3,7 @@ The Calls resource lets you make phone calls and view information about previous
 
 <aside class="alert general small">
 <p>
-Read More about Calls and Voice in the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>
+Read More about Calls and Voice in the <a href="https://dev.bandwidth.com/faq/#voice">FAQ</a>
 </p>
 </aside>
 

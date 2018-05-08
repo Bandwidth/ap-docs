@@ -3,7 +3,7 @@ The Phone Numbers resource lets you get phone numbers for use with your programs
 
 <aside class="alert general small">
 <p>
-Read More about Phone Numbers in the <a href="http://dev.bandwidth.com/faq/#Phone">FAQ</a>
+Read More about Phone Numbers in the <a href="https://dev.bandwidth.com/faq/#Phone">FAQ</a>
 </p>
 </aside>
 

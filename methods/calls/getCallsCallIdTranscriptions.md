@@ -3,7 +3,7 @@
 ## List all Call Transcriptions
 Retrieve all transcriptions related to the call.
 
-For more information about transcribing calls, see the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>
+For more information about transcribing calls, see the <a href="https://dev.bandwidth.com/faq/#voice">FAQ</a>
 
 ### Request URL
 

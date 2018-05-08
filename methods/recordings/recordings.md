@@ -3,7 +3,7 @@ Retrieve information about call recordings. The recording information retrieved 
 
 <aside class="alert general small">
 <p>
-Read More about Recordings in the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>
+Read More about Recordings in the <a href="https://dev.bandwidth.com/faq/#voice">FAQ</a>
 </p>
 </aside>
 

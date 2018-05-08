@@ -3,7 +3,7 @@ The Conference resource allows you create conferences, add members to it, play a
 
 <aside class="alert general small">
 <p>
-Read More about Conferences in the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>
+Read More about Conferences in the <a href="https://dev.bandwidth.com/faq/#voice">FAQ</a>
 </p>
 </aside>
 
