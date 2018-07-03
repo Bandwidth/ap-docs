@@ -76,7 +76,7 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="errors.html">
+    <link rel="next" href="rateLimits/callRateLimits.html">
     
     
     <link rel="prev" href="bxml/bxmlOverview.html">
@@ -2040,9 +2040,54 @@
                     
                     Rate Limits
             
+                </a><i class="fa fa-eye expand" aria-hidden="true"></i>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1" data-path="rateLimits/callRateLimits.html">
+            
+                <a href="rateLimits/callRateLimits.html">
+            
+                    
+                    Calls
+            
                 </a>
             
 
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.2" data-path="rateLimits/messageRateLimits.html">
+            
+                <a href="rateLimits/messageRateLimits.html">
+            
+                    
+                    Messages
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.3" data-path="rateLimits/resourceRateLimits.html">
+            
+                <a href="rateLimits/resourceRateLimits.html">
+            
+                    
+                    Everything else
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -2132,250 +2177,36 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="rate-limits">Rate Limits</h1>
-<p>All of Bandwidth&apos;s endpoints are rate limited.</p>
+<p>All of Bandwidth&apos;s endpoints are rate limited. &#x26A0;&#xFE0F; Please note that Rate limts are subject to change. You should expect and handle either an <code>HTTP 429</code> or <code>HTTP 403</code> response for each request to Bandwidth&apos;s API.</p>
+<p>Endpoints that access resources; such as <a href="methods/messages/getMessages.html">listing messages</a>, <a href="methods/account/getAccountTransactions.html">listing transactions</a>, or <a href="methods/applications/postApplications.html">creating a new application</a> are rate limited at the API level and will return an <code>HTTP 429</code> error when the rate limit is exceeded.</p>
+<p>The only two endpoints that behave differently are <code class="post">POST</code> requests to create new SMS/MMS messages or create a new phone call and will receive a <code>HTTP 403</code> error when the rate limit is exceeded.</p>
+<h2 id="rate-limit-documentation">Rate Limit Documentation</h2>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Endpoint</th>
-<th style="text-align:left">Limit</th>
-<th style="text-align:left">Time Period (ms)</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Description</th>
 <th style="text-align:left">Error Code</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><a href="methods/account/account.html"><code>/account</code></a></td>
-<td style="text-align:left"><a href="https://support.bandwidth.com/access/unauthenticated" target="_blank">contact support</a></td>
-<td style="text-align:left">1000</td>
-<td style="text-align:left"><a href="#all-other-endpoints"><code>HTTP 429</code></a></td>
+<td style="text-align:left"><a href="rateLimits/callRateLimits.html">Outbound Call Creation Rate Limits</a></td>
+<td style="text-align:left">Learn about how outbound phone calls are rate limited.</td>
+<td style="text-align:left"><code>HTTP 403</code></td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="methods/applications/applications.html"><code>/applications</code></a></td>
-<td style="text-align:left"><a href="https://support.bandwidth.com/access/unauthenticated" target="_blank">contact support</a></td>
-<td style="text-align:left">1000</td>
-<td style="text-align:left"><a href="#all-other-endpoints"><code>HTTP 429</code></a></td>
+<td style="text-align:left"><a href="rateLimits/messageRateLimits.html">Outbound Message Sending Rate Limits</a></td>
+<td style="text-align:left">Learn about how outbound sms &amp; mms messages are rate limited</td>
+<td style="text-align:left"><code>HTTP 403</code></td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="methods/availableNumbers/availableNumbers.html"><code>/availableNumbers</code></a></td>
-<td style="text-align:left"><a href="https://support.bandwidth.com/access/unauthenticated" target="_blank">contact support</a></td>
-<td style="text-align:left">1000</td>
-<td style="text-align:left"><a href="#all-other-endpoints"><code>HTTP 429</code></a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="methods/bridges/bridges.html"><code>/bridges</code></a></td>
-<td style="text-align:left"><a href="https://support.bandwidth.com/access/unauthenticated" target="_blank">contact support</a></td>
-<td style="text-align:left">1000</td>
-<td style="text-align:left"><a href="#all-other-endpoints"><code>HTTP 429</code></a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="methods/calls/calls.html"><code>/calls</code></a></td>
-<td style="text-align:left">1</td>
-<td style="text-align:left">1000</td>
-<td style="text-align:left"><a href="#calls-and-messages"><code>HTTP 403</code></a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="methods/conferences/conferences.html"><code>/conferences</code></a></td>
-<td style="text-align:left"><a href="https://support.bandwidth.com/access/unauthenticated" target="_blank">contact support</a></td>
-<td style="text-align:left">1000</td>
-<td style="text-align:left"><a href="#calls-and-messages"><code>HTTP 403</code></a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="methods/domains/domains.html"><code>/domains</code></a></td>
-<td style="text-align:left"><a href="https://support.bandwidth.com/access/unauthenticated" target="_blank">contact support</a></td>
-<td style="text-align:left">1000</td>
-<td style="text-align:left"><a href="#all-other-endpoints"><code>HTTP 429</code></a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="methods/endpoints/endpoints.html"><code>/endpoints</code></a></td>
-<td style="text-align:left"><a href="https://support.bandwidth.com/access/unauthenticated" target="_blank">contact support</a></td>
-<td style="text-align:left">1000</td>
-<td style="text-align:left"><a href="#all-other-endpoints"><code>HTTP 429</code></a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="methods/errors/errors.html"><code>/errors</code></a></td>
-<td style="text-align:left"><a href="https://support.bandwidth.com/access/unauthenticated" target="_blank">contact support</a></td>
-<td style="text-align:left">1000</td>
-<td style="text-align:left"><a href="#all-other-endpoints"><code>HTTP 429</code></a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="methods/media/media.html"><code>/media</code></a></td>
-<td style="text-align:left"><a href="https://support.bandwidth.com/access/unauthenticated" target="_blank">contact support</a></td>
-<td style="text-align:left">1000</td>
-<td style="text-align:left"><a href="#all-other-endpoints"><code>HTTP 429</code></a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="methods/messages/messages.html"><code>/messages</code></a></td>
-<td style="text-align:left">1</td>
-<td style="text-align:left">1000</td>
-<td style="text-align:left"><a href="#calls-and-messages"><code>HTTP 403</code></a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="methods/numberInfo/numberInfo.html"><code>/numberInfo</code></a></td>
-<td style="text-align:left"><a href="https://support.bandwidth.com/access/unauthenticated" target="_blank">contact support</a></td>
-<td style="text-align:left">1000</td>
-<td style="text-align:left"><a href="#all-other-endpoints"><code>HTTP 429</code></a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="methods/phoneNumbers/phoneNumbers.html"><code>/phoneNumbers</code></a></td>
-<td style="text-align:left"><a href="https://support.bandwidth.com/access/unauthenticated" target="_blank">contact support</a></td>
-<td style="text-align:left">1000</td>
-<td style="text-align:left"><a href="#all-other-endpoints"><code>HTTP 429</code></a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="methods/recordings/recordings.html"><code>/recordings</code></a></td>
-<td style="text-align:left"><a href="https://support.bandwidth.com/access/unauthenticated" target="_blank">contact support</a></td>
-<td style="text-align:left">1000</td>
-<td style="text-align:left"><a href="#all-other-endpoints"><code>HTTP 429</code></a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="methods/transcriptions/transcriptions.html"><code>/recordings/{id}/transcriptions</code></a></td>
-<td style="text-align:left"><a href="https://support.bandwidth.com/access/unauthenticated" target="_blank">contact support</a></td>
-<td style="text-align:left">1000</td>
-<td style="text-align:left"><a href="#all-other-endpoints"><code>HTTP 429</code></a></td>
+<td style="text-align:left"><a href="rateLimits/resourceRateLimits.html">Everything else</a></td>
+<td style="text-align:left">Learn about how all other endpoints are rate limited</td>
+<td style="text-align:left"><code>HTTP 429</code></td>
 </tr>
 </tbody>
 </table>
-<h2 id="calls-and-messages">Calls and Messages</h2>
-<p><a href="#calls-and-messages"></a>
-<a href="methods/calls/postCalls.html"><code>Calls</code></a> &amp; <a href="methods/messages/postMessages.html"><code>Messages</code></a> will return a <code>HTTP 403</code> when limit is reached.</p>
-<h3 id="default-rate-limits">Default Rate Limits</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Type</th>
-<th style="text-align:left">Count</th>
-<th style="text-align:left">Period (sec)</th>
-<th style="text-align:left">Sample Period (sec)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Outbound Message Per Number</td>
-<td style="text-align:left">1</td>
-<td style="text-align:left">1</td>
-<td style="text-align:left">10</td>
-</tr>
-<tr>
-<td style="text-align:left">Outbound Messages Per Account</td>
-<td style="text-align:left">Variable</td>
-<td style="text-align:left">1</td>
-<td style="text-align:left">10</td>
-</tr>
-<tr>
-<td style="text-align:left">Outbound Calls Per Number</td>
-<td style="text-align:left">1</td>
-<td style="text-align:left">1</td>
-<td style="text-align:left">10</td>
-</tr>
-<tr>
-<td style="text-align:left">Outbound Calls Per Account</td>
-<td style="text-align:left">1</td>
-<td style="text-align:left">1</td>
-<td style="text-align:left">10</td>
-</tr>
-</tbody>
-</table>
-<h3 id="403-&#x2013;-limit">403 &#x2013; LIMIT</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Code</th>
-<th style="text-align:left">Message</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">message-rate-limit</td>
-<td style="text-align:left">You can send ${0} messages per ${1} seconds calculated as the average over ${2} seconds. Your rate is: ${3}</td>
-</tr>
-<tr>
-<td style="text-align:left">multi-message-limit</td>
-<td style="text-align:left">The number of messages [${0}] in the multi message request is greater than the limit [${1}].</td>
-</tr>
-<tr>
-<td style="text-align:left">call-rate-limit</td>
-<td style="text-align:left">You can create ${0} calls per ${1} seconds calculated as the average over ${2} seconds. Your rate is: ${3}</td>
-</tr>
-</tbody>
-</table>
-<h3 id="sample-call-rate-limit-response">Sample Call Rate Limit Response</h3>
-<pre><code class="lang-json">403 Forbidden
-Content-Type: application/json
-{
-  &quot;category&quot;: &quot;limit&quot;,
-  &quot;code&quot;: &quot;call-rate-limit&quot;,
-  &quot;message&quot;: &quot;You can create 1 calls per 1 seconds, calculated as the average over 10 seconds. Your rate is: 1.1&quot;,
-  &quot;details&quot;: [
-    {
-      &quot;name&quot;: &quot;requestMethod&quot;,
-      &quot;value&quot;: &quot;POST&quot;
-    },
-    {
-      &quot;name&quot;: &quot;remoteAddress&quot;,
-      &quot;value&quot;: &quot;216.82.234.65&quot;
-    },
-    {
-      &quot;name&quot;: &quot;requestPath&quot;,
-      &quot;value&quot;: &quot;users/u-asdf/calls&quot;
-    }
-  ]
-}
-</code></pre>
-<h3 id="sample-message-rate-limit-response">Sample Message Rate Limit Response</h3>
-<pre><code class="lang-json">403 Forbidden
-Content-Type: application/json
-{
-  &quot;category&quot;: &quot;limit&quot;,
-  &quot;code&quot;: &quot;message-rate-limit&quot;,
-  &quot;message&quot;: &quot;You can send 1 messages per 1 seconds, calculated as the average over 10 seconds. Your rate is: 1.1&quot;,
-  &quot;details&quot;: [
-    {
-      &quot;name&quot;: &quot;requestMethod&quot;,
-      &quot;value&quot;: &quot;POST&quot;
-    },
-    {
-      &quot;name&quot;: &quot;remoteAddress&quot;,
-      &quot;value&quot;: &quot;216.82.234.65&quot;
-    },
-    {
-      &quot;name&quot;: &quot;requestPath&quot;,
-      &quot;value&quot;: &quot;users/u-asdf/messages&quot;
-    }
-  ]
-}
-</code></pre>
-<h2 id="all-other-endpoints">All Other Endpoints</h2>
-<p><a href="#all-other-endpoints"></a></p>
-<p>Every other <a href="methods/restApi.html"><code>endpoint</code></a> is rate limited and will return a <code>HTTP 429</code> when the limit is reached.</p>
-<p>If this response code is returned, your API call was not executed due to temporary rate limiting. In addition to <code>HTTP 429</code>, we will also return a X-RateLimit-Reset HTTP header. This contains a timestamp after which your rate limit should be cleared; this time is represented as a UNIX timestamp (also known as an Epoch timestamp).</p>
-<h3 id="sample-http-429-response">Sample <code>HTTP 429</code> Response</h3>
-<pre><code class="lang-json">429 Too Many Requests
-X-RateLimit-Reset: 1479308598680
-{
-  &quot;category&quot;: &quot;too-many-requests&quot;,
-  &quot;code&quot;: &quot;rate-limit-reached&quot;,
-  &quot;details&quot;: [
-    {
-      &quot;name&quot;: &quot;rateLimitResetTime&quot;,
-      &quot;value&quot;: &quot;1479308598680&quot;
-    },
-    {
-      &quot;name&quot;: &quot;requestMethod&quot;,
-      &quot;value&quot;: &quot;GET&quot;
-    },
-    {
-      &quot;name&quot;: &quot;remoteAddress&quot;,
-      &quot;value&quot;: &quot;0:0:0:0:0:0:0:1&quot;
-    },
-    {
-      &quot;name&quot;: &quot;requestPath&quot;,
-      &quot;value&quot;: &quot;users/{{userId}}/account&quot;
-    }
-  ]
-}
-</code></pre>
-<h2 id="hitting-the-rate-limits-often">Hitting the Rate Limits Often?</h2>
-<p>If you do experience unexpected issues with Application Platform API rate limiting, or just have questions for us, please contact <a href="https://support.bandwidth.com/access/unauthenticated" target="_blank">Bandwidth support</a>.</p>
 
                                 
                                 </section>
@@ -2409,7 +2240,7 @@ X-RateLimit-Reset: 1479308598680
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Rate Limits","level":"8.1","depth":1,"next":{"title":"HTTP Errors","level":"9.1","depth":1,"path":"errors.md","ref":"errors.md","articles":[]},"previous":{"title":"BXML Overview","level":"7.1","depth":1,"path":"bxml/bxmlOverview.md","ref":"bxml/bxmlOverview.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.8","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs"],"pluginsConfig":{"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"rateLimits.md","mtime":"2018-07-03T20:06:22.277Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-03T20:07:56.029Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Rate Limits","level":"8.1","depth":1,"next":{"title":"Calls","level":"8.1.1","depth":2,"path":"rateLimits/callRateLimits.md","ref":"rateLimits/callRateLimits.md","articles":[]},"previous":{"title":"BXML Overview","level":"7.1","depth":1,"path":"bxml/bxmlOverview.md","ref":"bxml/bxmlOverview.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.8","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs","mathjax"],"pluginsConfig":{"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"rateLimits.md","mtime":"2018-07-03T20:16:14.091Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-03T20:17:58.867Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -2442,6 +2273,14 @@ X-RateLimit-Reset: 1479308598680
     
         
         <script src="gitbook/gitbook-plugin-codetabs/codetabs.js"></script>
+        
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-mathjax/plugin.js"></script>
         
     
         
