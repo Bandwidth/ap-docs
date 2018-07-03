@@ -150,6 +150,9 @@
 
 ## Rate Limits
 * [Rate Limits](rateLimits.md)
+   * [Calls](rateLimits/callRateLimits.md)
+   * [Messages](rateLimits/messageRateLimits.md)
+   * [Everything else](rateLimits/resourceRateLimits.md)
 
 ## HTTP Error Codes
 * [HTTP Errors](errors.md)
