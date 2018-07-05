@@ -1,4 +1,4 @@
-# Calls Rate Limtis
+# Calls Rate Limits
 When an outbound [`Call`](../methods/calls/postCalls.md) request is rate limited, Bandwidth will return a `HTTP 403` when limit is reached.
 
 ### Default Rate Limits

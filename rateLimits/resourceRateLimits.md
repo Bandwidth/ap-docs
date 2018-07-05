@@ -74,14 +74,3 @@ Bandwidth recommends retry logic based on the `X-RateLimit-Reset` value passed i
 6. Wait the calculated time
 7. Go back to step #1
 
-### Sample Code
-
-#### JS
-
-#### C#
-
-#### Python
-
-#### Java
-
-#### PHP
