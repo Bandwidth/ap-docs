@@ -2,7 +2,7 @@
 
 ## About {#about}
 
-This guide will walk through the recommended approach to managing queues and rate limits for use with the Messaging API. Over the past years mobile telecom operators have begun to block what is deemed automated traffic (A2P) sent over standard local telephone numbers IE: (919)-430-5555.  The amount of messages sent in this way have increased due to spreading automated traffic (A2P) across multiple local telephone numbers to bypass volumetric filters.  This process is called "snowshoeing" (⚠️ **NOTE TO BANDWIDTH, PLEASE PROVIDE AN OFFICIAL LINK ABOUT SNOWSHOEING**) and as a result, the mobile operators are not only blocking volumetrically, but are also finger-printing content and preemptively blocking messages even from a "fresh" phone number.
+This guide will walk through the recommended approach to managing queues and rate limits for use with the Messaging API. Over the past years mobile telecom operators have begun to block what is deemed automated traffic (A2P) sent over standard local telephone numbers IE: (919)-430-5555.  The amount of messages sent in this way have increased due to spreading automated traffic (A2P) across multiple local telephone numbers to bypass volumetric filters.  This process is called "snowshoeing" and as a result, the mobile operators are not only blocking volumetrically, but are also finger-printing content and preemptively blocking messages even from a "fresh" phone number.
 
 ## Assumptions
 * You have signed up for the [Bandwidth Messaging API](https://app.bandwidth.com/)
@@ -109,8 +109,6 @@ An account has an **Outbound _dequeue_ rate** of 5MPS and has enabled the 15 min
 An account has an **Outbound _dequeue_ rate** of 5 MPS, a **Burst _API_ rate** of 15 MPS and has enabled the 15 minute queue (900 second).
 
 {% math %} \frac{\frac{5\,Messages}{Second}\times 900\,Seconds}{\frac{15\,Messages}{Second}-\frac{5\,Messages}{Second}} = 450\,Seconds {% endmath %}
-
-<img src="../images/bucket_fill.png" alt="bucketfill" style="width:50%;height:50%;">
 
 
 ## Managing Messages {#managing-messages}
