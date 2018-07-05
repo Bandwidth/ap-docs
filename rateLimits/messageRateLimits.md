@@ -124,13 +124,66 @@ An account has an **Outbound _dequeue_ rate** of 5 MPS, a **Burst _API_ rate** o
 
 ### Back-off and Retry {#backoff-and-retry}
 
-Code Examples and more details
+Back-off and Retry adaptively increases delay to attempt to find the quickest possible call pacing without hitting rate limits.  The pseudocode below shows a simple example using a linear coefficient to adjust delay.  Introducing randomness or "jitter" into the delay can help reduce successive collisions.   
+
+```python
+retries = 0
+coefficient = 2 // coefficient to increase delay
+delay = some milliseconds (small amount)
+DO
+status = Get the result of the asynchronous operation.
+IF status = SUCCESS
+    retry = false
+ELSE IF status = TIMEOUT
+    retry = true
+    retries = retries + 1
+    WAIT delay
+    delay = coefficient * delay
+END IF
+WHILE (retry AND (retries < MAX_RETRIES))
+```
 
 ### Throttling {#throttle}
 
-Code Examples and more details
+Throttling paces the asyncronous operations based on a specified time duration.  Using a duration just longer than the rate limit will help ensure calls are completed as they are sent without having to resend due to rate limiting.
+
+```python
+retries = 0
+DO
+status = Get the result of the asynchronous operation.
+IF status = SUCCESS
+    retry = false
+ELSE IF status = TIMEOUT
+    retry = true
+    retries = retries + 1
+    WAIT some milliseconds
+END IF
+WHILE (retry AND (retries < MAX_RETRIES))
+```
 
 ### Queue Management {#queue-management}
 
-Code Examples and more details
+Queue Management requires configuring and maintaining a queue of async operations, http API calls for example, facilitating linear control over when the operation is executed.  The psuedocode below shows a simple queueing solution.  For complex queueing tasks, consider using a queue system such as [RabbitMQ](https://www.rabbitmq.com/) or [Mosquitto](https://mosquitto.org/).   
 
+```python
+1. CONFIGURE_QUEUE size, storage, etc
+2. PUSH_TO_QUEUE add async operation data to queue
+3. SUBSCRIBE_TO_QUEUE get async operation from queue
+
+ BEGIN_HANDLER
+ DO
+   message = extracted from queue of async operations
+   status = execute async operation with message
+   IF status = SUCCESS
+      retry = false
+   ELSE IF status = TIMEOUT
+      retry = true
+      retries = retries + 1
+      WAIT delay
+   END IF
+ WHILE (retry AND (retries < MAX_RETRIES))
+ END_HANDLER
+```
+
+
+																														
