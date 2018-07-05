@@ -163,7 +163,7 @@ WHILE (retry AND (retries < MAX_RETRIES))
 
 ### Queue Management {#queue-management}
 
-Queue Management requires configuring and maintaining a queue of async operations, http API calls for example, facilitating linear control over when the operation is executed.  The psuedocode below shows a simple queueing solution.  For complex queueing tasks, consider using a queue system such as [RabbitMQ](https://www.rabbitmq.com/) or [Mosquitto](https://mosquitto.org/).   
+Queue Management requires configuring and maintaining a queue of async operations, http API calls for example, facilitating linear control over when the operation is executed.  The pseudocode below shows a simple queueing solution.  For complex queueing tasks, consider using a queue system such as [RabbitMQ](https://www.rabbitmq.com/) or [Mosquitto](https://mosquitto.org/).   
 
 ```python
 1. CONFIGURE_QUEUE size, storage, etc
