@@ -2178,7 +2178,7 @@
                                 
                                 <h1 id="top">Understanding Messaging Rate Limits </h1>
 <h2 id="about">About </h2>
-<p>This guide will walk through the recommended approach to managing queues and rate limits for use with the Messaging API. Over the past years mobile telecom operators have begun to block what is deemed automated traffic (A2P) sent over standard local telephone numbers IE: (919)-430-5555.  The amount of messages sent in this way have increased due to spreading automated traffic (A2P) across multiple local telephone numbers to bypass volumetric filters.  This process is called &quot;snowshoeing&quot; (&#x26A0;&#xFE0F; <strong>NOTE TO BANDWIDTH, PLEASE PROVIDE AN OFFICIAL LINK ABOUT SNOWSHOEING</strong>) and as a result, the mobile operators are not only blocking volumetrically, but are also finger-printing content and preemptively blocking messages even from a &quot;fresh&quot; phone number.</p>
+<p>This guide will walk through the recommended approach to managing queues and rate limits for use with the Messaging API. Over the past years mobile telecom operators have begun to block what is deemed automated traffic (A2P) sent over standard local telephone numbers IE: (919)-430-5555.  The amount of messages sent in this way have increased due to spreading automated traffic (A2P) across multiple local telephone numbers to bypass volumetric filters.  This process is called &quot;snowshoeing&quot; and as a result, the mobile operators are not only blocking volumetrically, but are also finger-printing content and preemptively blocking messages even from a &quot;fresh&quot; phone number.</p>
 <h2 id="assumptions">Assumptions</h2>
 <ul>
 <li>You have signed up for the <a href="https://app.bandwidth.com/" target="_blank">Bandwidth Messaging API</a></li>
@@ -2371,7 +2371,6 @@
 <h4 id="example-calculating-queue-fill-time">Example: Calculating Queue Fill Time</h4>
 <p>An account has an <strong>Outbound <em>dequeue</em> rate</strong> of 5 MPS, a <strong>Burst <em>API</em> rate</strong> of 15 MPS and has enabled the 15 minute queue (900 second).</p>
 <p><script type="math/tex; "> \frac{\frac{5\,Messages}{Second}\times 900\,Seconds}{\frac{15\,Messages}{Second}-\frac{5\,Messages}{Second}} = 450\,Seconds </script></p>
-<p><img src="../images/bucket_fill.png" alt="bucketfill" style="width:50%;height:50%;"></p>
 <h2 id="managing-messages">Managing Messages </h2>
 <table>
 <thead>
@@ -2400,11 +2399,56 @@
 </tbody>
 </table>
 <h3 id="backoff-and-retry">Back-off and Retry </h3>
-<p>Code Examples and more details</p>
+<p>Back-off and Retry adaptively increases delay to attempt to find the quickest possible call pacing without hitting rate limits.  The pseudocode below shows a simple example using a linear coefficient to adjust delay.  Introducing randomness or &quot;jitter&quot; into the delay can help reduce successive collisions.   </p>
+<pre><code class="lang-python">retries = <span class="hljs-number">0</span>
+coefficient = <span class="hljs-number">2</span> // coefficient to increase delay
+delay = some milliseconds (small amount)
+DO
+status = Get the result of the asynchronous operation.
+IF status = SUCCESS
+    retry = false
+ELSE IF status = TIMEOUT
+    retry = true
+    retries = retries + <span class="hljs-number">1</span>
+    WAIT delay
+    delay = coefficient * delay
+END IF
+WHILE (retry AND (retries &lt; MAX_RETRIES))
+</code></pre>
 <h3 id="throttle">Throttling </h3>
-<p>Code Examples and more details</p>
+<p>Throttling paces the asyncronous operations based on a specified time duration.  Using a duration just longer than the rate limit will help ensure calls are completed as they are sent without having to resend due to rate limiting.</p>
+<pre><code class="lang-python">retries = <span class="hljs-number">0</span>
+DO
+status = Get the result of the asynchronous operation.
+IF status = SUCCESS
+    retry = false
+ELSE IF status = TIMEOUT
+    retry = true
+    retries = retries + <span class="hljs-number">1</span>
+    WAIT some milliseconds
+END IF
+WHILE (retry AND (retries &lt; MAX_RETRIES))
+</code></pre>
 <h3 id="queue-management">Queue Management </h3>
-<p>Code Examples and more details</p>
+<p>Queue Management requires configuring and maintaining a queue of async operations, http API calls for example, facilitating linear control over when the operation is executed.  The pseudocode below shows a simple queueing solution.  For complex queueing tasks, consider using a queue system such as <a href="https://www.rabbitmq.com/" target="_blank">RabbitMQ</a> or <a href="https://mosquitto.org/" target="_blank">Mosquitto</a>.   </p>
+<pre><code class="lang-python"><span class="hljs-number">1.</span> CONFIGURE_QUEUE size, storage, etc
+<span class="hljs-number">2.</span> PUSH_TO_QUEUE add <span class="hljs-keyword">async</span> operation data to queue
+<span class="hljs-number">3.</span> SUBSCRIBE_TO_QUEUE get <span class="hljs-keyword">async</span> operation <span class="hljs-keyword">from</span> queue
+
+ BEGIN_HANDLER
+ DO
+   message = extracted <span class="hljs-keyword">from</span> queue of <span class="hljs-keyword">async</span> operations
+   status = execute <span class="hljs-keyword">async</span> operation <span class="hljs-keyword">with</span> message
+   IF status = SUCCESS
+      retry = false
+   ELSE IF status = TIMEOUT
+      retry = true
+      retries = retries + <span class="hljs-number">1</span>
+      WAIT delay
+   END IF
+ WHILE (retry AND (retries &lt; MAX_RETRIES))
+ END_HANDLER
+</code></pre>
 
                                 
                                 </section>
@@ -2438,7 +2482,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Messages","level":"8.1.2","depth":2,"next":{"title":"Everything else","level":"8.1.3","depth":2,"path":"rateLimits/resourceRateLimits.md","ref":"rateLimits/resourceRateLimits.md","articles":[]},"previous":{"title":"Calls","level":"8.1.1","depth":2,"path":"rateLimits/callRateLimits.md","ref":"rateLimits/callRateLimits.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.8","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs","mathjax"],"pluginsConfig":{"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"rateLimits/messageRateLimits.md","mtime":"2018-07-03T20:16:14.091Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-03T20:17:58.867Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Messages","level":"8.1.2","depth":2,"next":{"title":"Everything else","level":"8.1.3","depth":2,"path":"rateLimits/resourceRateLimits.md","ref":"rateLimits/resourceRateLimits.md","articles":[]},"previous":{"title":"Calls","level":"8.1.1","depth":2,"path":"rateLimits/callRateLimits.md","ref":"rateLimits/callRateLimits.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.8","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs","mathjax"],"pluginsConfig":{"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"rateLimits/messageRateLimits.md","mtime":"2018-07-05T19:51:18.009Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-05T19:53:07.701Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
