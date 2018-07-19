@@ -28,7 +28,7 @@ NOTE: Properties you don't send will remain unchanged.
 | incomingMessageFallbackUrl        | The URL used to send the callback event if the request to incomingMessageUrl fails.                                                                                                        | No        |
 | callbackHttpMethod                | Determine if the HTTP callback event should be sent via GET or POST. Default is POST.                                                                           | No        |
 | autoAnswer                        | Determines whether or not an incoming call should be automatically answered. Default value is 'true'.                                                                                      | No        |
-
+ 
 {% common %}
 
 ### Example 1 of 1: Update Application
