@@ -189,7 +189,7 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callI
 	-d \
 	'
 	{
-		"state":"completed"
+		"state":"rejected"
 	}'
 ```
 

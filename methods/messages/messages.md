@@ -27,3 +27,4 @@ To recieve [callbacks](../../apiCallbacks/messagingEvents.md) for incoming text 
 
 * A [Bandwidth Application](../applications/applications.md) configured to send callbacks to your server.
 * Assign the [phone number](../phoneNumbers/postPhoneNumbersNumberId.md) to that application.
+* Use [SMIL](https://en.wikipedia.org/wiki/Synchronized_Multimedia_Integration_Language)  as an xml media attachment to control message presentation. 
