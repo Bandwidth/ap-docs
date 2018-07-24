@@ -6,6 +6,6 @@
 * You have downloaded [Postman](https://www.getpostman.com/)
 * You have your [Voice and Messaging API](https://app.bandwidth.com) `userId`, `token`, `secret`
 
-## Fill in the form then Click Run in Postman below to explore our V2 API Collection.
+## Fill in the form then Click Run in Postman below to explore our V1 API Collection.
 
 !INCLUDE "includeRestPostman.html"

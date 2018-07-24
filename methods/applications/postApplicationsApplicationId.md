@@ -26,9 +26,9 @@ NOTE: Properties you don't send will remain unchanged.
 | incomingMessageUrl                | A URL where message events will be sent for an inbound SMS message.                                                                                                                        | No        |
 | incomingMessageUrlCallbackTimeout | Determine how long should the platform wait for incomingMessageUrl's response before timing out in milliseconds. <br> **Default** Time: `10000` (10s) <br> **Maximum** Time: `10000` (10s) | No        |
 | incomingMessageFallbackUrl        | The URL used to send the callback event if the request to incomingMessageUrl fails.                                                                                                        | No        |
-| callbackHttpMethod                | Determine if the callback event should be sent via HTTP GET or HTTP POST. (If not set the default is HTTP POST).                                                                           | No        |
+| callbackHttpMethod                | Determine if the HTTP callback event should be sent via GET or POST. Default is POST.                                                                           | No        |
 | autoAnswer                        | Determines whether or not an incoming call should be automatically answered. Default value is 'true'.                                                                                      | No        |
-
+ 
 {% common %}
 
 ### Example 1 of 1: Update Application
