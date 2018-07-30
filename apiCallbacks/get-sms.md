@@ -60,28 +60,6 @@ Bandwidth API sends this event to the application when an SMS is sent or receive
 
 {% common %}
 
-#### Example JSON
-
-
-```json
-{
-  "eventType"           : "string",
-  "direction"           : "string",
-  "from"                : "string",
-  "to"                  : "string",
-  "messageId"           : "string",
-  "messageUri"          : "string",
-  "text"                : "string",
-  "applicationId"       : "string",
-  "time"                : "date",
-  "state"               : "string",
-  "deliveryState"       : "string",
-  "deliveryCode"        : "string",
-  "deliveryDescription" : "string"
-}
-```
-
-
 #### Example: Incoming SMS Event
 
 ```http
