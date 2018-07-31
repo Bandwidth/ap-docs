@@ -55,7 +55,7 @@ POST http://[External server URL]
    "eventType":"playback",
    "callId":"{callId}",
    "callUri": "https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}",
-   "status":"started",
+   "status":"done",
    "time":"2012-11-14T15:56:05.896Z"
 }
 ```
