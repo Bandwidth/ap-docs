@@ -73,7 +73,7 @@ client.Call.speakSentence("callId", "Hello From Bandwidth", function (err, res) 
 await client.Call.PlayAudioAsync("{callId1}", new PlayAudioData
 {
 	Sentence = "hola de Bandwidth",
-	Gender = Genger.Male,
+	Gender = Gender.Male,
 	Voice = "Jorge",
 	Locale = "es"
 });
