@@ -43,6 +43,12 @@ All Bandwidth messaging products are rate limited in some fashion.  There are va
 
 ### Sample Message Rate Limit Response
 
+You will receive this error response if:
+
+* Your **burst** rate is exceeded
+* Your **per number** MPS is exceeded (only with queueing disabled)
+
+
 ```http
 Status: 403 Forbidden
 Content-Type: application/json
@@ -68,6 +74,34 @@ Content-Type: application/json
 }
 ```
 
+### Sample Delay Queue full Response
+
+You will receive this error when your message queue is full
+
+```http
+Status: 400 Forbidden
+Content-Type: application/json
+
+{
+  "category": "bad-request",
+  "code": "message-delay-limit",
+  "message": "Message tried to be delayed over the maximum limit.",
+  "details": [
+    {
+      "name": "requestMethod",
+      "value": "POST"
+    },
+    {
+      "name": "remoteAddress",
+      "value": "216.82.234.65"
+    },
+    {
+      "name": "requestPath",
+      "value": "users/u-asdf/messages"
+    }
+  ]
+}
+```
 
 ## How Bandwidth Helps {#how-bandwidth-helps}
 
@@ -122,7 +156,7 @@ An account has an **Outbound _dequeue_ rate** of 5 MPS, a **Burst _API_ rate** o
 
 ### Back-off and Retry {#backoff-and-retry}
 
-Back-off and Retry adaptively increases delay to attempt to find the quickest possible call pacing without hitting rate limits.  The pseudocode below shows a simple example using a linear coefficient to adjust delay.  Introducing randomness or "jitter" into the delay can help reduce successive collisions.   
+Back-off and Retry adaptively increases delay to attempt to find the quickest possible call pacing without hitting rate limits.  The pseudocode below shows a simple example using a linear coefficient to adjust delay.  Introducing randomness or "jitter" into the delay can help reduce successive collisions.
 
 ```python
 retries = 0
@@ -161,7 +195,7 @@ WHILE (retry AND (retries < MAX_RETRIES))
 
 ### Queue Management {#queue-management}
 
-Queue Management requires configuring and maintaining a queue of async operations, http API calls for example, facilitating linear control over when the operation is executed.  The pseudocode below shows a simple queueing solution.  For complex queueing tasks, consider using a queue system such as [RabbitMQ](https://www.rabbitmq.com/) or [Mosquitto](https://mosquitto.org/).   
+Queue Management requires configuring and maintaining a queue of async operations, http API calls for example, facilitating linear control over when the operation is executed.  The pseudocode below shows a simple queueing solution.  For complex queueing tasks, consider using a queue system such as [RabbitMQ](https://www.rabbitmq.com/) or [Mosquitto](https://mosquitto.org/).
 
 ```python
 1. CONFIGURE_QUEUE size, storage, etc
@@ -184,4 +218,4 @@ Queue Management requires configuring and maintaining a queue of async operation
 ```
 
 
-																														
+
