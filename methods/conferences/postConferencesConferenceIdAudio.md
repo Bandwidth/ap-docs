@@ -79,7 +79,7 @@ await client.Conference.SpeakSentenceAsync("{conferenceId1}", "Hello From Bandwi
 // Speak sentence with options
 await client.Conference.PlayAudioAsync("{conferenceId1}", new PlayAudioData {
 	Sentence = "hola de Bandwidth",
-	Gender = Genger.Male,
+	Gender = Gender.Male,
 	Voice = "Jorge",
 	Locale = "es"
 });
