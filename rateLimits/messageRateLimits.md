@@ -2,7 +2,7 @@
 
 ## About {#about}
 
-This guide will walk through the recommended approach to managing queues and rate limits for use with the Messaging API. Over the past years mobile telecom operators have begun to block what is deemed automated traffic (A2P) sent over standard local telephone numbers IE: (919)-430-5555.  The amount of messages sent in this way have increased due to spreading automated traffic (A2P) across multiple local telephone numbers to bypass volumetric filters.  This process is called "snowshoeing" and as a result, the mobile operators are not only blocking volumetrically, but are also finger-printing content and preemptively blocking messages even from a "fresh" phone number.
+This guide will walk through the recommended approach to managing queues and rate limits for use with the Messaging API. Over the past years mobile telecom operators have begun to block what is deemed automated traffic (A2P) sent over standard local telephone numbers IE: (919)-430-5555. The amount of messages sent in this way have increased due to spreading automated traffic (A2P) across multiple local telephone numbers to bypass volumetric filters. This process is called "snowshoeing" and as a result, the mobile operators are not only blocking volumetrically, but are also finger-printing content and preemptively blocking messages even from a "fresh" phone number.
 
 ## Assumptions
 * You have signed up for the [Bandwidth Messaging API](https://app.bandwidth.com/)
@@ -24,16 +24,16 @@ This guide will walk through the recommended approach to managing queues and rat
 
 ## Default Messaging Rate Limits and Queues {#default-rate-limit}
 
-All Bandwidth messaging products are rate limited in some fashion.  There are various different rate limits within the system:
+All Bandwidth messaging products are rate limited in some fashion. There are various different rate limits within the system:
 
 
-| Scope          | Rate Limit              | Description                                                                                                                                                                                                  | Default                                                                                                                                                         |
-|:---------------|:------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Account**    | Outbound _dequeue_ rate | The rate that Bandwidth will send your messages to the downstream carriers across your entire account.                                                                                                       | 1 MPS                                                                                                                                                           |
-| **Per-Number** | Outbound _dequeue_ rate | The rate that Bandwidth will send your messages from a **single phone number** to the downstream carriers                                                                                                    | P2P - 1 MPS <br> A2P - ∞, up to account limit                                                                                                                   |
-| **Account**    | Inbound _API_ rate      | The rate that Bandwidth's API will accept new messages requests.                                                                                                                                             | 1 MPS                                                                                                                                                           |
-| **Per-Number** | Inbound _API_ rate      | The rate that Bandwidth's API will accept new messages requests from the same phone number                                                                                                                   | P2P - 1 MPS <br> A2P - ∞, up to account limit                                                                                                                   |
-| **Account**    | Burst _API_ rate        | The burst rate that Bandwidht's API will accept new messages.  Essentially how quickly can the queue be filled. <br> <br> ⚠️ If queuing is **not** enabled, this will be same as the  **Inbound _API_ rate** | 1 MPS <br> -or- <br> **Account** Outbound _dequeue_ rate + 10 <br><br> Example: **Account** Outbound _dequeue_ rate is 5 MPS, the **Burst** rate will be 15 MPS |
+| Scope          | Rate Limit              | Description                                                                                                                                                                                                 | Default                                                                                                                                                         |
+|:---------------|:------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Account**    | Outbound _dequeue_ rate | The rate that Bandwidth will send your messages to the downstream carriers across your entire account.                                                                                                      | 1 MPS                                                                                                                                                           |
+| **Per-Number** | Outbound _dequeue_ rate | The rate that Bandwidth will send your messages from a **single phone number** to the downstream carriers                                                                                                   | P2P - 1 MPS <br> A2P - ∞, up to account limit                                                                                                                   |
+| **Account**    | Inbound _API_ rate      | The rate that Bandwidth's API will accept new messages requests.                                                                                                                                            | 1 MPS                                                                                                                                                           |
+| **Per-Number** | Inbound _API_ rate      | The rate that Bandwidth's API will accept new messages requests from the same phone number                                                                                                                  | P2P - 1 MPS <br> A2P - ∞, up to account limit                                                                                                                   |
+| **Account**    | Burst _API_ rate        | The burst rate that Bandwidht's API will accept new messages. Essentially how quickly can the queue be filled. <br> <br> ⚠️ If queuing is **not** enabled, this will be same as the  **Inbound _API_ rate** | 1 MPS <br> -or- <br> **Account** Outbound _dequeue_ rate + 10 <br><br> Example: **Account** Outbound _dequeue_ rate is 5 MPS, the **Burst** rate will be 15 MPS |
 
 ### 403 – LIMIT
 | Code                | Message                                                                                                     |
@@ -42,6 +42,12 @@ All Bandwidth messaging products are rate limited in some fashion.  There are va
 | multi-message-limit | The number of messages [${0}] in the multi message request is greater than the limit [${1}].                |
 
 ### Sample Message Rate Limit Response
+
+You will receive this error response if:
+
+* Your **burst** rate is exceeded.
+* Your **per number** messages per second (MPS) is exceeded (only with queueing disabled).
+
 
 ```http
 Status: 403 Forbidden
@@ -58,7 +64,7 @@ Content-Type: application/json
     },
     {
       "name": "remoteAddress",
-      "value": "216.82.234.65"
+      "value": "x.x.x.x"
     },
     {
       "name": "requestPath",
@@ -68,6 +74,36 @@ Content-Type: application/json
 }
 ```
 
+### Sample Delay Queue full Response
+
+You will receive this error response if:
+
+* Your queue is full.
+
+```http
+Status: 400 Forbidden
+Content-Type: application/json
+
+{
+  "category": "bad-request",
+  "code": "message-delay-limit",
+  "message": "Message tried to be delayed over the maximum limit.",
+  "details": [
+    {
+      "name": "requestMethod",
+      "value": "POST"
+    },
+    {
+      "name": "remoteAddress",
+      "value": "x.x.x.x"
+    },
+    {
+      "name": "requestPath",
+      "value": "users/u-asdf/messages"
+    }
+  ]
+}
+```
 
 ## How Bandwidth Helps {#how-bandwidth-helps}
 
@@ -82,7 +118,7 @@ We have broken up our messaging classifications into two categories:
 
 ### Look-ahead Spam filtering
 
-Bandwidth uses the same [Adaptive](https://www.adaptivemobile.com/) network protection technology as the mobile telco operators.  This allows us to screen messages before they're sent to the downstream carrier.  By checking before Bandwidth passes the message along, we're able to work with you to understand and fix any potential issues with the message.  This maintains your telephone number deliverability reputation and helps build predictable traffic patterns.  If the message is marked as Spam we will send a notification to the `callbackUrl` specified in the [create message](smsDLR.md) request.
+Bandwidth uses the same [Adaptive](https://www.adaptivemobile.com/) network protection technology as the mobile telco operators. This allows us to screen messages before they're sent to the downstream carrier. By checking before Bandwidth passes the message along, we're able to work with you to understand and fix any potential issues with the message. This maintains your telephone number deliverability reputation and helps build predictable traffic patterns. If the message is marked as Spam we will send a notification to the `callbackUrl` specified in the [create message](smsDLR.md) request.
 
 ### Toll-Free A2P Best Practices {#a2p-best-practices}
 
@@ -98,7 +134,7 @@ Bandwidth uses the same [Adaptive](https://www.adaptivemobile.com/) network prot
 | **Single Domain** - Associate URL                                                                          | Each campaign should be associated with a single web domain owned by customer. Although a full domain is preferred, a URL shortener may be used to deliver custom links.  Avoid public / shared domain shorteners: <br> - bit.ly <br> - goo.gl <br> - tinyurl.com <br> - Tiny.cc <br> - lc.chat <br> - is.gd <br> - soo.gd <br> - s2r.co <br> - Clicky.me <br> - budurl.com <br> - bc.vc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 
 ### Enabling Queuing
-By default Bandwidth **does not queue** messages internally to be sent out.  Once contracted, Bandwidth can enable a 15 minute queue across the entire account.  The number of messages in the queue will depend on your **account wide _dequeue_ rate**.  It's important to note that the 15 minute queue is across the entire account, and **not** per phone number.
+By default Bandwidth **does not queue** messages internally to be sent out. Once contracted, Bandwidth can enable a 15 minute queue across the entire account. The number of messages in the queue will depend on your **account wide _dequeue_ rate**. It's important to note that the 15 minute queue is across the entire account, and **not** per phone number.
 
 #### Example: Calculating Queue Depth
 An account has an **Outbound _dequeue_ rate** of 5MPS and has enabled the 15 minute queue (900 second).
@@ -117,12 +153,12 @@ An account has an **Outbound _dequeue_ rate** of 5 MPS, a **Burst _API_ rate** o
 |:-------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Back-off and Retry | Try to send messages as quickly as possible to Bandwidth. When you hit the rate limit, add a small delay and try again. If it fails, then add some more delay and try again | Works best for use-cases that need to send lots of messages with no priority:<br> - Day before appointment reminders <br> - Receipts <br> - Opted-in Promotions |
 | Throttle           | Only send messages to Bandwidth as quickly as your dequeue rates                                                                                                            | Works best with any use case, but favors pure P2P                                                                                                               |
-| Queue Management   | Utilizing a queue system such as [RabbitMQ](https://www.rabbitmq.com/) or [Mosquitto](https://mosquitto.org/)                                                               | Works best for use-cases that intermingle massive campaigns with realtime traffic.  Enables full control over message priority and time-to-live                 |
+| Queue Management   | Utilizing a queue system such as [RabbitMQ](https://www.rabbitmq.com/) or [Mosquitto](https://mosquitto.org/)                                                               | Works best for use-cases that intermingle massive campaigns with realtime traffic. Enables full control over message priority and time-to-live                  |
 
 
 ### Back-off and Retry {#backoff-and-retry}
 
-Back-off and Retry adaptively increases delay to attempt to find the quickest possible call pacing without hitting rate limits.  The pseudocode below shows a simple example using a linear coefficient to adjust delay.  Introducing randomness or "jitter" into the delay can help reduce successive collisions.   
+Back-off and Retry adaptively increases delay to attempt to find the quickest possible call pacing without hitting rate limits. The pseudocode below shows a simple example using a linear coefficient to adjust delay. Introducing randomness or "jitter" into the delay can help reduce successive collisions.
 
 ```python
 retries = 0
@@ -143,7 +179,7 @@ WHILE (retry AND (retries < MAX_RETRIES))
 
 ### Throttling {#throttle}
 
-Throttling paces the asyncronous operations based on a specified time duration.  Using a duration just longer than the rate limit will help ensure calls are completed as they are sent without having to resend due to rate limiting.
+Throttling paces the asyncronous operations based on a specified time duration. Using a duration just longer than the rate limit will help ensure calls are completed as they are sent without having to resend due to rate limiting.
 
 ```python
 retries = 0
@@ -161,7 +197,7 @@ WHILE (retry AND (retries < MAX_RETRIES))
 
 ### Queue Management {#queue-management}
 
-Queue Management requires configuring and maintaining a queue of async operations, http API calls for example, facilitating linear control over when the operation is executed.  The pseudocode below shows a simple queueing solution.  For complex queueing tasks, consider using a queue system such as [RabbitMQ](https://www.rabbitmq.com/) or [Mosquitto](https://mosquitto.org/).   
+Queue Management requires configuring and maintaining a queue of async operations, http API calls for example, facilitating linear control over when the operation is executed. The pseudocode below shows a simple queueing solution. For complex queueing tasks, consider using a queue system such as [RabbitMQ](https://www.rabbitmq.com/) or [Mosquitto](https://mosquitto.org/).
 
 ```python
 1. CONFIGURE_QUEUE size, storage, etc
@@ -184,4 +220,4 @@ Queue Management requires configuring and maintaining a queue of async operation
 ```
 
 
-																														
+
