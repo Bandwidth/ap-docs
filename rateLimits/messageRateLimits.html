@@ -2178,7 +2178,7 @@
                                 
                                 <h1 id="top">Understanding Messaging Rate Limits </h1>
 <h2 id="about">About </h2>
-<p>This guide will walk through the recommended approach to managing queues and rate limits for use with the Messaging API. Over the past years mobile telecom operators have begun to block what is deemed automated traffic (A2P) sent over standard local telephone numbers IE: (919)-430-5555.  The amount of messages sent in this way have increased due to spreading automated traffic (A2P) across multiple local telephone numbers to bypass volumetric filters.  This process is called &quot;snowshoeing&quot; and as a result, the mobile operators are not only blocking volumetrically, but are also finger-printing content and preemptively blocking messages even from a &quot;fresh&quot; phone number.</p>
+<p>This guide will walk through the recommended approach to managing queues and rate limits for use with the Messaging API. Over the past years mobile telecom operators have begun to block what is deemed automated traffic (A2P) sent over standard local telephone numbers IE: (919)-430-5555. The amount of messages sent in this way have increased due to spreading automated traffic (A2P) across multiple local telephone numbers to bypass volumetric filters. This process is called &quot;snowshoeing&quot; and as a result, the mobile operators are not only blocking volumetrically, but are also finger-printing content and preemptively blocking messages even from a &quot;fresh&quot; phone number.</p>
 <h2 id="assumptions">Assumptions</h2>
 <ul>
 <li>You have signed up for the <a href="https://app.bandwidth.com/" target="_blank">Bandwidth Messaging API</a></li>
@@ -2205,7 +2205,7 @@
 </li>
 </ul>
 <h2 id="default-rate-limit">Default Messaging Rate Limits and Queues </h2>
-<p>All Bandwidth messaging products are rate limited in some fashion.  There are various different rate limits within the system:</p>
+<p>All Bandwidth messaging products are rate limited in some fashion. There are various different rate limits within the system:</p>
 <table>
 <thead>
 <tr>
@@ -2243,7 +2243,7 @@
 <tr>
 <td style="text-align:left"><strong>Account</strong></td>
 <td style="text-align:left">Burst <em>API</em> rate</td>
-<td style="text-align:left">The burst rate that Bandwidht&apos;s API will accept new messages.  Essentially how quickly can the queue be filled. <br> <br> &#x26A0;&#xFE0F; If queuing is <strong>not</strong> enabled, this will be same as the  <strong>Inbound <em>API</em> rate</strong></td>
+<td style="text-align:left">The burst rate that Bandwidht&apos;s API will accept new messages. Essentially how quickly can the queue be filled. <br> <br> &#x26A0;&#xFE0F; If queuing is <strong>not</strong> enabled, this will be same as the  <strong>Inbound <em>API</em> rate</strong></td>
 <td style="text-align:left">1 MPS <br> -or- <br> <strong>Account</strong> Outbound <em>dequeue</em> rate + 10 <br><br> Example: <strong>Account</strong> Outbound <em>dequeue</em> rate is 5 MPS, the <strong>Burst</strong> rate will be 15 MPS</td>
 </tr>
 </tbody>
@@ -2268,6 +2268,11 @@
 </tbody>
 </table>
 <h3 id="sample-message-rate-limit-response">Sample Message Rate Limit Response</h3>
+<p>You will receive this error response if:</p>
+<ul>
+<li>Your <strong>burst</strong> rate is exceeded.</li>
+<li>Your <strong>per number</strong> messages per second (MPS) is exceeded (only with queueing disabled).</li>
+</ul>
 <pre><code class="lang-http"><span class="hljs-attribute">Status</span>: 403 Forbidden
 <span class="hljs-attribute">Content-Type</span>: application/json
 
@@ -2282,7 +2287,35 @@
     },
     {
       <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;remoteAddress&quot;</span>,
-      <span class="hljs-attr">&quot;value&quot;</span>: <span class="hljs-string">&quot;216.82.234.65&quot;</span>
+      <span class="hljs-attr">&quot;value&quot;</span>: <span class="hljs-string">&quot;x.x.x.x&quot;</span>
+    },
+    {
+      <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;requestPath&quot;</span>,
+      <span class="hljs-attr">&quot;value&quot;</span>: <span class="hljs-string">&quot;users/u-asdf/messages&quot;</span>
+    }
+  ]
+}
+</span></code></pre>
+<h3 id="sample-delay-queue-full-response">Sample Delay Queue full Response</h3>
+<p>You will receive this error response if:</p>
+<ul>
+<li>Your queue is full.</li>
+</ul>
+<pre><code class="lang-http"><span class="hljs-attribute">Status</span>: 400 Forbidden
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+  <span class="hljs-attr">&quot;category&quot;</span>: <span class="hljs-string">&quot;bad-request&quot;</span>,
+  <span class="hljs-attr">&quot;code&quot;</span>: <span class="hljs-string">&quot;message-delay-limit&quot;</span>,
+  <span class="hljs-attr">&quot;message&quot;</span>: <span class="hljs-string">&quot;Message tried to be delayed over the maximum limit.&quot;</span>,
+  <span class="hljs-attr">&quot;details&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;requestMethod&quot;</span>,
+      <span class="hljs-attr">&quot;value&quot;</span>: <span class="hljs-string">&quot;POST&quot;</span>
+    },
+    {
+      <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;remoteAddress&quot;</span>,
+      <span class="hljs-attr">&quot;value&quot;</span>: <span class="hljs-string">&quot;x.x.x.x&quot;</span>
     },
     {
       <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;requestPath&quot;</span>,
@@ -2319,7 +2352,7 @@
 </tbody>
 </table>
 <h3 id="look-ahead-spam-filtering">Look-ahead Spam filtering</h3>
-<p>Bandwidth uses the same <a href="https://www.adaptivemobile.com/" target="_blank">Adaptive</a> network protection technology as the mobile telco operators.  This allows us to screen messages before they&apos;re sent to the downstream carrier.  By checking before Bandwidth passes the message along, we&apos;re able to work with you to understand and fix any potential issues with the message.  This maintains your telephone number deliverability reputation and helps build predictable traffic patterns.  If the message is marked as Spam we will send a notification to the <code>callbackUrl</code> specified in the <a href="smsDLR.md">create message</a> request.</p>
+<p>Bandwidth uses the same <a href="https://www.adaptivemobile.com/" target="_blank">Adaptive</a> network protection technology as the mobile telco operators. This allows us to screen messages before they&apos;re sent to the downstream carrier. By checking before Bandwidth passes the message along, we&apos;re able to work with you to understand and fix any potential issues with the message. This maintains your telephone number deliverability reputation and helps build predictable traffic patterns. If the message is marked as Spam we will send a notification to the <code>callbackUrl</code> specified in the <a href="smsDLR.md">create message</a> request.</p>
 <h3 id="a2p-best-practices">Toll-Free A2P Best Practices </h3>
 <table>
 <thead>
@@ -2364,7 +2397,7 @@
 </tbody>
 </table>
 <h3 id="enabling-queuing">Enabling Queuing</h3>
-<p>By default Bandwidth <strong>does not queue</strong> messages internally to be sent out.  Once contracted, Bandwidth can enable a 15 minute queue across the entire account.  The number of messages in the queue will depend on your <strong>account wide <em>dequeue</em> rate</strong>.  It&apos;s important to note that the 15 minute queue is across the entire account, and <strong>not</strong> per phone number.</p>
+<p>By default Bandwidth <strong>does not queue</strong> messages internally to be sent out. Once contracted, Bandwidth can enable a 15 minute queue across the entire account. The number of messages in the queue will depend on your <strong>account wide <em>dequeue</em> rate</strong>. It&apos;s important to note that the 15 minute queue is across the entire account, and <strong>not</strong> per phone number.</p>
 <h4 id="example-calculating-queue-depth">Example: Calculating Queue Depth</h4>
 <p>An account has an <strong>Outbound <em>dequeue</em> rate</strong> of 5MPS and has enabled the 15 minute queue (900 second).</p>
 <p><script type="math/tex; "> {5\,Messages \over Seconds} \times 900\,Seconds = 4,500\,Messages </script></p>
@@ -2394,12 +2427,12 @@
 <tr>
 <td style="text-align:left">Queue Management</td>
 <td style="text-align:left">Utilizing a queue system such as <a href="https://www.rabbitmq.com/" target="_blank">RabbitMQ</a> or <a href="https://mosquitto.org/" target="_blank">Mosquitto</a></td>
-<td style="text-align:left">Works best for use-cases that intermingle massive campaigns with realtime traffic.  Enables full control over message priority and time-to-live</td>
+<td style="text-align:left">Works best for use-cases that intermingle massive campaigns with realtime traffic. Enables full control over message priority and time-to-live</td>
 </tr>
 </tbody>
 </table>
 <h3 id="backoff-and-retry">Back-off and Retry </h3>
-<p>Back-off and Retry adaptively increases delay to attempt to find the quickest possible call pacing without hitting rate limits.  The pseudocode below shows a simple example using a linear coefficient to adjust delay.  Introducing randomness or &quot;jitter&quot; into the delay can help reduce successive collisions.   </p>
+<p>Back-off and Retry adaptively increases delay to attempt to find the quickest possible call pacing without hitting rate limits. The pseudocode below shows a simple example using a linear coefficient to adjust delay. Introducing randomness or &quot;jitter&quot; into the delay can help reduce successive collisions.</p>
 <pre><code class="lang-python">retries = <span class="hljs-number">0</span>
 coefficient = <span class="hljs-number">2</span> // coefficient to increase delay
 delay = some milliseconds (small amount)
@@ -2416,7 +2449,7 @@ END IF
 WHILE (retry AND (retries &lt; MAX_RETRIES))
 </code></pre>
 <h3 id="throttle">Throttling </h3>
-<p>Throttling paces the asyncronous operations based on a specified time duration.  Using a duration just longer than the rate limit will help ensure calls are completed as they are sent without having to resend due to rate limiting.</p>
+<p>Throttling paces the asyncronous operations based on a specified time duration. Using a duration just longer than the rate limit will help ensure calls are completed as they are sent without having to resend due to rate limiting.</p>
 <pre><code class="lang-python">retries = <span class="hljs-number">0</span>
 DO
 status = Get the result of the asynchronous operation.
@@ -2430,7 +2463,7 @@ END IF
 WHILE (retry AND (retries &lt; MAX_RETRIES))
 </code></pre>
 <h3 id="queue-management">Queue Management </h3>
-<p>Queue Management requires configuring and maintaining a queue of async operations, http API calls for example, facilitating linear control over when the operation is executed.  The pseudocode below shows a simple queueing solution.  For complex queueing tasks, consider using a queue system such as <a href="https://www.rabbitmq.com/" target="_blank">RabbitMQ</a> or <a href="https://mosquitto.org/" target="_blank">Mosquitto</a>.   </p>
+<p>Queue Management requires configuring and maintaining a queue of async operations, http API calls for example, facilitating linear control over when the operation is executed. The pseudocode below shows a simple queueing solution. For complex queueing tasks, consider using a queue system such as <a href="https://www.rabbitmq.com/" target="_blank">RabbitMQ</a> or <a href="https://mosquitto.org/" target="_blank">Mosquitto</a>.</p>
 <pre><code class="lang-python"><span class="hljs-number">1.</span> CONFIGURE_QUEUE size, storage, etc
 <span class="hljs-number">2.</span> PUSH_TO_QUEUE add <span class="hljs-keyword">async</span> operation data to queue
 <span class="hljs-number">3.</span> SUBSCRIBE_TO_QUEUE get <span class="hljs-keyword">async</span> operation <span class="hljs-keyword">from</span> queue
@@ -2482,7 +2515,7 @@ WHILE (retry AND (retries &lt; MAX_RETRIES))
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Messages","level":"8.1.2","depth":2,"next":{"title":"Everything else","level":"8.1.3","depth":2,"path":"rateLimits/resourceRateLimits.md","ref":"rateLimits/resourceRateLimits.md","articles":[]},"previous":{"title":"Calls","level":"8.1.1","depth":2,"path":"rateLimits/callRateLimits.md","ref":"rateLimits/callRateLimits.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.8","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs","mathjax"],"pluginsConfig":{"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"rateLimits/messageRateLimits.md","mtime":"2018-07-31T22:11:59.990Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-31T22:13:46.682Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Messages","level":"8.1.2","depth":2,"next":{"title":"Everything else","level":"8.1.3","depth":2,"path":"rateLimits/resourceRateLimits.md","ref":"rateLimits/resourceRateLimits.md","articles":[]},"previous":{"title":"Calls","level":"8.1.1","depth":2,"path":"rateLimits/callRateLimits.md","ref":"rateLimits/callRateLimits.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.8","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs","mathjax"],"pluginsConfig":{"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"rateLimits/messageRateLimits.md","mtime":"2018-08-07T14:55:50.019Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-07T14:57:35.405Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
