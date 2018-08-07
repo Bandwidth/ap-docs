@@ -3,8 +3,6 @@
 
 Bandwidth API sends this message to the application when it receives number pad tone signals during a call.
 
-DTMF Events are always sent during an active call.
-
 ### Properties
 | Property  | Description                                                     |
 |:----------|:----------------------------------------------------------------|
