@@ -39,7 +39,7 @@ Gets a list of your numbers. Since this operation uses HTTP GET, all the propert
 {% common %}
 
 
-### Example 1 of 1: List phone numbers
+### Example 1 of 2: List phone numbers
 
 {% sample lang="bash" %}
 
@@ -106,5 +106,15 @@ first_number_id = first_number[:id]
    "numberState": "enabled"
 }
 ]
+```
+
+### Example 2 of 2: List phone numbers by state
+
+{% sample lang="bash" %}
+
+```bash
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers?state=NC \
+    -u {token}:{secret} \
+    -H "Content-type: application/json"
 ```
 {% endmethod %}
