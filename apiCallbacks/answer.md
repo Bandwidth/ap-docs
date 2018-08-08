@@ -13,6 +13,14 @@ Bandwidth API sends this message to the application when the call is answered.
 | callUri   | The full URL of the call resource for this event.                                                                                                            |
 | tag       | String provided when call created.                                                                                                                           |
 | time      | Date when the event occurred. Timestamp follows the ISO8601 format (UTC).                                                                                    |
+| diversion | Diversion information if present |
+| diversion.origTo | The parameter value as received in the header |
+| diversion.reason | Reason for the diversion. Must be one of the following:<br><ul><li>A</li><li>B</li></ul>|
+| diversion.screen | The parameter value as received in the header |
+| diversion.privacy | The parameter value as received in the header |
+| diversion.counter| The parameter value as received in the header |
+| diversion.Limit | The parameter value as received in the header |
+| diversion.name| The parameter value as received in the header |
 
 {% common %}
 
@@ -26,7 +34,16 @@ Bandwidth API sends this message to the application when the call is answered.
 	"callId"    : "string",
 	"callUri"   : "string",
 	"callState" : "string",
-	"time"      : "date"
+	"time"      : "date",
+    "diversion": {
+        "origTo" : "string",
+        "reason" : "string",
+        "screen" : "string",
+        "privacy": "string",
+        "counter": "integer",
+        "Limit"  : "integer",
+        "name"   : "string"
+    }
 }
 ```
 

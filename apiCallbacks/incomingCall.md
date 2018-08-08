@@ -14,6 +14,14 @@ Bandwidth API sends this message to the application when an incoming call arrive
 | callState     | The state of the call, value is active.                                                                                                                      |
 | applicationId | The id of the application associated with phone number for this this incoming call.                                                                          |
 | time          | Date/time of event. Timestamp follows the ISO8601 format (UTC).                                                                                              |
+| diversion | Diversion information if present |
+| diversion.origTo | The parameter value as received in the header |
+| diversion.reason | Reason for the diversion. Must be one of the following:<br><ul><li>A</li><li>B</li></ul>|
+| diversion.screen | The parameter value as received in the header |
+| diversion.privacy | The parameter value as received in the header |
+| diversion.counter| The parameter value as received in the header |
+| diversion.Limit | The parameter value as received in the header |
+| diversion.name| The parameter value as received in the header |
 
 {% common %}
 
@@ -29,7 +37,16 @@ Bandwidth API sends this message to the application when an incoming call arrive
   "callUri"       : "string",
   "callState"     : "string",
   "applicationId" : "string",
-  "time"          : "date"
+  "time"          : "date",
+  "diversion": {
+      "origTo" : "string",
+      "reason" : "string",
+      "screen" : "string",
+      "privacy": "string",
+      "counter": "integer",
+      "Limit"  : "integer",
+      "name"   : "string"
+  }
 }
 ```
 
