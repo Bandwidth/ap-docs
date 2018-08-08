@@ -16,7 +16,7 @@ Bandwidth API sends this message to the application when an incoming call arrive
 | time          | Date/time of event. Timestamp follows the ISO8601 format (UTC).                                                                                              |
 | diversion | Diversion information if present |
 | diversion.origTo | The parameter value as received in the header |
-| diversion.reason | Reason for the diversion. Must be one of the following:<br><ul><li>A</li><li>B</li></ul>|
+| diversion.reason | Reason for the diversion. Must be one of the following:<br><ul><li>unknown</li><li>user-busy</li><li>no-answer</li><li>unavailable</li><li>unconditional</li><li>time-of-day</li><li>do-not-disturb</li><li>deflection</li><li>follow-me</li><li>out-of-service</li><li>away</li></ul>|
 | diversion.screen | The parameter value as received in the header |
 | diversion.privacy | The parameter value as received in the header |
 | diversion.counter| The parameter value as received in the header |
