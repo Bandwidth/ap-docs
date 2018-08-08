@@ -121,50 +121,22 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers?
 {% sample lang="js" %}
 
 ```js
-
 // Promise
-client.AvailableNumber.search("local", {
-  city : "Cary",
-  state : "NC",
-  pattern: "*2?9*",
-  quantity : 2 })
-.then(function (numbers) {});
+client.PhoneNumber.list({state: "NC"}).then(function(numbersResponse){});
 
 // Callback
-client.AvailableNumber.search("local", {
-  city : "Cary",
-  state : "NC",
-  pattern: "*2?9*",
-  quantity : 2 }
- , function (err, numbers) {});
+client.PhoneNumber.list({state: "NC"}, function(err, numbersResponse){});
 ```
 
 {% sample lang="csharp" %}
 
 ```csharp
-var results = await client.AvailableNumber.SearchLocalAsync(
-  new LocalNumberQuery{
-    City = "Cary",
-    State = "NC",
-    Pattern = "*2?9*",
-    Quantity = 2
-  }
-);
-var first = results.First();
-Console.WriteLine($"{first.Number} - {first.State}");
-// +1234567890 - NC
+var numbers = client.PhoneNumber.List(new PhoneNumberQuery {State = "NC"});
 ```
 
 {% sample lang="ruby" %}
 
 ```ruby
-results = AvailableNumber.search_local(client, {
-  :city => "Cary",
-  :state => "NC",
-  :pattern => "*2?9*",
-  :quantity => 2
-})
-first_result = results.next
-first_number = first_result[:number]
+numbers = PhoneNumber.list(client, {:state => "NC"})
 ```
 {% endmethod %}
