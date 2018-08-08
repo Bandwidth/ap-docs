@@ -71,7 +71,7 @@ Console.WriteLine(firstNumber.Number);
 {% sample lang="ruby" %}
 
 ```ruby
-numbers = PhoneNumber.list(client, {:size => 1000})
+numbers = Bandwidth::PhoneNumber.list(client, {:size => 1000})
 first_number = numbers.next
 first_number_id = first_number[:id]
 ```
@@ -137,6 +137,6 @@ var numbers = client.PhoneNumber.List(new PhoneNumberQuery {State = "NC"});
 {% sample lang="ruby" %}
 
 ```ruby
-numbers = PhoneNumber.list(client, {:state => "NC"})
+numbers = Bandwidth::PhoneNumber.list(client, {:state => "NC"})
 ```
 {% endmethod %}
