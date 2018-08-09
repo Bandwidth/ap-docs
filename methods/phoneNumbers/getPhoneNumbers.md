@@ -16,8 +16,8 @@ Gets a list of your numbers. Since this operation uses HTTP GET, all the propert
 | size          | Used for pagination to indicate the size of each page requested for querying a list of phone numbers. If no value is specified the default value is 25. (Maximum value 1000) | No        |
 | applicationId | Used to filter the retrieved list of numbers by an associated application ID.                                                                                                | No        |
 | state         | Used to filter the retrieved list of numbers allocated for the authenticated user by a US state.                                                                             | No        |
-| name          | Used to filter the retrieved list of numbers allocated for the authenticated user by it’s name.                                                                              | No        |
-| city          | Used to filter the retrieved list of numbers allocated for the authenticated user by it’s city.                                                                              | No        |
+| name          | Used to filter the retrieved list of numbers allocated for the authenticated user by its name.                                                                              | No        |
+| city          | Used to filter the retrieved list of numbers allocated for the authenticated user by its city.                                                                              | No        |
 | numberState   | Used to filter the retrieved list of numbers allocated for the authenticated user by the number state.                                                                       | No        |
 
 ### Properties
