@@ -39,7 +39,7 @@ Gets a list of your numbers. Since this operation uses HTTP GET, all the propert
 {% common %}
 
 
-### Example 1 of 1: List phone numbers
+### Example 1 of 2: List phone numbers
 
 {% sample lang="bash" %}
 
@@ -71,7 +71,7 @@ Console.WriteLine(firstNumber.Number);
 {% sample lang="ruby" %}
 
 ```ruby
-numbers = PhoneNumber.list(client, {:size => 1000})
+numbers = Bandwidth::PhoneNumber.list(client, {:size => 1000})
 first_number = numbers.next
 first_number_id = first_number[:id]
 ```
@@ -106,5 +106,37 @@ first_number_id = first_number[:id]
    "numberState": "enabled"
 }
 ]
+```
+
+### Example 2 of 2: List phone numbers by state
+
+{% sample lang="bash" %}
+
+```bash
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers?state=NC \
+    -u {token}:{secret} \
+    -H "Content-type: application/json"
+```
+
+{% sample lang="js" %}
+
+```js
+// Promise
+client.PhoneNumber.list({state: "NC"}).then(function(numbersResponse){});
+
+// Callback
+client.PhoneNumber.list({state: "NC"}, function(err, numbersResponse){});
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+var numbers = client.PhoneNumber.List(new PhoneNumberQuery {State = "NC"});
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+numbers = Bandwidth::PhoneNumber.list(client, {:state => "NC"})
 ```
 {% endmethod %}
