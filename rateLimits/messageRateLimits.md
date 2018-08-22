@@ -24,7 +24,7 @@ This guide will walk through the recommended approach to managing queues and rat
 
 ## Default Messaging Rate Limits and Queues {#default-rate-limit}
 
-All Bandwidth messaging products are rate limited in some fashion. There are various different rate limits within the system:
+All Bandwidth messaging products are rate limited in some fashion. The default rate limit is the same for SMS and MMS. There are various different rate limits within the system:
 
 
 | Scope          | Rate Limit              | Description                                                                                                                                                                                                 | Default                                                                                                                                                         |
