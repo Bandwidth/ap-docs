@@ -2219,18 +2219,59 @@
 <td style="text-align:left">time</td>
 <td style="text-align:left">Date/time of event. Timestamp follows the ISO8601 format (UTC).</td>
 </tr>
+<tr>
+<td style="text-align:left">diversion</td>
+<td style="text-align:left">Diversion information if present</td>
+</tr>
+<tr>
+<td style="text-align:left">diversion.origTo</td>
+<td style="text-align:left">The last E.164 telephone number that the call was diverted from.</td>
+</tr>
+<tr>
+<td style="text-align:left">diversion.reason</td>
+<td style="text-align:left">Reason for the diversion. Must be one of the following:<br><ul><li>unknown</li><li>user-busy</li><li>no-answer</li><li>unavailable</li><li>unconditional</li><li>time-of-day</li><li>do-not-disturb</li><li>deflection</li><li>follow-me</li><li>out-of-service</li><li>away</li></ul></td>
+</tr>
+<tr>
+<td style="text-align:left">diversion.screen</td>
+<td style="text-align:left">&quot;no&quot; if the number is user provided, &quot;yes&quot; if the number is network provided.</td>
+</tr>
+<tr>
+<td style="text-align:left">diversion.privacy</td>
+<td style="text-align:left">&quot;off&quot; or &quot;full&quot;. If &quot;full&quot;, origTo is set to &quot;Anonymous&quot;.</td>
+</tr>
+<tr>
+<td style="text-align:left">diversion.counter</td>
+<td style="text-align:left">Number of diversions.</td>
+</tr>
+<tr>
+<td style="text-align:left">diversion.limit</td>
+<td style="text-align:left">Max number of diversions allowed.</td>
+</tr>
+<tr>
+<td style="text-align:left">diversion.{name}</td>
+<td style="text-align:left">Additional name-value pairs that are in the diversion header.</td>
+</tr>
 </tbody>
 </table>
 </div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h4 id="example-json">Example JSON</h4>
 <pre><code class="lang-json">{
-  <span class="hljs-attr">&quot;eventType&quot;</span>     : <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;from&quot;</span>          : <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;to&quot;</span>            : <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;callId&quot;</span>        : <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;callUri&quot;</span>       : <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;callState&quot;</span>     : <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;applicationId&quot;</span> : <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;time&quot;</span>          : <span class="hljs-string">&quot;date&quot;</span>
+    <span class="hljs-attr">&quot;eventType&quot;</span>     : <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;from&quot;</span>          : <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;to&quot;</span>            : <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;callId&quot;</span>        : <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;callUri&quot;</span>       : <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;callState&quot;</span>     : <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;applicationId&quot;</span> : <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;time&quot;</span>          : <span class="hljs-string">&quot;date&quot;</span>,
+    <span class="hljs-attr">&quot;diversion&quot;</span>: {
+        <span class="hljs-attr">&quot;origTo&quot;</span>   : <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;reason&quot;</span>   : <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;screen&quot;</span>   : <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;privacy&quot;</span>  : <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;counter&quot;</span>  : <span class="hljs-string">&quot;integer&quot;</span>,
+        <span class="hljs-attr">&quot;limit&quot;</span>    : <span class="hljs-string">&quot;integer&quot;</span>,
+        <span class="hljs-attr">&quot;{name}&quot;</span>   : <span class="hljs-string">&quot;{value}&quot;</span>
+    }
 }
 </code></pre>
 <h4 id="example-incoming-call-event">Example: Incoming Call Event</h4>
@@ -2283,7 +2324,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Incoming Call Event","level":"3.1.2.9","depth":3,"next":{"title":"Hangup Event","level":"3.1.2.10","depth":3,"path":"apiCallbacks/hangup.md","ref":"apiCallbacks/hangup.md","articles":[]},"previous":{"title":"Gather Event","level":"3.1.2.8","depth":3,"path":"apiCallbacks/gather.md","ref":"apiCallbacks/gather.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.8","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs","mathjax"],"pluginsConfig":{"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"apiCallbacks/incomingCall.md","mtime":"2018-08-15T19:53:02.037Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-15T19:54:57.563Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Incoming Call Event","level":"3.1.2.9","depth":3,"next":{"title":"Hangup Event","level":"3.1.2.10","depth":3,"path":"apiCallbacks/hangup.md","ref":"apiCallbacks/hangup.md","articles":[]},"previous":{"title":"Gather Event","level":"3.1.2.8","depth":3,"path":"apiCallbacks/gather.md","ref":"apiCallbacks/gather.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.8","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs","mathjax"],"pluginsConfig":{"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"apiCallbacks/incomingCall.md","mtime":"2018-08-22T17:43:24.206Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-22T17:45:02.913Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
