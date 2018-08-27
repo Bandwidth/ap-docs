@@ -12,15 +12,16 @@ Creates an application that can handle calls and messages for one of your phone 
 | Parameter                         | Description                                                                                                                                                                                | Mandatory |
 |:----------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
 | name                              | A name you choose for this application.                                                                                                                                                    | Yes       |
-| incomingCallUrl                   | A URL where call events will be sent for an inbound call.                                                                                                                                  | No        |
+| incomingCallUrl                   | A URL where call events will be sent for an inbound call.                                                                                                                                  | No*        |
 | incomingCallUrlCallbackTimeout    | Determine how long should the platform wait for incomingCallUrl's response before timing out in milliseconds. <br> **Default** Time: `10000` (10s) <br> **Maximum** Time: `10000` (10s)    | No        |
 | incomingCallFallbackUrl           | The URL used to send the callback event if the request to incomingCallUrl fails.                                                                                                           | No        |
-| incomingMessageUrl                | A URL where message events will be sent for an inbound SMS message                                                                                                                         | No        |
+| incomingMessageUrl                | A URL where message events will be sent for an inbound SMS message                                                                                                                         | No*        |
 | incomingMessageUrlCallbackTimeout | Determine how long should the platform wait for incomingMessageUrl's response before timing out in milliseconds. <br> **Default** Time: `10000` (10s) <br> **Maximum** Time: `10000` (10s) | No        |
 | incomingMessageFallbackUrl        | The URL used to send the callback event if the request to incomingMessageUrl fails.                                                                                                        | No        |
 | callbackHttpMethod                | Determine if the HTTP callback event should be sent via GET or POST. Default is POST.                                                                            | No        |
 | autoAnswer                        | Determines whether or not an incoming call should be automatically answered. Default value is 'true'.                                                                                      | No        |
 
+*Note: One of incomingCallUrl or incomingMessageUrl must be set
 {% common %}
 ### Example 1 of 1: Create an application named: 'MyFirstApp'
 
