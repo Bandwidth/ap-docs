@@ -95,6 +95,9 @@
 
 * [Messaging v2 Reference](messaging-2/getStarted.md)
 
+## SIP Diversion Header
+* [SIP Diversion Header](sipDiversionHeader/sipDiversionHeader.md)
+
 ## Rest API Callbacks
 * [Callbacks](apiCallbacks/callbacks.md)
  * [v1 Messaging Events](apiCallbacks/messagingEvents.md)
