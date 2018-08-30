@@ -37,6 +37,7 @@ When your account is configured to use BXML, by setting the [application](../../
   eventType=incomingcall&
   withholdCallerName=false&
   displayName={number}&
+  diversion=%7B"privacy"%3A"off"%2C"screen"%3A"no"%2C"reason"%3A"unavailable"%2C"counter"%3A"1"%2C"origTo"%3A"{number}"&
   callId={call-id}&
   callUri=https%3A%2F%2Fapi.catapult.inetwork.com%2Fv1%2Fusers%2F{user-id}%2Fcalls%2F{call-id}
 ```
