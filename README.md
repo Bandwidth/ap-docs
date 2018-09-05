@@ -55,7 +55,7 @@ Before you can make your first API Request, you will need to [Sign up](https://c
 | [Speak Event](apiCallbacks/speak.md)                              | Bandwidth API sends this message to the application when text-to-speech starts or stops.                                                                                                                  |
 | [Transcription Event – BETA](apiCallbacks/transcription.md)       | Bandwidth API sends this event to the application when a transcription is terminated or an error occurs while processing it.                                                                              |
 
-### BXMLVerbs
+## BXML Verbs
 
 | Verb                                        | Description                                                                                                                                                                         |
 |:--------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -69,7 +69,7 @@ Before you can make your first API Request, you will need to [Sign up](https://c
 | [`<SpeakSentence>`](verbs/speakSentence.md) | The SpeakSentence verb is used to convert any text into speak for the caller.                                                                                                       |
 | [`<Transfer>`](verbs/transfer.md)           | The Transfer verb is used to transfer the call to another number.                                                                                                                   |
 
-### BXML Callbacks
+## BXML Callbacks
 
 BXML events are HTTP messages that are sent to your application server to notify you of activity related to your Bandwidth resources during a BXML usage.
 
