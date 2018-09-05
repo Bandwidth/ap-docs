@@ -18,7 +18,7 @@ The events sent are the events from Bandwidth Application Platform, with only tw
 
 BXML callbacks perform HTTP GET requests to the **requestUrl** when the notification intends to retrieve a new BXML document.
 
-### Verbs
+### BXML Verbs
 
 | Verb                                        | Description                                                                                                                                                                         |
 |:--------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
