@@ -106,7 +106,11 @@ client.PhoneNumber.create(importNumberPayload)
 {% sample lang="csharp" %}
 
 ```csharp
-
+var phoneNumberId = await client.PhoneNumber.CreateAsync(new CreatePhoneNumberData { Number = "+11234567890", ApplicationId = "appId", Name = "text messaging TN", Provider = new PhoneNumberProvider
+{
+   ProviderName = "bandwidth-dashboard", 
+   Properties = new Dictionary<string, object> { { "accountId",  "9999999" }, { "userName", "bob" }, { "password", "XXXXXXX" } }
+}});
 ```
 
 {% sample lang="ruby" %}
