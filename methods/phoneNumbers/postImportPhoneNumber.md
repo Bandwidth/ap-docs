@@ -116,7 +116,19 @@ var phoneNumberId = await client.PhoneNumber.CreateAsync(new CreatePhoneNumberDa
 {% sample lang="ruby" %}
 
 ```ruby
-## coming soon
+Bandwidth::PhoneNumber.create(client, {
+    :number => "+14352154439",
+    :applicationId => "{{applicationId}}",
+    :name => "text messaging TN",
+    :provider => {
+        :providerName => "bandwidth-dashboard",
+        :properties => {
+            :accountId => "12345",
+            :userName => "user",
+            :password => "pass"
+        }
+    }
+})
 ```
 
 {% common %}
