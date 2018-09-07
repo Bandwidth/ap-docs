@@ -10,21 +10,21 @@ If this response code is returned, your API call was not executed due to tempora
 
 | Endpoint                                                                                                                       | Limit | Time Period (ms) |
 |:-------------------------------------------------------------------------------------------------------------------------------|:------|:-----------------|
-| [`/account`](methods/account/account.md)                                                                                       | 1     | 1000             |
-| [`/applications`](methods/applications/applications.md)                                                                        | 1     | 1000             |
-| [`/availableNumbers`](methods/availableNumbers/availableNumbers.md)                                                            | 1     | 1000             |
-| [`/bridges`](methods/bridges/bridges.md)                                                                                       | 1     | 1000             |
-| [`/calls`](methods/calls/calls.md) <br><br> ⚠️ **For outbound calls see the [call rate limit](callRateLimits.md) doc**         | 1     | 1000             |
-| [`/conferences`](methods/conferences/conferences.md)                                                                           | 1     | 1000             |
-| [`/domains`](methods/domains/domains.md)                                                                                       | 1     | 1000             |
-| [`/endpoints`](methods/endpoints/endpoints.md)                                                                                 | 1     | 1000             |
-| [`/errors`](methods/errors/errors.md)                                                                                          | 1     | 1000             |
-| [`/media`](methods/media/media.md)                                                                                             | 1     | 1000             |
-| [`/messages`](methods/messages/messages.md)<br><br> ⚠️ **For sending messages [message rate limit](messageRateLimits.md) doc** | 1     | 1000             |
-| [`/numberInfo`](methods/numberInfo/numberInfo.md)                                                                              | 1     | 1000             |
-| [`/phoneNumbers`](methods/phoneNumbers/phoneNumbers.md)                                                                        | 1     | 1000             |
-| [`/recordings`](methods/recordings/recordings.md)                                                                              | 1     | 1000             |
-| [`/recordings/{id}/transcriptions`](methods/transcriptions/transcriptions.md)                                                  | 1     | 1000             |
+| [`/account`](/methods/account/account.md)                                                                                       | 1     | 1000             |
+| [`/applications`](/methods/applications/applications.md)                                                                        | 1     | 1000             |
+| [`/availableNumbers`](/methods/availableNumbers/availableNumbers.md)                                                            | 1     | 1000             |
+| [`/bridges`](/methods/bridges/bridges.md)                                                                                       | 1     | 1000             |
+| [`/calls`](/methods/calls/calls.md) <br><br> ⚠️ **For outbound calls see the [call rate limit](callRateLimits.md) doc**         | 1     | 1000             |
+| [`/conferences`](/methods/conferences/conferences.md)                                                                           | 1     | 1000             |
+| [`/domains`](/methods/domains/domains.md)                                                                                       | 1     | 1000             |
+| [`/endpoints`](/methods/endpoints/endpoints.md)                                                                                 | 1     | 1000             |
+| [`/errors`](/methods/errors/errors.md)                                                                                          | 1     | 1000             |
+| [`/media`](/methods/media/media.md)                                                                                             | 1     | 1000             |
+| [`/messages`](/methods/messages/messages.md)<br><br> ⚠️ **For sending messages [message rate limit](messageRateLimits.md) doc** | 1     | 1000             |
+| [`/numberInfo`](/methods/numberInfo/numberInfo.md)                                                                              | 1     | 1000             |
+| [`/phoneNumbers`](/methods/phoneNumbers/phoneNumbers.md)                                                                        | 1     | 1000             |
+| [`/recordings`](/methods/recordings/recordings.md)                                                                              | 1     | 1000             |
+| [`/recordings/{id}/transcriptions`](/methods/transcriptions/transcriptions.md)                                                  | 1     | 1000             |
 
 ### Sample `HTTP 429` Response
 
