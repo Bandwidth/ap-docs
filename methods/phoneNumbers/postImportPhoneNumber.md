@@ -106,13 +106,29 @@ client.PhoneNumber.create(importNumberPayload)
 {% sample lang="csharp" %}
 
 ```csharp
-
+var phoneNumberId = await client.PhoneNumber.CreateAsync(new CreatePhoneNumberData { Number = "+11234567890", ApplicationId = "appId", Name = "text messaging TN", Provider = new PhoneNumberProvider
+{
+   ProviderName = "bandwidth-dashboard", 
+   Properties = new Dictionary<string, object> { { "accountId",  "9999999" }, { "userName", "bob" }, { "password", "XXXXXXX" } }
+}});
 ```
 
-{% sample lang="php" %}
+{% sample lang="ruby" %}
 
-```php
-
+```ruby
+Bandwidth::PhoneNumber.create(client, {
+    :number => "+14352154439",
+    :applicationId => "{{applicationId}}",
+    :name => "text messaging TN",
+    :provider => {
+        :providerName => "bandwidth-dashboard",
+        :properties => {
+            :accountId => "12345",
+            :userName => "user",
+            :password => "pass"
+        }
+    }
+})
 ```
 
 {% common %}

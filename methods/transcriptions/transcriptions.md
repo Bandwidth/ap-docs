@@ -1,4 +1,4 @@
-# Transcriptions <code class="get">BETA</code>
+# Transcriptions
 
 The Transcription resource lets you transcribe a voicemail recording. This resource can be either created automatically when the call property transcriptionEnabled is set to true, when call is created, or during the call by posting an event. The transcription is based on a call audio recording. By enabling/disabling call property recordingEnabled, a call can have more than one recording, so it's possible to have one or more transcriptions for each one of those recordings. When transcriptionEnabled is set to true all the recordings generated within that call are going to be transcribed, i.e, if you start to record a call, at any given time when the call is active, and then terminate the recording, the transcription resource will be automatically started for this recording; this process can happen many times.
 

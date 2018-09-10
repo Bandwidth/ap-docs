@@ -79,7 +79,7 @@ client.Conference.speakSentenceToMember("conferenceID", "memberID", "Hello From 
 await client.Conference.PlayAudioToMemberAsync("{conferenceId1}", "{memberId1}", new PlayAudioData
 {
 	Sentence = "hola de Bandwidth",
-	Gender = Genger.Male,
+	Gender = Gender.Male,
 	Voice = "Jorge",
 	Locale = "es"
 });

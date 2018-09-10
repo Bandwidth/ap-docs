@@ -12,7 +12,7 @@ Makes changes to a number you have. <code class="post">POST</code> a new JSON re
 ### Supported Parameters
 | Parameter      | Description                                                                                                      | Mandatory |
 |:---------------|:-----------------------------------------------------------------------------------------------------------------|:----------|
-| applicationId  | The unique id of an Application resource you want to associate with this number for incoming calls and messages. | No        |
+| applicationId  | The unique id of an Application resource you want to associate with this number for incoming calls and messages or an empty string ("") if you want to disassociate this number with an application. | No        |
 | name           | A name you choose for this number.                                                                               | No        |
 | fallbackNumber | Number to transfer an incoming call when the callback/fallback events can’t be delivered.                        | No        |
 
