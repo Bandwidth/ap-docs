@@ -1,7 +1,7 @@
 {% method %}
 
 ## Import Phone Number
-Imoprt a previously orderd phone number from the Bandwidth Phone Number API so you can use it to make and receive calls and send and receive messages with the Voice And Messaing APIs. For more information about a new phone number, see the <a href="https://dev.bandwidth.com/faq/#Phone">FAQ</a>
+Import a previously orderd phone number from the Bandwidth Phone Number API so you can use it to make and receive calls and send and receive messages with the Voice And Messaing APIs. For more information about a new phone number, see the <a href="https://dev.bandwidth.com/faq/#Phone">FAQ</a>
 
 
 ### Request URL
