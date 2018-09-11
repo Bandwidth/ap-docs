@@ -2360,7 +2360,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="bxml-verbs">BXML verbs</h2>
+<h2 id="bxml-verbs">BXML Verbs</h2>
 <table>
 <thead>
 <tr>
@@ -2370,36 +2370,45 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><a href="bxml/verbs/gather.html"><code>&lt;Gather&gt;</code></a></td>
+<td style="text-align:left"><a href="verbs/gather.md"><code>&lt;Gather&gt;</code></a></td>
 <td style="text-align:left">The Gather verb is used to collect digits for some period of time.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="bxml/verbs/hangup.html"><code>&lt;Hangup&gt;</code></a></td>
+<td style="text-align:left"><a href="verbs/hangup.md"><code>&lt;Hangup&gt;</code></a></td>
 <td style="text-align:left">The Hangup verb is used to hangup current call.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="bxml/verbs/playAudio.html"><code>&lt;PlayAudio&gt;</code></a></td>
+<td style="text-align:left"><a href="verbs/playAudio.md"><code>&lt;PlayAudio&gt;</code></a></td>
 <td style="text-align:left">The PlayAudio verb is used to play an audio file in the call.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="bxml/verbs/record.html"><code>&lt;Record&gt;</code></a></td>
+<td style="text-align:left"><a href="verbs/pause.md"><code>&lt;Pause&gt;</code></a></td>
+<td style="text-align:left">The Pause verb is used to pause the execution of an ongoing BXML document.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="verbs/record.md"><code>&lt;Record&gt;</code></a></td>
 <td style="text-align:left">The Record verb allows call recording. At the end of the call, a call recording event containing the media with recorded audio URL is generated</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="bxml/verbs/redirect.html"><code>&lt;Redirect&gt;</code></a></td>
+<td style="text-align:left"><a href="verbs/redirect.md"><code>&lt;Redirect&gt;</code></a></td>
 <td style="text-align:left">The Redirect verb is used to redirect the current XML execution to another URL.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="bxml/verbs/speakSentence.html"><code>&lt;SpeakSentence&gt;</code></a></td>
+<td style="text-align:left"><a href="verbs/sendDtmf.md"><code>&lt;SendDtmf&gt;</code></a></td>
+<td style="text-align:left">The SendDtmf verb is used to is used to send digits on a live call.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="verbs/speakSentence.md"><code>&lt;SpeakSentence&gt;</code></a></td>
 <td style="text-align:left">The SpeakSentence verb is used to convert any text into speak for the caller.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="bxml/verbs/transfer.html"><code>&lt;Transfer&gt;</code></a></td>
+<td style="text-align:left"><a href="verbs/transfer.md"><code>&lt;Transfer&gt;</code></a></td>
 <td style="text-align:left">The Transfer verb is used to transfer the call to another number.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="bxml-callbacks">BXML Callbacks</h2>
+<p>BXML events are HTTP messages that are sent to your application server to notify you of activity related to your Bandwidth resources during a BXML usage.</p>
 <table>
 <thead>
 <tr>
@@ -2409,32 +2418,32 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><a href="bxml/callBacks/answer.html">Answer Event</a></td>
+<td style="text-align:left"><a href="callBacks/answer.md">Answer Event</a></td>
 <td style="text-align:left">Bandwidth API sends this message to the application when the call is answered.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="bxml/callBacks/gather.html">Gather event</a></td>
+<td style="text-align:left"><a href="callBacks/gather.md">Gather event</a></td>
 <td style="text-align:left">Bandwidth API generates a gather event when the gather command completes in a call.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="bxml/callBacks/hangup.html">Hangup Event</a></td>
+<td style="text-align:left"><a href="callBacks/hangup.md">Hangup Event</a></td>
 <td style="text-align:left">Bandwidth API sends this message to the application when the call ends.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="bxml/callBacks/recording.html">Recording event</a></td>
+<td style="text-align:left"><a href="callBacks/recording.md">Recording event</a></td>
 <td style="text-align:left">Bandwidth API sends this event to the application when an the recording media file is saved or an error occurs while saving it.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="bxml/callBacks/transcription.html">Transcription event</a></td>
+<td style="text-align:left"><a href="callBacks/transcription.md">Transcription event</a></td>
 <td style="text-align:left">Bandwidth API sends this event to the application when the recording media file is transcribed if requested.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="bxml/callBacks/redirect.html">Redirect event</a></td>
+<td style="text-align:left"><a href="callBacks/redirect.md">Redirect event</a></td>
 <td style="text-align:left">Bandwidth API sends this event to the application when a <code>&lt;Redirect&gt;</code> is requested</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="bxml/callBacks/transfer.html">Transfer Complete Event</a></td>
-<td style="text-align:left">Bandwidth API sends this event to the application when the <code>&lt;Transfer&gt;</code>is complete.</td>
+<td style="text-align:left"><a href="callBacks/transfer.md">Transfer Complete Event</a></td>
+<td style="text-align:left">Bandwidth API sends this event to the application when the <code>&lt;Transfer&gt;</code>is complete</td>
 </tr>
 </tbody>
 </table>
@@ -2491,7 +2500,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Get Started","level":"1.1","depth":1,"next":{"title":"Postman","level":"1.2","depth":1,"path":"methods/postman.md","ref":"methods/postman.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.11","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs","mathjax"],"pluginsConfig":{"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-09-10T19:15:50.681Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-10T19:17:34.213Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Get Started","level":"1.1","depth":1,"next":{"title":"Postman","level":"1.2","depth":1,"path":"methods/postman.md","ref":"methods/postman.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.11","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs","mathjax"],"pluginsConfig":{"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-09-11T16:39:53.060Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-11T16:41:34.470Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
