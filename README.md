@@ -1,5 +1,7 @@
 # Get Started
 
+(TEST)
+
 Before you can make your first API request, you will need to [sign up](https://catapult.inetwork.com/beta/signup) for a free Voice & Messaging API account.
 
 ## v1 Base API URL
