@@ -1,7 +1,6 @@
 # Summary
 
 ## Overview
-
 * [Get Started](README.md)
 * [Postman](methods/postman.md)
 
@@ -93,10 +92,8 @@
    * [GET List Transcriptions](methods/transcriptions/getTranscriptions.md)
    * [GET Transcription info](methods/transcriptions/getTranscriptionsTranscriptionId.md)
 
+## Messaging V2
 * [Messaging v2 Reference](messaging-2/getStarted.md)
-
-## SIP Diversion Header
-* [SIP Diversion Header](sipDiversionHeader/sipDiversionHeader.md)
 
 ## Rest API Callbacks
 * [Callbacks](apiCallbacks/callbacks.md)
@@ -123,7 +120,9 @@
    * [Transcription Event – BETA](apiCallbacks/transcription.md)
 
 ## BXML
-* [BXML](bxml/bxml.md)
+* [BXML Overview](bxml/bxmlOverview.md)
+* [BXML Concepts and Vocabulary](bxml/bxmlConcepts.md)
+* [BXML Verbs](bxml/bxml.md)
  * [Gather](bxml/verbs/gather.md)
  * [Hangup](bxml/verbs/hangup.md)
  * [PlayAudio](bxml/verbs/playAudio.md)
@@ -133,8 +132,6 @@
  * [SendDtmf](bxml/verbs/sendDtmf.md)
  * [SpeakSentence](bxml/verbs/speakSentence.md)
  * [Transfer](bxml/verbs/transfer.md)
-
-## BXML Callbacks
 * [BXML Callbacks](bxml/bxmlCallbacks.md)
  * [Answer Event](bxml/callBacks/answer.md)
  * [Gather event](bxml/callBacks/gather.md)
@@ -145,17 +142,14 @@
  * [Redirect event](bxml/callBacks/redirect.md)
  * [Transfer Complete Event](bxml/callBacks/transfer.md)
 
-## BXML Concepts and Vocabulary
-* [BXML Concepts and Vocabulary](bxml/bxmlConcepts.md)
-
-## BXML Overview
-* [BXML Overview](bxml/bxmlOverview.md)
-
 ## Rate Limits
 * [Rate Limits](rateLimits.md)
    * [Calls](rateLimits/callRateLimits.md)
    * [Messages](rateLimits/messageRateLimits.md)
    * [Everything else](rateLimits/resourceRateLimits.md)
+
+## SIP Diversion Header
+* [SIP Diversion Header](sipDiversionHeader/sipDiversionHeader.md)
 
 ## HTTP Error Codes
 * [HTTP Errors](errors.md)
