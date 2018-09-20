@@ -11,8 +11,8 @@ Get the transactions from the user's account.
 | Parameter | Description                                                                                                                                                                 | Mandatory |
 |:----------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
 | maxItems  | Limit the number of transactions that will be returned.                                                                                                                     | No        |
-| toDate    | Return only transactions that are newer than the parameter. Format: "yyyy-MM-dd'T'HH:mm:ssZ"                                                                                | No        |
-| fromDate  | Return only transactions that are older than the parameter. Format: "yyyy-MM-dd'T'HH:mm:ssZ"                                                                                | No        |
+| fromDate    | Return only transactions that are newer than the parameter. Format: "yyyy-MM-dd'T'HH:mm:ssZ"                                                                                | No        |
+| toDate  | Return only transactions that are older than the parameter. Format: "yyyy-MM-dd'T'HH:mm:ssZ"                                                                                | No        |
 | type      | Return only transactions that are this type.                                                                                                                                | No        |
 | page      | Used for pagination to indicate the page requested for querying a list of transactions. If no value is specified the default is 0.                                          | No        |
 | size      | Used for pagination to indicate the size of each page requested for querying a list of transactions. If no value is specified the default value is 25 (maximum value 1000). | No        |
