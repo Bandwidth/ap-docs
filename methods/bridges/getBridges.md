@@ -22,7 +22,7 @@ Get list of bridges for a given user.
 | Property      | Description                                              |
 |:--------------|:---------------------------------------------------------|
 | id            | The unique ID of the bridge.                             |
-| state         | Bridge state. Possible state values are described here.  |
+| state         | Bridge state. Possible state values are described below. |
 | callIds       | List of call Ids that will be in the bridge.             |
 | calls         | The URL used to retrieve the calls in a specific bridge. |
 | bridgeAudio   | Enable/Disable two way audio path.                       |
