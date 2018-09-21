@@ -2,6 +2,8 @@
 ## Answer Event
 Bandwidth API sends this message to the application when the call is answered.
 
+Note: Bandwidth released Diversion Header support to a limited group of accounts on September 19th, 2018. The remainder of our customer-base will receive notice 30-days prior to General Availability (GA).
+
 ### Properties
 | Property  | Description                                                                                                                                                  |
 |:----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
