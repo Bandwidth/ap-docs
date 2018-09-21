@@ -2,6 +2,8 @@
 ## Incoming Call Event
 Bandwidth API sends this message to the application when an incoming call arrives. For incoming call the callback set is the one related to the Application associated with the called number.
 
+NOTE: Bandwidth released Diversion Header support to a limited group of accounts on September 19th, 2018. The remainder of our customer-base will receive notice 30-days prior to General Availability (GA).
+
 ### Properties
 
 | Property      | Description                                                                                                                                                  |
