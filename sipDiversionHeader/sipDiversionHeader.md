@@ -1,5 +1,7 @@
 # Information about SIP Diversion Header - Starting September 19th, 2018
 
+Bandwidth released Diversion Header support to a limited group of accounts on September 19th, 2018. The remainder of our customer-base will receive notice 30-days prior to General Availability (GA).
+
 ### WHAT DO I NEED TO KNOW?
 
 Answer Event and Incoming Call Event callbacks will have Diversion header information in them.
