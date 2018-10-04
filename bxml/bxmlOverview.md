@@ -2,7 +2,7 @@
 
 ## Overview
 
-BXML is a much simpler way to interact with a call. Rather than working with callbacks, BXML handles the call state for you so all you have to implement is the order of events. BXML has many built in features and is perfect for quick development.
+Bandwidth XML (BXML) is a much simpler way to interact with a call. Rather than working with callbacks, BXML handles the call state for you so all you have to implement is the order of events. BXML has many built in features and is perfect for quick development.
 
 ## Assumptions
 
