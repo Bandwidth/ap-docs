@@ -63,7 +63,7 @@ curl -v -X POST  https://api.catapult.inetwork.com/v1/availableNumbers/local?cit
 client.AvailableNumber.searchAndOrder("local", { areaCode : "910", quantity : 2 }).then(function (numbers) {});
 
 // Callback
-client.AvailableNumber.serchAndOrder("local", { areaCode : "910", quantity : 2 }, function (err, numbers) {});
+client.AvailableNumber.searchAndOrder("local", { areaCode : "910", quantity : 2 }, function (err, numbers) {});
 ```
 
 {% sample lang="csharp" %}
