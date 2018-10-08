@@ -1,4 +1,4 @@
-## BXML Callbacks
+# BXML Callbacks
 
 ###  Understanding BXML Callback Events
 The events sent are the events from Bandwidth Application Platform, with only two exceptions:
