@@ -31,11 +31,12 @@ Note: Bandwidth released Diversion Header support to a limited group of accounts
 ```json
 {
 	"eventType" : "string",
-	"from"      : "string",
 	"to"        : "string",
+	"from"      : "string",
+	"callState" : "string",
 	"callId"    : "string",
 	"callUri"   : "string",
-	"callState" : "string",
+    "tag"       : "string",
 	"time"      : "date",
     "diversion": {
         "origTo"   : "string",

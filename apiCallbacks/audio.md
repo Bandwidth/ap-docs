@@ -20,11 +20,11 @@ Bandwidth API sends this message to the application when audio file playback is 
 ```json
 {
   "eventType": "string",
+  "status": "string",
   "callId": "string",
   "callUri": "string",
-  "status": "string",
-  "time": "date",
-  "tag": "string"
+  "tag": "string",
+  "time": "date"
 }
 ```
 

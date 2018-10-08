@@ -22,10 +22,10 @@ Bandwidth API sends this message to the application when the call is rejected.
 ```json
 {
    "eventType":"string",
-   "from":"string",
-   "to":"string",
    "callId":"string",
    "callUri": "string",
+   "from":"string",
+   "to":"string",
    "callState":"string",
    "cause":"string",
    "time":"date"

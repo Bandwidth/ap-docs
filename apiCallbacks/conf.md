@@ -19,9 +19,9 @@ Bandwidth API sends this event to the application when a conference is created o
 
 ```json
 {
+    "eventType": "string",
     "conferenceId": "string",
     "conferenceUri": "string",
-    "eventType": "string",
     "status": "string",
     "createdTime": "date",
     "completedTime": "date"

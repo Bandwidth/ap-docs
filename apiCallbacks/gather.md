@@ -21,11 +21,11 @@ The Bandwidth API generates a gather event when the gather command completes in 
 ```json
 {
     "eventType" : "string",
-    "callId"    : "string",
-    "gatherId"  : "string",
-    "reason"    : "string",
     "state"     : "string",
     "digits"    : "string",
+    "reason"    : "string",
+    "callId"    : "string",
+    "gatherId"  : "string",
     "time"      : "date",
     "tag"       : "string"
 }
