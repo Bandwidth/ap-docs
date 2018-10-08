@@ -9,6 +9,7 @@ Bandwidth API sends this event to the application when a transcription is termin
 |:-----------------|:----------------------------------------------------------------------|
 | eventType        | The event type, value is `transcription`.                             |
 | transcriptionId  | The unique id of the transcription.                                   |
+| recordingId      | The unique id of the recording being transcribed.
 | state            | The state of the transcription, values are `completed` or `error`     |
 | status           | The state of the transcription, values are `completed` or `error`     |
 | textSize         | Total character count of text.                                        |
@@ -23,15 +24,15 @@ Bandwidth API sends this event to the application when a transcription is termin
 
 ```json
 {
-   "transcriptionUri":"string",
-   "textSize":"integer",
-   "text":"string",
-   "status":"string",
-   "textUrl":"string",
+   "eventType":"string",
+   "transcriptionId":"string",
    "recordingId":"string",
    "state":"string",
-   "eventType":"string",
-   "transcriptionId":"string"
+   "status":"string",
+   "textSize":"integer",
+   "text":"string",
+   "textUrl":"string",
+   "transcriptionUri":"string"
 }
 ```
 
