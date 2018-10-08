@@ -23,7 +23,7 @@ Bandwidth API sends this message to the application when text-to-speech starts o
 {
   "eventType" : "string",
   "status"    : "string",
-  "state":    : "string",
+  "state"    : "string",
   "callId"    : "string",
   "callUri"   : "string",
   "tag"       : "string",

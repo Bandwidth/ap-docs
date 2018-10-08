@@ -36,7 +36,7 @@ Note: Bandwidth released Diversion Header support to a limited group of accounts
 	"callState" : "string",
 	"callId"    : "string",
 	"callUri"   : "string",
-    "tag":      : "string",
+    "tag"       : "string",
 	"time"      : "date",
     "diversion": {
         "origTo"   : "string",
