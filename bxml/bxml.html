@@ -1723,7 +1723,7 @@
 
     
         
-        <li class="header">BXML</li>
+        <li class="header">BXML for Voice</li>
         
         
     
@@ -2182,11 +2182,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="bandwidth-xml-bxml">Bandwidth XML (BXML)</h1>
-<p>Bandwidth XML allows you to create a voice application as easily as you create a Web application. Using Bandwidth XML (or BXML) your application handles incoming call events using standard action verbs that are described in XML.</p>
+                                <h1 id="bxml-verbs">BXML Verbs</h1>
+<p>BXML allows you to create a voice application as easily as you create a Web application. Using BXML, your application handles incoming call events using standard action verbs that are described in BXML.</p>
 <p>Before we begin creating a new BXML application you&#x2019;ll need two things initially setup:</p>
 <ol>
-<li><p>A phone number that is allocated to your Bandwidth Application Platform account and is configured to an application. See here on how to do that. Note that when you create the application you&#x2019;ll need to make sure that the Callback HTTP method  is set to <code class="get">GET</code>.</p>
+<li><p>A phone number that is allocated to your Bandwidth Application Platform account and is configured to an application. See here on how to do that. Note that when you create the application you&#x2019;ll need to make sure that the Callback HTTP method  is set to <code>GET</code>.</p>
 </li>
 <li><p>A public Web site that you can create content on and will handle the requests for BXML. Note that the endpoint for this site should be used to create the application in you setup above.</p>
 </li>
@@ -2198,7 +2198,7 @@
 <li><a href="callbacks/transferComplete.md">transferComplete</a>: sent to the original BXML call when the transferred call hangs up</li>
 <li><a href="callbacks/redirect.md">redirect</a>: sent when the verb redirect is in action</li>
 </ul>
-<p>BXML callbacks perform HTTP GET requests to the <strong>requestUrl</strong> when the notification intends to retrieve a new BXML document.</p>
+<p>BXML callbacks perform <code>GET</code> requests to the <strong>requestUrl</strong> when the notification intends to retrieve a new BXML document.</p>
 <h3 id="bxml-verbs">BXML Verbs</h3>
 <table>
 <thead>
@@ -2319,7 +2319,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"BXML Verbs","level":"5.3","depth":1,"next":{"title":"Gather","level":"5.3.1","depth":2,"path":"bxml/verbs/gather.md","ref":"bxml/verbs/gather.md","articles":[]},"previous":{"title":"BXML Concepts and Vocabulary","level":"5.2","depth":1,"path":"bxml/bxmlConcepts.md","ref":"bxml/bxmlConcepts.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.11","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs","mathjax"],"pluginsConfig":{"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"bxml/bxml.md","mtime":"2018-10-08T14:23:08.989Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-08T14:24:56.173Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"BXML Verbs","level":"5.3","depth":1,"next":{"title":"Gather","level":"5.3.1","depth":2,"path":"bxml/verbs/gather.md","ref":"bxml/verbs/gather.md","articles":[]},"previous":{"title":"BXML Concepts and Vocabulary","level":"5.2","depth":1,"path":"bxml/bxmlConcepts.md","ref":"bxml/bxmlConcepts.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.11","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs","mathjax"],"pluginsConfig":{"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"bxml/bxml.md","mtime":"2018-10-08T14:25:55.665Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-08T14:27:38.817Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
