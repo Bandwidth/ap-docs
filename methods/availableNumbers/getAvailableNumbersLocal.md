@@ -56,8 +56,7 @@ For more information about Bandwidth’s local phone numbers, see the <a href="h
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/availableNumbers/local?areaCode=910&quantity=3 \
-  -u {token}:{secret}
+curl -v -X GET "https://api.catapult.inetwork.com/v1/availableNumbers/local?areaCode=910&quantity=3" -u {token}:{secret}
 ```
 
 {% sample lang="js" %}
@@ -125,9 +124,7 @@ first_number = first_result[:number]
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/availableNumbers/local?city=Cary&state=NC&pattern=*2%3F9*&quantity=2 \
-  -u {token}:{secret} \
-  -H "Content-type: application/json"
+curl -v -X GET "https://api.catapult.inetwork.com/v1/availableNumbers/local?city=Cary&state=NC&pattern=*2%3F9*&quantity=2" -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

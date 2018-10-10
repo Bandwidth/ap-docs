@@ -204,9 +204,7 @@ The above command returns JSON structured like this:
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?toDate=2013-02-21T13:40:00&fromDate=2013-02-21T13:38:00 \
-  -u {{apiToken}}:{secret} \
-  -H "Content-type: application/json" \
+curl -v -X GET "https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?toDate=2013-02-21T13:40:00&fromDate=2013-02-21T13:38:00" -u {{apiToken}}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

@@ -50,8 +50,7 @@ For more information about Bandwidth’s local phone numbers, see the <a href="h
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST  https://api.catapult.inetwork.com/v1/availableNumbers/local?city=Cary&state=NC&quantity=2 \
-  -u {token}:{secret}
+curl -v -X POST "https://api.catapult.inetwork.com/v1/availableNumbers/local?city=Cary&state=NC&quantity=2" -u {token}:{secret}
 ```
 
 {% sample lang="js" %}
