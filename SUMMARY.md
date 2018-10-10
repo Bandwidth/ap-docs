@@ -134,6 +134,7 @@
  * [Transfer](bxml/verbs/transfer.md)
 * [BXML Callbacks](bxml/bxmlCallbacks.md)
  * [Answer Event](bxml/callBacks/answer.md)
+ * [Call Timeout Event](bxml/callBacks/callTimeout.md)
  * [Gather event](bxml/callBacks/gather.md)
  * [Hangup Event](bxml/callBacks/hangup.md)
  * [Incoming Call Event](bxml/callBacks/incomingCall.md)
