@@ -26,7 +26,7 @@ For more information about Bandwidth’s local phone numbers, see the <a href="h
 | areaCode           | A 3-digit telephone area code.                                                                                                                                                                                                                | `**`      |
 | localNumber        | It is defined as the first digits of a telephone number inside an area code for filtering the results. It must have at least 3 digits and the areaCode field must be filled.                                                                  | `***`     |
 | inLocalCallingArea | Boolean value to indicate that the search for available numbers must consider overlayed areas. Only applied for localNumber searching.                                                                                                        | `***`     |
-| quantity           | The maximum number of numbers to return (default 1, maximum 10).                                                                                                                                                                           | No        |
+| quantity           | The maximum number of numbers to return (default 10, maximum 10).                                                                                                                                                                           | No        |
 | pattern            | A number pattern that may include letters, digits, and the following wildcard characters: <br> - `?` : matches any single digit <br> - `*` : matches zero or more digits<br> Don't forget to encode wildcard characters in the requested URL. | No        |
 
 <aside class="notice">
