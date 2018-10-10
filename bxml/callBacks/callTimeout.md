@@ -2,7 +2,7 @@
 
 ## CallTimeout Event
 
-Bandwidth API sends this message to the application when the call is not answered until the specified timeout.
+Bandwidth API sends this message to the application when the call is not answered within the specified timeout.
 
 ### Properties
 | Property  | Description                                                                                                                                                  |
