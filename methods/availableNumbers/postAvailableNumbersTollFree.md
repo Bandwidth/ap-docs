@@ -17,11 +17,17 @@ To learn more about MMS on toll-free numbers, see the [FAQ](https://dev.bandwidt
 
 ---
 
-### Supported Parameters
+### Supported Parameters *
 
 | Parameter | Description                                                                      | Mandatory |
 |:----------|:---------------------------------------------------------------------------------|:----------|
 | quantity  | The maximum quantity of numbers for searching and order (default 1, maximum 10). | No        |
+
+<aside class="notice">
+<p>
+<code>*</code> The parameters for this method are sent as url parameters, not as part of the body request.
+</p>
+</aside>
 
 {% common %}
 

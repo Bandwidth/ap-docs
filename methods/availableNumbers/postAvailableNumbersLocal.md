@@ -16,7 +16,7 @@ For more information about Bandwidth’s local phone numbers, see the <a href="h
 
 ---
 
-### Supported Parameters
+### Supported Parameters *
 
 | Parameter          | Description                                                                                                                                                                                                                                   | Mandatory |
 |:-------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
@@ -29,6 +29,12 @@ For more information about Bandwidth’s local phone numbers, see the <a href="h
 | quantity           | The maximum number of numbers to return (default 10, maximum 5000).                                                                                                                                                                           | No        |
 | pattern            | A number pattern that may include letters, digits, and the following wildcard characters: <br> - `?` : matches any single digit <br> - `*` : matches zero or more digits<br> Don't forget to encode wildcard characters in the requested URL. | No        |
 
+
+<aside class="notice">
+<p>
+<code>*</code> The parameters for this method are sent as url parameters, not as part of the body request.
+</p>
+</aside>
 <aside class="notice">
 <p>
 <code>**</code> You must choose one of state, zip, or areaCode in request.
