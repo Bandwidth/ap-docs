@@ -53,14 +53,6 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
 	}'
 ```
 
-> The above command returns HTTP Header structured like this:
-
-```
-HTTP/1.1 201 Created
-Location: /v1/users/{userId}/calls/{callId}
-```
-
-
 {% sample lang="js" %}
 
 ```js
@@ -235,12 +227,6 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/ \
     -u {token}:{secret} \
     -H "Content-type: application/json" \
     -d '{"bridgeAudio": "true" }'
-```
-
-> The above command returns HTTP Status structured like this:
-```
-HTTP/1.1 201 Created
-Location: /v1/users/{userId}/calls/{bridgeId}
 ```
 
 ```bash
