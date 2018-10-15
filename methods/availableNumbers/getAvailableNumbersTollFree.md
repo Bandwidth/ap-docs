@@ -33,9 +33,7 @@ For more information about Bandwidth’s toll free phone numbers, see the <a hre
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/availableNumbers/tollFree?pattern=*2%3F9*&quantity=2 \
-  -u {token}:{secret} \
-  -H "Content-type: application/json" \
+curl -v -X GET "https://api.catapult.inetwork.com/v1/availableNumbers/tollFree?pattern=*2%3F9*&quantity=2" -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}
