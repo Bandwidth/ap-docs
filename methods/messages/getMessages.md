@@ -247,9 +247,7 @@ messages = Message.list(client, {:from => "{fromNumber}"})
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages?from=%2b{fromNumber}&direction=out&toDateTime=2012-10-05%2020:37:39 \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET "https://api.catapult.inetwork.com/v1/users/{userId}/messages?from=%2b{fromNumber}&direction=out&toDateTime=2012-10-05%2020:37:39" -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}
