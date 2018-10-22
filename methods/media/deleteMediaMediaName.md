@@ -40,4 +40,8 @@ await client.Media.DeleteAsync("file.mp3");
 Media.delete(client, "file.mp3")
 ```
 
+{% common %}
+
+> The above command returns an HTTP 200 response
+
 {% endmethod %}

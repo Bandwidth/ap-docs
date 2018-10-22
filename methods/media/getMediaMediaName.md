@@ -48,4 +48,9 @@ using(var data = await client.Media.DownloadAsync("file.mp3"))
 ```ruby
 content, media_type = Media.download(client, "file.mp3")
 ```
+
+{% common %}
+
+> The above command returns an HTTP 200 response along with the media file
+
 {% endmethod %}
