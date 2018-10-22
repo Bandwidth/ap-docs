@@ -149,8 +149,8 @@
    * [Messages](rateLimits/messageRateLimits.md)
    * [Everything else](rateLimits/resourceRateLimits.md)
 
-## SIP Diversion Header
-* [SIP Diversion Header](sipDiversionHeader/sipDiversionHeader.md)
+## Inbound SIP Diversion Header
+* [Inbound SIP Diversion Header Information](sipDiversionHeader/sipDiversionHeader.md)
 
 ## HTTP Error Codes
 * [HTTP Errors](errors.md)
