@@ -6,7 +6,7 @@ Bandwidth XML (BXML) is a much simpler way to interact with a call. Rather than 
 
 ## Assumptions
 
-* You have a way to recieve way to recieve webhooks.
+* You have a way to receive webhooks.
 * You have downloaded [Postman](https://www.getpostman.com) or have another way to make Post requests to the API.
 * You have your [Voice and Messaging API](https://app.bandwidth.com) {userId}, {apiToken}, {apiSecret}. For more information about finding your credentials, visit the [Getting Started Setup Guide](https://dev.bandwidth.com/getStartedSetupGuide.html) under "Step 3. Get Your Bandwidth API User ID, Token, and Secret".
 * You have a [Bandwidth phone number](https://dev.bandwidth.com/howto/phonenumbers.html).
