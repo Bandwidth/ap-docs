@@ -25,7 +25,7 @@ Add members to a conference.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members -u {token}:{secret} -H "Content-type: application/json" 	-d
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members -u {token}:{secret} -H "Content-type: application/json" -d
     '
 	{
 		"callId": "{callId}",

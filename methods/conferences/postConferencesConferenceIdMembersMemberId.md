@@ -26,10 +26,12 @@ Update a member status/properties.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members/{memberId} 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members/{memberId} -u {token}:{secret} -H "Content-type: application/json" -d
+    '
 	{
 		"state": "completed"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}

@@ -22,7 +22,13 @@ Change calls in a bridge and bridge/unbridge the audio.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}	-u {token}:{secret} 	-H "Content-type: application/json" 	-d '{"bridgeAudio": "true", "callIds": ["{callId1}","{callId2}"] }'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId} -u {token}:{secret} -H "Content-type: application/json" -d
+    '
+    {
+        "bridgeAudio": "true",
+        "callIds": ["{callId1}","{callId2}"]
+    }
+    '
 ```
 
 {% sample lang="js" %}

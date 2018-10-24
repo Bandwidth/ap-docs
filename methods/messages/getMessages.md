@@ -88,7 +88,7 @@ Message results are paginated based on the `size` parameter. If the number of me
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages 	-u {token}:{secret} 	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}
@@ -181,7 +181,7 @@ HEADER: <https://api.catapult.inetwork.com/v1/users/u-dkjf9094802375s/messages?s
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages?from=%2b{fromNumber} 	-u {token}:{secret} 	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages?from=%2b{fromNumber} -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

@@ -27,10 +27,12 @@ For more information about recording and transcribing calls, see the <a href="ht
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId} -u {token}:{secret} -H "Content-type: application/json" 	-d
+    '
 	{
 		"state":"active"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}

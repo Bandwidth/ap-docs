@@ -51,13 +51,15 @@ Bandwidth returns `HTTP 201` Created with the URI of the message in the `Locatio
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages 	-u {token}:{secret} 	-H "Content-type: application/json" 		-d 	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages -u {token}:{secret} -H "Content-type: application/json" -d
+    '
 	{
 		"from": "{fromNumber}",
 		"to": "{toNumber}",
 		"text": "Good morning, this is a test message",
 		"callbackUrl": "http://my.callback.com"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}
@@ -116,14 +118,16 @@ Location: /v1/users/{userId}/messages/{messageId}
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages 	-u {token}:{secret} 	-H "Content-type: application/json" 		-d 	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages -u {token}:{secret} -H "Content-type: application/json" -d
+    '
 	{
 		"from": "{fromNumber}",
 		"to": "{toNumber}",
 		"text": "Good morning, this is a test message",
 		"callbackUrl": "http://my.callback.url",
 		"media": ["https://api.catapult.inetwork.com/v1/users/<user-id>/media/image-1.jpg"]
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}
@@ -182,14 +186,16 @@ Location: /v1/users/{userId}/messages/{messageId}
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages 	-u {token}:{secret} 	-H "Content-type: application/json" 		-d 	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages -u {token}:{secret} -H "Content-type: application/json" -d
+    '
 	{
 		"from": "{fromNumber}",
 		"to": "{toNumber}",
 		"text": "Good morning, this is a test message",
 		"callbackUrl": "http://my.callback.url",
 		"media": ["http://your-site.com/image-1.jpg"]
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}
@@ -248,7 +254,8 @@ Location: /v1/users/{userId}/messages/{messageId}
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages 	-u {token}:{secret} 	-H "Content-type: application/json" 		-d 	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages -u {token}:{secret} -H "Content-type: application/json" -d
+    '
 	[
 		{
 			"from": "{fromNumber1}",
@@ -269,7 +276,8 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages 	-u
 			"text": "This is the test message three",
 			"callbackUrl": "http://my.callback.url"
 		}
-	]'
+	]
+    '
 ```
 
 {% sample lang="bash" %}
@@ -394,14 +402,16 @@ To send a text message with request receipt from {fromNumber} to {toNumber}, sen
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages 	-u {token}:{secret} 	-H "Content-type: application/json" 		-d 	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages -u {token}:{secret} -H "Content-type: application/json" -d
+    '
 	{
 		"from": "+19195551212",
 		"to": "+19195551213",
 		"text": "Thank you for subscribing to Unicorn Enterprises!",
 		"callbackUrl": "http://my.callback.url",
 		"receiptRequested": "all"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}
@@ -455,14 +465,16 @@ message = Message.create(client, {
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages 	-u {token}:{secret} 	-H "Content-type: application/json" 		-d 	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/messages -u {token}:{secret} -H "Content-type: application/json" -d
+    '
 	{
 		"from": "+19195551212",
 		"to": "+19195551213",
 		"text": "Thank you for subscribing to Unicorn Enterprises!",
 		"callbackUrl": "http://my.callback.url",
 		"callbackTimeout" : "2000"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}

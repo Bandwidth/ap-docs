@@ -48,11 +48,13 @@ To answer a call (or set active) be sure to do one of the following:
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId} -u {token}:{secret} -H "Content-type: application/json" -d 
+    '
 	{
 		"state"     : "transferring",
 		"transferTo : "+19192223333"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}

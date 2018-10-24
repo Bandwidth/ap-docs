@@ -28,10 +28,12 @@ Creates a conference with no members.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences -u {token}:{secret} -H "Content-type: application/json" -d
+    '
 	{
 		"from": "{number}"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}

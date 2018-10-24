@@ -42,11 +42,12 @@ The call resource returned in the "Location" header can be modified to change th
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls -u {token}:{secret} -H "Content-type: application/json" -d 	'
 	{
 		"from": "{fromNumber}",
 		"to": "{toNumber}"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}

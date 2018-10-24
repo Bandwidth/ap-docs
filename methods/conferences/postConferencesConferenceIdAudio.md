@@ -34,13 +34,15 @@ Speak a text or play audio in the conference
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/audio 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/audio -u {token}:{secret} -H "Content-type: application/json" -d
+    '
 	{
 		"sentence": "Hello everyone on the conference today",
 		"gender": "female",
 		"locale": "en_US",
 		"voice": "kate"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}
