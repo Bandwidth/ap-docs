@@ -46,9 +46,7 @@ See the [faq](https://dev.bandwidth.com/faq/voice/callRecordings.html) for more 
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/recordings \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/recordings -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

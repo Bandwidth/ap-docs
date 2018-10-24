@@ -26,10 +26,7 @@ Play an audio file or speak a sentence in a bridge.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/audio \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d '{"fileUrl": "http://example.com/audio.mp3"}'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/audio 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d '{"fileUrl": "http://example.com/audio.mp3"}'
 ```
 
 {% sample lang="js" %}
@@ -63,10 +60,7 @@ bridge.play_audio({:file_url => "http://myurl.com/file.wav"})
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/audio \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d '{"fileUrl": ""}'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/audio 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d '{"fileUrl": ""}'
 ```
 
 {% sample lang="js" %}
@@ -99,11 +93,7 @@ bridge.play_audio({:file_url => ""})
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/audio \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/audio 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
 	{
 		"gender": "female",
 		"sentence": "Hello, thank you for calling.",
@@ -157,10 +147,10 @@ bridge.play_audio({:sentence => "Hello from Bandwidth"})
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/audio \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d '{"sentence": ""}'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}/audio -u {token}:{secret} -H "Content-type: application/json" -d
+    '
+        {"sentence": ""}
+    '
 ```
 
 {% sample lang="js" %}

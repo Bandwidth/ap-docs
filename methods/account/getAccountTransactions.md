@@ -64,10 +64,7 @@ Get the transactions from the user's account.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations \
-  -u {{apiToken}}:{secret} \
-  -H "Content-type: application/json" \
-```
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations -u {{apiToken}}:{secret} -H "Content-type: application/json" ```
 
 {% sample lang="js" %}
 
@@ -138,10 +135,7 @@ The above command returns JSON structured like this:
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?fromDate=2013-02-21T13:38:00 \
-  -u {{apiToken}}:{secret} \
-  -H "Content-type: application/json" \
-```
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?fromDate=2013-02-21T13:38:00 -u {{apiToken}}:{secret} -H "Content-type: application/json" ```
 
 {% sample lang="js" %}
 
@@ -266,10 +260,7 @@ The above command returns JSON structured like this:
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?number=+19191231234 \
-  -u {{apiToken}}:{secret} \
-  -H "Content-type: application/json" \
-```
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?number=+19191231234 -u {{apiToken}}:{secret} -H "Content-type: application/json" ```
 {% sample lang="js" %}
 
 ```js
@@ -346,10 +337,7 @@ The above command returns JSON structured like this:
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?maxItems=1 \
-  -u {{apiToken}}:{secret} \
-  -H "Content-type: application/json" \
-```
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?maxItems=1 -u {{apiToken}}:{secret} -H "Content-type: application/json" ```
 {% sample lang="js" %}
 
 ```js
@@ -409,10 +397,7 @@ The above command returns JSON structured like this:
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?type=Payment \
-  -u {{apiToken}}:{secret} \
-  -H "Content-type: application/json" \
-```
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?type=Payment -u {{apiToken}}:{secret} -H "Content-type: application/json" ```
 
 {% sample lang="js" %}
 

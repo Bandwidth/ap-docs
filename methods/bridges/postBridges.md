@@ -24,10 +24,7 @@ Create a new bridge.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/ \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d '{"bridgeAudio": "true", "callIds": ["{callId1}","{callId2}"] }'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/ 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d '{"bridgeAudio": "true", "callIds": ["{callId1}","{callId2}"] }'
 ```
 
 {% sample lang="js" %}
@@ -92,10 +89,12 @@ Location: /v1/users/{userId}/calls/{bridgeId}
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/ \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d '{"bridgeAudio": "true" }'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/ -u {token}:{secret} -H "Content-type: application/json" -d
+    '
+    {
+        "bridgeAudio": "true"
+    }
+    '
 ```
 {% sample lang="js" %}
 

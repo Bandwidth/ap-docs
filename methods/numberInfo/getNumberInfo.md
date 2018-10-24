@@ -24,9 +24,7 @@ This resource provides a CNAM number info. CNAM is an acronym which stands for C
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/phoneNumbers/numberInfo/{number} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/phoneNumbers/numberInfo/{number} -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

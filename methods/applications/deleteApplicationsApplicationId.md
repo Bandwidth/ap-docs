@@ -12,9 +12,7 @@ Permanently deletes an application.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X DELETE https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X DELETE https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId} -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

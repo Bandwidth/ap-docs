@@ -33,11 +33,7 @@ Speak text or play audio to **ONLY** a single conference member.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members/{memberId}/audio \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members/{memberId}/audio 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
 	{
 		"sentence": "Hi there member, I have a message only for you",
 		"gender": "female",
@@ -99,14 +95,12 @@ member.speak_sentence(:sentence => "Hello From Bandwidth")
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members/{memberId}/audio \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members/{memberId}/audio -u {token}:{secret} -H "Content-type: application/json" -d 	
+    '
 	{
 		"fileUrl": "https://catapult.inetwork.com/.../media/{mediaName1}"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}

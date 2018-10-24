@@ -24,14 +24,12 @@ Makes changes to a number you have. <code class="post">POST</code> a new JSON re
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/{numberId} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-		-d \
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/{numberId} -u {token}:{secret} -H "Content-type: application/json" -d
 	'
 	{
 		"applicationId": "{application_id}"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}

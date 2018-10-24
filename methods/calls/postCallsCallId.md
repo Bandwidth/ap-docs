@@ -27,11 +27,7 @@ For more information about recording and transcribing calls, see the <a href="ht
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}\
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
 	{
 		"state":"active"
 	}'
@@ -66,11 +62,7 @@ call.answer_on_incoming()
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}\
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
 	{
 		"state":"completed"
 	}'
@@ -105,11 +97,7 @@ call.hangup()
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}\
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
 	{
 		"recordingEnabled":"true"
 	}'
@@ -143,11 +131,7 @@ call.recording_on()
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}\
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
 	{
 		"recordingEnabled":"false"
 	}'
@@ -183,14 +167,12 @@ call.recording_off()
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}\
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId} -u {token}:{secret} -H "Content-type: application/json" -d
+    '
 	{
 		"state":"rejected"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}

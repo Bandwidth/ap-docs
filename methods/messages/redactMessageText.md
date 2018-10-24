@@ -35,14 +35,12 @@ This API allows redacting the message text only. Adding additional parameters to
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X PATCH https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-		-d \
-	'
+curl -v -X PATCH https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId} -u {token}:{secret} -H "Content-type: application/json" -d
+    '
 	{
 		"text": ""
-	}'
+	}
+    '
 ```
 
 {% endmethod %}

@@ -25,10 +25,7 @@ To allocate the phone number {number} with the name "home phone" and the fallbac
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers -u {token}:{secret} -H "Content-type: application/json" -d
 	'
 	{
 		"number": "+15555555555",

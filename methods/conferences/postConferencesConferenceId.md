@@ -30,14 +30,12 @@ Change the conference properties and/or status.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId} -u {token}:{secret} -H "Content-type: application/json" -d 
+    '
 	{
 		"state": "completed"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}
@@ -67,14 +65,12 @@ conference.complete()
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId} -u {token}:{secret} -H "Content-type: application/json" -d 
+    '
 	{
 		"mute": "true"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}

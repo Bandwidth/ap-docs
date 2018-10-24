@@ -34,11 +34,7 @@ Speak a text or play audio in the conference
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/audio \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/audio 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
 	{
 		"sentence": "Hello everyone on the conference today",
 		"gender": "female",
@@ -103,10 +99,7 @@ conference.play_audio({
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/audio \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d '{"sentence": ""}'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/audio 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d '{"sentence": ""}'
 ```
 
 {% sample lang="js" %}
@@ -151,11 +144,7 @@ conference.play_audio({:sentence => ""})
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/audio \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/audio 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
 	{
 		"fileUrl": "https://catapult.inetwork.com/.../media/{mediaName1}"
 	}'
@@ -209,10 +198,7 @@ conference.play_audio({
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/audio \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d '{"fileUrl": ""}'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/audio -u {token}:{secret} -H "Content-type: application/json" -d '{"fileUrl": ""}'
 ```
 
 {% sample lang="js" %}

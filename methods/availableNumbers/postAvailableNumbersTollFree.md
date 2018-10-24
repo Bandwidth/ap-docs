@@ -37,9 +37,7 @@ To learn more about MMS on toll-free numbers, see the [FAQ](https://dev.bandwidt
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST  https://api.catapult.inetwork.com/v1/availableNumbers/tollFree?quantity=2 \
-  -u {token}:{secret} \
-  -H "Content-type: application/json" \
+curl -v -X POST  https://api.catapult.inetwork.com/v1/availableNumbers/tollFree?quantity=2 -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

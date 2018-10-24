@@ -43,9 +43,7 @@ Retrieve current properties for a conference.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId} -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

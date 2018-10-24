@@ -48,11 +48,7 @@ To answer a call (or set active) be sure to do one of the following:
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}\
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
 	{
 		"state"     : "transferring",
 		"transferTo : "+19192223333"
@@ -88,11 +84,7 @@ call.update({:state => 'transferring', :transfer_to => '+18382947878' })
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}\
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
 	{
 		"state":"transferring",
 		"transferCallerId": "private"
@@ -156,17 +148,15 @@ call.update({
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}\
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId} -u {token}:{secret} -H "Content-type: application/json" -d
+    '
     {
         "state":"transferring",
         "transferTo":"+19195554444",
         "diversionTreatment": "stack",
         "diversionReason":"do-not-disturb"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}

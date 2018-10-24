@@ -32,11 +32,8 @@ Play a prompt sentence, then wait until 5 digits are pressed. Stop gathering dig
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-		-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather -u {token}:{secret} -H "Content-type: application/json" -d
+    '
 	{
 		"maxDigits"         : "5",
 		"terminatingDigits" : "*",
@@ -44,7 +41,8 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callI
 		"prompt"            : {
 			"sentence" : "Please enter your 5 digit code"
 		}
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}

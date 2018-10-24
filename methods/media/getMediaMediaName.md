@@ -20,8 +20,7 @@ Instead, we recommend that you create a copy on your local server or a cloud sto
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/media/{mediaName} \
-	-u {token}:{secret} \
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/media/{mediaName} -u {token}:{secret}
 ```
 
 {% sample lang="js" %}

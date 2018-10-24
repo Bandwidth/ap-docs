@@ -14,9 +14,7 @@ Removes a number from your account so you can no longer make or receive calls, o
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X DELETE https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/{numberId} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X DELETE https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/{numberId} -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

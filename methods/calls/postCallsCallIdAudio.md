@@ -28,11 +28,7 @@ Plays an audio file or speak a sentence in a phone call.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
 	{
 		"gender"   : "female",
 		"sentence" : "Hello, thank you for calling.",
@@ -100,10 +96,7 @@ call.play_audio({
 
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d '{"sentence": ""}'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d '{"sentence": ""}'
 ```
 
 {% sample lang="js" %}
@@ -138,10 +131,7 @@ call.play_audio({
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d '{"fileUrl": "http://example.com/audio.mp3"}'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d '{"fileUrl": "http://example.com/audio.mp3"}'
 ```
 
 {% sample lang="js" %}
@@ -174,10 +164,12 @@ call.play_audio({
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d '{"fileUrl": ""}'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/audio -u {token}:{secret} -H "Content-type: application/json" -d
+    '
+    {
+        "fileUrl": ""
+    }
+    '
 ```
 
 {% sample lang="js" %}

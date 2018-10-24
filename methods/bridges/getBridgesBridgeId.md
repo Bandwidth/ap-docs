@@ -39,9 +39,7 @@ Gets information about a specific bridge. No query parameters are supported.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId} -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}
