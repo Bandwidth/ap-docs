@@ -23,7 +23,7 @@ Read More about Messaging in the <a href="https://dev.bandwidth.com/faq/#messagi
 | <code class="patch">PATCH</code> | [`/v1/users/{userId}/messages/{messageId}`](redactMessageText.md)    | Redact text on a message        |
 
 ### Receive Incoming Messages
-To recieve [callbacks](../../apiCallbacks/messagingEvents.md) for incoming text messages (both SMS and MMS). You need to have:
+To receive [callbacks](../../apiCallbacks/messagingEvents.md) for incoming text messages (both SMS and MMS). You need to have:
 
 * A [Bandwidth Application](../applications/applications.md) configured to send callbacks to your server.
 * Assign the [phone number](../phoneNumbers/postPhoneNumbersNumberId.md) to that application.

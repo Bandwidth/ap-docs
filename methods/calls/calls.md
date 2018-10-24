@@ -31,7 +31,7 @@ Read More about Calls and Voice in the <a href="https://dev.bandwidth.com/faq/#v
 | <code class="post">POST</code> | [`/v1/users/{userId}/calls/{callId}/gather/{gatherId}`](postCallsCallIdGatherGatherId.md) | Update the gather (Stop Gather)                                                                                                 |
 
 ### Receive Incoming Calls
-To recieve [callbacks](../../apiCallbacks/voiceEvents.md) for incoming calls. You need to have:
+To receive [callbacks](../../apiCallbacks/voiceEvents.md) for incoming calls. You need to have:
 
 * A [Bandwidth Application](../applications/applications.md) configured to send callbacks to your server.
 * Assign the [phone number](../phoneNumbers/postPhoneNumbersNumberId.md) to that application.
