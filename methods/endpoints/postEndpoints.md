@@ -26,18 +26,16 @@ This creates an endpoint.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domain-id}/endpoints \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domain-id}/endpoints -u {token}:{secret} -H "Content-type: application/json" -d
+    '
 	{
 		"name" : "jsmith_mobile",
 		"description" : "John Smiths mobile client",
 		"applicationId" : "{application-id}",
 		"enabled" : "false",
 		"credentials" : { "password" : "abc123" }
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}

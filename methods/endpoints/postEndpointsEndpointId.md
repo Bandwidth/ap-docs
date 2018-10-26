@@ -27,11 +27,8 @@ This will update an endpoint.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domain-id}/endpoints/{endpoint-id} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domain-id}/endpoints/{endpoint-id} -u {token}:{secret} -H "Content-type: application/json" -d
+    '
 	{
 		"description" : "John Smiths mobile client",
 		"applicationId" : "{application-id}",
@@ -39,7 +36,8 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/domains/{dom
 			"credentials" : {
 			"password" : "12345"
 		}
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}

@@ -36,10 +36,12 @@ NOTE: Properties you don't send will remain unchanged.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d '{"incomingCallUrl": "http://different.example.com/calls.php"}'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId} -u {token}:{secret} -H "Content-type: application/json" -d
+    '
+    {
+        "incomingCallUrl": "http://different.example.com/calls.php"
+    }
+    '
 ```
 
 {% sample lang="js" %}

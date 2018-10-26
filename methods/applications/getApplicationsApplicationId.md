@@ -31,9 +31,7 @@ Gets information about one of your applications. No query parameters are support
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/applications/{applicationId}
-  -u {token}:{secret} \
-  -H "Content-type: application/json" \
+curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/applications/{applicationId} -u {token}:{secret}   -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

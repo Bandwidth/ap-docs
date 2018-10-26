@@ -22,10 +22,7 @@ Send DTMF (phone keypad digit presses).
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/dtmf \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d '{"dtmfOut": "9193334444"}'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/dtmf 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d '{"dtmfOut": "9193334444"}'
 ```
 
 {% sample lang="js" %}
@@ -56,10 +53,7 @@ call.send_dtmf("9193334444")
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/dtmf \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d '{"dtmfOut": "1WWW,59#"}'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/dtmf 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d '{"dtmfOut": "1WWW,59#"}'
 ```
 
 {% sample lang="js" %}
@@ -90,10 +84,7 @@ call.send_dtmf("1WWW,59#")
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/dtmf \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d '{"dtmfOut": "1Ww2Ww1Ww#"}'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/dtmf 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d '{"dtmfOut": "1Ww2Ww1Ww#"}'
 ```
 
 {% sample lang="js" %}
@@ -124,10 +115,7 @@ call.send_dtmf("1Ww2Ww1Ww#")
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/dtmf \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d '{"dtmfOut": "1WWW,59#"}'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/dtmf 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d '{"dtmfOut": "1WWW,59#"}'
 ```
 
 {% sample lang="js" %}
@@ -158,10 +146,12 @@ call.send_dtmf("1WWW,59#")
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/dtmf \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d '{"dtmfOut": "1Ww2Ww1Ww#"}'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/dtmf -u {token}:{secret} -H "Content-type: application/json" -d
+    '
+    {
+        "dtmfOut": "1Ww2Ww1Ww#"
+    }
+    '
 ```
 
 {% sample lang="js" %}

@@ -15,9 +15,7 @@ Gets information about one call event. No query parameters are supported.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/events/{eventId} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/events/{eventId} -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

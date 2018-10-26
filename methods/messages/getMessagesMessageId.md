@@ -72,9 +72,7 @@ We only store the message contents for 30 days. Any messages older than 30 days 
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId} -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

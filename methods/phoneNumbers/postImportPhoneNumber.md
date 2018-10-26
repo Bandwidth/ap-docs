@@ -57,10 +57,7 @@ Location: https://api.catapult.inetwork.com/v1/users/{{UserId}}/phoneNumbers/n-i
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers \
-  -u {token}:{secret} \
-  -H "Content-type: application/json" \
-  -d \
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers -u {token}:{secret} -H "Content-type: application/json" -d
   '
   {
     "number"        : "+14352154439",

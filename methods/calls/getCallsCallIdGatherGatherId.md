@@ -25,9 +25,7 @@ Get the gather DTMF parameters and results.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather/{gatherId} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather/{gatherId} -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

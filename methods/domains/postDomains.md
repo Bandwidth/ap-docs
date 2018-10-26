@@ -28,15 +28,13 @@ There is a 100 domain max per account limit. Most use cases require using a sing
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/domains \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-		-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/domains -u {token}:{secret} -H "Content-type: application/json" -d
+    '
 	{
 		"name" : "mycoolapp",
 		"description" : "disruptive app that is going to revolutionize telecom"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}

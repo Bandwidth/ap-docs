@@ -14,9 +14,7 @@ This will delete a domain
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X DELETE https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domain-id} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X DELETE https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domain-id} -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 ```js

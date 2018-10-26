@@ -30,9 +30,7 @@ Retrieve a conference member properties.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members/{memberId} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members/{memberId} -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

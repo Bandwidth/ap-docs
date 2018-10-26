@@ -30,9 +30,7 @@ List all members from a conference. If a member had already hung up or removed f
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

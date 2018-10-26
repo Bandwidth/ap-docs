@@ -42,15 +42,12 @@ The call resource returned in the "Location" header can be modified to change th
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls -u {token}:{secret} -H "Content-type: application/json" -d 	'
 	{
 		"from": "{fromNumber}",
 		"to": "{toNumber}"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}
@@ -103,11 +100,7 @@ Make a call to a SIP URI:
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
 	{
 		"from": "{fromNumber}",
 		"to": "{sip:someone@somewhere.com:}",
@@ -169,11 +162,7 @@ call = Call.create(client, {
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
 	{
 		"from": "{fromNumber}",
 		"to": "{toNumber}",
@@ -223,18 +212,11 @@ call = Call.create(client, {
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/ \
-    -u {token}:{secret} \
-    -H "Content-type: application/json" \
-    -d '{"bridgeAudio": "true" }'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/     -u {token}:{secret}     -H "Content-type: application/json"     -d '{"bridgeAudio": "true" }'
 ```
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
-    -u {token}:{secret} \
-    -H "Content-type: application/json" \
-    -d \
-    '
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls     -u {token}:{secret}     -H "Content-type: application/json"     -d     '
     {
         "from": "{fromNumber}",
         "to": "{toNumber}",
@@ -291,11 +273,7 @@ call = Call.create(client, {
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
 	{
 		"from": "{fromNumber}",
 		"to": "{toNumber}",
@@ -354,16 +332,14 @@ call = Call.create(client, {
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls -u {token}:{secret} -H "Content-type: application/json" -d
+    '
 	{
 		"from": "{fromNumber}",
 		"to": "{toNumber}",
 		"tag" : "{ \"context\": \"key\" }"
-	}'
+	}
+    '
 ```
 
 

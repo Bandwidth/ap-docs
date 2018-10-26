@@ -31,9 +31,7 @@ Read More about Transcriptions in the <a href="https://dev.bandwidth.com/faq/#me
 
 {% sample lang="bash" %}
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recording-id}/transcriptions \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recording-id}/transcriptions -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

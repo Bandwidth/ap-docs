@@ -44,9 +44,7 @@ Gets a list of your numbers. Since this operation uses HTTP GET, all the propert
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}
@@ -113,9 +111,7 @@ first_number_id = first_number[:id]
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers?state=NC \
-    -u {token}:{secret} \
-    -H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers?state=NC -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

@@ -22,14 +22,12 @@ The only update allowed is state:completed to stop the gather.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather/{gatherId} \
-  -u {token}:{secret} \
-	-H "Content-type: application/json" \
-    -d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather/{gatherId} -u {token}:{secret} -H "Content-type: application/json" -d
+    '
 	{
 		"state": "completed"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}

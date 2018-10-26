@@ -52,10 +52,9 @@ Gets a list of active and historic calls you made or received. Since this operat
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/calls/ \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{user-id}/calls/ -u {token}:{secret} -H "Content-type: application/json"
 ```
+
 {% sample lang="js" %}
 
 ```js
@@ -127,10 +126,9 @@ first_call_to = first_call[:to]
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/calls?from=%2b19195551212 \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
+curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/calls?from=%2b19195551212 -u {token}:{secret} -H "Content-type: application/json"
 ```
+
 {% sample lang="js" %}
 
 ```js

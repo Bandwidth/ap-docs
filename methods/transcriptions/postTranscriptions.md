@@ -15,14 +15,12 @@ Request the transcription process to be started for the given recording id.
 
 ```bash
 # Note: Body is empty
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recording-id}/transcriptions \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-		-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recording-id}/transcriptions -u {token}:{secret} -H "Content-type: application/json" -d
+    '
 	{
 
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}

@@ -36,9 +36,7 @@ Get a list of your applications.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/applications \
-  -u {token}:{secret} \
-  -H "Content-type: application/json" \
+curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/applications -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}
