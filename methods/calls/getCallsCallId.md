@@ -50,7 +50,7 @@ curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId
 ```js
 client.Call.get("{callId}")
 .then(function (response) {
-	console.log(respone);
+	console.log(response);
 });
 ```
 

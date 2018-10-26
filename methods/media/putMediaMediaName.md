@@ -56,4 +56,10 @@ await client.Media.UploadAsync(new UploadMediaData{
 ```ruby
 Media.upload(client, "file.mp3", File.open("/path/to/file.mp3"), "audio/mp3")
 ```
+
+{% common %}
+
+> The above command returns an HTTP 200 response
+
+
 {% endmethod %}
