@@ -1,7 +1,7 @@
 {% method %}
 
 ## Add Member to Conference
-Add members to a conference.
+Add members to a conference. You can have up to 20 members in a conference.
 
 ### Request URL
 
