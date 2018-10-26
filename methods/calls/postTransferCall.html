@@ -2307,15 +2307,13 @@ The call to be transferred must have state set to: <code>active</code>
 </tbody>
 </table>
 </div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h3 id="example-1-of-3-transfer-a-call-using-the-caller-id-of-the-party-being-transferred">Example 1 of 3: Transfer a call using the caller Id of the party being transferred</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}\
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> \
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId} -u {token}:{secret} -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> <span class="hljs-_">-d</span> 
     <span class="hljs-string">&apos;
     {
         &quot;state&quot;     : &quot;transferring&quot;,
         &quot;transferTo : &quot;+19192223333&quot;
-    }&apos;</span>
+    }
+    &apos;</span>
 </code></pre>
 </div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-keyword">var</span> transferPayload = {
     <span class="hljs-attr">transferTo</span>       : <span class="hljs-string">&quot;+18382947878&quot;</span>,
@@ -2328,11 +2326,7 @@ client.Call.transfer(<span class="hljs-string">&quot;callId&quot;</span>, transf
 </div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">call.update({<span class="hljs-symbol">:state</span> =&gt; <span class="hljs-string">&apos;transferring&apos;</span>, <span class="hljs-symbol">:transfer_to</span> =&gt; <span class="hljs-string">&apos;+18382947878&apos;</span> })
 </code></pre>
 </div><div class="api-method-example"><h3 id="example-2-of-3-transfer-a-call-and-play-audio-to-the-838-294-7878-line">Example 2 of 3: Transfer a call and play audio to the &apos;838-294-7878&apos; Line</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}\
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> \
-    <span class="hljs-string">&apos;
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}    -u {token}:{secret}     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>     <span class="hljs-_">-d</span>     <span class="hljs-string">&apos;
     {
         &quot;state&quot;:&quot;transferring&quot;,
         &quot;transferCallerId&quot;: &quot;private&quot;
@@ -2377,17 +2371,15 @@ client.Call.transfer(<span class="hljs-string">&quot;callId&quot;</span>, speakS
 })
 </code></pre>
 </div><div class="api-method-example"><h3 id="example-3-of-3-transfer-with-outbound-diversion-header-information">Example 3 of 3: Transfer with outbound Diversion header information</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}\
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> \
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId} -u {token}:{secret} -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> <span class="hljs-_">-d</span>
     <span class="hljs-string">&apos;
     {
         &quot;state&quot;:&quot;transferring&quot;,
         &quot;transferTo&quot;:&quot;+19195554444&quot;,
         &quot;diversionTreatment&quot;: &quot;stack&quot;,
         &quot;diversionReason&quot;:&quot;do-not-disturb&quot;
-    }&apos;</span>
+    }
+    &apos;</span>
 </code></pre>
 </div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js">Coming soon
 </code></pre>
@@ -2429,7 +2421,7 @@ client.Call.transfer(<span class="hljs-string">&quot;callId&quot;</span>, speakS
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST Transfer Call","level":"2.1.5.5","depth":3,"next":{"title":"POST Play audio in Call","level":"2.1.5.6","depth":3,"path":"methods/calls/postCallsCallIdAudio.md","ref":"methods/calls/postCallsCallIdAudio.md","articles":[]},"previous":{"title":"POST Update Call","level":"2.1.5.4","depth":3,"path":"methods/calls/postCallsCallId.md","ref":"methods/calls/postCallsCallId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.11","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs","mathjax"],"pluginsConfig":{"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/postTransferCall.md","mtime":"2018-10-24T13:41:20.853Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-24T13:43:06.579Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST Transfer Call","level":"2.1.5.5","depth":3,"next":{"title":"POST Play audio in Call","level":"2.1.5.6","depth":3,"path":"methods/calls/postCallsCallIdAudio.md","ref":"methods/calls/postCallsCallIdAudio.md","articles":[]},"previous":{"title":"POST Update Call","level":"2.1.5.4","depth":3,"path":"methods/calls/postCallsCallId.md","ref":"methods/calls/postCallsCallId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.11","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs","mathjax"],"pluginsConfig":{"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/postTransferCall.md","mtime":"2018-10-26T13:55:27.248Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T13:57:14.194Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

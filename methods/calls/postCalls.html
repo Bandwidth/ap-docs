@@ -2292,15 +2292,12 @@
 <p>
 The call resource returned in the &quot;Location&quot; header can be modified to change the call (for example, play audio files, transfer to a different number, or hang up).
 </p>
-</aside></div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> \
-    <span class="hljs-string">&apos;
+</aside></div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls -u {token}:{secret} -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> <span class="hljs-_">-d</span>     <span class="hljs-string">&apos;
     {
         &quot;from&quot;: &quot;{fromNumber}&quot;,
         &quot;to&quot;: &quot;{toNumber}&quot;
-    }&apos;</span>
+    }
+    &apos;</span>
 </code></pre>
 </div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js">client.Call.create({
     <span class="hljs-attr">from</span>: <span class="hljs-string">&quot;{fromNumber}&quot;</span>,
@@ -2327,11 +2324,7 @@ Console.WriteLine(<span class="hljs-string">$&quot;Created call with id <span cl
 * If the INVITE fails (receive a non-2xx final response), an event will be generated to the application indicating the call has hung up.
 * SIPS is not currently supported.
 </p>
-</aside></div><div class="api-method-sample" data-lang="bash" data-name="cURL"></div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> \
-    <span class="hljs-string">&apos;
+</aside></div><div class="api-method-sample" data-lang="bash" data-name="cURL"></div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls     -u {token}:{secret}     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>     <span class="hljs-_">-d</span>     <span class="hljs-string">&apos;
     {
         &quot;from&quot;: &quot;{fromNumber}&quot;,
         &quot;to&quot;: &quot;{sip:someone@somewhere.com:}&quot;,
@@ -2374,11 +2367,7 @@ Console.WriteLine(<span class="hljs-string">$&quot;Created call with id <span cl
 })
 </code></pre>
 </div><div class="api-method-example"><h3 id="example-3-of-6-create-call-and-start-recording-it">Example 3 of 6: Create call and start recording it</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> \
-    <span class="hljs-string">&apos;
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls     -u {token}:{secret}     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>     <span class="hljs-_">-d</span>     <span class="hljs-string">&apos;
     {
         &quot;from&quot;: &quot;{fromNumber}&quot;,
         &quot;to&quot;: &quot;{toNumber}&quot;,
@@ -2409,16 +2398,9 @@ Console.WriteLine(<span class="hljs-string">$&quot;Created call with id <span cl
 })
 </code></pre>
 </div><div class="api-method-example"><h3 id="example-4-of-6-create-a-call-in-a-bridge">Example 4 of 6: Create a call in a bridge</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/ \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> <span class="hljs-string">&apos;{&quot;bridgeAudio&quot;: &quot;true&quot; }&apos;</span>
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/     -u {token}:{secret}     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>     <span class="hljs-_">-d</span> <span class="hljs-string">&apos;{&quot;bridgeAudio&quot;: &quot;true&quot; }&apos;</span>
 </code></pre>
-<pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> \
-    <span class="hljs-string">&apos;
+<pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls     -u {token}:{secret}     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>     <span class="hljs-_">-d</span>     <span class="hljs-string">&apos;
     {
         &quot;from&quot;: &quot;{fromNumber}&quot;,
         &quot;to&quot;: &quot;{toNumber}&quot;,
@@ -2454,11 +2436,7 @@ Console.WriteLine(<span class="hljs-string">$&quot;Created call with id <span cl
 })
 </code></pre>
 </div><div class="api-method-example"><h3 id="example-5-of-6-create-an-outbound-call-with-callback-and-fallback-url">Example 5 of 6: Create an outbound call with callback and fallback URL</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> \
-    <span class="hljs-string">&apos;
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls     -u {token}:{secret}     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>     <span class="hljs-_">-d</span>     <span class="hljs-string">&apos;
     {
         &quot;from&quot;: &quot;{fromNumber}&quot;,
         &quot;to&quot;: &quot;{toNumber}&quot;,
@@ -2497,16 +2475,14 @@ Console.WriteLine(<span class="hljs-string">$&quot;Created call with id <span cl
 })
 </code></pre>
 </div><div class="api-method-example"><h3 id="example-6-of-6-create-an-outbound-call-with-tag-property">Example 6 of 6: Create an outbound call with tag property</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> \
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls -u {token}:{secret} -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> <span class="hljs-_">-d</span>
     <span class="hljs-string">&apos;
     {
         &quot;from&quot;: &quot;{fromNumber}&quot;,
         &quot;to&quot;: &quot;{toNumber}&quot;,
         &quot;tag&quot; : &quot;{ \&quot;context\&quot;: \&quot;key\&quot; }&quot;
-    }&apos;</span>
+    }
+    &apos;</span>
 </code></pre>
 </div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js">
 <span class="hljs-keyword">var</span> context = {
@@ -2579,7 +2555,7 @@ Console.WriteLine(<span class="hljs-string">$&quot;Created call with id <span cl
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST Create Call","level":"2.1.5.2","depth":3,"next":{"title":"GET Call info","level":"2.1.5.3","depth":3,"path":"methods/calls/getCallsCallId.md","ref":"methods/calls/getCallsCallId.md","articles":[]},"previous":{"title":"GET List Calls","level":"2.1.5.1","depth":3,"path":"methods/calls/getCalls.md","ref":"methods/calls/getCalls.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.11","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs","mathjax"],"pluginsConfig":{"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/postCalls.md","mtime":"2018-10-24T13:41:20.849Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-24T13:43:06.579Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST Create Call","level":"2.1.5.2","depth":3,"next":{"title":"GET Call info","level":"2.1.5.3","depth":3,"path":"methods/calls/getCallsCallId.md","ref":"methods/calls/getCallsCallId.md","articles":[]},"previous":{"title":"GET List Calls","level":"2.1.5.1","depth":3,"path":"methods/calls/getCalls.md","ref":"methods/calls/getCalls.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.11","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs","mathjax"],"pluginsConfig":{"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/postCalls.md","mtime":"2018-10-26T13:55:27.248Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T13:57:14.194Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

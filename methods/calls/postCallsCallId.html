@@ -2249,14 +2249,12 @@
 </tbody>
 </table>
 </div><div class="api-method-code"><div class="api-code-top"></div><div class="api-method-example"><h3 id="example-1-of-5-answer-an-incoming-phone-call">Example 1 of 5: Answer an Incoming Phone Call</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}\
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> \
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId} -u {token}:{secret} -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>     <span class="hljs-_">-d</span>
     <span class="hljs-string">&apos;
     {
         &quot;state&quot;:&quot;active&quot;
-    }&apos;</span>
+    }
+    &apos;</span>
 </code></pre>
 </div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-comment">//Promise</span>
 client.Call.answer(<span class="hljs-string">&quot;callID&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{});
@@ -2269,11 +2267,7 @@ client.Call.answer(<span class="hljs-string">&quot;callID&quot;</span>, <span cl
 </div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">call.answer_on_incoming()
 </code></pre>
 </div><div class="api-method-example"><h3 id="example-2-of-5-hang-up-a-phone-call">Example 2 of 5: Hang Up a Phone Call</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}\
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> \
-    <span class="hljs-string">&apos;
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}    -u {token}:{secret}     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>     <span class="hljs-_">-d</span>     <span class="hljs-string">&apos;
     {
         &quot;state&quot;:&quot;completed&quot;
     }&apos;</span>
@@ -2289,11 +2283,7 @@ client.Call.hangup(<span class="hljs-string">&quot;callID&quot;</span>, <span cl
 </div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">call.hangup()
 </code></pre>
 </div><div class="api-method-example"><h3 id="example-3-of-5-turn-call-recording-on">Example 3 of 5: Turn call recording ON</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}\
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> \
-    <span class="hljs-string">&apos;
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}    -u {token}:{secret}     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>     <span class="hljs-_">-d</span>     <span class="hljs-string">&apos;
     {
         &quot;recordingEnabled&quot;:&quot;true&quot;
     }&apos;</span>
@@ -2311,11 +2301,7 @@ client.Call.enableRecording(<span class="hljs-string">&quot;callId&quot;</span>,
 </div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">call.recording_on()
 </code></pre>
 </div><div class="api-method-example"><h3 id="example-4-of-5-turn-call-recording-off">Example 4 of 5: Turn call recording OFF</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}\
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> \
-    <span class="hljs-string">&apos;
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}    -u {token}:{secret}     -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span>     <span class="hljs-_">-d</span>     <span class="hljs-string">&apos;
     {
         &quot;recordingEnabled&quot;:&quot;false&quot;
     }&apos;</span>
@@ -2332,14 +2318,12 @@ client.Call.disableRecording(<span class="hljs-string">&quot;callId&quot;</span>
 </div><div class="api-method-sample" data-lang="ruby" data-name="ruby"><pre><code class="lang-ruby">call.recording_off()
 </code></pre>
 </div><div class="api-method-example"><h3 id="example-5-of-5-reject-an-incoming-phone-call">Example 5 of 5: Reject an Incoming Phone Call</h3>
-</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}\
-    -u {token}:{secret} \
-    -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> \
-    <span class="hljs-_">-d</span> \
+</div><div class="api-method-sample" data-lang="bash" data-name="cURL"><pre><code class="lang-bash">curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId} -u {token}:{secret} -H <span class="hljs-string">&quot;Content-type: application/json&quot;</span> <span class="hljs-_">-d</span>
     <span class="hljs-string">&apos;
     {
         &quot;state&quot;:&quot;rejected&quot;
-    }&apos;</span>
+    }
+    &apos;</span>
 </code></pre>
 </div><div class="api-method-sample" data-lang="js" data-name="Js"><pre><code class="lang-js"><span class="hljs-comment">//Promise</span>
 client.Call.reject(<span class="hljs-string">&quot;callID&quot;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{});
@@ -2385,7 +2369,7 @@ client.Call.reject(<span class="hljs-string">&quot;callID&quot;</span>, <span cl
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"POST Update Call","level":"2.1.5.4","depth":3,"next":{"title":"POST Transfer Call","level":"2.1.5.5","depth":3,"path":"methods/calls/postTransferCall.md","ref":"methods/calls/postTransferCall.md","articles":[]},"previous":{"title":"GET Call info","level":"2.1.5.3","depth":3,"path":"methods/calls/getCallsCallId.md","ref":"methods/calls/getCallsCallId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.11","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs","mathjax"],"pluginsConfig":{"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/postCallsCallId.md","mtime":"2018-10-24T13:41:20.849Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-24T13:43:06.579Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"POST Update Call","level":"2.1.5.4","depth":3,"next":{"title":"POST Transfer Call","level":"2.1.5.5","depth":3,"path":"methods/calls/postTransferCall.md","ref":"methods/calls/postTransferCall.md","articles":[]},"previous":{"title":"GET Call info","level":"2.1.5.3","depth":3,"path":"methods/calls/getCallsCallId.md","ref":"methods/calls/getCallsCallId.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.11","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs","mathjax"],"pluginsConfig":{"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methods/calls/postCallsCallId.md","mtime":"2018-10-26T13:55:27.248Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T13:57:14.194Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
