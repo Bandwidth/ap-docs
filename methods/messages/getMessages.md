@@ -75,7 +75,7 @@ Message results are paginated based on the `size` parameter. If the number of me
 | 600  | Destination carrier could not accept messages |
 | 610  | Message submittion failed                     |
 | 620  | Destination application error                 |
-| 630  | Message not acknowledge                       |
+| 630  | Message not acknowledged                       |
 | 720  | Invalid destination number                    |
 | 740  | Invalid source number                         |
 | 999  | Unknown error                                 |
