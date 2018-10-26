@@ -47,7 +47,7 @@ Bandwidth API sends this event to the application when an SMS is sent or receive
 | 600  | Destination carrier could not accept messages |
 | 610  | Message submittion failed                     |
 | 620  | Destination application error                 |
-| 630  | Message not acknowledge                       |
+| 630  | Message not acknowledged                       |
 | 650  | Destination Failure                           |
 | 720  | Invalid destination number                    |
 | 740  | Invalid source number                         |

@@ -61,7 +61,7 @@ We only store the message contents for 30 days. Any messages older than 30 days 
 | 600  | Destination carrier could not accept messages |
 | 610  | Message submittion failed                     |
 | 620  | Destination application error                 |
-| 630  | Message not acknowledge                       |
+| 630  | Message not acknowledged                       |
 | 720  | Invalid destination number                    |
 | 740  | Invalid source number                         |
 | 999  | Unknown error                                 |
