@@ -39,8 +39,7 @@ All Bandwidth messaging products are rate limited in some fashion. The default r
 | Code                        | Message                                                                                                        |
 |:----------------------------|:---------------------------------------------------------------------------------------------------------------|
 | message-rate-limit-overall  | You can send ${0} messages per ${1} seconds calculated as the average over ${2} seconds. Your rate is: ${3}    |
-| message-rate-limit-per-tn   | You can send ${0} messages per ${1} seconds per telephone number, calculated as the average over ${2} seconds. |
-                              | Your rate is: ${3} for telephone number ${4}                                                                   |
+| message-rate-limit-per-tn   | You can send ${0} messages per ${1} seconds per telephone number, calculated as the average over ${2} seconds. Your rate is: ${3} for telephone number ${4} |
 | multi-message-limit         | The number of messages [${0}] in the multi message request is greater than the limit [${1}].                   |
 
 ### Sample Message Rate Limit Response
