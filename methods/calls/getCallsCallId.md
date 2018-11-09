@@ -20,7 +20,7 @@ Gets information about an active or completed call. No query parameters are supp
 | startTime            | Date when the call was created. Timestamp follows the ISO8601 format.                                                                                                                          |
 | activeTime           | Date when the call was answered. Timestamp follows the ISO8601 format.                                                                                                                         |
 | endTime              | Date when the call ended. Timestamp follows the ISO8601 format.                                                                                                                                |
-| callTimeout          | Determine how long should the platform wait for call answer before timing out in seconds (milliseconds).                                                                                       |
+| callTimeout          | Determine how long should the platform wait for call answer before timing out in seconds.                                                                                       |
 | callbackUrl          | The server URL where the call events related to the call will be sent.                                                                                                                         |
 | callbackHttpMethod   | Determine if the HTTP callback event should be sent via GET or POST. Default is `POST`. |
 | callbackTimeout      | Determine how long should the platform wait for callbackUrl's response before timing out (milliseconds).                                                                                       |
