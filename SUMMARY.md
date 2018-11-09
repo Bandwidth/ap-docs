@@ -144,10 +144,12 @@
  * [BXML Overview](bxml/bxmlOverview.md)
  * [BXML Building Blocks](bxml/buildingBlocks/about.md)
    * [Environment Setup](bxml/buildingBlocks/frame.md)
+   * [Credentials](bxml/buildingBlocks/credentials.md)
    * [Record](bxml/buildingBlocks/record.md)
    * [Voicemail](bxml/buildingBlocks/voicemail.md)
    * [Outbound Call](bxml/buildingBlocks/createCall.md)
    * [Forward a Call](bxml/buildingBlocks/forwardCall.md)
+
 
 ## Rate Limits
 * [Rate Limits](rateLimits.md)
