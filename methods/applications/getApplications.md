@@ -23,7 +23,7 @@ Get a list of your applications.
 | incomingCallUrl                   | A URL where call events will be sent for an inbound call. This is the endpoint where the Application Platform will send all call events. Either incomingCallUrl or incomingMessageUrl is required.          |
 | incomingCallUrlCallbackTimeout    | Determine how long should the platform wait for incomingCallUrl's response before timing out in milliseconds.                                                                                               |
 | incomingCallFallbackUrl           | The URL used to send the callback event if the request to incomingCallUrl fails.                                                                                                                            |
-| callbackHttpMethod                | Determine if the callback event should be sent via HTTP GET or HTTP POST. Values are "get" or "post", default: "post".                                                                                      |
+| callbackHttpMethod                | Determine if the HTTP callback event should be sent via GET or POST. Default is POST.                                                                                      |
 | autoAnswer                        | Determines whether or not an incoming call should be automatically answered. Default value is 'true'.                                                                                                       |
 | incomingMessageUrl                | A URL where message events will be sent for an inbound message. This is the endpoint where the Application Platform will send all message events. Either incomingMessageUrl or incomingCallUrl is required. |
 | incomingMessageUrlCallbackTimeout | Determine how long should the platform wait for incomingMessageUrl's response before timing out in milliseconds.                                                                                            |
@@ -36,9 +36,7 @@ Get a list of your applications.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/applications \
-  -u {token}:{secret} \
-  -H "Content-type: application/json" \
+curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/applications -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

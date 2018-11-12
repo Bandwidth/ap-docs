@@ -2,7 +2,7 @@
 ## Fetch Message information
 Gets information about a previously sent or received message. No query parameters are supported.
 
-We only store the message contents for 30 days. Any messages older than 30 days will not contain text. For more information, see the <a href="http://dev.bandwidth.com/faq/#messaging">FAQ</a>
+We only store the message contents for 30 days. Any messages older than 30 days will not contain text. For more information, see the <a href="https://dev.bandwidth.com/faq/#messaging">FAQ</a>
 
 ### Request URL
 
@@ -61,7 +61,7 @@ We only store the message contents for 30 days. Any messages older than 30 days 
 | 600  | Destination carrier could not accept messages |
 | 610  | Message submittion failed                     |
 | 620  | Destination application error                 |
-| 630  | Message not acknowledge                       |
+| 630  | Message not acknowledged                       |
 | 720  | Invalid destination number                    |
 | 740  | Invalid source number                         |
 | 999  | Unknown error                                 |
@@ -72,9 +72,7 @@ We only store the message contents for 30 days. Any messages older than 30 days 
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId} -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

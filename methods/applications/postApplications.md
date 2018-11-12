@@ -1,6 +1,6 @@
 {% method %}
 ## Create Application
-Creates an application that can handle calls and messages for one of your phone number. Many phone numbers can share an application. For more information on how to integrate voice and messaging in your application, visit the <a href="http://dev.bandwidth.com/faq/#general">FAQ</a>
+Creates an application that can handle calls and messages for one of your phone numbers. Many phone numbers can share an application. For more information on how to integrate voice and messaging in your application, visit the <a href="https://dev.bandwidth.com/faq/#general">FAQ</a>
 
 ### Request URL
 
@@ -9,18 +9,19 @@ Creates an application that can handle calls and messages for one of your phone 
 ---
 
 ### Supported Parameters
-| Parameter                         | Description                                                                                                                                       | Mandatory |
-|:----------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
-| name                              | A name you choose for this application.                                                                                                           | Yes       |
-| incomingCallUrl                   | A URL where call events will be sent for an inbound call.                                                                                         | No        |
-| incomingCallUrlCallbackTimeout    | Determine how long should the platform wait for incomingCallUrl's response before timing out in milliseconds. <br> Maximum Time: `10000` (10s)    | No        |
-| incomingCallFallbackUrl           | The URL used to send the callback event if the request to incomingCallUrl fails.                                                                  | No        |
-| incomingMessageUrl                | A URL where message events will be sent for an inbound SMS message                                                                                | No        |
-| incomingMessageUrlCallbackTimeout | Determine how long should the platform wait for incomingMessageUrl's response before timing out in milliseconds. <br> Maximum Time: `10000` (10s) | No        |
-| incomingMessageFallbackUrl        | The URL used to send the callback event if the request to incomingMessageUrl fails.                                                               | No        |
-| callbackHttpMethod                | Determine if the callback event should be sent via HTTP GET or HTTP POST. (If not set the default is HTTP POST)                                   | No        |
-| autoAnswer                        | Determines whether or not an incoming call should be automatically answered. Default value is 'true'.                                             | No        |
+| Parameter                         | Description                                                                                                                                                                                | Mandatory |
+|:----------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
+| name                              | A name you choose for this application.                                                                                                                                                    | Yes       |
+| incomingCallUrl                   | A URL where call events will be sent for an inbound call.                                                                                                                                  | No*        |
+| incomingCallUrlCallbackTimeout    | Determine how long should the platform wait for incomingCallUrl's response before timing out in milliseconds. <br> **Default** Time: `10000` (10s) <br> **Maximum** Time: `10000` (10s)    | No        |
+| incomingCallFallbackUrl           | The URL used to send the callback event if the request to incomingCallUrl fails.                                                                                                           | No        |
+| incomingMessageUrl                | A URL where message events will be sent for an inbound SMS message                                                                                                                         | No*        |
+| incomingMessageUrlCallbackTimeout | Determine how long should the platform wait for incomingMessageUrl's response before timing out in milliseconds. <br> **Default** Time: `10000` (10s) <br> **Maximum** Time: `10000` (10s) | No        |
+| incomingMessageFallbackUrl        | The URL used to send the callback event if the request to incomingMessageUrl fails.                                                                                                        | No        |
+| callbackHttpMethod                | Determine if the HTTP callback event should be sent via GET or POST. Default is POST.                                                                            | No        |
+| autoAnswer                        | Determines whether or not an incoming call should be automatically answered. Default value is 'true'.                                                                                      | No        |
 
+*Note: One of incomingCallUrl or incomingMessageUrl must be set
 {% common %}
 ### Example 1 of 1: Create an application named: 'MyFirstApp'
 
@@ -28,18 +29,16 @@ Creates an application that can handle calls and messages for one of your phone 
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/applications \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/applications -u {token}:{secret} -H "Content-type: application/json" -d 
+    '
 	{
 		"name": "MyFirstApp",
 		"incomingCallUrl": "http://example.com/calls.php",
 		"incomingMessageUrl": "http://example.com/messages.php",
 		"callbackHttpMethod": "GET",
 		"autoAnswer": true
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}

@@ -1,7 +1,7 @@
 {% method %}
 
 ## Add Member to Conference
-Add members to a conference.
+Add members to a conference. You can have up to 20 members in a conference.
 
 ### Request URL
 
@@ -25,16 +25,14 @@ Add members to a conference.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members -u {token}:{secret} -H "Content-type: application/json" -d
+    '
 	{
 		"callId": "{callId}",
 		"joinTone": "false",
 		"leavingTone": "false"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}

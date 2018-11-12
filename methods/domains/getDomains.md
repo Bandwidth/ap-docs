@@ -24,9 +24,7 @@ This returns a list of the domains that have been created
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/domains \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/domains -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

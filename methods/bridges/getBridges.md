@@ -22,7 +22,7 @@ Get list of bridges for a given user.
 | Property      | Description                                              |
 |:--------------|:---------------------------------------------------------|
 | id            | The unique ID of the bridge.                             |
-| state         | Bridge state. Possible state values are described here.  |
+| state         | Bridge state. Possible state values are described below. |
 | callIds       | List of call Ids that will be in the bridge.             |
 | calls         | The URL used to retrieve the calls in a specific bridge. |
 | bridgeAudio   | Enable/Disable two way audio path.                       |
@@ -47,9 +47,7 @@ Get list of bridges for a given user.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/bridges/transations \
-  -u {token}:{secret} \
-  -H "Content-type: application/json" \
+curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/bridges/transations -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}
@@ -96,7 +94,7 @@ first_bridge_state = first_bridge[:state]
   {
     "id": "{bridgeId}",
     "state": "completed",
-    "bridgeAudio": "true",
+    "bridgeAudio": true,
     "calls":"https://.../v1/users/{userId}/bridges/{bridgeId}/calls",
     "createdTime": "2013-04-22T13:55:30.279Z",
     "activatedTime": "2013-04-22T13:55:30.280Z",
@@ -105,7 +103,7 @@ first_bridge_state = first_bridge[:state]
   {
     "id": "{bridgeId}",
     "state": "completed",
-    "bridgeAudio": "true",
+    "bridgeAudio": true,
     "calls":"https://.../v1/users/{userId}/bridges/{bridgeId}/calls",
     "createdTime": "2013-04-22T13:58:30.121Z",
     "activatedTime": "2013-04-22T13:58:30.122Z",

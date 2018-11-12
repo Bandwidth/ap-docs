@@ -28,12 +28,12 @@ Gets a list of active and historic calls you made or received. Since this operat
 | direction            | Call direction: values are `in` for an incoming call, `out` for an outgoing call                                                                                                              |
 | from                 | The phone number or SIP address that made the call. Phone numbers are in E.164 format (e.g. +15555555555) -or- SIP addresses (e.g. identify@domain.com).                                      |
 | to                   | The phone number or SIP address that received the call. Phone numbers are in E.164 format (e.g. +15555555555) -or- SIP addresses (e.g. identify@domain.com).                                  |
-| state                | The call state. Described below, values are started `rejected`, `active`, `completed`, `transferring`                                                                                         |
+| state                | The call state. Described below, values are:<br> - `started` <br> - `rejected`<br> -`active`<br> -`completed`<br> -`transferring`<br> Take note that an outgoing call from Bandwidth will not be set to `rejected' if the call is sent to voicemail.|
 | startTime            | Date when the call was created. Timestamp follows the ISO8601 format.                                                                                                                         |
 | activeTime           | Date when the call was answered. Timestamp follows the ISO8601 format.                                                                                                                        |
 | endTime              | Date when the call ended. Timestamp follows the ISO8601 format.                                                                                                                               |
 | callbackUrl          | The server URL where the call events related to the call will be sent.                                                                                                                        |
-| callbackHttpMethod   | Determine if the callback event should be sent via HTTP GET or HTTP POST. Values are <code class="get">GET</code> or <code class="post">POST</code> Default is <code class="post">POST</code> |
+| callbackHttpMethod   | Determine if the HTTP callback event should be sent via GET or POST. Default is `POST`. |
 | callbackTimeout      | Determine how long should the platform wait for callbackUrl's response before timing out (milliseconds).                                                                                      |
 | fallbackUrl          | The server URL used to send the call events if the request to callbackUrl fails.                                                                                                              |
 | bridgeId             | The id of the bridge for the call                                                                                                                                                             |
@@ -52,10 +52,9 @@ Gets a list of active and historic calls you made or received. Since this operat
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/calls/ \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{user-id}/calls/ -u {token}:{secret} -H "Content-type: application/json"
 ```
+
 {% sample lang="js" %}
 
 ```js
@@ -127,10 +126,9 @@ first_call_to = first_call[:to]
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/calls?from=%2b19195551212 \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
+curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/calls?from=%2b19195551212 -u {token}:{secret} -H "Content-type: application/json"
 ```
+
 {% sample lang="js" %}
 
 ```js

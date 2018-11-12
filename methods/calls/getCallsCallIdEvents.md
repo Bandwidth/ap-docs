@@ -25,9 +25,7 @@ Gets the events that occurred during the call. No query parameters are supported
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/events \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/events -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

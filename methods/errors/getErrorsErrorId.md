@@ -32,9 +32,7 @@ Gets information about one error. No query parameters are supported.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/errors/{userErrorId} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/errors/{userErrorId} -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

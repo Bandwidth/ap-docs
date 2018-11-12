@@ -17,7 +17,7 @@ Change the conference properties and/or status.
 | hold               | If `true`, all member can’t hear or speak in the conference. If `false`, all members can hear and speak in the conference (unless set at the member level).                                   | No        |
 | mute               | If `true`, all member can’t speak in the conference. If `false`, all members can speak in the conference (unless set at the member level).                                                    | No        |
 | callbackUrl        | The complete URL where the events related to the Conference will be sent to.                                                                                                                  | No        |
-| callbackHttpMethod | Determine if the callback event should be sent via HTTP GET or HTTP POST. Values are <code class="get">GET</code> or <code class="post">POST</code>, default: <code class="post">POST</code>. | No        |
+| callbackHttpMethod | Determine if the HTTP callback event should be sent via `GET` or `POST`. Default is `POST`. | No        |
 | callbackTimeout    | Determine how long should the platform wait for callbackUrl’s response before timing out in milliseconds. <br> Maximum Time: `10000` (10s)                                                    | No        |
 | fallbackUrl        | The URL used to send the callback event if the request to callbackUrl fails.                                                                                                                  | No        |
 | tag                | A string that will be included in the callback events of the conference.                                                                                                                      | No        |
@@ -30,14 +30,12 @@ Change the conference properties and/or status.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId} -u {token}:{secret} -H "Content-type: application/json" -d 
+    '
 	{
 		"state": "completed"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}
@@ -67,14 +65,12 @@ conference.complete()
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId} -u {token}:{secret} -H "Content-type: application/json" -d 
+    '
 	{
 		"mute": "true"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}

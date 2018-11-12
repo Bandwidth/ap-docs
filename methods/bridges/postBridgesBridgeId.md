@@ -22,10 +22,13 @@ Change calls in a bridge and bridge/unbridge the audio.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}\
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d '{"bridgeAudio": "true", "callIds": ["{callId1}","{callId2}"] }'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId} -u {token}:{secret} -H "Content-type: application/json" -d
+    '
+    {
+        "bridgeAudio": "true",
+        "callIds": ["{callId1}","{callId2}"]
+    }
+    '
 ```
 
 {% sample lang="js" %}
@@ -66,10 +69,7 @@ bridge.update({
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}\
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d '{"bridgeAudio": "true", "callIds": ["{callId1}"] }'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}	-u {token}:{secret} 	-H "Content-type: application/json" 	-d '{"bridgeAudio": "true", "callIds": ["{callId1}"] }'
 ```
 
 {% sample lang="js" %}
@@ -107,10 +107,7 @@ bridge.update({
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}\
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d '{"bridgeAudio": "false", "callIds": ["{callId3}, {callId3}"] }'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}	-u {token}:{secret} 	-H "Content-type: application/json" 	-d '{"bridgeAudio": "false", "callIds": ["{callId3}, {callId3}"] }'
 ```
 
 {% sample lang="js" %}
@@ -151,10 +148,7 @@ bridge.update({
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}\
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d '{"bridgeAudio": "true"}'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}	-u {token}:{secret} 	-H "Content-type: application/json" 	-d '{"bridgeAudio": "true"}'
 ```
 
 {% sample lang="js" %}
@@ -192,10 +186,10 @@ bridge.update({
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId}\
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d '{callIds": [] }'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId} -u {token}:{secret} -H "Content-type: application/json" -d
+    '
+        {callIds": []}
+    '
 ```
 
 {% sample lang="js" %}

@@ -16,7 +16,7 @@ In a simultaneous ringing scenario, only one call leg-B succeeds and this event 
 
 {% common %}
 
-#### HTTP request sent to the callback url specified in the [`/application`](http://dev.bandwidth.com/howto/incomingCallandMessaging.html)
+#### HTTP request sent to the callback url specified in the [`/application`](https://dev.bandwidth.com/howto/incomingCallandMessaging.html)
 
 ```html
 /{requestUrl}?

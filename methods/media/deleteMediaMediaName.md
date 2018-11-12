@@ -15,8 +15,7 @@ Deletes a media file from Bandwidth API server. Make sure you don't have any app
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X DELETE https://api.catapult.inetwork.com/v1/users/{userId}/media/{mediaName} \
-	-u {token}:{secret} \
+curl -v -X DELETE https://api.catapult.inetwork.com/v1/users/{userId}/media/{mediaName} -u {token}:{secret}
 ```
 
 {% sample lang="js" %}
@@ -39,5 +38,9 @@ await client.Media.DeleteAsync("file.mp3");
 ```ruby
 Media.delete(client, "file.mp3")
 ```
+
+{% common %}
+
+> The above command returns an HTTP 200 response
 
 {% endmethod %}

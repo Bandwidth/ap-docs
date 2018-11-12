@@ -33,17 +33,15 @@ Speak text or play audio to **ONLY** a single conference member.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members/{memberId}/audio \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members/{memberId}/audio -u {token}:{secret} -H "Content-type: application/json" -d
+    '
 	{
 		"sentence": "Hi there member, I have a message only for you",
 		"gender": "female",
 		"locale": "en_US",
 		"voice": "kate"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}
@@ -79,7 +77,7 @@ client.Conference.speakSentenceToMember("conferenceID", "memberID", "Hello From 
 await client.Conference.PlayAudioToMemberAsync("{conferenceId1}", "{memberId1}", new PlayAudioData
 {
 	Sentence = "hola de Bandwidth",
-	Gender = Genger.Male,
+	Gender = Gender.Male,
 	Voice = "Jorge",
 	Locale = "es"
 });
@@ -99,14 +97,12 @@ member.speak_sentence(:sentence => "Hello From Bandwidth")
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members/{memberId}/audio \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/conferences/{conferenceId}/members/{memberId}/audio -u {token}:{secret} -H "Content-type: application/json" -d 	
+    '
 	{
 		"fileUrl": "https://catapult.inetwork.com/.../media/{mediaName1}"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}

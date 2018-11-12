@@ -3,6 +3,8 @@
 ## Fetch Recording Information
 Retrieve a specific call recording information in JSON format, identified by recordingId. For more details on how to retrieve the recorded media file, please access Media documentation.
 
+See the [faq](https://dev.bandwidth.com/faq/voice/callRecordings.html) for more information about Recordings and storage.
+
 ### Request URL
 
 <code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recordingId}`
@@ -36,9 +38,7 @@ Retrieve a specific call recording information in JSON format, identified by rec
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recordingId} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recordingId} -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

@@ -3,7 +3,7 @@ The Bridges resource allows you to bridge two calls together allowing for two wa
 
 <aside class="alert general small">
 <p>
-Read More about Bridges in the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>
+Read More about Bridges in the <a href="https://dev.bandwidth.com/faq/#voice">FAQ</a>
 </p>
 </aside>
 

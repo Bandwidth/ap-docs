@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
 var count = 10;
-var redirect = "http://dev.bandwidth.com/v2-messaging";
+var redirect = "https://dev.bandwidth.com/v2-messaging";
 
 function countDown(){
     var timer = document.getElementById("timer");
@@ -16,7 +16,7 @@ function countDown(){
 }
 </script>
 
-The Messaging v2 Reference documentation has moved to <a href="http://dev.bandwidth.com/v2-messaging">http://dev.bandwidth.com/v2-messaging</a>. Please update your bookmarks.
+The Messaging v2 Reference documentation has moved to <a href="https://dev.bandwidth.com/v2-messaging">https://dev.bandwidth.com/v2-messaging</a>. Please update your bookmarks.
 <br>
 
 <span id="timer"/>

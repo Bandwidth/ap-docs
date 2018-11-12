@@ -22,11 +22,12 @@ Bandwidth API sends this message to the application when text-to-speech starts o
 ```json
 {
   "eventType" : "string",
+  "status"    : "string",
+  "state"    : "string",
   "callId"    : "string",
   "callUri"   : "string",
-  "status"    : "string",
-  "time"      : "date",
-  "tag"       : "string"
+  "tag"       : "string",
+  "time"      : "date"
 }
 ```
 

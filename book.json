@@ -1,19 +1,19 @@
 {
     "plugins": [
-        "theme-bandwidth@1.9.1",
+        "theme-bandwidth@1.9.11",
         "header",
         "sharing",
         "custom-jquery-postprocessing",
         "bandwidth-toggle-chapters",
         "custom-favicon",
-        "gtm",
         "-hightlight",
         "-fontsettings",
         "bandwidth-highlight",
         "bandwidth-fonts",
         "usabilla",
         "include-html@0.2.0",
-        "codetabs"
+        "codetabs",
+        "mathjax"
     ],
     "pluginsConfig": {
         "theme-bandwidth": {
@@ -44,12 +44,8 @@
       "customJquery": {
         "js": "js/custom.js"
       },
-      "gtm": {
-        "token": "GTM-P2JT7Z",
-        "virtualPageViews": true
-      },
       "usabilla" : {
-            "usabillaId" : "c590d7d0e7ac"
+            "usabillaId" : "73009503da29"
       },
       "favicon" : "favicon/favicon.ico",
       "sharing": {

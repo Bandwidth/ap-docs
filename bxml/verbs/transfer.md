@@ -11,11 +11,13 @@ The Call leg A is hungup after the transferee hangs up. Therefore, any verbs fol
 | Attribute         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | transferTo        | (optional) Defines the number the call will be transferred to. <br> Accepts phone number in E.164 format (e.g. +19195551212) or a SIP url (e.g. sip:user@proxy.server.mycompany.com)                                                                                                                                                                                                                                                                                                                                                               |
-| transferCallerId  | (optional) This is the caller id that will be used when the call is transferred.<br> `transferCallerId` can be any number in the user's Bandwidth account. <br> <br> Note: **Omitting** the `transferCallerId` attribute will pass along the number of the original incoming call. _(See example 1)_ <br><br> Users with impersonation privledges can set the `transferCallerId` value to any value including `private`, `unknown`, and `No Caller Id`. <br> To learn more about impersonation, contact [support](http://support.bandwidth.com) |
+| transferCallerId  | (optional) This is the caller id that will be used when the call is transferred.<br> `transferCallerId` can be any number in the user's Bandwidth account. <br> <br> Note: **Omitting** the `transferCallerId` attribute will pass along the number of the original incoming call. _(See example 1)_ <br><br> Users with impersonation privledges can set the `transferCallerId` value to any value including `private`, `unknown`, and `No Caller Id`. <br> To learn more about impersonation, contact [support](https://support.bandwidth.com) |
 | callTimeout       | (optional) This is the timeout (seconds) for the callee to answer the call. When the call times out, the program will continue to the next verb.                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | requestUrl        | (optional) Relative or absolute URL to send event and request new BXML when transferred call hangs up.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | requestUrlTimeout | (optional) Timeout (milliseconds) to request new BXML.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | tag               | (optional) A string that will be included in the callback events of the transfer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| diversionTreatment | Can be any of the following: <br> `none`: This is the default value. No diversion headers are sent on the outbound leg of the transferred call.<br> `propagate`: Copy the Diversion header from the inbound leg to the outbound leg. Ignored if there is no Diversion header present on the inbound leg.<br> `stack`: After propagating any Diversion header from the inbound leg to the outbound leg, stack on top another Diversion header based on the Request-URI of the inbound call. <br><br> If diversionTreatment is not specified, no diversion header will be included for the transfer even if one came with the inbound call. | No |
+| diversionReason |  Can be any of the following values: <br> `unknown` <br> `user-busy` <br> `no-answer` <br> `unavailable` <br> `unconditional` <br> `time-of-day` <br> `do-not-disturb` <br> `deflection` <br> `follow-me` <br> `out-of-service` <br> `away` <br> This parameter is considered only when `diversionTreatment` is set to `stack`. | No. Default to `unknown`.
 
 
 ### Nestable Verbs
@@ -41,7 +43,7 @@ These verbs might also be nested inside `<Transfer>`:
 | [transferComplete](../callBacks/transfer.md) | No                       |
 
 {% common %}
-#### Example 1 of 3: Simple Transfer
+#### Example 1 of 4: Simple Transfer
 This shows how to use Bandwidth XML to transfer a phone call.
 
 
@@ -53,7 +55,7 @@ This shows how to use Bandwidth XML to transfer a phone call.
 </Response>
 ```
 
-#### Example 2 of 3: Multi transfer
+#### Example 2 of 4: Multi transfer
 This example shows how to use Bandwidth XML in a multi transfer scenario.
 
 ```XML
@@ -68,7 +70,7 @@ This example shows how to use Bandwidth XML in a multi transfer scenario.
 
 ```
 
-#### Example 3 of 3: New Caller Id and Transfer
+#### Example 3 of 4: New Caller Id and Transfer
 This shows how to use Bandwidth XML to transfer a phone call.
 
 ```XML
@@ -81,6 +83,17 @@ This shows how to use Bandwidth XML to transfer a phone call.
 </Response>
 ```
 
+#### Example 4 of 4: Transfer with outbound Diversion header information
+This shows how to set variables for an outbound Diversion header
+
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+    <Response>
+    <Transfer diversionTreatment="stack" diversionReason="do-not-disturb">
+        <PhoneNumber>+19195554444</PhoneNumber>
+    </Transfer>
+</Response>
+```
 
 
 {% endmethod %}
