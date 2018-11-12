@@ -1,7 +1,6 @@
 # Summary
 
 ## Overview
-
 * [Get Started](README.md)
 * [Postman](methods/postman.md)
 
@@ -75,6 +74,7 @@
    * [GET List Messages](methods/messages/getMessages.md)
    * [POST Send SMS and MMS](methods/messages/postMessages.md)
    * [GET Message info](methods/messages/getMessagesMessageId.md)
+   * [PATCH Redact Message Text](methods/messages/redactMessageText.md)
  * [/numberInfo](methods/numberInfo/numberInfo.md)
    * [GET CNAM number info](methods/numberInfo/getNumberInfo.md)
  * [/phoneNumbers](methods/phoneNumbers/phoneNumbers.md)
@@ -92,6 +92,7 @@
    * [GET List Transcriptions](methods/transcriptions/getTranscriptions.md)
    * [GET Transcription info](methods/transcriptions/getTranscriptionsTranscriptionId.md)
 
+## Messaging V2
 * [Messaging v2 Reference](messaging-2/getStarted.md)
 
 ## Rest API Callbacks
@@ -118,21 +119,25 @@
    * [Timeout Event](apiCallbacks/timeout.md)
    * [Transcription Event – BETA](apiCallbacks/transcription.md)
 
-## BXML
-* [BXML](bxml/bxml.md)
+## BXML for Voice
+* [BXML Overview](bxml/bxmlOverview.md)
+* [BXML Concepts and Vocabulary](bxml/bxmlConcepts.md)
+* [BXML Verbs](bxml/bxml.md)
  * [Gather](bxml/verbs/gather.md)
  * [Hangup](bxml/verbs/hangup.md)
  * [PlayAudio](bxml/verbs/playAudio.md)
+ * [Pause](bxml/verbs/pause.md)
  * [Record](bxml/verbs/record.md)
  * [Redirect](bxml/verbs/redirect.md)
+ * [SendDtmf](bxml/verbs/sendDtmf.md)
  * [SpeakSentence](bxml/verbs/speakSentence.md)
  * [Transfer](bxml/verbs/transfer.md)
-
-## BXML Callbacks
 * [BXML Callbacks](bxml/bxmlCallbacks.md)
  * [Answer Event](bxml/callBacks/answer.md)
+ * [Call Timeout Event](bxml/callBacks/callTimeout.md)
  * [Gather event](bxml/callBacks/gather.md)
  * [Hangup Event](bxml/callBacks/hangup.md)
+ * [Incoming Call Event](bxml/callBacks/incomingCall.md)
  * [Recording event](bxml/callBacks/recording.md)
  * [Transcription event](bxml/callBacks/transcription.md)
  * [Redirect event](bxml/callBacks/redirect.md)
@@ -150,12 +155,17 @@
    * [Outbound Call](bxml/buildingBlocks/createCall.md)
    * [Forward a Call](bxml/buildingBlocks/forwardCall.md)
 
-
 ## Rate Limits
 * [Rate Limits](rateLimits.md)
+   * [Calls](rateLimits/callRateLimits.md)
+   * [Messages](rateLimits/messageRateLimits.md)
+   * [Everything else](rateLimits/resourceRateLimits.md)
+
+## Inbound SIP Diversion Header
+* [Inbound SIP Diversion Header Information](sipDiversionHeader/sipDiversionHeader.md)
 
 ## HTTP Error Codes
 * [HTTP Errors](errors.md)
 
 ## FAQ
-* [FAQ](http://dev.bandwidth.com/faq)
+* [FAQ](https://dev.bandwidth.com/faq)

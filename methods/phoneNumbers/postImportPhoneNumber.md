@@ -1,7 +1,7 @@
 {% method %}
 
 ## Import Phone Number
-Imoprt a previously orderd phone number from the Bandwidth Phone Number API so you can use it to make and receive calls and send and receive messages with the Voice And Messaing APIs. For more information about a new phone number, see the <a href="http://dev.bandwidth.com/faq/#Phone">FAQ</a>
+Import a previously orderd phone number from the Bandwidth Phone Number API so you can use it to make and receive calls and send and receive messages with the Voice And Messaing APIs. For more information about a new phone number, see the <a href="https://dev.bandwidth.com/faq/#Phone">FAQ</a>
 
 
 ### Request URL
@@ -57,10 +57,7 @@ Location: https://api.catapult.inetwork.com/v1/users/{{UserId}}/phoneNumbers/n-i
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers \
-  -u {token}:{secret} \
-  -H "Content-type: application/json" \
-  -d \
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers -u {token}:{secret} -H "Content-type: application/json" -d
   '
   {
     "number"        : "+14352154439",
@@ -106,13 +103,29 @@ client.PhoneNumber.create(importNumberPayload)
 {% sample lang="csharp" %}
 
 ```csharp
-
+var phoneNumberId = await client.PhoneNumber.CreateAsync(new CreatePhoneNumberData { Number = "+11234567890", ApplicationId = "appId", Name = "text messaging TN", Provider = new PhoneNumberProvider
+{
+   ProviderName = "bandwidth-dashboard", 
+   Properties = new Dictionary<string, object> { { "accountId",  "9999999" }, { "userName", "bob" }, { "password", "XXXXXXX" } }
+}});
 ```
 
 {% sample lang="ruby" %}
 
 ```ruby
-## coming soon
+Bandwidth::PhoneNumber.create(client, {
+    :number => "+14352154439",
+    :applicationId => "{{applicationId}}",
+    :name => "text messaging TN",
+    :provider => {
+        :providerName => "bandwidth-dashboard",
+        :properties => {
+            :accountId => "12345",
+            :userName => "user",
+            :password => "pass"
+        }
+    }
+})
 ```
 
 {% common %}

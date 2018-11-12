@@ -3,6 +3,8 @@
 ## List Recordings
 List all users' call recordings. Since this operation uses HTTP GET, all the properties are specified as HTTP request parameters.
 
+See the [faq](https://dev.bandwidth.com/faq/voice/callRecordings.html) for more information about Recordings and storage.
+
 ### Request URL
 
 <code class="get">GET</code>`https://api.catapult.inetwork.com/v1/users/{userId}/recordings/`
@@ -44,9 +46,7 @@ List all users' call recordings. Since this operation uses HTTP GET, all the pro
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/recordings \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/recordings -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

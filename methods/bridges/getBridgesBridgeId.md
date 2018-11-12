@@ -14,7 +14,7 @@ Gets information about a specific bridge. No query parameters are supported.
 | Property      | Description                                              |
 |:--------------|:---------------------------------------------------------|
 | id            | The unique ID of the bridge.                             |
-| state         | Bridge state. Possible state values are described here.  |
+| state         | Bridge state. Possible state values are described below. |
 | callIds       | List of call Ids that will be in the bridge.             |
 | calls         | The URL used to retrieve the calls in a specific bridge. |
 | bridgeAudio   | Enable/Disable two way audio path.                       |
@@ -39,9 +39,7 @@ Gets information about a specific bridge. No query parameters are supported.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/bridges/{bridgeId} -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}
@@ -88,7 +86,7 @@ state = bridge[:state]
 {
   "id": "{bridgeId}",
   "state": "completed",
-  "bridgeAudio": "true",
+  "bridgeAudio": true,
   "calls":"https://.../v1/users/{userId}/bridges/{bridgeId}/calls",
   "createdTime": "2013-04-22T13:55:30.279Z",
   "activatedTime": "2013-04-22T13:55:30.280Z",

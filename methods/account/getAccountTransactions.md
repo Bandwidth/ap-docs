@@ -11,8 +11,8 @@ Get the transactions from the user's account.
 | Parameter | Description                                                                                                                                                                 | Mandatory |
 |:----------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
 | maxItems  | Limit the number of transactions that will be returned.                                                                                                                     | No        |
-| toDate    | Return only transactions that are newer than the parameter. Format: "yyyy-MM-dd'T'HH:mm:ssZ"                                                                                | No        |
-| fromDate  | Return only transactions that are older than the parameter. Format: "yyyy-MM-dd'T'HH:mm:ssZ"                                                                                | No        |
+| fromDate    | Return only transactions that are newer than the parameter. Format: "yyyy-MM-dd'T'HH:mm:ssZ"                                                                                | No        |
+| toDate  | Return only transactions that are older than the parameter. Format: "yyyy-MM-dd'T'HH:mm:ssZ"                                                                                | No        |
 | type      | Return only transactions that are this type.                                                                                                                                | No        |
 | page      | Used for pagination to indicate the page requested for querying a list of transactions. If no value is specified the default is 0.                                          | No        |
 | size      | Used for pagination to indicate the size of each page requested for querying a list of transactions. If no value is specified the default value is 25 (maximum value 1000). | No        |
@@ -64,10 +64,7 @@ Get the transactions from the user's account.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations \
-  -u {{apiToken}}:{secret} \
-  -H "Content-type: application/json" \
-```
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations -u {{apiToken}}:{secret} -H "Content-type: application/json" ```
 
 {% sample lang="js" %}
 
@@ -115,7 +112,7 @@ The above command returns JSON structured like this:
     "time": "2013-02-21T13:39:09.122Z",
     "amount": "0.00750",
     "type": "charge",
-    "units": "1",
+    "units": 1,
     "productType": "sms-out",
     "number": "{number}"
   },
@@ -124,7 +121,7 @@ The above command returns JSON structured like this:
     "time": "2013-02-21T13:37:42.079Z",
     "amount": "0.00750",
     "type": "charge",
-    "units": "1",
+    "units": 1,
     "productType": "sms-out",
     "number": "{number}"
   }
@@ -138,10 +135,7 @@ The above command returns JSON structured like this:
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?fromDate=2013-02-21T13:38:00 \
-  -u {{apiToken}}:{secret} \
-  -H "Content-type: application/json" \
-```
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?fromDate=2013-02-21T13:38:00 -u {{apiToken}}:{secret} -H "Content-type: application/json" ```
 
 {% sample lang="js" %}
 
@@ -192,7 +186,7 @@ The above command returns JSON structured like this:
     "time": "2013-02-21T13:39:09.122Z",
     "amount": "0.00750",
     "type": "charge",
-    "units": "1",
+    "units": 1,
     "productType": "sms-out",
     "number": "{number}"
   }
@@ -204,9 +198,7 @@ The above command returns JSON structured like this:
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?toDate=2013-02-21T13:40:00&fromDate=2013-02-21T13:38:00 \
-  -u {{apiToken}}:{secret} \
-  -H "Content-type: application/json" \
+curl -v -X GET "https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?toDate=2013-02-21T13:40:00&fromDate=2013-02-21T13:38:00" -u {{apiToken}}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}
@@ -257,7 +249,7 @@ The above command returns JSON structured like this:
     "time": "2013-02-21T13:39:09.122Z",
     "amount": "0.00750",
     "type": "charge",
-    "units": "1",
+    "units": 1,
     "productType": "sms-out",
     "number": "{number}"
   }
@@ -268,10 +260,7 @@ The above command returns JSON structured like this:
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?number=+19191231234 \
-  -u {{apiToken}}:{secret} \
-  -H "Content-type: application/json" \
-```
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?number=+19191231234 -u {{apiToken}}:{secret} -H "Content-type: application/json" ```
 {% sample lang="js" %}
 
 ```js
@@ -320,7 +309,7 @@ The above command returns JSON structured like this:
     "time": "2017-05-30T20:45:10Z",
     "amount": "0.005",
     "type": "charge",
-    "units": "1",
+    "units": 1,
     "productType": "sms-out",
     "number": "+19191231234",
     "resourceId": "m-asdf" },
@@ -328,7 +317,7 @@ The above command returns JSON structured like this:
     "time": "2017-05-30T20:47:36Z",
     "amount": "0.015",
     "type": "charge",
-    "units": "1",
+    "units": 1,
     "productType": "mms-out",
     "number": "+19191231234",
     "resourceId": "m-asdf" },
@@ -336,7 +325,7 @@ The above command returns JSON structured like this:
     "time": "2017-05-30T20:57:13Z",
     "amount": "0.06",
     "type": "charge",
-    "units": "6",
+    "units": 6,
     "productType": "call-out",
     "number": "+19191231234",
     "resourceId": "c-asdf" }
@@ -348,10 +337,7 @@ The above command returns JSON structured like this:
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?maxItems=1 \
-  -u {{apiToken}}:{secret} \
-  -H "Content-type: application/json" \
-```
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?maxItems=1 -u {{apiToken}}:{secret} -H "Content-type: application/json" ```
 {% sample lang="js" %}
 
 ```js
@@ -399,7 +385,7 @@ The above command returns JSON structured like this:
     "time": "2013-02-21T13:39:09.122Z",
     "amount": "0.00750",
     "type": "charge",
-    "units": "1",
+    "units": 1,
     "productType": "sms-out",
     "number": "{number}"
   }
@@ -411,10 +397,7 @@ The above command returns JSON structured like this:
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?type=Payment \
-  -u {{apiToken}}:{secret} \
-  -H "Content-type: application/json" \
-```
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{user-id}/account/transations?type=Payment -u {{apiToken}}:{secret} -H "Content-type: application/json" ```
 
 {% sample lang="js" %}
 
@@ -463,14 +446,14 @@ The above command returns JSON structured like this:
     "time": "2013-02-15T18:43:50.602Z",
     "amount": "1000.00000",
     "type": "payment",
-    "units": "0"
+    "units": 0
   },
   {
     "id": "{transactionId2}",
     "time": "2013-02-05T14:56:51.279Z",
     "amount": "5000.00000",
     "type": "payment",
-    "units": "0"
+    "units": 0
   }
 ]
 ```

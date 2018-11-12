@@ -23,15 +23,15 @@ Bandwidth API sends this message to the application when a conference member has
 
 ```json
 {
-    "activeMembers": "integer",
-    "callId": "string",
-    "conferenceId": "string",
     "eventType": "string",
-    "hold": "boolean",
+    "activeMembers": "integer",
+    "conferenceId": "string",
+    "callId": "string",
     "memberId": "string",
     "memberUri": "string",
-    "mute": "boolean",
     "state": "string",
+    "hold": "boolean",
+    "mute": "boolean",
     "time": "date"
 }
 ```

@@ -10,7 +10,7 @@ Get the gather DTMF parameters and results.
 ### Properties
 | Property      | Description                                                                                                                                                                                                                                                                                                                                                              |
 |:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| state         | The state of the gather. Value is completed.                                                                                                                                                                                                                                                                                                                             |
+| state         | The state of the gather. Value can be `started` or `completed`.                                                                                                                                                                                                                                                                                                                             |
 | digits        | The digits collected from user.                                                                                                                                                                                                                                                                                                                                          |
 | reason        | `max-digits` - The maximum number of digits specified for the gather com.<br> `terminating-digit` - The digit specified in the gather com was entered.<br> `inter-digit-timeout` - A timeout occurred indicating the maximum amount of time to wait between digits, or before the first digit was pressed.<br> `hung-up` - Call was hung up thus terminating the gather. |
 | call          | The call id associated with the event.                                                                                                                                                                                                                                                                                                                                   |
@@ -25,9 +25,7 @@ Get the gather DTMF parameters and results.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather/{gatherId} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather/{gatherId} -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

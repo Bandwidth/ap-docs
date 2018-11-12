@@ -1,10 +1,10 @@
-# Bandwidth XML (BXML)
+# BXML Verbs
 
-Bandwidth XML allows you to create a voice application as easily as you create a Web application. Using Bandwidth XML (or BXML) your application handles incoming call events using standard action verbs that are described in XML.
+BXML allows you to create a voice application as easily as you create a Web application. Using BXML, your application handles incoming call events using standard action verbs that are described in BXML.
 
 Before we begin creating a new BXML application you’ll need two things initially setup:
 
-1. A phone number that is allocated to your Bandwidth Application Platform account and is configured to an application. See here on how to do that. Note that when you create the application you’ll need to make sure that the Callback HTTP method  is set to <code class="get">GET</code>.
+1. A phone number that is allocated to your Bandwidth Application Platform account and is configured to an application. See here on how to do that. Note that when you create the application you’ll need to make sure that the Callback HTTP method  is set to `GET`.
 
 2. A public Web site that you can create content on and will handle the requests for BXML. Note that the endpoint for this site should be used to create the application in you setup above.
 
@@ -16,17 +16,19 @@ The events sent are the events from Bandwidth Application Platform, with only tw
 * [transferComplete](callbacks/transferComplete.md): sent to the original BXML call when the transferred call hangs up
 * [redirect](callbacks/redirect.md): sent when the verb redirect is in action
 
-BXML callbacks perform HTTP GET requests to the **requestUrl** when the notification intends to retrieve a new BXML document.
+BXML callbacks perform `GET` requests to the **requestUrl** when the notification intends to retrieve a new BXML document.
 
-### Verbs
+### BXML Verbs
 
 | Verb                                        | Description                                                                                                                                                                         |
 |:--------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [`<Gather>`](verbs/gather.md)               | The Gather verb is used to collect digits for some period of time.                                                                                                                  |
 | [`<Hangup>`](verbs/hangup.md)               | The Hangup verb is used to hangup current call.                                                                                                                                     |
 | [`<PlayAudio>`](verbs/playAudio.md)         | The PlayAudio verb is used to play an audio file in the call.                                                                                                                       |
+| [`<Pause>`](verbs/pause.md)                 | The Pause verb is used to pause the execution of an ongoing BXML document.                                                                                                          |
 | [`<Record>`](verbs/record.md)               | The Record verb allows call recording. At the end of the call, a call recording event containing the media with recorded audio URL is generated                                     |
 | [`<Redirect>`](verbs/redirect.md)           | The Redirect verb is used to redirect the current XML execution to another URL.                                                                                                     |
+| [`<SendDtmf>`](verbs/sendDtmf.md)           | The SendDtmf verb is used to is used to send digits on a live call.                                                                                                                 |
 | [`<SpeakSentence>`](verbs/speakSentence.md) | The SpeakSentence verb is used to convert any text into speak for the caller.                                                                                                       |
 | [`<Transfer>`](verbs/transfer.md)           | The Transfer verb is used to transfer the call to another number.                                                                                                                   |
 

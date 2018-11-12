@@ -61,7 +61,7 @@ Be sure to to use <code class="post">&amp;quot;</code> for quotes <code class="p
 
 ```xml
 <Response>
-  <Gather requestUrl="https://gather.url/nextBXML" requestUrlTimeout="10000" terminatingDigits="#" maxDigits="1" tag="{&quot;Hellow&quot;:&quot;World&quot;,&quot;Foo&quot;:&quot;Bar&quot;}">
+  <Gather requestUrl="https://gather.url/nextBXML" requestUrlTimeout="10000" terminatingDigits="#" maxDigits="1" tag="{&quot;Hello&quot;:&quot;World&quot;,&quot;Foo&quot;:&quot;Bar&quot;}">
     <SpeakSentence gender="female" locale="en_US" voice="susan">Thanks for calling Press 1 for more options</SpeakSentence>
   </Gather>
 </Response>

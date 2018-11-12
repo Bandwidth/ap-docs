@@ -17,8 +17,8 @@ Creates a new outbound phone call.
 | to                   | The number to call (must be either an E.164 formatted number, like `+19195551212`, or a valid SIP URI, like `sip:someone@somewhere.com`).                                                                          | Yes       |
 | callTimeout          | Determine how long should the platform wait for call answer before timing out in seconds.                                                                                                                          | No        |
 | callbackUrl          | The full server URL where the call events related to the Call will be sent to.                                                                                                                                     | No        |
-| callbackTimeout      | Determine how long should the platform wait for callbackUrl’s response before timing out in milliseconds. <br> Maximum Time: `10000` (10s)                                                                         | No        |
-| callbackHttpMethod   | Determine if the callback event should be sent via `HTTP GET` or `HTTP POST`. Values are <code class="get">GET</code> or <code class="post">POST</code> (if not set the default is <code class="get">POST</code>). | No        |
+| callbackTimeout      | Determine how long should the platform wait for callbackUrl’s response before timing out in milliseconds. <br> **Default** Time: `10000` (10s) <br> **Maximum** Time: `10000` (10s)                                | No        |
+| callbackHttpMethod   | Determine if the callback event should be sent via `HTTP GET` or `HTTP POST`. Values are `GET` or `POST` (default is `POST`). | No        |
 | fallbackUrl          | The full server URL used to send the callback event if the request to callbackUrl fails.                                                                                                                           | No        |
 | bridgeId             | The id of the bridge where the call will be added.                                                                                                                                                                 | No        |
 | conferenceId         | Id of the conference where the call will be added. This property is required if you want to add this call to a conference.                                                                                         | No        |
@@ -42,24 +42,13 @@ The call resource returned in the "Location" header can be modified to change th
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls -u {token}:{secret} -H "Content-type: application/json" -d 	'
 	{
 		"from": "{fromNumber}",
 		"to": "{toNumber}"
-	}'
+	}
+    '
 ```
-
-> The above command returns HTTP Header structured like this:
-
-```
-HTTP/1.1 201 Created
-Location: /v1/users/{userId}/calls/{callId}
-```
-
 
 {% sample lang="js" %}
 
@@ -111,11 +100,7 @@ Make a call to a SIP URI:
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
 	{
 		"from": "{fromNumber}",
 		"to": "{sip:someone@somewhere.com:}",
@@ -177,11 +162,7 @@ call = Call.create(client, {
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
 	{
 		"from": "{fromNumber}",
 		"to": "{toNumber}",
@@ -231,24 +212,11 @@ call = Call.create(client, {
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/ \
-    -u {token}:{secret} \
-    -H "Content-type: application/json" \
-    -d '{"bridgeAudio": "true" }'
-```
-
-> The above command returns HTTP Status structured like this:
-```
-HTTP/1.1 201 Created
-Location: /v1/users/{userId}/calls/{bridgeId}
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/bridges/     -u {token}:{secret}     -H "Content-type: application/json"     -d '{"bridgeAudio": "true" }'
 ```
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
-    -u {token}:{secret} \
-    -H "Content-type: application/json" \
-    -d \
-    '
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls     -u {token}:{secret}     -H "Content-type: application/json"     -d     '
     {
         "from": "{fromNumber}",
         "to": "{toNumber}",
@@ -305,11 +273,7 @@ call = Call.create(client, {
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls 	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
 	{
 		"from": "{fromNumber}",
 		"to": "{toNumber}",
@@ -368,16 +332,14 @@ call = Call.create(client, {
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls -u {token}:{secret} -H "Content-type: application/json" -d
+    '
 	{
 		"from": "{fromNumber}",
 		"to": "{toNumber}",
 		"tag" : "{ \"context\": \"key\" }"
-	}'
+	}
+    '
 ```
 
 

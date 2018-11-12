@@ -1,7 +1,7 @@
 {% method %}
 
 ## Remove Phone Number
-Removes a number from your account so you can no longer make or receive calls, or send or receive messages with it. When you remove a number from your account, it will not be available to add back to your account, so be careful. To learn more about deleting a phone number, visit the <a href="http://dev.bandwidth.com/faq/#Phone">FAQ</a>
+Removes a number from your account so you can no longer make or receive calls, or send or receive messages with it. When you remove a number from your account, it will not be available to add back to your account, so be careful. To learn more about deleting a phone number, visit the <a href="https://dev.bandwidth.com/faq/#Phone">FAQ</a>
 
 ### Request URL
 
@@ -14,9 +14,7 @@ Removes a number from your account so you can no longer make or receive calls, o
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X DELETE https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/{numberId} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X DELETE https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/{numberId} -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

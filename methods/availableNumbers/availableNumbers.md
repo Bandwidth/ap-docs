@@ -1,10 +1,10 @@
 # Available Numbers
 
-The Available Numbers resource lets you search for numbers that are available for use with your application. Read More about Phone Numbers in the <a href="http://dev.bandwidth.com/faq/#Phone">FAQ</a>
+The Available Numbers resource lets you search for numbers that are available for use with your application. Read More about Phone Numbers in the <a href="https://dev.bandwidth.com/faq/#Phone">FAQ</a>
 
 <aside class="alert general">
 <p>
-If you need advanced control over the number ordering process, like managing line features, you can find documentation <a href="http://dev.bandwidth.com/docs/phone-numbers/">here.</a>
+If you need advanced control over the number ordering process, like managing line features, you can find documentation <a href="https://dev.bandwidth.com/docs/phone-numbers/">here.</a>
 </p>
 </aside>
 

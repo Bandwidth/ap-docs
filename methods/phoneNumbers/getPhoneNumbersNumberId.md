@@ -37,9 +37,7 @@ Gets information about one of your numbers using the E.164 number string, like "
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/%20{number} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers/%20{number} -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

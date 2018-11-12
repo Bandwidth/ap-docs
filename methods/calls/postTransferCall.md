@@ -30,6 +30,8 @@ To answer a call (or set active) be sure to do one of the following:
 | transferCallerId    | This is the caller id that will be used when the call is transferred. This parameter is only considered in transfer state.<br>- transferring an incoming call: allowed values are 1) `private` 2) the incoming call `from` number or 3) any Bandwidth number owned by user.<br>- transferring an outgoing call call: allowed values are 1) `private` or 2) any Bandwidth phone number owned by user. | No        |
 | callbackUrl         | The server URL where the call events for the new call will be sent upon transferring.                                                                                                                                                                                                                                                                                                                | No        |
 | whisperAudio        | Audio to be played to the caller that the call will be transferred to. See **Audio Parameters** below.                                                                                                                                                                                                                                                                                                                   | No        |
+| diversionTreatment | Can be any of the following: <br> `none`: This is the default value. No Diversion headers are sent on the outbound leg of the transferred call.<br> `propagate`: Copy the Diversion header from the inbound leg to the outbound leg. Ignored if there is no Diversion header present on the inbound leg.<br> `stack`: After propagating any Diversion header from the inbound leg to the outbound leg, stack on top another Diversion header based on the Request-URI of the inbound call. <br><br> If diversionTreatment is not specified, no diversion header will be included for the transfer even if one came with the inbound call. | No |
+| diversionReason |  Can be any of the following values: <br> `unknown` <br> `user-busy` <br> `no-answer` <br> `unavailable` <br> `unconditional` <br> `time-of-day` <br> `do-not-disturb` <br> `deflection` <br> `follow-me` <br> `out-of-service` <br> `away` <br> This parameter is considered only when `diversionTreatment` is set to `stack`. | No. Default to `unknown`.
 
 #### Audio Parameters
 
@@ -42,19 +44,17 @@ To answer a call (or set active) be sure to do one of the following:
 | voice       | The voice to speak the sentence. Audio currently supports the following voices: <br> - English US: Kate, Susan, Julie, Dave, Paul <br> - English UK: Bridget <br> - Spanish: Esperanza, Violeta, Jorge <br> - French: Jolie, Bernard <br> - German: Katrin, Stefan <br> - Italian: Paola, Luca It will be considered only if sentence is not null/empty.<br>Susan’s voice will be used by default. | No        |
 
 {% common %}
-### Example 1 of 2: Transfer a call using the caller Id of the party being transferred
+### Example 1 of 3: Transfer a call using the caller Id of the party being transferred
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}\
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId} -u {token}:{secret} -H "Content-type: application/json" -d 
+    '
 	{
 		"state"     : "transferring",
 		"transferTo : "+19192223333"
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}
@@ -81,16 +81,12 @@ call.update({:state => 'transferring', :transfer_to => '+18382947878' })
 
 
 {% common %}
-### Example 2 of 2: Transfer a call and play audio to the '838-294-7878' Line
+### Example 2 of 3: Transfer a call and play audio to the '838-294-7878' Line
 
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}\
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}	-u {token}:{secret} 	-H "Content-type: application/json" 	-d 	'
 	{
 		"state":"transferring",
 		"transferCallerId": "private"
@@ -146,6 +142,41 @@ call.update({
 		:locale => 'en'
 	}
 })
+```
+
+{% common %}
+### Example 3 of 3: Transfer with outbound Diversion header information
+
+{% sample lang="bash" %}
+
+```bash
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId} -u {token}:{secret} -H "Content-type: application/json" -d
+    '
+    {
+        "state":"transferring",
+        "transferTo":"+19195554444",
+        "diversionTreatment": "stack",
+        "diversionReason":"do-not-disturb"
+	}
+    '
+```
+
+{% sample lang="js" %}
+
+```js
+Coming soon
+```
+
+{% sample lang="csharp" %}
+
+```csharp
+Coming soon
+```
+
+{% sample lang="ruby" %}
+
+```ruby
+Coming soon
 ```
 
 {% endmethod %}

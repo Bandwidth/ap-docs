@@ -21,7 +21,7 @@ Collects a series of DTMF digits from a phone call with an optional prompt. This
 | prompt.gender      | The gender to use for the voice reading the prompt sentence (uses the call audio resource defaults).                                                                                                                                                                                                                                                                                                                                                                                | No        |
 | prompt.locale      | The language and region to use for the voice reading the prompt sentence (uses the call audio resource defaults).                                                                                                                                                                                                                                                                                                                                                                   | No        |
 | prompt.loopEnabled | When value is true, the audio will keep playing in a loop. Default: false                                                                                                                                                                                                                                                                                                                                                                                                           | No        |
-| prompt.bargeable   | Make the prompt (audio or sentence) bargeable (will be interrupted at first digit gathered). Default: true                                                                                                                                                                                                                                                                                                                                                                          | No        |
+| prompt.bargeable   | Make the prompt (audio or sentence) bargeable (will be interrupted at first digit gathered). Default: true.<br><br>NOTE: This is deprecated and bargeable cannot be turned off.                                                                                                                                                                                                                                                                                                                                                                          | No        |
 | prompt.fileUrl     | The location of an audio file to play (WAV and MP3 supported).                                                                                                                                                                                                                                                                                                                                                                                                                      | No        |
 
 {% common %}
@@ -32,11 +32,8 @@ Play a prompt sentence, then wait until 5 digits are pressed. Stop gathering dig
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-		-d \
-	'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/calls/{callId}/gather -u {token}:{secret} -H "Content-type: application/json" -d
+    '
 	{
 		"maxDigits"         : "5",
 		"terminatingDigits" : "*",
@@ -44,7 +41,8 @@ curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/ \
 		"prompt"            : {
 			"sentence" : "Please enter your 5 digit code"
 		}
-	}'
+	}
+    '
 ```
 
 {% sample lang="js" %}

@@ -16,9 +16,9 @@ Get information about the transcription, regardless its state.
 | state              | The state of the transcription, `transcribing` `completed` `error`                                                                                                                |
 | text               | The transcribed text.                                                                                                                                                             |
 | time               | The date/time the transcription resource was created (UTC).                                                                                                                       |
-| chargeableDuration | The seconds between activeTime and endTime for the recording; this is the time that is going to be used to charge the resource. Note: transcriptions is billed in 1 minute units. |
+| chargeableDuration | The seconds between activeTime and endTime for the recording; this is the time that is going to be used to charge the resource. Note: transcriptions are billed in 1 minute units. |
 | textSize           | The size of the transcribed text. If the text is longer than 1000 characters it will be cropped; the full text can be retrieved from the url available at textUrl property.       |
-| textUrl            | An url to the full text; this property is available regardless the textSize.                                                                                                      |
+| textUrl            | An url to the full text; this property is available regardless of the textSize.                                                                                                      |
 
 {% common %}
 
@@ -28,9 +28,7 @@ Get information about the transcription, regardless its state.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recording-id}/transcriptions/{transcription-id} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/recordings/{recording-id}/transcriptions/{transcription-id} -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

@@ -40,9 +40,7 @@ This returns a list of all endpoints associated with a domain.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domainId}/endpoints \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/domains/{domainId}/endpoints -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

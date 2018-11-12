@@ -5,22 +5,29 @@ Searches and order available Toll Free numbers.
 
 <aside class="alert general">
 <p>
-If you need advanced control over the number ordering process, like managing line features, you can find documentation <a href="http://dev.bandwidth.com/docs/phone-numbers/">here.</a>
+If you need advanced control over the number ordering process, like managing line features, you can find documentation <a href="https://dev.bandwidth.com/docs/phone-numbers/">here.</a>
 </p>
 </aside>
 
-For more information about Bandwidth’s toll free phone numbers, see the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>
+For more information about Bandwidth’s toll free phone numbers, see the <a href="https://dev.bandwidth.com/faq/#voice">FAQ</a>
+To learn more about MMS on toll-free numbers, see the [FAQ](https://dev.bandwidth.com/faq/messaging/tollfreeMMS.html).
 
 ### Request URL
 <code class="post">POST</code>`https://api.catapult.inetwork.com/v1/availableNumbers/tollFree`
 
 ---
 
-### Supported Parameters
+### Supported Parameters *
 
 | Parameter | Description                                                                      | Mandatory |
 |:----------|:---------------------------------------------------------------------------------|:----------|
 | quantity  | The maximum quantity of numbers for searching and order (default 1, maximum 10). | No        |
+
+<aside class="notice">
+<p>
+<code>*</code> The parameters for this method are sent as url parameters, not as part of the body request.
+</p>
+</aside>
 
 {% common %}
 
@@ -30,9 +37,7 @@ For more information about Bandwidth’s toll free phone numbers, see the <a hre
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST  https://api.catapult.inetwork.com/v1/availableNumbers/tollFree?quantity=2 \
-  -u {token}:{secret} \
-  -H "Content-type: application/json" \
+curl -v -X POST  https://api.catapult.inetwork.com/v1/availableNumbers/tollFree?quantity=2 -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

@@ -1,7 +1,8 @@
 {% method %}
-## List available toll free numbers
+## List available toll-free numbers
+For more information about Bandwidth’s toll free phone numbers, see the <a href="https://dev.bandwidth.com/faq/#voice">FAQ</a>. To learn more about MMS on toll-free numbers, see the [FAQ](https://dev.bandwidth.com/faq/messaging/tollfreeMMS.html).
 
-For more information about Bandwidth’s toll free phone numbers, see the <a href="http://dev.bandwidth.com/faq/#voice">FAQ</a>
+
 
 ### Request URL
 
@@ -11,10 +12,19 @@ For more information about Bandwidth’s toll free phone numbers, see the <a hre
 
 ###Supported Parameters
 
-| Parameter | Description                                                                                                                                                                                                                        | Mandatory |
-|:----------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
-| quantity  | The maximum number of numbers to return (default 10, maximum 5000).                                                                                                                                                                | No        |
-| pattern   | A number pattern that may include letters, digits, and the following wildcard characters:<br>? : matches any single digit<br> \* : matches zero or more digits<br>Don’t forget to encode wildcard characters in the requested URL. | No        |
+| Parameter | Description                                                                                                                                                                                                                                | Mandatory |
+|:----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
+| quantity  | The maximum number of numbers to return (default 10, maximum 5000).                                                                                                                                                                        | No        |
+| pattern   | A number pattern that may include letters, digits, and the following wildcard characters:<br> - `?` : matches any single digit<br> - `*` : matches zero or more digits<br>Don’t forget to encode wildcard characters in the requested URL. | No        |
+
+## Properties
+| Property       | Description                                                                                                   
+|:---------------|:--------------------------------------------------------------------------------------------------------------
+| number         | The telephone number in E.164 format.                                                                         
+| nationalNumber | The telephone number in a friendly national format.                                                           
+| patternMatch   | The telephone number in a friendly national format with some numbers replaced by letters if a pattern was used
+| price          | The monthly price for the phone number.
+
 
 {% common %}
 ### Example 1 of 1: Search and allocate tollFree number
@@ -23,9 +33,7 @@ For more information about Bandwidth’s toll free phone numbers, see the <a hre
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET  https://api.catapult.inetwork.com/v1/availableNumbers/tollFree?pattern=*2%3F9*&quantity=2 \
-  -u {token}:{secret} \
-  -H "Content-type: application/json" \
+curl -v -X GET "https://api.catapult.inetwork.com/v1/availableNumbers/tollFree?pattern=*2%3F9*&quantity=2" -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}
@@ -75,7 +83,7 @@ results = AvailableNumber.search_toll_free(client, {
 first_result = results.next
 first_number = first_result[:number]
 ```
-
+{% common %}
 > The above command returns JSON structured like this:
 
 ```json

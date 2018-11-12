@@ -3,7 +3,7 @@
 ## List Messages
 Gets a list messages you have sent or received. Since this operation uses HTTP GET, all the properties are specified as HTTP request parameters.
 
-We only store the message contents for 30 days. Any messages older than 30 days will not contain text. For more information, see the <a href="http://dev.bandwidth.com/faq/#messaging">FAQ</a>
+We only store the message contents for 30 days. Any messages older than 30 days will not contain text. For more information, see the <a href="https://dev.bandwidth.com/faq/#messaging">FAQ</a>
 
 ### Request URL
 
@@ -18,8 +18,8 @@ Message results are paginated based on the `size` parameter. If the number of me
 |:--------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
 | from          | The phone number to filter the messages that came from (must be in E.164 format, like +19195551212).                                                                                                                                                                                                                                                                                                                  | No        |
 | to            | The phone number to filter the messages that was sent to (must be in E.164 format, like +19195551212).                                                                                                                                                                                                                                                                                                                | No        |
-| fromDateTime  | The starting date time to filter the messages (must be in yyyy-MM-dd hh:mm:ss format, like 2014-05-25 12:00:00. You can suppress parts of the date or time, like 2014-05-25, but the missing parameters will be filled with zeros).                                                                                                                                                                                   | No        |
-| toDateTime    | The ending date time to filter the messages (must be in yyyy-MM-dd hh:mm:ss format, like 2014-05-25 12:00:00. You can suppress parts of the date or time, like 2014-05-25, but the missing parameters will be filled with zeros). Although it only supports seconds, we use milliseconds precision so if you want to include an event that happened on a given second you must set the next second on this parameter. | No        |
+| fromDateTime  | The starting date time to filter the messages (must be in yyyy-MM-dd hh:mm:ss.sss format, like 2014-05-25 12:00:00.000. You can suppress parts of the date or time, like 2014-05-25, but the missing parameters will be filled with zeros).                                                                                                                                                                                   | No        |
+| toDateTime    | The ending date time to filter the messages (must be in yyyy-MM-dd hh:mm:ss.sss format, like 2014-05-25 12:00:00.000. You can suppress parts of the date or time, like 2014-05-25, but the missing parameters will be filled with zeros). | No        |
 | size          | Used for pagination to indicate the size of each page requested for querying a list of messages. If no value is specified the default value is 25. (Maximum value 1000)                                                                                                                                                                                                                                               | No        |
 | direction     | Filter by direction of message: <br><br> `in` - a message that came from the telephone network to one of your numbers (an “inbound” message) <br><br> `out` - a message that was sent from one of your numbers to the telephone network (an “outbound” message)                                                                                                                                                       | No        |
 | state         | The message state to filter. values are:  <br> * `received`<br> * `queued`<br> * `sending`<br> * `sent` <br> * `error`                                                                                                                                                                                                                                                                                                | No        |
@@ -75,7 +75,7 @@ Message results are paginated based on the `size` parameter. If the number of me
 | 600  | Destination carrier could not accept messages |
 | 610  | Message submittion failed                     |
 | 620  | Destination application error                 |
-| 630  | Message not acknowledge                       |
+| 630  | Message not acknowledged                       |
 | 720  | Invalid destination number                    |
 | 740  | Invalid source number                         |
 | 999  | Unknown error                                 |
@@ -88,9 +88,7 @@ Message results are paginated based on the `size` parameter. If the number of me
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}
@@ -183,9 +181,7 @@ HEADER: <https://api.catapult.inetwork.com/v1/users/u-dkjf9094802375s/messages?s
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages?from=%2b{fromNumber} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages?from=%2b{fromNumber} -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}
@@ -247,9 +243,7 @@ messages = Message.list(client, {:from => "{fromNumber}"})
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/messages?from=%2b{fromNumber}&direction=out&toDateTime=2012-10-05%2020:37:39 \
-	-u {token}:{secret} \
-	-H "Content-type: application/json"
+curl -v -X GET "https://api.catapult.inetwork.com/v1/users/{userId}/messages?from=%2b{fromNumber}&direction=out&toDateTime=2012-10-05%2020:37:39" -u {token}:{secret} -H "Content-type: application/json"
 ```
 
 {% sample lang="js" %}

@@ -17,18 +17,18 @@ NOTE: Properties you don't send will remain unchanged.
 
 ### Supported Parameters
 
-| Parameter                         | Description                                                                                                      | Mandatory |
-|:----------------------------------|:-----------------------------------------------------------------------------------------------------------------|:----------|
-| name                              | A name you choose for this application.                                                                          | Yes       |
-| incomingCallUrl                   | A URL where call events will be sent for an inbound call.                                                        | No        |
-| incomingCallUrlCallbackTimeout    | Determine how long should the platform wait for incomingCallUrl's response before timing out in milliseconds.    | No        |
-| incomingCallFallbackUrl           | The URL used to send the callback event if the request to incomingCallUrl fails.                                 | No        |
-| incomingMessageUrl                | A URL where message events will be sent for an inbound SMS message.                                              | No        |
-| incomingMessageUrlCallbackTimeout | Determine how long should the platform wait for incomingMessageUrl's response before timing out in milliseconds. | No        |
-| incomingMessageFallbackUrl        | The URL used to send the callback event if the request to incomingMessageUrl fails.                              | No        |
-| callbackHttpMethod                | Determine if the callback event should be sent via HTTP GET or HTTP POST. (If not set the default is HTTP POST). | No        |
-| autoAnswer                        | Determines whether or not an incoming call should be automatically answered. Default value is 'true'.            | No        |
-
+| Parameter                         | Description                                                                                                                                                                                | Mandatory |
+|:----------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
+| name                              | A name you choose for this application.                                                                                                                                                    | Yes       |
+| incomingCallUrl                   | A URL where call events will be sent for an inbound call.                                                                                                                                  | No        |
+| incomingCallUrlCallbackTimeout    | Determine how long should the platform wait for incomingCallUrl's response before timing out in milliseconds. <br> **Default** Time: `10000` (10s) <br> **Maximum** Time: `10000` (10s)    | No        |
+| incomingCallFallbackUrl           | The URL used to send the callback event if the request to incomingCallUrl fails.                                                                                                           | No        |
+| incomingMessageUrl                | A URL where message events will be sent for an inbound SMS message.                                                                                                                        | No        |
+| incomingMessageUrlCallbackTimeout | Determine how long should the platform wait for incomingMessageUrl's response before timing out in milliseconds. <br> **Default** Time: `10000` (10s) <br> **Maximum** Time: `10000` (10s) | No        |
+| incomingMessageFallbackUrl        | The URL used to send the callback event if the request to incomingMessageUrl fails.                                                                                                        | No        |
+| callbackHttpMethod                | Determine if the HTTP callback event should be sent via GET or POST. Default is POST.                                                                           | No        |
+| autoAnswer                        | Determines whether or not an incoming call should be automatically answered. Default value is 'true'.                                                                                      | No        |
+ 
 {% common %}
 
 ### Example 1 of 1: Update Application
@@ -36,10 +36,12 @@ NOTE: Properties you don't send will remain unchanged.
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId} \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d '{"incomingCallUrl": "http://different.example.com/calls.php"}'
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/applications/{applicationId} -u {token}:{secret} -H "Content-type: application/json" -d
+    '
+    {
+        "incomingCallUrl": "http://different.example.com/calls.php"
+    }
+    '
 ```
 
 {% sample lang="js" %}

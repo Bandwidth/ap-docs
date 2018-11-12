@@ -1,7 +1,7 @@
 {% method %}
 
 ## Order Phone Number
-Allocates a number so you can use it to make and receive calls and send and receive messages. For more information about a new phone number, see the <a href="http://dev.bandwidth.com/faq/#Phone">FAQ</a>
+Allocates a number so you can use it to make and receive calls and send and receive messages. For more information about a new phone number, see the <a href="https://dev.bandwidth.com/faq/#Phone">FAQ</a>
 
 ### Request URL
 
@@ -25,10 +25,7 @@ To allocate the phone number {number} with the name "home phone" and the fallbac
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers \
-	-u {token}:{secret} \
-	-H "Content-type: application/json" \
-	-d \
+curl -v -X POST https://api.catapult.inetwork.com/v1/users/{userId}/phoneNumbers -u {token}:{secret} -H "Content-type: application/json" -d
 	'
 	{
 		"number": "+15555555555",

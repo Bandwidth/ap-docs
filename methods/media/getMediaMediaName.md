@@ -20,8 +20,7 @@ Instead, we recommend that you create a copy on your local server or a cloud sto
 {% sample lang="bash" %}
 
 ```bash
-curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/media/{mediaName} \
-	-u {token}:{secret} \
+curl -v -X GET https://api.catapult.inetwork.com/v1/users/{userId}/media/{mediaName} -u {token}:{secret}
 ```
 
 {% sample lang="js" %}
@@ -48,4 +47,9 @@ using(var data = await client.Media.DownloadAsync("file.mp3"))
 ```ruby
 content, media_type = Media.download(client, "file.mp3")
 ```
+
+{% common %}
+
+> The above command returns an HTTP 200 response along with the media file
+
 {% endmethod %}
