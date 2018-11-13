@@ -13,7 +13,6 @@ In the example below, when the call gets answered the sentence "Hi, thank you fo
 
 
 ## Code
-
 ```js
 const baseUrl = `http://bc66e785.ngrok.io`;
 const CALL_EVENTS = '/call-events';
