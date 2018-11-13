@@ -11,49 +11,49 @@
 1. Install the necessary dependencies
     1. Using terminal, go to the directory in which you are storing your file and type:
 
-        ```js
-        npm install --save node-bandwidth
-        npm install --save express
-        npm install --save body-parser
-        ```
+```js
+npm install --save node-bandwidth
+npm install --save express
+npm install --save body-parser
+```
     
     2. Paste the following code at the top of your file to access your dependencies.
 
-        ```js
-        /***************** Bandwidth setup ***********************/
-        const Bandwidth = require("node-bandwidth");
-        const express = require("express");
-        const app = express();
-        const bodyParser = require("body-parser");
-        const http = require("http").Server(app);
-        ```
+```js
+/***************** Bandwidth setup ***********************/
+const Bandwidth = require("node-bandwidth");
+const express = require("express");
+const app = express();
+const bodyParser = require("body-parser");
+const http = require("http").Server(app);
+```
 
 2. Paste the following code; it is required in every new application using BXML.
 
-    ```js
-    //Use a json body parser
-    app.use(bodyParser.json());
-    app.get("/", function (req, res) {
-        console.log(req);
-        res.send("Hello from Bandwidth!");
-    });
-    // Launch the Server
-    http.listen(app.get('port'), function(){
-        console.log('listening on *:' + app.get('port'));
-    });
-    //This is the port to be used oto direct online traffic to your localhost using Ngrok
-    //In terminal, type: ./ngrok http 3000
-    app.set('port', (process.env.PORT || 3000));
+```js
+//Use a json body parser
+app.use(bodyParser.json());
+app.get("/", function (req, res) {
+    console.log(req);
+    res.send("Hello from Bandwidth!");
+});
+// Launch the Server
+http.listen(app.get('port'), function(){
+    console.log('listening on *:' + app.get('port'));
+});
+//This is the port to be used oto direct online traffic to your localhost using Ngrok
+//In terminal, type: ./ngrok http 3000
+app.set('port', (process.env.PORT || 3000));
 
 
-    //Bandwidth Credentials
-    var client = new Bandwidth({
-        // Uses my environment variables
-        userId    : process.env.BANDWIDTH_USER_ID, 
-        apiToken  : process.env.BANDWIDTH_API_TOKEN,
-        apiSecret : process.env.BANDWIDTH_API_SECRET
-    });
-    ```
+//Bandwidth Credentials
+var client = new Bandwidth({
+    // Uses my environment variables
+    userId    : process.env.BANDWIDTH_USER_ID, 
+    apiToken  : process.env.BANDWIDTH_API_TOKEN,
+    apiSecret : process.env.BANDWIDTH_API_SECRET
+});
+```
 
 3. Make an active inbound or outbound call using the API.  This can be done with either of the three options below:
 

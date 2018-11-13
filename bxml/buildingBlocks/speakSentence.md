@@ -5,7 +5,7 @@ The Speak Sentence verb is used to play an automated message in a phone call.
 In the example below, when the call gets answered the sentence "Hi, thank you for calling Bandwidth! You are an awesome person. Go treat yourself to a Beyonce concert!"
 
 ## Use Cases
- Use Case                                    | BXML Code                                                 |
+| Use Case                                    | BXML Code                                                 |
 |:--------------------------------------------|:----------------------------------------------------------|
 | Change Language | Speak sentence "Salut! Nous espérons que vous passerez une merveilleuse journée!" in French with settings `voice="bernard" locale="fr" gender="male"` |
 | Promotional Intro | Speak sentence advertising company upon answer, then have them leave a voicemail using [</PlayAudio>](../verbs/playAudio.md) for the beep and [</Record>](../verbs/record.md)|

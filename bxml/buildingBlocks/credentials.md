@@ -42,17 +42,4 @@ const myCreds = {
 const bandwidthAPI = new Bandwidth(myCreds);
 ```
 
-{% sample lang="csharp" %}
-
-```c
-  //coming soon
-```
-
-{% sample lang="ruby" %}
-
-```ruby
-## coming soon
-```
-
-
 {% endmethod %}
