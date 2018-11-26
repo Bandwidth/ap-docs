@@ -11,7 +11,7 @@ To create an outbound call, we will use the RestAPI. The biggest difference is t
 
 
 ### Code
-The 'from' number is a Bandwith number you own. Change the 'to', 'from', and 'callbackUrl' parameters.
+The 'from' number is a Bandwith number you own. Change the 'to', 'from', and 'callbackUrl' parameters to your desired values.
 
 ```js
 var callParameters = {
