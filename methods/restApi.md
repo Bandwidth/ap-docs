@@ -6,6 +6,8 @@
 ## Conventions
 Some of the URLs in this documentation contain placeholders for values that your API client program must provide. These placeholders are shown in curly braces, like {this}. When you construct the URL to access these resources, replace those placeholders with the values you want to use.
 
+Language specific documentation can be found [here](https://dev.bandwidth.com/getStartedVMDKS.html)
+
 ## REST API Reference Index
 
 | Resource                                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
