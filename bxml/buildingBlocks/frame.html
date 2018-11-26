@@ -76,7 +76,7 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="speakSentence.html">
+    <link rel="next" href="credentials.html">
     
     
     <link rel="prev" href="about.html">
@@ -2032,47 +2032,7 @@
         
         
     
-        <li class="chapter " data-level="6.1" data-path="../guides.html">
-            
-                <a href="../guides.html">
-            
-                    
-                    BXML Guides
-            
-                </a><i class="fa fa-eye expand fa-eye-slash" aria-hidden="true"></i>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="6.1.1" data-path="../bxmlConcepts.html">
-            
-                <a href="../bxmlConcepts.html">
-            
-                    
-                    BXML Concepts and Vocabulary
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="6.1.2" data-path="../bxmlOverview.html">
-            
-                <a href="../bxmlOverview.html">
-            
-                    
-                    BXML Overview
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="6.1.3" data-path="about.html">
+        <li class="chapter " data-level="6.1" data-path="about.html">
             
                 <a href="about.html">
             
@@ -2086,7 +2046,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="6.1.3.1" data-path="frame.html">
+        <li class="chapter active" data-level="6.1.1" data-path="frame.html">
             
                 <a href="frame.html">
             
@@ -2099,7 +2059,20 @@
             
         </li>
     
-        <li class="chapter " data-level="6.1.3.2" data-path="speakSentence.html">
+        <li class="chapter " data-level="6.1.2" data-path="credentials.html">
+            
+                <a href="credentials.html">
+            
+                    
+                    Credentials
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.3" data-path="speakSentence.html">
             
                 <a href="speakSentence.html">
             
@@ -2112,7 +2085,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.1.3.3" data-path="playAudio.html">
+        <li class="chapter " data-level="6.1.4" data-path="playAudio.html">
             
                 <a href="playAudio.html">
             
@@ -2125,7 +2098,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.1.3.4" data-path="record.html">
+        <li class="chapter " data-level="6.1.5" data-path="record.html">
             
                 <a href="record.html">
             
@@ -2138,7 +2111,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.1.3.5" data-path="voicemail.html">
+        <li class="chapter " data-level="6.1.6" data-path="voicemail.html">
             
                 <a href="voicemail.html">
             
@@ -2151,7 +2124,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.1.3.6" data-path="createCall.html">
+        <li class="chapter " data-level="6.1.7" data-path="createCall.html">
             
                 <a href="createCall.html">
             
@@ -2164,7 +2137,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.1.3.7" data-path="forwardCall.html">
+        <li class="chapter " data-level="6.1.8" data-path="forwardCall.html">
             
                 <a href="forwardCall.html">
             
@@ -2174,11 +2147,6 @@
                 </a>
             
 
-            
-        </li>
-    
-
-            </ul>
             
         </li>
     
@@ -2367,51 +2335,50 @@
 </ol>
 <h6 id="code">Code</h6>
 <ol>
-<li><p>Install the necessary dependencies</p>
+<li>Install the necessary dependencies<ol>
+<li>Using terminal, go to the directory in which you are storing your file and type:</li>
+</ol>
+</li>
+</ol>
+<pre><code class="lang-js">npm install --save node-bandwidth
+npm install --save express
+npm install --save body-parser
+</code></pre>
+<pre><code>2. Paste the following code at the top of your file to access your dependencies.
+</code></pre><pre><code class="lang-js"><span class="hljs-comment">/***************** Bandwidth setup ***********************/</span>
+<span class="hljs-keyword">const</span> Bandwidth = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;node-bandwidth&quot;</span>);
+<span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>);
+<span class="hljs-keyword">const</span> app = express();
+<span class="hljs-keyword">const</span> bodyParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;body-parser&quot;</span>);
+<span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;http&quot;</span>).Server(app);
+</code></pre>
 <ol>
-<li><p>Using terminal, go to the directory in which you are storing your file and type:</p>
-<pre><code class="lang-js"> npm install --save node-bandwidth
- npm install --save express
- npm install --save body-parser
-</code></pre>
-</li>
-<li><p>Paste the following code at the top of your file to access your dependencies.</p>
-<pre><code class="lang-js"> <span class="hljs-comment">/***************** Bandwidth setup ***********************/</span>
- <span class="hljs-keyword">const</span> Bandwidth = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;node-bandwidth&quot;</span>);
- <span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>);
- <span class="hljs-keyword">const</span> app = express();
- <span class="hljs-keyword">const</span> bodyParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;body-parser&quot;</span>);
- <span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;http&quot;</span>).Server(app);
-</code></pre>
-</li>
+<li>Paste the following code; it is required in every new application using BXML.</li>
 </ol>
-</li>
-<li><p>Paste the following code; it is required in every new application using BXML.</p>
-<p> ```js
- //Use a json body parser
- app.use(bodyParser.json());
- app.get(&quot;/&quot;, function (req, res) {</p>
-<pre><code> console.log(req);
- res.send(&quot;Hello from Bandwidth!&quot;);
-</code></pre><p> });
- // Launch the Server
- http.listen(app.get(&apos;port&apos;), function(){</p>
-<pre><code> console.log(&apos;listening on *:&apos; + app.get(&apos;port&apos;));
-</code></pre><p> });
- //This is the port to be used oto direct online traffic to your localhost using Ngrok
- //In terminal, type: ./ngrok http 3000
- app.set(&apos;port&apos;, (process.env.PORT || 3000));</p>
-</li>
-</ol>
-<pre><code>//Bandwidth Credentials
-var client = new Bandwidth({
-    // Uses my environment variables
-    userId    : process.env.BANDWIDTH_USER_ID, 
-    apiToken  : process.env.BANDWIDTH_API_TOKEN,
-    apiSecret : process.env.BANDWIDTH_API_SECRET
+<pre><code class="lang-js"><span class="hljs-comment">//Use a json body parser</span>
+app.use(bodyParser.json());
+app.get(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(req);
+    res.send(<span class="hljs-string">&quot;Hello from Bandwidth!&quot;</span>);
 });
-```
-</code></pre><ol>
+<span class="hljs-comment">// Launch the Server</span>
+http.listen(app.get(<span class="hljs-string">&apos;port&apos;</span>), <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;listening on *:&apos;</span> + app.get(<span class="hljs-string">&apos;port&apos;</span>));
+});
+<span class="hljs-comment">//This is the port to be used oto direct online traffic to your localhost using Ngrok</span>
+<span class="hljs-comment">//In terminal, type: ./ngrok http 3000</span>
+app.set(<span class="hljs-string">&apos;port&apos;</span>, (process.env.PORT || <span class="hljs-number">3000</span>));
+
+
+<span class="hljs-comment">//Bandwidth Credentials</span>
+<span class="hljs-keyword">var</span> client = <span class="hljs-keyword">new</span> Bandwidth({
+    <span class="hljs-comment">// Uses my environment variables</span>
+    userId    : process.env.BANDWIDTH_USER_ID, 
+    <span class="hljs-attr">apiToken</span>  : process.env.BANDWIDTH_API_TOKEN,
+    <span class="hljs-attr">apiSecret</span> : process.env.BANDWIDTH_API_SECRET
+});
+</code></pre>
+<ol>
 <li>Make an active inbound or outbound call using the API.  This can be done with either of the three options below:</li>
 </ol>
 <p>A) Outbound Call: Use Postman to Create a Call for demo purposes</p>
@@ -2448,109 +2415,108 @@ var client = new Bandwidth({
         d. Automatically answer calls: Turn ON
         e. Assign a Bandwidth number to the application
     iii. Make a call to the Bandwidth number</p>
-<p>C) Inbound Call: Create an application with code to automatically answer incoming calls. Paste after the code from part 2.  Every time this code is run, an applictation is created.</p>
-<pre><code>```js
-//Only need to fill out the three requirements indicated by {{ }}
-var appName = {{Your app name}}
-var BWnumber = {{Your Bandwidth number with &apos;+1&apos;}}
+<p>C) Inbound Call: Create an application with code to automatically answer incoming calls. Paste after the code from 2).  Every time this code is run, an applictation is created.</p>
+<pre><code class="lang-js"><span class="hljs-comment">//Only need to fill out the three requirements indicated by {{ }}</span>
+<span class="hljs-keyword">var</span> appName = {{Your app name}}
+<span class="hljs-keyword">var</span> BWnumber = {{Your Bandwidth number <span class="hljs-keyword">with</span> <span class="hljs-string">&apos;+1&apos;</span>}}
 
-client.Application.create({                             //Create Application with necessary requirements
+client.Application.create({                             <span class="hljs-comment">//Create Application with necessary requirements</span>
     name: appName,
-    incomingCallUrl: {{base Ngrok URL + callbackURL}},
-    callbackHttpMethod: &apos;GET&apos;,
-    autoAnswer: true
+    <span class="hljs-attr">incomingCallUrl</span>: {{base Ngrok URL + callbackURL}},
+    <span class="hljs-attr">callbackHttpMethod</span>: <span class="hljs-string">&apos;GET&apos;</span>,
+    <span class="hljs-attr">autoAnswer</span>: <span class="hljs-literal">true</span>
 })
-.then(function (response) {                             //List all current applications including app just created
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{                             <span class="hljs-comment">//List all current applications including app just created</span>
     client.Application.list()
-    .then(function (response) {
-        if(response.hasNextPage) {
-            return response.getNextPage();
+    .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
+        <span class="hljs-keyword">if</span>(response.hasNextPage) {
+            <span class="hljs-keyword">return</span> response.getNextPage();
         }
-        else {
-            return {applications: []};
+        <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> {<span class="hljs-attr">applications</span>: []};
         }
     })
-    .then(function(response) {                          //Search for application just created by name, grab app id
-        for (var i; i &lt; response.applications.length-1; i++){
-            if (response.applications[i].name == appName){
-                return response.applications[i].id
+    .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>{                          <span class="hljs-comment">//Search for application just created by name, grab app id</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i; i &lt; response.applications.length<span class="hljs-number">-1</span>; i++){
+            <span class="hljs-keyword">if</span> (response.applications[i].name == appName){
+                <span class="hljs-keyword">return</span> response.applications[i].id
             }
         }
     })
-    .then(function(reponse){                            //Assign a BW number you own to new application
-        var s = `New application ${appName} successfully created`;
-        console.log(s);
-        console.log(response)
+    .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">reponse</span>)</span>{                            <span class="hljs-comment">//Assign a BW number you own to new application</span>
+        <span class="hljs-keyword">var</span> s = <span class="hljs-string">`New application <span class="hljs-subst">${appName}</span> successfully created`</span>;
+        <span class="hljs-built_in">console</span>.log(s);
+        <span class="hljs-built_in">console</span>.log(response)
         client.PhoneNumber.update(BWnumber, {
-            applicationId: response.id})
-        .then(function(response){
-            var p = `${BWnumber} successfully assigned to ${appName}`;
-            console.log(p);
+            <span class="hljs-attr">applicationId</span>: response.id})
+        .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>)</span>{
+            <span class="hljs-keyword">var</span> p = <span class="hljs-string">`<span class="hljs-subst">${BWnumber}</span> successfully assigned to <span class="hljs-subst">${appName}</span>`</span>;
+            <span class="hljs-built_in">console</span>.log(p);
         });
     });
 });
-
-```
-</code></pre><ol>
-<li><p>Catch the callbacks and start handling call events using BXML</p>
-<pre><code class="lang-js"> <span class="hljs-comment">//Template:</span>
-
- <span class="hljs-comment">//BXML requires using GET</span>
- <span class="hljs-keyword">const</span> baseUrl = <span class="hljs-string">`ngrokBaseUrl`</span>;
- <span class="hljs-keyword">const</span> CALL_EVENTS = <span class="hljs-string">&apos;/callbackURL&apos;</span>;
-
- <span class="hljs-keyword">const</span> handleAnswerEvent = <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
-     <span class="hljs-comment">// Here, only care about answer events</span>
-     <span class="hljs-keyword">if</span> (req.query.eventType !== <span class="hljs-string">&apos;answer&apos;</span>) {
-         res.sendStatus(<span class="hljs-number">200</span>);
-         <span class="hljs-keyword">return</span>;
-     }
-     <span class="hljs-keyword">const</span> bxml = <span class="hljs-string">`&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-
-                   &lt;Response&gt;
-
-                   [YOUR BXML HERE]
-
-                   &lt;/Response&gt;`</span>
-
-     res.send(bxml);
- };
-
- app.get(CALL_EVENTS, handleAnswerEvent);
-
- <span class="hljs-comment">//Example: Make an outbound call to your cell number</span>
-
- <span class="hljs-keyword">const</span> baseUrl = <span class="hljs-string">`http://bc66e785.ngrok.io`</span>;
- <span class="hljs-keyword">const</span> CALL_EVENTS = <span class="hljs-string">&apos;/call-events&apos;</span>;
-
- <span class="hljs-keyword">const</span> handleAnswerEvent = <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
-     <span class="hljs-keyword">if</span> (req.query.eventType !== <span class="hljs-string">&apos;answer&apos;</span>) {
-         res.sendStatus(<span class="hljs-number">200</span>);
-         <span class="hljs-keyword">return</span>;
-     }
-     <span class="hljs-keyword">const</span> bxml = <span class="hljs-string">`&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-
-                   &lt;Response&gt;
-
-                   &lt;SpeakSentence voice=&quot;susan&quot;&gt;Welcome to Bandwidth!&lt;/SpeakSentence&gt;
-
-                   &lt;/Response&gt;`</span>
-
-     res.send(bxml);
- };
-
- app.get(CALL_EVENTS, handleAnswerEvent);
 </code></pre>
-</li>
-<li><p>In your terminal, cd into the folder that the file is held in, then type the following to test the code.</p>
-<pre><code class="lang-js"> node <span class="hljs-string">&apos;filename&apos;</span>
-</code></pre>
-</li>
-<li><p>Click SEND on Postman if making an outbound call, and then answer the call.<br>OR
-Call the Bandwidth number (used in your code above) with your personal phone number. 
-You should hear &quot;Welcome to Bandwidth!&quot;.</p>
-</li>
+<ol>
+<li>Catch the callbacks and start handling call events using BXML</li>
 </ol>
+<pre><code class="lang-js"><span class="hljs-comment">//Template:</span>
+
+<span class="hljs-comment">//BXML requires using GET</span>
+<span class="hljs-keyword">const</span> baseUrl = <span class="hljs-string">`ngrokBaseUrl`</span>;
+<span class="hljs-keyword">const</span> CALL_EVENTS = <span class="hljs-string">&apos;/callbackURL&apos;</span>;
+
+<span class="hljs-keyword">const</span> handleAnswerEvent = <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+    <span class="hljs-comment">// Here, only care about answer events</span>
+    <span class="hljs-keyword">if</span> (req.query.eventType !== <span class="hljs-string">&apos;answer&apos;</span>) {
+        res.sendStatus(<span class="hljs-number">200</span>);
+        <span class="hljs-keyword">return</span>;
+    }
+    <span class="hljs-keyword">const</span> bxml = <span class="hljs-string">`&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+                  &lt;Response&gt;
+
+                  [YOUR BXML HERE]
+
+                  &lt;/Response&gt;`</span>
+
+    res.send(bxml);
+};
+
+app.get(CALL_EVENTS, handleAnswerEvent);
+
+<span class="hljs-comment">//Example: Make an outbound call to your cell number</span>
+
+<span class="hljs-keyword">const</span> baseUrl = <span class="hljs-string">`http://bc66e785.ngrok.io`</span>;
+<span class="hljs-keyword">const</span> CALL_EVENTS = <span class="hljs-string">&apos;/call-events&apos;</span>;
+
+<span class="hljs-keyword">const</span> handleAnswerEvent = <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> {
+    <span class="hljs-keyword">if</span> (req.query.eventType !== <span class="hljs-string">&apos;answer&apos;</span>) {
+        res.sendStatus(<span class="hljs-number">200</span>);
+        <span class="hljs-keyword">return</span>;
+    }
+    <span class="hljs-keyword">const</span> bxml = <span class="hljs-string">`&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+                  &lt;Response&gt;
+
+                  &lt;SpeakSentence voice=&quot;susan&quot;&gt;Welcome to Bandwidth!&lt;/SpeakSentence&gt;
+
+                  &lt;/Response&gt;`</span>
+
+    res.send(bxml);
+};
+
+app.get(CALL_EVENTS, handleAnswerEvent);
+</code></pre>
+<ol>
+<li>In your terminal, cd into the folder that the file is held in, then type the following to test the code.</li>
+</ol>
+<pre><code class="lang-js">node <span class="hljs-string">&apos;filename&apos;</span>
+</code></pre>
+<ol>
+<li>Click SEND on Postman if making an outbound call, and then answer the call.<br>OR
+Call the Bandwidth number (used in your code above) with your personal phone number. </li>
+</ol>
+<p>You should hear &quot;Welcome to Bandwidth!&quot;.</p>
 
                                 
                                 </section>
@@ -2584,7 +2550,7 @@ You should hear &quot;Welcome to Bandwidth!&quot;.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Environment Setup","level":"6.1.3.1","depth":3,"next":{"title":"Speak Sentence","level":"6.1.3.2","depth":3,"path":"bxml/buildingBlocks/speakSentence.md","ref":"bxml/buildingBlocks/speakSentence.md","articles":[]},"previous":{"title":"BXML Building Blocks","level":"6.1.3","depth":2,"path":"bxml/buildingBlocks/about.md","ref":"bxml/buildingBlocks/about.md","articles":[{"title":"Environment Setup","level":"6.1.3.1","depth":3,"path":"bxml/buildingBlocks/frame.md","ref":"bxml/buildingBlocks/frame.md","articles":[]},{"title":"Speak Sentence","level":"6.1.3.2","depth":3,"path":"bxml/buildingBlocks/speakSentence.md","ref":"bxml/buildingBlocks/speakSentence.md","articles":[]},{"title":"Play Audio","level":"6.1.3.3","depth":3,"path":"bxml/buildingBlocks/playAudio.md","ref":"bxml/buildingBlocks/playAudio.md","articles":[]},{"title":"Record","level":"6.1.3.4","depth":3,"path":"bxml/buildingBlocks/record.md","ref":"bxml/buildingBlocks/record.md","articles":[]},{"title":"Voicemail","level":"6.1.3.5","depth":3,"path":"bxml/buildingBlocks/voicemail.md","ref":"bxml/buildingBlocks/voicemail.md","articles":[]},{"title":"Outbound Call","level":"6.1.3.6","depth":3,"path":"bxml/buildingBlocks/createCall.md","ref":"bxml/buildingBlocks/createCall.md","articles":[]},{"title":"Forward a Call","level":"6.1.3.7","depth":3,"path":"bxml/buildingBlocks/forwardCall.md","ref":"bxml/buildingBlocks/forwardCall.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.11","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs","mathjax"],"pluginsConfig":{"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"bxml/buildingBlocks/frame.md","mtime":"2018-11-26T19:04:32.473Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-26T19:06:19.600Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Environment Setup","level":"6.1.1","depth":2,"next":{"title":"Credentials","level":"6.1.2","depth":2,"path":"bxml/buildingBlocks/credentials.md","ref":"bxml/buildingBlocks/credentials.md","articles":[]},"previous":{"title":"BXML Building Blocks","level":"6.1","depth":1,"path":"bxml/buildingBlocks/about.md","ref":"bxml/buildingBlocks/about.md","articles":[{"title":"Environment Setup","level":"6.1.1","depth":2,"path":"bxml/buildingBlocks/frame.md","ref":"bxml/buildingBlocks/frame.md","articles":[]},{"title":"Credentials","level":"6.1.2","depth":2,"path":"bxml/buildingBlocks/credentials.md","ref":"bxml/buildingBlocks/credentials.md","articles":[]},{"title":"Speak Sentence","level":"6.1.3","depth":2,"path":"bxml/buildingBlocks/speakSentence.md","ref":"bxml/buildingBlocks/speakSentence.md","articles":[]},{"title":"Play Audio","level":"6.1.4","depth":2,"path":"bxml/buildingBlocks/playAudio.md","ref":"bxml/buildingBlocks/playAudio.md","articles":[]},{"title":"Record","level":"6.1.5","depth":2,"path":"bxml/buildingBlocks/record.md","ref":"bxml/buildingBlocks/record.md","articles":[]},{"title":"Voicemail","level":"6.1.6","depth":2,"path":"bxml/buildingBlocks/voicemail.md","ref":"bxml/buildingBlocks/voicemail.md","articles":[]},{"title":"Outbound Call","level":"6.1.7","depth":2,"path":"bxml/buildingBlocks/createCall.md","ref":"bxml/buildingBlocks/createCall.md","articles":[]},{"title":"Forward a Call","level":"6.1.8","depth":2,"path":"bxml/buildingBlocks/forwardCall.md","ref":"bxml/buildingBlocks/forwardCall.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.11","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs","mathjax"],"pluginsConfig":{"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"bxml/buildingBlocks/frame.md","mtime":"2018-11-26T21:55:00.864Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-26T21:56:53.911Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

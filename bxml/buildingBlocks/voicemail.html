@@ -2032,47 +2032,7 @@
         
         
     
-        <li class="chapter " data-level="6.1" data-path="../guides.html">
-            
-                <a href="../guides.html">
-            
-                    
-                    BXML Guides
-            
-                </a><i class="fa fa-eye expand fa-eye-slash" aria-hidden="true"></i>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="6.1.1" data-path="../bxmlConcepts.html">
-            
-                <a href="../bxmlConcepts.html">
-            
-                    
-                    BXML Concepts and Vocabulary
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="6.1.2" data-path="../bxmlOverview.html">
-            
-                <a href="../bxmlOverview.html">
-            
-                    
-                    BXML Overview
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="6.1.3" data-path="about.html">
+        <li class="chapter " data-level="6.1" data-path="about.html">
             
                 <a href="about.html">
             
@@ -2086,7 +2046,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="6.1.3.1" data-path="frame.html">
+        <li class="chapter " data-level="6.1.1" data-path="frame.html">
             
                 <a href="frame.html">
             
@@ -2099,7 +2059,20 @@
             
         </li>
     
-        <li class="chapter " data-level="6.1.3.2" data-path="speakSentence.html">
+        <li class="chapter " data-level="6.1.2" data-path="credentials.html">
+            
+                <a href="credentials.html">
+            
+                    
+                    Credentials
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.3" data-path="speakSentence.html">
             
                 <a href="speakSentence.html">
             
@@ -2112,7 +2085,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.1.3.3" data-path="playAudio.html">
+        <li class="chapter " data-level="6.1.4" data-path="playAudio.html">
             
                 <a href="playAudio.html">
             
@@ -2125,7 +2098,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.1.3.4" data-path="record.html">
+        <li class="chapter " data-level="6.1.5" data-path="record.html">
             
                 <a href="record.html">
             
@@ -2138,7 +2111,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="6.1.3.5" data-path="voicemail.html">
+        <li class="chapter active" data-level="6.1.6" data-path="voicemail.html">
             
                 <a href="voicemail.html">
             
@@ -2151,7 +2124,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.1.3.6" data-path="createCall.html">
+        <li class="chapter " data-level="6.1.7" data-path="createCall.html">
             
                 <a href="createCall.html">
             
@@ -2164,7 +2137,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.1.3.7" data-path="forwardCall.html">
+        <li class="chapter " data-level="6.1.8" data-path="forwardCall.html">
             
                 <a href="forwardCall.html">
             
@@ -2174,11 +2147,6 @@
                 </a>
             
 
-            
-        </li>
-    
-
-            </ul>
             
         </li>
     
@@ -2376,12 +2344,11 @@ The structure below imitates the standard voicemail system.
 <tbody>
 <tr>
 <td style="text-align:left">Transfer call to next available operator. If there is no answer after 10 seconds, then leave a voicemail</td>
-</tr>
-<tr>
-<td style="text-align:left">Upon answering, an automated sentence is spoken (<code>&lt;SpeakSentence voice=&quot;susan&quot;&gt; Please wait for the next available operator &lt;/SpeakSentence&gt;</code>). Then, nested in a <a href="../verbs/transfer.html"><code>&lt;/Transfer&gt;</code></a> verb, the call will transfer to one of a list of numbers.  When the transferred gets picked up, a sentence is spoken - &quot;This call has been forwarded&quot;, also nested in the Transfer verb. If nobody picks up after 10 sec, the call gets sent to voicemail (refer below)</td>
+<td style="text-align:left"><code>&lt;SpeakSentence voice=&quot;susan&quot;&gt;Please wait for the next available operator&lt;/SpeakSentence&gt;</code></td>
 </tr>
 </tbody>
 </table>
+<p>Upon answering, an automated sentence is spoken (<code>&lt;SpeakSentence voice=&quot;susan&quot;&gt;Please wait for the next available operator&lt;/SpeakSentence&gt;</code>). Then, nested in a <a href="../verbs/transfer.html"><code>&lt;/Transfer&gt;</code></a> verb, the call will transfer to one of a list of numbers.  When the transferred gets picked up, a sentence is spoken - &quot;This call has been forwarded&quot;, also nested in the Transfer verb. If nobody picks up after 10 sec, the call gets sent to voicemail (<a href="../verbs/speakSentence.html">`&lt;/SpeakSentence&gt;</a><a href="../verbs/playAudio.html">&lt;/PlayAudio&gt;</a><a href="../verbs/record.html">&lt;/Record&gt;`</a>)|</p>
 <h2 id="code">Code</h2>
 <p>Change the <code>baseUrl</code> parameter. The recording will be sent to the callback URL: baseUrl + /recordResponse.</p>
 <pre><code class="lang-js"><span class="hljs-keyword">const</span> baseUrl = <span class="hljs-string">`http://bc66e785.ngrok.io`</span>;
@@ -2447,7 +2414,7 @@ app.get(<span class="hljs-string">&quot;/recordResponse&quot;</span>, (req, res)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Voicemail","level":"6.1.3.5","depth":3,"next":{"title":"Outbound Call","level":"6.1.3.6","depth":3,"path":"bxml/buildingBlocks/createCall.md","ref":"bxml/buildingBlocks/createCall.md","articles":[]},"previous":{"title":"Record","level":"6.1.3.4","depth":3,"path":"bxml/buildingBlocks/record.md","ref":"bxml/buildingBlocks/record.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.11","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs","mathjax"],"pluginsConfig":{"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"bxml/buildingBlocks/voicemail.md","mtime":"2018-11-26T19:04:32.473Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-26T19:06:19.600Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Voicemail","level":"6.1.6","depth":2,"next":{"title":"Outbound Call","level":"6.1.7","depth":2,"path":"bxml/buildingBlocks/createCall.md","ref":"bxml/buildingBlocks/createCall.md","articles":[]},"previous":{"title":"Record","level":"6.1.5","depth":2,"path":"bxml/buildingBlocks/record.md","ref":"bxml/buildingBlocks/record.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-bandwidth@1.9.11","header","sharing","custom-jquery-postprocessing","bandwidth-toggle-chapters","custom-favicon","-hightlight","-fontsettings","bandwidth-highlight","bandwidth-fonts","usabilla","include-html@0.2.0","codetabs","mathjax"],"pluginsConfig":{"bandwidth-toggle-chapters":{},"custom-jquery-postprocessing":{},"search":{},"bandwidth-fonts":{"family":"sans","size":2,"theme":"white"},"layout":{"headerPath":"layouts/header.html"},"codetabs":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-bandwidth":{"languages":[{"lang":"js","name":"Js","default":true},{"lang":"csharp","name":"C#"},{"lang":"ruby","name":"ruby"},{"lang":"bash","name":"cURL"}],"split":true,"theme":"light"},"header":{},"customJquery":{"js":"js/custom.js"},"include-html":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"favicon/favicon.ico","usabilla":{"usabillaId":"73009503da29"},"bandwidth-highlight":{},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"bxml/buildingBlocks/voicemail.md","mtime":"2018-11-26T21:55:00.864Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-26T21:56:53.911Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
