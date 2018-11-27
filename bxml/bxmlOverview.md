@@ -56,7 +56,9 @@ The call must be active in order to send BXML. BXML has the ability to do the fo
 * [Play Audio](verbs/playAudio.md): play a .mp3 or .wav audio file into a call
 * [Speak Sentence](verbs/speakSentence.md): Speak any sentence into the call
 * [Gather](verbs/gather.md):  Collects digits from the user. This would be used in a call tree (ex. Press 1 for more options press)
-* [Record](verbs/record.md): Record the user. This is often used for voicemail.
-* [Redirect](verbs/redirect.md): Directs the program from one block of code to another.
-* [Transfer](verbs/transfer.md): Transfer call from one number to another.
+* [Record](verbs/record.md): Record the user. This is often used for voicemail
+* [Redirect](verbs/redirect.md): Directs the program from one block of code to another
+* [Transfer](verbs/transfer.md): Transfer call from one number to another
 * [Hangup](verbs/hangup.md): Ends the call
+* [Pause](bxml/verbs/pause.md): Pauses the execution of the current BXML document
+* [SendDtmf](bxml/verbs/sendDtmf.md): Send DTMF digits to a call

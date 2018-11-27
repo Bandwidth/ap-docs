@@ -1,9 +1,11 @@
 {% method %}
 
 ## List Messages
-Gets a list messages you have sent or received. Since this operation uses HTTP GET, all the properties are specified as HTTP request parameters.
+Gets a list of messages you have sent or received. Since this operation uses HTTP GET, all the properties are specified as HTTP request parameters.
 
 We only store the message contents for 30 days. Any messages older than 30 days will not contain text. For more information, see the <a href="https://dev.bandwidth.com/faq/#messaging">FAQ</a>
+
+Messages are returned newest first. If you make a request for a small number of messages with a large range between the start date and end date, the messages selected will be the ones closer to the end date.
 
 ### Request URL
 

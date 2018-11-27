@@ -143,6 +143,17 @@
  * [Redirect event](bxml/callBacks/redirect.md)
  * [Transfer Complete Event](bxml/callBacks/transfer.md)
 
+## BXML Guides
+* [BXML Building Blocks](bxml/buildingBlocks/about.md)
+  * [Environment Setup](bxml/buildingBlocks/frame.md)
+  * [Credentials](bxml/buildingBlocks/credentials.md)
+  * [Speak Sentence](bxml/buildingBlocks/speakSentence.md)
+  * [Play Audio](bxml/buildingBlocks/playAudio.md)
+  * [Record](bxml/buildingBlocks/record.md)
+  * [Voicemail](bxml/buildingBlocks/voicemail.md)
+  * [Outbound Call](bxml/buildingBlocks/createCall.md)
+  * [Forward a Call](bxml/buildingBlocks/forwardCall.md)
+
 ## Rate Limits
 * [Rate Limits](rateLimits.md)
    * [Calls](rateLimits/callRateLimits.md)
