@@ -24,6 +24,7 @@ Bandwidth API sends this message to the application when the call ends.
 | `CALL_REJECTED`      | Call rejected                                           |
 | `UNALLOCATED_NUMBER` | Number could not be reached because it was unallocated  |
 | `NO_ANSWER`          | Call not answered                                       |
+| `NORMAL_TEMPORARY_FAILURE` | Call is an international call and is not assigned an International Product
 | `<OTHER>`            | Anything else indicates an internal error               |
 
 {% common %}
