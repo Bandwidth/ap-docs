@@ -33,13 +33,14 @@ All Bandwidth messaging products are rate limited in some fashion. The default r
 | **Per-Number** | Outbound _dequeue_ rate | The rate that Bandwidth will send your messages from a **single phone number** to the downstream carriers                                                                                                   | P2P - 1 MPS <br> A2P - ∞, up to account limit                                                                                                                   |
 | **Account**    | Inbound _API_ rate      | The rate that Bandwidth's API will accept new messages requests.                                                                                                                                            | 1 MPS                                                                                                                                                           |
 | **Per-Number** | Inbound _API_ rate      | The rate that Bandwidth's API will accept new messages requests from the same phone number                                                                                                                  | P2P - 1 MPS <br> A2P - ∞, up to account limit                                                                                                                   |
-| **Account**    | Burst _API_ rate        | The burst rate that Bandwidht's API will accept new messages. Essentially how quickly can the queue be filled. <br> <br> ⚠️ If queuing is **not** enabled, this will be same as the  **Inbound _API_ rate** | 1 MPS <br> -or- <br> **Account** Outbound _dequeue_ rate + 10 <br><br> Example: **Account** Outbound _dequeue_ rate is 5 MPS, the **Burst** rate will be 15 MPS |
+| **Account**    | Burst _API_ rate        | The burst rate that Bandwidth's API will accept new messages. Essentially how quickly can the queue be filled. <br> <br> ⚠️ If queuing is **not** enabled, this will be same as the  **Inbound _API_ rate** | 1 MPS <br> -or- <br> **Account** Outbound _dequeue_ rate + 10 <br><br> Example: **Account** Outbound _dequeue_ rate is 5 MPS, the **Burst** rate will be 15 MPS |
 
 ### 403 – LIMIT
-| Code                | Message                                                                                                     |
-|:--------------------|:------------------------------------------------------------------------------------------------------------|
-| message-rate-limit  | You can send ${0} messages per ${1} seconds calculated as the average over ${2} seconds. Your rate is: ${3} |
-| multi-message-limit | The number of messages [${0}] in the multi message request is greater than the limit [${1}].                |
+| Code                        | Message                                                                                                        |
+|:----------------------------|:---------------------------------------------------------------------------------------------------------------|
+| message-rate-limit-overall  | You can send ${0} messages per ${1} seconds calculated as the average over ${2} seconds. Your rate is: ${3}    |
+| message-rate-limit-per-tn   | You can send ${0} messages per ${1} seconds per telephone number, calculated as the average over ${2} seconds. Your rate is: ${3} for telephone number ${4} |
+| multi-message-limit         | The number of messages [${0}] in the multi message request is greater than the limit [${1}].                   |
 
 ### Sample Message Rate Limit Response
 
