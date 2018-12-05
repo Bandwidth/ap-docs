@@ -25,7 +25,7 @@ Get list of bridges for a given user.
 | state         | Bridge state. Possible state values are described below. |
 | callIds       | List of call Ids that will be in the bridge.             |
 | calls         | The URL used to retrieve the calls in a specific bridge. |
-| bridgeAudio   | Enable/Disable two way audio path.                       |
+| bridgeAudio   | Enable/Disable two-way audio path.                       |
 | completedTime | The time when the bridge was completed.                  |
 | createdTime   | The time that bridge was created.                        |
 | activatedTime | The time that the bridge got into active state.          |

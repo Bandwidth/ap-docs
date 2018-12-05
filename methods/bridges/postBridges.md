@@ -14,7 +14,7 @@ Create a new bridge.
 
 | Parameter   | Description                                                                                                                                          | Mandatory |
 |:------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
-| bridgeAudio | Enable/Disable two way audio path (default = true).                                                                                                  | No        |
+| bridgeAudio | Enable/Disable two-way audio path (default = true).                                                                                                  | No        |
 | callIds     | The list of call ids in the bridge. If the list of call ids is not provided the bridge is logically created and it can be used to place calls later. | No        |
 
 {% common %}

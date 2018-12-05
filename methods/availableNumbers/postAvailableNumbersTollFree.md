@@ -1,7 +1,7 @@
 {% method %}
 
 ## Order Toll Free Phone Number
-Searches and order available Toll Free numbers.
+Search for and order available Toll Free numbers.
 
 <aside class="alert general">
 <p>
