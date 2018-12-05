@@ -15,7 +15,7 @@ The call to be transferred must have state set to: <code>active</code>
 ---
 
 ### Ensure call is `active`
-To answer a call (or set active) be sure to do one of the following:
+To answer a call (or set to <code>active</code>) be sure to do one of the following:
 * All incoming calls to be auto-answered. Set [`{"autoAnswer": true}`](../applications/postApplicationsApplicationId.md) flag in your [`application`](../applications/applications.md).
 * Update the individual Call by: <code class="post">POST</code> to the [{callId}](postCallsCallId.md) with [`{"state": "active"}`](postCallsCallId.md).
 
