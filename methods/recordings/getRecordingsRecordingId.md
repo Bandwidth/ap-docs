@@ -1,7 +1,7 @@
 {% method %}
 
 ## Fetch Recording Information
-Retrieve a specific call recording information in JSON format, identified by recordingId. For more details on how to retrieve the recorded media file, please access Media documentation.
+Retrieve a specific call recording information in JSON format, identified by recordingId. For more details on how to retrieve the recorded media file, please access [Media documentation](../media/media.md).
 
 See the [faq](https://dev.bandwidth.com/faq/voice/callRecordings.html) for more information about Recordings and storage.
 
