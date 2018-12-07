@@ -19,7 +19,7 @@ Gets a list of active and historic calls you made or received. Since this operat
 | to           | The number to filter calls that was called to (must be either an E.164 formatted number, like +19195551212, or a valid SIP URI, like sip:someone@somewhere.com).     | No        |
 | page         | Used for pagination to indicate the page requested for querying a list of calls. If no value is specified the default is 0.                                          | No        |
 | size         | Used for pagination to indicate the size of each page requested for querying a list of calls. If no value is specified the default value is 25 (maximum value 1000). | No        |
-| sortOrder    | How to sort the calls. Values are `asc` or `desc` If no value is specified the default value is `desc`                                                               | No        |
+| sortOrder    | How to sort the calls by startTime. Values are `asc` or `desc` If no value is specified the default value is `desc`                                                               | No        |
 
 ## Properties
 | Property             | Description                                                                                                                                                                                   |

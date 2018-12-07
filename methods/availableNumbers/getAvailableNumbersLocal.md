@@ -1,6 +1,6 @@
 {% method %}
 ## List available local numbers
-Searches for available local numbers by location or pattern criteria.
+Search for available local numbers by location or pattern criteria.
 
 For more information about Bandwidth’s local phone numbers, see the <a href="https://dev.bandwidth.com/faq/#voice">FAQ</a>
 

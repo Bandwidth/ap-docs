@@ -16,6 +16,6 @@ If you need advanced control over the number ordering process, like managing lin
 | Verb                           | Path                                                               | about                                           |
 |:-------------------------------|:-------------------------------------------------------------------|:------------------------------------------------|
 | <code class="get">GET</code>   | [`/v1/availableNumbers/local`](getAvailableNumbersLocal.md)        | Search for available local numbers              |
-| <code class="post">POST</code> | [`/v1/availableNumbers/local`](postAvailableNumbersLocal.md)       | Search and order available local numbers        |
+| <code class="post">POST</code> | [`/v1/availableNumbers/local`](postAvailableNumbersLocal.md)       | Search for and order available local numbers        |
 | <code class="get">GET</code>   | [`/v1/availableNumbers/tollFree`](getAvailableNumbersTollFree.md)  | Search for available toll free numbers          |
-| <code class="post">POST</code> | [`/v1/availableNumbers/tollFree`](postAvailableNumbersTollFree.md) | Searches and order available Toll Free numbers. |
+| <code class="post">POST</code> | [`/v1/availableNumbers/tollFree`](postAvailableNumbersTollFree.md) | Search for and order available toll free numbers. |

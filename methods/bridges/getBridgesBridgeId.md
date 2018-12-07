@@ -19,8 +19,8 @@ Gets information about a specific bridge. No query parameters are supported.
 | calls         | The URL used to retrieve the calls in a specific bridge. |
 | bridgeAudio   | Enable/Disable two way audio path.                       |
 | completedTime | The time when the bridge was completed.                  |
-| createdTime   | The time that bridge was created.                        |
-| activatedTime | The time that the bridge got into active state.          |
+| createdTime   | The time when the bridge was created.                        |
+| activatedTime | The time when the bridge got into active state.          |
 
 ## Bridge state
 

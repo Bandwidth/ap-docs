@@ -1,7 +1,7 @@
 {% method %}
 
 ## Order Local Phone Number
-Searches and order available local numbers by location criteria.
+Search for and order available local numbers by location criteria.
 
 <aside class="alert general">
 <p>

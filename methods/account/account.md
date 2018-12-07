@@ -1,5 +1,5 @@
 # Account
-The Account API allows you to retrieve your current balance, transaction list, account type and all elements related to your platform account.
+The Account API allows you to retrieve your current balance, transaction list, account type, and all elements related to your platform account.
 
 ### Base Url
 

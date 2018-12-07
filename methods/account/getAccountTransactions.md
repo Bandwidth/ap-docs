@@ -29,8 +29,6 @@ Get the transactions from the user's account.
 | units       | The number of product units the transaction charged or credited.                                                                                                            |
 | productType | The product the transaction was related to (not all transactions are related to a product).                                                                                 |
 | number      | The phone number the transaction was related to (not all transactions are related to a phone number).                                                                       |
-| page        | Used for pagination to indicate the page requested for querying a list of transactions. If no value is specified the default is 0.                                          |
-| size        | Used for pagination to indicate the size of each page requested for querying a list of transactions. If no value is specified the default value is 25 (maximum value 1000). |
 
 ### Transaction Types
 | TYPE          | DESCRIPTION                                                                                                         |
