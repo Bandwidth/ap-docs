@@ -29,6 +29,10 @@ Read More about Messaging in the <a href="https://dev.bandwidth.com/faq/#messagi
 | fallbackUrl        | The server URL used to send the message events if the request to callbackUrl fails.                                                                                                                                                                                                                                                                                                                                                                                                                          | No        |
 | tag                | Any string defined by you. It will be included in the callback events related to the sent message. For messages, tags do not persist beyond the request that defined the tag.                                                                                                                                                                                                                                                                                                                                                                                                                                       | No        |
 
+To send multiple text messages with 1 request, the request's data needs to be a list where each element in the list is the data for sending 1 text message. An example of this is shown underneath "Example 4".
+
+Take note that sending multiple text messages with 1 request will not cause the text messages to be sent as a group message. Group messaging is supported with Bandwidth's V2 Messaging. More information on Bandwidth's V2 Messaging can be found [here](https://dev.bandwidth.com/v2-messaging/).
+
 ### Multiple Message Result Types
 
 Important Note on Multiple Messages: There is a maximum limit of 50 messages sent per multiple messages request.
