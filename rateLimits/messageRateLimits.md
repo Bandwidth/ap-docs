@@ -35,6 +35,12 @@ All Bandwidth messaging products are rate limited in some fashion. The default r
 | **Per-Number** | Inbound _API_ rate      | The rate that Bandwidth's API will accept new messages requests from the same phone number                                                                                                                  | P2P - 1 MPS <br> A2P - ∞, up to account limit                                                                                                                   |
 | **Account**    | Burst _API_ rate        | The burst rate that Bandwidth's API will accept new messages. Essentially how quickly can the queue be filled. <br> <br> ⚠️ If queuing is **not** enabled, this will be same as the  **Inbound _API_ rate** | 1 MPS <br> -or- <br> **Account** Outbound _dequeue_ rate + 10 <br><br> Example: **Account** Outbound _dequeue_ rate is 5 MPS, the **Burst** rate will be 15 MPS |
 
+
+### 400 - BAD_REQUEST
+| Code | Message |
+|:-----|:-------|
+| message-delay-limit | Message tried to be delayed over the maximum limit. |
+
 ### 403 – LIMIT
 | Code                        | Message                                                                                                        |
 |:----------------------------|:---------------------------------------------------------------------------------------------------------------|
@@ -82,7 +88,7 @@ You will receive this error response if:
 * Your queue is full.
 
 ```http
-Status: 400 Forbidden
+Status: 400 Bad Request
 Content-Type: application/json
 
 {
