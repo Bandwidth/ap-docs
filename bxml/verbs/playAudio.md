@@ -11,7 +11,7 @@ Note: If `<PlayAudio>` is the last verb in the BXML, the call shall be disconnec
 ### Attributes
 | ATTRIBUTE | Description |
 |:----------|:------------|
-| volume | Integer between -4 and 4 that specifies how loud the audio is. Default is 0. |
+| volume | (optional) Integer between -4 and 4 that specifies how loud the audio is. Default is 0. |
 
 
 ### Callbacks Recevied
