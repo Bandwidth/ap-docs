@@ -10,6 +10,7 @@ Note: If `<SpeakSentence>` is the last verb in the BXML, the call shall be disco
 | gender    | (required) Select the gender of the speaker (default=”female”). |
 | locale    | Select the accent of the speaker (default=”en_US”).             |
 | voice     | (required) Select the voice of the speaker, limited by gender.  |
+| volume | (optional) Integer between -4 and 4 that specifies how loud the sentence is. Default is 0. |
 
 | **gender** | **locale** | **voice** |
 |:-----------|:-----------|:----------|
@@ -56,7 +57,7 @@ This shows how to use Bandwidth XML to use text to speech to speak a sentence in
 
 <Response>
 
-<SpeakSentence voice="paola" locale="it" gender="female">
+<SpeakSentence voice="paola" locale="it" gender="female" volume="4">
 Questo è un test
 </SpeakSentence>
 
