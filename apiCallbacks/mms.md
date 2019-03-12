@@ -19,6 +19,7 @@ Events sent to your server for inbound and outbound MMS messages.
 | deliveryState       | Delivery state of the message--present only sometimes, to indicate certain errors                                                                                                                                                            |
 | deliveryCode        | Numerical code indicating the delivery status of the message--present only sometimes, to indicate certain errors                                                                                                                             |
 | deliveryDescription | Human-readable description of the delivery status--present only sometimes, to indicate certain errors                                                                                                                                  |
+| segmentCount | The number of segments the message was sent as. This value will always be `1` for MMS messages.
 
 {% common %}
 
@@ -40,7 +41,8 @@ Events sent to your server for inbound and outbound MMS messages.
   "deliveryState"       : "string",
   "deliveryCode"        : "string",
   "deliveryDescription" : "string",
-  "media"               : ["mediaUri1", "mediaUri2"...]
+  "media"               : ["mediaUri1", "mediaUri2"...],
+  "segmentCount":       : integer
 }
 ```
 
@@ -66,7 +68,8 @@ POST http://[External server URL]
       "https://api.catapult.inetwork.com/v1/users/{user-id}/media/A3087419-73C2-4A03-BB39-06BF3B1C240F-m-dr4mcch2wfb6frcls677glq.jpg",
       "https://api.catapult.inetwork.com/v1/users/{user-id}/media/123_1-m-dr4mcch2wfb6frcls677glq.smil"
       ],
-    "messageUri"   : "https://api.catapult.inetwork.com/v1/users/{user-id}/messages/m-dr4mcch2wfb6frcls677glq"
+   "messageUri"    : "https://api.catapult.inetwork.com/v1/users/{user-id}/messages/m-dr4mcch2wfb6frcls677glq",
+   "segmentCount"  : 1
 }
 ```
 {% endmethod %}

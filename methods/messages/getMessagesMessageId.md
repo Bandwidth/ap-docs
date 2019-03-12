@@ -31,6 +31,7 @@ We only store the message contents for 30 days. Any messages older than 30 days 
 | deliveryState       | One of the message delivery states `waiting` `delivered` `not-delivered `                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | deliveryCode        | Numeric value of deliver code, see table for values.                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | deliveryDescription | Message delivery description for the respective delivery code                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| segmentCount | The number of segments the message was sent as. This value will always be `1` for MMS messages.
 
 
 ### Message States
@@ -124,7 +125,8 @@ text = message[:text]
   "media": [],
   "time": "2014-06-09T19:29:09Z",
   "to": "{toPhoneNumber",
-  "skipMMSCarrierValidation": false
+  "skipMMSCarrierValidation": false,
+  "segmentCount": 1
 }
 ```
 {% endmethod %}
