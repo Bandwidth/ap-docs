@@ -29,8 +29,8 @@
 	state=received&
 	applicationId=a-yr3jpxasdfh5xh5e35saoi&
 	direction=in&
-	messageUri=https%3A%2F%2Fapi.catapult.inetwork.com%2Fv1%2Fusers%2Fu-123%2Fmessages%2Fm-asdf&
-    segmentCount=1
+    segmentCount=1&
+	messageUri=https%3A%2F%2Fapi.catapult.inetwork.com%2Fv1%2Fusers%2Fu-123%2Fmessages%2Fm-asdf
 ```
 
 {% endmethod %}
