@@ -42,7 +42,7 @@ Events sent to your server for inbound and outbound MMS messages.
   "deliveryCode"        : "string",
   "deliveryDescription" : "string",
   "media"               : ["mediaUri1", "mediaUri2"...],
-  "segmentCount":       : integer
+  "segmentCount":       : "integer"
 }
 ```
 

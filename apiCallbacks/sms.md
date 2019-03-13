@@ -79,7 +79,7 @@ Bandwidth API sends this event to the application when an SMS is sent or receive
   "deliveryState"       : "string",
   "deliveryCode"        : "string",
   "deliveryDescription" : "string",
-  "segmentCount"        : integer
+  "segmentCount"        : "integer"
 }
 ```
 
