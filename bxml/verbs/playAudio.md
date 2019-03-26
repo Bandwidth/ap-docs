@@ -11,7 +11,7 @@ Note: If `<PlayAudio>` is the last verb in the BXML, the call shall be disconnec
 ### Attributes
 | ATTRIBUTE | Description |
 |:----------|:------------|
-| None      | None        |
+| volume | (optional) Integer between -4 and 4 that specifies how loud the audio is. Default is 0. |
 
 
 ### Callbacks Recevied
@@ -29,8 +29,8 @@ This shows how to use Bandwidth XML to play an audio clip into a phone call.
 
 <Response>
 
-<PlayAudio>https://audio.url/holdMusic.mp3</PlayAudio>
-<PlayAudio>https://audio.url/voicemailBeep.wav</PlayAudio>
+<PlayAudio volume="4">https://audio.url/holdMusic.mp3</PlayAudio>
+<PlayAudio volume="-4">https://audio.url/voicemailBeep.wav</PlayAudio>
 
 </Response>
 ```

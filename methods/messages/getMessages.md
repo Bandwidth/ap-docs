@@ -48,6 +48,7 @@ Message results are paginated based on the `size` parameter. If the number of me
 | deliveryState       | One of the message delivery states `waiting` `delivered` `not-delivered `                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | deliveryCode        | Numeric value of deliver code, see table for values.                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | deliveryDescription | Message delivery description for the respective delivery code                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| segmentCount | The number of segments the message was sent as. This value will always be `1` for MMS messages. Any messages that were created before this field was added will have a value of 0 in this field.
 
 ### Message States
 | State    | Description                                                                            |
@@ -138,7 +139,8 @@ HEADER: <https://api.catapult.inetwork.com/v1/users/u-dkjf9094802375s/messages?s
 		"time": "2012-10-05T20:37:38.048Z",
 		"direction": "out",
 		"state": "sent",
-		"media": []
+		"media": [],
+        "segmentCount": 1
 	},
 	{
 		"id": "{messageId2}",
@@ -149,7 +151,8 @@ HEADER: <https://api.catapult.inetwork.com/v1/users/u-dkjf9094802375s/messages?s
 		"time": "2012-10-05T20:38:11.023Z",
 		"direction": "in",
 		"state": "received",
-		"media": []
+		"media": [],
+        "segmentCount": 1
 	},
 	{
 		"id": "{messageId3}",
@@ -160,7 +163,8 @@ HEADER: <https://api.catapult.inetwork.com/v1/users/u-dkjf9094802375s/messages?s
 		"time": "2012-10-05T20:38:11.023Z",
 		"direction": "out",
 		"state": "sent",
-		"media": ["https://api.catapult.inetwork.com/v1/users/<user-id>/media/image.jpg"]
+		"media": ["https://api.catapult.inetwork.com/v1/users/<user-id>/media/image.jpg"],
+        "segmentCount": 1
 	},
 	{
 		"id": "{messageId4}",
@@ -173,7 +177,8 @@ HEADER: <https://api.catapult.inetwork.com/v1/users/u-dkjf9094802375s/messages?s
 		"state": "sent",
 		"media": ["https://api.catapult.inetwork.com/v1/users/<user-id>/media/image-1.jpg",
 							"https://api.catapult.inetwork.com/v1/users/<user-id>/media/image-2.jpg",
-							"http://customer-web-site.com/file.jpg"]
+							"http://customer-web-site.com/file.jpg"],
+        "segmentCount": 1
 	}
 ]
 ```
@@ -224,7 +229,8 @@ messages = Message.list(client, {:from => "{fromNumber}"})
 		"time": "2012-10-05T20:37:38.048Z",
 		"direction": "out",
 		"state": "sent",
-		"media": []
+		"media": [],
+        "segmentCount": 1
 	},
 	{
 		"id": "{messageId2}",
@@ -235,7 +241,8 @@ messages = Message.list(client, {:from => "{fromNumber}"})
 		"time": "2012-10-05T20:38:11.023Z",
 		"direction": "in",
 		"state": "received",
-		"media": []
+		"media": [],
+        "segmentCount": 1
 	}
 ]
 ```
@@ -298,7 +305,8 @@ messages = Message.list(client, {
 		"time": "2012-10-05T20:37:38.048Z",
 		"direction": "out",
 		"state": "sent",
-		"media": []
+		"media": [],
+        "segmentCount": 1
 	}
 ]
 ```

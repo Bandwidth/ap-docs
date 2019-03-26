@@ -18,6 +18,7 @@ Bandwidth API sends this event to the application when an SMS is sent or receive
 | deliveryState       | One of the message delivery states `waiting` `delivered` `not-delivered`                                                                                                                                                                         |
 | deliveryCode        | Numeric value of deliver code                                                                                                                                                                        |
 | deliveryDescription | Message delivery description for the respective delivery code.                                                                                                                                                                                   |
+| segmentCount | The number of segments the message was sent as.
 
 ### Message States
 | State    | Description                                                                            |
@@ -77,7 +78,8 @@ Bandwidth API sends this event to the application when an SMS is sent or receive
   "state"               : "string",
   "deliveryState"       : "string",
   "deliveryCode"        : "string",
-  "deliveryDescription" : "string"
+  "deliveryDescription" : "string",
+  "segmentCount"        : "integer"
 }
 ```
 
@@ -99,7 +101,8 @@ User-Agent: BandwidthAPI/v1
  "text"          : "Example",
  "applicationId" : "{appId}",
  "time"          : "2012-11-14T16:13:06.076Z",
- "state"         : "received"
+ "state"         : "received",
+ "segmentCount"  : 1
 }
 ```
 
@@ -111,15 +114,16 @@ Content-Type: application/json; charset=utf-8
 User-Agent: BandwidthAPI/v1
 
 {
-   "eventType"  : "sms",
-   "direction"  : "out",
-   "messageId"  : "{messageId}",
-   "messageUri" : "https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}",
-   "from"       : "+13233326955",
-   "to"         : "+13865245000",
-   "text"       : "Example",
-   "time"       : "2012-11-14T16:13:06.076Z",
-   "state"      : "sent"
+   "eventType"    : "sms",
+   "direction"    : "out",
+   "messageId"    : "{messageId}",
+   "messageUri"   : "https://api.catapult.inetwork.com/v1/users/{userId}/messages/{messageId}",
+   "from"         : "+13233326955",
+   "to"           : "+13865245000",
+   "text"         : "Example",
+   "time"         : "2012-11-14T16:13:06.076Z",
+   "state"        : "sent",
+   "segmentCount" : 1
 }
 ```
 #### Example: Outgoing SMS with Delivery Request Event
@@ -139,7 +143,8 @@ User-Agent: BandwidthAPI/v1
    "text"          : "Example",
    "applicationId" : "{appId}",
    "time"          : "2012-11-14T16:13:06.076Z",
-   "state"         : "received"
+   "state"         : "received",
+   "segmentCount"  : 1
 }
 ```
 {% endmethod %}

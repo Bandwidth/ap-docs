@@ -60,5 +60,5 @@ The call must be active in order to send BXML. BXML has the ability to do the fo
 * [Redirect](verbs/redirect.md): Directs the program from one block of code to another
 * [Transfer](verbs/transfer.md): Transfer call from one number to another
 * [Hangup](verbs/hangup.md): Ends the call
-* [Pause](bxml/verbs/pause.md): Pauses the execution of the current BXML document
-* [SendDtmf](bxml/verbs/sendDtmf.md): Send DTMF digits to a call
+* [Pause](verbs/pause.md): Pauses the execution of the current BXML document
+* [SendDtmf](verbs/sendDtmf.md): Send DTMF digits to a call
