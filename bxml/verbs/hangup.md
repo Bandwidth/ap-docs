@@ -1,6 +1,6 @@
 {% method %}
 ## XML: `<Hangup>`
-The Hangup verb is used to hangup current call.
+The Hangup verb is used to hang up the current call.
 
 
 ### Attributes

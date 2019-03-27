@@ -47,7 +47,7 @@ To allow the program to answer incoming calls, login to the [app.bandwidth.com](
 
 ### Using the REST API
 
-To answer and incoming call using the REST API, visit the full REST API documentation [here](../methods/calls/postCallsCallId.md).
+To answer an incoming call using the REST API, visit the full REST API documentation [here](../methods/calls/postCallsCallId.md).
 
 ## Implementing BXML
 

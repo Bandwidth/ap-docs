@@ -14,7 +14,7 @@ The Gather verb is used to collect digits for some period of time.
 | bargeable         | (optional) **Deprecated**. Always considered 'true'. Boolean to indicate if audio playback should be stopped when digit is pressed (Default value is ‘true’). |
 | tag               | (optional) A string that will be included in the callback events of the gather.                                                                             |
 
-In case no digit is provided the Gather verb fails and the next verb is executed, if it completes successfully the entered digits are sent via requestUrl attribute.
+In case no digit is provided, the Gather verb fails and the next verb is executed; if it completes successfully the entered digits are sent via requestUrl attribute.
 
 When the Gather verb completes, the [Gather](../callBacks/gather.md) event is sent to the Customer's requestUrl. If there is no requestUrl specified, the event is not sent anywhere.
 
