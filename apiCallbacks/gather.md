@@ -36,7 +36,7 @@ The Bandwidth API generates a gather event when the gather command completes in 
 ```http
 POST /your_url HTTP/1.1
 Content-Type: application/json; charset=utf-8
-User-Agent: BandwidthAPI/v1
+User-Agent: BandwidthAPI/v1 ({CURRENT_BUILD_TIMESTAMP})
 
 {
     "eventType" : "gather",

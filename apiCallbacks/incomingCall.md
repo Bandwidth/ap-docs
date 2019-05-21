@@ -57,7 +57,7 @@ NOTE: Bandwidth released Diversion Header support to a limited group of accounts
 ```http
 POST /your_url HTTP/1.1
 Content-Type: application/json; charset=utf-8
-User-Agent: BandwidthAPI/v1
+User-Agent: BandwidthAPI/v1 ({CURRENT_BUILD_TIMESTAMP})
 
 {
    "eventType"     : "incomingcall",

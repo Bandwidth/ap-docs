@@ -37,7 +37,7 @@ Bandwidth API sends this message to the application when text-to-speech starts o
 ```http
 POST /your_url HTTP/1.1
 Content-Type: application/json; charset=utf-8
-User-Agent: BandwidthAPI/v1
+User-Agent: BandwidthAPI/v1 ({CURRENT_BUILD_TIMESTAMP})
 
 {
    "callId"    : "{callId}",
@@ -53,7 +53,7 @@ User-Agent: BandwidthAPI/v1
 ```http
 POST /your_url HTTP/1.1
 Content-Type: application/json; charset=utf-8
-User-Agent: BandwidthAPI/v1
+User-Agent: BandwidthAPI/v1 ({CURRENT_BUILD_TIMESTAMP})
 
 {
    "callId"    : "{callId}",
