@@ -6,6 +6,12 @@ Endpoints that access resources; such as [listing messages](methods/messages/get
 
 The only two endpoints that behave differently are <code class="post">POST</code> requests to create new SMS/MMS messages or create a new phone call and will receive a `HTTP 403` error when the rate limit is exceeded.
 
+<div class="alert alert--general"><p>Notice: Changes to Bandwidth's rate limits are coming on July 1st, 2019. Please see below for more information</p></div>
+
+### Rate Limit Changes For July 1st, 2019
+
+Information on rate limit changes that begin on July 1st, 2019 can be found [here](rateLimits/futureChanges.md)
+
 ## Rate Limit Documentation
 
 | Type                                                                    | Description                                                  | Error Code |

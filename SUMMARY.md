@@ -159,6 +159,7 @@
    * [Calls](rateLimits/callRateLimits.md)
    * [Messages](rateLimits/messageRateLimits.md)
    * [Everything else](rateLimits/resourceRateLimits.md)
+   * [Changes for July 1st, 2019](rateLimits/futureChanges.md)
 
 ## Inbound SIP Diversion Header
 * [Inbound SIP Diversion Header Information](sipDiversionHeader/sipDiversionHeader.md)
