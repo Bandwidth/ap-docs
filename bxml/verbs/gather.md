@@ -16,9 +16,13 @@ The Gather verb is used to collect digits for some period of time.
 
 In case no digit is provided the Gather verb fails and the next verb is executed, if it completes successfully the entered digits are sent via requestUrl attribute.
 
-When the Gather verb completes, the [Gather](../callBacks/gather.md) event is sent to the Customer's requestUrl. If there is no requestUrl specified, the event is not sent anywhere.
+If there is a nested PlayAudio with “repeatCount” > 1, then the user can press the first digit anytime the audio is playing or during the delay period after the audio file is played. Once the first digit is pressed, the interDigitTimeout parameter of Gather is started.
 
-If `<Gather>` is the last verb, the call is hungup after 30 seconds unless it is controlled within that time. It is expected that the customer application returns the next BXML in response to the [Gather](../callBacks/gather.md) event within that time.
+When the `<Gather>` verb completes, the [Gather](../callBacks/gather.md) event is sent to the Customer's requestUrl. If there is no requestUrl specified, the event is not sent anywhere.
+
+It is recommended to only use one `<Gather>` verb per BXML document, and that it be the last verb in the BXML. Further BXML verbs should be sent in response to the callback sent by the gather. If new BXML is not received within 30 seconds, the call will be hung up.
+
+In the case when `<Gather>` is not the last verb in the BXML document, the Gather event is sent to the requestUrl, then the next verb in the BXML document will start executing without waiting for a response from the callback event. This can lead to confusing behavior, which is why we recommend that `<Gather>` be the last verb in the BXML document.
 
 
 ### Nestable Verbs
@@ -26,10 +30,12 @@ These verbs might also be nested inside `<Gather>`:
 
 | Verb          | Description                                                                                  |
 |:--------------|:---------------------------------------------------------------------------------------------|
-| SpeakSentence | (optional) Using the SpeakSentence inside the Gather verb will speak the text to the callee. |
-| PlayAudio     | (optional) Using the PlayAudio inside the Gather verb will play the media to the callee.     |
+| SpeakSentence | (optional) Using the SpeakSentence inside the Gather verb will speak the text to the callee. There can be multiple nested SpeakSentence verbs. |
+| PlayAudio     | (optional) Using the PlayAudio inside the Gather verb will play the media to the callee. There can only be 1 nested PlayAudio verb. |
 
-### Callbacks Recevied
+Note: Only one type of verb may be nested inside each `<Gather>`.
+
+### Callbacks Received
 
 | Callback                         | Can reply with more BXML |
 |:---------------------------------|:-------------------------|
