@@ -1,6 +1,6 @@
 # Rate Limits
 
-All of Bandwidth's endpoints are rate limited. ⚠️ Please note that Rate limts are subject to change. You should expect and handle either an `HTTP 429` or `HTTP 403` response for each request to Bandwidth's API.
+All of Bandwidth's endpoints are rate limited. ⚠️ Please note that Rate limits are subject to change. You should expect and handle either an `HTTP 429` or `HTTP 403` response for each request to Bandwidth's API.
 
 Endpoints that access resources; such as [listing messages](methods/messages/getMessages.md), [listing transactions](methods/account/getAccountTransactions.md), or [creating a new application](methods/applications/postApplications.md) are rate limited at the API level and will return an `HTTP 429` error when the rate limit is exceeded.
 
@@ -8,7 +8,7 @@ The only two endpoints that behave differently are <code class="post">POST</code
 
 ### Rate Limit Changes For July 1st, 2019
 
-Information on rate limit changes that went live on July 1st, 2019 can be found [here](rateLimits/futureChanges.md)
+Information on rate limit changes that went live on July 1st, 2019 can be found on our [future rate limit changes page](rateLimits/futureChanges.md)
 
 ## Rate Limit Documentation
 
