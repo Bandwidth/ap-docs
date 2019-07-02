@@ -8,7 +8,7 @@ The only two endpoints that behave differently are <code class="post">POST</code
 
 ### Rate Limit Changes For July 1st, 2019
 
-Information on rate limit changes that went live on July 1st, 2019 can be found on our [future rate limit changes page](rateLimits/futureChanges.md)
+Information on rate limit changes that went live on July 1st, 2019 can be found on our [rate limit changes page](rateLimits/futureChanges.md)
 
 ## Rate Limit Documentation
 
