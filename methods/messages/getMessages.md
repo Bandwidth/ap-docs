@@ -67,27 +67,27 @@ Message results are paginated based on the `size` parameter. If the number of me
 | not-delivered | Receipt indicating that message was not delivered. |
 
 ### Message Delivery Code
-| Code | Description                                   |
-|:-----|:----------------------------------------------|
-| 0              | Message Delivered to Carrier           |
-| 187            | Spam Detected – Statistical            |
-| 188            | Spam Detected -Keyword                 |
-| 189            | Spam Detected                          |
-| 482            | Loop Detected                          |
-| 600            | Destination Carrier Queue Full         |
-| 610            | submit\_sm or submit\_multi failed     |
-| 620            | Destination App Error                  |
-| 630            | NACK                                   |
-| 650            | Destination Failure                    |
-| 700            | Invalid Service Type                   |
-| 720            | Invalid Destination Address            |
-| 740            | Invalid Source Address                 |
-| 750            | Destination Rejected Message           |
-| 751            | Destination Rejected Message too large |
-| 770            | Destination Rejected due to spam       |
-| 775            | Rejected due to user opt out           |
-| 902            | Message Expired                        |
-| 999            | Unknown Error                          |
+| Code | Description                            |
+|:-----|:---------------------------------------|
+| 0    | Message Delivered to Carrier           |
+| 187  | Spam Detected – Statistical            |
+| 188  | Spam Detected -Keyword                 |
+| 189  | Spam Detected                          |
+| 482  | Loop Detected                          |
+| 600  | Destination Carrier Queue Full         |
+| 610  | submit\_sm or submit\_multi failed     |
+| 620  | Destination App Error                  |
+| 630  | NACK                                   |
+| 650  | Destination Failure                    |
+| 700  | Invalid Service Type                   |
+| 720  | Invalid Destination Address            |
+| 740  | Invalid Source Address                 |
+| 750  | Destination Rejected Message           |
+| 751  | Destination Rejected Message too large |
+| 770  | Destination Rejected due to spam       |
+| 775  | Rejected due to user opt out           |
+| 902  | Message Expired                        |
+| 999  | Unknown Error                          |
 
 
 {% common %}
