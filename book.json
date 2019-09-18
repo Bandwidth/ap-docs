@@ -12,8 +12,7 @@
         "bandwidth-fonts",
         "usabilla",
         "include-html@0.2.0",
-        "codetabs",
-        "mathjax"
+        "codetabs"
     ],
     "pluginsConfig": {
         "theme-bandwidth": {

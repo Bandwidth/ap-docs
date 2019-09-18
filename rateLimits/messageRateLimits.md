@@ -146,12 +146,12 @@ By default Bandwidth **does not queue** messages internally to be sent out. Once
 #### Example: Calculating Queue Depth
 An account has an **Outbound _dequeue_ rate** of 5MPS and has enabled the 15 minute queue (900 second).
 
-{% math %} {5\,Messages \over Seconds} \times 900\,Seconds = 4,500\,Messages {% endmath %}
+![Queue Depth](../images/queueDepth.png)
 
 #### Example: Calculating Queue Fill Time
 An account has an **Outbound _dequeue_ rate** of 5 MPS, a **Burst _API_ rate** of 15 MPS and has enabled the 15 minute queue (900 second).
 
-{% math %} \frac{\frac{5\,Messages}{Second}\times 900\,Seconds}{\frac{15\,Messages}{Second}-\frac{5\,Messages}{Second}} = 450\,Seconds {% endmath %}
+![Queue Time](../images/queueTime.png)
 
 
 ## Managing Messages {#managing-messages}
