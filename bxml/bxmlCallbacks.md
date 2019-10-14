@@ -3,8 +3,8 @@
 ###  Understanding BXML Callback Events
 The events sent are the events from Bandwidth Application Platform, with only two exceptions:
 
-* [transferComplete](callbacks/transferComplete.md): sent to the original BXML call when the transferred call hangs up
-* [redirect](callbacks/redirect.md): sent when the verb redirect is in action
+* [transferComplete](callBacks/transfer.md): sent to the original BXML call when the transferred call hangs up
+* [redirect](callBacks/redirect.md): sent when the verb redirect is in action
 
 BXML callbacks perform HTTP GET requests to the **requestUrl** when the notification intends to retrieve a new BXML document.
 

@@ -8,9 +8,9 @@ This guide will walk through the recommended approach to managing queues and rat
 * You have signed up for the [Bandwidth Messaging API](https://app.bandwidth.com/)
 * You are familiar with:
   * [2017 CTIA Best Practices](https://api.ctia.org/docs/default-source/default-document-library/170119-ctia-messaging-principles-and-best-practices.pdf)
-  * [Your API Credentials](../security.md)
-  * [Sending SMS & MMS](sendSMSMMS.md)
-  * [Receiving HTTP Callbacks/Webhooks](smsDLR.md)
+  * Your API Credentials
+  * Sending SMS & MMS
+  * Receiving HTTP Callbacks/Webhooks
 
 ## Overview
 
@@ -125,7 +125,7 @@ We have broken up our messaging classifications into two categories:
 
 ### Look-ahead Spam filtering
 
-Bandwidth uses the same [Adaptive](https://www.adaptivemobile.com/) network protection technology as the mobile telco operators. This allows us to screen messages before they're sent to the downstream carrier. By checking before Bandwidth passes the message along, we're able to work with you to understand and fix any potential issues with the message. This maintains your telephone number deliverability reputation and helps build predictable traffic patterns. If the message is marked as Spam we will send a notification to the `callbackUrl` specified in the [create message](smsDLR.md) request.
+Bandwidth uses the same [Adaptive](https://www.adaptivemobile.com/) network protection technology as the mobile telco operators. This allows us to screen messages before they're sent to the downstream carrier. By checking before Bandwidth passes the message along, we're able to work with you to understand and fix any potential issues with the message. This maintains your telephone number deliverability reputation and helps build predictable traffic patterns. If the message is marked as Spam we will send a notification to the `callbackUrl` specified in the create message request.
 
 ### Toll-Free A2P Best Practices {#a2p-best-practices}
 

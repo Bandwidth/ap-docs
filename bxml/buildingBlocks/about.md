@@ -1,10 +1,10 @@
 # BXML Building Blocks
 
-* [Environment Setup](bxml/buildingBlocks/frame.md)
-* [Credentials](bxml/buildingBlocks/credentials.md)
-* [Speak Sentence](bxml/buildingBlocks/speakSentence.md)
-* [Play Audio](bxml/buildingBlocks/playAudio.md)
-* [Record](bxml/buildingBlocks/record.md)
-* [Voicemail](bxml/buildingBlocks/voicemail.md)
-* [Outbound Call](bxml/buildingBlocks/createCall.md)
-* [Forward a Call](bxml/buildingBlocks/forwardCall.md)
+* [Environment Setup](frame.md)
+* [Credentials](credentials.md)
+* [Speak Sentence](speakSentence.md)
+* [Play Audio](playAudio.md)
+* [Record](record.md)
+* [Voicemail](voicemail.md)
+* [Outbound Call](createCall.md)
+* [Forward a Call](forwardCall.md)
