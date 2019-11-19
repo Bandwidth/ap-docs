@@ -2,7 +2,7 @@
 ## Fetch Message information
 Gets information about a previously sent or received message. No query parameters are supported.
 
-We only store the message contents for 30 days. Any messages older than 30 days will not contain text. For more information, see the <a href="https://dev.bandwidth.com/faq/#messaging">FAQ</a>
+We only store the message contents for 3 days. Any messages older than 3 days will not contain text. For more information, see the <a href="https://dev.bandwidth.com/faq/#messaging">FAQ</a>
 
 ### Request URL
 
