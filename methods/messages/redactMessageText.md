@@ -2,7 +2,7 @@
 ## Redact Message Text information
 This API can be used to redact the text of a previously sent message.
 
-We only store the message contents for 30 days. Any messages older than 30 days will not contain text. For more information, see the <a href="https://dev.bandwidth.com/faq/messaging/retainSMS.html">FAQ</a>
+We only store the message contents for 3 days. Any messages older than 3 days will not contain text. For more information, see the <a href="https://dev.bandwidth.com/faq/messaging/retainSMS.html">FAQ</a>
 
 ### Request URL
 
@@ -12,7 +12,7 @@ We only store the message contents for 30 days. Any messages older than 30 days 
 ### Request Body
 
 The following must be the body of your PATCH request. This request does not support updating text to anything other than the empty string ("").
-This API allows redacting the message text only. Adding additional parameters to the request body will return a 400 response code. 
+This API allows redacting the message text only. Adding additional parameters to the request body will return a 400 response code.
 
 <code>
 	{
